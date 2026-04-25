@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", "Aptos", "Segoe UI", Arial, sans-serif;
+  --font-display: "Inter", "SF Pro Display", "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+
+  /* Primary — light / white */
+  --color-background: #ffffff;
+  --color-foreground: #111111;
+  --color-panel: #f7f7f7;
+  --color-muted: #777777;
+  --color-accent: #111111;
+  --color-accent-soft: #444444;
+
+  /* Secondary — dark / black (for contrast sections) */
+  --color-surface-dark: #030407;
+  --color-surface-darker: #0a0a0f;
+
+  --color-void: #111111;
+  --color-abyss: #1a1a1a;
+  --color-shadow: #2a2a2a;
+  --color-dim: #555555;
+  --color-dusk: #888888;
+
+  --color-ember: #111111;
+  --color-amber: #333333;
+  --color-gold: #555555;
+  --color-ivory: #ffffff;
+  --color-daylight: #fafafa;
+
+  --color-plasma: #0066ff;
+  --color-matrix: #00cc66;
+  --color-violet: #6c5ce7;
+
+  --color-slate: #999999;
+  --color-glass: rgba(0, 0, 0, 0.03);
+  --color-glass-hover: rgba(0, 0, 0, 0.06);
+  --color-border: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  @apply bg-accent text-white;
+}
+
+/* Focus-visible styles for accessibility */
+:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline-offset: 2px;
+}
+
+/* Light outline on dark sections */
+[class*="bg-[#030407]"] :focus-visible,
+[class*="bg-black"] :focus-visible,
+.bg-surface-dark :focus-visible {
+  outline-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Respect prefers-reduced-motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: #fff;
+  font-size: clamp(3.45rem, 8.4vw, 8rem);
+  max-width: 7.4ch;
+  text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.24);
+}
+
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: clamp(2.8rem, 11vw, 4.9rem);
+    line-height: 0.98;
+    max-width: 8.2ch;
+  }
+}
+
+.nav-link:hover .nav-underline,
+.nav-link:focus .nav-underline {
+  width: 100%;
+}
+
+.glass {
+  @apply bg-glass border border-border backdrop-blur-md;
+}
+
+.glass-hover {
+  @apply hover:bg-glass-hover transition-colors duration-300;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Hide scrollbar for horizontal scroll strips */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

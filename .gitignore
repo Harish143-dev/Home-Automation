@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/audit-screenshots/
+/.chrome-audit-profile*/
 
 # next.js
 /.next/
