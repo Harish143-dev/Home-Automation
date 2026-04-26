@@ -1,6 +1,7 @@
 'use client';
 
 import { HeroSection } from '../components/hero/HeroSection';
+import { BrandIntro } from '../components/intro/BrandIntro';
 import { NavBar } from '../components/layout/NavBar';
 import { StatsSection } from '../components/stats/StatsSection';
 import { BrandTicker } from '../components/brands/BrandTicker';
@@ -15,6 +16,7 @@ import { AwardsSection } from '../components/awards/AwardsSection';
 export default function Home() {
   return (
     <main className="relative bg-background">
+      <BrandIntro />
       <NavBar />
       <HeroSection />
       <StatsSection />
@@ -22,10 +24,10 @@ export default function Home() {
       <AutomationSpaces />
       <ConnectedSystems />
       <WhyChooseUsSection />
-      <ExperienceCentersSection />
-      <ProcessSection />
       <FeaturedProjects />
       <AwardsSection />
+      <ExperienceCentersSection />
+      <ProcessSection />
     </main>
   );
 }

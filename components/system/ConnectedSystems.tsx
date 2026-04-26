@@ -2,9 +2,7 @@
 
 import Image from 'next/image';
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import {
   ArrowRight,
   Lightbulb,
@@ -18,8 +16,6 @@ import {
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { EASE } from '../../lib/animation.config';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type ServicePanel = {
   id: string;
@@ -130,7 +126,7 @@ function ServicePanelCard({
           ease: EASE.none,
           scrollTrigger: {
             trigger: cardRef.current,
-            start: 'top bottom',
+            start: 'top 80%',
             end: 'top top',
             scrub: true,
           },
@@ -150,9 +146,7 @@ function ServicePanelCard({
           ease: EASE.reveal,
           scrollTrigger: {
             trigger: cardRef.current,
-            start: 'top 75%',
-            end: 'top 20%',
-            scrub: isMobile ? false : 1, // On desktop, tie it to scroll smooth scrub. On mobile, just play on enter.
+            start: 'top 70%',
             toggleActions: 'play none none reverse',
           },
         }

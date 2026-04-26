@@ -2,16 +2,12 @@
 
 import Image from 'next/image';
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { EASE } from '../../lib/animation.config';
+import { DURATION, EASE, SCROLL } from '../../lib/animation.config';
+import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const PANELS = [
   {
@@ -64,18 +60,16 @@ export function AutomationSpaces() {
       top: '55%',
     });
 
-    // Defer so hero pin is set up first
-    gsap.delayedCall(0.3, () => {
-      scheduleScrollRefresh();
-
-      const tl = gsap.timeline({
+    const tl = gsap.timeline({
+        defaults: { ease: EASE.standard },
         scrollTrigger: {
           trigger: scrollSection,
           start: 'top top',
-          end: 'bottom bottom',
+          end: SCROLL.sectionDistance,
           pin: pinEl,
-          pinSpacing: false,
-          scrub: 0.6,
+          pinSpacing: true,
+          scrub: SCROLL.scrub,
+          anticipatePin: SCROLL.anticipatePin,
           invalidateOnRefresh: true,
         }
       });
@@ -84,15 +78,14 @@ export function AutomationSpaces() {
       tl.to(heading, {
         opacity: 1,
         y: 0,
-        duration: 1,
-        ease: 'power2.out',
+        duration: DURATION.reveal,
       }, 0);
 
       // ─── PHASE 2 (1.0 → 1.6): Heading fades OUT completely ───
       tl.to(heading, {
         opacity: 0,
         y: -30,
-        duration: 0.6,
+        duration: DURATION.medium,
         ease: EASE.smooth,
       }, 1.0);
 
@@ -101,8 +94,7 @@ export function AutomationSpaces() {
         opacity: 1,
         scale: 0.88,
         y: 0,
-        duration: 1,
-        ease: 'power2.out',
+        duration: DURATION.reveal,
       }, 1.4);
 
       // ─── PHASE 4 (2.2): Second card rises ───
@@ -110,8 +102,7 @@ export function AutomationSpaces() {
         opacity: 1,
         scale: 0.84,
         y: 40,
-        duration: 1,
-        ease: 'power2.out',
+        duration: DURATION.reveal,
       }, 2.2);
 
       // ─── PHASE 5 (3.2): Triangular spread ───
@@ -120,8 +111,8 @@ export function AutomationSpaces() {
         y: '-3vh',
         scale: 0.84,
         rotation: -3,
-        duration: 1.5,
-        ease: 'power3.inOut',
+        duration: 1.3,
+        ease: EASE.smooth,
       }, 3.2);
 
       tl.to(cards[1], {
@@ -129,8 +120,8 @@ export function AutomationSpaces() {
         y: '7vh',
         scale: 0.8,
         rotation: 0,
-        duration: 1.5,
-        ease: 'power3.inOut',
+        duration: 1.3,
+        ease: EASE.smooth,
       }, 3.2);
 
       tl.to(cards[2], {
@@ -139,10 +130,11 @@ export function AutomationSpaces() {
         x: '28vw',
         y: '-3vh',
         rotation: 3,
-        duration: 1.5,
-        ease: 'power3.inOut',
+        duration: 1.3,
+        ease: EASE.smooth,
       }, 3.4);
-    });
+
+    scheduleScrollRefresh();
 
     // ── CTA section: scroll-triggered reveal AFTER pin ──
     if (ctaSectionRef.current && ctaBtnRef.current) {
@@ -150,12 +142,12 @@ export function AutomationSpaces() {
 
       ScrollTrigger.create({
         trigger: ctaSectionRef.current,
-        start: 'top 80%',
+        start: 'top 70%',
         onEnter: () => {
           gsap.to(ctaBtnRef.current, {
             opacity: 1,
             y: 0,
-            duration: 1.2,
+            duration: DURATION.slow,
             ease: EASE.reveal,
           });
         },
@@ -215,7 +207,6 @@ export function AutomationSpaces() {
       <section
         ref={scrollSectionRef}
         className="relative w-full"
-        style={{ height: '500vh' }}
       >
         <div
           ref={pinRef}
@@ -238,18 +229,25 @@ export function AutomationSpaces() {
           {PANELS.map((panel, i) => (
             <div
               key={i}
-              className="as-card absolute w-[320px] md:w-[380px] lg:w-[400px] aspect-[3/4] rounded-[20px] overflow-hidden shadow-2xl transform-gpu cursor-default group opacity-0"
-              style={{ zIndex: 10 + i }}
+              className="motion-layer as-card absolute z-30 w-[320px] md:w-[380px] lg:w-[400px] aspect-[3/4] rounded-[20px] overflow-hidden bg-neutral-950 shadow-2xl transform-gpu cursor-default group opacity-0"
+              style={{
+                zIndex: 30 + i,
+                backgroundImage: `url(${panel.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
             >
-              <Image
-                src={panel.image}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 400px, 380px"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src={panel.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 400px, 380px"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-7 z-10">
                 <div className="flex items-center gap-2.5 mb-3">
                   <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-white/20 text-[10px] font-mono text-white/50">

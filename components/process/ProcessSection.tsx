@@ -1,14 +1,11 @@
 'use client';
 
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { Lightbulb, PenTool, Wrench, Cpu, ShieldCheck, ArrowRight } from 'lucide-react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { DURATION, EASE, SCROLL, STAGGER } from '../../lib/animation.config';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const steps = [
   { id: '01', title: 'Consultation', desc: 'Understanding your vision and evaluating spatial requirements to create a personalized baseline.', icon: Lightbulb },
@@ -52,18 +49,18 @@ export function ProcessSection() {
         gsap.set(container, { x: 0 });
         gsap.set(title, { opacity: 1, x: 0, scale: 1 });
         
-        const cards = gsap.utils.toArray('.step-card') as HTMLElement[];
+        const cards = gsap.utils.toArray('.step-card', section) as HTMLElement[];
         gsap.set(cards, { scale: 0.85, opacity: 0.3 }); // Initial inactive state
 
         const masterTl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            scrub: 1,
+            scrub: SCROLL.scrub,
             start: "top top",
             // Prolong the scroll distance so the user has time to scroll through everything comfortably
-            end: () => `+=${scrollWidth + window.innerHeight * 2.5}`, 
+            end: () => `+=${scrollWidth + window.innerHeight * 1.8}`,
             pin: true,
-            anticipatePin: 1,
+            anticipatePin: SCROLL.anticipatePin,
             invalidateOnRefresh: true,
           }
         });
@@ -76,14 +73,14 @@ export function ProcessSection() {
           opacity: 0,
           scale: 0.95,
           y: -40,
-          duration: 0.2,
-          ease: "power2.inOut"
+          duration: DURATION.instant,
+          ease: EASE.smooth
         }, 0.1);
 
         // 3. Cards container moves in from off-screen right
         masterTl.to(container, {
           x: xTranslate,
-          ease: "none",
+          ease: EASE.none,
           duration: 1
         }, 0.1);
 
@@ -102,12 +99,12 @@ export function ProcessSection() {
             }
           });
           
-          tl.to(card, { scale: 1.05, opacity: 1, duration: 1, ease: "power2.inOut" });
+          tl.to(card, { scale: 1.05, opacity: 1, duration: 1, ease: EASE.smooth });
           
           gsap.to(card, {
             scale: 0.85,
             opacity: 0.3,
-            ease: "power2.inOut",
+            ease: EASE.smooth,
             scrollTrigger: {
               trigger: card,
               containerAnimation: masterTl,
@@ -123,30 +120,28 @@ export function ProcessSection() {
         scheduleScrollRefresh();
       };
 
-      // Use a standard delay to allow React to paint the DOM, but not so long that it 
-      // executes after downstream components. scheduleScrollRefresh will handle the rest.
-      gsap.delayedCall(0.1, () => {
-        requestAnimationFrame(initAnimation);
-      });
+      initAnimation();
     });
 
     mm.add("(max-width: 767px)", () => {
-      gsap.delayedCall(0.5, () => {
-        const cards = gsap.utils.toArray('.step-card-mobile');
+      const cards = gsap.utils.toArray('.step-card-mobile', sectionRef.current);
         
-        gsap.from(cards, {
-          scrollTrigger: {
-            trigger: '.process-mobile-container',
-            start: "top 80%",
-          },
-          y: 40,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out"
-        });
+      gsap.from(cards, {
+        scrollTrigger: {
+          trigger: '.process-mobile-container',
+          start: "top 70%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: DURATION.normal,
+        stagger: STAGGER.wide,
+        ease: EASE.reveal
       });
     });
+
+    return () => {
+      mm.revert();
+    };
 
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
@@ -176,7 +171,7 @@ export function ProcessSection() {
               return (
                 <div 
                   key={step.id} 
-                  className="step-card w-[420px] shrink-0 bg-white/80 backdrop-blur-2xl rounded-[32px] p-10 border border-black/[0.04] shadow-[0_30px_60px_rgba(0,0,0,0.06)]"
+                  className="motion-layer step-card w-[420px] shrink-0 bg-white/80 backdrop-blur-2xl rounded-[32px] p-10 border border-black/[0.04] shadow-[0_30px_60px_rgba(0,0,0,0.06)]"
                 >
                   <div className="flex items-center justify-between mb-10">
                     <div className="w-14 h-14 rounded-full flex items-center justify-center bg-[#0066CC] text-white shadow-lg shadow-blue-500/20">
@@ -194,7 +189,7 @@ export function ProcessSection() {
             })}
             
             {/* Final CTA Card */}
-            <div className="step-card w-[420px] shrink-0 bg-[#1D1D1F] rounded-[32px] p-10 border border-black/10 shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
+            <div className="motion-layer step-card w-[420px] shrink-0 bg-[#1D1D1F] rounded-[32px] p-10 border border-black/10 shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
               <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-white mb-10">
                 <ArrowRight size={24} />
               </div>
@@ -253,4 +248,3 @@ export function ProcessSection() {
     </section>
   );
 }
-

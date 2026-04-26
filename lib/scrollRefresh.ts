@@ -1,4 +1,4 @@
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from './gsapSetup';
 
 let refreshTimer: number | undefined;
 
@@ -11,6 +11,7 @@ export function scheduleScrollRefresh(delay = 0) {
 
   refreshTimer = window.setTimeout(() => {
     window.requestAnimationFrame(() => {
+      ScrollTrigger.sort();
       ScrollTrigger.refresh();
       refreshTimer = undefined;
     });
@@ -20,7 +21,10 @@ export function scheduleScrollRefresh(delay = 0) {
 export function refreshAfterLayoutSettles() {
   if (typeof window === 'undefined') return;
 
-  scheduleScrollRefresh();
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => scheduleScrollRefresh());
+  });
+
   window.addEventListener('load', () => scheduleScrollRefresh(), { once: true });
 
   const fonts = document.fonts;

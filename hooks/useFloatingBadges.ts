@@ -1,12 +1,8 @@
 'use client';
 
 import { RefObject } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import { EASE } from '../lib/animation.config';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { DURATION, EASE, STAGGER } from '../lib/animation.config';
+import { gsap, useGSAP } from '../lib/gsapSetup';
 
 /**
  * Custom hook that encapsulates all GSAP animation logic for the
@@ -51,8 +47,8 @@ export function useFloatingBadges(
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          stagger: 0.15,
+          duration: DURATION.reveal,
+          stagger: STAGGER.wide,
           ease: EASE.reveal,
           scrollTrigger: { trigger: container, start: 'top 70%' },
         },
@@ -70,7 +66,7 @@ export function useFloatingBadges(
         scale: 1,
         y: 0,
         stagger: 0.1,
-        duration: 1.4,
+        duration: DURATION.slow,
         ease: EASE.reveal,
         scrollTrigger: { trigger: container, start: 'top 60%' },
       },
@@ -97,7 +93,7 @@ export function useFloatingBadges(
     /* ───────────────────────────────────────────────
      * 4. Scroll-driven parallax per depth layer
      * ─────────────────────────────────────────────── */
-    const parallaxCfg = { trigger: container, start: 'top bottom', end: 'bottom top', scrub: 1.2 };
+    const parallaxCfg = { trigger: container, start: 'top 85%', end: 'bottom top', scrub: 1.2 };
 
     if (front.length) {
       gsap.to(front, { yPercent: -20, rotateZ: 1.5, scrollTrigger: parallaxCfg });
@@ -112,22 +108,31 @@ export function useFloatingBadges(
     /* ───────────────────────────────────────────────
      * 5. Mouse-driven perspective tilt + parallax
      * ─────────────────────────────────────────────── */
+    const quickConfig = { duration: DURATION.pointer, ease: EASE.pointer };
+    const sceneRotateX = scene ? gsap.quickTo(scene, 'rotateX', quickConfig) : null;
+    const sceneRotateY = scene ? gsap.quickTo(scene, 'rotateY', quickConfig) : null;
+    const frontX = gsap.quickTo(front, 'x', quickConfig);
+    const midX = gsap.quickTo(mid, 'x', quickConfig);
+    const backX = gsap.quickTo(back, 'x', quickConfig);
+
     const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       const nx = (e.clientX - rect.left) / rect.width - 0.5;   // -0.5 → 0.5
       const ny = (e.clientY - rect.top) / rect.height - 0.5;
 
-      if (scene) {
-        gsap.to(scene, { rotateX: -ny * 5, rotateY: nx * 5, duration: 0.9, ease: 'power2.out' });
-      }
-      gsap.to(front, { x: nx * 24, duration: 0.8, ease: 'power2.out', overwrite: 'auto' });
-      gsap.to(mid,   { x: nx * 11, duration: 0.8, ease: 'power2.out', overwrite: 'auto' });
-      gsap.to(back,  { x: nx * 4,  duration: 0.8, ease: 'power2.out', overwrite: 'auto' });
+      sceneRotateX?.(-ny * 5);
+      sceneRotateY?.(nx * 5);
+      frontX(nx * 24);
+      midX(nx * 11);
+      backX(nx * 4);
     };
 
     const handleMouseLeave = () => {
-      if (scene) gsap.to(scene, { rotateX: 0, rotateY: 0, duration: 1, ease: 'power2.out' });
-      gsap.to([...front, ...mid, ...back], { x: 0, duration: 1, ease: 'power2.out' });
+      sceneRotateX?.(0);
+      sceneRotateY?.(0);
+      frontX(0);
+      midX(0);
+      backX(0);
     };
 
     container.addEventListener('mousemove', handleMouseMove);

@@ -2,11 +2,8 @@
 
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { ArrowRight } from 'lucide-react';
-
-gsap.registerPlugin(useGSAP);
 
 const NAV_LINKS = [
   { label: 'Platform', desc: 'The core intelligence.', href: '#' },

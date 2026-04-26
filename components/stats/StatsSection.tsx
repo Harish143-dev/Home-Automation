@@ -1,12 +1,9 @@
 'use client';
 
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import { DURATION, EASE } from '../../lib/animation.config';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const STATS = [
   { value: '20+', label: 'Years of Experience' },
@@ -23,44 +20,42 @@ export function StatsSection() {
 
   useGSAP(() => {
 
-    // Defer ScrollTrigger creation so the HeroSection's async pin (+400vh)
-    // is set up first, ensuring correct scroll position calculations.
-    gsap.delayedCall(0.3, () => {
-      scheduleScrollRefresh();
-
-      // 1. Initial fade-in for the left sticky column
-      gsap.fromTo(leftColRef.current, 
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1, 
-          y: 0, 
-          duration: 1.2, 
-          ease: 'power3.out',
-          scrollTrigger: { 
-            trigger: leftColRef.current, 
-            start: 'top 85%'
-          }
+    // 1. Initial fade-in for the left sticky column
+    gsap.fromTo(leftColRef.current, 
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1, 
+        y: 0, 
+        duration: DURATION.slow,
+        ease: EASE.reveal,
+        scrollTrigger: { 
+          trigger: leftColRef.current, 
+          start: 'top 70%',
+          toggleActions: 'play none none reverse',
         }
-      );
+      }
+    );
 
-      // 2. Individual reveal triggers for each vertical stat
-      statsRefs.current.forEach((el) => {
-        if (!el) return;
-        gsap.fromTo(el, {
-          opacity: 0,
-          y: 60
-        }, {
-          opacity: 1, 
-          y: 0, 
-          duration: 1.4, 
-          ease: 'power3.out',
-          scrollTrigger: { 
-            trigger: el, 
-            start: 'top 85%' 
-          }
-        });
+    // 2. Individual reveal triggers for each vertical stat
+    statsRefs.current.forEach((el) => {
+      if (!el) return;
+      gsap.fromTo(el, {
+        opacity: 0,
+        y: 60
+      }, {
+        opacity: 1, 
+        y: 0, 
+        duration: DURATION.slow,
+        ease: EASE.reveal,
+        scrollTrigger: { 
+          trigger: el, 
+          start: 'top 72%',
+          toggleActions: 'play none none reverse',
+        }
       });
     });
+
+    scheduleScrollRefresh();
 
   }, { scope: sectionRef, dependencies: [] });
 

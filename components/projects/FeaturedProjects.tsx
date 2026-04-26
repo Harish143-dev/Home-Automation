@@ -2,16 +2,12 @@
 
 import Image from 'next/image';
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { EASE } from '../../lib/animation.config';
+import { DURATION, EASE, SCROLL, STAGGER } from '../../lib/animation.config';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface Project {
   id: string;
@@ -79,10 +75,7 @@ export function FeaturedProjects() {
 
     // Defer initialization so upstream ScrollTrigger pins (HeroSection, AutomationSpaces)
     // are fully set up first — prevents miscalculated scroll positions.
-    gsap.delayedCall(0.4, () => {
-      scheduleScrollRefresh();
-
-      if (!containerRef.current || !pinRef.current) return;
+    if (!containerRef.current || !pinRef.current) return;
 
       // Query elements scoped strictly to our container (audit M3 — namespace prefix)
       const navs = gsap.utils.toArray('.fp-nav', containerRef.current) as HTMLLIElement[];
@@ -111,10 +104,10 @@ export function FeaturedProjects() {
         scrollTrigger: {
           trigger: pinRef.current,
           start: 'top top',
-          end: `+=${PROJECTS.length * 100}vh`,
+          end: `+=${PROJECTS.length * 85}vh`,
           pin: true,
-          scrub: 1,
-          anticipatePin: 1,
+          scrub: SCROLL.scrub,
+          anticipatePin: SCROLL.anticipatePin,
           invalidateOnRefresh: true,
         }
       });
@@ -122,7 +115,7 @@ export function FeaturedProjects() {
       PROJECTS.forEach((_, i) => {
         if (i === 0) {
           // Slow Ken Burns zoom on the first image during reading time
-          tl.to(images[0], { scale: 1.04, duration: 1.5, ease: EASE.none }, 0);
+          tl.to(images[0], { scale: 1.035, duration: 1.3, ease: EASE.none }, 0);
           return;
         }
 
@@ -130,33 +123,34 @@ export function FeaturedProjects() {
         const t = (i * 2) - 0.5;
 
         // Image wipe transition (audit: smoother easing)
-        tl.to(images[i - 1], { scale: 1.06, duration: 1, ease: EASE.none }, t);
-        tl.to(images[i], { clipPath: 'inset(0% 0 0 0)', scale: 1, duration: 1, ease: EASE.smooth }, t);
+        tl.to(images[i - 1], { scale: 1.05, duration: DURATION.reveal, ease: EASE.none }, t);
+        tl.to(images[i], { clipPath: 'inset(0% 0 0 0)', scale: 1, duration: DURATION.reveal, ease: EASE.smooth }, t);
 
         // Slow Ken Burns on the newly revealed image during reading pause
         const readStart = t + 1;
-        const readDuration = i < PROJECTS.length - 1 ? 1.0 : 1.5;
-        tl.to(images[i], { scale: 1.04, duration: readDuration, ease: EASE.none }, readStart);
+        const readDuration = i < PROJECTS.length - 1 ? 0.9 : 1.3;
+        tl.to(images[i], { scale: 1.035, duration: readDuration, ease: EASE.none }, readStart);
 
         // Nav sidebar update
-        tl.to(navs[i - 1], { color: 'rgba(0,0,0,0.25)', x: 0, duration: 0.4 }, t);
-        tl.to(navs[i], { color: '#000000', x: 24, duration: 0.4 }, t + 0.4);
-        tl.to(lineRef.current, { top: `${(i / PROJECTS.length) * 100}%`, duration: 0.5 }, t + 0.3);
+        tl.to(navs[i - 1], { color: 'rgba(0,0,0,0.25)', x: 0, duration: DURATION.fast }, t);
+        tl.to(navs[i], { color: '#000000', x: 24, duration: DURATION.fast }, t + 0.4);
+        tl.to(lineRef.current, { top: `${(i / PROJECTS.length) * 100}%`, duration: DURATION.medium }, t + 0.3);
 
         // Content crossfade (audit: smoother easing)
-        tl.to(contents[i - 1], { opacity: 0, y: -30, pointerEvents: 'none', duration: 0.4 }, t);
-        tl.to(contents[i], { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.5, ease: EASE.reveal }, t + 0.5);
+        tl.to(contents[i - 1], { opacity: 0, y: -30, pointerEvents: 'none', duration: DURATION.fast }, t);
+        tl.to(contents[i], { opacity: 1, y: 0, pointerEvents: 'auto', duration: DURATION.medium, ease: EASE.reveal }, t + 0.5);
 
         // Staggered element reveals inside the new content panel
         const staggerEls = contents[i].querySelectorAll('.fp-stagger');
         if (staggerEls.length > 0) {
-          tl.to(staggerEls, { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: EASE.reveal }, t + 0.5);
+          tl.to(staggerEls, { opacity: 1, y: 0, duration: DURATION.fast, stagger: STAGGER.reveal, ease: EASE.reveal }, t + 0.5);
         }
       });
 
       // Final padding so the last project stays visible
-      tl.to({}, { duration: 1.0 });
-    });
+      tl.to({}, { duration: DURATION.normal });
+
+      scheduleScrollRefresh();
   }, { scope: containerRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
 
   // ── SINGLE DOM TREE — visibility controlled by CSS, not conditional returns ──
@@ -242,7 +236,7 @@ export function FeaturedProjects() {
           <div className="w-[65%] h-full relative overflow-hidden bg-neutral-100">
             {/* Image Layers */}
             {PROJECTS.map((proj) => (
-              <div key={proj.id + 'img'} className="fp-image absolute inset-0 z-0">
+              <div key={proj.id + 'img'} className="motion-layer fp-image absolute inset-0 z-0">
                 <Image
                   src={proj.image}
                   alt=""

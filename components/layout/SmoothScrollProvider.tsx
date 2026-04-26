@@ -2,13 +2,9 @@
 
 import React, { useRef, ReactNode } from 'react';
 import Lenis from 'lenis';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsapSetup';
 import { refreshAfterLayoutSettles } from '../../lib/scrollRefresh';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
  * Lenis smooth scroll provider.
@@ -44,9 +40,6 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       lenis.raf(time * 1000);
     };
     gsap.ticker.add(tickHandler);
-
-    // Don't let GSAP lag-smooth during scroll
-    gsap.ticker.lagSmoothing(0);
 
     // Refresh ScrollTrigger after Lenis is fully initialized
     // so pin spacer calculations account for smooth scroll behavior (audit M7)

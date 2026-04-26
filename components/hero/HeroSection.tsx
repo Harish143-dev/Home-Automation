@@ -2,16 +2,12 @@
 
 import NextImage from 'next/image';
 import React, { useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
-import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { DURATION, EASE, SCROLL, STAGGER } from '../../lib/animation.config';
+import { gsap, SplitText, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
-
-gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 
 const DESCRIPTIONS = [
   "Transforming homes with cutting-edge automation since 2002.",
@@ -50,6 +46,15 @@ function drawCoverImage(
   context.drawImage(image, offsetX, offsetY, drawWidth, drawHeight);
 }
 
+function loadFrameImage(src: string) {
+  return new Promise<HTMLImageElement | null>((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => resolve(null);
+    image.src = src;
+  });
+}
+
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -80,11 +85,27 @@ export function HeroSection() {
 
     const frameState = { index: 0 };
     const images: HTMLImageElement[] = [];
+    const loadedFrames = new Set<number>();
 
     let active = true;
     let currentFrame = -1;
     let mainTl: gsap.core.Timeline | null = null;
     let firstFrameResolved = false;
+    let resizeTimeout: number | undefined;
+
+    const getNearestLoadedFrame = (frameIndex: number) => {
+      if (loadedFrames.has(frameIndex)) return frameIndex;
+
+      for (let offset = 1; offset < FRAME_COUNT; offset++) {
+        const previous = frameIndex - offset;
+        const next = frameIndex + offset;
+
+        if (previous >= 0 && loadedFrames.has(previous)) return previous;
+        if (next < FRAME_COUNT && loadedFrames.has(next)) return next;
+      }
+
+      return -1;
+    };
 
     const resizeCanvas = () => {
       const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
@@ -98,7 +119,8 @@ export function HeroSection() {
 
       context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
 
-      const image = images[Math.round(frameState.index)];
+      const nearestFrame = getNearestLoadedFrame(Math.round(frameState.index));
+      const image = nearestFrame >= 0 ? images[nearestFrame] : null;
       if (image?.complete) {
         drawCoverImage(context, image, canvas);
       }
@@ -108,13 +130,16 @@ export function HeroSection() {
       const nextFrame = Math.max(0, Math.min(frameIndex, FRAME_COUNT - 1));
       if (currentFrame === nextFrame) return;
 
-      const image = images[nextFrame];
+      const loadedFrame = getNearestLoadedFrame(nextFrame);
+      if (loadedFrame < 0 || currentFrame === loadedFrame) return;
+
+      const image = images[loadedFrame];
       if (!image?.complete) return;
 
-      currentFrame = nextFrame;
+      currentFrame = loadedFrame;
       drawCoverImage(context, image, canvas);
 
-      if (!firstFrameResolved && nextFrame === 0) {
+      if (!firstFrameResolved && loadedFrame === 0) {
         firstFrameResolved = true;
         setIsFirstFrameReady(true);
       }
@@ -127,24 +152,24 @@ export function HeroSection() {
     }
 
     const initAnimations = () => {
-      const loadTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      const loadTl = gsap.timeline({ defaults: { ease: EASE.reveal } });
 
       loadTl.fromTo(frame,
         { scale: 1.05 },
-        { scale: 1, duration: 2, ease: 'power2.out' }
+        { scale: 1, duration: 1.6, ease: EASE.standard }
       );
 
       if (split && split.words) {
         loadTl.fromTo(split.words,
           { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.05, duration: 1.2, ease: 'power3.out' },
+          { y: 0, opacity: 1, stagger: STAGGER.tight, duration: DURATION.slow, ease: EASE.reveal },
           "-=1.5"
         );
       }
 
       loadTl.fromTo([pRefs.current[0], ctaRef.current],
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: 'power2.out' },
+        { y: 0, opacity: 1, stagger: STAGGER.normal, duration: DURATION.reveal, ease: EASE.standard },
         "-=1.2"
       );
 
@@ -152,10 +177,10 @@ export function HeroSection() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=400%',
+          end: SCROLL.heroDistance,
           pin: true,
-          scrub: 1.2,
-          anticipatePin: 1,
+          scrub: SCROLL.scrubSlow,
+          anticipatePin: SCROLL.anticipatePin,
           invalidateOnRefresh: true,
           onRefresh: (trigger) => {
             if (trigger.progress <= 0) {
@@ -188,7 +213,7 @@ export function HeroSection() {
         mainTl.to(textWrapperRef.current, {
           opacity: 0,
           y: -20,
-          ease: 'power2.inOut',
+          ease: EASE.smooth,
           duration: 0.25
         }, 0.75);
       }
@@ -196,36 +221,39 @@ export function HeroSection() {
       mainTl.to(frame, {
         scale: 0.92,
         borderRadius: '24px',
-        ease: 'power3.inOut',
+        ease: EASE.smooth,
         duration: 0.25
       }, 0.75);
 
-      // CRITICAL: Since this ScrollTrigger pin is created asynchronously after image load,
-      // we MUST explicitly refresh all ScrollTriggers on the page so subsequent sections
-      // (like StatsSection, StackedPanels) mathematically recalculate from the new +400vh offset.
-      scheduleScrollRefresh(50);
+      scheduleScrollRefresh();
     };
 
     const loadImages = async () => {
-      const firstImg = new Image();
-      firstImg.src = FRAME_PATHS[0];
-      await new Promise((resolve) => {
-        firstImg.onload = resolve;
-      });
-      images[0] = firstImg;
+      const firstImg = await loadFrameImage(FRAME_PATHS[0]);
 
       if (!active) return;
+
+      if (firstImg) {
+        images[0] = firstImg;
+        loadedFrames.add(0);
+      }
+
       resizeCanvas();
       renderFrame(0);
-      initAnimations();
+      if (!firstImg) {
+        firstFrameResolved = true;
+        setIsFirstFrameReady(true);
+      }
+      scheduleScrollRefresh();
 
       let loadedIdx = 1;
       const loadNext = () => {
         if (!active || loadedIdx >= FRAME_PATHS.length) return;
+        const frameIndex = loadedIdx;
         const img = new Image();
-        img.src = FRAME_PATHS[loadedIdx];
         img.onload = () => {
-          images[loadedIdx] = img;
+          images[frameIndex] = img;
+          loadedFrames.add(frameIndex);
           loadedIdx++;
           setTimeout(loadNext, 10);
         };
@@ -233,22 +261,25 @@ export function HeroSection() {
           loadedIdx++;
           setTimeout(loadNext, 10);
         };
+        img.src = FRAME_PATHS[frameIndex];
       };
       loadNext();
     };
 
+    resizeCanvas();
+    initAnimations();
     loadImages();
 
-    let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(resizeCanvas, 100);
+      if (resizeTimeout) window.clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(resizeCanvas, 100);
     };
     window.addEventListener('resize', handleResize);
 
     return () => {
       active = false;
       window.removeEventListener('resize', handleResize);
+      if (resizeTimeout) window.clearTimeout(resizeTimeout);
       mainTl?.scrollTrigger?.kill();
       mainTl?.kill();
       split?.revert();
@@ -307,7 +338,7 @@ export function HeroSection() {
 
         <div
           ref={frameRef}
-          className="relative w-full h-full overflow-hidden origin-center transform-gpu"
+          className="motion-layer relative w-full h-full overflow-hidden origin-center transform-gpu"
         >
           <NextImage
             src="/frames-compressed/001.jpg"
@@ -322,7 +353,7 @@ export function HeroSection() {
             ref={canvasRef}
             role="img"
             aria-label="Smart home visual sequence"
-            className="absolute inset-0 block h-full w-full z-0 transform-gpu"
+            className="motion-layer absolute inset-0 block h-full w-full z-0 transform-gpu"
             style={{ opacity: isFirstFrameReady ? 1 : 0 }}
           />
 

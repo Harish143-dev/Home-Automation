@@ -105,6 +105,21 @@ body {
   @apply hover:bg-glass-hover transition-colors duration-300;
 }
 
+.motion-layer {
+  will-change: transform, opacity;
+}
+
+.fp-image {
+  will-change: transform, clip-path;
+}
+
+.aw-badge,
+.aw-badge-float,
+.step-card,
+.as-card {
+  will-change: transform, opacity;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }

@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import {
   ShieldCheck,
   Award,
@@ -16,8 +14,6 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface AwardItem {
   id: string;

@@ -43,7 +43,7 @@ export function Badge3D({ award }: { award: Award }) {
 
   return (
     <div
-      className={`aw-badge aw-layer-${award.layer} absolute transform-gpu`}
+      className={`motion-layer aw-badge aw-layer-${award.layer} absolute transform-gpu`}
       style={{
         left: `${award.position.x}%`,
         top: `${award.position.y}%`,
