@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,6 +16,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { EASE } from '../../lib/animation.config';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -109,12 +111,15 @@ function ServicePanelCard({
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const { isMobile } = useBreakpoint();
+  const prefersReducedMotion = useReducedMotion();
   const Icon = service.icon;
 
   const isImageRight = index % 2 === 0;
 
   useGSAP(
     () => {
+      if (prefersReducedMotion) return;
+
       // Image Parallax as the section scrolls into view
       gsap.fromTo(
         imageRef.current,
@@ -153,7 +158,7 @@ function ServicePanelCard({
         }
       );
     },
-    { scope: cardRef, dependencies: [isMobile] }
+    { scope: cardRef, dependencies: [isMobile, prefersReducedMotion] }
   );
 
   return (
@@ -172,8 +177,16 @@ function ServicePanelCard({
         <div
           ref={imageRef}
           className="absolute inset-0 h-[120%] w-[120%] -left-[10%] -top-[10%] origin-center bg-cover bg-center transform-gpu"
-          style={{ backgroundImage: `url(${service.image})` }}
-        />
+        >
+          <Image
+            src={service.image}
+            alt=""
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+            aria-hidden="true"
+          />
+        </div>
         {/* Soft gradient overlay for text readability on mobile */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent md:hidden" />
       </div>

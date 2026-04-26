@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { forwardRef } from 'react';
 
 interface VideoBackgroundProps {
@@ -13,13 +14,12 @@ const VideoBackground = forwardRef<HTMLVideoElement, VideoBackgroundProps>(
   ({ isMobile, posterSrc, videoSrc, videoWebmSrc }, ref) => {
     if (isMobile) {
       return (
-        <div
-          className="absolute inset-0 w-full h-full"
-          style={{
-            backgroundImage: `url(${posterSrc})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+        <Image
+          src={posterSrc}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
           aria-hidden="true"
         />
       );

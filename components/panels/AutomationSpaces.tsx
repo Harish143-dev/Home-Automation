@@ -1,12 +1,15 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { EASE } from '../../lib/animation.config';
+import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -39,9 +42,10 @@ export function AutomationSpaces() {
   const ctaSectionRef = useRef<HTMLDivElement>(null);
   const ctaBtnRef = useRef<HTMLButtonElement>(null);
   const { isMobile, isReady } = useBreakpoint();
+  const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
-    if (isMobile || !isReady) return;
+    if (isMobile || !isReady || prefersReducedMotion) return;
 
     const scrollSection = scrollSectionRef.current;
     const pinEl = pinRef.current;
@@ -62,7 +66,7 @@ export function AutomationSpaces() {
 
     // Defer so hero pin is set up first
     gsap.delayedCall(0.3, () => {
-      ScrollTrigger.refresh();
+      scheduleScrollRefresh();
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -112,8 +116,8 @@ export function AutomationSpaces() {
 
       // ─── PHASE 5 (3.2): Triangular spread ───
       tl.to(cards[0], {
-        left: '22%',
-        top: '52%',
+        x: '-28vw',
+        y: '-3vh',
         scale: 0.84,
         rotation: -3,
         duration: 1.5,
@@ -121,11 +125,10 @@ export function AutomationSpaces() {
       }, 3.2);
 
       tl.to(cards[1], {
-        left: '50%',
-        top: '62%',
+        x: 0,
+        y: '7vh',
         scale: 0.8,
         rotation: 0,
-        y: 0,
         duration: 1.5,
         ease: 'power3.inOut',
       }, 3.2);
@@ -133,9 +136,8 @@ export function AutomationSpaces() {
       tl.to(cards[2], {
         opacity: 1,
         scale: 0.84,
-        y: 0,
-        left: '78%',
-        top: '52%',
+        x: '28vw',
+        y: '-3vh',
         rotation: 3,
         duration: 1.5,
         ease: 'power3.inOut',
@@ -161,7 +163,7 @@ export function AutomationSpaces() {
       });
     }
 
-  }, { scope: wrapperRef, dependencies: [isMobile, isReady] });
+  }, { scope: wrapperRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
 
   // Show nothing until breakpoint is measured (audit C3)
   if (!isReady) {
@@ -169,7 +171,7 @@ export function AutomationSpaces() {
   }
 
   // ── Mobile: Simple vertical cards ──
-  if (isMobile) {
+  if (isMobile || prefersReducedMotion) {
     return (
       <div>
         <section className="w-full px-4 py-16 flex flex-col gap-6">
@@ -179,7 +181,14 @@ export function AutomationSpaces() {
           </div>
           {PANELS.map((panel, i) => (
             <div key={i} className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${panel.image})` }} />
+              <Image
+                src={panel.image}
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover"
+                aria-hidden="true"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
                 <span className="text-[10px] font-mono text-white/40 tracking-widest uppercase mb-2 block">{panel.label}</span>
@@ -232,9 +241,13 @@ export function AutomationSpaces() {
               className="as-card absolute w-[320px] md:w-[380px] lg:w-[400px] aspect-[3/4] rounded-[20px] overflow-hidden shadow-2xl transform-gpu cursor-default group opacity-0"
               style={{ zIndex: 10 + i }}
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                style={{ backgroundImage: `url(${panel.image})` }}
+              <Image
+                src={panel.image}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 400px, 380px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                aria-hidden="true"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-7 z-10">

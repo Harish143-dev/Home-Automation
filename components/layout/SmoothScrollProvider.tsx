@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { refreshAfterLayoutSettles } from '../../lib/scrollRefresh';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -23,7 +24,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
   useGSAP(() => {
     if (prefersReducedMotion) {
-      requestAnimationFrame(() => ScrollTrigger.refresh());
+      refreshAfterLayoutSettles();
       return;
     }
 
@@ -49,9 +50,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
     // Refresh ScrollTrigger after Lenis is fully initialized
     // so pin spacer calculations account for smooth scroll behavior (audit M7)
-    requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
-    });
+    refreshAfterLayoutSettles();
 
     return () => {
       gsap.ticker.remove(tickHandler);

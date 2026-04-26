@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -25,7 +26,7 @@ export function StatsSection() {
     // Defer ScrollTrigger creation so the HeroSection's async pin (+400vh)
     // is set up first, ensuring correct scroll position calculations.
     gsap.delayedCall(0.3, () => {
-      ScrollTrigger.refresh();
+      scheduleScrollRefresh();
 
       // 1. Initial fade-in for the left sticky column
       gsap.fromTo(leftColRef.current, 

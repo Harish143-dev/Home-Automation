@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,6 +9,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { EASE } from '../../lib/animation.config';
+import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -78,7 +80,7 @@ export function FeaturedProjects() {
     // Defer initialization so upstream ScrollTrigger pins (HeroSection, AutomationSpaces)
     // are fully set up first — prevents miscalculated scroll positions.
     gsap.delayedCall(0.4, () => {
-      ScrollTrigger.refresh();
+      scheduleScrollRefresh();
 
       if (!containerRef.current || !pinRef.current) return;
 
@@ -157,15 +159,13 @@ export function FeaturedProjects() {
     });
   }, { scope: containerRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
 
-  // ── Show nothing until breakpoint is measured (audit C3) ──
-  if (!isReady) {
-    return <section className="bg-white w-full h-screen" />;
-  }
-
   // ── SINGLE DOM TREE — visibility controlled by CSS, not conditional returns ──
-  // This prevents the GSAP scope crash caused by switching between two different JSX trees (audit C1).
+  // This prevents the GSAP scope crash caused by switching between two different JSX trees.
   return (
-    <section ref={containerRef} className="bg-white text-black w-full relative">
+    <section 
+      ref={containerRef} 
+      className={`bg-white text-black w-full relative transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
+    >
 
       {/* ═══ Mobile Layout ═══ */}
       <div className={isMobile ? 'block' : 'hidden'}>
@@ -178,7 +178,14 @@ export function FeaturedProjects() {
             {PROJECTS.map((proj) => (
               <article key={proj.id} className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.08)] bg-white border border-neutral-100">
                 <div className="h-56 w-full relative">
-                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${proj.image})` }} />
+                  <Image
+                    src={proj.image}
+                    alt=""
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                    aria-hidden="true"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-neutral-50 px-3 py-1 mb-3">
@@ -236,7 +243,14 @@ export function FeaturedProjects() {
             {/* Image Layers */}
             {PROJECTS.map((proj) => (
               <div key={proj.id + 'img'} className="fp-image absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${proj.image})` }} />
+                <Image
+                  src={proj.image}
+                  alt=""
+                  fill
+                  sizes="65vw"
+                  className="object-cover"
+                  aria-hidden="true"
+                />
               </div>
             ))}
 

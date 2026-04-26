@@ -60,7 +60,7 @@ export function WhyChooseUsSection() {
   const [activePanel, setActivePanel] = useState<number>(0);
 
   return (
-    <section className="relative py-24 px-4 md:px-8 overflow-hidden bg-[#F5F5F7] text-[#1D1D1F]">
+    <section className="relative z-10 py-24 px-4 md:px-8 overflow-hidden bg-[#F5F5F7] text-[#1D1D1F]">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-16 md:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">

@@ -9,6 +9,7 @@ import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 
@@ -202,7 +203,7 @@ export function HeroSection() {
       // CRITICAL: Since this ScrollTrigger pin is created asynchronously after image load,
       // we MUST explicitly refresh all ScrollTriggers on the page so subsequent sections
       // (like StatsSection, StackedPanels) mathematically recalculate from the new +400vh offset.
-      setTimeout(() => ScrollTrigger.refresh(), 50);
+      scheduleScrollRefresh(50);
     };
 
     const loadImages = async () => {
@@ -254,14 +255,9 @@ export function HeroSection() {
     };
   }, { scope: sectionRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
 
-  // Show nothing until breakpoint is measured (audit C3)
-  if (!isReady) {
-    return <section ref={sectionRef} id="hero" className="relative h-[100vh] w-full bg-white" />;
-  }
-
-  if (isMobile || prefersReducedMotion) {
+  if (!isReady || isMobile || prefersReducedMotion) {
     return (
-      <section ref={sectionRef} id="hero" className="relative min-h-[100dvh] w-full bg-white overflow-hidden flex flex-col items-center justify-end px-5 pb-20 pt-28 sm:px-8 md:min-h-screen md:items-start md:px-16 md:pb-24 lg:px-24">
+      <section ref={sectionRef} id="hero" className="relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-white px-5 pb-20 pt-28 sm:px-8 md:items-start md:px-16 md:pb-24 lg:px-24">
         <NextImage
           src="/frames-compressed/001.jpg"
           alt=""
@@ -274,10 +270,22 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
 
         <div className="relative z-10 flex w-full max-w-xl flex-col items-start text-left">
-          <h1 className="mb-6 max-w-full break-words text-[clamp(2.05rem,10vw,3.4rem)] font-semibold leading-[1.06] tracking-tight text-white md:text-[clamp(3rem,6vw,4.8rem)]">
-            Intelligent Automation <br />for Luxury Living
+          <h1 className="mb-6 max-w-[calc(100vw-2.5rem)] break-words text-[clamp(1.95rem,9.2vw,3.4rem)] font-semibold leading-[1.06] tracking-tight text-white md:max-w-full md:text-[clamp(3rem,6vw,4.8rem)]">
+            <span className="sm:hidden">
+              Intelligent
+              <br />
+              Automation
+              <br />
+              for Luxury
+              <br />
+              Living
+            </span>
+            <span className="hidden sm:inline">
+              Intelligent Automation <br />
+              for Luxury Living
+            </span>
           </h1>
-          <div className="mb-8 max-w-sm text-left text-base font-light leading-relaxed text-white/70 md:text-lg">
+          <div className="mb-8 w-full max-w-[280px] text-left text-sm font-light leading-relaxed text-white/70 sm:max-w-sm sm:text-base md:text-lg">
             <p>{DESCRIPTIONS[0]}</p>
           </div>
           <div className="flex w-full max-w-sm flex-col gap-3 sm:flex-row md:max-w-none">

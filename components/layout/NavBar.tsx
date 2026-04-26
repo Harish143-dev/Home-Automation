@@ -77,9 +77,9 @@ export function NavBar() {
 
     timelineRef.current = tl;
 
-  }, { scope: navRef, dependencies: [] });
+  }, { scope: navRef });
 
-  useEffect(() => {
+  useGSAP(() => {
     if (timelineRef.current) {
       if (isOpen) {
         timelineRef.current.timeScale(1).play();
@@ -87,7 +87,7 @@ export function NavBar() {
         timelineRef.current.timeScale(1.5).reverse();
       }
     }
-  }, [isOpen]);
+  }, { dependencies: [isOpen] });
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -107,7 +107,7 @@ export function NavBar() {
     >
       
       <div className="pointer-events-auto">
-        <Link href="/" className="text-xl font-medium tracking-[0.12em] text-black transition-opacity hover:opacity-75 drop-shadow-md">
+        <Link href="/" className="text-xl font-medium tracking-[0.12em] text-white mix-blend-difference transition-opacity hover:opacity-75 drop-shadow-md">
           AT
         </Link>
       </div>
