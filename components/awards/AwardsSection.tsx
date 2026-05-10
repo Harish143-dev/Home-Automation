@@ -139,7 +139,7 @@ function MagneticAwardCard({ award }: { award: AwardItem }) {
   return (
     <div
       ref={cardRef}
-      className="aw-card group relative overflow-hidden rounded-[24px] border border-black/[0.08] bg-white p-8 md:p-10 transition-all duration-500 hover:border-black/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] opacity-0"
+      className="aw-card group relative overflow-hidden rounded-2xl sm:rounded-[24px] border border-black/[0.08] bg-white p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-black/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] opacity-0"
       style={{ transform: 'translateY(40px)' }}
     >
       {/* Spotlight Glow */}
@@ -150,13 +150,13 @@ function MagneticAwardCard({ award }: { award: AwardItem }) {
         }}
       />
       
-      <div className="relative z-10 flex flex-col h-full min-h-[220px]">
-        <div className="flex items-start justify-between mb-12">
+      <div className="relative z-10 flex flex-col h-full min-h-[180px] sm:min-h-[200px] md:min-h-[220px]">
+        <div className="flex items-start justify-between mb-8 sm:mb-10 md:mb-12">
           <div 
             ref={iconRef}
-            className="flex h-14 w-14 items-center justify-center rounded-[18px] bg-black/[0.03] border border-black/[0.06] shadow-sm transition-colors duration-500 group-hover:bg-black/[0.06]"
+            className="flex h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-[14px] sm:rounded-[16px] md:rounded-[18px] bg-black/[0.03] border border-black/[0.06] shadow-sm transition-colors duration-500 group-hover:bg-black/[0.06]"
           >
-            <award.icon className="h-6 w-6 text-black transition-transform duration-500 group-hover:scale-110" />
+            <award.icon className="h-5 w-5 sm:h-6 sm:w-6 text-black transition-transform duration-500 group-hover:scale-110" />
           </div>
           <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-black/40">
             {award.year}
@@ -164,9 +164,9 @@ function MagneticAwardCard({ award }: { award: AwardItem }) {
         </div>
         
         <div className="mt-auto">
-          <h3 className="text-xl md:text-2xl font-bold text-black tracking-tight mb-2">{award.title}</h3>
-          <p className="text-sm font-semibold text-black/60 mb-3">{award.issuer}</p>
-          <p className="text-sm text-black/50 leading-relaxed font-light">{award.description}</p>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black tracking-tight mb-1.5 sm:mb-2">{award.title}</h3>
+          <p className="text-xs sm:text-sm font-semibold text-black/60 mb-2 sm:mb-3">{award.issuer}</p>
+          <p className="text-xs sm:text-sm text-black/50 leading-relaxed font-light">{award.description}</p>
         </div>
       </div>
     </div>
@@ -214,7 +214,7 @@ export function AwardsSection() {
   }, { scope: containerRef, dependencies: [isReady] });
 
   if (!isReady) {
-    return <section className="w-full h-screen bg-white" />;
+    return <section className="w-full h-screen bg-background" />;
   }
 
   // Split awards into 3 columns for desktop, 2 for tablet, 1 for mobile.
@@ -226,45 +226,46 @@ export function AwardsSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-white py-32 md:py-48 overflow-hidden border-t border-black/5"
+      id="company"
+      className="relative w-full bg-background py-20 sm:py-28 md:py-32 lg:py-48 overflow-hidden border-t border-black/5"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.02),transparent_50%)] pointer-events-none" />
 
       {/* ── Header ── */}
-      <div className="relative z-10 text-center px-6 mb-24 md:mb-32">
-        <div className="aw-header-el mb-5 inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-black/70 backdrop-blur-md">
+      <div className="relative z-10 text-center px-5 sm:px-6 mb-16 sm:mb-20 md:mb-24 lg:mb-32">
+        <div className="aw-header-el mb-4 sm:mb-5 inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/70 backdrop-blur-md">
           <Award className="h-3.5 w-3.5 text-black" />
           Awards &amp; Recognition
         </div>
-        <h2 className="aw-header-el text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem] font-medium leading-[1.05] tracking-tight text-black">
+        <h2 className="aw-header-el text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-medium leading-[1.05] tracking-tight text-black">
           Certified Excellence
         </h2>
-        <p className="aw-header-el mt-6 text-base md:text-lg text-black/50 max-w-xl mx-auto leading-relaxed">
+        <p className="aw-header-el mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-black/50 max-w-xl mx-auto leading-relaxed">
           Recognised by the industry&apos;s most prestigious bodies for quality,
           innovation, and sustainable design.
         </p>
       </div>
 
       {/* ── Asymmetrical Masonry Grid ── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           
           {/* Column 1 */}
-          <div className="flex flex-col gap-6 md:gap-8 lg:mt-0">
+          <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 lg:mt-0">
             {col1.map((award) => (
               <MagneticAwardCard key={award.id} award={award} />
             ))}
           </div>
 
           {/* Column 2 - Offset visually */}
-          <div className="flex flex-col gap-6 md:gap-8 md:mt-16 lg:mt-24">
+          <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 sm:mt-0 lg:mt-24">
             {col2.map((award) => (
               <MagneticAwardCard key={award.id} award={award} />
             ))}
           </div>
 
           {/* Column 3 - Offset more */}
-          <div className="flex flex-col gap-6 md:gap-8 md:mt-0 lg:mt-48">
+          <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 sm:mt-0 lg:mt-48">
             {col3.map((award) => (
               <MagneticAwardCard key={award.id} award={award} />
             ))}

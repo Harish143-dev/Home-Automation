@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  Globe, 
-  Headphones, 
-  Award, 
-  Zap, 
+import {
+  Globe,
+  Headphones,
+  Award,
+  Zap,
   ArrowRight,
   Cpu,
   Layers
@@ -60,31 +60,31 @@ export function WhyChooseUsSection() {
   const [activePanel, setActivePanel] = useState<number>(0);
 
   return (
-    <section className="relative z-10 py-24 px-4 md:px-8 overflow-hidden bg-[#F5F5F7] text-[#1D1D1F]">
+    <section className="relative z-10 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 overflow-hidden bg-background text-foreground">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="mb-16 md:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="mb-10 sm:mb-14 md:mb-16 lg:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold mb-6 tracking-tight leading-[1.1]">
+            <h2 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-semibold mb-3 sm:mb-4 md:mb-6 tracking-tight leading-[1.1]">
               Why Leading Brands <br className="hidden md:block" />
               Choose Us.
             </h2>
-            <p className="text-[#86868B] text-lg md:text-[21px] font-medium leading-relaxed tracking-tight">
+            <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-tight">
               Experience the pinnacle of home automation with a partner dedicated to technical excellence, design integration, and flawless execution.
             </p>
           </div>
-          <button className="hidden md:flex items-center gap-2 text-[15px] font-medium text-[#0066CC] hover:underline transition-all group">
+          <button className="hidden md:flex items-center gap-2 text-[15px] font-medium text-accent hover:underline transition-all group">
             View All Capabilities
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
         {/* Desktop & Mobile Layout Container */}
-        <div className="flex flex-col md:flex-row h-auto md:h-[600px] gap-3 md:gap-4 w-full">
+        <div className="flex flex-col md:flex-row h-auto md:h-[500px] lg:h-[600px] gap-2 sm:gap-3 md:gap-4 w-full">
           {usps.map((usp, index) => {
             const isActive = activePanel === index;
             const Icon = usp.icon;
-            
+
             return (
               <div
                 key={usp.id}
@@ -92,12 +92,12 @@ export function WhyChooseUsSection() {
                 onFocus={() => setActivePanel(index)}
                 tabIndex={0}
                 className={`
-                  relative overflow-hidden rounded-[32px] cursor-pointer
+                  relative overflow-hidden rounded-2xl sm:rounded-[28px] md:rounded-[32px] cursor-pointer
                   transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
-                  group flex flex-col border
-                  ${isActive 
-                    ? 'h-[420px] md:h-full md:flex-[4_4_0%] bg-white shadow-[0_20px_40px_rgba(0,0,0,0.06)] border-transparent z-10 scale-[1.01] md:scale-100' 
-                    : 'h-[88px] md:h-full md:flex-[1_1_0%] bg-[#FFFFFF] hover:bg-[#FAFAFC] border-black/[0.03] z-0'
+                  group flex flex-col border border-border
+                  ${isActive
+                    ? 'h-[340px] sm:h-[380px] md:h-full md:flex-[4_4_0%] bg-panel shadow-md z-10 scale-[1.01] md:scale-100'
+                    : 'h-[72px] sm:h-[80px] md:h-full md:flex-[1_1_0%] bg-surface-darker hover:bg-panel z-0'
                   }
                 `}
               >
@@ -111,24 +111,25 @@ export function WhyChooseUsSection() {
                 `}>
                   {/* Desktop Layout */}
                   <div className="hidden md:flex flex-col items-center justify-between w-full h-full py-10">
-                    <div className="w-14 h-14 rounded-full bg-[#F5F5F7] flex items-center justify-center shrink-0 transition-colors duration-500">
-                      <Icon size={24} className="text-[#1D1D1F]" strokeWidth={1.5} />
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-full border border-border bg-surface-darker shadow-sm flex items-center justify-center shrink-0 transition-colors duration-500">
+                      <Icon size={24} className="text-foreground" strokeWidth={1.5} />
                     </div>
-                    
+
                     {/* The text container uses a fixed width relative to the rotation to ensure it aligns nicely */}
                     <div className="flex-1 flex items-end justify-center pb-12">
-                      <div className="-rotate-90 whitespace-nowrap origin-center font-medium text-[17px] text-[#1D1D1F] tracking-wide">
+                      <div className="-rotate-90 whitespace-nowrap origin-center font-medium text-[17px] text-foreground tracking-wide">
                         {usp.shortTitle}
                       </div>
                     </div>
                   </div>
 
                   {/* Mobile Layout */}
-                  <div className="md:hidden flex items-center w-full h-full p-5">
-                    <div className="w-14 h-14 rounded-full bg-[#F5F5F7] flex items-center justify-center shrink-0">
-                      <Icon size={24} className="text-[#1D1D1F]" strokeWidth={1.5} />
+                  <div className="md:hidden flex items-center w-full h-full px-4 sm:p-5">
+                    <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-border bg-surface-darker shadow-sm flex items-center justify-center shrink-0">
+                      <Icon size={20} className="text-foreground sm:hidden" strokeWidth={1.5} />
+                      <Icon size={24} className="text-foreground hidden sm:block" strokeWidth={1.5} />
                     </div>
-                    <div className="ml-5 font-semibold text-[17px] text-[#1D1D1F] tracking-tight">
+                    <div className="ml-3 sm:ml-5 font-semibold text-[15px] sm:text-[17px] text-foreground tracking-tight">
                       {usp.title}
                     </div>
                   </div>
@@ -138,7 +139,7 @@ export function WhyChooseUsSection() {
                   Expanded Content Area 
                 */}
                 <div className={`
-                  flex-1 flex flex-col justify-end p-8 md:p-12 relative w-full h-full
+                  flex-1 flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12 relative w-full h-full
                   transition-all duration-500 delay-100
                   ${isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
                 `}>
@@ -149,13 +150,13 @@ export function WhyChooseUsSection() {
                     transition-all duration-1000 transform
                     ${isActive ? 'scale-100 rotate-0 opacity-100' : 'scale-50 -rotate-45 opacity-0'}
                   `}>
-                    <Icon className="w-24 h-24 md:w-32 md:h-32 text-[#F5F5F7]" strokeWidth={0.75} />
+                    <Icon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 text-black/[0.03]" strokeWidth={0.75} />
                   </div>
 
                   <div className="relative z-10 mt-auto max-w-xl">
                     {/* Small active icon above title */}
                     <div className={`
-                      w-14 h-14 rounded-full bg-[#1D1D1F] flex items-center justify-center mb-8
+                      w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-accent flex items-center justify-center mb-5 sm:mb-6 md:mb-8
                       transition-all duration-500 transform
                       ${isActive ? 'translate-y-0 opacity-100 delay-100' : 'translate-y-8 opacity-0'}
                     `}>
@@ -163,24 +164,24 @@ export function WhyChooseUsSection() {
                     </div>
 
                     <h3 className={`
-                      text-3xl md:text-[2.5rem] leading-[1.1] font-semibold text-[#1D1D1F] mb-4 tracking-tight
+                      text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] leading-[1.1] font-semibold text-foreground mb-2 sm:mb-3 md:mb-4 tracking-tight
                       transition-all duration-500 transform
                       ${isActive ? 'translate-y-0 opacity-100 delay-150' : 'translate-y-8 opacity-0'}
                     `}>
                       {usp.title}
                     </h3>
                     <p className={`
-                      text-[#86868B] text-[17px] md:text-[19px] mb-10 leading-relaxed font-medium tracking-tight
+                      text-muted text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] mb-6 sm:mb-8 md:mb-10 leading-relaxed font-medium tracking-tight
                       transition-all duration-500 transform
                       ${isActive ? 'translate-y-0 opacity-100 delay-200' : 'translate-y-8 opacity-0'}
                     `}>
                       {usp.description}
                     </p>
-                    
+
                     <button className={`
                       flex items-center gap-2 text-[15px] font-semibold text-white
-                      bg-[#1D1D1F] hover:bg-[#000000] px-6 py-3.5 rounded-full
-                      transition-all duration-500 transform
+                      bg-accent hover:bg-accent-soft shadow-sm px-5 sm:px-6 py-3 sm:py-3.5 rounded-full
+                      transition-all duration-500 transform text-[13px] sm:text-[15px]
                       ${isActive ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-8 opacity-0'}
                     `}>
                       Learn More
@@ -193,7 +194,7 @@ export function WhyChooseUsSection() {
         </div>
 
         {/* Mobile View All Button */}
-        <button className="md:hidden mt-10 w-full flex items-center justify-center gap-2 text-[15px] font-medium text-[#0066CC]">
+        <button className="md:hidden mt-10 w-full flex items-center justify-center gap-2 text-[15px] font-medium text-accent">
           View All Capabilities
           <ArrowRight size={16} />
         </button>

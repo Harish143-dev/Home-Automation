@@ -1,283 +1,275 @@
 'use client';
 
-import Image from 'next/image';
 import React, { useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { DURATION, EASE, SCROLL } from '../../lib/animation.config';
-import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsapSetup';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
+import { ArrowRight } from 'lucide-react';
 
 const PANELS = [
   {
     label: '01',
     title: 'Residential',
-    description: 'Bespoke automation seamlessly woven into the fabric of your sanctuary.',
+    btn: "Discover Residential Projects",
+    description: 'Control Security, Lights, Shades, Audio, Video and Wifi. Everything from one screen with integrated Home Automation.',
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
   },
   {
     label: '02',
     title: 'Hospitality',
-    description: 'Elevating sensory experiences to redefine uncompromising luxury.',
-    image: 'https://images.unsplash.com/photo-1542314831-c6a4d14b0df6?auto=format&fit=crop&w=800&q=80',
+    btn: "Discover Hospitality Projects",
+    description: 'Reduce Operating Expenditure by over 30%, reducing dependence on Manpower. Integrate automation in Public Areas and Rooms.',
+    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80',
   },
   {
     label: '03',
     title: 'Commercial',
-    description: 'Intelligent infrastructures engineered for pinnacle productivity.',
+    btn: "Discover Commercial Projects",
+    description: 'Save upto 40% energy and 30% long term costs with light management strategies integrated with automation',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
   }
 ];
 
+// Layout Slots for GSAP animations
+const SLOTS = {
+  center: { top: '15vh', left: '20vw', width: '40vw', height: '70vh', borderRadius: '24px', opacity: 1 },
+  topLeft: { top: '5vh', left: '5vw', width: '10vw', height: '10vw', borderRadius: '16px', opacity: 1 },
+  bottomRight: { top: '75vh', left: '85vw', width: '10vw', height: '10vw', borderRadius: '16px', opacity: 1 },
+  hidden: { top: '75vh', left: '85vw', width: '10vw', height: '10vw', borderRadius: '16px', opacity: 0 }
+};
+
 export function AutomationSpaces() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const scrollSectionRef = useRef<HTMLElement>(null);
-  const pinRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLDivElement>(null);
-  const ctaSectionRef = useRef<HTMLDivElement>(null);
-  const ctaBtnRef = useRef<HTMLButtonElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { isMobile, isReady } = useBreakpoint();
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
-    if (isMobile || !isReady || prefersReducedMotion) return;
+    if (!sectionRef.current || isMobile || !isReady || prefersReducedMotion) return;
 
-    const scrollSection = scrollSectionRef.current;
-    const pinEl = pinRef.current;
-    const heading = headingRef.current;
-    // Use scoped class selectors instead of ref arrays (audit M6)
-    const cards = gsap.utils.toArray('.as-card', pinEl) as HTMLDivElement[];
-    if (!scrollSection || !pinEl || !heading || cards.length < 3) return;
+    // Set Initial States for Images
+    PANELS.forEach((_, i) => {
+      const el = `.exp-img-${i}`;
+      if (i === 0) {
+        // First image starts hidden and slightly scaled down
+        gsap.set(el, { ...SLOTS.center, opacity: 0, scale: 0.9 });
+      } else if (i === 1) {
+        gsap.set(el, SLOTS.bottomRight);
+      } else {
+        gsap.set(el, SLOTS.hidden);
+      }
 
-    // ── Initial states ──
-    gsap.set(heading, { opacity: 0, y: 40 });
-    gsap.set(cards, { opacity: 0, scale: 0.8, y: 60 });
-    gsap.set(cards, {
-      xPercent: -50,
-      yPercent: -50,
-      left: '50%',
-      top: '55%',
+      const textEl = `.exp-text-${i}`;
+      gsap.set(textEl, { opacity: 0, y: 20 }); // ALL text starts hidden
     });
 
-    const tl = gsap.timeline({
-        defaults: { ease: EASE.standard },
-        scrollTrigger: {
-          trigger: scrollSection,
-          start: 'top top',
-          end: SCROLL.sectionDistance,
-          pin: pinEl,
-          pinSpacing: true,
-          scrub: SCROLL.scrub,
-          anticipatePin: SCROLL.anticipatePin,
-          invalidateOnRefresh: true,
-        }
-      });
+    // Heading starts visible
+    gsap.set('.section-intro', { opacity: 1, y: 0 });
 
-      // ─── PHASE 1 (0 → 1.0): Heading fades in centered ───
-      tl.to(heading, {
-        opacity: 1,
-        y: 0,
-        duration: DURATION.reveal,
+    const mainTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top top',
+        end: `+=${(PANELS.length + 1) * 150}%`, // Added 150vh extra for the intro heading sequence
+        pin: true,
+        scrub: 1.2,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      }
+    });
+
+    // Intro Phase: Hide heading and reveal first gallery image
+    const introTl = gsap.timeline();
+    introTl.to('.section-intro', {
+      opacity: 0,
+      y: -30,
+      duration: 0.8,
+      ease: 'power2.inOut'
+    }, 0);
+
+    introTl.to('.exp-img-0', {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, 0.5); // Image starts appearing just as heading fades out
+
+    introTl.to('.exp-text-0', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, 0.8);
+
+    mainTl.add(introTl);
+
+    // Create transitions between each image
+    for (let i = 0; i < PANELS.length - 1; i++) {
+      const currentImg = `.exp-img-${i}`;
+      const nextImg = `.exp-img-${i + 1}`;
+      const nextNextImg = `.exp-img-${i + 2}`;
+      const currentText = `.exp-text-${i}`;
+      const nextText = `.exp-text-${i + 1}`;
+
+      const phaseTl = gsap.timeline();
+
+      // 1. Move current image to top-left history slot
+      phaseTl.to(currentImg, {
+        ...SLOTS.topLeft,
+        ease: 'power2.inOut',
+        duration: 1
       }, 0);
 
-      // ─── PHASE 2 (1.0 → 1.6): Heading fades OUT completely ───
-      tl.to(heading, {
+      // 2. Fade out current text
+      phaseTl.to(currentText, {
         opacity: 0,
         y: -30,
-        duration: DURATION.medium,
-        ease: EASE.smooth,
-      }, 1.0);
+        ease: 'power2.inOut',
+        duration: 0.4
+      }, 0);
 
-      // ─── PHASE 3 (1.4): First card appears ───
-      tl.to(cards[0], {
+      // 3. Move next image from bottom-right preview slot to center active slot
+      phaseTl.to(nextImg, {
+        ...SLOTS.center,
+        ease: 'power2.inOut',
+        duration: 1
+      }, 0);
+
+      // 4. Fade in next text
+      phaseTl.to(nextText, {
         opacity: 1,
-        scale: 0.88,
         y: 0,
-        duration: DURATION.reveal,
-      }, 1.4);
+        ease: 'power2.out',
+        duration: 0.4
+      }, 0.6); // Fade in slightly after image is settling
 
-      // ─── PHASE 4 (2.2): Second card rises ───
-      tl.to(cards[1], {
-        opacity: 1,
-        scale: 0.84,
-        y: 40,
-        duration: DURATION.reveal,
-      }, 2.2);
+      // 5. If there's another image waiting in line, reveal it in the bottom right slot
+      if (i + 2 < PANELS.length) {
+        phaseTl.to(nextNextImg, {
+          opacity: 1,
+          ease: 'power2.inOut',
+          duration: 0.4
+        }, 0.6);
+      }
 
-      // ─── PHASE 5 (3.2): Triangular spread ───
-      tl.to(cards[0], {
-        x: '-28vw',
-        y: '-3vh',
-        scale: 0.84,
-        rotation: -3,
-        duration: 1.3,
-        ease: EASE.smooth,
-      }, 3.2);
-
-      tl.to(cards[1], {
-        x: 0,
-        y: '7vh',
-        scale: 0.8,
-        rotation: 0,
-        duration: 1.3,
-        ease: EASE.smooth,
-      }, 3.2);
-
-      tl.to(cards[2], {
-        opacity: 1,
-        scale: 0.84,
-        x: '28vw',
-        y: '-3vh',
-        rotation: 3,
-        duration: 1.3,
-        ease: EASE.smooth,
-      }, 3.4);
+      mainTl.add(phaseTl);
+    }
 
     scheduleScrollRefresh();
 
-    // ── CTA section: scroll-triggered reveal AFTER pin ──
-    if (ctaSectionRef.current && ctaBtnRef.current) {
-      gsap.set(ctaBtnRef.current, { opacity: 0, y: 30 });
+    return () => {
+      mainTl.kill();
+      mainTl.scrollTrigger?.kill();
+    };
+  }, { scope: sectionRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
 
-      ScrollTrigger.create({
-        trigger: ctaSectionRef.current,
-        start: 'top 70%',
-        onEnter: () => {
-          gsap.to(ctaBtnRef.current, {
-            opacity: 1,
-            y: 0,
-            duration: DURATION.slow,
-            ease: EASE.reveal,
-          });
-        },
-        once: true,
-      });
-    }
-
-  }, { scope: wrapperRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
-
-  // Show nothing until breakpoint is measured (audit C3)
-  if (!isReady) {
-    return <div className="w-full h-screen" />;
-  }
-
-  // ── Mobile: Simple vertical cards ──
-  if (isMobile || prefersReducedMotion) {
+  // Mobile / Reduced Motion Fallback
+    if (isReady && (isMobile || prefersReducedMotion)) {
     return (
-      <div>
-        <section className="w-full px-4 py-16 flex flex-col gap-6">
-          <div className="mb-4">
-            <p className="text-xs font-mono tracking-[0.3em] uppercase text-muted mb-3">What we do</p>
-            <h2 className="text-2xl font-semibold text-foreground tracking-tight">Tailored Automation for Every Space</h2>
+      <div id="automation-spaces" className="bg-background">
+        <section className="py-20 px-5 text-foreground">
+          <div className="mb-12 px-2 text-center">
+            <p className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold opacity-60 mb-2">What we do</p>
+            <h2 className="text-3xl font-bold">Tailored Automation for Every Space</h2>
           </div>
-          {PANELS.map((panel, i) => (
-            <div key={i} className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src={panel.image}
-                alt=""
-                fill
-                sizes="100vw"
-                className="object-cover"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-                <span className="text-[10px] font-mono text-white/40 tracking-widest uppercase mb-2 block">{panel.label}</span>
-                <h3 className="text-xl font-semibold text-white tracking-tight mb-1">{panel.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{panel.description}</p>
+          <div className="flex flex-col gap-16">
+            {PANELS.map((panel) => (
+              <div key={panel.label} className="flex flex-col gap-6">
+                <div className="w-full aspect-[4/5] relative rounded-2xl overflow-hidden shadow-xl">
+                  <img src={panel.image} className="w-full h-full object-cover" alt={panel.title} />
+                </div>
+                <div className="px-2">
+                  <div className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold opacity-60 mb-2">
+                    {panel.label} - {panel.title}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl leading-[1.3] font-medium mb-6 tracking-tight">{panel.description}</h3>
+                  <button className="flex items-center gap-2 text-[11px] sm:text-xs font-bold border-b-2 border-accent text-accent pb-1 uppercase tracking-wider hover:opacity-70 transition-opacity w-fit">
+                    {panel.btn}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-          <div className="flex justify-center pt-6">
-            <button type="button" className="group flex h-13 items-center gap-2.5 rounded-full bg-foreground px-7 font-medium text-white transition-all duration-300 hover:scale-105 active:scale-95">
-              <span className="text-sm tracking-wide">Explore Solutions</span>
-              <ArrowRight className="h-4 w-4" />
-            </button>
+            ))}
           </div>
         </section>
+
+        {/* Global Section CTA - Mobile */}
+        <div className="w-full flex items-center justify-center pb-24 pt-8">
+          <button
+            type="button"
+            className="group flex h-14 items-center gap-3 rounded-full bg-accent px-8 font-medium text-white text-base transition-all duration-300 hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95"
+          >
+            <span className="tracking-wide">Explore All Solutions</span>
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </div>
       </div>
     );
   }
 
-  // ── Desktop: 3-phase scroll experience ──
   return (
-    <div ref={wrapperRef}>
-      {/* Phase 1 & 2: Scroll trigger area for pin + card animation */}
+    <div id="automation-spaces" className="relative w-full bg-background">
       <section
-        ref={scrollSectionRef}
-        className="relative w-full"
+        ref={sectionRef}
+        className={`relative h-screen w-full text-foreground overflow-hidden transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
       >
-        <div
-          ref={pinRef}
-          className="w-full h-screen relative overflow-hidden"
-        >
-          {/* Heading — starts vertically centered, moves up during animation */}
-          <div
-            ref={headingRef}
-            className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center opacity-0"
-          >
-            <p className="text-xs font-mono tracking-[0.3em] uppercase text-muted mb-4">
-              What we do
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground tracking-tight leading-tight">
-              Tailored Automation<br />for Every Space
-            </h2>
-          </div>
+        {/* Intro Heading */}
+        <div className="section-intro absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-[50] pointer-events-none">
+          <p className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold opacity-60 mb-4">
+            What we do
+          </p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight leading-[1.1]">
+            Tailored Automation<br />for Every Space
+          </h2>
+        </div>
 
-          {/* Cards — using scoped class selectors instead of ref arrays (audit M6) */}
+
+
+        {/* Gallery Images Container */}
+        <div className="absolute inset-0 pointer-events-none">
           {PANELS.map((panel, i) => (
             <div
-              key={i}
-              className="motion-layer as-card absolute z-30 w-[320px] md:w-[380px] lg:w-[400px] aspect-[3/4] rounded-[20px] overflow-hidden bg-neutral-950 shadow-2xl transform-gpu cursor-default group opacity-0"
-              style={{
-                zIndex: 30 + i,
-                backgroundImage: `url(${panel.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+              key={panel.label}
+              className={`exp-img-${i} absolute overflow-hidden shadow-2xl transform-gpu pointer-events-auto`}
             >
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src={panel.image}
-                  alt=""
-                  fill
-                  sizes="(min-width: 1024px) 400px, 380px"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  aria-hidden="true"
-                />
+              <img
+                src={panel.image}
+                alt={panel.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Dynamic Text Container */}
+        <div className="absolute top-[28vh] right-[8vw] w-[28vw] h-auto flex flex-col justify-center pointer-events-none">
+          {PANELS.map((panel, i) => (
+            <div
+              key={panel.label}
+              className={`exp-text-${i} absolute top-0 left-0 w-full pointer-events-auto flex flex-col items-start`}
+            >
+              <div className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold opacity-60 mb-4">
+                {panel.label} - {panel.title}
               </div>
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-7 z-10">
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-white/20 text-[10px] font-mono text-white/50">
-                    {panel.label}
-                  </span>
-                  <span className="w-5 h-px bg-white/20" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white tracking-tight leading-tight mb-2">
-                  {panel.title}
-                </h3>
-                <p className="text-sm text-white/55 max-w-xs leading-relaxed font-light">
-                  {panel.description}
-                </p>
-              </div>
+              <h3 className="text-[1.1rem] lg:text-[1.3rem] xl:text-[1.6rem] leading-relaxed font-medium mb-8 tracking-tight text-foreground">
+                {panel.description}
+              </h3>
+              <button className="flex items-center gap-2 text-[11px] sm:text-xs font-bold border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity uppercase tracking-wider">
+                {panel.btn}
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Phase 3: CTA section — scrolls naturally after pin releases */}
-      <div
-        ref={ctaSectionRef}
-        className="relative w-full flex items-center justify-center py-24 md:py-32"
-      >
+      {/* Global Section CTA - scrolls naturally after pin */}
+      <div className="relative w-full flex items-center justify-center pb-32 pt-16 bg-background">
         <button
-          ref={ctaBtnRef}
           type="button"
-          className="group flex h-14 md:h-16 items-center gap-3 rounded-full bg-foreground px-8 md:px-10 font-medium text-white text-base md:text-lg transition-all duration-300 hover:scale-105 hover:gap-4 active:scale-95 opacity-0"
+          className="group flex h-14 md:h-16 items-center gap-3 rounded-full bg-accent px-8 md:px-10 font-medium text-white text-base md:text-lg transition-all duration-300 hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95"
         >
-          <span className="tracking-wide">Explore Solutions</span>
+          <span className="tracking-wide">Get a Quote</span>
           <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
         </button>
       </div>

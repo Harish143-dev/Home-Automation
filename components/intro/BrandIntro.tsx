@@ -81,11 +81,11 @@ export function BrandIntro() {
     >
       <div
         ref={panelRef}
-        className="flex h-full w-full items-center justify-center bg-black px-6 text-center text-white"
+        className="flex h-full w-full items-center justify-center bg-background px-6 text-center text-foreground"
       >
         <h1
           ref={titleRef}
-          className="max-w-[11ch] text-center font-[var(--font-display)] text-[clamp(3.2rem,8.5vw,7.6rem)] font-semibold leading-[0.9] tracking-tight text-white"
+          className="max-w-[11ch] text-center font-[var(--font-display)] text-[clamp(3.2rem,8.5vw,7.6rem)] font-semibold leading-[0.9] tracking-tight text-foreground"
         >
           ATPL Automation
         </h1>

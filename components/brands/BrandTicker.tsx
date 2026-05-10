@@ -95,21 +95,21 @@ export function BrandTicker() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full overflow-hidden border-y border-white/10 bg-black py-24 text-white md:py-32"
+      className="relative w-full overflow-hidden border-y border-white/10 bg-black py-16 sm:py-20 md:py-24 text-white lg:py-32"
     >
-      <div className="absolute inset-x-0 top-12 text-center text-[10px] font-medium uppercase tracking-[0.3em] text-white/45 md:top-16 md:text-xs">
+      <div className="absolute inset-x-0 top-8 sm:top-10 md:top-12 text-center text-[9px] sm:text-[10px] font-medium uppercase tracking-[0.3em] text-white/45 md:top-16 md:text-xs">
         Engineered with the World&apos;s Best
       </div>
 
       {/* Advanced Layout: Custom Edge Masks for smooth fade & blur effect while maintaining center focus visibility. */}
       {/* Left Mask */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-black/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_right,black_20%,transparent_100%)] md:w-64" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-24 bg-black/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_right,black_20%,transparent_100%)] md:w-48 lg:w-64" />
       {/* Right Mask */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-black/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_left,black_20%,transparent_100%)] md:w-64" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24 bg-black/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_left,black_20%,transparent_100%)] md:w-48 lg:w-64" />
 
       {/* Interactive Main Ticker Row */}
       <div 
-        className="mt-16 md:mt-20 flex w-max pointer-events-auto"
+        className="mt-10 sm:mt-14 md:mt-20 flex w-max pointer-events-auto"
         onMouseEnter={pauseLoop}
         onMouseLeave={playLoop}
         ref={trackRef}
@@ -117,10 +117,10 @@ export function BrandTicker() {
         {LOOPED_BRANDS.map((brand, i) => (
           <div 
             key={i}
-            className="flex-shrink-0 px-12 md:px-24 flex items-center justify-center transition-opacity duration-500 ease-out opacity-65 hover:opacity-100 cursor-default"
+            className="flex-shrink-0 px-6 sm:px-10 md:px-16 lg:px-24 flex items-center justify-center transition-opacity duration-500 ease-out opacity-65 hover:opacity-100 cursor-default"
           >
             {/* Generic Typography Placeholder (Replaces Logo Assets Natively) */}
-            <span className="text-xl font-bold uppercase tracking-[0.1em] text-white sm:text-2xl sm:tracking-[0.15em] md:text-4xl" style={{ fontFamily: 'var(--font-display)'}}>
+            <span className="text-base font-bold uppercase tracking-[0.08em] text-white sm:text-xl sm:tracking-[0.1em] md:text-2xl md:tracking-[0.12em] lg:text-4xl lg:tracking-[0.15em]" style={{ fontFamily: 'var(--font-display)'}}>
               {brand}
             </span>
           </div>

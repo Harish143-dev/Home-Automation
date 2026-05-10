@@ -154,26 +154,26 @@ export function ExperienceCentersSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-black py-24 font-sans text-white md:py-32 border-t border-white/5">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(0,102,204,0.18),transparent_42%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_42%)]" />
+    <section className="relative overflow-hidden bg-background py-24 font-sans text-foreground md:py-32 border-t border-border">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(0,102,204,0.08),transparent_42%),linear-gradient(180deg,rgba(0,0,0,0.02),transparent_42%)]" />
       <div className="relative z-10 mx-auto mb-14 max-w-7xl px-6 text-center md:px-8">
-        <h2 className="mb-6 text-[2.5rem] font-semibold leading-[1.1] tracking-tight text-white md:text-[3.5rem]">
+        <h2 className="mb-6 text-[2.5rem] font-semibold leading-[1.1] tracking-tight text-foreground md:text-[3.5rem]">
           Global Innovation,<br className="hidden md:block" /> Centered in India.
         </h2>
-        <p className="mx-auto max-w-2xl text-[19px] font-medium leading-relaxed tracking-tight text-neutral-400 md:text-[21px]">
+        <p className="mx-auto max-w-2xl text-[19px] font-medium leading-relaxed tracking-tight text-muted md:text-[21px]">
           Explore our experience centers worldwide, proudly engineered and operated from our Mumbai Headquarters.
         </p>
-        <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-2.5 text-[14px] font-medium text-white backdrop-blur-md">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#0066CC] shadow-[0_0_10px_rgba(0,102,204,0.8)]" />
+        <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-5 py-2.5 text-[14px] font-medium text-foreground backdrop-blur-md shadow-sm">
+          <span className="h-2.5 w-2.5 rounded-full bg-[#0066CC] shadow-[0_0_10px_rgba(0,102,204,0.4)]" />
           Proudly Made in India. Trusted Globally.
         </div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
-        <div className="relative min-h-[620px] overflow-hidden rounded-[34px] border border-white/10 shadow-[0_0_120px_rgba(0,102,204,0.1)] md:min-h-[760px]">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(0,102,204,0.22),transparent_34%),radial-gradient(circle_at_50%_82%,rgba(255,255,255,0.08),transparent_28%)]" />
-          <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
-          <div className="pointer-events-none absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/35 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/70 backdrop-blur-md md:left-8 md:top-8">
+        <div className="relative min-h-[620px] overflow-hidden rounded-[34px] border border-border shadow-sm md:min-h-[760px] bg-panel">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(0,102,204,0.06),transparent_34%),radial-gradient(circle_at_50%_82%,rgba(0,0,0,0.02),transparent_28%)]" />
+          <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
+          <div className="pointer-events-none absolute left-5 top-5 z-20 rounded-full border border-border bg-panel/80 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-muted backdrop-blur-md md:left-8 md:top-8 shadow-sm">
             Live Network
           </div>
 
@@ -185,8 +185,8 @@ export function ExperienceCentersSection() {
                 onClick={() => selectCenter(center.id)}
                 className={`pointer-events-auto flex min-w-[154px] items-center gap-2 rounded-full border px-3 py-2 text-left text-[12px] font-semibold backdrop-blur-md transition-colors ${
                   center.id === selectedCenter.id
-                    ? 'border-[#0066CC]/80 bg-[#0066CC]/25 text-white'
-                    : 'border-white/10 bg-black/25 text-white/60 hover:bg-white/10 hover:text-white'
+                    ? 'border-[#0066CC]/50 bg-[#0066CC]/10 text-foreground'
+                    : 'border-border bg-surface-darker text-muted hover:bg-panel hover:text-foreground'
                 }`}
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-[#4da3ff]" />
@@ -203,8 +203,8 @@ export function ExperienceCentersSection() {
                 onClick={() => selectCenter(center.id)}
                 className={`pointer-events-auto flex min-w-[154px] items-center justify-end gap-2 rounded-full border px-3 py-2 text-right text-[12px] font-semibold backdrop-blur-md transition-colors ${
                   center.id === selectedCenter.id
-                    ? 'border-[#0066CC]/80 bg-[#0066CC]/25 text-white'
-                    : 'border-white/10 bg-black/25 text-white/60 hover:bg-white/10 hover:text-white'
+                    ? 'border-[#0066CC]/50 bg-[#0066CC]/10 text-foreground'
+                    : 'border-border bg-surface-darker text-muted hover:bg-panel hover:text-foreground'
                 }`}
               >
                 {center.city}
@@ -213,12 +213,12 @@ export function ExperienceCentersSection() {
             ))}
           </div>
 
-          <div className="pointer-events-none absolute left-[15%] top-[23%] hidden items-center gap-2 text-white/35 md:flex">
+          <div className="pointer-events-none absolute left-[15%] top-[23%] hidden items-center gap-2 text-muted md:flex">
             <Plane size={18} className="-rotate-12" />
-            <span className="h-px w-20 bg-gradient-to-r from-white/35 to-transparent" />
+            <span className="h-px w-20 bg-gradient-to-r from-black/10 to-transparent" />
           </div>
-          <div className="pointer-events-none absolute right-[15%] top-[27%] hidden items-center gap-2 text-white/30 md:flex">
-            <span className="h-px w-20 bg-gradient-to-l from-white/35 to-transparent" />
+          <div className="pointer-events-none absolute right-[15%] top-[27%] hidden items-center gap-2 text-muted md:flex">
+            <span className="h-px w-20 bg-gradient-to-l from-black/10 to-transparent" />
             <Plane size={18} className="rotate-12" />
           </div>
 
@@ -300,7 +300,7 @@ export function ExperienceCentersSection() {
                   className={`shrink-0 rounded-full border px-4 py-2 text-[13px] font-semibold transition-colors ${
                     isSelected
                       ? 'border-[#0066CC] bg-[#0066CC] text-white'
-                      : 'border-white/10 bg-white/5 text-white/70'
+                      : 'border-border bg-surface-darker text-muted'
                   }`}
                 >
                   {center.city}
@@ -309,7 +309,7 @@ export function ExperienceCentersSection() {
             })}
           </div>
 
-          <div className="absolute inset-x-4 bottom-5 z-20 mx-auto max-w-[390px] rounded-[24px] border border-white/10 bg-black/45 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl md:bottom-8 md:right-8 md:left-auto md:mx-0">
+          <div className="absolute inset-x-4 bottom-5 z-20 mx-auto max-w-[390px] rounded-[24px] border border-border bg-panel/90 p-4 shadow-xl backdrop-blur-xl md:bottom-8 md:right-8 md:left-auto md:mx-0">
             <div className="mb-3 flex items-center justify-between gap-3">
               <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#7db9ff]">
                 {selectedCenter.city}, {selectedCenter.country}
@@ -320,15 +320,15 @@ export function ExperienceCentersSection() {
                 </span>
               )}
             </div>
-            <h3 className="mb-2 text-[22px] font-semibold leading-tight tracking-tight text-white">
+            <h3 className="mb-2 text-[22px] font-semibold leading-tight tracking-tight text-foreground">
               {selectedCenter.name}
             </h3>
-            <p className="mb-4 line-clamp-2 text-[13px] font-medium leading-relaxed text-neutral-300">
+            <p className="mb-4 line-clamp-2 text-[13px] font-medium leading-relaxed text-muted">
               {selectedCenter.description}
             </p>
 
-            <div className="mb-4 flex items-start gap-2 text-neutral-300">
-              <MapPin size={14} className="mt-0.5 shrink-0 text-[#4da3ff]" />
+            <div className="mb-4 flex items-start gap-2 text-muted">
+              <MapPin size={14} className="mt-0.5 shrink-0 text-[#0066CC]" />
               <span className="line-clamp-2 text-[12px] font-medium leading-relaxed">
                 {selectedCenter.address}
               </span>
@@ -337,13 +337,13 @@ export function ExperienceCentersSection() {
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                className="flex items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2.5 text-[12px] font-semibold text-black transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center justify-center gap-1.5 rounded-full bg-accent px-3 py-2.5 text-[12px] font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-secondary active:scale-[0.98]"
               >
                 <Calendar size={14} /> Book
               </button>
               <button
                 type="button"
-                className="flex items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-2.5 text-[12px] font-semibold text-white transition-colors duration-300 hover:bg-white/10"
+                className="flex items-center justify-center gap-1.5 rounded-full border border-border bg-surface-darker px-3 py-2.5 text-[12px] font-semibold text-foreground transition-colors duration-300 hover:bg-panel shadow-sm"
               >
                 <Navigation size={14} /> Route
               </button>

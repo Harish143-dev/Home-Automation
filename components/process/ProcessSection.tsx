@@ -148,54 +148,55 @@ export function ProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="process-section relative z-30 isolate bg-[#FAFAFC] border-t border-[#E5E5EA] overflow-hidden"
+      className="process-section relative z-30 isolate bg-background border-t border-border overflow-hidden"
+      id="process"
     >
       {/* DESKTOP LAYOUT (Pinned Screen) */}
       <div className="relative hidden h-screen md:flex items-center justify-center overflow-hidden">
         
         {/* Title Block - Centered initially */}
         <div ref={titleRef} className="absolute z-20 text-center w-full max-w-4xl px-8 pointer-events-none">
-          <h2 className="text-[4rem] lg:text-[6rem] font-semibold text-[#1D1D1F] tracking-tight leading-[1.05] mb-6">
+          <h2 className="text-[2.5rem] md:text-[4rem] lg:text-[6rem] font-semibold text-foreground tracking-tight leading-[1.05] mb-4 md:mb-6">
             Our Approach
           </h2>
-          <p className="text-[22px] lg:text-[28px] text-[#86868B] font-medium tracking-tight">
+          <p className="text-base md:text-[22px] lg:text-[28px] text-muted font-medium tracking-tight">
             A seamless journey from consultation to long-term support.
           </p>
         </div>
 
         {/* Horizontal Scrolling Area - Starts entirely offscreen to the right */}
         <div ref={containerRef} className="absolute top-0 left-full h-full flex items-center z-10 w-max">
-          <div className="flex gap-16 items-center h-full px-[15vw]">
+          <div className="flex gap-8 md:gap-12 lg:gap-16 items-center h-full px-[10vw] md:px-[15vw]">
             {steps.map((step) => {
               const Icon = step.icon;
               return (
                 <div 
                   key={step.id} 
-                  className="motion-layer step-card w-[420px] shrink-0 bg-white/80 backdrop-blur-2xl rounded-[32px] p-10 border border-black/[0.04] shadow-[0_30px_60px_rgba(0,0,0,0.06)]"
+                  className="motion-layer step-card w-[320px] md:w-[380px] lg:w-[420px] shrink-0 bg-panel/80 backdrop-blur-2xl rounded-[28px] md:rounded-[32px] p-7 md:p-8 lg:p-10 border border-border shadow-lg"
                 >
-                  <div className="flex items-center justify-between mb-10">
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-[#0066CC] text-white shadow-lg shadow-blue-500/20">
+                  <div className="flex items-center justify-between mb-7 md:mb-8 lg:mb-10">
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-accent text-white shadow-sm">
                       <Icon size={24} />
                     </div>
-                    <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-[#0066CC]">
+                    <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-accent">
                       Step {step.id}
                     </span>
                   </div>
                   
-                  <h3 className="text-[26px] font-semibold text-[#1D1D1F] mb-4 tracking-tight">{step.title}</h3>
-                  <p className="text-[#86868B] text-[17px] leading-relaxed">{step.desc}</p>
+                  <h3 className="text-xl md:text-[24px] lg:text-[26px] font-semibold text-foreground mb-3 md:mb-4 tracking-tight">{step.title}</h3>
+                  <p className="text-muted text-[15px] md:text-[17px] leading-relaxed">{step.desc}</p>
                 </div>
               );
             })}
             
             {/* Final CTA Card */}
-            <div className="motion-layer step-card w-[420px] shrink-0 bg-[#1D1D1F] rounded-[32px] p-10 border border-black/10 shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
-              <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-white mb-10">
+            <div className="motion-layer step-card w-[320px] md:w-[380px] lg:w-[420px] shrink-0 bg-surface-darker rounded-[28px] md:rounded-[32px] p-7 md:p-8 lg:p-10 border border-border shadow-lg">
+              <div className="w-12 md:w-14 h-12 md:h-14 rounded-full border border-border bg-panel shadow-sm flex items-center justify-center text-foreground mb-7 md:mb-8 lg:mb-10">
                 <ArrowRight size={24} />
               </div>
-              <h3 className="text-[28px] font-semibold text-white mb-4 tracking-tight">Ready to begin?</h3>
-              <p className="text-[#A1A1A6] text-[17px] leading-relaxed mb-10">Take the first step towards your intelligent luxury living space.</p>
-              <button type="button" className="bg-white text-black px-8 py-4 rounded-full text-[16px] font-semibold flex items-center gap-2 hover:bg-white/90 transition-colors w-max">
+              <h3 className="text-xl md:text-[24px] lg:text-[28px] font-semibold text-foreground mb-3 md:mb-4 tracking-tight">Ready to begin?</h3>
+              <p className="text-muted text-[15px] md:text-[17px] leading-relaxed mb-7 md:mb-8 lg:mb-10">Take the first step towards your intelligent luxury living space.</p>
+              <button type="button" className="bg-accent text-white hover:bg-accent-soft shadow-sm px-8 py-4 rounded-full text-[16px] font-semibold flex items-center gap-2 transition-all w-max">
                 Book a Consultation
               </button>
             </div>
@@ -204,42 +205,43 @@ export function ProcessSection() {
       </div>
 
       {/* MOBILE LAYOUT (Vertical Stack) */}
-      <div className="process-mobile-container md:hidden px-6 py-24 flex flex-col gap-6 relative z-10">
+      <div className="process-mobile-container md:hidden px-5 sm:px-6 py-16 sm:py-20 md:py-24 flex flex-col gap-5 sm:gap-6 relative z-10">
         <div className="mb-12">
-          <h2 className="text-[2.5rem] font-semibold text-[#1D1D1F] tracking-tight leading-[1.1] mb-4">
+          <h2 className="text-[2rem] sm:text-[2.5rem] font-semibold text-foreground tracking-tight leading-[1.1] mb-3 sm:mb-4">
             Our Approach
           </h2>
-          <p className="text-[17px] text-[#86868B] font-medium tracking-tight">
+          <p className="text-[15px] sm:text-[17px] text-muted font-medium tracking-tight">
             A seamless journey from consultation to long-term support.
           </p>
         </div>
 
         <div className="relative">
-          <div className="absolute top-0 left-10 w-[2px] h-full bg-[#E5E5EA] z-0" />
+          <div className="absolute top-0 left-8 sm:left-10 w-[2px] h-full bg-border z-0" />
 
           {steps.map((step) => {
             const Icon = step.icon;
             return (
-              <div key={step.id} className="step-card-mobile relative z-10 bg-white rounded-[24px] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/[0.04] flex gap-5 mb-6">
-                <div className="absolute top-10 -left-[19px] w-3 h-3 rounded-full bg-[#0066CC] ring-4 ring-[#FAFAFC]" />
+              <div key={step.id} className="step-card-mobile relative z-10 bg-panel rounded-xl sm:rounded-[24px] p-5 sm:p-6 md:p-8 shadow-lg border border-border flex gap-4 sm:gap-5 mb-4 sm:mb-6">
+                <div className="absolute top-10 -left-[19px] w-3 h-3 rounded-full bg-accent ring-4 ring-background" />
                 <div className="shrink-0 mt-1">
-                   <div className="w-10 h-10 rounded-full bg-[#F5F5F7] text-[#0066CC] flex items-center justify-center">
-                     <Icon size={18} />
+                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-surface-darker text-accent shadow-sm flex items-center justify-center">
+                     <Icon size={16} className="sm:hidden" />
+                     <Icon size={18} className="hidden sm:block" />
                    </div>
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#0066CC] block mb-2">Step {step.id}</span>
-                  <h3 className="text-[20px] font-semibold text-[#1D1D1F] mb-2 tracking-tight">{step.title}</h3>
-                  <p className="text-[#86868B] text-[15px] leading-relaxed">{step.desc}</p>
+                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-accent block mb-1.5 sm:mb-2">Step {step.id}</span>
+                  <h3 className="text-base sm:text-lg md:text-[20px] font-semibold text-foreground mb-1.5 sm:mb-2 tracking-tight">{step.title}</h3>
+                  <p className="text-muted text-[13px] sm:text-[15px] leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             );
           })}
 
-          <div className="step-card-mobile relative z-10 bg-[#1D1D1F] rounded-[24px] p-8 mt-4 text-center border border-white/10 shadow-xl">
-            <h3 className="text-[24px] font-semibold text-white mb-3 tracking-tight">Ready to begin?</h3>
-            <p className="text-[#A1A1A6] text-[15px] leading-relaxed mb-8">Take the first step towards your intelligent living space.</p>
-            <button type="button" className="w-full bg-white text-black px-6 py-4 rounded-full text-[16px] font-semibold flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+          <div className="step-card-mobile relative z-10 bg-surface-darker rounded-xl sm:rounded-[24px] p-6 sm:p-8 mt-2 sm:mt-4 text-center border border-border shadow-xl">
+            <h3 className="text-xl sm:text-[24px] font-semibold text-foreground mb-2 sm:mb-3 tracking-tight">Ready to begin?</h3>
+            <p className="text-muted text-[13px] sm:text-[15px] leading-relaxed mb-6 sm:mb-8">Take the first step towards your intelligent living space.</p>
+            <button type="button" className="w-full bg-accent text-white hover:bg-accent-soft shadow-sm px-5 sm:px-6 py-3.5 sm:py-4 rounded-full text-[14px] sm:text-[16px] font-semibold flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
               Book a Consultation <ArrowRight size={18} />
             </button>
           </div>

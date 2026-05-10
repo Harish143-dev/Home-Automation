@@ -5,6 +5,7 @@ import React, { useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { DURATION, EASE, SCROLL, STAGGER } from '../../lib/animation.config';
 import { gsap, SplitText, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
 
@@ -58,8 +59,10 @@ export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
+  const textWrapperRef = useRef<HTMLDivElement>(null);
   const h1Ref = useRef<HTMLHeadingElement>(null);
-  const jobyTextRef = useRef<HTMLHeadingElement>(null);
+  const pRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   const [isFirstFrameReady, setIsFirstFrameReady] = useState(false);
   const { isMobile, isReady } = useBreakpoint();
@@ -149,40 +152,35 @@ export function HeroSection() {
     }
 
     const initAnimations = () => {
-      // Set initial states explicitly for scrubbed GSAP
-      gsap.set(frame, {
-        height: '85%',
-        borderBottomLeftRadius: '10vw',
-        borderBottomRightRadius: '10vw'
-      });
-      gsap.set(jobyTextRef.current, { opacity: 0, y: 30 }); // Hide text initially
+      const loadTl = gsap.timeline({ defaults: { ease: EASE.reveal } });
 
-      // Entrance Animations
-      const loadTl = gsap.timeline();
+      loadTl.fromTo(frame,
+        { scale: 1.05 },
+        { scale: 1, duration: 1.6, ease: EASE.standard }
+      );
 
       if (split && split.words) {
         loadTl.fromTo(split.words,
           { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.03, duration: 1, ease: 'power3.out' }
+          { y: 0, opacity: 1, stagger: STAGGER.tight, duration: DURATION.slow, ease: EASE.reveal },
+          "-=1.5"
         );
       }
 
-      loadTl.fromTo(['.hero-p', '.hero-cta'],
+      loadTl.fromTo([pRefs.current[0], ctaRef.current],
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: 'power3.out' },
-        "-=0.6"
+        { y: 0, opacity: 1, stagger: STAGGER.normal, duration: DURATION.reveal, ease: EASE.standard },
+        "-=1.2"
       );
 
-      // Main Scroll Scrubbed Timeline
-      // Increased scroll distance to 450vh to make the entire animation drastically slower and more cinematic
       mainTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=450%',
+          end: SCROLL.heroDistance,
           pin: true,
-          scrub: 1.2,
-          anticipatePin: 1,
+          scrub: SCROLL.scrubSlow,
+          anticipatePin: SCROLL.anticipatePin,
           invalidateOnRefresh: true,
           onRefresh: (trigger) => {
             if (trigger.progress <= 0) {
@@ -197,83 +195,35 @@ export function HeroSection() {
         }
       });
 
-      // 1. Scrub through the video frames over the first 80% of scroll
       mainTl.to(frameState, {
         index: FRAME_COUNT - 1,
         ease: 'none',
-        duration: 0.8,
+        duration: 1,
         onUpdate: () => renderFrame(Math.round(frameState.index))
       }, 0);
 
-      // 2. Expand the bottom curve down to fullscreen (takes up 0.0 -> 0.3)
+      if (textWrapperRef.current) {
+
+        mainTl.to(pRefs.current[0], { opacity: 0, y: -20, duration: 0.1 }, 0.25);
+        mainTl.fromTo(pRefs.current[1], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.1 }, 0.25);
+
+        mainTl.to(pRefs.current[1], { opacity: 0, y: -20, duration: 0.1 }, 0.5);
+        mainTl.fromTo(pRefs.current[2], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.1 }, 0.5);
+
+        mainTl.to(textWrapperRef.current, {
+          opacity: 0,
+          y: -20,
+          ease: EASE.smooth,
+          duration: 0.25
+        }, 0.75);
+      }
+
       mainTl.to(frame, {
-        height: '100%',
-        borderBottomLeftRadius: '0px',
-        borderBottomRightRadius: '0px',
-        ease: 'power1.inOut',
-        duration: 0.3
-      }, 0);
-
-      // 3. Fade out the foreground text as we scroll down
-      mainTl.to('.hero-foreground', {
-        y: -50,
-        opacity: 0,
-        ease: 'power2.in',
-        duration: 0.2
-      }, 0);
-
-      // 4. Shrink video height up to 35% to give the big text plenty of room
-      mainTl.to(frame, {
-        height: '35%', // Leaves bottom 65% for the massive text so it doesn't get cut off
-        borderBottomLeftRadius: '15vw',
-        borderBottomRightRadius: '15vw',
-        ease: 'power2.inOut',
-        duration: 0.2
-      }, 0.5);
-
-      // 5. Fade in the big white text on the green background
-      mainTl.to(jobyTextRef.current, {
-        opacity: 1,
-        y: 0,
-        ease: 'power2.out',
-        duration: 0.15
-      }, 0.55);
-
-      // 6. Video completely disappears
-      mainTl.to(frame, {
-        height: '0%', // Video vanishes up
-        ease: 'power2.inOut',
-        duration: 0.2
-      }, 0.7);
-
-      // 7. Background turns to theme background, text to theme foreground
-      mainTl.to(section, {
-        backgroundColor: 'var(--color-background)', // Tailwind theme background
-        ease: 'power2.inOut',
-        duration: 0.2
-      }, 0.8);
-
-      // Fade out the secondary green reveal layer
-      mainTl.to('.hero-reveal-bg', {
-        backgroundColor: 'transparent',
-        ease: 'power2.inOut',
-        duration: 0.2
-      }, 0.8);
-
-      mainTl.to(jobyTextRef.current, {
-        color: 'var(--color-foreground)', // Soft white text
-        y: '-30vh', // Move it up from the bottom to the center of the screen
-        ease: 'power2.inOut',
-        duration: 0.2
-      }, 0.8);
-
-      // 8. Hide the text at the very end of the animation
-      mainTl.to(jobyTextRef.current, {
-        opacity: 0,
-        y: '-40vh',
-        ease: 'power2.in',
-        duration: 0.1
-      }, 0.95);
+        scale: 0.92,
+        borderRadius: '24px',
+        ease: EASE.smooth,
+        duration: 0.25
+      }, 0.75);
 
       scheduleScrollRefresh();
     };
@@ -336,10 +286,9 @@ export function HeroSection() {
     };
   }, { scope: sectionRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
 
-  // Mobile/Reduced Motion Fallback
-  if (isReady && (isMobile || prefersReducedMotion)) {
+  if (!isReady || isMobile || prefersReducedMotion) {
     return (
-      <section ref={sectionRef} id="hero" className="relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 pb-16 sm:pb-20 pt-24 sm:pt-28 md:items-start md:px-16 md:pb-24 lg:px-24">
+      <section ref={sectionRef} id="hero" className="relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-white px-4 sm:px-5 pb-16 sm:pb-20 pt-24 sm:pt-28 md:items-start md:px-16 md:pb-24 lg:px-24">
         <NextImage
           src="/frames-compressed/001.jpg"
           alt=""
@@ -353,14 +302,25 @@ export function HeroSection() {
 
         <div className="relative z-10 flex w-full max-w-xl flex-col items-start text-left">
           <h1 className="mb-4 sm:mb-6 max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-2.5rem)] break-words text-[clamp(1.7rem,9vw,3.2rem)] sm:text-[clamp(1.95rem,9.2vw,3.4rem)] font-semibold leading-[1.06] tracking-tight text-white md:max-w-full md:text-[clamp(3rem,6vw,4.8rem)]">
-            Intelligent Spaces <br />
-            Intelligent Integration
+            <span className="sm:hidden">
+              Intelligent
+              <br />
+              Automation
+              <br />
+              for Luxury
+              <br />
+              Living
+            </span>
+            <span className="hidden sm:inline">
+              Intelligent Automation <br />
+              for Luxury Living
+            </span>
           </h1>
           <div className="mb-6 sm:mb-8 w-full max-w-[260px] sm:max-w-[280px] text-left text-xs sm:text-sm font-light leading-relaxed text-white/70 md:max-w-sm md:text-base lg:text-lg">
             <p>{DESCRIPTIONS[0]}</p>
           </div>
           <div className="flex w-full max-w-sm flex-col gap-2.5 sm:gap-3 sm:flex-row md:max-w-none">
-            <button type="button" className="w-full bg-accent text-white h-11 sm:h-12 rounded-full text-sm sm:text-base font-medium transition-all hover:bg-accent-soft shadow-sm active:scale-95">
+            <button type="button" className="w-full bg-white text-black h-11 sm:h-12 rounded-full text-sm sm:text-base font-medium transition-transform active:scale-95">
               Explore Features
             </button>
             <button type="button" className="w-full bg-transparent border border-white/20 text-white h-11 sm:h-12 rounded-full text-sm sm:text-base font-medium transition-colors hover:bg-white/10 active:scale-95">
@@ -373,84 +333,75 @@ export function HeroSection() {
   }
 
   return (
-    <section
-      ref={sectionRef}
-      id="hero"
-      className={`relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
-    >
-      {/* 🎬 Background Video Layer (Canvas sequence) */}
-      <div
-        ref={frameRef}
-        className="motion-layer absolute top-0 left-0 w-full overflow-hidden origin-top transform-gpu z-[1]"
-        style={{ height: '85%', borderBottomLeftRadius: '10vw', borderBottomRightRadius: '10vw' }}
-      >
-        <NextImage
-          src="/frames-compressed/001.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover absolute inset-0 z-0"
-          aria-hidden="true"
-        />
-        <canvas
-          ref={canvasRef}
-          role="img"
-          aria-label="Smart home visual sequence"
-          className="motion-layer absolute inset-0 block h-full w-full z-0 transform-gpu object-cover"
-          style={{ opacity: isFirstFrameReady ? 1 : 0 }}
-        />
+    <section ref={sectionRef} id="hero" className="relative h-[100vh] bg-white">
+      <div className="relative h-screen w-full overflow-hidden bg-white flex items-center justify-center p-0">
 
-        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-      </div>
-
-      {/* 🌊 The Joby Solid Blue Section (Always physically there, naturally revealed when video shrinks) */}
-      <div className="hero-reveal-bg absolute inset-0 z-[0] flex flex-col items-center justify-end pb-[10vh] pointer-events-none bg-secondary">
-        <h2
-          ref={jobyTextRef}
-          className="text-white text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-bold tracking-tighter leading-[1.1] opacity-0 text-center max-w-6xl px-4"
+        <div
+          ref={frameRef}
+          className="motion-layer relative w-full h-full overflow-hidden origin-center transform-gpu"
         >
-          The future of rooms is coming soon
-        </h2>
-      </div>
+          <NextImage
+            src="/frames-compressed/001.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover absolute inset-0 z-0"
+            aria-hidden="true"
+          />
+          <canvas
+            ref={canvasRef}
+            role="img"
+            aria-label="Smart home visual sequence"
+            className="motion-layer absolute inset-0 block h-full w-full z-0 transform-gpu"
+            style={{ opacity: isFirstFrameReady ? 1 : 0 }}
+          />
 
-      {/* 💎 Foreground Content */}
-      <div className="hero-foreground absolute inset-x-0 bottom-[15%] sm:bottom-[20%] z-[10] px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col md:flex-row items-start md:items-end justify-between pointer-events-none">
+          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+        </div>
 
-        {/* Left: Headline & Actions */}
-        <div className="flex flex-col items-start gap-8 max-w-2xl">
-          <h1
-            ref={h1Ref}
-            className="text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.05] tracking-tight font-medium text-white opacity-0"
-          >
-            Intelligent Spaces <br />
-            Intelligent Integration
-          </h1>
+        <div
+          ref={textWrapperRef}
+          className="absolute inset-x-0 bottom-[8%] sm:bottom-[10%] z-10 px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col md:flex-row items-start md:items-end justify-between pointer-events-none"
+        >
+          <div className="flex flex-col items-start gap-8 max-w-2xl">
+            <h1
+              ref={h1Ref}
+              className="text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.05] tracking-tight font-medium text-white opacity-0"
+            >
+              Intelligent Automation<br /> for Luxury Living
+            </h1>
 
-          <div
-            className="hero-cta flex items-center gap-4 pointer-events-auto opacity-0"
-          >
-            <button type="button" className="group relative flex h-11 sm:h-12 md:h-14 items-center justify-center gap-2 overflow-hidden rounded-full bg-accent px-5 sm:px-6 md:px-8 text-sm sm:text-base font-medium text-white transition-all hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95">
-              <span>Explore Features</span>
-            </button>
+            <div
+              ref={ctaRef}
+              style={{ opacity: 0 }}
+              className="flex items-center gap-4 pointer-events-auto"
+            >
+              <button type="button" className="group relative flex h-11 sm:h-12 md:h-14 items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-5 sm:px-6 md:px-8 text-sm sm:text-base font-medium text-black transition-all hover:scale-105 active:scale-95">
+                <span>Explore Features</span>
+              </button>
 
-            <button type="button" className="group flex h-11 sm:h-12 md:h-14 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 sm:px-6 md:px-8 text-sm sm:text-base font-medium text-white backdrop-blur-md transition-all hover:bg-white/20 active:scale-95">
-              <span>Our Vision</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+              <button type="button" className="group flex h-11 sm:h-12 md:h-14 items-center justify-center gap-2 rounded-full border border-white/20 bg-black/20 px-5 sm:px-6 md:px-8 text-sm sm:text-base font-medium text-white backdrop-blur-md transition-all hover:bg-white/10 active:scale-95">
+                <span>Our Vision</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+          </div>
+
+          <div className="relative mt-6 sm:mt-8 md:mt-0 w-full max-w-xs sm:max-w-sm min-h-[3.5rem] sm:min-h-[4rem] md:min-h-[5rem] flex md:items-end md:justify-end pointer-events-none">
+            {DESCRIPTIONS.map((text, i) => (
+              <p
+                key={i}
+                ref={(el) => { pRefs.current[i] = el; }}
+                className={`absolute bottom-0 left-0 md:left-auto md:right-0 text-left md:text-right text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed tracking-wide ${i === 0 ? '' : 'opacity-0'}`}
+              >
+                {text}
+              </p>
+            ))}
           </div>
         </div>
 
-        {/* Right: Description */}
-        <div className="relative mt-6 sm:mt-8 md:mt-0 w-full max-w-xs sm:max-w-sm flex md:items-end md:justify-end pointer-events-none">
-          <p
-            className="hero-p text-left md:text-right text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed tracking-wide opacity-0"
-          >
-            {DESCRIPTIONS[0]}
-          </p>
-        </div>
       </div>
-
     </section>
   );
 }

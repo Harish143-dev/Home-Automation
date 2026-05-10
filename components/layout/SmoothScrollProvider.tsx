@@ -1,21 +1,26 @@
 'use client';
 
-import React, { useRef, ReactNode } from 'react';
+import React, { useRef, useState, ReactNode } from 'react';
 import Lenis from 'lenis';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsapSetup';
 import { refreshAfterLayoutSettles } from '../../lib/scrollRefresh';
+import { LenisContext } from '../../lib/lenisContext';
 
 /**
  * Lenis smooth scroll provider.
  * Connects Lenis to GSAP's ticker for seamless integration
  * with ScrollTrigger animations.
  *
+ * Exposes the Lenis instance via LenisContext so child components
+ * (e.g. NavBar) can call lenis.scrollTo() for smooth navigation.
+ *
  * Fixed (audit M7): Added ScrollTrigger.refresh() after Lenis initialization
  * to ensure pin spacer height calculations are correct.
  */
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
@@ -31,6 +36,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     });
 
     lenisRef.current = lenis;
+    setLenisInstance(lenis);
 
     // Connect Lenis scroll updates to GSAP's ticker
     lenis.on('scroll', ScrollTrigger.update);
@@ -49,8 +55,13 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       gsap.ticker.remove(tickHandler);
       lenis.destroy();
       lenisRef.current = null;
+      setLenisInstance(null);
     };
   }, { dependencies: [prefersReducedMotion] });
 
-  return <>{children}</>;
+  return (
+    <LenisContext.Provider value={lenisInstance}>
+      {children}
+    </LenisContext.Provider>
+  );
 }

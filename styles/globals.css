@@ -1,31 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "DM Sans", "Aptos", "Segoe UI", Arial, sans-serif;
-  --font-display: "Inter", "SF Pro Display", "Segoe UI", Arial, sans-serif;
+  --font-sans: "Lato", "Segoe UI", Arial, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
 
-  /* Primary — light / white */
-  --color-background: #ffffff;
+  /* Primary — Light Luxury Corporate */
+  --color-background: #F7F7F5;
   --color-foreground: #111111;
-  --color-panel: #f7f7f7;
-  --color-muted: #777777;
-  --color-accent: #111111;
-  --color-accent-soft: #444444;
+  --color-panel: #FFFFFF;
+  --color-muted: #555555;
+  --color-accent: #B71C1C;
+  --color-accent-soft: #D32F2F;
+  --color-secondary: #2a3724;
 
-  /* Secondary — dark / black (for contrast sections) */
-  --color-surface-dark: #030407;
-  --color-surface-darker: #0a0a0f;
+  /* Secondary — Surfaces */
+  --color-surface-dark: #FFFFFF;
+  --color-surface-darker: #FAFAFA;
 
-  --color-void: #111111;
-  --color-abyss: #1a1a1a;
-  --color-shadow: #2a2a2a;
-  --color-dim: #555555;
-  --color-dusk: #888888;
+  --color-void: #FFFFFF;
+  --color-abyss: #f0f0f0;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+  --color-dim: #777777;
+  --color-dusk: #999999;
 
-  --color-ember: #111111;
-  --color-amber: #333333;
-  --color-gold: #555555;
+  --color-ember: #F7F7F5;
+  --color-amber: #FAFAFA;
+  --color-gold: #777777;
   --color-ivory: #ffffff;
   --color-daylight: #fafafa;
 
@@ -33,9 +34,9 @@
   --color-matrix: #00cc66;
   --color-violet: #6c5ce7;
 
-  --color-slate: #999999;
-  --color-glass: rgba(0, 0, 0, 0.03);
-  --color-glass-hover: rgba(0, 0, 0, 0.06);
+  --color-slate: #555555;
+  --color-glass: rgba(255, 255, 255, 0.7);
+  --color-glass-hover: rgba(255, 255, 255, 0.9);
   --color-border: rgba(0, 0, 0, 0.08);
 }
 
@@ -43,6 +44,10 @@ body {
   @apply bg-background text-foreground antialiased;
   overflow-x: hidden;
   font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
 ::selection {
@@ -59,12 +64,15 @@ body {
 [class*="bg-[#030407]"] :focus-visible,
 [class*="bg-black"] :focus-visible,
 .bg-surface-dark :focus-visible {
-  outline-color: rgba(255, 255, 255, 0.6);
+  outline-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Respect prefers-reduced-motion globally */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -77,11 +85,11 @@ body {
   font-weight: 800;
   letter-spacing: -0.05em;
   line-height: 0.9;
-  color: #fff;
+  color: var(--color-foreground);
   font-size: clamp(3.45rem, 8.4vw, 8rem);
   max-width: 7.4ch;
   text-wrap: balance;
-  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.24);
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 768px) {
@@ -142,6 +150,53 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* ───────────────────────────────────────────────
+   Responsive utilities & polish
+   ─────────────────────────────────────────────── */
+
+/* Ultra-wide (2xl+) max-width constraint to keep content readable */
+@media (min-width: 1536px) {
+  .section-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Safe-area insets for notched devices (iPhone etc.) */
+@supports (padding: max(0px)) {
+  .safe-x {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Touch-friendly minimum tap targets */
+@media (pointer: coarse) {
+
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
 }
