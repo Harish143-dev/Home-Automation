@@ -10,7 +10,7 @@
   --color-foreground: #111111;
   --color-panel: #FFFFFF;
   --color-muted: #555555;
-  --color-accent: #B71C1C;
+  --color-accent: #8c1817;
   --color-accent-soft: #D32F2F;
   --color-secondary: #2a3724;
 
@@ -46,7 +46,12 @@ body {
   font-family: var(--font-sans);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
 }
 

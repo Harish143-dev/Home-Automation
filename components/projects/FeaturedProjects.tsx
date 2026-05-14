@@ -1,39 +1,42 @@
 'use client';
 
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import React, { useRef } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import privateResidenceImage from '../../assets/projects/private-residence.jpg';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { DURATION, EASE, SCROLL, STAGGER } from '../../lib/animation.config';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
+import SawaiManMahalImage from '../../assets/projects/SawaiManMahal.jpg';
 
 interface Project {
   id: string;
   name: string;
   category: 'Residential' | 'Hospitality' | 'Commercial';
-  usps: [string, string, string];
+  usps: string[];
   description: string;
-  image: string;
+  image: string | StaticImageData;
 }
 
 const PROJECTS: Project[] = [
   {
     id: 'p1',
-    name: 'The Glass Pavilion',
+    name: 'Private Residence',
     category: 'Residential',
-    usps: ['Circadian Lighting', 'Invisible Climate', 'Biometric Access'],
-    description: 'A structural masterpiece completely integrated with responsive environmental controls that adapt to natural sunlight and occupancy in real time.',
-    image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1600&q=80'
+    usps: ['Lighting Automation', 'AV Integration'],
+    description: 'Delivered a fully integrated automation system for 5,000 sq. ft. in South Delhi.',
+    image: privateResidenceImage
   },
   {
     id: 'p2',
-    name: 'Aura Hotel Residences',
+    name: 'Sawai Man Mahal',
     category: 'Hospitality',
-    usps: ['Personalized Scenes', 'Energy Grid Sync', 'Voice Concierge'],
-    description: 'Elevating the guest experience through intelligent room states. Each suite learns preferences instantly, offering unparalleled bespoke luxury.',
-    image: 'https://images.unsplash.com/photo-1542314831-c6a4d14b0df6?auto=format&fit=crop&w=1600&q=80'
+    usps: ['Guest Room Automation Systems'],
+    description: 'Integrated guest room systems and public areas.',
+    image: SawaiManMahalImage
   },
   {
     id: 'p3',
@@ -250,31 +253,31 @@ export function FeaturedProjects() {
             ))}
 
             {/* Content Dock (Bottom 40%) — audit m11: reduced min-height to 280px */}
-            <div className="absolute inset-x-0 bottom-0 h-[45%] md:h-[40%] min-h-[260px] md:min-h-[280px] z-10">
+            <div className="absolute inset-0 z-10">
               {PROJECTS.map((proj) => (
                 <div
                   key={proj.id + 'content'}
-                  className="fp-content absolute inset-0 bg-panel/85 backdrop-blur-3xl border-t border-border p-5 md:p-6 lg:p-8 xl:p-12 flex items-center justify-between shadow-lg"
+                  className="fp-content absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-5 md:p-6 lg:p-8 xl:p-12 flex items-end justify-between"
                 >
                   {/* Left: Title & Description */}
-                  <div className="max-w-xl pr-4 md:pr-6 lg:pr-8">
-                    <div className="fp-stagger inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-4 py-1.5 mb-5 shadow-sm">
-                      <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] text-foreground uppercase">{proj.category}</span>
+                  <div className="max-w-xl pr-4 md:pr-6 lg:pr-8 pb-2">
+                    <div className="fp-stagger mb-5">
+                      <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">{proj.category}</span>
                     </div>
-                    <h3 className="fp-stagger text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-[-0.02em] text-foreground mb-2 md:mb-3 lg:mb-4 leading-[1.1]">
+                    <h3 className="fp-stagger text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-[-0.02em] text-white mb-2 md:mb-3 lg:mb-4 leading-[1.1]">
                       {proj.name}
                     </h3>
-                    <p className="fp-stagger text-xs md:text-sm lg:text-base text-muted leading-relaxed">
+                    <p className="fp-stagger text-xs md:text-sm lg:text-base text-white/75 leading-relaxed">
                       {proj.description}
                     </p>
                   </div>
 
                   {/* Right: USPs & CTA */}
-                  <div className="hidden lg:flex flex-col justify-end gap-6 border-l border-border pl-6 lg:pl-8 h-full py-2 min-w-[220px] lg:min-w-[260px]">
+                  <div className="hidden lg:flex flex-col justify-end gap-6 border-l border-white/20 pl-6 lg:pl-8 pb-2 min-w-[220px] lg:min-w-[260px]">
                     <ul className="flex flex-col gap-3">
                       {proj.usps.map(usp => (
-                        <li key={usp} className="fp-stagger flex items-center gap-3 text-muted">
-                          <CheckCircle2 className="w-4.5 h-4.5 text-foreground" />
+                        <li key={usp} className="fp-stagger flex items-center gap-3 text-white/75">
+                          <CheckCircle2 className="w-4.5 h-4.5 text-white" />
                           <span className="text-base font-medium">{usp}</span>
                         </li>
                       ))}

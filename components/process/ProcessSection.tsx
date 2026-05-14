@@ -1,18 +1,23 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { Lightbulb, PenTool, Wrench, Cpu, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Phone, FileSpreadsheet, Presentation, CheckCircle, Cable, Blocks, Code, FlaskConical, Handshake, ShieldCheck, ArrowRight } from 'lucide-react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { DURATION, EASE, SCROLL, STAGGER } from '../../lib/animation.config';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
 
 const steps = [
-  { id: '01', title: 'Consultation', desc: 'Understanding your vision and evaluating spatial requirements to create a personalized baseline.', icon: Lightbulb },
-  { id: '02', title: 'Design & Planning', desc: 'Crafting tailored architectural blueprints for seamless and invisible automation integration.', icon: PenTool },
-  { id: '03', title: 'Installation', desc: 'Precision wiring and premium hardware setup executed by our certified engineering experts.', icon: Wrench },
-  { id: '04', title: 'Integration', desc: 'Programming the ecosystem for intuitive, unified control across all your devices.', icon: Cpu },
-  { id: '05', title: 'Support', desc: 'Ongoing proactive system health monitoring, updates, and dedicated VIP maintenance.', icon: ShieldCheck }
+  { id: '01', title: 'Consultation Call + Site Visit', desc: 'We begin by understanding your lifestyle, vision, and space through an in-depth consultation and on-site evaluation.', icon: Phone },
+  { id: '02', title: 'Designing the BOQ', desc: 'A tailored Bill of Quantities is crafted based on your architectural drawings and specific requirements.', icon: FileSpreadsheet },
+  { id: '03', title: 'BOQ Review Meeting', desc: 'We walk you through every suggested system, answering questions and refining the scope together.', icon: Presentation },
+  { id: '04', title: 'Order Confirmation', desc: 'Once aligned, we lock in the specifications and initiate procurement of premium components.', icon: CheckCircle },
+  { id: '05', title: 'Automation Drawings', desc: 'Detailed wiring schematics and automation layouts are shared with your electrical and construction teams.', icon: Cable },
+  { id: '06', title: 'Integration of Automation', desc: 'On-site installation and integration of all automation hardware into your space with precision.', icon: Blocks },
+  { id: '07', title: 'Custom Programming', desc: 'Every scene, schedule, and automation logic is custom-programmed to match your daily lifestyle.', icon: Code },
+  { id: '08', title: 'Testing Site + Programmes', desc: 'Rigorous on-site testing of every system, scenario, and failover to ensure flawless operation.', icon: FlaskConical },
+  { id: '09', title: 'Handover', desc: 'A complete walkthrough of your intelligent space with hands-on training for you and your family.', icon: Handshake },
+  { id: '10', title: 'Customer Audit + After Installation', desc: 'Post-handover audit and ongoing support to ensure your systems perform perfectly long-term.', icon: ShieldCheck },
 ];
 
 export function ProcessSection() {
@@ -57,8 +62,8 @@ export function ProcessSection() {
             trigger: section,
             scrub: SCROLL.scrub,
             start: "top top",
-            // Prolong the scroll distance so the user has time to scroll through everything comfortably
-            end: () => `+=${scrollWidth + window.innerHeight * 1.8}`,
+            // Extended scroll distance for 10 cards — gives each card ample reading time
+            end: () => `+=${scrollWidth + window.innerHeight * 3}`,
             pin: true,
             anticipatePin: SCROLL.anticipatePin,
             invalidateOnRefresh: true,
@@ -66,7 +71,7 @@ export function ProcessSection() {
         });
 
         // 1. Hold phase: Empty tween creates a "pause" where user just reads the centered title
-        masterTl.to({}, { duration: 0.1 });
+        masterTl.to({}, { duration: 0.08 });
 
         // 2. Title fades out and scales down slightly
         masterTl.to(title, {
@@ -75,26 +80,26 @@ export function ProcessSection() {
           y: -40,
           duration: DURATION.instant,
           ease: EASE.smooth
-        }, 0.1);
+        }, 0.08);
 
         // 3. Cards container moves in from off-screen right
         masterTl.to(container, {
           x: xTranslate,
           ease: EASE.none,
           duration: 1
-        }, 0.1);
+        }, 0.08);
 
-        // 4. Final Hold Phase: Empty tween keeps the last card on screen before unpinning
-        masterTl.to({}, { duration: 0.15 });
+        // 4. Final Hold Phase: Keeps the last card on screen before unpinning
+        masterTl.to({}, { duration: 0.2 });
 
-        // 5. Individual card scaling using containerAnimation
+        // 5. Individual card scaling using containerAnimation — wider activation zones
         cards.forEach((card) => {
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: card,
               containerAnimation: masterTl,
-              start: "left 65%",
-              end: "left 35%",
+              start: "left 75%",
+              end: "left 45%",
               scrub: true,
             }
           });
@@ -108,8 +113,8 @@ export function ProcessSection() {
             scrollTrigger: {
               trigger: card,
               containerAnimation: masterTl,
-              start: "left 15%",
-              end: "left -15%",
+              start: "left 20%",
+              end: "left -10%",
               scrub: true,
             }
           });

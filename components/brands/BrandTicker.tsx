@@ -109,7 +109,7 @@ export function BrandTicker() {
 
       {/* Interactive Main Ticker Row */}
       <div 
-        className="mt-10 sm:mt-14 md:mt-20 flex w-max pointer-events-auto"
+        className="group/ticker mt-10 sm:mt-14 md:mt-20 flex w-max pointer-events-auto"
         onMouseEnter={pauseLoop}
         onMouseLeave={playLoop}
         ref={trackRef}
@@ -117,7 +117,7 @@ export function BrandTicker() {
         {LOOPED_BRANDS.map((brand, i) => (
           <div 
             key={i}
-            className="flex-shrink-0 px-6 sm:px-10 md:px-16 lg:px-24 flex items-center justify-center transition-opacity duration-500 ease-out opacity-65 hover:opacity-100 cursor-default"
+            className="brand-item flex-shrink-0 px-6 sm:px-10 md:px-16 lg:px-24 flex items-center justify-center cursor-default opacity-55 transition-all duration-500 ease-out group-hover/ticker:opacity-25 hover:!opacity-100 hover:scale-105"
           >
             {/* Generic Typography Placeholder (Replaces Logo Assets Natively) */}
             <span className="text-base font-bold uppercase tracking-[0.08em] text-white sm:text-xl sm:tracking-[0.1em] md:text-2xl md:tracking-[0.12em] lg:text-4xl lg:tracking-[0.15em]" style={{ fontFamily: 'var(--font-display)'}}>
