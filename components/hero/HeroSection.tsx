@@ -16,12 +16,11 @@ const SCROLL_DESCRIPTIONS = [
   "Lights. Shades. AV. Security. Wifi.",
   "25 years of Expertise.",
 ];
-
-const START_FRAME = 2;
-const END_FRAME = 120;
+const START_FRAME = 1;
+const END_FRAME = 144;
 const FRAME_COUNT = END_FRAME - START_FRAME + 1;
 const FRAME_PATHS = Array.from({ length: FRAME_COUNT }, (_, index) => {
-  return `/frames-compressed/${String(index + START_FRAME).padStart(3, "0")}.jpg`;
+  return `/heroFrames/${String(index + START_FRAME).padStart(4, "0")}.webp`;
 });
 
 function drawCoverImage(
@@ -240,14 +239,14 @@ export function HeroSection() {
         }, 6000);
 
         // Main Scroll Scrubbed Timeline
-        // Increased scroll distance to 450vh to make the entire animation drastically slower and more cinematic
+        // Increased scroll distance to 800vh to make the entire animation drastically slower and more cinematic
         mainTl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=450%",
+            end: "+=600%", // Drastically slower scroll pace
             pin: true,
-            scrub: 1.2,
+            scrub: 2, // Smoother catch-up (interpolation)
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onRefresh: (trigger) => {
@@ -511,7 +510,7 @@ export function HeroSection() {
         className="relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 pb-16 sm:pb-20 pt-24 sm:pt-28 md:items-start md:px-16 md:pb-24 lg:px-24"
       >
         <NextImage
-          src="/frames-compressed/001.jpg"
+          src="/heroFrames/0001.webp"
           alt=""
           fill
           priority
@@ -565,7 +564,7 @@ export function HeroSection() {
         }}
       >
         <NextImage
-          src="/frames-compressed/001.jpg"
+          src="/heroFrames/0001.webp"
           alt=""
           fill
           priority

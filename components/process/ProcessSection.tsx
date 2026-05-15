@@ -1,255 +1,225 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { Phone, FileSpreadsheet, Presentation, CheckCircle, Cable, Blocks, Code, FlaskConical, Handshake, ShieldCheck, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { DURATION, EASE, SCROLL, STAGGER } from '../../lib/animation.config';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
 
 const steps = [
-  { id: '01', title: 'Consultation Call + Site Visit', desc: 'We begin by understanding your lifestyle, vision, and space through an in-depth consultation and on-site evaluation.', icon: Phone },
-  { id: '02', title: 'Designing the BOQ', desc: 'A tailored Bill of Quantities is crafted based on your architectural drawings and specific requirements.', icon: FileSpreadsheet },
-  { id: '03', title: 'BOQ Review Meeting', desc: 'We walk you through every suggested system, answering questions and refining the scope together.', icon: Presentation },
-  { id: '04', title: 'Order Confirmation', desc: 'Once aligned, we lock in the specifications and initiate procurement of premium components.', icon: CheckCircle },
-  { id: '05', title: 'Automation Drawings', desc: 'Detailed wiring schematics and automation layouts are shared with your electrical and construction teams.', icon: Cable },
-  { id: '06', title: 'Integration of Automation', desc: 'On-site installation and integration of all automation hardware into your space with precision.', icon: Blocks },
-  { id: '07', title: 'Custom Programming', desc: 'Every scene, schedule, and automation logic is custom-programmed to match your daily lifestyle.', icon: Code },
-  { id: '08', title: 'Testing Site + Programmes', desc: 'Rigorous on-site testing of every system, scenario, and failover to ensure flawless operation.', icon: FlaskConical },
-  { id: '09', title: 'Handover', desc: 'A complete walkthrough of your intelligent space with hands-on training for you and your family.', icon: Handshake },
-  { id: '10', title: 'Customer Audit + After Installation', desc: 'Post-handover audit and ongoing support to ensure your systems perform perfectly long-term.', icon: ShieldCheck },
+  { 
+    id: '01', 
+    title: 'Consultation', 
+    desc: 'Understanding your lifestyle, space, and automation goals through an in-depth evaluation.', 
+    image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop' 
+  },
+  { 
+    id: '02', 
+    title: 'Design & Planning', 
+    desc: 'Crafting tailored Bill of Quantities, architectural drawings, and detailed wiring schematics.', 
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop' 
+  },
+  { 
+    id: '03', 
+    title: 'Installation', 
+    desc: 'Precision on-site installation of all premium automation hardware by our expert technicians.', 
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2000&auto=format&fit=crop' 
+  },
+  { 
+    id: '04', 
+    title: 'Integration', 
+    desc: 'Custom programming of scenes, schedules, and rigorous testing of every system for flawless operation.', 
+    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2000&auto=format&fit=crop' 
+  },
+  { 
+    id: '05', 
+    title: 'Support', 
+    desc: 'A complete walkthrough of your intelligent space, followed by ongoing post-handover support.', 
+    image: 'https://images.unsplash.com/photo-1542314831-c6a4d14b0df6?q=80&w=2000&auto=format&fit=crop' 
+  },
 ];
 
 export function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
-    if (prefersReducedMotion) {
-      gsap.set([containerRef.current, '.step-card-mobile'], {
-        clearProps: 'all',
-        opacity: 1,
-      });
-      return;
-    }
+    if (prefersReducedMotion || !sectionRef.current || !containerRef.current) return;
 
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
+    mm.add("(min-width: 1024px)", () => {
+      const cards = gsap.utils.toArray('.process-card') as HTMLElement[];
       
-      const initAnimation = () => {
-        const section = sectionRef.current;
-        const container = containerRef.current;
-        const title = titleRef.current;
+      // Set initial states for cards (except the first one)
+      gsap.set(cards.slice(1), { 
+        yPercent: 100, 
+        scale: 0.9, 
+        opacity: 0,
+        filter: 'blur(10px)'
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${cards.length * 100}%`,
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        }
+      });
+
+      cards.forEach((card, i) => {
+        if (i === 0) return; // First card is already in place
         
-        if (!section || !container || !title) return;
-
-        const scrollWidth = container.scrollWidth;
-        // Move container further left so the final card reaches the center of the screen
-        const xTranslate = -(scrollWidth + (window.innerWidth * 0.5));
-
-        // Reset states in case of resize
-        gsap.set(container, { x: 0 });
-        gsap.set(title, { opacity: 1, x: 0, scale: 1 });
+        const previousCards = cards.slice(0, i);
         
-        const cards = gsap.utils.toArray('.step-card', section) as HTMLElement[];
-        gsap.set(cards, { scale: 0.85, opacity: 0.3 }); // Initial inactive state
+        // 1. Bring current card up
+        tl.to(card, {
+          yPercent: 0,
+          scale: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+          ease: "power2.out"
+        }, i);
 
-        const masterTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            scrub: SCROLL.scrub,
-            start: "top top",
-            // Extended scroll distance for 10 cards — gives each card ample reading time
-            end: () => `+=${scrollWidth + window.innerHeight * 3}`,
-            pin: true,
-            anticipatePin: SCROLL.anticipatePin,
-            invalidateOnRefresh: true,
-          }
-        });
+        // 2. Push previous cards back into depth
+        tl.to(previousCards, {
+          scale: (index) => 1 - ((i - index) * 0.04),
+          yPercent: (index) => -((i - index) * 4),
+          opacity: (index) => 1 - ((i - index) * 0.3),
+          filter: (index) => `blur(${(i - index) * 2}px)`,
+          ease: "power2.out"
+        }, i);
+      });
 
-        // 1. Hold phase: Empty tween creates a "pause" where user just reads the centered title
-        masterTl.to({}, { duration: 0.08 });
-
-        // 2. Title fades out and scales down slightly
-        masterTl.to(title, {
-          opacity: 0,
-          scale: 0.95,
-          y: -40,
-          duration: DURATION.instant,
-          ease: EASE.smooth
-        }, 0.08);
-
-        // 3. Cards container moves in from off-screen right
-        masterTl.to(container, {
-          x: xTranslate,
-          ease: EASE.none,
-          duration: 1
-        }, 0.08);
-
-        // 4. Final Hold Phase: Keeps the last card on screen before unpinning
-        masterTl.to({}, { duration: 0.2 });
-
-        // 5. Individual card scaling using containerAnimation — wider activation zones
-        cards.forEach((card) => {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: masterTl,
-              start: "left 75%",
-              end: "left 45%",
-              scrub: true,
-            }
-          });
-          
-          tl.to(card, { scale: 1.05, opacity: 1, duration: 1, ease: EASE.smooth });
-          
-          gsap.to(card, {
-            scale: 0.85,
-            opacity: 0.3,
-            ease: EASE.smooth,
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: masterTl,
-              start: "left 20%",
-              end: "left -10%",
-              scrub: true,
-            }
-          });
-        });
-
-        // Crucial: Queue a global refresh so downstream sections (like FeaturedProjects)
-        // can recalculate their start markers based on the pinSpacing we just added here.
-        scheduleScrollRefresh();
-      };
-
-      initAnimation();
+      scheduleScrollRefresh();
     });
 
-    mm.add("(max-width: 767px)", () => {
-      const cards = gsap.utils.toArray('.step-card-mobile', sectionRef.current);
-        
-      gsap.from(cards, {
-        scrollTrigger: {
-          trigger: '.process-mobile-container',
-          start: "top 70%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: DURATION.normal,
-        stagger: STAGGER.wide,
-        ease: EASE.reveal
+    // Mobile/Tablet simple fade up
+    mm.add("(max-width: 1023px)", () => {
+      const cards = gsap.utils.toArray('.process-card-mobile') as HTMLElement[];
+      
+      cards.forEach((card) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        });
       });
     });
 
-    return () => {
-      mm.revert();
-    };
-
+    return () => mm.revert();
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section
-      ref={sectionRef}
-      className="process-section relative z-30 isolate bg-background border-t border-border overflow-hidden"
+    <section 
+      ref={sectionRef} 
+      className="relative z-30 bg-background text-foreground border-t border-border overflow-hidden"
       id="process"
     >
-      {/* DESKTOP LAYOUT (Pinned Screen) */}
-      <div className="relative hidden h-screen md:flex items-center justify-center overflow-hidden">
+      {/* Desktop Layout: Cinematic Stacking Cards */}
+      <div className="hidden lg:flex flex-col items-center justify-center h-screen relative px-8 py-12">
         
-        {/* Title Block - Centered initially */}
-        <div ref={titleRef} className="absolute z-20 text-center w-full max-w-4xl px-8 pointer-events-none">
-          <h2 className="text-[2.5rem] md:text-[4rem] lg:text-[6rem] font-semibold text-foreground tracking-tight leading-[1.05] mb-4 md:mb-6">
-            Our Approach
-          </h2>
-          <p className="text-base md:text-[22px] lg:text-[28px] text-muted font-medium tracking-tight">
-            A seamless journey from consultation to long-term support.
-          </p>
+        {/* Section Title Pinned at Top */}
+        <div className="absolute top-12 lg:top-16 left-0 w-full text-center z-50 pointer-events-none">
+          <h2 className="text-[2rem] font-bold tracking-[0.2em] uppercase text-foreground/30">The Journey</h2>
         </div>
 
-        {/* Horizontal Scrolling Area - Starts entirely offscreen to the right */}
-        <div ref={containerRef} className="absolute top-0 left-full h-full flex items-center z-10 w-max">
-          <div className="flex gap-8 md:gap-12 lg:gap-16 items-center h-full px-[10vw] md:px-[15vw]">
-            {steps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <div 
-                  key={step.id} 
-                  className="motion-layer step-card w-[320px] md:w-[380px] lg:w-[420px] shrink-0 bg-panel/80 backdrop-blur-2xl rounded-[28px] md:rounded-[32px] p-7 md:p-8 lg:p-10 border border-border shadow-lg"
-                >
-                  <div className="flex items-center justify-between mb-7 md:mb-8 lg:mb-10">
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-accent text-white shadow-sm">
-                      <Icon size={24} />
-                    </div>
-                    <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-accent">
-                      Step {step.id}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-xl md:text-[24px] lg:text-[26px] font-semibold text-foreground mb-3 md:mb-4 tracking-tight">{step.title}</h3>
-                  <p className="text-muted text-[15px] md:text-[17px] leading-relaxed">{step.desc}</p>
-                </div>
-              );
-            })}
-            
-            {/* Final CTA Card */}
-            <div className="motion-layer step-card w-[320px] md:w-[380px] lg:w-[420px] shrink-0 bg-surface-darker rounded-[28px] md:rounded-[32px] p-7 md:p-8 lg:p-10 border border-border shadow-lg">
-              <div className="w-12 md:w-14 h-12 md:h-14 rounded-full border border-border bg-panel shadow-sm flex items-center justify-center text-foreground mb-7 md:mb-8 lg:mb-10">
-                <ArrowRight size={24} />
+        <div ref={containerRef} className="relative w-full max-w-6xl h-[80vh] mx-auto perspective-1000">
+          {steps.map((step, index) => (
+            <div 
+              key={`desk-${step.id}`}
+              className="process-card absolute top-0 left-0 w-full h-full rounded-[40px] overflow-hidden border border-border shadow-2xl bg-panel transform-origin-top will-change-transform"
+              style={{ zIndex: index }}
+            >
+              {/* Background Visual */}
+              <div className="absolute inset-0 w-full h-full bg-[#050505]">
+                <Image 
+                  src={step.image} 
+                  alt={step.title} 
+                  fill 
+                  className="object-cover opacity-50 scale-105"
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/80 to-transparent" />
               </div>
-              <h3 className="text-xl md:text-[24px] lg:text-[28px] font-semibold text-foreground mb-3 md:mb-4 tracking-tight">Ready to begin?</h3>
-              <p className="text-muted text-[15px] md:text-[17px] leading-relaxed mb-7 md:mb-8 lg:mb-10">Take the first step towards your intelligent luxury living space.</p>
-              <button type="button" className="bg-accent text-white hover:bg-accent-soft shadow-sm px-8 py-4 rounded-full text-[16px] font-semibold flex items-center gap-2 transition-all w-max">
-                Book a Consultation
-              </button>
+
+              {/* Oversized Background Number */}
+              <div className="absolute -right-10 -bottom-10 lg:-right-20 lg:-bottom-20 pointer-events-none">
+                <span className="text-[300px] lg:text-[400px] font-black leading-none text-white/[0.04] tracking-tighter">
+                  {step.id}
+                </span>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10 w-full h-full p-12 lg:p-20 flex flex-col justify-end max-w-3xl">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-[1px] w-12 bg-accent" />
+                  <span className="text-accent text-lg font-bold tracking-[0.3em] uppercase">Phase {step.id}</span>
+                </div>
+                <h3 className="text-5xl lg:text-7xl font-semibold mb-6 tracking-tight leading-[1.1] text-white">
+                  {step.title}
+                </h3>
+                <p className="text-xl lg:text-2xl text-white/70 font-medium leading-relaxed max-w-2xl">
+                  {step.desc}
+                </p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* MOBILE LAYOUT (Vertical Stack) */}
-      <div className="process-mobile-container md:hidden px-5 sm:px-6 py-16 sm:py-20 md:py-24 flex flex-col gap-5 sm:gap-6 relative z-10">
-        <div className="mb-12">
-          <h2 className="text-[2rem] sm:text-[2.5rem] font-semibold text-foreground tracking-tight leading-[1.1] mb-3 sm:mb-4">
-            Our Approach
-          </h2>
-          <p className="text-[15px] sm:text-[17px] text-muted font-medium tracking-tight">
-            A seamless journey from consultation to long-term support.
-          </p>
+      {/* Mobile/Tablet Layout: Vertical Card Flow */}
+      <div className="lg:hidden px-6 py-24 flex flex-col gap-8 relative">
+        <div className="mb-8 text-center">
+          <h2 className="text-[2rem] md:text-[3rem] font-bold tracking-tight text-foreground mb-4">The Journey</h2>
+          <p className="text-muted text-lg">A guided intelligent process from consultation to completion.</p>
         </div>
 
-        <div className="relative">
-          <div className="absolute top-0 left-8 sm:left-10 w-[2px] h-full bg-border z-0" />
-
-          {steps.map((step) => {
-            const Icon = step.icon;
-            return (
-              <div key={step.id} className="step-card-mobile relative z-10 bg-panel rounded-xl sm:rounded-[24px] p-5 sm:p-6 md:p-8 shadow-lg border border-border flex gap-4 sm:gap-5 mb-4 sm:mb-6">
-                <div className="absolute top-10 -left-[19px] w-3 h-3 rounded-full bg-accent ring-4 ring-background" />
-                <div className="shrink-0 mt-1">
-                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border bg-surface-darker text-accent shadow-sm flex items-center justify-center">
-                     <Icon size={16} className="sm:hidden" />
-                     <Icon size={18} className="hidden sm:block" />
-                   </div>
-                </div>
-                <div>
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-accent block mb-1.5 sm:mb-2">Step {step.id}</span>
-                  <h3 className="text-base sm:text-lg md:text-[20px] font-semibold text-foreground mb-1.5 sm:mb-2 tracking-tight">{step.title}</h3>
-                  <p className="text-muted text-[13px] sm:text-[15px] leading-relaxed">{step.desc}</p>
-                </div>
+        <div className="flex flex-col gap-6">
+          {steps.map((step) => (
+            <div 
+              key={`mob-${step.id}`}
+              className="process-card-mobile relative rounded-3xl overflow-hidden border border-border bg-[#050505] min-h-[400px] flex flex-col justify-end p-8 shadow-xl"
+            >
+              <div className="absolute inset-0 w-full h-full">
+                <Image 
+                  src={step.image} 
+                  alt={step.title} 
+                  fill 
+                  className="object-cover opacity-50"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
               </div>
-            );
-          })}
 
-          <div className="step-card-mobile relative z-10 bg-surface-darker rounded-xl sm:rounded-[24px] p-6 sm:p-8 mt-2 sm:mt-4 text-center border border-border shadow-xl">
-            <h3 className="text-xl sm:text-[24px] font-semibold text-foreground mb-2 sm:mb-3 tracking-tight">Ready to begin?</h3>
-            <p className="text-muted text-[13px] sm:text-[15px] leading-relaxed mb-6 sm:mb-8">Take the first step towards your intelligent living space.</p>
-            <button type="button" className="w-full bg-accent text-white hover:bg-accent-soft shadow-sm px-5 sm:px-6 py-3.5 sm:py-4 rounded-full text-[14px] sm:text-[16px] font-semibold flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
-              Book a Consultation <ArrowRight size={18} />
-            </button>
-          </div>
+              <div className="absolute -right-4 -bottom-4 pointer-events-none">
+                <span className="text-[120px] font-black leading-none text-white/[0.05] tracking-tighter">
+                  {step.id}
+                </span>
+              </div>
+
+              <div className="relative z-10">
+                <span className="text-accent text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Phase {step.id}</span>
+                <h3 className="text-3xl md:text-4xl font-semibold mb-4 text-white">
+                  {step.title}
+                </h3>
+                <p className="text-base md:text-lg text-white/70 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
