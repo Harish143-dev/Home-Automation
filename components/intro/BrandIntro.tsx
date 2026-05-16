@@ -89,14 +89,30 @@ function LogoMark({ className = '' }: { className?: string }) {
 export function BrandIntro() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [shouldShow, setShouldShow] = React.useState<boolean | null>(null);
+
+  React.useEffect(() => {
+    const hasPlayed = sessionStorage.getItem('brandIntroPlayed');
+    if (hasPlayed || prefersReducedMotion) {
+      setShouldShow(false);
+      // Small delay to ensure HeroSection is mounted and listening
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent('introComplete'));
+      }, 100);
+    } else {
+      setShouldShow(true);
+      sessionStorage.setItem('brandIntroPlayed', 'true');
+    }
+  }, [prefersReducedMotion]);
 
   useGSAP(
     () => {
       const overlay = overlayRef.current;
-      if (!overlay) return;
+      if (!overlay || !shouldShow) return;
 
       if (prefersReducedMotion) {
         gsap.set(overlay, { display: 'none', pointerEvents: 'none' });
+        window.dispatchEvent(new CustomEvent('introComplete'));
         return;
       }
 
@@ -281,15 +297,17 @@ export function BrandIntro() {
         unlockScroll();
       };
     },
-    { scope: overlayRef, dependencies: [prefersReducedMotion] }
+    { scope: overlayRef, dependencies: [prefersReducedMotion, shouldShow] }
   );
+
+  if (shouldShow === false) return null;
 
   const taglineText = 'Designing Intelligent Spaces';
 
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[10000] overflow-hidden"
+      className={`fixed inset-0 z-[10000] overflow-hidden transition-opacity duration-300 ${shouldShow === null ? 'opacity-0' : 'opacity-100'}`}
       style={{ touchAction: 'none' }}
       aria-hidden="true"
     >

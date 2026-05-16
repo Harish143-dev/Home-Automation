@@ -3,6 +3,8 @@
 import NextImage from "next/image";
 import React, { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "../ui/button";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { gsap, SplitText, useGSAP } from "../../lib/gsapSetup";
@@ -230,7 +232,12 @@ export function HeroSection() {
 
         // Listen for intro curtain event
         onIntroComplete = () => runEntrance();
-        window.addEventListener('introComplete', onIntroComplete, { once: true });
+        
+        if (sessionStorage.getItem('brandIntroPlayed')) {
+          runEntrance();
+        } else {
+          window.addEventListener('introComplete', onIntroComplete, { once: true });
+        }
 
         // Fallback if event never fires (safety)
         entranceFallback = setTimeout(() => {
@@ -529,18 +536,26 @@ export function HeroSection() {
             <p>{DEFAULT_DESCRIPTION}</p>
           </div>
           <div className="flex w-full max-w-sm flex-col gap-2.5 sm:gap-3 sm:flex-row md:max-w-none">
-            <button
-              type="button"
-              className="w-full bg-accent text-white h-11 sm:h-12 rounded-full text-sm sm:text-base font-medium transition-all hover:bg-accent-soft shadow-sm active:scale-95"
-            >
-              Explore Features
-            </button>
-            <button
-              type="button"
-              className="w-full bg-transparent border border-white/20 text-white h-11 sm:h-12 rounded-full text-sm sm:text-base font-medium transition-colors hover:bg-white/10 active:scale-95"
-            >
-              Our Vision
-            </button>
+            <Link href="/contact">
+              <Button
+                variant="accent"
+                size="lg"
+                shape="full"
+                className="w-full sm:w-auto"
+              >
+                Book a Consultation
+              </Button>
+            </Link>
+            <Link href="/projects">
+              <Button
+                variant="glass"
+                size="lg"
+                shape="full"
+                className="w-full sm:w-auto"
+              >
+                Explore Projects
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -622,20 +637,28 @@ export function HeroSection() {
           </h1>
 
           <div className="hero-cta flex items-center gap-4 pointer-events-auto">
-            <button
-              type="button"
-              className="group relative flex h-11 sm:h-12 md:h-14 items-center justify-center gap-2 overflow-hidden rounded-full bg-accent px-5 sm:px-6 md:px-8 text-sm sm:text-base font-medium text-white transition-all hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95"
-            >
-              <span>Explore Features</span>
-            </button>
+            <Link href="/contact">
+              <Button
+                variant="accent"
+                size="lg"
+                shape="full"
+                className="px-5 sm:px-6 md:px-8 h-11 sm:h-12 md:h-14"
+              >
+                Book a Consultation
+              </Button>
+            </Link>
 
-            <button
-              type="button"
-              className="group flex h-11 sm:h-12 md:h-14 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 sm:px-6 md:px-8 text-sm sm:text-base font-medium text-white backdrop-blur-md transition-all hover:bg-white/20 active:scale-95"
-            >
-              <span>Our Vision</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            <Link href="/projects">
+              <Button
+                variant="glass"
+                size="lg"
+                shape="full"
+                className="px-5 sm:px-6 md:px-8 h-11 sm:h-12 md:h-14"
+              >
+                <span>Explore Projects</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
         </div>
 

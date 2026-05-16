@@ -25,9 +25,9 @@ export default function Home() {
       <BrandTicker />
       <AutomationSpaces />
       <ConnectedSystems />
-      <WhyChooseUsSection />
       <FeaturedProjects />
       <AwardsSection />
+      <WhyChooseUsSection />
       <ExperienceCentersSection />
       <ProcessSection />
       <TestimonialsSection />

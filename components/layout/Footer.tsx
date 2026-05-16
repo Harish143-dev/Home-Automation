@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
+import { Button } from '../ui/button';
 import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsapSetup';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
@@ -184,13 +185,17 @@ export function Footer() {
                 <span>+1 (800) 555-0199</span>
               </a>
 
-              <button type="button" className="mt-4 group/btn relative flex items-center justify-between w-full p-4 rounded-xl bg-accent text-white hover:bg-accent-soft shadow-sm font-semibold overflow-hidden transition-all duration-300 active:scale-95">
+              <Button 
+                variant="accent" 
+                size="xl" 
+                className="mt-4 w-full p-4 rounded-xl group/btn overflow-hidden"
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:animate-[sweep_1s_ease-in-out_forwards]" />
                 <span className="relative z-10">Start Your Project</span>
                 <div className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full bg-white text-accent">
                   <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                 </div>
-              </button>
+              </Button>
             </div>
           </div>
 

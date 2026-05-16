@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { ArrowRight, Phone } from 'lucide-react';
+import { Button } from '../ui/button';
 import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsapSetup';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
@@ -178,29 +179,31 @@ export function CallToActionSection() {
 
         <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <button 
-            type="button" 
-            className="cta-btn group relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 sm:py-5 bg-accent text-white rounded-full overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:bg-accent-soft active:scale-95 shadow-sm"
+          <Button 
+            variant="accent" 
+            size="lg" 
+            shape="full" 
+            className="cta-btn relative h-auto py-4 sm:py-5 px-8 w-full sm:w-auto overflow-hidden"
           >
-            {/* Hover light sweep effect */}
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
-            
             <span className="relative z-10 text-base sm:text-lg font-semibold tracking-wide">
               Book Consultation
             </span>
             <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          </Button>
 
           {/* Secondary CTA */}
-          <button 
-            type="button" 
-            className="cta-btn group flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 sm:py-5 bg-surface-darker text-foreground border border-border rounded-full transition-all duration-500 hover:bg-panel active:scale-95 backdrop-blur-sm shadow-sm"
+          <Button 
+            variant="outline" 
+            size="lg" 
+            shape="full" 
+            className="cta-btn h-auto py-4 sm:py-5 px-8 w-full sm:w-auto bg-surface-darker hover:bg-panel"
           >
             <Phone className="w-5 h-5 text-muted group-hover:text-foreground transition-colors duration-300" />
             <span className="text-base sm:text-lg font-semibold tracking-wide">
               Call Now
             </span>
-          </button>
+          </Button>
         </div>
       </div>
       

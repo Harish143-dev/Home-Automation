@@ -35,7 +35,7 @@ const SERVICES: ServicePanel[] = [
   {
     id: "lighting",
     eyebrow: "01 / Lighting Automation",
-    title: "Scenes That Shape Every Hour",
+    title: "Lighting Automation",
     description:
       "Lights turn on automatically when you enter, switch off when spaces are vacant, and can be managed or dimmed to the perfect level from a single keypad for a smart living experience.",
     secondaryDescription:
@@ -48,7 +48,7 @@ const SERVICES: ServicePanel[] = [
   {
     id: "av",
     eyebrow: "02 / Audio Video Automation",
-    title: "Entertainment With Invisible Control",
+    title: "Our Audio Video Automation",
     description:
       "Easily control music, streaming platforms, and audio zones from a single app, from soothing devotional music during a pooja, synchronized audio for a house party, to personalized music in different rooms for every family member.",
     secondaryDescription:
@@ -61,7 +61,7 @@ const SERVICES: ServicePanel[] = [
   {
     id: "shades",
     eyebrow: "03 / Shades Automation",
-    title: "Daylight Managed With Precision",
+    title: "Shades Automation",
     description:
       "Adjust shades to any desired level for the perfect balance of daylight and privacy, with smooth ultra-quiet operation that automatically opens halfway during sunlight and fully after peak daylight for comfort, energy efficiency, and convenience.",
     secondaryDescription: "Includes roller blinds and automated drapery tracks",
@@ -73,7 +73,7 @@ const SERVICES: ServicePanel[] = [
   {
     id: "hvac",
     eyebrow: "04 / HVAC Automation",
-    title: "Climate Intelligence In Every Zone",
+    title: "HVAC Automation",
     description:
       "Easily adjust AC temperature through a thermostat, keypad, iPad, app, creating the perfect ambience and convenient control from anywhere.",
     secondaryDescription:
@@ -86,7 +86,7 @@ const SERVICES: ServicePanel[] = [
   {
     id: "security",
     eyebrow: "05 / Security Automation",
-    title: "Protection That Stays Effortless",
+    title: "Security Automation",
     description:
       "Receive instant app notifications if a door is opened while you are away, set schedules and access timings as per your preference, and monitor your home remotely for enhanced security and convenience at all times.",
     secondaryDescription:
@@ -99,7 +99,7 @@ const SERVICES: ServicePanel[] = [
   {
     id: "amc",
     eyebrow: "06 / Core Maintenance",
-    title: "Care Plans For Peak Performance",
+    title: "AMC",
     description:
       "Customers can simply call our support number to register a complaint, after which our engineers are promptly assigned to reach the site within 4 hours for quick and reliable resolution.",
     secondaryDescription:
@@ -176,13 +176,13 @@ function ServicePanelCard({
       className="sticky top-0 z-20 flex h-[100svh] w-full flex-col overflow-hidden bg-background md:h-screen md:flex-row"
       style={{ zIndex: 20 + index }}
     >
-        {/* Texture Overlay */}
-        <div
-          className="pointer-events-none absolute inset-0 z-50 opacity-[0.03] mix-blend-multiply"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
+      {/* Texture Overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 z-50 opacity-[0.03] mix-blend-multiply"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
 
       {/* Image Panel */}
       <div
@@ -213,10 +213,6 @@ function ServicePanelCard({
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.02),transparent_70%)]" />
 
         <div className="relative z-10 max-w-xl mx-auto md:mx-0">
-          <div className="cs-stagger-el mb-4 sm:mb-6 md:mb-8 inline-flex items-center gap-2 sm:gap-3 rounded-full border border-border bg-surface-darker px-3 sm:px-4 py-1.5 sm:py-2 text-[9px] sm:text-[10px] md:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-foreground backdrop-blur-md shadow-sm">
-            <Icon className="h-4 w-4" style={{ color: service.accent }} />
-            <span>{service.eyebrow}</span>
-          </div>
 
           <h3 className="cs-stagger-el mb-3 sm:mb-4 md:mb-6 text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] font-medium leading-[1.05] tracking-tight text-foreground drop-shadow-sm">
             {service.title}.
