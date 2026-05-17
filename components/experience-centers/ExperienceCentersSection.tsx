@@ -162,7 +162,7 @@ export function ExperienceCentersSection() {
     // Shift lat down to 10 so India (lat 21) sits beautifully on the top curve of the half earth
     globe.pointOfView(
       {
-        lat: 6.0,
+        lat: 0,
         lng: 78.0,
         altitude: isMobile ? 1.6 : 1.5, // Zoomed in to create massive half-earth curve
       },

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../lib/scrollRefresh';
+import { cn } from '@/lib/utils';
 
 const steps = [
   { 
@@ -52,10 +53,10 @@ export function ProcessSection() {
     mm.add("(min-width: 1024px)", () => {
       const cards = gsap.utils.toArray('.process-card') as HTMLElement[];
       
-      // Set initial states for cards (except the first one)
+      // Initial states: move subsequent cards down and make them transparent
       gsap.set(cards.slice(1), { 
-        yPercent: 100, 
-        scale: 0.9, 
+        yPercent: 120, 
+        scale: 0.95, 
         opacity: 0,
         filter: 'blur(10px)'
       });
@@ -73,36 +74,35 @@ export function ProcessSection() {
       });
 
       cards.forEach((card, i) => {
-        if (i === 0) return; // First card is already in place
+        if (i === 0) return; // First card is already visible
         
         const previousCards = cards.slice(0, i);
         
-        // 1. Bring current card up
+        // 1. Bring current card up with strong easing
         tl.to(card, {
           yPercent: 0,
           scale: 1,
           opacity: 1,
           filter: 'blur(0px)',
-          ease: "power2.out"
+          ease: "power3.inOut"
         }, i);
 
-        // 2. Push previous cards back into depth
+        // 2. Push previous cards back smoothly
         tl.to(previousCards, {
-          scale: (index) => 1 - ((i - index) * 0.04),
-          yPercent: (index) => -((i - index) * 4),
-          opacity: (index) => 1 - ((i - index) * 0.3),
-          filter: (index) => `blur(${(i - index) * 2}px)`,
-          ease: "power2.out"
+          scale: (index) => 1 - ((i - index) * 0.05),
+          yPercent: (index) => -((i - index) * 6),
+          opacity: (index) => 1 - ((i - index) * 0.2),
+          filter: (index) => `blur(${(i - index) * 1.5}px)`,
+          ease: "power3.inOut"
         }, i);
       });
 
       scheduleScrollRefresh();
     });
 
-    // Mobile/Tablet simple fade up
+    // Mobile specific: simple fade up
     mm.add("(max-width: 1023px)", () => {
       const cards = gsap.utils.toArray('.process-card-mobile') as HTMLElement[];
-      
       cards.forEach((card) => {
         gsap.from(card, {
           scrollTrigger: {
@@ -110,9 +110,9 @@ export function ProcessSection() {
             start: "top 85%",
             toggleActions: "play none none reverse"
           },
-          y: 40,
+          y: 60,
           opacity: 0,
-          duration: 0.8,
+          duration: 1,
           ease: "power3.out"
         });
       });
@@ -124,97 +124,104 @@ export function ProcessSection() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative z-30 bg-background text-foreground border-t border-border overflow-hidden"
+      className="relative z-30 bg-[#fcfcfc] border-t border-black/[0.03] overflow-hidden"
       id="process"
     >
-      {/* Desktop Layout: Cinematic Stacking Cards */}
+      {/* Desktop Layout: Minimal Stacking Cards */}
       <div className="hidden lg:flex flex-col items-center justify-center h-screen relative px-8 py-12">
         
-        {/* Section Title Pinned at Top */}
-        <div className="absolute top-12 lg:top-16 left-0 w-full text-center z-50 pointer-events-none">
-          <h2 className="text-[2rem] font-bold tracking-[0.2em] uppercase text-foreground/30">The Journey</h2>
+        <div className="absolute top-12 left-16 z-50 pointer-events-none">
+          <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-black/40">The Journey</h2>
         </div>
 
-        <div ref={containerRef} className="relative w-full max-w-6xl h-[80vh] mx-auto perspective-1000">
+        <div ref={containerRef} className="relative w-full max-w-6xl h-[70vh] mx-auto perspective-1000 mt-8">
           {steps.map((step, index) => (
             <div 
               key={`desk-${step.id}`}
-              className="process-card absolute top-0 left-0 w-full h-full rounded-[40px] overflow-hidden border border-border shadow-2xl bg-panel transform-origin-top will-change-transform"
+              className="process-card absolute top-0 left-0 w-full h-full rounded-[40px] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.06)] bg-white border border-black/[0.04] flex transform-origin-top will-change-transform"
               style={{ zIndex: index }}
             >
-              {/* Background Visual */}
-              <div className="absolute inset-0 w-full h-full bg-[#050505]">
-                <Image 
-                  src={step.image} 
-                  alt={step.title} 
-                  fill 
-                  className="object-cover opacity-50 scale-105"
-                  priority={index === 0}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/80 to-transparent" />
-              </div>
-
-              {/* Oversized Background Number */}
-              <div className="absolute -right-10 -bottom-10 lg:-right-20 lg:-bottom-20 pointer-events-none">
-                <span className="text-[300px] lg:text-[400px] font-black leading-none text-white/[0.04] tracking-tighter">
-                  {step.id}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="relative z-10 w-full h-full p-12 lg:p-20 flex flex-col justify-end max-w-3xl">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-[1px] w-12 bg-accent" />
-                  <span className="text-accent text-lg font-bold tracking-[0.3em] uppercase">Phase {step.id}</span>
+              {/* Left: Text Content */}
+              <div className="w-1/2 h-full p-20 flex flex-col justify-center relative bg-white">
+                <div className="flex items-center gap-4 mb-12">
+                  <span className="text-black/30 font-mono text-sm tracking-widest">{step.id}</span>
+                  <div className="h-[1px] w-12 bg-black/10" />
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-black/50">Phase {step.id}</span>
                 </div>
-                <h3 className="text-5xl lg:text-7xl font-semibold mb-6 tracking-tight leading-[1.1] text-white">
+                
+                <h3 className="text-[4rem] font-medium tracking-tighter text-black leading-[1.1] mb-6">
                   {step.title}
                 </h3>
-                <p className="text-xl lg:text-2xl text-white/70 font-medium leading-relaxed max-w-2xl">
+                
+                <p className="text-xl text-black/50 leading-relaxed max-w-md">
                   {step.desc}
                 </p>
+
+                {/* Subtle giant background number */}
+                <div className="absolute right-12 bottom-12 pointer-events-none select-none">
+                  <span className="text-[200px] font-medium text-black/[0.02] tracking-tighter leading-none">
+                    {step.id}
+                  </span>
+                </div>
+              </div>
+
+              {/* Right: Image */}
+              <div className="w-1/2 h-full relative p-6">
+                <div className="relative w-full h-full rounded-[32px] overflow-hidden bg-black/5">
+                  <Image 
+                    src={step.image} 
+                    alt={step.title} 
+                    fill 
+                    className="object-cover"
+                    priority={index === 0}
+                  />
+                  <div className="absolute inset-0 bg-black/[0.02]" />
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Mobile/Tablet Layout: Vertical Card Flow */}
+      {/* Mobile/Tablet Layout: Clean Vertical Flow */}
       <div className="lg:hidden px-6 py-24 flex flex-col gap-8 relative">
-        <div className="mb-8 text-center">
-          <h2 className="text-[2rem] md:text-[3rem] font-bold tracking-tight text-foreground mb-4">The Journey</h2>
-          <p className="text-muted text-lg">A guided intelligent process from consultation to completion.</p>
+        <div className="mb-12">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-[1px] w-8 bg-black/20" />
+            <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-black/40">The Journey</h2>
+          </div>
+          <p className="text-black/50 text-lg">A guided intelligent process from consultation to completion.</p>
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-12">
           {steps.map((step) => (
             <div 
               key={`mob-${step.id}`}
-              className="process-card-mobile relative rounded-3xl overflow-hidden border border-border bg-[#050505] min-h-[400px] flex flex-col justify-end p-8 shadow-xl"
+              className="process-card-mobile flex flex-col gap-6"
             >
-              <div className="absolute inset-0 w-full h-full">
+              {/* Image Container */}
+              <div className="relative w-full h-[50vh] rounded-3xl overflow-hidden bg-black/5 shadow-lg border border-black/[0.04]">
                 <Image 
                   src={step.image} 
                   alt={step.title} 
                   fill 
-                  className="object-cover opacity-50"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
               </div>
 
-              <div className="absolute -right-4 -bottom-4 pointer-events-none">
-                <span className="text-[120px] font-black leading-none text-white/[0.05] tracking-tighter">
-                  {step.id}
-                </span>
-              </div>
-
-              <div className="relative z-10">
-                <span className="text-accent text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Phase {step.id}</span>
-                <h3 className="text-3xl md:text-4xl font-semibold mb-4 text-white">
+              {/* Text Container */}
+              <div className="flex flex-col relative px-2">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-black/30 font-mono text-xs tracking-widest">{step.id}</span>
+                  <div className="h-[1px] w-8 bg-black/10" />
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-black/50">Phase {step.id}</span>
+                </div>
+                
+                <h3 className="text-4xl font-medium tracking-tighter text-black mb-4">
                   {step.title}
                 </h3>
-                <p className="text-base md:text-lg text-white/70 leading-relaxed">
+                
+                <p className="text-lg text-black/50 leading-relaxed">
                   {step.desc}
                 </p>
               </div>

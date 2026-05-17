@@ -2,169 +2,158 @@
 
 import React, { useRef, useState } from 'react';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
-import { Award, Trophy, Star, Medal, Sparkles, Crown, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface AwardItem {
   year: string;
   title: string;
   category: string;
-  icon: React.ReactNode;
+  image: string;
 }
 
 const AWARDS: AwardItem[] = [
   {
-    year: '2015',
-    title: 'TOP PERFORMER',
-    category: 'ALL INDIA',
-    icon: <Trophy className="w-6 h-6" />,
+    year: '2026',
+    title: 'Top Performer',
+    category: 'All India',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
   },
   {
-    year: '2016',
-    title: 'ANNUAL PARTNER',
-    category: 'RECOGNITION',
-    icon: <Award className="w-6 h-6" />,
-  },
-  {
-    year: '2017',
-    title: 'PLATINUM',
-    category: 'AWARD',
-    icon: <Crown className="w-6 h-6" />,
-  },
-  {
-    year: '2021',
-    title: 'RESIDENTIAL CHAMPION',
-    category: 'LUXURY BUSINESS',
-    icon: <Star className="w-6 h-6" />,
+    year: '2024',
+    title: 'Design Excellence',
+    category: 'Recognition',
+    image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop',
   },
   {
     year: '2022',
-    title: 'HOSPITALITY AWARD',
-    category: 'BUSINESS EXCELLENCE',
-    icon: <Medal className="w-6 h-6" />,
+    title: 'Platinum Award',
+    category: 'Global',
+    image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop',
   },
   {
-    year: '2026',
-    title: 'HALL OF FAME',
-    category: 'LIFETIME ACHIEVEMENT',
-    icon: <Sparkles className="w-6 h-6" />,
+    year: '2021',
+    title: 'Innovation Champion',
+    category: 'Luxury Business',
+    image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    year: '2019',
+    title: 'Hospitality Star',
+    category: 'Business Excellence',
+    image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop',
   },
 ];
 
-const BRAND_ACCENT = '#8c1817';
-
-function AwardRow({ 
-  award, 
-  index, 
-  hoveredIndex, 
-  setHoveredIndex 
-}: { 
-  award: AwardItem; 
-  index: number; 
+function AwardRow({
+  award,
+  index,
+  hoveredIndex,
+  setHoveredIndex
+}: {
+  award: AwardItem;
+  index: number;
   hoveredIndex: number | null;
   setHoveredIndex: (idx: number | null) => void;
 }) {
   const rowRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const isLeft = index % 2 === 0;
+  const imageRef = useRef<HTMLDivElement>(null);
   const isAnyHovered = hoveredIndex !== null;
   const isThisHovered = hoveredIndex === index;
 
   useGSAP(() => {
-    if (!rowRef.current || !cardRef.current) return;
+    if (!rowRef.current || !imageRef.current) return;
 
     const row = rowRef.current;
-    const card = cardRef.current;
+    const image = imageRef.current;
+
+    gsap.set(image, { xPercent: -50, yPercent: -50 });
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = row.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      gsap.to(card, {
+      gsap.to(image, {
         x: x,
         y: y,
-        duration: 0.8,
+        duration: 0.6,
+        ease: 'power3.out',
+      });
+    };
+
+    const handleMouseEnter = (e: MouseEvent) => {
+      setHoveredIndex(index);
+
+      const rect = row.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      gsap.set(image, { x, y });
+
+      gsap.to(image, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power3.out',
+      });
+    };
+
+    const handleMouseLeave = () => {
+      setHoveredIndex(null);
+      gsap.to(image, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.5,
         ease: 'power3.out',
       });
     };
 
     row.addEventListener('mousemove', handleMouseMove);
-    return () => row.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    row.addEventListener('mouseenter', handleMouseEnter);
+    row.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      row.removeEventListener('mousemove', handleMouseMove);
+      row.removeEventListener('mouseenter', handleMouseEnter);
+      row.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [index, setHoveredIndex]);
 
   return (
     <div
       ref={rowRef}
-      onMouseEnter={() => setHoveredIndex(index)}
-      onMouseLeave={() => setHoveredIndex(null)}
       className={cn(
-        "group relative flex items-center w-full py-8 md:py-12 border-b border-black/[0.08] cursor-none transition-all duration-500 ease-in-out",
-        isAnyHovered && !isThisHovered ? "opacity-20 blur-[1px]" : "opacity-100"
+        "group award-row relative flex flex-col md:flex-row md:items-center justify-between py-10 md:py-16 border-b border-black/[0.08] cursor-pointer transition-all duration-700 ease-out",
+        isAnyHovered && !isThisHovered ? "opacity-30" : "opacity-100"
       )}
       style={{ zIndex: isThisHovered ? 50 : 1 }}
     >
-      {/* Background Highlight Strip (Expanding from middle) */}
-      <div 
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out pointer-events-none"
-      >
-        <div 
-          className="absolute inset-0 scale-y-0 group-hover:scale-y-100 transition-transform duration-700 ease-in-out"
-          style={{ 
-            background: `linear-gradient(90deg, transparent, ${BRAND_ACCENT}08, transparent)`,
-            transformOrigin: 'center'
-          }}
-        />
-        {/* Subtle accent line */}
-        <div 
-          className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-accent/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-1000"
-        />
-      </div>
-      
-      {/* 3-Column Grid: 45% | 10% | 45% */}
-      <div className="grid grid-cols-[45%_10%_45%] w-full max-w-[1440px] mx-auto px-6 md:px-12 relative z-10 pointer-events-none">
-        
-        {/* Row Content - Alternating */}
-        <div className={cn(
-          "flex flex-col gap-2 transition-transform duration-700 ease-out group-hover:translate-x-2",
-          isLeft ? "col-start-1" : "col-start-3 items-end text-right group-hover:-translate-x-2"
-        )}>
-          <div className="flex items-center gap-4 text-black/20 group-hover:text-accent/60 transition-colors duration-500">
-            <span className="text-[10px] md:text-xs font-mono tracking-[0.3em]">{award.year}</span>
-            <div className="h-[1px] w-8 bg-black/5 group-hover:bg-accent/20 transition-colors" />
-            <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase">{award.category}</span>
-          </div>
-          
-          <h3 className={cn(
-            "text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-black/40 group-hover:text-black transition-all duration-700 uppercase leading-none"
-          )}>
-            {award.title}
-          </h3>
-        </div>
-
-        {/* Empty Center Space (10%) */}
-        <div className="col-start-2" />
-      </div>
-
-      {/* Floating Award Card (absolute to row) */}
+      {/* Floating Image */}
       <div
-        ref={cardRef}
-        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-[100%] pointer-events-none z-[100] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 ease-out"
+        ref={imageRef}
+        className="absolute top-0 left-0 pointer-events-none z-[100] w-[280px] h-[200px] md:w-[400px] md:h-[280px] rounded-2xl overflow-hidden opacity-0 scale-75 shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
       >
-        <div className="relative p-5 rounded-xl bg-white/95 border border-black/[0.1] shadow-[0_20px_40px_rgba(0,0,0,0.12)] overflow-hidden min-w-[220px] backdrop-blur-md">
-          <div className="relative z-10 flex flex-col items-center gap-4 text-center">
-            <div 
-              className="p-4 rounded-full bg-accent/5 border border-accent/10 text-accent"
-            >
-              {award.icon}
-            </div>
-            <div>
-              <div className="text-[9px] font-mono tracking-[0.3em] uppercase text-black/40 mb-1">{award.year} Recognition</div>
-              <div className="text-base font-bold text-black tracking-wide uppercase leading-tight">{award.title}</div>
-            </div>
-          </div>
-          <ArrowUpRight className="absolute top-3 right-3 w-3 h-3 text-black/10" />
-        </div>
+        <img
+          src={award.image}
+          alt={award.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      <div className="flex-shrink-0 w-full md:w-[120px] text-sm md:text-base font-medium text-accent/40 mb-4 md:mb-0 transition-colors duration-500 group-hover:text-accent/60">
+        {award.year}
+      </div>
+
+      <div className="flex-1 flex items-center">
+        <h3 className={cn(
+          "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-black transition-transform duration-700 ease-out",
+          isThisHovered ? "md:translate-x-8" : ""
+        )}>
+          {award.title}
+        </h3>
+      </div>
+
+      <div className="flex-shrink-0 mt-4 md:mt-0 text-xs md:text-sm font-medium text-black/40 uppercase tracking-[0.2em] transition-colors duration-500 group-hover:text-black/60 md:text-right">
+        {award.category}
       </div>
     </div>
   );
@@ -177,26 +166,8 @@ export function AwardsSection() {
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    // Entrance animation for rows
-    const rows = gsap.utils.toArray('.award-row-container', containerRef.current);
-    gsap.fromTo(rows, 
-      { y: 60, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: 1, 
-        stagger: 0.1, 
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 80%',
-        }
-      }
-    );
-
-    // Title reveal
-    gsap.fromTo('.awards-title-el',
-      { y: 30, opacity: 0 },
+    gsap.fromTo('.awards-header > *',
+      { y: 50, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -205,7 +176,23 @@ export function AwardsSection() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 85%',
+          start: 'top 75%',
+        }
+      }
+    );
+
+    const rows = gsap.utils.toArray('.award-row', containerRef.current);
+    gsap.fromTo(rows,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.awards-list',
+          start: 'top 80%',
         }
       }
     );
@@ -214,46 +201,38 @@ export function AwardsSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-background py-20 md:py-28 overflow-hidden border-t border-black/[0.03]"
+      className="relative w-full bg-[#fcfcfc] py-24 md:py-40 overflow-hidden"
       id="awards"
     >
-      <div className="relative z-10 w-full">
-        {/* ── Section Header ── */}
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16 md:mb-24">
-          <div className="flex flex-col gap-4">
-            <div className="awards-title-el flex items-center gap-3">
-              <div className="h-[1px] w-12 bg-accent/20" />
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-accent/60">Our Legacy</span>
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12">
+        <div className="awards-header flex flex-col md:flex-row md:items-end justify-between mb-20 md:mb-32 gap-8">
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="h-[1px] w-8 bg-black/20" />
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-black/60">Recognition</span>
             </div>
-            <h2 className="awards-title-el text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-black uppercase leading-[0.9]">
-              Awards & <br />
-              <span className="text-black/10 italic font-medium">Recognition</span>
+            <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-medium tracking-tighter text-black leading-[0.9]">
+              Selected <br className="hidden md:block" />
+              <span className="text-black/30">Awards.</span>
             </h2>
+          </div>
+          <div className="max-w-[300px] text-black/50 text-sm md:text-base leading-relaxed font-medium">
+            A testament to our unwavering commitment to design excellence and innovation over the years.
           </div>
         </div>
 
-        {/* ── Awards Rows ── */}
-        <div className="w-full flex flex-col border-t border-black/[0.08]">
+        <div className="awards-list w-full flex flex-col border-t border-black/[0.08]">
           {AWARDS.map((award, index) => (
-            <div key={index} className="award-row-container w-full">
-              <AwardRow 
-                award={award} 
-                index={index} 
-                hoveredIndex={hoveredIndex}
-                setHoveredIndex={setHoveredIndex}
-              />
-            </div>
+            <AwardRow
+              key={index}
+              award={award}
+              index={index}
+              hoveredIndex={hoveredIndex}
+              setHoveredIndex={setHoveredIndex}
+            />
           ))}
         </div>
-        
-        <div className="w-full h-[1px] bg-black/[0.08]" />
       </div>
-      
-      <style jsx global>{`
-        #awards .group:hover {
-          cursor: none;
-        }
-      `}</style>
     </section>
   );
 }

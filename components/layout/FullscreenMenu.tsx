@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { gsap, SplitText, useGSAP } from '../../lib/gsapSetup';
+import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { X, ArrowRight } from 'lucide-react';
 
 interface SubItem {
@@ -96,41 +96,38 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
 
     // Initial Set states
     gsap.set(bgOverlayRef.current, { autoAlpha: 0 });
-    gsap.set(leftPanelRef.current, { x: -60, autoAlpha: 0 });
-    gsap.set(rightPanelRef.current, { x: 60, autoAlpha: 0 });
-    gsap.set('.menu-link-wrapper', { y: 60, opacity: 0 });
+    gsap.set(leftPanelRef.current, { autoAlpha: 0 });
+    gsap.set(rightPanelRef.current, { autoAlpha: 0 });
+    gsap.set(containerRef.current, { clipPath: 'circle(0% at calc(100% - 48px) 48px)' });
+    gsap.set('.menu-link-wrapper', { y: 40, opacity: 0 });
 
     const tl = gsap.timeline({
       paused: true,
-      defaults: { ease: 'power3.inOut', duration: 1 }
+      defaults: { ease: 'expo.inOut', duration: 1.2 }
     });
 
-    // 1. Background fades in
-    tl.to(bgOverlayRef.current, {
+    // 1. Container expands from button
+    tl.to(containerRef.current, {
+      clipPath: 'circle(150% at calc(100% - 48px) 48px)',
+      duration: 1.2,
+    })
+    // 2. Background and Panels fade in
+    .to([bgOverlayRef.current, leftPanelRef.current, rightPanelRef.current], {
       autoAlpha: 1,
       duration: 0.8,
-    })
-    // 2. Panels slide in gracefully
-    .to([leftPanelRef.current, rightPanelRef.current], {
-      x: 0,
-      autoAlpha: 1,
-      duration: 1.2,
-      ease: 'expo.out',
-    }, '-=0.4')
-    // 3. Links stagger up (animating the wrapper, NOT the link itself to preserve CSS 3D hover)
+    }, '-=1.0')
+    // 3. Links stagger up
     .to('.menu-link-wrapper', {
       y: 0,
       opacity: 1,
-      stagger: 0.06,
-      duration: 1,
-      ease: 'power4.out',
-    }, '-=1.0');
+      stagger: 0.05,
+      duration: 0.9,
+      ease: 'power3.out',
+    }, '-=0.8');
 
     mainTimeline.current = tl;
 
   }, { scope: containerRef, dependencies: [mounted] });
-
-
 
   // Play/Reverse logic
   useEffect(() => {
@@ -146,16 +143,16 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
   // Dynamic Image & Submenu Transition on Hover Change
   useGSAP(() => {
     if (activeItem && isOpen) {
-      // Animate the image crossfade
+      // Animate the image crossfade (smooth, minimal effect)
       gsap.fromTo('.dynamic-preview-image', 
-        { scale: 1.05, opacity: 0, filter: 'blur(10px)' }, 
-        { scale: 1, opacity: 0.4, filter: 'blur(0px)', duration: 1.2, ease: 'power3.out' }
+        { scale: 1.03, opacity: 0 }, 
+        { scale: 1, opacity: 1, duration: 1, ease: 'power2.out' }
       );
       
       // Animate the submenu content
       gsap.fromTo('.submenu-content', 
-        { y: 20, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.1 }
+        { x: 20, opacity: 0 }, 
+        { x: 0, opacity: 1, duration: 0.8, ease: 'power2.out', delay: 0.1 }
       );
     }
   }, { dependencies: [activeItem], scope: containerRef });
@@ -191,14 +188,13 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
       ref={containerRef}
       className={`fixed inset-0 z-[999999] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
-      {/* Absolute Dark Overlay Layer */}
-
+      {/* Light Off-White Background */}
       <div 
         ref={bgOverlayRef}
-        className="absolute inset-0 bg-[#060606] will-change-transform"
+        className="absolute inset-0 bg-[#fcfcfc] will-change-transform"
       >
-        {/* Subtle grid texture overlay */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '100px 100px' }} />
+        {/* Very subtle noise texture (optional, Apple style) */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
       </div>
 
       <div className="absolute inset-0 flex flex-col lg:flex-row overflow-hidden">
@@ -206,30 +202,15 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
         {/* LEFT PANEL: Main Navigation */}
         <div 
           ref={leftPanelRef}
-          className="relative w-full lg:w-[50%] h-full flex flex-col justify-between px-6 lg:px-16 pt-6 pb-12 overflow-y-auto lg:overflow-hidden scrollbar-hide will-change-transform"
+          className="relative w-full lg:w-[45%] h-full flex flex-col justify-between px-6 lg:px-16 pt-24 lg:pt-32 pb-12 overflow-y-auto lg:overflow-hidden scrollbar-hide will-change-transform"
         >
-          {/* Header Row */}
-          <div className="flex items-center justify-between lg:justify-start w-full">
-            <Link href="/" onClick={onClose} className="flex items-center gap-3 relative z-50">
-              <img src="/logo.svg" alt="AT" className="h-8 lg:h-10 invert brightness-0" />
-              <div className="hidden sm:flex flex-col">
-                <span className="text-[9px] tracking-[0.4em] font-medium uppercase text-white/40">Systems Interface</span>
-                <span className="text-[7px] tracking-[0.1em] text-white/20">OS_NAV_2.4</span>
-              </div>
-            </Link>
-
-            {/* Mobile Close Button */}
-            <button onClick={onClose} className="lg:hidden w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 active:bg-white/10 z-50">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
 
           {/* Links Area */}
-          <nav className="flex flex-col gap-2 sm:gap-4 mt-12 lg:mt-0 flex-1 justify-center relative z-10 [perspective:2000px]">
+          <nav className="flex flex-col gap-4 sm:gap-6 mt-12 lg:mt-0 flex-1 justify-center relative z-10">
             {MENU_ITEMS.map((item, index) => (
               <div 
                 key={item.id}
-                className="relative group py-1"
+                className="relative group py-2"
                 onMouseEnter={() => {
                   if (window.innerWidth >= 1024 && hoveredIndex !== index) {
                     setActiveItem(item);
@@ -244,9 +225,9 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                   <Link 
                     href={item.href}
                     onClick={(e) => handleLinkClick(e, item.href, index)}
-                    className={`block text-[12vw] lg:text-[6vw] font-display font-medium leading-[0.9] tracking-tight transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] will-change-transform [transform-style:preserve-3d] origin-left relative z-50
-                      ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20 blur-[2px] [transform:translateZ(-150px)_rotateY(-15deg)_rotateX(5deg)]' : 'opacity-100'}
-                      ${hoveredIndex === index ? 'pl-4 lg:pl-8 text-white [transform:translateZ(80px)_rotateY(10deg)_rotateX(10deg)]' : 'text-white/90'}
+                    className={`block text-[12vw] lg:text-[5vw] font-medium leading-[0.9] tracking-tight transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] will-change-transform origin-left relative z-50
+                      ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-30 blur-[2px] translate-x-0' : 'opacity-100'}
+                      ${hoveredIndex === index ? 'pl-6 translate-x-4 text-accent' : 'text-black'}
                     `}
                   >
                     <span className="inline-block relative pointer-events-none">
@@ -258,12 +239,11 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                   </Link>
                 </div>
 
-
                 {/* Mobile Accordion */}
-                <div className={`lg:hidden overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] ${hoveredIndex === index ? 'max-h-[300px] opacity-100 mt-6 mb-4' : 'max-h-0 opacity-0'}`}>
-                  <div className="flex flex-col gap-5 pl-4 border-l border-accent/40 py-2">
+                <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${hoveredIndex === index ? 'max-h-[300px] opacity-100 mt-6 mb-4' : 'max-h-0 opacity-0'}`}>
+                  <div className="flex flex-col gap-4 pl-4 border-l-2 border-accent py-2">
                     {item.subItems.map((sub, i) => (
-                      <Link key={i} href={sub.href} onClick={(e) => handleLinkClick(e, sub.href)} className="text-xl font-light text-white/50 active:text-accent flex items-center justify-between">
+                      <Link key={i} href={sub.href} onClick={(e) => handleLinkClick(e, sub.href)} className="text-xl font-medium text-black/60 active:text-accent flex items-center justify-between">
                         {sub.label}
                         <ArrowRight className="w-5 h-5 opacity-30" />
                       </Link>
@@ -273,77 +253,57 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
               </div>
             ))}
           </nav>
-
-
-          {/* Bottom Footer Info */}
-          <div className="pt-8 border-t border-white/10 flex items-center justify-between text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-white/30 font-mono relative z-10">
-            <div className="flex items-center gap-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              STATUS: SECURE LINK
-            </div>
-            <p>AT AUTOMATION © 2026</p>
-          </div>
         </div>
 
         {/* RIGHT PANEL: Dynamic Preview & Sub-navigation (Desktop Only) */}
         <div 
           ref={rightPanelRef}
-          className="hidden lg:flex relative w-[50%] h-full flex-col justify-between overflow-hidden will-change-transform bg-[#0a0a0a]"
+          className="hidden lg:flex relative w-[55%] h-full flex-col justify-between overflow-hidden will-change-transform bg-[#fcfcfc] border-l border-black/[0.03]"
         >
-          {/* Dynamic Image Background Layer */}
+          {/* Dynamic Image Background Layer (Clean & Bright) */}
           {activeItem && (
-            <img 
-              key={`img-${activeItem.id}`}
-              src={activeItem.image}
-              alt={activeItem.label}
-              className="dynamic-preview-image absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-luminosity"
-            />
-          )}
-          
-          {/* Gradient Overlays for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060606] via-transparent to-transparent opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-[#060606]/40 to-transparent opacity-90" />
-
-          {/* Desktop Close Button */}
-          <div className="relative z-20 flex justify-end p-6 lg:p-12">
-            <button 
-              onClick={onClose}
-              className="group flex items-center gap-4 text-white/50 hover:text-white transition-all pointer-events-auto"
-            >
-              <span className="text-[10px] uppercase tracking-[0.3em] font-medium opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">Close Interface</span>
-              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center bg-black/20 backdrop-blur-md group-hover:border-white/50 group-hover:bg-black/40 transition-all duration-500">
-                <X className="w-5 h-5" />
-              </div>
-            </button>
-          </div>
-
-          {/* Submenu Content Over Image */}
-          <div className="relative z-20 flex-1 flex flex-col justify-end p-12 lg:p-24 pb-32">
-            {activeItem && (
-              <div key={`sub-${activeItem.id}`} className="submenu-content max-w-lg">
-                <div className="flex items-center gap-4 mb-10">
-                  <div className="w-12 h-[1px] bg-accent" />
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] text-accent font-bold">Discover {activeItem.label}</h3>
-                </div>
+            <div className="absolute inset-0 p-8 lg:p-12 pl-0">
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl shadow-black/5 bg-gray-100">
+                <img 
+                  key={`img-${activeItem.id}`}
+                  src={activeItem.image}
+                  alt={activeItem.label}
+                  className="dynamic-preview-image absolute inset-0 w-full h-full object-cover object-center"
+                />
                 
-                <div className="flex flex-col gap-6">
-                  {activeItem.subItems.map((sub, i) => (
-                    <Link 
-                      key={i} 
-                      href={sub.href} 
-                      onClick={(e) => handleLinkClick(e, sub.href)} 
-                      className="group flex items-center justify-between py-4 border-b border-white/10 hover:border-white/40 transition-all duration-500"
-                    >
-                      <span className="text-3xl font-light text-white/60 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 ease-out">
-                        {sub.label}
-                      </span>
-                      <ArrowRight className="w-5 h-5 text-white/0 group-hover:text-accent -translate-x-4 group-hover:translate-x-0 transition-all duration-500" />
-                    </Link>
-                  ))}
+                {/* Subtle gradient so text is perfectly readable on light images */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                {/* Submenu Content Over Image */}
+                <div className="absolute bottom-12 left-12 z-20 flex-1 flex flex-col justify-end max-w-lg">
+                  {activeItem && (
+                    <div key={`sub-${activeItem.id}`} className="submenu-content">
+                      <div className="flex items-center gap-4 mb-8">
+                        <div className="w-8 h-[2px] bg-accent" />
+                        <h3 className="text-xs uppercase tracking-[0.2em] text-white/90 font-bold">Discover {activeItem.label}</h3>
+                      </div>
+                      
+                      <div className="flex flex-col gap-2">
+                        {activeItem.subItems.map((sub, i) => (
+                          <Link 
+                            key={i} 
+                            href={sub.href} 
+                            onClick={(e) => handleLinkClick(e, sub.href)} 
+                            className="group flex items-center justify-between py-3 border-b border-white/20 hover:border-white transition-all duration-300"
+                          >
+                            <span className="text-2xl font-medium text-white/90 group-hover:text-white group-hover:translate-x-2 transition-all duration-300 ease-out">
+                              {sub.label}
+                            </span>
+                            <ArrowRight className="w-5 h-5 text-accent opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
       </div>
