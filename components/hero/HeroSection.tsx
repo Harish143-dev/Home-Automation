@@ -11,7 +11,7 @@ import { gsap, SplitText, useGSAP } from "../../lib/gsapSetup";
 import { scheduleScrollRefresh } from "../../lib/scrollRefresh";
 
 const DEFAULT_DESCRIPTION =
-  "Transforming homes with cutting-edge automation since 2002.";
+  "Transforming homes with cutting-edge automation since 2002";
 
 const SCROLL_DESCRIPTIONS = [
   "Homes. Hotels. Offices.",
@@ -185,8 +185,8 @@ export function HeroSection() {
 
         gsap.set(frame, { opacity: 0 });
         if (split?.words) gsap.set(split.words, { y: 70, opacity: 0 });
-        gsap.set(heroP, { y: 25, opacity: 0 });
-        gsap.set(heroCta, { y: 25, opacity: 0 });
+        gsap.set(heroP, { y: 25, autoAlpha: 0 });
+        gsap.set(heroCta, { y: 25, autoAlpha: 0 });
 
         let entranceRan = false;
         const runEntrance = () => {
@@ -216,7 +216,7 @@ export function HeroSection() {
           // Description slides up
           entranceTl.to(heroP, {
             y: 0,
-            opacity: 1,
+            autoAlpha: 1,
             duration: 0.9,
             ease: "power3.out",
           }, 0.5);
@@ -224,7 +224,7 @@ export function HeroSection() {
           // CTA buttons slide up
           entranceTl.to(heroCta, {
             y: 0,
-            opacity: 1,
+            autoAlpha: 1,
             duration: 0.9,
             ease: "power3.out",
           }, 0.65);
@@ -232,7 +232,7 @@ export function HeroSection() {
 
         // Listen for intro curtain event
         onIntroComplete = () => runEntrance();
-        
+
         if (sessionStorage.getItem('brandIntroPlayed')) {
           runEntrance();
         } else {
@@ -305,7 +305,7 @@ export function HeroSection() {
           ".hero-foreground",
           {
             y: -50,
-            opacity: 0,
+            autoAlpha: 0,
             ease: "power2.in",
             duration: 0.2,
           },
@@ -618,7 +618,7 @@ export function HeroSection() {
       <div className="hero-reveal-bg absolute inset-0 z-[0] flex flex-col items-center justify-end pb-[10vh] pointer-events-none bg-accent">
         <h2
           ref={jobyTextRef}
-          className="text-white text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] uppercase font-bold tracking-tighter leading-[1.1] opacity-0 text-center max-w-6xl px-4"
+          className="text-white text-[1.5rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] uppercase font-bold tracking-tighter leading-[1.1] opacity-0 text-center max-w-6xl px-4"
         >
           The future of rooms is coming soon
         </h2>

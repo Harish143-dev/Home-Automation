@@ -33,10 +33,10 @@ const PANELS = [
 
 // Layout Slots for GSAP animations
 const SLOTS = {
-  center: { top: '15vh', left: '20vw', width: '40vw', height: '70vh', borderRadius: '24px', opacity: 1 },
-  topLeft: { top: '5vh', left: '5vw', width: '10vw', height: '10vw', borderRadius: '16px', opacity: 1 },
-  bottomRight: { top: '75vh', left: '85vw', width: '10vw', height: '10vw', borderRadius: '16px', opacity: 1 },
-  hidden: { top: '75vh', left: '85vw', width: '10vw', height: '10vw', borderRadius: '16px', opacity: 0 }
+  center: { top: '15vh', left: '20vw', width: '40vw', height: '70vh', borderRadius: '24px', autoAlpha: 1 },
+  topLeft: { top: '5vh', left: '5vw', width: '10vw', height: '10vw', borderRadius: '16px', autoAlpha: 1 },
+  bottomRight: { top: '75vh', left: '85vw', width: '10vw', height: '10vw', borderRadius: '16px', autoAlpha: 1 },
+  hidden: { top: '75vh', left: '85vw', width: '10vw', height: '10vw', borderRadius: '16px', autoAlpha: 0 }
 };
 
 export function AutomationSpaces() {
@@ -52,19 +52,18 @@ export function AutomationSpaces() {
       const el = `.exp-img-${i}`;
       if (i === 0) {
         // First image starts hidden and slightly scaled down
-        gsap.set(el, { ...SLOTS.center, opacity: 0, scale: 0.9 });
-      } else if (i === 1) {
-        gsap.set(el, SLOTS.bottomRight);
+        gsap.set(el, { ...SLOTS.center, autoAlpha: 0, scale: 0.9 });
       } else {
+        // All other images start hidden
         gsap.set(el, SLOTS.hidden);
       }
 
       const textEl = `.exp-text-${i}`;
-      gsap.set(textEl, { opacity: 0, y: 20 }); // ALL text starts hidden
+      gsap.set(textEl, { autoAlpha: 0, y: 20 }); // ALL text starts hidden
     });
 
     // Heading starts visible
-    gsap.set('.section-intro', { opacity: 1, y: 0 });
+    gsap.set('.section-intro', { autoAlpha: 1, y: 0 });
 
     const mainTl = gsap.timeline({
       scrollTrigger: {
@@ -81,21 +80,27 @@ export function AutomationSpaces() {
     // Intro Phase: Hide heading and reveal first gallery image
     const introTl = gsap.timeline();
     introTl.to('.section-intro', {
-      opacity: 0,
+      autoAlpha: 0,
       y: -30,
       duration: 0.8,
       ease: 'power2.inOut'
     }, 0);
 
     introTl.to('.exp-img-0', {
-      opacity: 1,
+      autoAlpha: 1,
       scale: 1,
       duration: 0.8,
       ease: 'power2.out'
     }, 0.5); // Image starts appearing just as heading fades out
 
+    introTl.to('.exp-img-1', {
+      ...SLOTS.bottomRight,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, 0.5); // Second preview image appears along with the first image
+
     introTl.to('.exp-text-0', {
-      opacity: 1,
+      autoAlpha: 1,
       y: 0,
       duration: 0.6,
       ease: 'power2.out'
@@ -122,7 +127,7 @@ export function AutomationSpaces() {
 
       // 2. Fade out current text
       phaseTl.to(currentText, {
-        opacity: 0,
+        autoAlpha: 0,
         y: -30,
         ease: 'power2.inOut',
         duration: 0.4
@@ -137,7 +142,7 @@ export function AutomationSpaces() {
 
       // 4. Fade in next text
       phaseTl.to(nextText, {
-        opacity: 1,
+        autoAlpha: 1,
         y: 0,
         ease: 'power2.out',
         duration: 0.4
@@ -146,7 +151,7 @@ export function AutomationSpaces() {
       // 5. If there's another image waiting in line, reveal it in the bottom right slot
       if (i + 2 < PANELS.length) {
         phaseTl.to(nextNextImg, {
-          opacity: 1,
+          autoAlpha: 1,
           ease: 'power2.inOut',
           duration: 0.4
         }, 0.6);
@@ -164,7 +169,7 @@ export function AutomationSpaces() {
   }, { scope: sectionRef, dependencies: [isMobile, isReady, prefersReducedMotion] });
 
   // Mobile / Reduced Motion Fallback
-    if (isReady && (isMobile || prefersReducedMotion)) {
+  if (isReady && (isMobile || prefersReducedMotion)) {
     return (
       <div id="automation-spaces" className="bg-background">
         <section className="py-20 px-5 text-foreground">

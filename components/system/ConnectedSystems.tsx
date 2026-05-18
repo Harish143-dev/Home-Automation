@@ -215,7 +215,7 @@ function ServicePanelCard({
         <div className="relative z-10 max-w-xl mx-auto md:mx-0">
 
           <h3 className="cs-stagger-el mb-3 sm:mb-4 md:mb-6 text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] font-medium leading-[1.05] tracking-tight text-foreground drop-shadow-sm">
-            {service.title}.
+            {service.title}
           </h3>
 
           <p className="cs-stagger-el text-[13px] sm:text-[15px] md:text-base lg:text-lg leading-[1.6] sm:leading-[1.7] text-muted max-w-[95%] sm:max-w-[90%]">
