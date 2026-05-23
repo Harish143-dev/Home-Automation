@@ -4,66 +4,66 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
-import { X, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface SubItem {
   label: string;
   href: string;
 }
 
-interface MenuItem {
-  id: string;
-  label: string;
-  href: string;
-  image: string;
-  subItems: SubItem[];
+interface MenuCategory {
+  title: string;
+  items: SubItem[];
 }
 
-const MENU_ITEMS: MenuItem[] = [
+const STANDALONE_LINKS = [
+  { id: 'about', label: 'About Us', href: '/about' },
+  { id: 'energy', label: 'Energy Saving', href: '/energy-saving' },
+  { id: 'contact', label: 'Contact Us', href: '/contact' }
+];
+
+const CATEGORIZED_LINKS: MenuCategory[] = [
   {
-    id: 'solutions',
-    label: 'Solutions',
-    href: '#solutions',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop',
-    subItems: [
-      { label: 'Residential', href: '#residential' },
+    title: 'The Future of',
+    items: [
+      { label: 'Residential', href: '/residential' },
       { label: 'Hospitality', href: '#hospitality' },
       { label: 'Commercial', href: '#commercial' },
     ]
   },
   {
-    id: 'services',
-    label: 'Services',
-    href: '#services',
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop',
-    subItems: [
+    title: 'Disciplines',
+    items: [
       { label: 'Lighting Automation', href: '#lighting' },
-      { label: 'Audio Video', href: '#av' },
-      { label: 'Climate Control', href: '#hvac' },
-      { label: 'Smart Security', href: '#security' },
+      { label: 'Audio Video Automation', href: '#av' },
+      { label: 'Shades Automation', href: '#shades' },
+      { label: 'HVAC Automation', href: '#hvac' },
+      { label: 'Security Automation', href: '#security' },
+      { label: 'AMC', href: '#amc' },
     ]
   },
   {
-    id: 'projects',
-    label: 'Projects',
-    href: '#projects',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop',
-    subItems: [
-      { label: 'Featured Work', href: '#projects' },
-      { label: 'Private Residences', href: '#projects' },
-      { label: 'Smart Offices', href: '#projects' },
+    title: 'Work',
+    items: [
+      { label: 'Residential Projects', href: '#work-residential' },
+      { label: 'Hospitality Projects', href: '#work-hospitality' },
+      { label: 'Commercial Projects', href: '#work-commercial' },
     ]
   },
   {
-    id: 'company',
-    label: 'Company',
-    href: '#company',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
-    subItems: [
-      { label: 'Our Story', href: '#about' },
-      { label: 'Expertise', href: '#expertise' },
-      { label: 'Process', href: '#process' },
-      { label: 'Contact', href: '#contact' },
+    title: 'Experience',
+    items: [
+      { label: 'Delhi', href: '#experience-delhi' },
+      { label: 'Mumbai', href: '#experience-mumbai' },
+      { label: 'Bangalore', href: '#experience-bangalore' },
+    ]
+  },
+  {
+    title: 'Resources',
+    items: [
+      { label: 'Blogs', href: '#blogs' },
+      { label: 'Case Studies', href: '#case-studies' },
+      { label: 'Publications', href: '#publications' },
     ]
   }
 ];
@@ -77,59 +77,55 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
   const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const bgOverlayRef = useRef<HTMLDivElement>(null);
-  const leftPanelRef = useRef<HTMLDivElement>(null);
-  const rightPanelRef = useRef<HTMLDivElement>(null);
-  const [activeItem, setActiveItem] = useState<MenuItem | null>(MENU_ITEMS[0]);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
+  
   const mainTimeline = useRef<gsap.core.Timeline | null>(null);
 
-  // Mount logic for Portal
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
 
-  // Main Opening Animation Setup
   useGSAP(() => {
     if (!bgOverlayRef.current || !mounted) return;
 
-    // Initial Set states
     gsap.set(bgOverlayRef.current, { autoAlpha: 0 });
-    gsap.set(leftPanelRef.current, { autoAlpha: 0 });
-    gsap.set(rightPanelRef.current, { autoAlpha: 0 });
     gsap.set(containerRef.current, { clipPath: 'circle(0% at calc(100% - 48px) 48px)' });
-    gsap.set('.menu-link-wrapper', { y: 40, opacity: 0 });
+    gsap.set('.menu-link-large', { y: 60, opacity: 0, rotate: 2 });
+    gsap.set('.menu-category', { y: 40, opacity: 0 });
 
     const tl = gsap.timeline({
       paused: true,
       defaults: { ease: 'expo.inOut', duration: 1.2 }
     });
 
-    // 1. Container expands from button
     tl.to(containerRef.current, {
       clipPath: 'circle(150% at calc(100% - 48px) 48px)',
       duration: 1.2,
     })
-    // 2. Background and Panels fade in
-    .to([bgOverlayRef.current, leftPanelRef.current, rightPanelRef.current], {
+    .to(bgOverlayRef.current, {
       autoAlpha: 1,
       duration: 0.8,
     }, '-=1.0')
-    // 3. Links stagger up
-    .to('.menu-link-wrapper', {
+    .to('.menu-link-large', {
+      y: 0,
+      opacity: 1,
+      rotate: 0,
+      stagger: 0.1,
+      duration: 1,
+      ease: 'power3.out',
+    }, '-=0.8')
+    .to('.menu-category', {
       y: 0,
       opacity: 1,
       stagger: 0.05,
-      duration: 0.9,
+      duration: 0.8,
       ease: 'power3.out',
-    }, '-=0.8');
+    }, '-=0.9');
 
     mainTimeline.current = tl;
 
   }, { scope: containerRef, dependencies: [mounted] });
 
-  // Play/Reverse logic
   useEffect(() => {
     if (isOpen) {
       mainTimeline.current?.play();
@@ -140,34 +136,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
     }
   }, [isOpen]);
 
-  // Dynamic Image & Submenu Transition on Hover Change
-  useGSAP(() => {
-    if (activeItem && isOpen) {
-      // Animate the image crossfade (smooth, minimal effect)
-      gsap.fromTo('.dynamic-preview-image', 
-        { scale: 1.03, opacity: 0 }, 
-        { scale: 1, opacity: 1, duration: 1, ease: 'power2.out' }
-      );
-      
-      // Animate the submenu content
-      gsap.fromTo('.submenu-content', 
-        { x: 20, opacity: 0 }, 
-        { x: 0, opacity: 1, duration: 0.8, ease: 'power2.out', delay: 0.1 }
-      );
-    }
-  }, { dependencies: [activeItem], scope: containerRef });
-
-  const handleLinkClick = (e: React.MouseEvent, href: string, index?: number) => {
-    // Mobile Accordion Logic
-    if (window.innerWidth < 1024 && index !== undefined && hoveredIndex !== index) {
-      e.preventDefault();
-      e.stopPropagation();
-      setHoveredIndex(index);
-      setActiveItem(MENU_ITEMS[index]);
-      return;
-    }
-
-    // Navigation execution
+  const handleLinkClick = (e: React.MouseEvent, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
       onClose();
@@ -176,7 +145,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
       if (target) {
         setTimeout(() => {
           target.scrollIntoView({ behavior: 'smooth' });
-        }, 800); // Wait for reverse animation
+        }, 800);
       }
     }
   };
@@ -188,122 +157,61 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
       ref={containerRef}
       className={`fixed inset-0 z-[999999] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
-      {/* Light Off-White Background */}
       <div 
         ref={bgOverlayRef}
         className="absolute inset-0 bg-[#fcfcfc] will-change-transform"
       >
-        {/* Very subtle noise texture (optional, Apple style) */}
         <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
       </div>
 
-      <div className="absolute inset-0 flex flex-col lg:flex-row overflow-hidden">
+      <div className="absolute inset-0 flex flex-col lg:flex-row overflow-y-auto overflow-x-hidden lg:overflow-hidden px-6 sm:px-12 lg:px-16 pt-20 pb-8 lg:py-24">
         
-        {/* LEFT PANEL: Main Navigation */}
-        <div 
-          ref={leftPanelRef}
-          className="relative w-full lg:w-[45%] h-full flex flex-col justify-between px-6 lg:px-16 pt-24 lg:pt-32 pb-12 overflow-y-auto lg:overflow-hidden scrollbar-hide will-change-transform"
-        >
-
-          {/* Links Area */}
-          <nav className="flex flex-col gap-4 sm:gap-6 mt-12 lg:mt-0 flex-1 justify-center relative z-10">
-            {MENU_ITEMS.map((item, index) => (
-              <div 
-                key={item.id}
-                className="relative group py-2"
-                onMouseEnter={() => {
-                  if (window.innerWidth >= 1024 && hoveredIndex !== index) {
-                    setActiveItem(item);
-                    setHoveredIndex(index);
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (window.innerWidth >= 1024) setHoveredIndex(null);
-                }}
+        {/* LEFT PANEL: Standalone Huge Links */}
+        <div className="w-full lg:w-[40%] flex flex-col justify-center gap-6 lg:gap-8 mb-16 lg:mb-0 relative z-10">
+          {STANDALONE_LINKS.map((link) => (
+            <div key={link.id} className="menu-link-large will-change-transform origin-left flex">
+              <Link 
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
+                className="group inline-flex items-center gap-6"
               >
-                <div className="menu-link-wrapper relative z-50">
-                  <Link 
-                    href={item.href}
-                    onClick={(e) => handleLinkClick(e, item.href, index)}
-                    className={`block text-[12vw] lg:text-[5vw] font-medium leading-[0.9] tracking-tight transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] will-change-transform origin-left relative z-50
-                      ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-30 blur-[2px] translate-x-0' : 'opacity-100'}
-                      ${hoveredIndex === index ? 'pl-6 translate-x-4 text-accent' : 'text-black'}
-                    `}
-                  >
-                    <span className="inline-block relative pointer-events-none">
-                      {item.label}
-                      <span className={`absolute -left-6 lg:-left-8 top-[15%] text-[0.8rem] lg:text-[1rem] font-sans font-medium text-accent transition-all duration-500 ${hoveredIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-                        0{index + 1}
-                      </span>
-                    </span>
-                  </Link>
-                </div>
-
-                {/* Mobile Accordion */}
-                <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${hoveredIndex === index ? 'max-h-[300px] opacity-100 mt-6 mb-4' : 'max-h-0 opacity-0'}`}>
-                  <div className="flex flex-col gap-4 pl-4 border-l-2 border-accent py-2">
-                    {item.subItems.map((sub, i) => (
-                      <Link key={i} href={sub.href} onClick={(e) => handleLinkClick(e, sub.href)} className="text-xl font-medium text-black/60 active:text-accent flex items-center justify-between">
-                        {sub.label}
-                        <ArrowRight className="w-5 h-5 opacity-30" />
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </nav>
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-wide text-black transition-colors hover:text-accent">
+                  {link.label}
+                </span>
+                <ArrowRight className="w-8 h-8 text-accent opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out hidden sm:block" />
+              </Link>
+            </div>
+          ))}
         </div>
 
-        {/* RIGHT PANEL: Dynamic Preview & Sub-navigation (Desktop Only) */}
-        <div 
-          ref={rightPanelRef}
-          className="hidden lg:flex relative w-[55%] h-full flex-col justify-between overflow-hidden will-change-transform bg-[#fcfcfc] border-l border-black/[0.03]"
-        >
-          {/* Dynamic Image Background Layer (Clean & Bright) */}
-          {activeItem && (
-            <div className="absolute inset-0 p-8 lg:p-12 pl-0">
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl shadow-black/5 bg-gray-100">
-                <img 
-                  key={`img-${activeItem.id}`}
-                  src={activeItem.image}
-                  alt={activeItem.label}
-                  className="dynamic-preview-image absolute inset-0 w-full h-full object-cover object-center"
-                />
-                
-                {/* Subtle gradient so text is perfectly readable on light images */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                {/* Submenu Content Over Image */}
-                <div className="absolute bottom-12 left-12 z-20 flex-1 flex flex-col justify-end max-w-lg">
-                  {activeItem && (
-                    <div key={`sub-${activeItem.id}`} className="submenu-content">
-                      <div className="flex items-center gap-4 mb-8">
-                        <div className="w-8 h-[2px] bg-accent" />
-                        <h3 className="text-xs uppercase tracking-[0.2em] text-white/90 font-bold">Discover {activeItem.label}</h3>
-                      </div>
-                      
-                      <div className="flex flex-col gap-2">
-                        {activeItem.subItems.map((sub, i) => (
-                          <Link 
-                            key={i} 
-                            href={sub.href} 
-                            onClick={(e) => handleLinkClick(e, sub.href)} 
-                            className="group flex items-center justify-between py-3 border-b border-white/20 hover:border-white transition-all duration-300"
-                          >
-                            <span className="text-2xl font-medium text-white/90 group-hover:text-white group-hover:translate-x-2 transition-all duration-300 ease-out">
-                              {sub.label}
-                            </span>
-                            <ArrowRight className="w-5 h-5 text-accent opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+        {/* RIGHT PANEL: Grid of Categories */}
+        <div className="w-full lg:w-[60%] flex flex-col justify-center relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 lg:gap-y-12">
+            {CATEGORIZED_LINKS.map((category, idx) => (
+              <div key={idx} className="menu-category will-change-transform flex flex-col">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-6 h-[1px] bg-accent/40" />
+                  <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-black/40">
+                    {category.title}
+                  </h3>
                 </div>
+                
+                <ul className="flex flex-col gap-3">
+                  {category.items.map((item, itemIdx) => (
+                    <li key={itemIdx}>
+                      <Link 
+                        href={item.href}
+                        onClick={(e) => handleLinkClick(e, item.href)}
+                        className="group inline-flex items-center text-base lg:text-lg font-medium text-black/70 hover:text-black transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
 
       </div>

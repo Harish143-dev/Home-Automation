@@ -5,9 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Lato", "Segoe UI", Arial, sans-serif;
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+  --font-sans: "Lato";
+  --font-display: "Playfair Display";
+  --font-mono: "JetBrains Mono";
 
   /* Primary — Light Luxury Corporate */
   --color-background: #F7F7F5;
@@ -93,7 +93,7 @@ h6 {
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.05em;
-  line-height: 0.9;
+  line-height: 0.5;
   color: var(--color-foreground);
   font-size: clamp(3.45rem, 8.4vw, 8rem);
   max-width: 7.4ch;
@@ -313,9 +313,11 @@ h6 {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }

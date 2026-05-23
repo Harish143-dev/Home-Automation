@@ -1,0 +1,127 @@
+<USER_REQUEST>
+Residential Service Page Hero – Architectural Camera Flythrough Experience (Prompt)
+
+Objective:
+Create a cinematic hero section for the Residential Smart Home Automation page that feels like entering a luxury intelligent residence. The experience should combine architectural visuals, immersive motion, layered depth, and premium storytelling — creating a smooth high-end introduction to smart living.
+
+The hero should feel like:
+
+“Walking through a futuristic luxury smart home.”
+
+The design and animation must fully adapt to and respect the website’s existing theme system, color palette, typography, spacing, glassmorphism style, and overall UI language to maintain strong visual consistency across the entire website.
+
+🎯 Core Experience Concept
+
+Instead of a traditional static hero banner:
+
+Create a cinematic architectural flythrough experience where:
+
+the camera slowly moves through a luxury smart home environment
+smart systems activate subtly
+typography reveals progressively
+layered visuals create immersive depth
+
+The section should feel elegant, premium, and emotionally engaging.
+
+🧱 Hero Content Structure
+Main Heading (H1)
+
+Smart Home Automation for Modern Luxury Living
+
+Subheading
+
+Seamlessly control lighting, entertainment, security, and comfort, all designed around your lifestyle.
+
+Primary CTA
+
+Book a Consultation
+
+Secondary CTA
+
+Visit Experience Center
+
+Trust Signals
+
+Examples:
+
+1200+ Smart Homes Automated
+15+ Years Experience
+Premium Global Technology Partners
+🎥 Cinematic Layout Concept
+Fullscreen Hero Experience
+Full viewport height
+Immersive cinematic composition
+Strong visual storytelling focus
+Layered Depth Composition
+Background Layer
+
+Luxury residential architectural environment:
+
+modern villa
+premium living room
+cinematic smart home environment
+
+The background should feel alive and atmospheric.
+
+Mid Layer
+
+Smart automation environmental effects:
+
+ambient lighting transitions
+subtle reflections
+smart UI indicators
+soft moving shadows
+cinematic haze
+Foreground Layer
+
+Hero 
+<truncated 2838 bytes>
+ility and performance
+Reduce heavy parallax and blur
+Keep CTA immediately accessible
+Maintain cinematic feeling with lightweight motion
+🧠 UX Goals
+
+The hero should:
+
+immediately communicate luxury smart living
+create emotional immersion
+establish premium brand identity
+guide users naturally into the page experience
+🎯 Final Result
+
+The final hero section should feel like:
+
+entering a futuristic intelligent residence
+a luxury architectural film opening
+a premium cinematic smart-home experience
+
+The section should combine:
+
+architectural storytelling
+immersive motion
+elegant typography
+intelligent atmosphere
+seamless theme consistency
+
+Avoid generic hero banners or static image layouts. The experience should feel cinematic, immersive, technologically refined, and fully integrated with the website’s existing UI system.
+
+this is a new page
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-21T20:50:08+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\Harish\Documents\Eyelevel\Websites\Vertx-drones\src\components\sections\home\Hero.tsx (LANGUAGE_TSX)
+Cursor is on line: 71
+Other open documents:
+- c:\Users\Harish\Documents\Eyelevel\Websites\Vertx-drones\src\components\sections\home\HomeContact.tsx (LANGUAGE_TSX)
+- c:\Users\Harish\Documents\Eyelevel\Websites\Vertx-drones\src\components\sections\corporate\CorporateROI.tsx (LANGUAGE_TSX)
+- c:\Users\Harish\Documents\Eyelevel\Websites\Vertx-drones\src\components\sections\home\Hero.tsx (LANGUAGE_TSX)
+- c:\Users\Harish\Documents\Eyelevel\Websites\Vertx-drones\src\pages\Home.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\Harish\Documents\Harish\My Projects\HA\smarthome-os, running for 25m45s)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.5 Flash (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
