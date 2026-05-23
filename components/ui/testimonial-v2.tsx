@@ -139,9 +139,24 @@ const TestimonialsColumn = (props: {
   );
 };
 
-export default function TestimonialV2() {
+export interface TestimonialV2Props {
+  testimonials?: Testimonial[];
+  title?: string;
+  subtitle?: string;
+}
+
+export default function TestimonialV2({
+  testimonials = TESTIMONIALS,
+  title = "What Our Clients Say",
+  subtitle = "Client Experiences"
+}: TestimonialV2Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Distribute testimonials evenly across 3 columns
+  const firstColumn = testimonials.filter((_, i) => i % 3 === 0);
+  const secondColumn = testimonials.filter((_, i) => i % 3 === 1);
+  const thirdColumn = testimonials.filter((_, i) => i % 3 === 2);
 
   useGSAP(() => {
     if (!contentRef.current) return;
@@ -175,12 +190,12 @@ export default function TestimonialV2() {
         <div className="flex flex-col items-center justify-center max-w-[600px] mx-auto mb-16">
           <div className="flex justify-center mb-6">
             <div className="border border-black/[0.08] py-1.5 px-5 rounded-full text-xs font-bold tracking-[0.2em] uppercase text-black/40">
-              Client Experiences
+              {subtitle}
             </div>
           </div>
 
           <h2 id="testimonials-heading" className="text-4xl md:text-5xl lg:text-[4rem] font-medium tracking-tighter text-center text-black leading-[1.1]">
-            What Our Clients Say
+            {title}
           </h2>
         </div>
 
@@ -190,8 +205,8 @@ export default function TestimonialV2() {
           aria-label="Scrolling Testimonials"
         >
           <TestimonialsColumn testimonials={firstColumn} duration={35} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={40} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={30} />
+          {secondColumn.length > 0 && <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={40} />}
+          {thirdColumn.length > 0 && <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={30} />}
         </div>
       </div>
     </section>

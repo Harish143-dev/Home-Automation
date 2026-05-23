@@ -81,25 +81,30 @@ export function ResidentialServices() {
   useGSAP(() => {
     if (!triggerRef.current || !containerRef.current || prefersReducedMotion) return;
 
-    ScrollTrigger.create({
-      trigger: triggerRef.current,
-      start: "top top",
-      // Total scroll distance = 100vh per item
-      end: `+=${SERVICES_DATA.length * 100}%`,
-      pin: containerRef.current,
-      scrub: true,
-      onUpdate: (self) => {
-        // Calculate which item should be active based on scroll progress (0 to 1)
-        const progress = self.progress;
-        // Map progress strictly to the available indices
-        const index = Math.min(
-          SERVICES_DATA.length - 1,
-          Math.floor(progress * SERVICES_DATA.length)
-        );
-        setActiveIndex(index);
-      }
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      ScrollTrigger.create({
+        trigger: triggerRef.current,
+        start: "top top",
+        // Total scroll distance = 100vh per item
+        end: `+=${SERVICES_DATA.length * 100}%`,
+        pin: containerRef.current,
+        scrub: true,
+        onUpdate: (self) => {
+          // Calculate which item should be active based on scroll progress (0 to 1)
+          const progress = self.progress;
+          // Map progress strictly to the available indices
+          const index = Math.min(
+            SERVICES_DATA.length - 1,
+            Math.floor(progress * SERVICES_DATA.length)
+          );
+          setActiveIndex(index);
+        }
+      });
     });
 
+    return () => mm.revert();
   }, { scope: triggerRef, dependencies: [prefersReducedMotion] });
 
   // Handle crossfade animations when activeIndex changes
@@ -160,9 +165,9 @@ export function ResidentialServices() {
       */}
       <div 
         ref={containerRef} 
-        className="w-full h-[100dvh] flex flex-col md:flex-row items-center justify-center px-6 sm:px-12 md:px-16 lg:px-24 py-20"
+        className="w-full min-h-[100dvh] md:h-[100dvh] flex flex-col md:flex-row items-center justify-center px-6 sm:px-12 md:px-16 lg:px-24 py-20"
       >
-        <div className="w-full max-w-7xl h-full max-h-[800px] flex flex-col md:flex-row gap-8 lg:gap-16">
+        <div className="w-full max-w-7xl h-full flex flex-col md:flex-row gap-12 lg:gap-16">
           
           {/* LEFT: Navigation List (1/4 width) */}
           <div className="w-full md:w-1/4 h-full flex flex-col justify-center">
@@ -179,7 +184,7 @@ export function ResidentialServices() {
                       className={`group flex items-center gap-4 text-left transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
                     >
                       <div className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive ? 'bg-accent scale-100' : 'bg-transparent scale-0'}`} />
-                      <span className={`text-lg md:text-xl lg:text-2xl font-light tracking-wide transition-all duration-300 ${isActive ? 'font-medium translate-x-1 text-foreground' : 'text-foreground'}`}>
+                      <span className={`text-base md:text-lg lg:text-xl font-light tracking-wide transition-all duration-300 ${isActive ? 'font-medium translate-x-1 text-foreground' : 'text-foreground'}`}>
                         {service.title}
                       </span>
                     </button>
@@ -205,7 +210,7 @@ export function ResidentialServices() {
 
           {/* RIGHT: Content Details (1/4 width) */}
           <div className="w-full md:w-1/4 h-full flex flex-col justify-center">
-            <h3 className="text-2xl lg:text-3xl font-light tracking-wide mb-8 text-foreground">
+            <h3 className="text-xl lg:text-2xl font-light tracking-wide mb-8 text-foreground">
               {activeData.title}
             </h3>
             

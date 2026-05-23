@@ -70,20 +70,26 @@ export function ResidentialProcess() {
   useGSAP(() => {
     if (!triggerRef.current || !containerRef.current || prefersReducedMotion) return;
 
-    ScrollTrigger.create({
-      trigger: triggerRef.current,
-      start: "top top",
-      end: `+=${PROCESS_STEPS.length * 60}%`, // Reduced scroll length slightly for smoother pace
-      pin: containerRef.current,
-      scrub: true,
-      onUpdate: (self) => {
-        const index = Math.min(
-          PROCESS_STEPS.length - 1,
-          Math.floor(self.progress * PROCESS_STEPS.length)
-        );
-        setActiveIndex(index);
-      }
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      ScrollTrigger.create({
+        trigger: triggerRef.current,
+        start: "top top",
+        end: `+=${PROCESS_STEPS.length * 60}%`, // Reduced scroll length slightly for smoother pace
+        pin: containerRef.current,
+        scrub: true,
+        onUpdate: (self) => {
+          const index = Math.min(
+            PROCESS_STEPS.length - 1,
+            Math.floor(self.progress * PROCESS_STEPS.length)
+          );
+          setActiveIndex(index);
+        }
+      });
     });
+
+    return () => mm.revert();
   }, { scope: triggerRef, dependencies: [prefersReducedMotion] });
 
   // Crossfades and Content Animations
@@ -118,7 +124,7 @@ export function ResidentialProcess() {
     <section ref={triggerRef} className="relative w-full bg-black text-white">
       <div 
         ref={containerRef} 
-        className="w-full h-[100dvh] relative overflow-hidden"
+        className="w-full h-[100dvh] relative overflow-hidden hidden md:block"
       >
         {/* Fullscreen Background Images */}
         <div className="absolute inset-0 w-full h-full">
@@ -171,7 +177,7 @@ export function ResidentialProcess() {
                     key={idx} 
                     className={`h-14 flex items-center transition-all duration-700 ease-out origin-left ${opacityClass}`}
                   >
-                    <span className={`text-xl md:text-2xl lg:text-4xl font-light tracking-tighter ${isActive ? 'text-white' : 'text-white/50'}`}>
+                    <span className={`text-lg md:text-xl lg:text-2xl font-light tracking-tighter ${isActive ? 'text-white' : 'text-white/50'}`}>
                       Step {idx + 1}
                     </span>
                   </div>
@@ -187,7 +193,7 @@ export function ResidentialProcess() {
               ref={textContentRef}
               className="max-w-lg absolute top-1/2 pt-6 pl-8 md:pl-16"
             >
-              <h3 className="text-lg md:text-2xl lg:text-3xl font-light tracking-wide mb-4 md:mb-5 text-white leading-snug">
+              <h3 className="text-base md:text-lg lg:text-xl font-light tracking-wide mb-4 md:mb-5 text-white leading-snug">
                 {activeStep.title}
               </h3>
               <p className="text-xs md:text-sm font-light text-white/70 leading-relaxed">
@@ -197,6 +203,38 @@ export function ResidentialProcess() {
           </div>
 
         </div>
+      </div>
+
+      {/* Mobile Stacked Layout (Visible only on small screens) */}
+      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-black gap-12">
+        <div className="mb-4">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">
+            Our Process
+          </span>
+        </div>
+        
+        {PROCESS_STEPS.map((step, idx) => (
+          <div key={idx} className="flex flex-col gap-4">
+            <div className="w-full h-48 relative rounded-xl overflow-hidden mb-2">
+              <img 
+                src={step.image} 
+                alt={step.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
+            
+            <span className="text-xs font-medium tracking-widest text-white/60">
+              STEP {idx + 1}
+            </span>
+            <h3 className="text-xl font-light tracking-wide text-white leading-snug">
+              {step.title}
+            </h3>
+            <p className="text-sm font-light text-white/70 leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

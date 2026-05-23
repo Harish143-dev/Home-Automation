@@ -6,8 +6,12 @@ import { BrandTicker } from "../../components/sections/home/BrandTicker";
 import { ResidentialServices } from "../../components/sections/residential/ResidentialServices";
 import { ResidentialProcess } from "../../components/sections/residential/ResidentialProcess";
 import { ResidentialCaseStudies } from "../../components/sections/residential/ResidentialCaseStudies";
+import { ResidentialTestimonials } from "../../components/sections/residential/ResidentialTestimonials";
 import { ResidentialExperienceCenters } from "../../components/sections/residential/ResidentialExperienceCenters";
+import { ResidentialCTA } from "../../components/sections/residential/ResidentialCTA";
 import { ResidentialTrust } from "../../components/sections/residential/ResidentialTrust";
+import { ResidentialEfficiency } from "../../components/sections/residential/ResidentialEfficiency";
+import { ResidentialPhilosophy } from "../../components/sections/residential/ResidentialPhilosophy";
 import { Footer } from "../../components/layout/Footer";
 
 export default function ResidentialPage() {
@@ -33,17 +37,30 @@ export default function ResidentialPage() {
         { name: 'GIRA' }
       ]} />
 
+      {/* Efficiency & Performance Accordion Showcase */}
+      <ResidentialEfficiency />
+
       {/* Interactive 3-Column Services Showcase */}
       <ResidentialServices />
 
-      {/* Fullscreen Interactive Process Timeline */}
-      <ResidentialProcess />
+      {/* Philosophy Expanding Accordion Showcase */}
+      <ResidentialPhilosophy />
 
       {/* Fullscreen Cinematic Case Studies */}
       <ResidentialCaseStudies />
 
+      {/* Fullscreen Interactive Process Timeline */}
+      <ResidentialProcess />
+
+
       {/* Experience Centers Map */}
       <ResidentialExperienceCenters />
+
+      {/* Residential Testimonials */}
+      <ResidentialTestimonials />
+
+      {/* Final Call to Action */}
+      <ResidentialCTA />
 
       {/* Footer */}
       <Footer />

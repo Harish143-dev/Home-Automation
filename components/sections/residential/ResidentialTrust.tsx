@@ -65,25 +65,25 @@ function MetricCard({ target, suffix, label }: { target: number; suffix: string;
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-center justify-center py-14 sm:py-16 md:py-20 px-4 sm:px-6 xl:px-8 bg-[#040404] transition-colors duration-500 hover:bg-[#070707] sm:last:col-span-2 lg:last:col-span-1"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-center justify-center py-14 sm:py-16 md:py-20 px-4 sm:px-6 xl:px-8 bg-background transition-colors duration-500 hover:bg-surface-darker sm:last:col-span-2 lg:last:col-span-1"
     >
       {/* Spotlight highlight element */}
       <div
         className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-0"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(300px circle at ${coords.x}px ${coords.y}px, rgba(255, 255, 255, 0.04), transparent 75%)`
+          background: `radial-gradient(300px circle at ${coords.x}px ${coords.y}px, rgba(0, 0, 0, 0.03), transparent 75%)`
         }}
       />
       
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-center gap-3 text-center">
-        <span className="text-[2.2rem] xs:text-[2.6rem] sm:text-[3rem] md:text-[3.4rem] lg:text-[2.4rem] xl:text-[3rem] 2xl:text-[3.8rem] font-light leading-none tracking-wide text-white">
+        <span className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground">
           <span ref={numberRef}>0</span>
-          <span className="text-white/80">{suffix}</span>
+          <span className="text-foreground/80">{suffix}</span>
         </span>
         
-        <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium text-white/45 font-sans">
+        <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium text-muted font-sans">
           {label}
         </span>
       </div>
@@ -126,24 +126,14 @@ export function ResidentialTrust() {
     <section
       ref={sectionRef}
       id="residential-trust"
-      className="relative w-full overflow-hidden bg-[#040404] py-16 sm:py-24 md:py-32 text-white select-none"
+      className="relative w-full overflow-hidden bg-background py-16 sm:py-24 md:py-32 text-foreground select-none"
     >
-      {/* 💡 Subtly shifting background glow layers for quiet atmosphere */}
-      <div 
-        className="absolute top-1/4 left-1/3 w-[50vw] h-[40vh] rounded-full blur-[140px] pointer-events-none mix-blend-screen opacity-10" 
-        style={{ backgroundImage: "radial-gradient(circle, rgba(254, 215, 170, 0.15) 0%, transparent 70%)" }} 
-      />
-      <div 
-        className="absolute bottom-1/4 right-1/4 w-[40vw] h-[35vh] rounded-full blur-[130px] pointer-events-none mix-blend-screen opacity-5" 
-        style={{ backgroundImage: "radial-gradient(circle, rgba(140, 24, 23, 0.1) 0%, transparent 70%)" }} 
-      />
-
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col items-center justify-center">
         
         {/* Specs Grid */}
         <div 
           ref={gridRef}
-          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 bg-white/[0.08] gap-[1px] border-y border-white/[0.08] overflow-hidden"
+          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 bg-border gap-[1px] border-y border-border overflow-hidden"
         >
           {METRICS.map((metric, index) => (
             <MetricCard

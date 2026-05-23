@@ -49,23 +49,28 @@ export function ResidentialCaseStudies() {
   useGSAP(() => {
     if (!triggerRef.current || !containerRef.current || prefersReducedMotion) return;
 
-    ScrollTrigger.create({
-      trigger: triggerRef.current,
-      start: "top top",
-      // Total scroll distance = 100vh per item
-      end: `+=${PROJECTS_DATA.length * 100}%`,
-      pin: containerRef.current,
-      scrub: true,
-      onUpdate: (self) => {
-        // Map progress strictly to the available indices
-        const index = Math.min(
-          PROJECTS_DATA.length - 1,
-          Math.floor(self.progress * PROJECTS_DATA.length)
-        );
-        setActiveIndex(index);
-      }
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      ScrollTrigger.create({
+        trigger: triggerRef.current,
+        start: "top top",
+        // Total scroll distance = 100vh per item
+        end: `+=${PROJECTS_DATA.length * 100}%`,
+        pin: containerRef.current,
+        scrub: true,
+        onUpdate: (self) => {
+          // Map progress strictly to the available indices
+          const index = Math.min(
+            PROJECTS_DATA.length - 1,
+            Math.floor(self.progress * PROJECTS_DATA.length)
+          );
+          setActiveIndex(index);
+        }
+      });
     });
 
+    return () => mm.revert();
   }, { scope: triggerRef, dependencies: [prefersReducedMotion] });
 
   // Handle crossfade animations when activeIndex changes
@@ -121,7 +126,7 @@ export function ResidentialCaseStudies() {
       */}
       <div 
         ref={containerRef} 
-        className="w-full h-[100dvh] flex flex-col md:flex-row overflow-hidden"
+        className="w-full h-[100dvh] hidden md:flex flex-row overflow-hidden"
       >
         {/* LEFT: Navigation Panel (~1/3 width) */}
         <div className="w-full md:w-[35%] lg:w-[30%] h-full bg-[#fcfcfc] flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24 py-12 md:py-20 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.05)] relative">
@@ -129,7 +134,7 @@ export function ResidentialCaseStudies() {
             See Smart Living in Action
           </h2>
           
-          <ul className="flex flex-row md:flex-col gap-6 md:gap-10 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide">
+          <ul className="flex flex-col gap-6 md:gap-10 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide">
             {PROJECTS_DATA.map((project, idx) => {
               const isActive = activeIndex === idx;
               return (
@@ -146,7 +151,7 @@ export function ResidentialCaseStudies() {
                     <span className={`text-[10px] md:text-xs font-medium tracking-wider transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/30 group-hover:text-black/50'}`}>
                       {project.number}
                     </span>
-                    <span className={`text-base md:text-lg lg:text-2xl font-light tracking-wide transition-colors duration-300 ${isActive ? 'text-black font-medium' : 'text-black/30 group-hover:text-black/50'}`}>
+                    <span className={`text-sm md:text-base lg:text-lg font-light tracking-wide transition-colors duration-300 ${isActive ? 'text-black font-medium' : 'text-black/30 group-hover:text-black/50'}`}>
                       {project.title}
                     </span>
                   </button>
@@ -181,7 +186,7 @@ export function ResidentialCaseStudies() {
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 mb-3 block">
                 Residential
               </span>
-              <h3 className="text-2xl lg:text-4xl font-light tracking-wide mb-3">
+              <h3 className="text-xl lg:text-3xl font-light tracking-wide mb-3">
                 {activeData.title}
               </h3>
               <p className="text-xs md:text-sm font-light text-white/80 leading-relaxed mb-6 max-w-sm">
@@ -216,7 +221,49 @@ export function ResidentialCaseStudies() {
             </ul>
           </div>
         </div>
+      </div>
 
+      {/* Mobile Stacked Layout */}
+      <div className="md:hidden flex flex-col w-full bg-[#fcfcfc] py-16 px-6 gap-12">
+        <div className="mb-2">
+          <h2 className="text-[10px] font-bold tracking-[0.2em] uppercase text-black/40">
+            See Smart Living in Action
+          </h2>
+        </div>
+
+        {PROJECTS_DATA.map((project) => (
+          <div key={project.id} className="flex flex-col gap-4">
+            <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden mb-2">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            
+            <div>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-2 block">
+                {project.number}
+              </span>
+              <h3 className="text-xl font-light tracking-wide text-black mb-2">
+                {project.title}
+              </h3>
+              <p className="text-sm font-light text-black/60 leading-relaxed mb-5">
+                {project.description}
+              </p>
+              
+              <Link href={project.link}>
+                <Button 
+                  variant="outline" 
+                  size="default"
+                  className="w-full text-sm font-medium tracking-wider"
+                >
+                  View Case Study
+                </Button>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
