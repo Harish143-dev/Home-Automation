@@ -15,7 +15,7 @@ const FOOTER_LINKS = {
   solutions: [
     { label: 'Residential', href: '/residential' },
     { label: 'Hospitality', href: '#hospitality' },
-    { label: 'Commercial', href: '#commercial' },
+    { label: 'Commercial', href: '/commercial' },
     { label: 'Featured Work', href: '#projects' },
   ],
   company: [

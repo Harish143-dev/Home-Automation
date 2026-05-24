@@ -6,7 +6,7 @@ import { Button } from '../../ui/button';
 import { gsap, ScrollTrigger, useGSAP, SplitText } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
-export function ResidentialCTA() {
+export function CommercialCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -63,7 +63,7 @@ export function ResidentialCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center w-full bg-[#fcfcfc] overflow-hidden py-20 md:py-32 px-6 border-t border-black/[0.03]"
+      className="relative flex flex-col items-center justify-center w-full bg-background overflow-hidden py-20 md:py-32 px-6 border-t border-border"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -76,20 +76,20 @@ export function ResidentialCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-black/40">Next Steps</span>
+          <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-muted">Partner With Us</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-medium tracking-tighter text-black leading-[1.1] mb-8"
+          className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-8"
         >
-          Automate in every space
+          Automate your enterprise
         </h2>
 
-        <p className="cta-subhead text-lg md:text-xl text-black/50 font-medium max-w-2xl mx-auto leading-relaxed mb-12">
-          Experience seamless automation designed around your family's lifestyle. Schedule your exclusive residential consultation today.
+        <p className="cta-subhead text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-tight text-muted max-w-2xl mx-auto mb-12">
+          Experience seamless commercial automation designed for operational excellence. Schedule your enterprise consultation today.
         </p>
 
         {/* Standard Project Buttons */}
@@ -102,7 +102,7 @@ export function ResidentialCTA() {
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
             <span className="relative z-10 text-base sm:text-lg font-semibold tracking-wide">
-              Book Home Consultation
+              Book Project Consultation
             </span>
             <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
@@ -111,11 +111,11 @@ export function ResidentialCTA() {
           <Button
             variant="glass"
             size="lg"
-            className="group h-auto py-4 sm:py-5 px-8 w-full sm:w-auto border-black/10 text-black hover:bg-black/[0.02] rounded-full"
+            className="group h-auto py-4 sm:py-5 px-8 w-full sm:w-auto border-border text-foreground hover:bg-surface-darker rounded-full"
           >
-            <Phone className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
+            <Phone className="w-5 h-5 mr-2 text-muted group-hover:text-foreground transition-colors duration-300" />
             <span className="text-base sm:text-lg font-semibold tracking-wide">
-              Call Us Now
+              Call Commercial Sales
             </span>
           </Button>
         </div>

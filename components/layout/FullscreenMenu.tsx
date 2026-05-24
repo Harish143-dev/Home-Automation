@@ -28,7 +28,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
     items: [
       { label: 'Residential', href: '/residential' },
       { label: 'Hospitality', href: '#hospitality' },
-      { label: 'Commercial', href: '#commercial' },
+      { label: 'Commercial', href: '/commercial' },
     ]
   },
   {
