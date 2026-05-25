@@ -1,6 +1,5 @@
 "use client";
 
-import { NavBar } from "../../components/layout/NavBar";
 import { ResidentialHero } from "../../components/sections/residential/ResidentialHero";
 import { BrandTicker } from "../../components/sections/home/BrandTicker";
 import { ResidentialServices } from "../../components/sections/residential/ResidentialServices";
@@ -12,14 +11,10 @@ import { ResidentialCTA } from "../../components/sections/residential/Residentia
 import { ResidentialTrust } from "../../components/sections/residential/ResidentialTrust";
 import { ResidentialEfficiency } from "../../components/sections/residential/ResidentialEfficiency";
 import { ResidentialPhilosophy } from "../../components/sections/residential/ResidentialPhilosophy";
-import { Footer } from "../../components/layout/Footer";
 
 export default function ResidentialPage() {
   return (
     <main className="relative bg-background overflow-hidden w-full">
-      {/* Navigation menu */}
-      <NavBar />
-
       {/* Cinematic Hero Flythrough with Smart Controls */}
       <ResidentialHero />
 
@@ -62,8 +57,6 @@ export default function ResidentialPage() {
       {/* Final Call to Action */}
       <ResidentialCTA />
 
-      {/* Footer */}
-      <Footer />
     </main>
   );
 }

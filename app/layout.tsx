@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { SmoothScrollProvider } from "../components/layout/SmoothScrollProvider";
 import { Footer } from "../components/layout/Footer";
 import { cn } from "@/lib/utils";
+import { NavBar } from "@/components/layout/NavBar";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
       </head>
       <body>
+        <NavBar />
         <SmoothScrollProvider>
           {children}
           <Footer />

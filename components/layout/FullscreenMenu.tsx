@@ -27,7 +27,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
     title: 'The Future of',
     items: [
       { label: 'Residential', href: '/residential' },
-      { label: 'Hospitality', href: '#hospitality' },
+      { label: 'Hospitality', href: '/hospitality' },
       { label: 'Commercial', href: '/commercial' },
     ]
   },
@@ -77,7 +77,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
   const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const bgOverlayRef = useRef<HTMLDivElement>(null);
-  
+
   const mainTimeline = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
@@ -102,25 +102,25 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
       clipPath: 'circle(150% at calc(100% - 48px) 48px)',
       duration: 1.2,
     })
-    .to(bgOverlayRef.current, {
-      autoAlpha: 1,
-      duration: 0.8,
-    }, '-=1.0')
-    .to('.menu-link-large', {
-      y: 0,
-      opacity: 1,
-      rotate: 0,
-      stagger: 0.1,
-      duration: 1,
-      ease: 'power3.out',
-    }, '-=0.8')
-    .to('.menu-category', {
-      y: 0,
-      opacity: 1,
-      stagger: 0.05,
-      duration: 0.8,
-      ease: 'power3.out',
-    }, '-=0.9');
+      .to(bgOverlayRef.current, {
+        autoAlpha: 1,
+        duration: 0.8,
+      }, '-=1.0')
+      .to('.menu-link-large', {
+        y: 0,
+        opacity: 1,
+        rotate: 0,
+        stagger: 0.1,
+        duration: 1,
+        ease: 'power3.out',
+      }, '-=0.8')
+      .to('.menu-category', {
+        y: 0,
+        opacity: 1,
+        stagger: 0.05,
+        duration: 0.8,
+        ease: 'power3.out',
+      }, '-=0.9');
 
     mainTimeline.current = tl;
 
@@ -147,17 +147,19 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
           target.scrollIntoView({ behavior: 'smooth' });
         }, 800);
       }
+    } else {
+      onClose();
     }
   };
 
   if (!mounted) return null;
 
   const content = (
-    <div 
+    <div
       ref={containerRef}
       className={`fixed inset-0 z-[999999] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
-      <div 
+      <div
         ref={bgOverlayRef}
         className="absolute inset-0 bg-[#fcfcfc] will-change-transform"
       >
@@ -165,12 +167,12 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
       </div>
 
       <div className="absolute inset-0 flex flex-col lg:flex-row overflow-y-auto overflow-x-hidden lg:overflow-hidden px-6 sm:px-12 lg:px-16 pt-20 pb-8 lg:py-24">
-        
+
         {/* LEFT PANEL: Standalone Huge Links */}
         <div className="w-full lg:w-[40%] flex flex-col justify-center gap-6 lg:gap-8 mb-16 lg:mb-0 relative z-10">
           {STANDALONE_LINKS.map((link) => (
             <div key={link.id} className="menu-link-large will-change-transform origin-left flex">
-              <Link 
+              <Link
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className="group inline-flex items-center gap-6"
@@ -195,11 +197,11 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                     {category.title}
                   </h3>
                 </div>
-                
+
                 <ul className="flex flex-col gap-3">
                   {category.items.map((item, itemIdx) => (
                     <li key={itemIdx}>
-                      <Link 
+                      <Link
                         href={item.href}
                         onClick={(e) => handleLinkClick(e, item.href)}
                         className="group inline-flex items-center text-base lg:text-lg font-medium text-black/70 hover:text-black transition-colors"

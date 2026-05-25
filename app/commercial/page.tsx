@@ -1,6 +1,5 @@
 "use client";
 
-import { NavBar } from "../../components/layout/NavBar";
 import { CommercialHero } from "../../components/sections/commercial/CommercialHero";
 import { CommercialCapabilities } from "../../components/sections/commercial/CommercialCapabilities";
 import { CommercialTrust } from "../../components/sections/commercial/CommercialTrust";
@@ -11,13 +10,10 @@ import { CommercialBenefits } from "../../components/sections/commercial/Commerc
 import { CommercialTestimonials } from "../../components/sections/commercial/CommercialTestimonials";
 import { CommercialCTA } from "../../components/sections/commercial/CommercialCTA";
 import { BrandTicker } from "../../components/sections/home/BrandTicker";
-import { Footer } from "../../components/layout/Footer";
 
 export default function CommercialPage() {
   return (
     <main className="relative bg-background overflow-hidden w-full">
-      {/* Navigation menu */}
-      <NavBar />
 
       {/* Cinematic Commercial Hero */}
       <CommercialHero />
@@ -57,8 +53,7 @@ export default function CommercialPage() {
       {/* Commercial CTA */}
       <CommercialCTA />
 
-      {/* Footer */}
-      <Footer />
+      \
     </main>
   );
 }
