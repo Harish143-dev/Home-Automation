@@ -19,10 +19,10 @@ const SCROLL_DESCRIPTIONS = [
   "25 years of Expertise.",
 ];
 const START_FRAME = 1;
-const END_FRAME = 144;
+const END_FRAME = 168;
 const FRAME_COUNT = END_FRAME - START_FRAME + 1;
 const FRAME_PATHS = Array.from({ length: FRAME_COUNT }, (_, index) => {
-  return `/heroFrames/${String(index + START_FRAME).padStart(4, "0")}.webp`;
+  return `/heroFrames/${String(index + START_FRAME).padStart(4, "0")}.jpg`;
 });
 
 /** Interval for Phase 2 prioritized keyframe loading */
@@ -275,13 +275,12 @@ export function HeroSection() {
           runEntrance();
         }, 7000);
 
-        // ── Main Scroll-Scrubbed Timeline ──
-        // Scroll distance +=800% (8× viewport height) for a cinematic, slow-paced scrub
+        // Scroll distance +=1500% (15x viewport height) for a cinematic, slow-paced scrub
         mainTl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=800%",
+            end: "+=1500%",
             pin: true,
             scrub: 0.8, // Reduced from 2 to 0.8 for tighter, more responsive tracking
             anticipatePin: 1,
@@ -580,7 +579,7 @@ export function HeroSection() {
         className="relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 pb-16 sm:pb-20 pt-24 sm:pt-28 md:items-start md:px-16 md:pb-24 lg:px-24"
       >
         <NextImage
-          src="/heroFrames/0001.webp"
+          src="/heroFrames/0001.jpg"
           alt=""
           fill
           priority
@@ -640,7 +639,7 @@ export function HeroSection() {
       >
         {/* Static first frame — visible while canvas loads, fades out once canvas is ready */}
         <NextImage
-          src="/heroFrames/0001.webp"
+          src="/heroFrames/0001.jpg"
           alt=""
           fill
           priority
