@@ -19,7 +19,7 @@ const SCROLL_DESCRIPTIONS = [
   "25 years of Expertise.",
 ];
 const START_FRAME = 1;
-const END_FRAME = 168;
+const END_FRAME = 180;
 const FRAME_COUNT = END_FRAME - START_FRAME + 1;
 const FRAME_PATHS = Array.from({ length: FRAME_COUNT }, (_, index) => {
   return `/heroFrames/${String(index + START_FRAME).padStart(4, "0")}.jpg`;

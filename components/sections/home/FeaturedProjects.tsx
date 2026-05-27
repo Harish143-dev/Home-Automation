@@ -38,30 +38,7 @@ const PROJECTS: Project[] = [
     description: 'Integrated guest room systems and public areas.',
     image: SawaiManMahalImage
   },
-  {
-    id: 'p3',
-    name: 'Horizon Tower',
-    category: 'Commercial',
-    usps: ['Predictive HVAC', 'Automated Shading', 'Occupancy Analytics'],
-    description: 'A peak-performance workspace engineered for zero waste. Intelligent infrastructures dynamically adjust to maximize human productivity and comfort.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80'
-  },
-  {
-    id: 'p4',
-    name: 'Estate On The Cliff',
-    category: 'Residential',
-    usps: ['Perimeter Defense', 'Cinema Grade AV', 'Off-Grid Capable'],
-    description: 'Rugged terrain meets refined living. A fully self-sufficient smart estate balancing heavy-duty security with invisible, quiet aesthetics.',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80'
-  },
-  {
-    id: 'p5',
-    name: 'Lumina Resort',
-    category: 'Hospitality',
-    usps: ['Choreographed Water', 'Landscape Audio', 'Ambient Routing'],
-    description: 'Sensory experiences designed around natural integration. Audio and lighting seamlessly guide guests through breathtaking outdoor architectures.',
-    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80'
-  }
+
 ];
 
 export function FeaturedProjects() {

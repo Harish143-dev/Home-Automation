@@ -1,12 +1,16 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 import { ArrowRight } from 'lucide-react';
+import residentialImage from "@/assets/home/services/Residence.jpg"
+import hospitalityImage from "@/assets/home/services/Oberoi Rajvilas.jpg"
+import commercialImage from "@/assets/home/services/EY Gurgaon.jpg"
 
 const PANELS = [
   {
@@ -14,21 +18,21 @@ const PANELS = [
     title: 'Residential',
     btn: "Discover Residential Projects",
     description: 'Control Security, Lights, Shades, Audio, Video and Wifi. Everything from one screen with integrated Home Automation.',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
+    image: residentialImage,
   },
   {
     label: '02',
     title: 'Hospitality',
     btn: "Discover Hospitality Projects",
     description: 'Reduce Operating Expenditure by over 30%, reducing dependence on Manpower. Integrate automation in Public Areas and Rooms.',
-    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80',
+    image: hospitalityImage,
   },
   {
     label: '03',
     title: 'Commercial',
     btn: "Discover Commercial Projects",
     description: 'Save upto 40% energy and 30% long term costs with light management strategies integrated with automation',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    image: commercialImage,
   }
 ];
 
@@ -182,7 +186,7 @@ export function AutomationSpaces() {
             {PANELS.map((panel) => (
               <div key={panel.label} className="flex flex-col gap-6">
                 <div className="w-full aspect-[4/5] relative rounded-2xl overflow-hidden shadow-md border border-black/5">
-                  <img src={panel.image} className="w-full h-full object-cover" alt={panel.title} />
+                  <Image src={panel.image} className="object-cover" alt={panel.title} fill sizes="(max-width: 768px) 100vw, 50vw" />
                 </div>
                 <div className="px-4">
                   <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-4">
@@ -245,10 +249,12 @@ export function AutomationSpaces() {
               key={panel.label}
               className={`exp-img-${i} absolute overflow-hidden shadow-lg border border-black/5 transform-gpu pointer-events-auto`}
             >
-              <img
+              <Image
                 src={panel.image}
                 alt={panel.title}
-                className="w-full h-full object-cover"
+                className="object-cover"
+                fill
+                sizes="50vw"
               />
             </div>
           ))}

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useRef } from "react";
 import { gsap, useGSAP } from "../../../lib/gsapSetup";
 import {
@@ -17,13 +17,22 @@ import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 import { EASE } from "../../../lib/animation.config";
 
+//images 
+
+import LightingAutomationImage from "@/assets/home/descipline/lighting-automation.jpg"
+import AudioVideoAutomationImage from "@/assets/home/descipline/av-automation.jpg"
+import ShadesAutomationImage from "@/assets/home/descipline/shades-automation.jpg"
+import TemperatureAutomationImage from "@/assets/home/descipline/hvac-automation.jpg"
+import SecurityAutomationImage from "@/assets/home/descipline/security-automation.jpg"
+import MaintenanceAutomationImage from "@/assets/home/descipline/amc-automation.jpg"
+
 type ServicePanel = {
   id: string;
   eyebrow: string;
   title: string;
   description: string;
   secondaryDescription: string;
-  image: string;
+  image: StaticImageData;
   accent: string;
   icon: React.ComponentType<{
     className?: string;
@@ -40,8 +49,7 @@ const SERVICES: ServicePanel[] = [
       "Lights turn on automatically when you enter, switch off when spaces are vacant, and can be managed or dimmed to the perfect level from a single keypad for a smart living experience.",
     secondaryDescription:
       "Includes intelligent processors, dimmer modules, occupancy sensors, and elegant keypads to deliver effortless lighting control, energy savings,",
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
+    image: LightingAutomationImage,
     accent: "#8ab4ff",
     icon: Lightbulb,
   },
@@ -53,8 +61,7 @@ const SERVICES: ServicePanel[] = [
       "Easily control music, streaming platforms, and audio zones from a single app, from soothing devotional music during a pooja, synchronized audio for a house party, to personalized music in different rooms for every family member.",
     secondaryDescription:
       "Includes amplifiers, decorative wall speakers, in-ceiling speakers, and hanging speakers to deliver immersive entertainment",
-    image:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80",
+    image: AudioVideoAutomationImage,
     accent: "#c7a6ff",
     icon: Volume2,
   },
@@ -65,8 +72,7 @@ const SERVICES: ServicePanel[] = [
     description:
       "Adjust shades to any desired level for the perfect balance of daylight and privacy, with smooth ultra-quiet operation that automatically opens halfway during sunlight and fully after peak daylight for comfort, energy efficiency, and convenience.",
     secondaryDescription: "Includes roller blinds and automated drapery tracks",
-    image:
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80",
+    image: ShadesAutomationImage,
     accent: "#7ee7d8",
     icon: Blinds,
   },
@@ -78,8 +84,7 @@ const SERVICES: ServicePanel[] = [
       "Easily adjust AC temperature through a thermostat, keypad, iPad, app, creating the perfect ambience and convenient control from anywhere.",
     secondaryDescription:
       "Includes intelligent interfaces and smart thermostats",
-    image:
-      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80",
+    image: TemperatureAutomationImage,
     accent: "#8ce1a1",
     icon: Thermometer,
   },
@@ -91,8 +96,7 @@ const SERVICES: ServicePanel[] = [
       "Receive instant app notifications if a door is opened while you are away, set schedules and access timings as per your preference, and monitor your home remotely for enhanced security and convenience at all times.",
     secondaryDescription:
       "Includes smart cameras, video doorbells, and digital door locks for advanced safety and remote access",
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1600&q=80",
+    image: SecurityAutomationImage,
     accent: "#ffd47a",
     icon: ShieldCheck,
   },
@@ -104,8 +108,7 @@ const SERVICES: ServicePanel[] = [
       "Customers can simply call our support number to register a complaint, after which our engineers are promptly assigned to reach the site within 4 hours for quick and reliable resolution.",
     secondaryDescription:
       " ATPL sets a new industry benchmark with 4-hour in-person technician support, 24x7 assistance, and 60+ in-house engineers ensuring faster issue resolution and uninterrupted comfort. ",
-    image:
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80",
+    image: MaintenanceAutomationImage,
     accent: "#ff9d8f",
     icon: Wrench,
   },

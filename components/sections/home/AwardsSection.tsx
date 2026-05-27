@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
+import Image from 'next/image';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { cn } from '@/lib/utils';
 
@@ -18,9 +19,9 @@ const AWARDS: AwardItem[] = [
   { year: '2022', title: 'Authorised Dealer', category: 'Crestron', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
   { year: '2023', title: 'Authorised Dealer', category: 'Control 4', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
   { year: '—', title: 'Financial Control', category: 'Jsa Online', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
-  { year: '2022', title: 'Smart Space Award', category: 'Smart Space', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
+  { year: '2022', title: 'Smart Space Award', category: 'Smart Space Award', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
   { year: '—', title: 'Certificate of Authorisation', category: 'Sony', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop' },
-  { year: '2022', title: 'Deepest Appreciation', category: 'Smart Space', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
+  { year: '2022', title: 'Deepest Appreciation', category: 'Smart Space Award', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
   { year: '2015', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
   { year: '2016', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
   { year: '2017', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
@@ -112,7 +113,7 @@ function AwardRow({
     <div
       ref={rowRef}
       className={cn(
-        "group award-row relative flex flex-col md:flex-row md:items-center justify-between py-10 md:py-16 border-b border-black/[0.08] cursor-pointer transition-all duration-700 ease-out",
+        "group award-row relative flex flex-col md:flex-row md:items-center justify-between py-10 border-b border-black/[0.08] cursor-pointer transition-all duration-700 ease-out",
         isAnyHovered && !isThisHovered ? "opacity-30" : "opacity-100"
       )}
       style={{ zIndex: isThisHovered ? 50 : 1 }}
@@ -122,10 +123,12 @@ function AwardRow({
         ref={imageRef}
         className="absolute top-0 left-0 pointer-events-none z-[100] w-[280px] h-[200px] md:w-[400px] md:h-[280px] rounded-2xl overflow-hidden opacity-0 scale-75 shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
       >
-        <img
+        <Image
           src={award.image}
           alt={award.title}
-          className="w-full h-full object-cover"
+          fill
+          sizes="(min-width: 768px) 400px, 280px"
+          className="object-cover"
         />
       </div>
 
@@ -135,7 +138,7 @@ function AwardRow({
 
       <div className="flex-1 flex items-center pr-4">
         <h3 className={cn(
-          "text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-black transition-transform duration-700 ease-out",
+          "text-xl md:text-2xl lg:text-3xl font-light tracking-wide text-black transition-transform duration-700 ease-out",
           isThisHovered ? "md:translate-x-8" : ""
         )}>
           {award.title}
