@@ -16,6 +16,7 @@ const FOOTER_LINKS = {
     { label: 'Residential', href: '/residential' },
     { label: 'Hospitality', href: '#hospitality' },
     { label: 'Commercial', href: '/commercial' },
+    { label: 'Experience Center', href: '/experience-center' },
     { label: 'Featured Work', href: '#projects' },
   ],
   company: [

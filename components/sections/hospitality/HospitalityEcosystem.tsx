@@ -77,7 +77,7 @@ export function HospitalityEcosystem() {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground">
             Connected Hospitality Ecosystem
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl">

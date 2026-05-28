@@ -53,6 +53,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
   {
     title: 'Experience',
     items: [
+      { label: 'Experience Centers', href: '/experience-center' },
       { label: 'Delhi', href: '#experience-delhi' },
       { label: 'Mumbai', href: '#experience-mumbai' },
       { label: 'Bangalore', href: '#experience-bangalore' },

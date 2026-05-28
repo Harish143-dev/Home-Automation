@@ -124,7 +124,7 @@ export function ResidentialEfficiency() {
   return (
     <section ref={containerRef} className="py-24 md:py-32 bg-background relative z-10 overflow-hidden min-h-screen flex flex-col">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground mb-4 font-display">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
           Efficiency & Performance
         </h2>
         <p className="text-base md:text-lg text-muted max-w-2xl font-sans leading-relaxed">
@@ -137,18 +137,18 @@ export function ResidentialEfficiency() {
         {CATEGORIES.map((category, index) => {
           const total = CATEGORIES.length;
           let diff = index - activeIndex;
-          
+
           // Wrap around logic for infinite feel
           if (diff < -total / 2) diff += total;
           if (diff > total / 2) diff -= total;
-          
+
           // We have 4 items. diff can be -1, 0, 1, 2.
           let position: 'center' | 'left' | 'right' | 'back' = 'back';
           if (diff === 0) position = 'center';
           else if (diff === -1) position = 'left';
           else if (diff === 1) position = 'right';
           else position = 'back'; // diff 2 or -2
-          
+
           const isCenter = position === 'center';
           const isLeft = position === 'left';
           const isRight = position === 'right';
@@ -179,13 +179,13 @@ export function ResidentialEfficiency() {
           } else if (isBack) {
             translateX = '-50%'; // Hide behind center
             scale = 0.6;
-            opacity = 0; 
+            opacity = 0;
             zIndex = 10;
           }
 
           return (
-            <div 
-              key={`carousel-${category.id}`} 
+            <div
+              key={`carousel-${category.id}`}
               className={cn(
                 "absolute top-8 bottom-8 w-[75vw] sm:w-[50vw] md:w-[45vw] lg:w-[40vw] xl:w-[35vw] transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]",
                 isCenter ? "cursor-default" : "cursor-pointer hover:opacity-70"
@@ -205,8 +205,8 @@ export function ResidentialEfficiency() {
                 "relative w-full h-full overflow-hidden rounded-2xl md:rounded-[32px] transition-all duration-700",
                 isCenter ? "shadow-2xl" : "shadow-lg"
               )}>
-                <Image 
-                  src={category.image} 
+                <Image
+                  src={category.image}
                   alt={category.title}
                   fill
                   className={cn(
@@ -218,14 +218,14 @@ export function ResidentialEfficiency() {
                   "absolute inset-0 bg-black/40 transition-opacity duration-1000",
                   isCenter ? "opacity-0" : "opacity-100"
                 )} />
-                
+
                 {/* Title Overlay */}
                 <div className={cn(
                   "absolute bottom-0 left-0 right-0 p-5 md:p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-700",
                   isCenter ? "opacity-100" : "opacity-0"
                 )}>
-                  <p className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-white/80 mb-1.5 drop-shadow-md">Category</p>
-                  <h3 className="text-xl md:text-2xl font-light font-display text-white drop-shadow-md">
+
+                  <h3 className="text-xl md:text-2xl font-light tracking-wide leading-[1.2] text-white drop-shadow-md">
                     {category.title}
                   </h3>
                 </div>
@@ -252,7 +252,7 @@ export function ResidentialEfficiency() {
                   className="w-full py-4 md:py-5 flex items-center justify-between group text-left focus:outline-none"
                 >
                   <h3 className={cn(
-                    "text-base md:text-lg lg:text-xl font-light font-display transition-colors duration-500 tracking-tight",
+                    "text-base md:text-lg lg:text-xl font-light tracking-wide leading-[1.2] transition-colors duration-500",
                     isOpen ? "text-accent" : "text-foreground group-hover:text-foreground/60"
                   )}>
                     {service.title}
@@ -262,8 +262,8 @@ export function ResidentialEfficiency() {
                       "w-6 h-6 flex items-center justify-center transition-transform duration-500",
                       isOpen ? "rotate-180" : "rotate-0"
                     )}>
-                      <svg 
-                        className={cn("w-4 h-4 transition-colors duration-500", isOpen ? "text-accent" : "text-muted-foreground group-hover:text-foreground")} 
+                      <svg
+                        className={cn("w-4 h-4 transition-colors duration-500", isOpen ? "text-accent" : "text-muted-foreground group-hover:text-foreground")}
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -271,8 +271,8 @@ export function ResidentialEfficiency() {
                     </div>
                   </div>
                 </button>
-                
-                <div 
+
+                <div
                   className={cn(
                     "grid transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden",
                     isOpen ? "grid-rows-[1fr] opacity-100 pb-5 md:pb-6" : "grid-rows-[0fr] opacity-0 pb-0"
@@ -287,7 +287,7 @@ export function ResidentialEfficiency() {
                       </div>
                       <div className="md:w-[35%] flex flex-col justify-end border-l border-border/60 pl-4 md:pl-6">
                         <span className="text-[10px] md:text-xs font-mono tracking-widest text-muted uppercase mb-1.5 opacity-70">Efficiency Metric</span>
-                        <span className="text-base md:text-lg font-display text-accent leading-tight">{service.metric}</span>
+                        <span className="text-base md:text-lg font-light tracking-wide text-accent leading-tight">{service.metric}</span>
                       </div>
                     </div>
                   </div>

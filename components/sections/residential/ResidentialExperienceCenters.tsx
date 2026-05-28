@@ -120,11 +120,15 @@ export function ResidentialExperienceCenters() {
         </div>
 
         {/* LEFT FLOATING CONTENT */}
-        <div className="absolute top-0 left-0 h-full w-full md:w-[55%] lg:w-[45%] xl:w-[40%] flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24 py-12 md:py-20 z-10">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-widest mb-12 md:mb-16 leading-tight font-display text-black drop-shadow-sm">
-            Be there in <br />
-            <span className="font-medium text-black/90">minutes.</span>
-          </h2>
+        <div className="absolute top-0 left-0 h-full w-full md:w-[65%] lg:w-[55%] xl:w-[50%] flex flex-col justify-center px-6 sm:px-10 md:px-12 lg:px-20 py-12 md:py-20 z-10">
+          <div className="mb-5">
+            <h2 className="text-xl md:text-2xl font-light tracking-wide leading-[1.2] text-black drop-shadow-sm mb-4 text-balance">
+              Experience Smart Living, Firsthand
+            </h2>
+            <p className="text-sm md:text-base text-black/70 font-medium tracking-wide leading-relaxed text-balance">
+              Visit our experience centers to explore automation in real environments.
+            </p>
+          </div>
 
           <div className="flex flex-col w-full border-t border-black/20">
             {CENTERS_DATA.map((center, idx) => {
@@ -139,11 +143,8 @@ export function ResidentialExperienceCenters() {
                     onClick={() => handleNavClick(idx)}
                     className="w-full text-left flex items-center justify-between group"
                   >
-                    <span className={`text-lg md:text-xl font-light tracking-widest transition-colors duration-300 font-display ${isActive ? 'text-black' : 'text-black/50 group-hover:text-black/80'}`}>
+                    <span className={`text-lg md:text-xl font-light tracking-widest transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/50 group-hover:text-black/80'}`}>
                       {center.title}
-                    </span>
-                    <span className={`text-[9px] md:text-[10px] font-bold tracking-[0.25em] uppercase transition-colors duration-300 ${isActive ? 'text-black/90' : 'text-transparent'}`}>
-                      {center.city}
                     </span>
                   </button>
 

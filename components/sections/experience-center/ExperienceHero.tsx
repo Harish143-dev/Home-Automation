@@ -7,7 +7,7 @@ import { Button } from "../../ui/button";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { gsap, SplitText, useGSAP } from "../../../lib/gsapSetup";
 
-export function ResidentialHero() {
+export function ExperienceHero() {
   const containerRef = useRef<HTMLElement>(null);
   const h1Ref = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
@@ -83,14 +83,14 @@ export function ResidentialHero() {
   return (
     <section
       ref={containerRef}
-      id="residential-hero"
+      id="experience-hero"
       className={`relative h-screen w-full bg-[#040404] overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Static Background */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
         <NextImage
           src="/images/residential_hero_bg.png"
-          alt="Luxury Modern Villa Residence Interior"
+          alt="Immersive Smart Home Automation Experience"
           fill
           priority
           sizes="100vw"
@@ -106,23 +106,23 @@ export function ResidentialHero() {
       <div className="h-28 sm:h-32 md:h-36 z-10 pointer-events-none" />
 
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-32 flex flex-col justify-end flex-grow pb-[8vh] sm:pb-[12vh] pointer-events-none select-none">
-        <div className="max-w-2xl flex flex-col items-start text-left gap-5 sm:gap-7">
+        <div className="max-w-3xl flex flex-col items-start text-left gap-5 sm:gap-7">
 
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] tracking-wide font-light text-white"
+            className="text-[clamp(1.7rem,9vw,3.2rem)] sm:text-[clamp(1.95rem,9.2vw,3.4rem)] md:text-[clamp(3rem,6vw,4.8rem)] font-light leading-[1.1] tracking-wide text-white"
           >
-            Smart Home Automation <br className="hidden sm:inline" />
-            for Modern Living
+            Experience Intelligent Automation <br className="hidden sm:inline" />
+            in Real Life
           </h1>
 
           {/* Understated luxury supporting text */}
           <p
             ref={subRef}
-            className="text-sm md:text-base text-white/80 font-medium tracking-wide leading-relaxed max-w-md text-balance"
+            className="text-sm md:text-base text-white/80 font-medium tracking-wide leading-relaxed max-w-lg text-balance"
           >
-            Seamlessly control lighting, entertainment, security, and comfort, all designed around your lifestyle.
+            Visit our experience centres in Delhi, Mumbai, and Bangalore to explore immersive smart automation solutions across residential, hospitality, and commercial environments.
           </p>
 
           {/* CTA Buttons */}
@@ -130,25 +130,25 @@ export function ResidentialHero() {
             ref={ctaRef}
             className="pointer-events-auto flex flex-col sm:flex-row gap-4"
           >
-            <Link href="#consultation">
+            <Link href="#schedule">
               <Button
                 variant="accent"
                 size="lg"
                 shape="full"
                 className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm transition-all duration-500 hover:bg-accent-soft hover:shadow-[0_0_40px_rgba(140,24,23,0.35)]"
               >
-                Book a Consultation
+                Schedule a Visit
               </Button>
             </Link>
             
-            <Link href="/residential/brochure-download">
+            <Link href="#demo">
               <Button
                 variant="outline"
                 size="lg"
                 shape="full"
                 className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm bg-transparent border-white text-white hover:bg-white hover:text-black transition-all duration-500"
               >
-                Download Residential Brochure
+                Book a Virtual Demo
               </Button>
             </Link>
           </div>

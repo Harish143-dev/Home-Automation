@@ -83,7 +83,7 @@ export function HospitalityCTA() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-medium tracking-tighter text-black leading-[1.1] mb-8"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-light tracking-wide text-black leading-[1.2] mb-8"
         >
           Elevate every stay
         </h2>

@@ -16,10 +16,12 @@
 6. [Shared Layout Components](#6-shared-layout-components)
 7. [Page: Home (`/`)](#7-page-home-)
 8. [Page: Residential (`/residential`)](#8-page-residential-residential)
-9. [Reusable UI Components](#9-reusable-ui-components)
-10. [Custom Hooks](#10-custom-hooks)
-11. [Build & Deployment](#11-build--deployment)
-12. [Important Patterns & Conventions](#12-important-patterns--conventions)
+9. [Page: Experience Center (`/experience-center`)](#9-page-experience-center-experience-center)
+10. [Reusable UI Components](#10-reusable-ui-components)
+11. [Custom Hooks](#11-custom-hooks)
+12. [Build & Deployment](#12-build--deployment)
+13. [Important Patterns & Conventions](#13-important-patterns--conventions)
+14. [Component Audit: Typography & Theme Alignment](#14-component-audit-typography--theme-alignment)
 
 ---
 
@@ -40,18 +42,20 @@
 
 ### Key Business Data (used across sections)
 
-- **20+** Years of Experience
-- **1000+** Projects Delivered
-- **50+** Cities Covered
-- **5** Experience Centers
-- **200+** Premium Clients
+- **25** Years of Experience
+- **Over 1000** Projects completed
+- **15** Cities all over India
+- **3** Experience Centres in Delhi, Mumbai and Bengaluru
 
 ### Current Pages
 
 | Route | Status | Description |
 |---|---|---|
 | `/` | ✅ Complete | Home page — full cinematic landing experience |
-| `/residential` | 🔧 In Progress | Residential service page — cinematic hero + trust metrics |
+| `/residential` | ✅ Complete | Residential service page |
+| `/commercial` | ✅ Complete | Commercial B2B automation page |
+| `/hospitality` | ✅ Complete | Hospitality & Hotels automation page |
+| `/experience-center` | ✅ Complete | Experience center page with full animations and standardized theme |
 
 ---
 
@@ -201,10 +205,11 @@ smarthome-os/
 
 > **Source of Truth:** The Home (`/`) page is the strict baseline for all typography and design conventions. All new pages (like `/residential`) MUST follow the exact typography weight, letter-spacing, and sizing rules established on the home page.
 
-- **Headings:** Use `font-light` and `tracking-wide` or `tracking-tighter` (depending on scale) for a luxurious, editorial feel. Never use default bold/black weights unless specifically required.
+- **Headings:** MUST use `font-light leading-[1.2] tracking-wide` for a luxurious, editorial feel. Never use `font-display` or `tracking-tight`. Never use default bold/black weights unless specifically required.
+- **Section Labels:** Small descriptive labels above headings (e.g., "Client Stories", "The Audience") MUST use `font-mono tracking-[0.3em] uppercase` and appropriate opacity (e.g. `text-muted-foreground` or `text-white/50`). Do not use `font-bold` or `tracking-[0.2em]`.
 - **Numbers/Metrics:** Keep number fonts consistent with the body or heading fonts. Do not override with serif fonts unless explicitly matched on the home page.
 - **Colors (Dark Theme):** Use `text-white`, `text-white/70`, `text-white/50` for text hierarchy on dark backgrounds. Avoid hardcoded grays.
-- **Light luxury aesthetic:** Warm off-white backgrounds for light mode, deep blacks (`#040404`, `#050505`) for dark sections.
+- **Colors (Light Theme):** Use standard Tailwind variables like `bg-background`, `text-foreground`, `text-muted-foreground`, and `bg-card` rather than hardcoded hex values (e.g., `#fcfcfc`).
 - **Generous whitespace:** Large padding (`py-24 md:py-40`)
 - **Micro-interactions:** Hover scale, translate, opacity transitions
 - **Noise texture overlays:** SVG fractalNoise at `opacity-[0.015]` for tactile feel
@@ -460,11 +465,10 @@ Split-panel stats section with a sticky left introduction and vertically stacked
 #### Stats Data
 | Value | Label |
 |---|---|
-| 20+ | Years of Experience |
-| 1000+ | Projects Delivered |
-| 50+ | Cities Covered |
-| 5 | Experience Centers |
-| 200+ | Premium Clients |
+| 25 | Years of Experience |
+| Over 1000 | Projects completed |
+| 15 | Cities all over India |
+| 3 | Experience Centres in Delhi, Mumbai and Bengaluru |
 
 #### Animations
 | Element | Trigger | Animation |
@@ -897,11 +901,10 @@ Grid of animated metric cards with counter-up numbers and cursor-following spotl
 Same as home page StatsSection:
 | Target | Suffix | Label |
 |---|---|---|
-| 20 | + | Years Experience |
-| 1000 | + | Projects Delivered |
-| 50 | + | Cities |
-| 5 | | Experience Centers |
-| 200 | + | Premium Clients |
+| 25 | + | Years of Experience |
+| 1000 | + | Projects Completed |
+| 15 | | Cities Across India |
+| 3 | | Experience Centres |
 
 #### Visual Design
 - **Background:** Dark `#040404` with warm ambient glow overlays
@@ -951,7 +954,81 @@ Same as home page StatsSection:
 
 ---
 
-## 9. Reusable UI Components
+## 9. Page: Experience Center (`/experience-center`)
+
+**Route:** `/experience-center`  
+**File:** `app/experience-center/page.tsx`  
+**Type:** Client Component (`'use client'`)
+
+### Section Rendering Order
+
+```
+1. ExperienceHero         — Immersive video/image hero with GSAP fade/split text
+2. ResidentialTrust       — Trust signals counter metrics
+3. ExperienceShowroom     — Large visual + text section
+4. ExperienceCentersList  — Fullscreen "curtain wipe" scrolling cities
+5. ExperienceAudience     — Light-themed grid of target audiences
+6. ExperienceGallery      — Horizontal scrolling photo gallery (Apple style)
+7. ExperienceUSP          — 4-column cards with dark aesthetic
+8. ExperienceTestimonials — Drag/swipe GSAP spring testimonial cards
+9. ResidentialCTA         — Final Call to Action
+```
+
+### Key Technical Implementations
+- **Animations:** Extensive use of `ScrollTrigger` and `gsap.to()` rather than `.from()` on pinned sections to prevent position calculation bugs.
+- **Curtain Wipe:** `ExperienceCentersList` pins the container and translates cities up like a stack of cards over each other.
+- **Horizontal Scroll:** `ExperienceGallery` pins the section and animates a container horizontally `xPercent: -amount` tied to scroll scrub.
+- **Theme Usage:** Explicit use of standard Tailwind classes (`bg-background`, `text-foreground`) for light sections and `bg-[#040404]` for dark sections to maintain aesthetic contrast.
+- **Testimonials:** Replaced framer-motion with native GSAP Draggable pointer events (`onPointerDown/Move/Up`) utilizing `ease: "back.out(1.5)"` for realistic spring physics.
+
+---
+
+## 10. Page: Commercial (`/commercial`)
+
+**Route:** `/commercial`  
+**File:** `app/commercial/page.tsx`  
+**Type:** Client Component (`'use client'`)
+
+### Section Rendering Order
+
+```
+1. CommercialHero         — Cinematic commercial hero
+2. CommercialTrust        — Trust signals section
+3. BrandTicker            — Commercial-Specific Trusted Brands
+4. CommercialIndustries   — Industries We Serve Carousel
+5. CommercialSolutions    — Commercial Automation Solutions
+6. CommercialBenefits     — Commercial Benefits
+7. CommercialProjects     — Commercial Projects Accordion
+8. CommercialCapabilities — Smart Systems Marquee
+9. CommercialTestimonials — Commercial Testimonials
+10. CommercialCTA         — Final Call to Action
+```
+
+---
+
+## 11. Page: Hospitality (`/hospitality`)
+
+**Route:** `/hospitality`  
+**File:** `app/hospitality/page.tsx`  
+**Type:** Client Component (`'use client'`)
+
+### Section Rendering Order
+
+```
+1. HospitalityHero            — Cinematic hospitality hero
+2. HospitalityStats           — Statistics and metrics
+3. HospitalityFeaturedProjects— Featured projects showcase
+4. HospitalityEnvironments    — Hotel environments
+5. HospitalitySolutions       — Specialized hospitality solutions
+6. HospitalityBenefits        — Business benefits
+7. HospitalityEcosystem       — Integration ecosystem
+8. HospitalityTestimonials    — Client testimonials
+9. HospitalityCTA             — Final Call to Action
+```
+
+---
+
+## 12. Reusable UI Components
 
 ### Button (`components/ui/button.tsx`)
 
@@ -985,7 +1062,7 @@ CVA-based button with multiple variants:
 
 ---
 
-## 10. Custom Hooks
+## 13. Custom Hooks
 
 ### `useBreakpoint()` (`hooks/useBreakpoint.ts`)
 
@@ -1011,7 +1088,7 @@ Returns `true` if the user prefers reduced motion. Components use this to:
 
 ---
 
-## 11. Build & Deployment
+## 14. Build & Deployment
 
 | Setting | Value |
 |---|---|
@@ -1025,7 +1102,7 @@ Returns `true` if the user prefers reduced motion. Components use this to:
 
 ---
 
-## 12. Important Patterns & Conventions
+## 15. Important Patterns & Conventions
 
 ### Animation Patterns
 
@@ -1071,3 +1148,23 @@ Returns `true` if the user prefers reduced motion. Components use this to:
 ---
 
 > **For AI Assistants:** When modifying this project, always check `isReady` and `prefersReducedMotion` before adding animations. Use the centralized animation tokens from `animation.config.ts`. Scope all GSAP queries to the component's ref. Call `scheduleScrollRefresh()` after any animation setup that involves ScrollTrigger pinning.
+
+---
+
+## 16. Component Audit: Typography & Theme Alignment
+
+This audit tracks components against the new global guidelines established in the Home and Experience Center pages. 
+**Target Guidelines:** 
+- Headings must use `font-light leading-[1.2] tracking-wide` (remove `font-display`, remove `tracking-tight`).
+- Eyebrow labels must use `font-mono tracking-[0.3em] uppercase` (remove `font-bold`).
+- Theme usage should leverage tailwind CSS vars (`text-foreground`, `bg-background`) or specific dark mode hexes without conflicting Tailwind `transition-all` on GSAP elements.
+
+### ✅ Updated & Compliant (Experience Center, Commercial, Residential, Hospitality & Home)
+- **All `/experience-center` sections** (`ExperienceHero`, `ExperienceGallery`, etc.)
+- **All `/commercial` sections** (`CommercialHero`, `CommercialProjects`, etc.)
+- **All `/residential` sections** (`ResidentialHero`, `ResidentialTrust`, etc.)
+- **All `/hospitality` sections** (`HospitalityHero`, `HospitalityEnvironments`, etc.)
+- **All `/` Home sections** (`BrandTicker`, etc.)
+- `ui/testimonial.tsx`
+
+All heading typography has been successfully standardized across the entire codebase to use the luxurious editorial style (`font-light tracking-wide leading-[1.2]`).

@@ -63,7 +63,7 @@ export function ResidentialCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center w-full bg-[#fcfcfc] overflow-hidden py-20 md:py-32 px-6 border-t border-black/[0.03]"
+      className="relative flex flex-col items-center justify-center w-full bg-[#fcfcfc] overflow-hidden py-20 md:py-32 px-6 border-t border-black/[0.05] shadow-[inset_0_20px_40px_-20px_rgba(0,0,0,0.05)]"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -83,7 +83,7 @@ export function ResidentialCTA() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-medium tracking-tighter text-black leading-[1.1] mb-8"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide leading-[1.2] text-black mb-8 text-balance"
         >
           Automate in every space
         </h2>

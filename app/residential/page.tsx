@@ -38,11 +38,12 @@ export default function ResidentialPage() {
       {/* Interactive 3-Column Services Showcase */}
       <ResidentialServices />
 
+      {/* Fullscreen Cinematic Case Studies */}
+      <ResidentialCaseStudies />
+
       {/* Philosophy Expanding Accordion Showcase */}
       <ResidentialPhilosophy />
 
-      {/* Fullscreen Cinematic Case Studies */}
-      <ResidentialCaseStudies />
 
       {/* Fullscreen Interactive Process Timeline */}
       <ResidentialProcess />

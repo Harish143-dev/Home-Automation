@@ -11,11 +11,10 @@ interface MetricItem {
 }
 
 const METRICS: MetricItem[] = [
-  { target: 20, suffix: "+", label: "Years Experience" },
-  { target: 1000, suffix: "+", label: "Projects Delivered" },
-  { target: 50, suffix: "+", label: "Cities" },
-  { target: 5, suffix: "", label: "Experience Centers" },
-  { target: 200, suffix: "+", label: "Premium Clients" }
+  { target: 25, suffix: "+", label: "Years of Experience" },
+  { target: 1000, suffix: "+", label: "Projects Completed" },
+  { target: 15, suffix: "", label: "Cities Across India" },
+  { target: 3, suffix: "", label: "Experience Centres" }
 ];
 
 function MetricCard({ target, suffix, label }: { target: number; suffix: string; label: string }) {
@@ -65,7 +64,7 @@ function MetricCard({ target, suffix, label }: { target: number; suffix: string;
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-center justify-center py-14 sm:py-16 md:py-20 px-4 sm:px-6 xl:px-8 bg-background transition-colors duration-500 hover:bg-surface-darker sm:last:col-span-2 lg:last:col-span-1"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-center justify-center py-14 sm:py-16 md:py-20 px-4 sm:px-6 xl:px-8 bg-background transition-colors duration-500 hover:bg-surface-darker"
     >
       {/* Spotlight highlight element */}
       <div
@@ -128,12 +127,22 @@ export function ResidentialTrust() {
       id="residential-trust"
       className="relative w-full overflow-hidden bg-background py-16 sm:py-24 md:py-32 text-foreground select-none"
     >
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col items-center justify-center">
+      <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
         
+        {/* Section Heading & Subtext */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-16 w-full mb-16 md:mb-24">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-sm lg:max-w-md text-balance">
+            Automation Expertise
+          </h2>
+          <p className="text-sm md:text-base font-medium tracking-wide text-foreground/70 leading-relaxed max-w-2xl text-balance">
+            We are experts in home automation integration, including Lighting, Audio, Video, Shades, Security and Wifi. In the last 25 years, we have helped 700 architects, 100 MEPs and 200 hoteliers across 4 countries and 17 cities, generate revenue worth 7000 cr. and over 15.5 million kWh of energy.
+          </p>
+        </div>
+
         {/* Specs Grid */}
         <div 
           ref={gridRef}
-          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 bg-border gap-[1px] border-y border-border overflow-hidden"
+          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-border gap-[1px] border-y border-border overflow-hidden"
         >
           {METRICS.map((metric, index) => (
             <MetricCard

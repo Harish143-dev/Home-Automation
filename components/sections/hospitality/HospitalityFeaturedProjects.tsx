@@ -133,7 +133,7 @@ export function HospitalityFeaturedProjects() {
       {/* ═══ Header (Not Pinned) ═══ */}
       <div className="w-full pt-24 pb-12 px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col items-center text-center">
         <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold mb-4">Featured Projects</span>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground max-w-4xl">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-4xl">
           Hospitality Spaces Powered by Intelligent Automation
         </h2>
       </div>

@@ -134,7 +134,7 @@ export function HospitalitySolutions() {
           <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold">
             Core Hospitality Solutions
           </span>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight text-foreground">
+          <h2 className="text-3xl md:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
             Smart Automation Solutions for Hospitality Environments
           </h2>
         </div>

@@ -118,7 +118,7 @@ export function HospitalityBenefits() {
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4">
           <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold">Operational Benefits</span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground max-w-4xl">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-4xl">
             Hospitality Automation That Works Beyond Guest Comfort
           </h2>
         </div>

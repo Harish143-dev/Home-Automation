@@ -107,7 +107,7 @@ export function HospitalityHero() {
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight font-light text-white"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] tracking-wide font-light text-white"
           >
             Intelligent Automation for <br className="hidden sm:inline" />
             Modern Hospitality Experiences

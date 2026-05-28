@@ -96,7 +96,7 @@ export function HospitalityEnvironments() {
           <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold">
             Hospitality Environments
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground max-w-2xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-2xl">
             Automation Solutions Across Hospitality Spaces
           </h2>
         </div>
