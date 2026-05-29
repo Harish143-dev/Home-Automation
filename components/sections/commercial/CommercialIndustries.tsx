@@ -137,7 +137,7 @@ export function CommercialIndustries() {
               {industry.title}
             </h3>
 
-            <p className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-medium tracking-tight text-muted">
+            <p className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-light tracking-wide text-muted">
               {industry.useCase}
             </p>
           </div>

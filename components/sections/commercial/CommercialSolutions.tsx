@@ -115,7 +115,7 @@ export function CommercialSolutions() {
               <div className="max-w-4xl">
                 <div className="flex items-center gap-3 mb-3 md:mb-4">
                   <div className="h-[1px] w-6 bg-white/30" />
-                  <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-white/60">
+                  <span className="font-mono tracking-[0.3em] uppercase text-white/60">
                     {index === 0 ? "Localized Control" : "Unified Infrastructure"}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export function CommercialSolutions() {
                   {system.title}
                 </h2>
 
-                <p className="text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-tight text-white/70 max-w-2xl">
+                <p className="text-sm sm:text-base md:text-lg lg:text-[21px] font-light leading-relaxed tracking-wide text-white/70 max-w-2xl">
                   {system.description}
                 </p>
               </div>
@@ -134,7 +134,7 @@ export function CommercialSolutions() {
 
                 {/* Ideal For */}
                 <div className="flex flex-col gap-3">
-                  <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-white/40">
+                  <span className="font-mono tracking-[0.3em] uppercase text-white/40">
                     Ideal For
                   </span>
                   <div className="flex flex-wrap gap-2">
@@ -148,7 +148,7 @@ export function CommercialSolutions() {
 
                 {/* Key Features */}
                 <div className="flex flex-col gap-3">
-                  <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-white/40">
+                  <span className="font-mono tracking-[0.3em] uppercase text-white/40">
                     Key Features
                   </span>
                   <div className="flex flex-wrap gap-2">
@@ -162,7 +162,7 @@ export function CommercialSolutions() {
 
                 {/* Benefits */}
                 <div className="flex flex-col gap-3">
-                  <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-white/40">
+                  <span className="font-mono tracking-[0.3em] uppercase text-white/40">
                     Benefits
                   </span>
                   <div className="flex flex-wrap gap-2">

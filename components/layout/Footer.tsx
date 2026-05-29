@@ -20,10 +20,10 @@ const FOOTER_LINKS = {
     { label: 'Featured Work', href: '#projects' },
   ],
   company: [
-    { label: 'Our Story', href: '#about' },
-    { label: 'Expertise', href: '#expertise' },
-    { label: 'Process', href: '#process' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'About Us', href: '/about' },
+    { label: 'The Journal', href: '/blog' },
+    { label: 'Process', href: '/about#process' },
+    { label: 'Contact', href: '/contact' },
   ]
 };
 

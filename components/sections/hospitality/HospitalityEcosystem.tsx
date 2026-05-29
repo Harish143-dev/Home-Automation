@@ -31,7 +31,7 @@ export function HospitalityEcosystem() {
     });
 
     // 1. Center hub scales in
-    tl.fromTo(".eco-center-hub", 
+    tl.fromTo(".eco-center-hub",
       { scale: 0, opacity: 0 },
       { scale: 1, opacity: 1, duration: DURATION.normal, ease: EASE.premium }
     );
@@ -74,10 +74,10 @@ export function HospitalityEcosystem() {
   return (
     <section ref={containerRef} className={`w-full py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
             Connected Hospitality Ecosystem
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl">
@@ -87,7 +87,7 @@ export function HospitalityEcosystem() {
 
         {/* Diagram Container */}
         <div className="relative w-full max-w-4xl aspect-[4/3] sm:aspect-video lg:aspect-[21/9] lg:h-[600px] flex items-center justify-center mt-8">
-          
+
           {/* SVG Connecting Lines */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
@@ -101,7 +101,7 @@ export function HospitalityEcosystem() {
               const startY = 50;
               const endX = node.pos.x;
               const endY = node.pos.y;
-              
+
               // Draw a simple straight line for a cleaner technical look
               return (
                 <path
@@ -120,17 +120,17 @@ export function HospitalityEcosystem() {
 
           {/* Concentric Rings */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-             {[1, 2, 3].map((ring) => (
-               <div 
-                 key={`ring-${ring}`}
-                 className="eco-ring absolute border border-blue-500/10 rounded-full"
-                 style={{ 
-                   width: `${150 + ring * 100}px`, 
-                   height: `${150 + ring * 100}px` 
-                 }} 
-               />
-             ))}
-             <div className="eco-pulse-ring absolute w-[150px] h-[150px] border-2 border-blue-500/40 rounded-full" />
+            {[1, 2, 3].map((ring) => (
+              <div
+                key={`ring-${ring}`}
+                className="eco-ring absolute border border-blue-500/10 rounded-full"
+                style={{
+                  width: `${150 + ring * 100}px`,
+                  height: `${150 + ring * 100}px`
+                }}
+              />
+            ))}
+            <div className="eco-pulse-ring absolute w-[150px] h-[150px] border-2 border-blue-500/40 rounded-full" />
           </div>
 
           {/* Central Hub */}

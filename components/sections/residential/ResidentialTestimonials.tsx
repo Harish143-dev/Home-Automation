@@ -47,10 +47,10 @@ const RESIDENTIAL_TESTIMONIALS = [
 
 export function ResidentialTestimonials() {
   return (
-    <TestimonialV2 
+    <TestimonialV2
       testimonials={RESIDENTIAL_TESTIMONIALS}
       title="Stories From Our Homes"
-      subtitle="Resident Experiences"
+
     />
   );
 }

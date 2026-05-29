@@ -167,35 +167,37 @@ export function ResidentialServices() {
         ref={containerRef}
         className="w-full min-h-[100dvh] md:h-[100dvh] flex flex-col md:flex-row items-center justify-center px-6 sm:px-12 md:px-16 lg:px-24 py-20"
       >
-        <div className="w-full max-w-7xl h-full flex flex-col md:flex-row gap-12 lg:gap-16">
+        <div className="w-full max-w-[1400px] mx-auto h-full grid grid-cols-1 md:grid-cols-[1fr_35%_1fr] lg:grid-cols-[1fr_33%_1fr] gap-8 lg:gap-16 items-center">
 
-          {/* LEFT: Navigation List (1/4 width) */}
-          <div className="w-full md:w-1/4 h-full flex flex-col justify-center">
-            <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-foreground/50 mb-12">
-              Our Residential Automation Solutions
-            </h2>
-            <ul className="flex flex-row md:flex-col gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide">
-              {SERVICES_DATA.map((service, idx) => {
-                const isActive = activeIndex === idx;
-                return (
-                  <li key={service.id}>
-                    <button
-                      onClick={() => handleNavClick(idx)}
-                      className={`group flex items-center gap-4 text-left transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
-                    >
-                      <div className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive ? 'bg-accent scale-100' : 'bg-transparent scale-0'}`} />
-                      <span className={`text-base md:text-lg lg:text-xl font-light tracking-wide transition-all duration-300 ${isActive ? 'font-medium translate-x-1 text-foreground' : 'text-foreground'}`}>
-                        {service.title}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+          {/* LEFT: Navigation List */}
+          <div className="w-full h-full flex flex-col justify-center md:items-end min-w-0">
+            <div className="flex flex-col items-start w-full md:w-fit">
+              <h2 className="font-mono text-xs tracking-[0.3em] uppercase text-muted mb-8 md:mb-12">
+                Our Solutions
+              </h2>
+              <ul className="flex flex-row md:flex-col gap-5 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full">
+                {SERVICES_DATA.map((service, idx) => {
+                  const isActive = activeIndex === idx;
+                  return (
+                    <li key={service.id}>
+                      <button
+                        onClick={() => handleNavClick(idx)}
+                        className={`group flex items-center gap-4 text-left transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
+                      >
+                        <div className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive ? 'bg-accent scale-100' : 'bg-transparent scale-0'}`} />
+                        <span className={`text-base md:text-lg lg:text-xl font-light tracking-wide transition-all duration-300 ${isActive ? 'font-medium translate-x-1 text-foreground' : 'text-foreground'}`}>
+                          {service.title}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
 
-          {/* CENTER: Visual Image (1/2 width) */}
-          <div className="w-full md:w-1/2 h-[40vh] md:h-full relative rounded-2xl overflow-hidden shadow-2xl">
+          {/* CENTER: Visual Image */}
+          <div className="w-full h-[40vh] md:h-[60vh] lg:h-[70vh] relative rounded-3xl overflow-hidden shadow-2xl">
             {/* Using standard img to support external Unsplash URLs without next.config changes */}
             <img
               key={`image-${activeIndex}`} // Force re-render for animation
@@ -208,36 +210,38 @@ export function ResidentialServices() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
           </div>
 
-          {/* RIGHT: Content Details (1/4 width) */}
-          <div className="w-full md:w-1/4 h-full flex flex-col justify-center">
-            <h3 className="text-xl lg:text-2xl font-light tracking-wide mb-8 text-foreground">
-              {activeData.title}
-            </h3>
+          {/* RIGHT: Content Details */}
+          <div className="w-full h-full flex flex-col justify-center md:items-start min-w-0">
+            <div className="flex flex-col items-start w-full md:max-w-[320px] lg:max-w-[400px]">
+              <h3 className="text-2xl lg:text-3xl font-light tracking-wide mb-8 text-foreground">
+                {activeData.title}
+              </h3>
 
-            <ul
-              key={`content-${activeIndex}`} // Force re-render for stagger animation
-              ref={rightContentRef}
-              className="flex flex-col gap-5"
-            >
-              {activeData.features.map((feature, i) => (
-                <li key={i} className="feature-item flex items-start gap-3">
-                  <span className="text-accent mt-1 opacity-70">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  <span className="text-sm md:text-base font-light tracking-wide text-foreground/80 leading-relaxed">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
+              <ul
+                key={`content-${activeIndex}`} // Force re-render for stagger animation
+                ref={rightContentRef}
+                className="flex flex-col gap-5"
+              >
+                {activeData.features.map((feature, i) => (
+                  <li key={i} className="feature-item flex items-start gap-3">
+                    <span className="text-accent mt-1 opacity-70">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <span className="text-sm md:text-base font-light tracking-wide text-foreground/80 leading-relaxed">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
 
-            {/* Optional text or logos can go below */}
-            <div className="mt-12 pt-8 border-t border-border/10 feature-item">
-              <p className="text-xs text-muted font-light leading-relaxed">
-                Our bespoke {activeData.title.toLowerCase()} solutions integrate seamlessly into your daily rhythm, offering uncompromising luxury and absolute control.
-              </p>
+              {/* Optional text or logos can go below */}
+              <div className="mt-6 pt-6 border-t border-border/10 feature-item w-full">
+                <p className="text-xs text-muted font-light leading-relaxed">
+                  Our bespoke {activeData.title.toLowerCase()} solutions integrate seamlessly into your daily rhythm, offering uncompromising luxury and absolute control.
+                </p>
+              </div>
             </div>
           </div>
 

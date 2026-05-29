@@ -92,7 +92,7 @@ export function HospitalitySolutions() {
       if (!containerRef.current || prefersReducedMotion) return;
 
       const cards = containerRef.current.querySelectorAll(".solution-card");
-      
+
       cards.forEach((card, i) => {
         const imageBlock = card.querySelector(".solution-image");
         const contentBlock = card.querySelector(".solution-content");
@@ -128,13 +128,11 @@ export function HospitalitySolutions() {
       className="relative w-full bg-surface-darker py-24 sm:py-32 overflow-hidden text-foreground"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col gap-16 sm:gap-24">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4 max-w-3xl mx-auto">
-          <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold">
-            Core Hospitality Solutions
-          </span>
-          <h2 className="text-3xl md:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
             Smart Automation Solutions for Hospitality Environments
           </h2>
         </div>
@@ -145,11 +143,10 @@ export function HospitalitySolutions() {
             const isEven = idx % 2 === 0;
 
             return (
-              <div 
+              <div
                 key={idx}
-                className={`solution-card flex flex-col md:flex-row gap-12 lg:gap-24 items-center ${
-                  isEven ? "" : "md:flex-row-reverse"
-                }`}
+                className={`solution-card flex flex-col md:flex-row gap-12 lg:gap-24 items-center ${isEven ? "" : "md:flex-row-reverse"
+                  }`}
               >
                 {/* Image */}
                 <div className="solution-image relative w-full md:w-1/2 h-[400px] sm:h-[500px] lg:h-[600px] rounded-[32px] overflow-hidden shadow-2xl">
@@ -176,7 +173,7 @@ export function HospitalitySolutions() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     {/* List 1 */}
                     <div className="flex flex-col gap-3">
-                      <h4 className="font-semibold text-sm uppercase tracking-wider text-foreground">
+                      <h4 className="font-mono tracking-[0.3em] uppercase text-foreground text-sm">
                         {solution.list1Title}
                       </h4>
                       <ul className="flex flex-col gap-2">
@@ -191,7 +188,7 @@ export function HospitalitySolutions() {
 
                     {/* List 2 */}
                     <div className="flex flex-col gap-3">
-                      <h4 className="font-semibold text-sm uppercase tracking-wider text-foreground">
+                      <h4 className="font-mono tracking-[0.3em] uppercase text-foreground text-sm">
                         {solution.list2Title}
                       </h4>
                       <ul className="flex flex-col gap-2">
@@ -205,8 +202,8 @@ export function HospitalitySolutions() {
                     </div>
                   </div>
 
-                  <Link 
-                    href="#contact" 
+                  <Link
+                    href="#contact"
                     className="inline-flex items-center text-accent font-medium tracking-wide hover:text-accent-soft transition-colors w-fit mt-4"
                   >
                     {solution.ctaText}

@@ -63,7 +63,7 @@ export function ResidentialCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center w-full bg-[#fcfcfc] overflow-hidden py-20 md:py-32 px-6 border-t border-black/[0.05] shadow-[inset_0_20px_40px_-20px_rgba(0,0,0,0.05)]"
+      className="relative flex flex-col items-center justify-center w-full bg-background overflow-hidden py-20 md:py-32 px-6 border-t border-border shadow-[inset_0_20px_40px_-20px_rgba(0,0,0,0.05)]"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -76,19 +76,19 @@ export function ResidentialCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-black/40">Next Steps</span>
+          <span className="font-mono tracking-[0.3em] uppercase text-muted">Next Steps</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide leading-[1.2] text-black mb-8 text-balance"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide leading-[1.2] text-foreground mb-8 text-balance"
         >
           Automate in every space
         </h2>
 
-        <p className="cta-subhead text-lg md:text-xl text-black/50 font-medium max-w-2xl mx-auto leading-relaxed mb-12">
+        <p className="cta-subhead text-lg md:text-xl text-muted font-light tracking-wide max-w-2xl mx-auto leading-relaxed mb-12">
           Experience seamless automation designed around your family's lifestyle. Schedule your exclusive residential consultation today.
         </p>
 

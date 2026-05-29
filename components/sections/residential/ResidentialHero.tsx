@@ -111,7 +111,7 @@ export function ResidentialHero() {
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] tracking-wide font-light text-white"
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
           >
             Smart Home Automation <br className="hidden sm:inline" />
             for Modern Living

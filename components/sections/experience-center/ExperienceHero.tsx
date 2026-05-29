@@ -111,7 +111,7 @@ export function ExperienceHero() {
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-[clamp(1.7rem,9vw,3.2rem)] sm:text-[clamp(1.95rem,9.2vw,3.4rem)] md:text-[clamp(3rem,6vw,4.8rem)] font-light leading-[1.1] tracking-wide text-white"
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
           >
             Experience Intelligent Automation <br className="hidden sm:inline" />
             in Real Life

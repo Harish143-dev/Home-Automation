@@ -14,13 +14,13 @@ const GALLERY_MEDIA = [
   },
   {
     id: "g2",
-    type: "portrait",
+    type: "landscape",
     src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
     alt: "Smart climate control panel"
   },
   {
     id: "g3",
-    type: "square",
+    type: "landscape",
     src: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
     alt: "Automated shades in bedroom"
   },
@@ -32,7 +32,7 @@ const GALLERY_MEDIA = [
   },
   {
     id: "g5",
-    type: "portrait",
+    type: "landscape",
     src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
     alt: "Integrated lighting systems"
   },
@@ -102,7 +102,7 @@ export function ExperienceGallery() {
               Step Inside Our<br />Experience Centres
             </h2>
           </div>
-          <p className="text-white/60 text-sm md:text-base font-medium max-w-sm text-balance">
+          <p className="text-white/60 text-sm md:text-base font-light tracking-wide max-w-sm text-balance">
             Immerse yourself in real-world automation environments designed to inspire and demonstrate the pinnacle of smart living.
           </p>
         </div>

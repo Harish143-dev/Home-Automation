@@ -37,7 +37,7 @@ function MetricCard({ target, suffix, label }: { target: number; suffix: string;
       if (!numberRef.current || !cardRef.current) return;
 
       const obj = { val: 0 };
-      
+
       gsap.to(obj, {
         val: target,
         duration: 2.2,
@@ -74,15 +74,15 @@ function MetricCard({ target, suffix, label }: { target: number; suffix: string;
           background: `radial-gradient(300px circle at ${coords.x}px ${coords.y}px, rgba(0, 0, 0, 0.03), transparent 75%)`
         }}
       />
-      
+
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-center gap-3 text-center">
         <span className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground">
           <span ref={numberRef}>0</span>
           <span className="text-foreground/80">{suffix}</span>
         </span>
-        
-        <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium text-muted font-sans">
+
+        <span className="font-mono tracking-[0.3em] uppercase text-muted">
           {label}
         </span>
       </div>
@@ -128,19 +128,19 @@ export function ResidentialTrust() {
       className="relative w-full overflow-hidden bg-background py-16 sm:py-24 md:py-32 text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
-        
+
         {/* Section Heading & Subtext */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-16 w-full mb-16 md:mb-24">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-sm lg:max-w-md text-balance">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground max-w-sm lg:max-w-md text-balance">
             Automation Expertise
           </h2>
-          <p className="text-sm md:text-base font-medium tracking-wide text-foreground/70 leading-relaxed max-w-2xl text-balance">
+          <p className="text-sm md:text-base font-light tracking-wide text-foreground/70 leading-relaxed max-w-2xl text-balance">
             We are experts in home automation integration, including Lighting, Audio, Video, Shades, Security and Wifi. In the last 25 years, we have helped 700 architects, 100 MEPs and 200 hoteliers across 4 countries and 17 cities, generate revenue worth 7000 cr. and over 15.5 million kWh of energy.
           </p>
         </div>
 
         {/* Specs Grid */}
-        <div 
+        <div
           ref={gridRef}
           className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-border gap-[1px] border-y border-border overflow-hidden"
         >

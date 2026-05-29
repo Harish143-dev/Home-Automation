@@ -18,7 +18,7 @@ interface MenuCategory {
 
 const STANDALONE_LINKS = [
   { id: 'about', label: 'About Us', href: '/about' },
-  { id: 'energy', label: 'Energy Saving', href: '/energy-saving' },
+  { id: 'blog', label: 'The Journal', href: '/blog' },
   { id: 'contact', label: 'Contact Us', href: '/contact' }
 ];
 
@@ -62,7 +62,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
   {
     title: 'Resources',
     items: [
-      { label: 'Blogs', href: '#blogs' },
+      { label: 'Insights', href: '/blog' },
       { label: 'Case Studies', href: '#case-studies' },
       { label: 'Publications', href: '#publications' },
     ]

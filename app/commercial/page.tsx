@@ -10,6 +10,7 @@ import { CommercialBenefits } from "../../components/sections/commercial/Commerc
 import { CommercialTestimonials } from "../../components/sections/commercial/CommercialTestimonials";
 import { CommercialCTA } from "../../components/sections/commercial/CommercialCTA";
 import { BrandTicker } from "../../components/sections/home/BrandTicker";
+import { CommercialRoiCalculator } from "../../components/sections/commercial/CommercialRoiCalculator";
 
 export default function CommercialPage() {
   return (
@@ -46,6 +47,9 @@ export default function CommercialPage() {
 
       {/* Smart Systems Marquee */}
       <CommercialCapabilities />
+
+      {/* ROI Calculator */}
+      <CommercialRoiCalculator />
 
       {/* Commercial Testimonials */}
       <CommercialTestimonials />

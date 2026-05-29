@@ -83,7 +83,7 @@ function MetricCard({ target, suffix, label }: { target: number; suffix: string;
           <span className="text-foreground/80">{suffix}</span>
         </span>
         
-        <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-muted">
+        <span className="font-mono tracking-[0.3em] uppercase text-muted">
           {label}
         </span>
       </div>

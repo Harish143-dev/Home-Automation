@@ -188,11 +188,7 @@ export default function TestimonialV2({
         className="container px-4 z-10 mx-auto"
       >
         <div className="flex flex-col items-center justify-center max-w-[600px] mx-auto mb-16">
-          <div className="flex justify-center mb-6">
-            <div className="border border-black/[0.08] py-1.5 px-5 rounded-full text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-muted">
-              {subtitle}
-            </div>
-          </div>
+
 
           <h2 id="testimonials-heading" className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-center">
             {title}

@@ -38,7 +38,7 @@ export function ResidentialPhilosophy() {
     <section className="py-16 md:py-20 bg-background relative z-10 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12 md:mb-16">
         <div className="max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-5 text-balance break-words">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-5 text-balance break-words">
             Why Invest in Smart Home Automation?
           </h2>
         </div>
@@ -68,7 +68,7 @@ export function ResidentialPhilosophy() {
                   {/* Desktop Collapsed Layout - Vertical Text at Bottom */}
                   <div className="hidden md:flex flex-col items-center justify-end w-full h-full pb-8 lg:pb-12">
                     <div className="relative w-6 h-[200px] lg:h-[250px]">
-                      <div className="absolute top-full left-0 origin-top-left -rotate-90 whitespace-nowrap font-medium text-[15px] lg:text-[17px] leading-6 text-foreground tracking-wide transition-colors duration-300 group-hover:text-accent w-[200px] lg:w-[250px] text-left overflow-hidden text-ellipsis">
+                      <div className="absolute top-full left-0 origin-top-left -rotate-90 whitespace-nowrap font-light text-[15px] lg:text-[17px] leading-6 text-foreground tracking-wide transition-colors duration-300 group-hover:text-accent w-[200px] lg:w-[250px] text-left overflow-hidden text-ellipsis">
                         {item.title}
                       </div>
                     </div>
@@ -76,7 +76,7 @@ export function ResidentialPhilosophy() {
 
                   {/* Mobile Collapsed Layout - Horizontal Text */}
                   <div className="md:hidden flex items-center w-full h-full px-4 sm:p-5">
-                    <div className="font-semibold text-[15px] sm:text-[17px] text-foreground tracking-tight transition-colors duration-300 group-hover:text-accent line-clamp-2 break-words">
+                    <div className="font-light text-[15px] sm:text-[17px] text-foreground tracking-wide transition-colors duration-300 group-hover:text-accent line-clamp-2 break-words">
                       {item.title}
                     </div>
                   </div>
@@ -89,14 +89,14 @@ export function ResidentialPhilosophy() {
                 )}>
                   <div className="relative z-10 mt-auto max-w-xl">
                     <h3 className={cn(
-                      "text-xl md:text-2xl lg:text-3xl font-light tracking-tight leading-[1.2] text-foreground mb-3 md:mb-4 text-balance break-words",
+                      "text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-[1.2] text-foreground mb-3 md:mb-4 text-balance break-words",
                       "transition-all duration-500 transform",
                       isActive ? "translate-y-0 opacity-100 delay-150" : "translate-y-8 opacity-0"
                     )}>
                       {item.title}
                     </h3>
                     <p className={cn(
-                      "text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-medium tracking-tight text-balance",
+                      "text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light tracking-wide text-balance",
                       "transition-all duration-500 transform",
                       isActive ? "translate-y-0 opacity-100 delay-200" : "translate-y-8 opacity-0"
                     )}>

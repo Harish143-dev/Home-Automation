@@ -238,7 +238,7 @@ export function ResidentialEfficiency() {
       {/* Bottom Accordion Section (Services for Active Category) */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mt-0 md:mt-2 flex-1 flex flex-col justify-start">
         <div className="mb-6">
-          <h4 className="text-sm font-mono uppercase tracking-widest text-muted">
+          <h4 className="font-mono tracking-[0.3em] uppercase text-muted">
             Services under <span className="text-foreground">{activeCategory.title}</span>
           </h4>
         </div>
@@ -286,7 +286,7 @@ export function ResidentialEfficiency() {
                         </p>
                       </div>
                       <div className="md:w-[35%] flex flex-col justify-end border-l border-border/60 pl-4 md:pl-6">
-                        <span className="text-[10px] md:text-xs font-mono tracking-widest text-muted uppercase mb-1.5 opacity-70">Efficiency Metric</span>
+                        <span className="font-mono tracking-[0.3em] uppercase text-muted mb-1.5 opacity-70">Efficiency Metric</span>
                         <span className="text-base md:text-lg font-light tracking-wide text-accent leading-tight">{service.metric}</span>
                       </div>
                     </div>

@@ -205,7 +205,7 @@ smarthome-os/
 
 > **Source of Truth:** The Home (`/`) page is the strict baseline for all typography and design conventions. All new pages (like `/residential`) MUST follow the exact typography weight, letter-spacing, and sizing rules established on the home page.
 
-- **Headings:** MUST use `font-light leading-[1.2] tracking-wide` for a luxurious, editorial feel. Never use `font-display` or `tracking-tight`. Never use default bold/black weights unless specifically required.
+- **Headings:** MUST use `font-light leading-[1.2] tracking-wide text-3xl md:text-4xl lg:text-5xl` for a luxurious, editorial feel. Never use `font-display` or `tracking-tight`. Never use default bold/black weights unless specifically required.
 - **Section Labels:** Small descriptive labels above headings (e.g., "Client Stories", "The Audience") MUST use `font-mono tracking-[0.3em] uppercase` and appropriate opacity (e.g. `text-muted-foreground` or `text-white/50`). Do not use `font-bold` or `tracking-[0.2em]`.
 - **Numbers/Metrics:** Keep number fonts consistent with the body or heading fonts. Do not override with serif fonts unless explicitly matched on the home page.
 - **Colors (Dark Theme):** Use `text-white`, `text-white/70`, `text-white/50` for text hierarchy on dark backgrounds. Avoid hardcoded grays.

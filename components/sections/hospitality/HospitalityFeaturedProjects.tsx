@@ -79,7 +79,7 @@ export function HospitalityFeaturedProjects() {
         scrollTrigger: {
           trigger: pinRef.current,
           start: "top top",
-          end: `+=${PROJECTS.length * 150}vh`,
+          end: `+=${PROJECTS.length * 300}vh`,
           pin: true,
           scrub: SCROLL.scrub,
           anticipatePin: SCROLL.anticipatePin,
@@ -128,12 +128,12 @@ export function HospitalityFeaturedProjects() {
   return (
     <section
       ref={containerRef}
-      className={`bg-[#f5f5f3] text-foreground w-full relative transition-opacity duration-500 overflow-hidden ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`bg-surface-darker text-foreground w-full relative transition-opacity duration-500 overflow-hidden ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* ═══ Header (Not Pinned) ═══ */}
       <div className="w-full pt-24 pb-12 px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col items-center text-center">
-        <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold mb-4">Featured Projects</span>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-4xl">
+
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground max-w-4xl">
           Hospitality Spaces Powered by Intelligent Automation
         </h2>
       </div>
@@ -150,15 +150,15 @@ export function HospitalityFeaturedProjects() {
                 <h3 className="text-2xl font-light mb-6">{proj.name}</h3>
                 <div className="flex flex-col gap-4">
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-accent font-semibold mb-1">Scope of Automation</h4>
+                    <h4 className="font-mono tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Scope of Automation</h4>
                     <p className="text-sm text-muted">{proj.scope}</p>
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-accent font-semibold mb-1">Challenges Solved</h4>
+                    <h4 className="font-mono tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Challenges Solved</h4>
                     <p className="text-sm text-muted">{proj.challenges}</p>
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-accent font-semibold mb-1">Result Achieved</h4>
+                    <h4 className="font-mono tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Result Achieved</h4>
                     <p className="text-sm text-muted">{proj.result}</p>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export function HospitalityFeaturedProjects() {
 
       {/* ═══ Desktop Pinned Layout ═══ */}
       <div className={isMobile ? "hidden" : "block"}>
-        <div ref={pinRef} className="h-screen w-full flex relative overflow-hidden pt-20 pb-6">
+        <div ref={pinRef} className="h-screen w-full flex relative overflow-hidden pt-8 pb-6">
 
           {/* Left Side: Large Image with Rounded Edge */}
           <div className="w-1/2 h-full relative z-10 rounded-r-[60px] lg:rounded-r-[80px] overflow-hidden shadow-[10px_0_40px_rgba(0,0,0,0.1)] bg-black/5">
@@ -201,24 +201,24 @@ export function HospitalityFeaturedProjects() {
             {/* Content Layers */}
             <div className="relative w-full h-full">
               {PROJECTS.map((proj) => (
-                <div key={proj.id + "content"} className="fp-content absolute inset-0 flex flex-col justify-end pb-12 gap-8">
-                  <h3 className="fp-stagger text-3xl lg:text-5xl font-light leading-tight text-foreground">
+                <div key={proj.id + "content"} className="fp-content absolute inset-0 flex flex-col justify-center gap-8 lg:gap-10">
+                  <h3 className="fp-stagger text-3xl lg:text-4xl font-light leading-tight text-foreground">
                     {proj.name}
                   </h3>
 
                   <div className="flex flex-col gap-6">
                     <div className="fp-stagger">
-                      <h4 className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted mb-2 font-semibold">Scope of Automation</h4>
+                      <h4 className="font-mono tracking-[0.3em] uppercase text-muted mb-2">Scope of Automation</h4>
                       <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.scope}</p>
                     </div>
 
                     <div className="fp-stagger">
-                      <h4 className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted mb-2 font-semibold">Challenges Solved</h4>
+                      <h4 className="font-mono tracking-[0.3em] uppercase text-muted mb-2">Challenges Solved</h4>
                       <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.challenges}</p>
                     </div>
 
                     <div className="fp-stagger">
-                      <h4 className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted mb-2 font-semibold">Result Achieved</h4>
+                      <h4 className="font-mono tracking-[0.3em] uppercase text-muted mb-2">Result Achieved</h4>
                       <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.result}</p>
                     </div>
                   </div>

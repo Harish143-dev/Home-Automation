@@ -77,7 +77,7 @@ export function CommercialBenefits() {
         
         {/* Header - Apple Style (Centered, smaller, highly refined) */}
         <div className="flex flex-col items-center text-center max-w-2xl benefit-heading">
-          <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-4">
+          <span className="font-mono tracking-[0.3em] uppercase text-muted mb-4">
             The Advantage
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
@@ -127,7 +127,7 @@ export function CommercialBenefits() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className={`text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-medium tracking-tight max-w-sm pt-2 transition-colors duration-700 ${
+                      <p className={`text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-light tracking-wide max-w-sm pt-2 transition-colors duration-700 ${
                         isHovered ? 'text-white/70' : 'text-muted'
                       }`}>
                         {benefit.description}

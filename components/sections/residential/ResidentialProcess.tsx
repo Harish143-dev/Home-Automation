@@ -127,7 +127,7 @@ export function ResidentialProcess() {
 
           {/* Left Label */}
           <div className="hidden md:flex w-[15%] items-center h-full">
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 -translate-y-1/2 absolute top-1/2">
+            <span className="font-mono tracking-[0.3em] uppercase text-white/50 -translate-y-1/2 absolute top-1/2">
               Process
             </span>
           </div>
@@ -156,7 +156,7 @@ export function ResidentialProcess() {
                     key={idx}
                     className={`h-14 flex items-center transition-all duration-700 ease-out origin-left ${opacityClass}`}
                   >
-                    <span className={`text-lg md:text-xl lg:text-2xl font-light tracking-tighter ${isActive ? 'text-white' : 'text-white/50'}`}>
+                    <span className={`text-lg md:text-xl lg:text-2xl font-light tracking-wide ${isActive ? 'text-white' : 'text-white/50'}`}>
                       Step {idx + 1}
                     </span>
                   </div>
@@ -197,7 +197,7 @@ export function ResidentialProcess() {
         </div>
 
         <div className="mb-4 relative z-10">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">
+          <span className="font-mono tracking-[0.3em] uppercase text-white/50">
             Our Process
           </span>
         </div>
@@ -208,7 +208,7 @@ export function ResidentialProcess() {
               {/* Timeline dot */}
               <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent" />
 
-              <span className="text-[10px] font-bold tracking-widest text-accent mb-1">
+              <span className="font-mono tracking-[0.3em] uppercase text-accent mb-1 block">
                 STEP {idx + 1}
               </span>
               <h3 className="text-xl font-light tracking-wide text-white leading-snug">

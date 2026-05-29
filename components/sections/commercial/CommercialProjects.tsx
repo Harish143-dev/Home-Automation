@@ -82,7 +82,7 @@ export function CommercialProjects() {
                       }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-medium tracking-tight text-white/70 max-w-sm mb-5">
+                      <p className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-light tracking-wide text-white/70 max-w-sm mb-5">
                         {project.description}
                       </p>
 

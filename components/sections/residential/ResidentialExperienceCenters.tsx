@@ -125,7 +125,7 @@ export function ResidentialExperienceCenters() {
             <h2 className="text-xl md:text-2xl font-light tracking-wide leading-[1.2] text-black drop-shadow-sm mb-4 text-balance">
               Experience Smart Living, Firsthand
             </h2>
-            <p className="text-sm md:text-base text-black/70 font-medium tracking-wide leading-relaxed text-balance">
+            <p className="text-sm md:text-base text-black/70 font-light tracking-wide leading-relaxed text-balance">
               Visit our experience centers to explore automation in real environments.
             </p>
           </div>
@@ -157,7 +157,7 @@ export function ResidentialExperienceCenters() {
                         {center.address}
                       </p>
 
-                      <button className="mt-4 md:mt-6 text-[9px] md:text-[10px] font-medium tracking-[0.2em] text-black hover:text-black/70 transition-colors duration-300 uppercase flex items-center gap-2">
+                      <button className="mt-4 md:mt-6 text-[9px] md:text-[10px] font-mono tracking-[0.3em] text-black hover:text-black/70 transition-colors duration-300 uppercase flex items-center gap-2">
                         Get Directions
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M5 12h14M12 5l7 7-7 7" />

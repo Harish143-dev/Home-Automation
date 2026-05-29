@@ -590,7 +590,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
 
         <div className="relative z-10 flex w-full max-w-xl flex-col items-start text-left">
-          <h1 className="mb-4 sm:mb-6 max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-2.5rem)] break-words text-[clamp(1.7rem,9vw,3.2rem)] sm:text-[clamp(1.95rem,9.2vw,3.4rem)] font-normal leading-[1.06] tracking-wide text-white md:max-w-full md:text-[clamp(3rem,6vw,4.8rem)]">
+          <h1 className="mb-4 sm:mb-6 max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-2.5rem)] break-words text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance md:max-w-full">
             Intelligent Spaces <br />
             Intelligent Integration
           </h1>
@@ -692,7 +692,7 @@ export function HeroSection() {
           {/* opacity-0 prevents unsplit text flash — GSAP restores after SplitText setup */}
           <h1
             ref={h1Ref}
-            className="text-[1.5rem] sm:text-[1.8rem] md:text-[2.2rem] lg:text-[2.75rem] leading-[1.2] tracking-wide font-normal text-white opacity-0"
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance opacity-0"
           >
             Intelligent Spaces <br />
             Intelligent Integration

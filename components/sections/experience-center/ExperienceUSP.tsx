@@ -87,7 +87,7 @@ export function ExperienceUSP() {
             Why Visit an Experience Centre?
           </h2>
 
-          <p className="text-lg md:text-xl text-white/60 font-medium tracking-wide usp-header opacity-0 translate-y-10">
+          <p className="text-lg md:text-xl text-white/60 font-light tracking-wide usp-header opacity-0 translate-y-10">
             See. Experience. Decide with Confidence.
           </p>
         </div>
@@ -107,7 +107,7 @@ export function ExperienceUSP() {
                 {item.title}
               </h3>
 
-              <p className="text-sm md:text-base text-white/50 leading-relaxed font-medium">
+              <p className="text-sm md:text-base text-white/50 leading-relaxed font-light">
                 {item.description}
               </p>
             </div>

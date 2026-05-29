@@ -10,37 +10,37 @@ const MEDIA_ITEMS = [
     id: "lighting",
     title: "Smart Lighting",
     src: "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?q=80&w=1200&auto=format&fit=crop",
-    className: "col-span-1 row-span-2 aspect-[3/4]"
+    className: "col-span-2 row-span-2"
   },
   {
     id: "av",
     title: "AV Systems",
     src: "https://images.unsplash.com/photo-1549213816-6c8e78553da5?q=80&w=1200&auto=format&fit=crop",
-    className: "col-span-1 row-span-1 aspect-square"
+    className: "col-span-2 row-span-1"
   },
   {
     id: "shades",
     title: "Motorized Shades",
     src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop",
-    className: "col-span-1 row-span-1 aspect-square"
+    className: "col-span-1 row-span-1"
   },
   {
     id: "theatre",
     title: "Home Theatre",
     src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=1200&auto=format&fit=crop",
-    className: "col-span-2 row-span-1 aspect-[21/9]"
+    className: "col-span-1 row-span-1"
   },
   {
     id: "hospitality",
     title: "Hospitality Automation",
     src: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1200&auto=format&fit=crop",
-    className: "col-span-1 row-span-1 aspect-square"
+    className: "col-span-1 md:col-span-2 row-span-1"
   },
   {
     id: "touch",
     title: "Touch Controls",
     src: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop",
-    className: "col-span-1 row-span-1 aspect-square"
+    className: "col-span-1 md:col-span-2 row-span-1"
   }
 ];
 
@@ -73,20 +73,7 @@ export function ExperienceShowroom() {
         }
       });
 
-      // Subtle parallax effect on scroll
-      mediaItems.forEach((item, i) => {
-        const speed = i % 2 === 0 ? 0.05 : -0.05;
-        gsap.to(item, {
-          yPercent: speed * 100,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
-        });
-      });
+      // Removed parallax effect to maintain perfect grid alignment
     },
     { scope: sectionRef, dependencies: [prefersReducedMotion] }
   );
@@ -111,7 +98,7 @@ export function ExperienceShowroom() {
             More Than a Showroom, A Complete Automation Experience
           </h2>
           
-          <p className="text-sm md:text-base font-medium tracking-wide text-white/70 leading-relaxed text-balance">
+          <p className="text-sm md:text-base font-light tracking-wide text-white/70 leading-relaxed text-balance">
             Our experience centres are designed to help clients, architects, consultants, and developers interact with intelligent automation in real-world environments.
           </p>
         </div>
@@ -119,7 +106,7 @@ export function ExperienceShowroom() {
         {/* Right Side: Media Collage */}
         <div 
           ref={mediaContainerRef}
-          className="w-full lg:w-7/12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6"
+          className="w-full lg:w-7/12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-5 auto-rows-[140px] md:auto-rows-[160px] lg:auto-rows-[180px]"
         >
           {MEDIA_ITEMS.map((item) => (
             <div 
@@ -135,7 +122,7 @@ export function ExperienceShowroom() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                <p className="text-xs font-bold tracking-widest uppercase text-white font-sans">
+                <p className="font-mono tracking-[0.3em] uppercase text-white">
                   {item.title}
                 </p>
               </div>

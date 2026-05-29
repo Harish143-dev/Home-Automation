@@ -76,7 +76,7 @@ export function ExperienceTestimonials() {
             Hear From Our Clients
           </h2>
 
-          <p className="text-base md:text-lg text-muted-foreground font-medium tracking-wide leading-relaxed max-w-md testimonials-header opacity-0 translate-y-10">
+          <p className="text-base md:text-lg text-muted-foreground font-light tracking-wide leading-relaxed max-w-md testimonials-header opacity-0 translate-y-10">
             Discover how visiting our experience centres helped homeowners and professionals envision their perfect intelligent environment.
           </p>
         </div>

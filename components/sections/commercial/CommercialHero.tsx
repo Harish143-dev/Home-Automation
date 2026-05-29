@@ -111,7 +111,7 @@ export function CommercialHero() {
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-white"
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
           >
             Intelligent Automation <br className="hidden sm:inline" />
             for Modern Commercial Spaces
@@ -120,7 +120,7 @@ export function CommercialHero() {
           {/* Understated luxury supporting text */}
           <p
             ref={subRef}
-            className="text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-tight text-white/70 max-w-lg"
+            className="text-sm sm:text-base md:text-lg lg:text-[21px] font-light leading-relaxed tracking-wide text-white/70 max-w-lg"
           >
             Scalable automation systems designed to enhance operational efficiency, security, energy management, and user experience.
           </p>

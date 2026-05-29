@@ -125,10 +125,10 @@ export function BrandTicker({ brands = DEFAULT_BRANDS }: BrandTickerProps = {}) 
             className="brand-item flex-shrink-0 px-6 sm:px-10 md:px-16 lg:px-24 flex items-center justify-center cursor-default opacity-55 transition-all duration-500 ease-out group-hover/ticker:opacity-25 hover:!opacity-100 hover:scale-105"
           >
             {brand.src ? (
-              <img 
-                src={brand.src} 
-                alt={brand.name} 
-                className="h-8 sm:h-10 md:h-12 w-auto object-contain brightness-0 invert pointer-events-none select-none" 
+              <img
+                src={brand.src}
+                alt={brand.name}
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain brightness-0 invert pointer-events-none select-none"
               />
             ) : (
               <span className="text-base font-light uppercase tracking-[0.15em] text-white sm:text-xl md:text-2xl lg:text-4xl">

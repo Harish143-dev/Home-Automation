@@ -143,7 +143,7 @@ export function ExperienceCentersList() {
                     {center.city}
                   </h2>
                   
-                  <p className="text-base md:text-lg font-medium tracking-wide text-white/80 leading-relaxed max-w-xl text-balance">
+                  <p className="text-base md:text-lg font-light tracking-wide text-white/80 leading-relaxed max-w-xl text-balance">
                     {center.description}
                   </p>
 

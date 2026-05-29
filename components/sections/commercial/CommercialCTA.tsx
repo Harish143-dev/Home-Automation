@@ -76,7 +76,7 @@ export function CommercialCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-muted">Partner With Us</span>
+          <span className="font-mono tracking-[0.3em] uppercase text-muted">Partner With Us</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
@@ -88,7 +88,7 @@ export function CommercialCTA() {
           Automate your enterprise
         </h2>
 
-        <p className="cta-subhead text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-tight text-muted max-w-2xl mx-auto mb-12">
+        <p className="cta-subhead text-sm sm:text-base md:text-lg lg:text-[21px] font-light leading-relaxed tracking-wide text-muted max-w-2xl mx-auto mb-12">
           Experience seamless commercial automation designed for operational excellence. Schedule your enterprise consultation today.
         </p>
 

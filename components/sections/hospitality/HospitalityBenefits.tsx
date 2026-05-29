@@ -61,7 +61,7 @@ export function HospitalityBenefits() {
       ease: EASE.premium,
       overwrite: "auto",
     });
-    
+
     // Content fade/slide
     gsap.to(".card-content", {
       opacity: (i) => (i === activeCard ? 1 : 0),
@@ -71,7 +71,7 @@ export function HospitalityBenefits() {
       overwrite: "auto",
       delay: 0.1,
     });
-    
+
     // Icon container active state
     gsap.to(".card-icon-container", {
       backgroundColor: (i) => (i === activeCard ? "rgba(0,0,0,1)" : "rgba(0,0,0,0.04)"),
@@ -94,7 +94,7 @@ export function HospitalityBenefits() {
   // Entrance animation
   useGSAP(() => {
     if (!isReady || isMobile) return;
-    
+
     gsap.from(".benefit-card", {
       scrollTrigger: {
         trigger: containerRef.current,
@@ -109,16 +109,16 @@ export function HospitalityBenefits() {
   }, { dependencies: [isReady, isMobile], scope: containerRef });
 
   return (
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className={`w-full py-24 px-6 md:px-12 lg:px-24 bg-background transition-opacity duration-500 overflow-hidden ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4">
-          <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold">Operational Benefits</span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-4xl">
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground max-w-4xl">
             Hospitality Automation That Works Beyond Guest Comfort
           </h2>
         </div>
@@ -129,9 +129,9 @@ export function HospitalityBenefits() {
             {BENEFITS.map((benefit, idx) => {
               const Icon = benefit.icon;
               return (
-                <div 
+                <div
                   key={benefit.id}
-                  className="benefit-card relative h-full rounded-[32px] bg-[#f5f5f3] overflow-hidden cursor-pointer group flex-[1] flex flex-col p-6 shadow-sm border border-black/5"
+                  className="benefit-card relative h-full rounded-[32px] bg-panel overflow-hidden cursor-pointer group flex-[1] flex flex-col p-6 shadow-sm border border-border"
                   onMouseEnter={() => setActiveCard(idx)}
                 >
                   {/* Top section: Icon */}
@@ -143,14 +143,14 @@ export function HospitalityBenefits() {
 
                   {/* Vertical title when closed */}
                   <div className="card-vertical-title absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                     <span className="whitespace-nowrap -rotate-90 origin-center text-base lg:text-lg font-medium tracking-wide text-foreground/50 mt-12">
-                       {benefit.title}
-                     </span>
+                    <span className="whitespace-nowrap -rotate-90 origin-center text-base lg:text-lg font-light tracking-wide text-muted mt-12">
+                      {benefit.title}
+                    </span>
                   </div>
 
                   {/* Bottom section: Expanded Content */}
-                  <div className="card-content absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end gap-3 pointer-events-none opacity-0 translate-y-5 bg-gradient-to-t from-[#f5f5f3] via-[#f5f5f3]/80 to-transparent pt-20">
-                    <h3 className="text-2xl lg:text-3xl font-medium text-foreground whitespace-nowrap">
+                  <div className="card-content absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end gap-3 pointer-events-none opacity-0 translate-y-5 bg-gradient-to-t from-background via-background/80 to-transparent pt-20">
+                    <h3 className="text-2xl lg:text-3xl font-light tracking-wide text-foreground whitespace-nowrap">
                       {benefit.title}
                     </h3>
                     <p className="text-foreground/70 text-base md:text-lg max-w-sm leading-relaxed whitespace-normal">
@@ -169,12 +169,12 @@ export function HospitalityBenefits() {
             {BENEFITS.map((benefit) => {
               const Icon = benefit.icon;
               return (
-                <div key={benefit.id} className="w-full bg-[#f5f5f3] rounded-3xl p-6 flex flex-col gap-4">
+                <div key={benefit.id} className="w-full bg-panel border border-border rounded-3xl p-6 flex flex-col gap-4">
                   <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center text-white">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium mb-2">{benefit.title}</h3>
+                    <h3 className="text-xl font-light tracking-wide mb-2">{benefit.title}</h3>
                     <p className="text-foreground/70 text-sm">{benefit.description}</p>
                   </div>
                 </div>

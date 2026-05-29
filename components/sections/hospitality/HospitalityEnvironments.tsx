@@ -90,19 +90,17 @@ export function HospitalityEnvironments() {
       className="relative w-full bg-background py-24 sm:py-32 overflow-hidden text-foreground"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col gap-12 sm:gap-16">
-        
+
         {/* Header */}
         <div ref={headerRef} className="flex flex-col items-start gap-4">
-          <span className="text-accent text-xs tracking-[0.2em] uppercase font-semibold">
-            Hospitality Environments
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground max-w-2xl">
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground max-w-2xl">
             Automation Solutions Across Hospitality Spaces
           </h2>
         </div>
 
         {/* 3x2 Grid */}
-        <div 
+        <div
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >

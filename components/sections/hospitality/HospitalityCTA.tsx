@@ -63,7 +63,7 @@ export function HospitalityCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center w-full bg-[#fcfcfc] overflow-hidden py-20 md:py-32 px-6 border-t border-black/[0.03]"
+      className="relative flex flex-col items-center justify-center w-full bg-background overflow-hidden py-20 md:py-32 px-6 border-t border-border"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -76,19 +76,19 @@ export function HospitalityCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-black/40">Next Steps</span>
+          <span className="font-mono tracking-[0.3em] uppercase text-muted">Next Steps</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-light tracking-wide text-black leading-[1.2] mb-8"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-light tracking-wide text-foreground leading-[1.2] mb-8"
         >
           Elevate every stay
         </h2>
 
-        <p className="cta-subhead text-lg md:text-xl text-black/50 font-medium max-w-2xl mx-auto leading-relaxed mb-12">
+        <p className="cta-subhead text-lg md:text-xl text-muted font-light tracking-wide max-w-2xl mx-auto leading-relaxed mb-12">
           Transform your property with intelligent automation that improves operational efficiency and delights every guest.
         </p>
 

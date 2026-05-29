@@ -65,7 +65,7 @@ export function ExperienceAudience() {
   );
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#fcfcfc] text-[#2d2a26] py-24 md:py-32 relative z-10">
+    <section ref={sectionRef} className="w-full bg-background text-[#2d2a26] py-24 md:py-32 relative z-10">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 flex flex-col items-center">
         
         {/* Section Label */}
@@ -92,7 +92,7 @@ export function ExperienceAudience() {
               <h3 className="text-xl md:text-2xl font-light tracking-wide text-black mb-4">
                 {item.title}
               </h3>
-              <p className="text-sm md:text-base text-black/60 leading-relaxed font-medium">
+              <p className="text-sm md:text-base text-black/60 leading-relaxed font-light tracking-wide">
                 {item.description}
               </p>
             </div>
