@@ -18,14 +18,14 @@ const usps = [
     id: 1,
     title: 'Experience & Expertise',
     shortTitle: 'Experience',
-    description: "Over 23 years of industry leadership in Lighting Controls, Automation, Audio-Video, Security, and Wi-Fi Systems.",
+    description: "Over 24 years of industry leadership in Lighting Controls, Automation, Audio-Video, Security, and Wi-Fi Systems.",
     icon: Briefcase,
   },
   {
     id: 2,
     title: 'Extensive Portfolio',
     shortTitle: 'Portfolio',
-    description: "150+ hotels, 100+ institutional/commercial projects, 500+ residential projects.",
+    description: "Over 650 homes, over 250 hotels and over 100 offices completed",
     icon: Layers,
   },
   {

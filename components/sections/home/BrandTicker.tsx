@@ -10,13 +10,41 @@ export interface BrandItem {
 }
 
 const DEFAULT_BRANDS: BrandItem[] = [
+  { name: 'EAE TECHNOLOGY' },
+  { name: 'MOORGEN' },
+  { name: 'FUTURE KNX' },
+  { name: 'T&J' },
+  { name: 'EKINEX' },
+  { name: 'JUNG' },
   { name: 'LUTRON' },
+  { name: 'ABSEN' },
+  { name: 'OPTOMA' },
+  { name: 'SAMSUNG' },
+  { name: 'LG' },
+  { name: 'SONY' },
+  { name: 'SCREEN EXCELLENCE' },
   { name: 'CRESTRON' },
-  { name: 'CONTROL4' },
+  { name: 'ELAN' },
   { name: 'SAVANT' },
-  { name: 'SONOS' },
-  { name: 'KNX' },
-  { name: 'BANG & OLUFSEN' },
+  { name: 'CASADIGI' },
+  { name: 'CONTROL4' },
+  { name: 'CISCO' },
+  { name: 'RUCKUS WIRELESS' },
+  { name: 'ARUBA' },
+  { name: 'SONANCE' },
+  { name: 'DALI' },
+  { name: 'BOSE' },
+  { name: 'WATERFALL AUDIO' },
+  { name: 'B&O' },
+  { name: 'B&W (BOWERS & WILKINS)' },
+  { name: 'LOEWE.' },
+  { name: 'AMINA' },
+  { name: 'ARCHITETTURA SONORA' },
+  { name: 'VIVOTECH' },
+  { name: 'EKEY' },
+  { name: 'CP PLUS' },
+  { name: 'HONEYWELL' },
+  { name: 'GRANDSTREAM' },
 ];
 
 interface BrandTickerProps {
@@ -54,7 +82,7 @@ export function BrandTicker({ brands = DEFAULT_BRANDS }: BrandTickerProps = {}) 
     tlRef.current.to(trackRef.current, {
       xPercent: -50,
       ease: 'none',
-      duration: 25, // Calm, slow pace continuous standard
+      duration: 150, // Increased duration to slow down the animation due to more brands
     });
 
     // 3. Scroll Velocity Boost — scoped to section viewport (audit M4)

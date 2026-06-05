@@ -56,7 +56,7 @@ const SERVICES: ServicePanel[] = [
   {
     id: "av",
     eyebrow: "02 / Audio Video Automation",
-    title: "Our Audio Video Automation",
+    title: "Audio Video Automation",
     description:
       "Easily control music, streaming platforms, and audio zones from a single app, from soothing devotional music during a pooja, synchronized audio for a house party, to personalized music in different rooms for every family member.",
     secondaryDescription:
@@ -296,14 +296,13 @@ export function ConnectedSystems() {
         <div className="relative z-10 max-w-4xl">
           <div className="cs-header-el mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-4 sm:px-5 py-1.5 sm:py-2 text-xs font-medium tracking-[0.2em] uppercase text-foreground backdrop-blur-md shadow-sm">
             <Sparkles className="h-3.5 w-3.5 text-foreground" />
-            Connected Systems
+            Core Capabilities
           </div>
           <h2 className="cs-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
-            Disciplines
+            Engineering Disciplines
           </h2>
           <p className="cs-header-el mt-4 sm:mt-6 text-sm sm:text-base text-muted max-w-xl mx-auto">
-            Explore the comprehensive systems and meticulously integrated
-            technologies we engineer to elevate every aspect of modern living.
+            ATPL manages the complete lifecycle of system integration, encompassing initial design layout, structural coordination, system programming, and deployment. Our methodology unifies diverse automated infrastructures under a singular engineering framework, establishing absolute system accountability and long-term operational stability and service.
           </p>
         </div>
       </div>

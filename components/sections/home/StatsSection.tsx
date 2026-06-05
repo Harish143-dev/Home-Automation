@@ -1,15 +1,16 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { DURATION, EASE } from '../../../lib/animation.config';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 
 const STATS = [
-  { value: '25', label: 'Years of Experience' },
-  { value: 'Over 1000', label: 'Projects completed' },
-  { value: '15', label: 'Cities all over India' },
-  { value: '3', label: 'Experience Centres in Delhi, Mumbai and Bengaluru' },
+  { prefix: 'Over', value: '24', label: 'Years of Industry Experience' },
+  { prefix: 'Over', value: '1000+', label: 'Projects Completed' },
+  { prefix: 'Over', value: '15', label: 'Cities with Sales & Service Presence' },
+  { prefix: '', value: '3', label: 'Experience Centres\nDelhi • Mumbai • Bengaluru' },
 ];
 
 export function StatsSection() {
@@ -65,27 +66,36 @@ export function StatsSection() {
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
-        <div ref={leftColRef} className="w-full md:w-5/12 md:sticky md:top-48 pb-6 md:pb-0 opacity-0">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-6 sm:mb-8">
-            Automation Expertise
+        <div ref={leftColRef} className="w-full md:w-1/2 md:sticky md:top-[20vh] pb-6 md:pb-0 opacity-0">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground mb-6 sm:mb-8">
+            The Architecture of Intelligence
           </h2>
-          <p className="text-muted text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-lg">
-            We are experts in home automation integration, including Lighting, Audio, Video, Shades, Security and Wifi. In the last 25 years, we have helped 700 architects, 100 MEPs and 200 hoteliers across 4 countries and 17 cities, generate revenue worth 7000 cr. and over 15.5 million kWh of energy.
+          <p className="text-muted text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10">
+            We integrate advanced lighting, climate, and media systems into India’s finest private residences, hotels and offices, preserving architectural integrity while perfecting daily living. In the last 25 years, we have helped 700 architects, 200 hoteliers and 100 MEPs, across 23 cities PAN India. We’ve completed over 1,023 projects worth 7,217cr. We’ve saved over 15.5 million kWh of energy. We distribute products from over 30 global manufacturers.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link href="/ecosystem" className="px-8 py-4 bg-foreground text-background text-sm tracking-widest uppercase transition-colors hover:bg-foreground/90 text-center">
+              Explore Our Ecosystem
+            </Link>
+            <Link href="/projects" className="px-8 py-4 border border-foreground/20 text-foreground text-sm tracking-widest uppercase transition-colors hover:bg-foreground/5 hover:border-foreground text-center">
+              View Projects
+            </Link>
+          </div>
         </div>
 
         {/* Right Stats Vertical Stack (Native Scrolling) */}
-        <div className="w-full md:w-7/12 flex flex-col gap-16 sm:gap-20 md:gap-32 lg:gap-40 border-l border-black/5 pl-6 sm:pl-8 md:pl-16 pb-20 md:pb-40 lg:pb-[30vh]">
+        <div className="w-full md:w-1/2 flex flex-col gap-16 sm:gap-20 md:gap-32 lg:gap-40 border-l border-black/5 pl-6 sm:pl-8 md:pl-16 pb-20 md:pb-40 lg:pb-[30vh]">
           {STATS.map((stat, i) => (
             <div
               key={i}
               ref={el => { statsRefs.current[i] = el; }}
               className="flex flex-col border-b border-black/5 pb-6 sm:pb-8 last:border-b-0 last:pb-0 group cursor-default opacity-0"
             >
-              <div className="font-light tracking-wide leading-none text-foreground mb-3 sm:mb-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 text-3xl sm:text-4xl md:text-5xl">
-                {stat.value}
+              <div className="font-light tracking-wide leading-none text-foreground mb-3 sm:mb-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 text-4xl sm:text-5xl md:text-6xl flex items-baseline gap-2 sm:gap-3">
+                {stat.prefix && <span className="text-xl sm:text-2xl md:text-3xl text-muted font-normal">{stat.prefix}</span>}
+                <span>{stat.value}</span>
               </div>
-              <div className="text-muted font-light tracking-wide text-sm sm:text-base md:text-lg transition-colors duration-500 group-hover:text-foreground">
+              <div className="text-muted font-light tracking-wide text-sm sm:text-base md:text-lg transition-colors duration-500 group-hover:text-foreground whitespace-pre-line">
                 {stat.label}
               </div>
             </div>

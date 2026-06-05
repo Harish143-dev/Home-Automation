@@ -17,21 +17,21 @@ const PANELS = [
     label: '01',
     title: 'Residential',
     btn: "Discover Residential Projects",
-    description: 'Control Security, Lights, Shades, Audio, Video and Wifi. Everything from one screen with integrated Home Automation.',
+    description: 'Engineering frictionless living for private estates. We integrate lighting, climate, and wellness systems into architectural blueprints, enabling your home to function intuitively while maintaining visual harmony.',
     image: residentialImage,
   },
   {
     label: '02',
     title: 'Hospitality',
     btn: "Discover Hospitality Projects",
-    description: 'Reduce Operating Expenditure by over 30%, reducing dependence on Manpower. Integrate automation in Public Areas and Rooms.',
+    description: 'Elevating guest experiences through centralized controls. We design smart guestroom automation and atmospheric lighting architectures that optimise operational efficiency without compromising brand by integrating lighting control, energy management, climate control, and room automation.',
     image: hospitalityImage,
   },
   {
     label: '03',
     title: 'Commercial',
     btn: "Discover Commercial Projects",
-    description: 'Save upto 40% energy and 30% long term costs with light management strategies integrated with automation',
+    description: 'Optimizing corporate infrastructure for productivity and scale. From high performance boardroom acoustics to adaptive, energy efficient workspace controls, we deploy robust enterprise systems built for continuous uptime. Save up to 60% energy with energy management strategies.',
     image: commercialImage,
   }
 ];
@@ -179,8 +179,8 @@ export function AutomationSpaces() {
       <div id="automation-spaces" className="bg-background">
         <section className="py-32 px-8 text-foreground">
           <div className="mb-16 px-4 text-center">
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-4">What we do</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">Automate in every space</h2>
+            <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-4">Sectors</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">Environments We Transform</h2>
           </div>
           <div className="flex flex-col gap-24">
             {PANELS.map((panel) => (
@@ -233,10 +233,10 @@ export function AutomationSpaces() {
         {/* Intro Heading */}
         <div className="section-intro absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-[50] pointer-events-none">
           <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-6">
-            What we do
+            Sectors
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
-            Automate in every space
+            Environments We Transform
           </h2>
         </div>
 
@@ -270,7 +270,7 @@ export function AutomationSpaces() {
               <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-6">
                 {panel.label} - {panel.title}
               </div>
-              <h3 className="text-[1.1rem] lg:text-[1.25rem] xl:text-[1.4rem] leading-[1.5] font-light mb-10 tracking-wide text-foreground/80">
+              <h3 className="text-base md:text-lg leading-[1.5] font-light mb-10 tracking-wide text-foreground/80">
                 {panel.description}
               </h3>
               {panel.title === 'Residential' ? (
