@@ -11,6 +11,8 @@ import { ResidentialCTA } from "../../components/sections/residential/Residentia
 import { ResidentialTrust } from "../../components/sections/residential/ResidentialTrust";
 import { ResidentialEfficiency } from "../../components/sections/residential/ResidentialEfficiency";
 import { ResidentialPhilosophy } from "../../components/sections/residential/ResidentialPhilosophy";
+import { ResidentialGovernance } from "../../components/sections/residential/ResidentialGovernance";
+import { ResidentialCredentials } from "../../components/sections/residential/ResidentialCredentials";
 
 export default function ResidentialPage() {
   return (
@@ -41,8 +43,14 @@ export default function ResidentialPage() {
       {/* Fullscreen Cinematic Case Studies */}
       <ResidentialCaseStudies />
 
+      {/* Industry Credentials & Global Benchmarks */}
+      <ResidentialCredentials />
+
       {/* Philosophy Expanding Accordion Showcase */}
       <ResidentialPhilosophy />
+
+      {/* Asset Governance & Service SLAs */}
+      <ResidentialGovernance />
 
 
       {/* Fullscreen Interactive Process Timeline */}

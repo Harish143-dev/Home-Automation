@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "../../ui/button";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { gsap, SplitText, useGSAP } from "../../../lib/gsapSetup";
+import hero from "@/assets/residential/hero.jpg"
 
 export function ResidentialHero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -89,7 +90,7 @@ export function ResidentialHero() {
       {/* 🎬 Static Background */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
         <NextImage
-          src="/images/residential_hero_bg.png"
+          src={hero}
           alt="Luxury Modern Villa Residence Interior"
           fill
           priority
@@ -113,8 +114,7 @@ export function ResidentialHero() {
             ref={h1Ref}
             className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
           >
-            Smart Home Automation <br className="hidden sm:inline" />
-            for Modern Living
+            The Intuitive Estate.
           </h1>
 
           {/* Understated luxury supporting text */}
@@ -122,7 +122,7 @@ export function ResidentialHero() {
             ref={subRef}
             className="text-sm md:text-base text-white/80 font-medium tracking-wide leading-relaxed max-w-md text-balance"
           >
-            Seamlessly control lighting, entertainment, security, and comfort, all designed around your lifestyle.
+            We engineer automation architectures for India’s finest private residences, unifying lighting, climate, media and security into a single, responsive ecosystem that syncs with your design.
           </p>
 
           {/* CTA Buttons */}
@@ -137,10 +137,10 @@ export function ResidentialHero() {
                 shape="full"
                 className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm transition-all duration-500 hover:bg-accent-soft hover:shadow-[0_0_40px_rgba(140,24,23,0.35)]"
               >
-                Book a Consultation
+                Request Architectural Consultation
               </Button>
             </Link>
-            
+
             <Link href="/residential/brochure-download">
               <Button
                 variant="outline"
@@ -148,7 +148,7 @@ export function ResidentialHero() {
                 shape="full"
                 className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm bg-transparent border-white text-white hover:bg-white hover:text-black transition-all duration-500"
               >
-                Download Residential Brochure
+                Download Brochure
               </Button>
             </Link>
           </div>

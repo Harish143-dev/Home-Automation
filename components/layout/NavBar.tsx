@@ -59,7 +59,11 @@ export function NavBar() {
         className={`fixed top-0 left-0 right-0 z-[9999999] flex h-20 sm:h-24 items-center justify-between px-5 sm:px-8 lg:px-16 bg-transparent pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible || isOpen ? 'translate-y-0' : '-translate-y-full'} ${isIntroRunning ? 'opacity-0' : 'opacity-100'}`}
       >
         <div className="pointer-events-auto">
-          <Link href="/" className="transition-opacity hover:opacity-75 drop-shadow-sm">
+          <Link 
+            href="/" 
+            onClick={() => setIsOpen(false)}
+            className="transition-opacity hover:opacity-75 drop-shadow-sm"
+          >
             <img src="/logo.svg" alt="AT" className="h-10 sm:h-12 w-auto" />
           </Link>
         </div>

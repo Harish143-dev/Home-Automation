@@ -2,13 +2,12 @@
 
 import { HeroSection } from '../components/sections/home/HeroSection';
 import { BrandIntro } from '../components/sections/home/BrandIntro';
-import { NavBar } from '../components/layout/NavBar';
+
 import { AutomationSpaces } from '../components/sections/home/AutomationSpaces';
 import { StatsSection } from '../components/sections/home/StatsSection';
 import { BrandTicker } from '../components/sections/home/BrandTicker';
 import { ConnectedSystems } from '../components/sections/home/ConnectedSystems';
 import { WhyChooseUsSection } from '../components/sections/home/WhyChooseUsSection';
-import { ExperienceCentersSection } from '../components/sections/home/ExperienceCentersSection';
 import { ProcessSection } from '../components/sections/home/ProcessSection';
 import { FeaturedProjects } from '../components/sections/home/FeaturedProjects';
 import { AwardsSection } from '../components/sections/home/AwardsSection';
@@ -19,7 +18,7 @@ export default function Home() {
   return (
     <main className="relative bg-background">
       <BrandIntro />
-      <NavBar />
+
       <HeroSection />
       <StatsSection />
       <BrandTicker />
@@ -28,7 +27,6 @@ export default function Home() {
       <FeaturedProjects />
       <AwardsSection />
       <WhyChooseUsSection />
-      {/* <ExperienceCentersSection /> */}
       <ProcessSection />
       <TestimonialsSection />
       <CallToActionSection />

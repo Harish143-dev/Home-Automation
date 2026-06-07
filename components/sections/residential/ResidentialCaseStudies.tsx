@@ -8,46 +8,46 @@ import { Button } from "../../ui/button";
 
 const PROJECTS_DATA = [
   {
-    id: "delhi-residence",
+    id: "dixit-nene",
     number: "01",
-    title: "Delhi Private Residence",
-    description: "A sprawling estate combining classical architecture with invisible, cutting-edge smart technology for effortless living.",
+    navTitle: "The Dixit-Nene Residence",
+    title: "The Dixit-Nene Residence, Mumbai (2024)",
+    description: "A complete integration of synchronized motorized shades, backlit custom-engraved keypads, zone climate logic, and full audio-video app orchestration.",
     images: [
       "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
       "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
       "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
       "/assets/residential/project/delhi-residence/delhi-residence-4.jpg"
     ],
-    link: "/case-studies/delhi-residence",
-    features: ["Bespoke Lighting", "Invisible Audio", "Climate Control"]
+    link: "/case-studies/dixit-nene"
   },
   {
-    id: "mumbai-residence-1",
+    id: "rajan-mittal",
     number: "02",
-    title: "Mumbai Private Residence",
-    description: "High-rise luxury living featuring panoramic views, dynamic shading systems, and an integrated home cinema.",
+    navTitle: "The Rajan Mittal Villa",
+    title: "The Rajan Mittal Villa, New Delhi",
+    description: "A four-storey architectural masterwork in Shanti Niketan designed by Morphogenesis, powered by an enterprise-grade automation backbone.",
     images: [
       "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
       "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
       "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
       "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-4.jpg"
     ],
-    link: "/case-studies/mumbai-residence-1",
-    features: ["Motorized Shades", "Home Cinema", "Smart Security"]
+    link: "/case-studies/rajan-mittal"
   },
   {
-    id: "mumbai-residence-2",
+    id: "bkt-farms",
     number: "03",
-    title: "Mumbai Private Residence",
-    description: "A sophisticated modern apartment focused on wellness, featuring circadian lighting and advanced environmental controls.",
+    navTitle: "BKT Farms",
+    title: "BKT Farms, New Delhi (2024)",
+    description: "Advanced architectural lighting controls, chiller-based HVAC integration, and secure electronic access control systems.",
     images: [
       "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg",
       "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
       "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg",
       "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-4.jpg"
     ],
-    link: "/case-studies/mumbai-residence-2",
-    features: ["Circadian Lighting", "Wellness Tech", "Energy Savings"]
+    link: "/case-studies/bkt-farms"
   }
 ];
 
@@ -150,12 +150,18 @@ export function ResidentialCaseStudies() {
         className="w-full h-[100dvh] hidden md:flex flex-row overflow-hidden"
       >
         {/* LEFT: Navigation Panel (~1/3 width) */}
-        <div className="w-full md:w-[35%] lg:w-[30%] h-full bg-background flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24 py-12 md:py-20 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.05)] relative">
-          <h2 className="font-mono tracking-[0.3em] uppercase text-muted mb-16">
+        <div className="w-full md:w-[50%] lg:w-[45%] xl:w-[40%] h-full bg-background flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24 py-12 md:py-20 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.05)] relative">
+          <span className="font-mono tracking-[0.3em] text-[9px] md:text-[10px] uppercase text-accent mb-3 block">
             See Smart Living in Action
+          </span>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug text-foreground mb-3">
+            Proven in India’s Most Exclusive Residences.
           </h2>
+          <p className="text-xs lg:text-sm font-light text-foreground/70 leading-[1.8] mb-8 md:mb-10">
+            Trust is earned through flawless execution in high-stakes environments. Our portfolio spans the private domains of India’s cultural icons, industrial leaders, and visionaries.
+          </p>
 
-          <ul className="flex flex-col gap-6 md:gap-10 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide">
+          <ul className="flex flex-col gap-5 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide">
             {PROJECTS_DATA.map((project, idx) => {
               const isActive = activeIndex === idx;
               return (
@@ -169,21 +175,28 @@ export function ResidentialCaseStudies() {
                     onClick={() => handleNavClick(idx)}
                     className="group flex items-baseline gap-4 text-left"
                   >
-                    <span className={`font-mono tracking-[0.3em] uppercase transition-colors duration-300 ${isActive ? 'text-foreground' : 'text-muted group-hover:text-foreground/50'}`}>
+                    <span className={`font-mono tracking-[0.3em] text-[10px] uppercase transition-colors duration-300 ${isActive ? 'text-foreground' : 'text-muted group-hover:text-foreground/50'}`}>
                       {project.number}
                     </span>
-                    <span className={`text-sm md:text-base lg:text-lg font-light tracking-wide transition-colors duration-300 ${isActive ? 'text-foreground font-medium' : 'text-muted group-hover:text-foreground/50'}`}>
-                      {project.title}
+                    <span className={`text-sm lg:text-base font-light tracking-wide transition-colors duration-300 ${isActive ? 'text-foreground font-medium' : 'text-muted group-hover:text-foreground/50'}`}>
+                      {project.navTitle}
                     </span>
                   </button>
                 </li>
               );
             })}
           </ul>
+
+          <div className="mt-8 md:mt-10 pt-6 border-t border-border">
+            <span className="text-[9px] font-mono uppercase tracking-widest text-muted mb-2 block">The Registry Includes</span>
+            <p className="text-[10px] lg:text-xs font-light text-foreground/60 leading-[1.8]">
+              Hrithik Roshan — Ranbir & Alia — K.M. Birla — Laxmi Mittal — Pirojsha Godrej — Aman Gupta — Abhay Soi — Boman Irani — K.P. Singh — Ujjwal Munjal
+            </p>
+          </div>
         </div>
 
         {/* RIGHT: Full-Bleed Image Panel (~2/3 width) */}
-        <div className="w-full md:w-[65%] lg:w-[70%] h-full relative bg-black overflow-hidden">
+        <div className="w-full md:w-[50%] lg:w-[55%] xl:w-[60%] h-full relative bg-black overflow-hidden">
           {/* Background Images with Crossfade and Zoom */}
           {activeData.images.map((imgUrl, idx) => {
             const isActiveImage = imageIndex === idx;
@@ -214,13 +227,13 @@ export function ResidentialCaseStudies() {
           >
             {/* Left side of overlay: Title and Desc */}
             <div className="max-w-lg text-white">
-              <span className="font-mono tracking-[0.3em] uppercase text-white/50 mb-3 block">
+              <span className="font-mono tracking-[0.3em] uppercase text-white/50 mb-2 block text-[9px] md:text-[10px]">
                 Residential
               </span>
-              <h3 className="text-xl lg:text-3xl font-light tracking-wide mb-3">
+              <h3 className="text-lg lg:text-2xl font-light tracking-wide mb-3 leading-snug">
                 {activeData.title}
               </h3>
-              <p className="text-xs md:text-sm font-light text-white/80 leading-relaxed mb-6 max-w-sm">
+              <p className="text-xs md:text-sm font-light text-white/80 leading-[1.8] mb-6 max-w-sm">
                 {activeData.description}
               </p>
 
@@ -234,32 +247,22 @@ export function ResidentialCaseStudies() {
                 </Button>
               </Link>
             </div>
-
-            {/* Right side of overlay: Features List (Matches reference image) */}
-            <ul className="hidden lg:flex flex-col gap-3 text-white">
-              {activeData.features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full border border-white/30 flex items-center justify-center">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  <span className="text-sm font-light tracking-wide text-white/90">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
 
       {/* Mobile Stacked Layout */}
       <div className="md:hidden flex flex-col w-full bg-background py-16 px-6 gap-12">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="font-mono tracking-[0.3em] uppercase text-muted">
+        <div className="flex flex-col mb-2">
+          <span className="font-mono tracking-[0.3em] text-[9px] uppercase text-accent mb-3 block">
             See Smart Living in Action
+          </span>
+          <h2 className="text-xl font-light tracking-wide leading-snug text-foreground mb-3">
+            Proven in India’s Most Exclusive Residences.
           </h2>
+          <p className="text-xs font-light text-foreground/70 leading-[1.8]">
+            Trust is earned through flawless execution in high-stakes environments. Our portfolio spans the private domains of India’s cultural icons, industrial leaders, and visionaries.
+          </p>
         </div>
 
         {PROJECTS_DATA.map((project, pIdx) => (
@@ -285,13 +288,13 @@ export function ResidentialCaseStudies() {
             </div>
 
             <div>
-              <span className="font-mono tracking-[0.3em] uppercase text-accent mb-2 block">
+              <span className="font-mono tracking-[0.3em] text-[10px] uppercase text-accent mb-2 block">
                 {project.number}
               </span>
-              <h3 className="text-xl font-light tracking-wide text-foreground mb-2">
+              <h3 className="text-lg font-light tracking-wide text-foreground mb-2 leading-snug">
                 {project.title}
               </h3>
-              <p className="text-sm font-light text-muted leading-relaxed mb-5">
+              <p className="text-xs font-light text-muted leading-[1.8] mb-5">
                 {project.description}
               </p>
 
@@ -307,6 +310,14 @@ export function ResidentialCaseStudies() {
             </div>
           </div>
         ))}
+
+        {/* Mobile Registry Footer */}
+        <div className="mt-6 pt-6 border-t border-border">
+          <span className="text-[9px] font-mono uppercase tracking-widest text-muted mb-2 block">The Registry Includes</span>
+          <p className="text-[10px] font-light text-foreground/60 leading-[1.8]">
+            Hrithik Roshan — Ranbir & Alia — K.M. Birla — Laxmi Mittal — Pirojsha Godrej — Aman Gupta — Abhay Soi — Boman Irani — K.P. Singh — Ujjwal Munjal
+          </p>
+        </div>
       </div>
     </section>
   );

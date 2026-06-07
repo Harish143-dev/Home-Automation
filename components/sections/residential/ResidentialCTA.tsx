@@ -83,13 +83,13 @@ export function ResidentialCTA() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide leading-[1.2] text-foreground mb-8 text-balance"
+          className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-8 text-balance max-w-4xl"
         >
-          Automate in every space
+          Bring Intelligent Infrastructure to Your Residence.
         </h2>
 
-        <p className="cta-subhead text-lg md:text-xl text-muted font-light tracking-wide max-w-2xl mx-auto leading-relaxed mb-12">
-          Experience seamless automation designed around your family's lifestyle. Schedule your exclusive residential consultation today.
+        <p className="cta-subhead text-base md:text-lg text-muted font-light tracking-wide max-w-2xl mx-auto leading-relaxed mb-12">
+          Partner with our system architects to design a low-profile, high-performance automation layer for your upcoming residential project.
         </p>
 
         {/* Standard Project Buttons */}
@@ -101,8 +101,8 @@ export function ResidentialCTA() {
             className="group relative h-auto py-4 sm:py-5 px-8 w-full sm:w-auto overflow-hidden rounded-full"
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
-            <span className="relative z-10 text-base sm:text-lg font-semibold tracking-wide">
-              Book Home Consultation
+            <span className="relative z-10 text-base sm:text-lg font-light tracking-wide">
+              Schedule a Private Consultation
             </span>
             <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
@@ -114,8 +114,8 @@ export function ResidentialCTA() {
             className="group h-auto py-4 sm:py-5 px-8 w-full sm:w-auto border-black/10 text-black hover:bg-black/[0.02] rounded-full"
           >
             <Phone className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
-            <span className="text-base sm:text-lg font-semibold tracking-wide">
-              Call Us Now
+            <span className="text-base sm:text-lg font-light tracking-wide">
+              Get in touch
             </span>
           </Button>
         </div>

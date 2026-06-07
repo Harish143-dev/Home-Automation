@@ -107,10 +107,10 @@ export function ProcessSection() {
 
         {/* Top Centered Title and Description */}
         <div className="absolute top-8 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 z-30 w-full max-w-2xl px-6 md:px-0 text-center pointer-events-none hidden md:block">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 md:mb-6 tracking-wide">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-wide">
             Execution Architecture
           </h2>
-          <p className="text-sm md:text-base font-light text-white/70 leading-relaxed mx-auto max-w-xl">
+          <p className="text-sm font-light text-white/70 leading-relaxed mx-auto max-w-xl">
             An automated environment requires disciplined sequencing. Our structured deployment methodology integrates directly with your project’s construction timeline, managing technical risk from initial architectural alignment to multi-system commissioning.
           </p>
         </div>
@@ -120,7 +120,7 @@ export function ProcessSection() {
 
           {/* Left Spacer */}
           <div className="hidden md:block relative md:w-[35%] lg:w-[40%] pr-8 h-full z-30 pointer-events-none">
-            <p className="absolute top-[55%] -translate-y-1/2 left-0 font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-white/50">
+            <p className="absolute top-1/2 -translate-y-1/2 left-0 font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-white/50">
               The Methodology
             </p>
           </div>
@@ -159,8 +159,8 @@ export function ProcessSection() {
           </div>
 
           {/* Right Content (Title and Description) */}
-          <div className="w-[70%] md:w-[40%] lg:w-[40%] flex items-center h-full pl-8 md:pl-12 relative">
-            <div className="absolute top-1/2 -translate-y-1/2 w-full">
+          <div className="w-[70%] md:w-[40%] lg:w-[40%] h-full pl-8 md:pl-12 relative">
+            <div className="absolute top-1/2 -translate-y-[12px] md:-translate-y-[14px] lg:-translate-y-[16px] w-full">
               <div
                 key={`content-${activeIndex}`}
                 ref={textContentRef}

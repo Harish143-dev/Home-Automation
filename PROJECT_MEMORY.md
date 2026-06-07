@@ -1,6 +1,6 @@
 # SmartHome OS — Complete Project Memory
 
-> **Last Updated:** 2026-05-23  
+> **Last Updated:** 2026-06-07  
 > **Project:** AT Smart Living — Premium Smart Home Automation Website  
 > **Purpose:** This document is the single source of truth for any AI assistant working on this project. It covers every page, section, animation, component, design token, and architectural decision.
 
@@ -83,8 +83,6 @@
 | Library | Version | Purpose |
 |---|---|---|
 | **Lucide React** | ^1.16.0 | Icon library |
-| **react-globe.gl** | ^2.37.1 | 3D interactive globe (Experience Centers) |
-| **d3-geo** | ^3.1.1 | Geographic projections (globe dependency) |
 | **shadcn** | ^4.7.0 | Component primitives |
 | **@base-ui/react** | ^1.4.1 | Headless UI primitives (Button) |
 | **class-variance-authority** | ^0.7.1 | Variant-based component styling |
@@ -122,7 +120,6 @@ smarthome-os/
 │   │   │   ├── FeaturedProjects.tsx
 │   │   │   ├── AwardsSection.tsx
 │   │   │   ├── WhyChooseUsSection.tsx
-│   │   │   ├── ExperienceCentersSection.tsx
 │   │   │   ├── ProcessSection.tsx
 │   │   │   ├── TestimonialsSection.tsx
 │   │   │   └── CallToActionSection.tsx
@@ -348,10 +345,9 @@ SCROLL = {
 8.  FeaturedProjects     — Pinned sidebar + scroll-driven project showcase
 9.  AwardsSection       — Hover-reactive award list with floating images
 10. WhyChooseUsSection  — Expandable accordion panels
-11. ExperienceCentersSection — Interactive 3D globe with location data
-12. ProcessSection      — Stacking card process steps
-13. TestimonialsSection — Auto-scrolling testimonial columns
-14. CallToActionSection — Final CTA with typographic reveal
+11. ProcessSection      — Stacking card process steps
+12. TestimonialsSection — Auto-scrolling testimonial columns
+13. CallToActionSection — Final CTA with typographic reveal
 ```
 
 ---
@@ -694,46 +690,6 @@ Interactive accordion panel grid showcasing 6 USPs.
 
 ---
 
-### Section 10: ExperienceCentersSection
-
-**File:** `components/sections/home/ExperienceCentersSection.tsx`
-
-#### Purpose
-Interactive 3D globe showing ATPL experience center locations across India.
-
-#### Centers Data
-| ID | City | Lat/Lng | Is HQ? |
-|---|---|---|---|
-| bom | Mumbai | 19.076, 72.877 | ✅ |
-| del | New Delhi | 28.535, 77.391 | ❌ |
-| blr | Bangalore | 12.971, 77.594 | ❌ |
-| hyd | Hyderabad | 17.385, 78.486 | ❌ |
-
-#### Globe Configuration
-- **Library:** `react-globe.gl` (dynamically imported, SSR disabled)
-- **Earth Image:** Dark earth texture from unpkg CDN
-- **Bump Map:** `/images/earth-topology.png`
-- **Atmosphere:** Disabled
-- **Point of View:** `lat: 0, lng: 78, altitude: 1.5` (centered on India)
-- **Controls:** Auto-rotate off, zoom off, pan off
-
-#### Visual Features
-| Feature | Details |
-|---|---|
-| **Points** | 3D pillars at each city, crimson colored, HQ largest |
-| **Arcs** | Animated dashed arcs from HQ to each center |
-| **Labels** | City names floating above globe surface |
-| **Hover** | Point grows, color brightens, info popup appears |
-| **Info Popup** | Glassmorphism card at bottom-center with name, description, address |
-
-#### Animations
-| Element | Animation |
-|---|---|
-| Globe container entrance | `y: 200→0`, `scale: 0.95→1`, `opacity: 0→1`, 2.2s, `power3.out` |
-| Hover popup | CSS transition: `translate-y-8 → 0`, `opacity: 0→1`, `scale-95→100`, 500ms |
-| Arc dashes | `arcDashAnimateTime: 3400ms` continuous flow |
-
----
 
 ### Section 11: ProcessSection
 
@@ -828,6 +784,13 @@ Final conversion CTA with typographic text animation.
 **File:** `app/residential/page.tsx`  
 **Type:** Client Component (`'use client'`)
 
+### Recent Updates & Fixes (Current Session)
+- **ResidentialProcess.tsx:** Redesigned process into a 5-phase "Execution Architecture". Split the heading header, added a "Book a consultation" button, and moved the active timeline alignment to `top-[60%]` to prevent vertical overflow while achieving a slower cinematic scroll multiplier (`* 60%`).
+- **ResidentialGovernance.tsx:** Standardized typography spacing and font sizes per design system rules (`text-3xl to 5xl`).
+- **ResidentialExperienceCenters.tsx:** Updated text to "The Experience Ecosystem". Switched locations to Delhi, Mumbai, and Bangalore with real addresses and phone numbers. Optimized responsive layout height padding and margins to gracefully handle smaller desktop screens without relying on inner scrolling (which conflicts with GSAP pinning).
+- **ResidentialCTA.tsx:** Updated content to "Bring Intelligent Infrastructure to Your Residence" and "Schedule a Private Consultation", enforcing `font-light` design rules.
+- **ResidentialEfficiency.tsx:** Replaced Unsplash placeholders with local static image imports (`comfort`, `control`, `entertainment`).
+
 ### Section Rendering Order
 
 ```
@@ -838,8 +801,9 @@ Final conversion CTA with typographic text animation.
 5. ResidentialServices — 3-column pinned interactive layout
 6. ResidentialProcess  — Vertical timeline pinned layout
 7. ResidentialCaseStudies — Fullscreen cinematic case study carousel
-8. ResidentialExperienceCenters — Interactive map with dynamic city backgrounds
-9. Footer             — Site-wide footer (shared, rendered in layout)
+8. ResidentialCredentials — Industry Credentials & Global Benchmarks
+9. ResidentialExperienceCenters — Interactive map with dynamic city backgrounds
+10. Footer             — Site-wide footer (shared, rendered in layout)
 ```
 
 > **Note:** Footer is included in the residential page component as well as in the root layout. This means it renders twice — this may need cleanup.
@@ -946,7 +910,15 @@ Same as home page StatsSection:
 
 ---
 
-### Section 6: ResidentialExperienceCenters
+### Section 6: ResidentialCredentials
+**File:** `components/sections/residential/ResidentialCredentials.tsx`
+- **Purpose:** Showcase institutional authority, awards, and accreditations.
+- **Layout:** Two-column sticky layout. Left side (Tagline and Heading) stays sticky while the right side (Credentials list) scrolls normally.
+- **Animation:** Clean, Apple-like minimal animations. As each credential scrolls into view, the large background number slides in, a separator line draws itself out, the title reveals via a `clipPath` wipe, and the description drifts up.
+
+---
+
+### Section 7: ResidentialExperienceCenters
 **File:** `components/sections/residential/ResidentialExperienceCenters.tsx`
 - **Purpose:** Interactive map layout for Delhi, Mumbai, and Bangalore.
 - **Layout:** Split-screen (left locations accordion, right map diagram).
@@ -1118,8 +1090,7 @@ Returns `true` if the user prefers reduced motion. Components use this to:
 
 1. **Scoped CSS classes** — Components prefix their animation targets (e.g., `fp-nav`, `cs-stagger-el`, `exp-img-0`) to avoid cross-component conflicts
 2. **Single DOM tree** — Components that differ between mobile/desktop use CSS visibility (`block`/`hidden`) instead of conditional JSX trees (prevents GSAP scope crashes)
-3. **Lazy loading** — Globe component uses `next/dynamic` with `ssr: false`
-4. **Portal rendering** — FullscreenMenu renders via `createPortal` to `document.body`
+3. **Portal rendering** — FullscreenMenu renders via `createPortal` to `document.body`
 
 ### Event System
 

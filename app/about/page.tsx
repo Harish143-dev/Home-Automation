@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { NavBar } from "@/components/layout/NavBar";
-import { Footer } from "@/components/layout/Footer";
+
 import AboutHero from "@/components/sections/about/AboutHero";
 import BrandStory from "@/components/sections/about/BrandStory";
 import LegacyExpertise from "@/components/sections/about/LegacyExpertise";
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="relative bg-background text-foreground min-h-screen">
-      <NavBar />
+
 
       {/* 
         Hero Section is Dark Theme (black overlay, white text).

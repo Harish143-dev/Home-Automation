@@ -3,47 +3,28 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
+import { Button } from "../../ui/button";
 
 const PROCESS_STEPS = [
   {
-    title: "Consultation Call + Site visit",
-    description: "An initial deep dive to understand your lifestyle, aesthetic preferences, and the architectural nuances of your property."
+    title: "Site Analysis & Architectural Review",
+    description: "The process initiates with an in-depth site analysis and architectural review. We translate your structural drawings and layout plans into a comprehensive Bill of Quantities (BOQ), conducting dedicated alignment meetings to make sure the proposed technology framework matches the exact functional requirements of the space."
   },
   {
-    title: "Designing the BOQ based on your drawing",
-    description: "Our engineers meticulously draft a Bill of Quantities, translating your architectural plans into a comprehensive smart technology framework."
+    title: "Schematics & Wiring Layouts",
+    description: "Upon engagement confirmation, our engineering division develops detailed automation schematics. We deliver precise wiring layouts and containment blueprints directly to the site execution teams, establishing the structural foundation for the network before construction advances."
   },
   {
-    title: "BOQ Meeting to go over the suggested systems",
-    description: "A collaborative review of the proposed technology stack, ensuring every system aligns perfectly with your vision and budget."
+    title: "Physical Integration & Hardware Placement",
+    description: "During the active site phase, our technicians oversee the physical integration of the automation infrastructure. We manage the containment, hardware placement, and component enclosures, making sure the technical backbone is embedded within the architecture."
   },
   {
-    title: "Order Confirmation",
-    description: "With designs finalized, we secure your bespoke hardware from our premium global partners, ensuring priority fulfillment."
+    title: "System Optimization & Stress Testing",
+    description: "Once site conditions are secure, we transition to system optimization. Our programming team custom configures the control logic to match the client's operational habits, followed by rigorous stress testing of all network pathways, lighting scenes, and media zones."
   },
   {
-    title: "Sharing Automation Drawings for the wiring team",
-    description: "We provide exacting schematic documentation to your electrical contractors to guarantee flawless infrastructure preparation."
-  },
-  {
-    title: "Integration of automation",
-    description: "Our certified technicians deploy the core intelligence, merging lighting, climate, security, and AV into a singular unified ecosystem."
-  },
-  {
-    title: "Custom Programming",
-    description: "We sculpt the software around your daily rhythms, programming bespoke scenes, automation rules, and intuitive interfaces."
-  },
-  {
-    title: "Testing site + programmes",
-    description: "Rigorous quality assurance and stress-testing of all systems to ensure absolute reliability before you move in."
-  },
-  {
-    title: "Handover",
-    description: "A comprehensive walk-through where we hand you the keys to your new smart home, alongside personalized training on your systems."
-  },
-  {
-    title: "Customer Audit + After Installation Services",
-    description: "Ongoing white-glove support and proactive system audits to ensure your technology continually evolves with your lifestyle."
+    title: "Handover, Audit & Ongoing Support",
+    description: "The final phase encompasses formal site handover and a comprehensive client audit to verify system performance. Post-delivery, the estate transitions under the permanent protection of our dedicated 24/7 technical support and lifecycle service framework."
   }
 ];
 
@@ -65,7 +46,7 @@ export function ResidentialProcess() {
       ScrollTrigger.create({
         trigger: triggerRef.current,
         start: "top top",
-        end: `+=${PROCESS_STEPS.length * 60}%`, // Reduced scroll length slightly for smoother pace
+        end: `+=${PROCESS_STEPS.length * 60}%`, // Restored to 60% for a slower, smoother scroll pace
         pin: containerRef.current,
         scrub: true,
         onUpdate: (self) => {
@@ -119,25 +100,42 @@ export function ResidentialProcess() {
           <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
         </div>
 
-        {/* Horizontal Center Axis Line */}
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/20 z-10 -translate-y-1/2" />
+        {/* Horizontal Axis Line */}
+        <div className="absolute top-[60%] left-0 w-full h-[1px] bg-white/20 z-10 -translate-y-1/2" />
+
+        {/* Top Header Layout: Text Left, CTA Right */}
+        <div className="absolute top-10 md:top-12 lg:top-16 left-0 right-0 z-30 w-full px-8 md:px-16 lg:px-32 max-w-[1600px] mx-auto flex flex-col md:flex-row md:justify-between md:items-end gap-6 pointer-events-none">
+          <div className="max-w-2xl text-left pointer-events-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 lg:mb-5 tracking-wide leading-[1.2]">
+              Execution Architecture
+            </h2>
+            <p className="text-sm lg:text-base font-light text-white/70 leading-relaxed">
+              An automated environment requires disciplined sequencing. Our structured deployment methodology integrates directly with your project’s construction timeline, managing technical risk from initial architectural alignment to multi-system commissioning.
+            </p>
+          </div>
+          <div className="pointer-events-auto shrink-0 md:pb-1">
+            <Button variant="accent" size="lg" className="rounded-full px-8 font-light tracking-wide">
+              Book a Consultation
+            </Button>
+          </div>
+        </div>
 
         {/* Content Layout */}
-        <div className="absolute inset-0 z-20 flex px-8 md:px-16 lg:px-32">
+        <div className="absolute inset-0 z-20 flex px-8 md:px-16 lg:px-32 max-w-[1600px] mx-auto pointer-events-none">
 
-          {/* Left Label */}
-          <div className="hidden md:flex w-[15%] items-center h-full">
-            <span className="font-mono tracking-[0.3em] uppercase text-white/50 -translate-y-1/2 absolute top-1/2">
-              Process
-            </span>
+          {/* Left Spacer */}
+          <div className="hidden md:block relative w-[30%] lg:w-[35%] pr-8 h-full z-30">
+            <p className="absolute top-[60%] -translate-y-1/2 left-0 font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-white/50">
+              The Methodology
+            </p>
           </div>
 
           {/* Timeline Numbers (Vertically scrolling) */}
-          <div className="w-[30%] md:w-[25%] relative h-full">
+          <div className="hidden md:block w-[20%] lg:w-[15%] relative h-full">
             <div
               className="absolute left-0 w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
-                top: '50%',
+                top: '60%',
                 transform: `translateY(${translateY}px)`
               }}
             >
@@ -146,18 +144,18 @@ export function ResidentialProcess() {
                 // Calculate distance from active index to fade opacity
                 const distance = Math.abs(activeIndex - idx);
                 let opacityClass = "opacity-0";
-                if (distance === 0) opacityClass = "opacity-100 scale-110";
-                else if (distance === 1) opacityClass = "opacity-40";
-                else if (distance === 2) opacityClass = "opacity-20";
-                else if (distance === 3) opacityClass = "opacity-10";
+                if (distance === 0) opacityClass = "opacity-100 scale-110 text-white font-normal";
+                else if (distance === 1) opacityClass = "opacity-40 text-white/50";
+                else if (distance === 2) opacityClass = "opacity-20 text-white/30";
+                else if (distance === 3) opacityClass = "opacity-10 text-white/20";
 
                 return (
                   <div
                     key={idx}
                     className={`h-14 flex items-center transition-all duration-700 ease-out origin-left ${opacityClass}`}
                   >
-                    <span className={`text-lg md:text-xl lg:text-2xl font-light tracking-wide ${isActive ? 'text-white' : 'text-white/50'}`}>
-                      Step {idx + 1}
+                    <span className={`text-lg lg:text-xl font-light tracking-wide`}>
+                      Phase 0{idx + 1}
                     </span>
                   </div>
                 );
@@ -166,18 +164,20 @@ export function ResidentialProcess() {
           </div>
 
           {/* Right Content (Title and Description) */}
-          <div className="w-[70%] md:w-[60%] flex items-center h-full pl-8 md:pl-16">
-            <div
-              key={`content-${activeIndex}`}
-              ref={textContentRef}
-              className="max-w-lg absolute top-1/2 pt-6 pl-8 md:pl-16"
-            >
-              <h3 className="text-base md:text-lg lg:text-xl font-light tracking-wide mb-4 md:mb-5 text-white leading-snug">
-                {activeStep.title}
-              </h3>
-              <p className="text-xs md:text-sm font-light text-white/70 leading-relaxed">
-                {activeStep.description}
-              </p>
+          <div className="w-[100%] md:w-[50%] lg:w-[50%] h-full pl-8 md:pl-12 relative pointer-events-auto">
+            <div className="absolute top-[60%] -translate-y-[12px] md:-translate-y-[14px] lg:-translate-y-[16px] w-full">
+              <div
+                key={`content-${activeIndex}`}
+                ref={textContentRef}
+                className="max-w-lg pl-0 md:pl-8"
+              >
+                <h3 className="text-xl lg:text-2xl font-light tracking-wide mb-4 text-white leading-snug">
+                  {activeStep.title}
+                </h3>
+                <p className="text-sm lg:text-base font-light text-white/70 leading-relaxed">
+                  {activeStep.description}
+                </p>
+              </div>
             </div>
           </div>
 
@@ -196,10 +196,19 @@ export function ResidentialProcess() {
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
         </div>
 
-        <div className="mb-4 relative z-10">
-          <span className="font-mono tracking-[0.3em] uppercase text-white/50">
-            Our Process
+        <div className="mb-8 relative z-10">
+          <span className="font-mono tracking-[0.3em] uppercase text-white/50 text-[10px] sm:text-xs">
+            The Methodology
           </span>
+          <h2 className="text-3xl sm:text-4xl font-light tracking-wide leading-[1.2] text-white mt-4 mb-4">
+            Execution Architecture
+          </h2>
+          <p className="text-white/70 font-light text-sm leading-relaxed mb-8">
+            An automated environment requires disciplined sequencing. Our structured deployment methodology integrates directly with your project’s construction timeline, managing technical risk from initial architectural alignment to multi-system commissioning.
+          </p>
+          <Button variant="accent" size="default" className="rounded-full w-full sm:w-auto font-light tracking-wide">
+            Book a Consultation
+          </Button>
         </div>
 
         <div className="flex flex-col gap-10 relative z-10">

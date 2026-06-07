@@ -15,21 +15,21 @@ const CENTERS_DATA = [
     id: "delhi",
     city: "Delhi",
     title: "Delhi Experience Centre",
-    address: "Lower Ground Floor, D20, Block D, Jangpura, New Delhi, Delhi 110014",
+    address: "Lower Ground Floor, D20, Block D, Jangpura, New Delhi, Delhi 110014\n91-11-24324113\n91-11-45643992\n91-11-24324115",
     imageSrc: delhiImg.src
   },
   {
-    id: "hyderabad",
-    city: "Hyderabad",
-    title: "Hyderabad Experience Centre",
-    address: "Banjara Hills, Hyderabad, Telangana",
-    imageSrc: hyderabadImg.src
+    id: "mumbai",
+    city: "Mumbai",
+    title: "Mumbai Experience Centre",
+    address: "10/76, Apte Properties, Ground Floor Parijat House, LR Papan Marg, off Doctor Elijah Moses Road, Worli, Mumbai, Maharashtra 400018\n+91-22 4967 5653\n+91 82912 39139",
+    imageSrc: hyderabadImg.src // Using Hyderabad image as a placeholder for Mumbai until a Mumbai asset is added
   },
   {
     id: "bangalore",
     city: "Bangalore",
     title: "Bangalore Experience Centre",
-    address: "13, 100 Feet Ring Road, Anjaneya Nagar, Bangalore South Banashankari 3 Rd Stage, Bangalore 560085, Karnataka",
+    address: "13, 100 Feet Ring Road, Anjaneya Nagar, Bangalore South Banashankari 3 Rd Stage, Bangalore 560085, Karnataka\n+91-80-4113 0438\n+91-80-25270460",
     imageSrc: bangaloreImg.src
   }
 ];
@@ -120,54 +120,59 @@ export function ResidentialExperienceCenters() {
         </div>
 
         {/* LEFT FLOATING CONTENT */}
-        <div className="absolute top-0 left-0 h-full w-full md:w-[65%] lg:w-[55%] xl:w-[50%] flex flex-col justify-center px-6 sm:px-10 md:px-12 lg:px-20 py-12 md:py-20 z-10">
-          <div className="mb-5">
-            <h2 className="text-xl md:text-2xl font-light tracking-wide leading-[1.2] text-black drop-shadow-sm mb-4 text-balance">
-              Experience Smart Living, Firsthand
-            </h2>
-            <p className="text-sm md:text-base text-black/70 font-light tracking-wide leading-relaxed text-balance">
-              Visit our experience centers to explore automation in real environments.
-            </p>
-          </div>
+        <div className="absolute top-0 left-0 h-full w-full md:w-[65%] lg:w-[55%] xl:w-[50%] px-6 sm:px-10 md:px-12 lg:px-20 py-8 z-10">
+          <div className="flex flex-col justify-center h-full">
+            <div className="mb-6">
+              <span className="font-mono tracking-[0.3em] uppercase text-black/50 text-[10px] md:text-xs mb-3 block">
+                The Environment
+              </span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-wide leading-[1.2] text-black drop-shadow-sm mb-4 text-balance">
+                The Experience Ecosystem
+              </h2>
+              <p className="text-sm font-light text-black/70 leading-relaxed max-w-lg">
+                The nuance of lighting control and spatial acoustics cannot be captured on a screen. Our private experience centers offer architects and homeowners a tactile, real-world demonstration of how our systems interact with high-end interior spaces.
+              </p>
+            </div>
 
-          <div className="flex flex-col w-full border-t border-black/20">
-            {CENTERS_DATA.map((center, idx) => {
-              const isActive = activeIndex === idx;
+            <div className="flex flex-col w-full border-t border-black/20">
+              {CENTERS_DATA.map((center, idx) => {
+                const isActive = activeIndex === idx;
 
-              return (
-                <div
-                  key={center.id}
-                  className={`border-b border-black/20 overflow-hidden transition-all duration-500 ease-out ${isActive ? 'py-6 md:py-8' : 'py-4 md:py-5'}`}
-                >
-                  <button
-                    onClick={() => handleNavClick(idx)}
-                    className="w-full text-left flex items-center justify-between group"
-                  >
-                    <span className={`text-lg md:text-xl font-light tracking-widest transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/50 group-hover:text-black/80'}`}>
-                      {center.title}
-                    </span>
-                  </button>
-
-                  {/* Expandable Address Content */}
+                return (
                   <div
-                    className={`grid transition-all duration-500 ease-out ${isActive ? 'grid-rows-[1fr] mt-4 md:mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
+                    key={center.id}
+                    className={`border-b border-black/20 overflow-hidden transition-all duration-500 ease-out ${isActive ? 'py-4 md:py-5' : 'py-3'}`}
                   >
-                    <div className="overflow-hidden">
-                      <p className="text-xs md:text-sm font-light leading-relaxed tracking-wide text-black/70 max-w-sm font-sans">
-                        {center.address}
-                      </p>
+                    <button
+                      onClick={() => handleNavClick(idx)}
+                      className="w-full text-left flex items-center justify-between group"
+                    >
+                      <span className={`text-lg md:text-xl font-light tracking-widest transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/50 group-hover:text-black/80'}`}>
+                        {center.title}
+                      </span>
+                    </button>
 
-                      <button className="mt-4 md:mt-6 text-[9px] md:text-[10px] font-mono tracking-[0.3em] text-black hover:text-black/70 transition-colors duration-300 uppercase flex items-center gap-2">
-                        Get Directions
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </button>
+                    {/* Expandable Address Content */}
+                    <div
+                      className={`grid transition-all duration-500 ease-out ${isActive ? 'grid-rows-[1fr] mt-3' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-xs md:text-sm font-light leading-relaxed tracking-wide text-black/70 max-w-sm font-sans whitespace-pre-wrap">
+                          {center.address}
+                        </p>
+
+                        <button className="mt-3 text-[9px] md:text-[10px] font-mono tracking-[0.3em] text-black hover:text-black/70 transition-colors duration-300 uppercase flex items-center gap-2">
+                          Get Directions
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 

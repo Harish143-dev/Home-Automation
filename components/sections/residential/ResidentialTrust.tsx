@@ -6,18 +6,18 @@ import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
 interface MetricItem {
   target: number;
-  suffix: string;
+  prefix?: string;
   label: string;
 }
 
 const METRICS: MetricItem[] = [
-  { target: 25, suffix: "+", label: "Years of Experience" },
-  { target: 1000, suffix: "+", label: "Projects Completed" },
-  { target: 15, suffix: "", label: "Cities Across India" },
-  { target: 3, suffix: "", label: "Experience Centres" }
+  { target: 24, prefix: "Over", label: "Years" },
+  { target: 650, prefix: "Over", label: "Residences Completed" },
+  { target: 23, prefix: "Across", label: "Cities in India" },
+  { target: 3, label: "Experience Centres" }
 ];
 
-function MetricCard({ target, suffix, label }: { target: number; suffix: string; label: string }) {
+function MetricCard({ target, prefix, label }: { target: number; prefix?: string; label: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const numberRef = useRef<HTMLSpanElement>(null);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -77,10 +77,10 @@ function MetricCard({ target, suffix, label }: { target: number; suffix: string;
 
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-center gap-3 text-center">
-        <span className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground">
+        <div className="flex flex-row items-baseline justify-center gap-2 sm:gap-3 text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground">
+          {prefix && <span className="text-xl sm:text-2xl md:text-3xl text-foreground/70 font-normal">{prefix}</span>}
           <span ref={numberRef}>0</span>
-          <span className="text-foreground/80">{suffix}</span>
-        </span>
+        </div>
 
         <span className="font-mono tracking-[0.3em] uppercase text-muted">
           {label}
@@ -131,11 +131,16 @@ export function ResidentialTrust() {
 
         {/* Section Heading & Subtext */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-16 w-full mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground max-w-sm lg:max-w-md text-balance">
-            Automation Expertise
-          </h2>
+          <div className="max-w-sm lg:max-w-md">
+            <span className="font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-accent mb-4 block">
+              The Residential Paradigm
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
+              Living, Calibrated to You.
+            </h2>
+          </div>
           <p className="text-sm md:text-base font-light tracking-wide text-foreground/70 leading-relaxed max-w-2xl text-balance">
-            We are experts in home automation integration, including Lighting, Audio, Video, Shades, Security and Wifi. In the last 25 years, we have helped 700 architects, 100 MEPs and 200 hoteliers across 4 countries and 17 cities, generate revenue worth 7000 cr. and over 15.5 million kWh of energy.
+            A home should adapt to its inhabitants, not the other way around. Residential automation eliminates the friction of daily routines, operating behind the walls to optimize comfort, security, and aesthetics. At ATPL; we design integrated living systems that align perfectly with your daily rhythms, enabling your private sanctuary to remain both technologically advanced and architecturally sound.
           </p>
         </div>
 
@@ -148,7 +153,7 @@ export function ResidentialTrust() {
             <MetricCard
               key={index}
               target={metric.target}
-              suffix={metric.suffix}
+              prefix={metric.prefix}
               label={metric.label}
             />
           ))}

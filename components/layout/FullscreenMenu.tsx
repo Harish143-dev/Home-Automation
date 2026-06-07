@@ -18,6 +18,7 @@ interface MenuCategory {
 
 const STANDALONE_LINKS = [
   { id: 'about', label: 'About Us', href: '/about' },
+  { id: 'projects', label: 'Projects', href: '/projects' },
   { id: 'blog', label: 'The Journal', href: '/blog' },
   { id: 'contact', label: 'Contact Us', href: '/contact' }
 ];
@@ -45,6 +46,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
   {
     title: 'Work',
     items: [
+      { label: 'View All Projects', href: '/projects' },
       { label: 'Residential Projects', href: '#work-residential' },
       { label: 'Hospitality Projects', href: '#work-hospitality' },
       { label: 'Commercial Projects', href: '#work-commercial' },

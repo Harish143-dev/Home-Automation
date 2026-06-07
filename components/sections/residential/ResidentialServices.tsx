@@ -10,22 +10,28 @@ const SERVICES_DATA = [
     title: "Lighting",
     features: [
       "Mood-based lighting scenes",
-      "Energy efficiency",
-      "Day/night automation"
+      "Energy-efficient automation",
+      "Day & night scheduling",
+      "Security alert lighting response",
+      "Motion & occupancy sensors",
+      "Time-based scheduling",
+      "Scene-based keypad control",
+      "Audio video control"
     ],
     image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: "audio-video",
-    title: "Audio Video",
+    title: "Audio video control",
     features: [
       "Multi-room audio",
       "Seamless streaming",
-      "High-end AV experience",
-      "Centralized media control",
-      "Stream anywhere in home",
-      "Invisible / architectural speakers",
-      "Premium sound engineering"
+      "Centralized AV control",
+      "Whole-home media access",
+      "Premium sound quality",
+      "Multi-room audio playback",
+      "Landscape outdoor areas",
+      "Home theatre"
     ],
     image: "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1000&auto=format&fit=crop"
   },
@@ -33,9 +39,13 @@ const SERVICES_DATA = [
     id: "security",
     title: "Security",
     features: [
-      "Surveillance",
-      "Access control",
-      "Alerts & remote monitoring"
+      "Surveillance systems for real-time monitoring",
+      "Access control systems",
+      "Remote alerts & monitoring",
+      "Video door phone integration",
+      "Biometric smart locks",
+      "Alarm intrusion detection",
+      "Glass break detection sensors"
     ],
     image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1000&auto=format&fit=crop"
   },
@@ -44,7 +54,8 @@ const SERVICES_DATA = [
     title: "Shades",
     features: [
       "Automated blinds & curtains",
-      "Light & privacy control"
+      "Light control based on time & sunlight",
+      "Privacy control with one-touch or scene-based operation"
     ],
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop"
   },
@@ -53,7 +64,8 @@ const SERVICES_DATA = [
     title: "HVAC",
     features: [
       "Smart temperature control",
-      "Energy optimization"
+      "Automated climate adjustment based on occupancy",
+      "Energy-optimized operation for reduced consumption"
     ],
     image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000&auto=format&fit=crop"
   },
@@ -61,7 +73,7 @@ const SERVICES_DATA = [
     id: "amc",
     title: "AMC",
     features: [
-      "4-hour in-person technician support",
+      "Smart temperature control",
       "24x7 assistance"
     ],
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop"
@@ -220,7 +232,7 @@ export function ResidentialServices() {
               <ul
                 key={`content-${activeIndex}`} // Force re-render for stagger animation
                 ref={rightContentRef}
-                className="flex flex-col gap-5"
+                className="flex flex-col gap-3"
               >
                 {activeData.features.map((feature, i) => (
                   <li key={i} className="feature-item flex items-start gap-3">

@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import BlogHero from "@/components/sections/blog/BlogHero";
-import BlogCategories from "@/components/sections/blog/BlogCategories";
-import FeaturedArticle from "@/components/sections/blog/FeaturedArticle";
-import ArticleGrid from "@/components/sections/blog/ArticleGrid";
+import BlogLayout from "@/components/sections/blog/BlogLayout";
+import BlogGrid from "@/components/sections/blog/BlogGrid";
+import BlogSidebar from "@/components/sections/blog/BlogSidebar";
+import { ConsultationForm } from "@/components/sections/projects/ConsultationForm";
+import { NewsletterSignup } from "@/components/sections/projects/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "Insights | AT Smart Living",
@@ -12,13 +14,20 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="relative bg-background text-foreground min-h-screen">
-      {/* Cinematic dark hero */}
+      {/* Centered Banner Hero */}
       <BlogHero />
       
-      {/* Light theme editorial content */}
-      <BlogCategories />
-      <FeaturedArticle />
-      <ArticleGrid />
+      {/* Main Grid + Sidebar Layout */}
+      <BlogLayout>
+        <BlogGrid />
+        <BlogSidebar />
+      </BlogLayout>
+
+      {/* Get Free Consultant Form Section */}
+      <ConsultationForm />
+
+      {/* Sign up for newsletter */}
+      <NewsletterSignup />
     </main>
   );
 }

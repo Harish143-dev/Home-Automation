@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { cn } from "../../../lib/utils";
+import { gsap, ScrollTrigger, useGSAP, SplitText } from "../../../lib/gsapSetup";
+import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
 const PHILOSOPHY_DATA = [
   {
@@ -33,18 +35,89 @@ const PHILOSOPHY_DATA = [
 
 export function ResidentialPhilosophy() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const currentIndexRef = useRef(0);
+  const prefersReducedMotion = useReducedMotion();
+
+  useGSAP(() => {
+    if (prefersReducedMotion || !sectionRef.current) return;
+
+    // Cinematic heading reveal
+    if (headingRef.current) {
+      const split = new SplitText(headingRef.current, { type: "lines, words" });
+      gsap.fromTo(split.words,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.05,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+          }
+        }
+      );
+    }
+
+    const numItems = PHILOSOPHY_DATA.length;
+
+    if (cardsRef.current) {
+      ScrollTrigger.create({
+        trigger: cardsRef.current,
+        start: "center center",
+        end: "+=2500", // Pin for 2500px to ensure a smooth, readable scroll speed
+        pin: true,
+        scrub: 1,
+        onUpdate: (self) => {
+          let newIndex = Math.floor(self.progress * numItems);
+          if (newIndex >= numItems) newIndex = numItems - 1;
+
+          if (newIndex !== currentIndexRef.current) {
+            currentIndexRef.current = newIndex;
+            setActiveIndex(newIndex);
+          }
+        }
+      });
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(st => {
+        if (st.trigger === cardsRef.current || st.trigger === sectionRef.current) st.kill();
+      });
+    };
+  }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
+
+  const handleItemClick = (index: number) => {
+    if (prefersReducedMotion) {
+      setActiveIndex(index);
+      return;
+    }
+
+    const st = ScrollTrigger.getAll().find(t => t.trigger === cardsRef.current);
+    if (st) {
+      const segmentProgress = (index + 0.5) / PHILOSOPHY_DATA.length;
+      const scrollPos = st.start + (st.end - st.start) * segmentProgress;
+      window.scrollTo({ top: scrollPos, behavior: 'smooth' });
+    } else {
+      setActiveIndex(index);
+    }
+  };
 
   return (
-    <section className="py-16 md:py-20 bg-background relative z-10 overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-background relative z-10 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12 md:mb-16">
         <div className="max-w-3xl">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-5 text-balance break-words">
+          <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-5 text-balance break-words">
             Why Invest in Smart Home Automation?
           </h2>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div ref={cardsRef} className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col md:flex-row w-full h-[60vh] md:h-[450px] lg:h-[500px] gap-2 sm:gap-3 md:gap-4">
           {PHILOSOPHY_DATA.map((item, index) => {
             const isActive = activeIndex === index;
@@ -52,7 +125,7 @@ export function ResidentialPhilosophy() {
             return (
               <div
                 key={item.id}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handleItemClick(index)}
                 className={cn(
                   "relative overflow-hidden rounded-2xl sm:rounded-[28px] md:rounded-[32px] cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group border border-border flex flex-col",
                   isActive

@@ -5,9 +5,8 @@ import NextImage from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
-import heroImage from "@/assets/projects/private-residence.jpg";
 
-export default function BlogHero() {
+export function ProjectsHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +41,7 @@ export default function BlogHero() {
     );
 
     // Subtle parallax on the background image
-    gsap.to(".blog-hero-bg", {
+    gsap.to(".projects-hero-bg", {
       yPercent: 15,
       ease: "none",
       scrollTrigger: {
@@ -57,15 +56,15 @@ export default function BlogHero() {
   }, { scope: sectionRef });
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative w-full h-[60vh] min-h-[400px] flex flex-col justify-center overflow-hidden bg-black pb-0 px-6 sm:px-12 md:px-24"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 blog-hero-bg will-change-transform">
+      <div className="absolute inset-0 z-0 projects-hero-bg will-change-transform">
         <NextImage
-          src={heroImage}
-          alt="Atmospheric architectural living"
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000"
+          alt="Proud Projects"
           fill
           priority
           sizes="100vw"
@@ -76,26 +75,26 @@ export default function BlogHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
       </div>
 
-      {/* Content aligned to center for blog hero */}
+      {/* Content aligned to center for projects hero */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center gap-6 mt-16">
         <div className="flex items-center gap-4 overflow-hidden">
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
           <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-white/70">
-            Blog Collection
+            Portfolio
           </span>
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
         </div>
-        
+
         <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
           <div className="hero-line">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
-              Title Sample
+              Proud Projects
             </h1>
           </div>
-          <div className="hero-line mt-2">
-            <span className="text-lg md:text-xl font-light tracking-widest text-white/80">
-              (Blogs by ATPL)
-            </span>
+          <div className="hero-line">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
+              by ATPL
+            </h1>
           </div>
         </div>
       </div>

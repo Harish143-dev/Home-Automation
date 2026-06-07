@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { BLOG_POSTS, FEATURED_POST } from "@/lib/blogData";
-import BlogDetailHero from "@/components/sections/blog/BlogDetailHero";
-import BlogContent from "@/components/sections/blog/BlogContent";
-import RelatedArticles from "@/components/sections/blog/RelatedArticles";
+import BlogDetailHeader from "@/components/sections/blog/BlogDetailHeader";
+import BlogDetailContent from "@/components/sections/blog/BlogDetailContent";
+import BlogDetailSidebar from "@/components/sections/blog/BlogDetailSidebar";
 
 export async function generateStaticParams() {
   const posts = [...BLOG_POSTS, FEATURED_POST];
@@ -42,14 +42,20 @@ export default async function BlogPostPage(
     notFound();
   }
 
-  // Get 3 related articles (just excluding current for demo purposes)
-  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 3);
-
   return (
-    <main className="relative bg-background text-foreground min-h-screen">
-      <BlogDetailHero post={post} />
-      <BlogContent post={post} />
-      {relatedPosts.length > 0 && <RelatedArticles posts={relatedPosts} />}
+    <main className="relative bg-background text-foreground min-h-screen pt-32 pb-24 md:pt-40 md:pb-32 px-6 sm:px-10 lg:px-20 max-w-[1600px] mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        {/* Main Content Column (Left) */}
+        <div className="lg:col-span-9 flex flex-col">
+          <BlogDetailHeader post={post} />
+          <BlogDetailContent post={post} />
+        </div>
+
+        {/* Sidebar Column (Right) */}
+        <BlogDetailSidebar />
+        
+      </div>
     </main>
   );
 }

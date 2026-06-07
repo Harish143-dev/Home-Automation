@@ -4,11 +4,16 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { cn } from "../../../lib/utils";
 
+import comfort from '@/assets/residential/efficiency/Comfort & Ambience.jpg';
+import control from '@/assets/residential/efficiency/Effortless Control.jpg';
+import entertainment from '@/assets/residential/efficiency/entertainment.jpg';
+
+
 const CATEGORIES = [
   {
     id: "comfort-ambience",
     title: "Comfort & Ambience",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200",
+    image: comfort,
     services: [
       {
         id: "lighting",
@@ -33,7 +38,7 @@ const CATEGORIES = [
   {
     id: "entertainment-experience",
     title: "Entertainment Experience",
-    image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=1200",
+    image: entertainment,
     services: [
       {
         id: "home-theatre",
@@ -64,7 +69,7 @@ const CATEGORIES = [
   {
     id: "effortless-control",
     title: "Effortless Control",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1200",
+    image: control,
     services: [
       {
         id: "keypads",

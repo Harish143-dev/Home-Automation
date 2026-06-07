@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { NavBar } from '../../../components/layout/NavBar';
-import { Footer } from '../../../components/layout/Footer';
+
 import { Button } from '../../../components/ui/button';
 
 export default function BrochureDownloadPage() {
@@ -64,11 +63,11 @@ export default function BrochureDownloadPage() {
 
   return (
     <main className="relative min-h-screen bg-background flex flex-col pt-24 md:pt-32">
-      <NavBar />
+
 
       <div className="flex-1 flex flex-col items-center justify-center px-6 sm:px-12 py-12 md:py-20">
         <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 sm:p-12 shadow-xl shadow-black/5">
-          
+
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-light tracking-wide text-foreground mb-4">
               Download Brochure
@@ -169,7 +168,7 @@ export default function BrochureDownloadPage() {
         </div>
       </div>
 
-      <Footer />
+
     </main>
   );
 }
