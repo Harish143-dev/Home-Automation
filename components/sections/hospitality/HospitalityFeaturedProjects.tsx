@@ -150,15 +150,15 @@ export function HospitalityFeaturedProjects() {
                 <h3 className="text-2xl font-light mb-6">{proj.name}</h3>
                 <div className="flex flex-col gap-4">
                   <div>
-                    <h4 className="font-mono tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Scope of Automation</h4>
+                    <h4 className="tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Scope of Automation</h4>
                     <p className="text-sm text-muted">{proj.scope}</p>
                   </div>
                   <div>
-                    <h4 className="font-mono tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Challenges Solved</h4>
+                    <h4 className="tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Challenges Solved</h4>
                     <p className="text-sm text-muted">{proj.challenges}</p>
                   </div>
                   <div>
-                    <h4 className="font-mono tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Result Achieved</h4>
+                    <h4 className="tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Result Achieved</h4>
                     <p className="text-sm text-muted">{proj.result}</p>
                   </div>
                 </div>
@@ -208,17 +208,17 @@ export function HospitalityFeaturedProjects() {
 
                   <div className="flex flex-col gap-6">
                     <div className="fp-stagger">
-                      <h4 className="font-mono tracking-[0.3em] uppercase text-muted mb-2">Scope of Automation</h4>
+                      <h4 className="tracking-[0.3em] uppercase text-muted mb-2">Scope of Automation</h4>
                       <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.scope}</p>
                     </div>
 
                     <div className="fp-stagger">
-                      <h4 className="font-mono tracking-[0.3em] uppercase text-muted mb-2">Challenges Solved</h4>
+                      <h4 className="tracking-[0.3em] uppercase text-muted mb-2">Challenges Solved</h4>
                       <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.challenges}</p>
                     </div>
 
                     <div className="fp-stagger">
-                      <h4 className="font-mono tracking-[0.3em] uppercase text-muted mb-2">Result Achieved</h4>
+                      <h4 className="tracking-[0.3em] uppercase text-muted mb-2">Result Achieved</h4>
                       <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.result}</p>
                     </div>
                   </div>

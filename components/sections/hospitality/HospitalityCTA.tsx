@@ -76,7 +76,7 @@ export function HospitalityCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="font-mono tracking-[0.3em] uppercase text-muted">Next Steps</span>
+          <span className="tracking-[0.3em] uppercase text-muted">Next Steps</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 

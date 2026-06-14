@@ -71,7 +71,7 @@ export function ExperienceAudience() {
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-12 lg:mb-16 audience-heading opacity-0 translate-y-10">
           <div className="h-[1px] w-8 bg-accent/40" />
-          <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-black/40">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-black/40">
             The Audience
           </span>
           <div className="h-[1px] w-8 bg-accent/40" />

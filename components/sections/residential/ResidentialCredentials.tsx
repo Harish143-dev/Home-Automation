@@ -68,10 +68,10 @@ export function ResidentialCredentials() {
 
           {/* Sticky Left Column */}
           <div className="w-full lg:w-[40%] xl:w-1/3 lg:sticky lg:top-40 flex flex-col gap-4 z-10">
-            <span className="font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-accent">
+            <span className="tracking-widest text-sm md:text-base text-accent block mb-2">
               Global Benchmarks
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.1] text-foreground">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
               Industry<br />Credentials.
             </h2>
           </div>

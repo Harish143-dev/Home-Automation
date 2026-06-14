@@ -85,7 +85,7 @@ export function ResidentialHero() {
     <section
       ref={containerRef}
       id="residential-hero"
-      className={`relative h-screen w-full bg-[#040404] overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`relative h-screen w-full bg-secondary overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Static Background */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
@@ -112,7 +112,7 @@ export function ResidentialHero() {
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white text-balance"
           >
             The Intuitive Estate.
           </h1>
@@ -120,7 +120,7 @@ export function ResidentialHero() {
           {/* Understated luxury supporting text */}
           <p
             ref={subRef}
-            className="text-sm md:text-base text-white/80 font-medium tracking-wide leading-relaxed max-w-md text-balance"
+            className="text-sm md:text-base text-white/80 font-light tracking-wide leading-relaxed max-w-md text-balance"
           >
             We engineer automation architectures for India’s finest private residences, unifying lighting, climate, media and security into a single, responsive ecosystem that syncs with your design.
           </p>

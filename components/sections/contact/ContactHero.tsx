@@ -75,7 +75,7 @@ export function ContactHero() {
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-center text-center">
         <div className="mb-6 flex items-center justify-center gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-accent" />
-          <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-accent">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
             Get in touch
           </span>
           <div className="h-[1px] w-8 bg-accent" />

@@ -58,7 +58,7 @@ export default function AboutHero() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-black"
+      className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-secondary"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 about-hero-bg will-change-transform">
@@ -80,7 +80,7 @@ export default function AboutHero() {
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-center text-center">
         <div className="mb-6 flex items-center justify-center gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-white/40" />
-          <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-white/70">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/70">
             Designing Intelligent Living
           </span>
           <div className="h-[1px] w-8 bg-white/40" />

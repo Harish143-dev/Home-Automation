@@ -12,7 +12,9 @@ import {
   ShieldCheck,
   Wrench,
   Sparkles,
+  Tv,
 } from "lucide-react";
+import { Button } from "../../ui/button";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 import { EASE } from "../../../lib/animation.config";
@@ -230,18 +232,20 @@ function ServicePanelCard({
           </p>
 
           <div className="cs-stagger-el">
-            <button
-              type="button"
+            <Button
+              variant="accent"
+              size="lg"
+              shape="full"
               aria-label={`Explore ${service.title} solution`}
-              className="group relative inline-flex items-center gap-3 sm:gap-4 overflow-hidden rounded-full bg-accent px-6 sm:px-8 py-3 sm:py-4 text-[13px] sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95 cursor-pointer"
+              className="group relative overflow-hidden"
             >
               <span className="relative z-10">Talk to an Expert</span>
-              <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="relative z-10 w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               <div
                 className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-20"
                 style={{ backgroundColor: service.accent }}
               />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -294,10 +298,9 @@ export function ConnectedSystems() {
         <div className="absolute inset-0 bg-background" />
 
         <div className="relative z-10 max-w-4xl">
-          <div className="cs-header-el mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-4 sm:px-5 py-1.5 sm:py-2 text-xs font-medium tracking-[0.2em] uppercase text-foreground backdrop-blur-md shadow-sm">
-            <Sparkles className="h-3.5 w-3.5 text-foreground" />
+          <p className="cs-header-el text-sm md:text-base font-normal tracking-widest text-accent mb-6 sm:mb-8">
             Core Capabilities
-          </div>
+          </p>
           <h2 className="cs-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
             Engineering Disciplines
           </h2>

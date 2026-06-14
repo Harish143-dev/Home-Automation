@@ -97,7 +97,7 @@ export function ProjectGrid() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-foreground">
+                <span className="text-[10px] tracking-widest uppercase text-foreground">
                   {project.category}
                 </span>
               </div>

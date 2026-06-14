@@ -66,7 +66,7 @@ export function ExperienceUSP() {
   );
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#040404] text-white py-24 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-secondary text-white py-24 md:py-32 relative overflow-hidden">
 
       {/* Subtle Background Glow */}
       {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent/10 blur-[120px] rounded-full pointer-events-none opacity-50" /> */}
@@ -77,7 +77,7 @@ export function ExperienceUSP() {
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
           <div className="flex items-center gap-4 mb-8 usp-header opacity-0 translate-y-10">
             <div className="h-[1px] w-8 bg-white/20" />
-            <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-white/50">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/50">
               The Advantage
             </span>
             <div className="h-[1px] w-8 bg-white/20" />

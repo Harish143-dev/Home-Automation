@@ -5,16 +5,18 @@ import { CommercialCapabilities } from "../../components/sections/commercial/Com
 import { CommercialTrust } from "../../components/sections/commercial/CommercialTrust";
 import { CommercialIndustries } from "../../components/sections/commercial/CommercialIndustries";
 import { CommercialSolutions } from "../../components/sections/commercial/CommercialSolutions";
+import { CommercialCoreCapabilities } from "../../components/sections/commercial/CommercialCoreCapabilities";
 import { CommercialProjects } from "../../components/sections/commercial/CommercialProjects";
 import { CommercialBenefits } from "../../components/sections/commercial/CommercialBenefits";
 import { CommercialTestimonials } from "../../components/sections/commercial/CommercialTestimonials";
 import { CommercialCTA } from "../../components/sections/commercial/CommercialCTA";
 import { BrandTicker } from "../../components/sections/home/BrandTicker";
+import { AwardsSection } from "../../components/sections/home/AwardsSection";
 import { CommercialRoiCalculator } from "../../components/sections/commercial/CommercialRoiCalculator";
 
 export default function CommercialPage() {
   return (
-    <main className="relative bg-background overflow-hidden w-full">
+    <main className="relative bg-background text-black w-full">
 
       {/* Cinematic Commercial Hero */}
       <CommercialHero />
@@ -22,22 +24,17 @@ export default function CommercialPage() {
       {/* Trust Signals Section */}
       <CommercialTrust />
 
-      {/* Commercial-Specific Trusted Brands */}
-      <BrandTicker brands={[
-        { name: 'CRESTRON' },
-        { name: 'LUTRON' },
-        { name: 'KNX' },
-        { name: 'CISCO' },
-        { name: 'BOSCH' },
-        { name: 'HONEYWELL' },
-        { name: 'SCHNEIDER' }
-      ]} />
+      {/* Trusted Brands */}
+      <BrandTicker />
 
       {/* Industries We Serve Carousel */}
       <CommercialIndustries />
 
       {/* Commercial Automation Solutions */}
       <CommercialSolutions />
+
+      {/* Core Systems Integration & Capabilities */}
+      <CommercialCoreCapabilities />
 
       {/* Commercial Benefits */}
       <CommercialBenefits />
@@ -46,18 +43,18 @@ export default function CommercialPage() {
       <CommercialProjects />
 
       {/* Smart Systems Marquee */}
-      <CommercialCapabilities />
+      {/* <CommercialCapabilities /> */}
 
       {/* ROI Calculator */}
       <CommercialRoiCalculator />
+
+      <AwardsSection />
 
       {/* Commercial Testimonials */}
       <CommercialTestimonials />
 
       {/* Commercial CTA */}
       <CommercialCTA />
-
-      \
     </main>
   );
 }

@@ -81,7 +81,7 @@ export function ExperienceShowroom() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#040404] py-20 md:py-32 overflow-hidden border-t border-white/5"
+      className="relative w-full bg-secondary py-20 md:py-32 overflow-hidden border-t border-white/5"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         
@@ -89,7 +89,7 @@ export function ExperienceShowroom() {
         <div className="w-full lg:w-5/12 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-[1px] w-8 bg-white/20" />
-            <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-white/50">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/50">
               Showcase
             </span>
           </div>
@@ -122,7 +122,7 @@ export function ExperienceShowroom() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                <p className="font-mono tracking-[0.3em] uppercase text-white">
+                <p className="tracking-[0.3em] uppercase text-white">
                   {item.title}
                 </p>
               </div>

@@ -2,6 +2,7 @@
 
 import { ResidentialHero } from "../../components/sections/residential/ResidentialHero";
 import { BrandTicker } from "../../components/sections/home/BrandTicker";
+import { AwardsSection } from "../../components/sections/home/AwardsSection";
 import { ResidentialServices } from "../../components/sections/residential/ResidentialServices";
 import { ResidentialProcess } from "../../components/sections/residential/ResidentialProcess";
 import { ResidentialCaseStudies } from "../../components/sections/residential/ResidentialCaseStudies";
@@ -23,16 +24,8 @@ export default function ResidentialPage() {
       {/* Trust Signals Section */}
       <ResidentialTrust />
 
-      {/* Residential-Specific Trusted Brands */}
-      <BrandTicker brands={[
-        { name: 'BASALTE' },
-        { name: 'JOSH.AI' },
-        { name: 'EKINEX' },
-        { name: 'TRUFIG' },
-        { name: 'MELJAC' },
-        { name: 'VANTAGE' },
-        { name: 'GIRA' }
-      ]} />
+      {/* Trusted Brands */}
+      <BrandTicker />
 
       {/* Efficiency & Performance Accordion Showcase */}
       <ResidentialEfficiency />

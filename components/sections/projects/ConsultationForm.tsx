@@ -19,7 +19,7 @@ export function ConsultationForm() {
         {/* Text Content */}
         <div className="flex flex-col">
           <div className="flex items-center gap-4 overflow-hidden mb-6">
-            <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-muted-foreground">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground">
               Expert Guidance
             </span>
             <div className="h-[1px] w-12 bg-border" />
@@ -53,7 +53,7 @@ export function ConsultationForm() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="firstName" className="text-[11px] font-mono tracking-widest uppercase text-muted-foreground">First Name</label>
+                  <label htmlFor="firstName" className="text-[11px] tracking-widest uppercase text-muted-foreground">First Name</label>
                   <input 
                     type="text" 
                     id="firstName" 
@@ -64,7 +64,7 @@ export function ConsultationForm() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="lastName" className="text-[11px] font-mono tracking-widest uppercase text-muted-foreground">Last Name</label>
+                  <label htmlFor="lastName" className="text-[11px] tracking-widest uppercase text-muted-foreground">Last Name</label>
                   <input 
                     type="text" 
                     id="lastName" 
@@ -78,7 +78,7 @@ export function ConsultationForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-[11px] font-mono tracking-widest uppercase text-muted-foreground">Email Address</label>
+                  <label htmlFor="email" className="text-[11px] tracking-widest uppercase text-muted-foreground">Email Address</label>
                   <input 
                     type="email" 
                     id="email" 
@@ -89,7 +89,7 @@ export function ConsultationForm() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="phone" className="text-[11px] font-mono tracking-widest uppercase text-muted-foreground">Phone Number</label>
+                  <label htmlFor="phone" className="text-[11px] tracking-widest uppercase text-muted-foreground">Phone Number</label>
                   <input 
                     type="tel" 
                     id="phone" 
@@ -101,7 +101,7 @@ export function ConsultationForm() {
               </div>
 
               <div className="flex flex-col gap-2 mt-2">
-                <label htmlFor="message" className="text-[11px] font-mono tracking-widest uppercase text-muted-foreground">Project Details</label>
+                <label htmlFor="message" className="text-[11px] tracking-widest uppercase text-muted-foreground">Project Details</label>
                 <textarea 
                   id="message" 
                   rows={4}

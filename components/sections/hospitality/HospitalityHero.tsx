@@ -83,7 +83,7 @@ export function HospitalityHero() {
     <section
       ref={containerRef}
       id="hospitality-hero"
-      className={`relative h-screen w-full bg-[#040404] overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`relative h-screen w-full bg-secondary overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Static Background */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">

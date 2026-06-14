@@ -66,7 +66,7 @@ export function ExperienceTestimonials() {
         <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="flex items-center gap-4 mb-8 testimonials-header opacity-0 translate-y-10">
             <div className="h-[1px] w-8 bg-accent/40" />
-            <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-muted-foreground">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground">
               Client Stories
             </span>
             <div className="h-[1px] w-8 bg-accent/40 lg:hidden" />

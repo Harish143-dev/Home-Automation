@@ -177,9 +177,9 @@ export function AutomationSpaces() {
   if (isReady && (isMobile || prefersReducedMotion)) {
     return (
       <div id="automation-spaces" className="bg-background">
-        <section className="py-32 px-8 text-foreground">
+        <section className="text-foreground py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-16 px-4 text-center">
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-4">Sectors</p>
+            <p className="text-sm md:text-base tracking-widest font-normal text-accent mb-4">Sectors</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">Environments We Transform</h2>
           </div>
           <div className="flex flex-col gap-24">
@@ -189,17 +189,17 @@ export function AutomationSpaces() {
                   <Image src={panel.image} className="object-cover" alt={panel.title} fill sizes="(max-width: 768px) 100vw, 50vw" />
                 </div>
                 <div className="px-4">
-                  <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-4">
+                  <div className="text-sm md:text-base tracking-widest font-normal text-accent mb-4">
                     {panel.label} - {panel.title}
                   </div>
                   <h3 className="text-lg sm:text-xl leading-[1.5] font-light mb-8 tracking-wide text-foreground/80">{panel.description}</h3>
                   {panel.title === 'Residential' ? (
-                    <Link href="/residential" className="flex items-center gap-2 text-[11px] sm:text-xs font-bold border-b-2 border-accent text-accent pb-1 uppercase tracking-wider hover:opacity-70 transition-opacity w-fit">
+                    <Link href="/residential" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 tracking-wider hover:opacity-70 transition-opacity w-fit">
                       {panel.btn}
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   ) : (
-                    <button className="flex items-center gap-2 text-[11px] sm:text-xs font-bold border-b-2 border-accent text-accent pb-1 uppercase tracking-wider hover:opacity-70 transition-opacity w-fit">
+                    <button className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 tracking-wider hover:opacity-70 transition-opacity w-fit">
                       {panel.btn}
                       <ArrowRight className="w-4 h-4" />
                     </button>
@@ -232,7 +232,7 @@ export function AutomationSpaces() {
       >
         {/* Intro Heading */}
         <div className="section-intro absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-[50] pointer-events-none">
-          <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-6">
+          <p className="text-sm md:text-base tracking-widest font-normal text-accent mb-6">
             Sectors
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
@@ -267,19 +267,19 @@ export function AutomationSpaces() {
               key={panel.label}
               className={`exp-text-${i} absolute top-0 left-0 w-full pointer-events-auto flex flex-col items-start`}
             >
-              <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold opacity-50 mb-6">
+              <div className="text-sm md:text-base tracking-widest font-normal text-accent mb-6">
                 {panel.label} - {panel.title}
               </div>
               <h3 className="text-base md:text-lg leading-[1.5] font-light mb-10 tracking-wide text-foreground/80">
                 {panel.description}
               </h3>
               {panel.title === 'Residential' ? (
-                <Link href="/residential" className="flex items-center gap-2 text-[11px] sm:text-xs font-bold border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity uppercase tracking-wider">
+                <Link href="/residential" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity tracking-wider">
                   {panel.btn}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               ) : (
-                <button className="flex items-center gap-2 text-[11px] sm:text-xs font-bold border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity uppercase tracking-wider">
+                <button className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity tracking-wider">
                   {panel.btn}
                   <ArrowRight className="w-4 h-4" />
                 </button>

@@ -84,7 +84,7 @@ export function ProcessSection() {
   const translateY = -(activeIndex * ITEM_HEIGHT) - (ITEM_HEIGHT / 2);
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-black text-white" id="process">
+    <section ref={triggerRef} className="relative w-full bg-secondary text-white" id="process">
       <div
         ref={containerRef}
         className="w-full h-[100dvh] relative overflow-hidden hidden md:block"
@@ -107,7 +107,7 @@ export function ProcessSection() {
 
         {/* Top Centered Title and Description */}
         <div className="absolute top-8 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 z-30 w-full max-w-2xl px-6 md:px-0 text-center pointer-events-none hidden md:block">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-wide">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 tracking-wide leading-[1.2]">
             Execution Architecture
           </h2>
           <p className="text-sm font-light text-white/70 leading-relaxed mx-auto max-w-xl">
@@ -120,7 +120,7 @@ export function ProcessSection() {
 
           {/* Left Spacer */}
           <div className="hidden md:block relative md:w-[35%] lg:w-[40%] pr-8 h-full z-30 pointer-events-none">
-            <p className="absolute top-1/2 -translate-y-1/2 left-0 font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-white/50">
+            <p className="absolute top-1/2 -translate-y-1/2 left-0 tracking-widest text-sm md:text-base text-white/50">
               The Methodology
             </p>
           </div>
@@ -180,7 +180,7 @@ export function ProcessSection() {
       </div>
 
       {/* Mobile Stacked Layout (Visible only on small screens) */}
-      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-black gap-12 relative">
+      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-secondary gap-12 relative">
         {/* Background Image for mobile process section */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <Image
@@ -193,10 +193,10 @@ export function ProcessSection() {
         </div>
 
         <div className="mb-4 relative z-10">
-          <span className="font-mono tracking-[0.3em] text-[10px] uppercase text-white/50 mb-3 block">
+          <span className="tracking-widest text-sm md:text-base text-white/50 mb-3 block">
             The Methodology
           </span>
-          <h2 className="text-3xl font-light text-white mb-4 tracking-wide">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 tracking-wide leading-[1.2]">
             Execution Architecture
           </h2>
           <p className="text-sm font-light text-white/70 leading-relaxed">
@@ -210,7 +210,7 @@ export function ProcessSection() {
               {/* Timeline dot */}
               <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent" />
 
-              <span className="font-mono tracking-[0.3em] uppercase text-accent mb-1 block">
+              <span className="tracking-widest text-sm md:text-base text-accent mb-1 block">
                 PHASE 0{idx + 1}
               </span>
               <h3 className="text-xl font-light tracking-wide text-white leading-snug">

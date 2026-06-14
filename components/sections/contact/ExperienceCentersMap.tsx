@@ -72,7 +72,7 @@ export function ExperienceCentersMap() {
         {/* Header */}
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-4">
-            <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-accent">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
               Locations
             </span>
             <div className="h-[1px] w-12 bg-border" />
@@ -107,7 +107,7 @@ export function ExperienceCentersMap() {
                   
                   {/* Location Details */}
                   <div className={`flex flex-col lg:items-end gap-2 transition-all duration-700 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-40 lg:opacity-0 lg:translate-y-4'}`}>
-                    <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground">
+                    <p className="text-sm tracking-widest uppercase text-muted-foreground">
                       {loc.title}
                     </p>
                     <p className="text-base md:text-lg font-light text-foreground max-w-sm lg:text-right">

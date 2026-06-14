@@ -1,195 +1,280 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import NextImage from "next/image";
-import { ArrowRight } from "lucide-react";
-import { gsap, useGSAP } from "../../../lib/gsapSetup";
+import { Plus, Minus, ArrowRight } from "lucide-react";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
+import { gsap, useGSAP } from "../../../lib/gsapSetup";
+import { clsx } from "clsx";
 
 const SYSTEMS_DATA = [
   {
-    title: "Stand Alone Systems",
-    description: "Independent automation systems designed for localized control and operational simplicity.",
+    topHeading: "Lutron Vive",
+    title: "Wireless Infrastructure Framework",
     image: "/images/commercial_solution_standalone.png",
-    idealFor: ["Small offices", "Retail stores", "Individual conference rooms", "Boutique hospitality spaces"],
-    features: ["Easy deployment", "Cost-effective automation", "Independent room control", "Minimal infrastructure dependency"],
-    benefits: ["Faster implementation", "Scalable by zone", "Lower maintenance complexity"],
-    ctaText: "Explore Stand Alone Solutions"
+    idealFor: [
+      "Modern corporate offices executing fast-paced asset transitions",
+      "High-density educational complexes",
+      "Responsive healthcare installations",
+      "Agile retail footprints",
+      "Complex commercial retrofit projects where structural rewiring introduces prohibitive operational downtime"
+    ],
+    features: [
+      "High-Velocity Wireless Lighting Controls: Eliminates invasive conduit runs, deploying advanced automated intelligence seamlessly across existing or occupied building footprints.",
+      "Localized Occupancy Sensing Matricies: Utilizes low-profile sensor arrays to continuously monitor tenant density, dynamically adjusting illumination to reflect real-time spatial utilization.",
+      "Automated Daylight Harvesting Logic: Calibrates artificial light output in direct response to environmental signals and natural solar infiltration throughout the daytime hours.",
+      "Granular Dimming & Scene Control Orchestration: Delivers micro-zone environmental modification, allowing facilities teams to tailor localized illumination to diverse physical and sensory needs.",
+      "Centralized Dashboard Management: Aggregates multi-floor spatial data into a single, cohesive interface for transparent configuration, load balancing, and diagnostic oversight.",
+      "Native Multi-Protocol Fluency (DALI & 0–10V Support): Provides complete technical compatibility with both digital and analog fixtures, protecting legacy hardware infrastructure from obsolescence."
+    ],
+    benefits: [
+      "Accelerated Velocity of Installation",
+      "Reduced Low-Voltage Material Footprint",
+      "Immediate Baseline Energy Conservation",
+      "Frictionless, Infinite Scalability",
+      "Optimized Occupant Comfort & Agency",
+      "Unified Smart Building Ecosystem Integration",
+      "Low-Maintenance Operational Stability"
+    ],
+    ctaText: "Explore Vive Solutions"
   },
   {
-    title: "Centralised Server Systems",
-    description: "Enterprise-grade centralized automation systems offering unified control, monitoring, and scalability across large environments.",
+    topHeading: "Lutron Athena",
+    title: "Total Control Platform",
     image: "/images/commercial_solution_centralised.png",
-    idealFor: ["Large commercial buildings", "Hotels", "Multi-floor offices", "Enterprise environments"],
-    features: ["Centralized monitoring", "Remote management", "Multi-zone integration", "Advanced reporting & analytics"],
-    benefits: ["Operational efficiency", "Enhanced energy management", "Enterprise-level scalability", "Unified infrastructure control"],
-    ctaText: "Explore Centralized Systems"
+    idealFor: [
+      "Flagship 5-star luxury business hotels",
+      "Expansive corporate headquarters",
+      "Premium fine-dining hospitality venues",
+      "High-density cinematic multiplexes",
+      "High-traffic airport transit lounges",
+      "Landmark commercial campus developments requiring macro-level environmental governance"
+    ],
+    features: [
+      "Unified Light & Blind Aesthetic Synthesis",
+      "Universal Protocol Fluency (DALI, 0-10V, DMX & Tunable White)",
+      "App-Based Spatial Orchestration & Scene Management",
+      "Predictive Daylight Harvesting & Advanced Presence Telemetry",
+      "Cloud-Connected Monitoring & Asset Analytics"
+    ],
+    benefits: [
+      "Deep Structural Energy Optimization: Drives macro-level carbon reductions by orchestrating heavy HVAC thermal management alongside automated, precision window treatments to naturally combat solar heat gain.",
+      "Cognitive, Biophilic & Occupant Wellbeing Preservation: Seamlessly alters color temperatures and light curves in harmony with natural circadian human rhythms, actively mitigating travel stress, mental fatigue, and stress levels.",
+      "Simplified Institutional Facilities Governance: Centralizes sprawled, multi-system properties under a singular, intelligent command framework, minimizing labor dependencies and operational friction.",
+      "Maximization of Asset Spatial Utilization: Evaluates real-time sensor metrics and occupancy habits, yielding actionable intelligence that allows enterprises to adapt their physical real estate agility.",
+      "Enterprise Scale Across Infinite Blueprints: Expands effortlessly from a single high-profile presidential suite or executive boardroom into a unified network governing multiple buildings across a national real estate portfolio."
+    ],
+    ctaText: "Explore Athena Systems"
   }
 ];
 
-export function CommercialSolutions() {
-  const containerRef = useRef<HTMLElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-
-  useGSAP(() => {
-    if (prefersReducedMotion || !containerRef.current) return;
-
-    const slides = gsap.utils.toArray(".solution-slide") as HTMLElement[];
-    if (slides.length < 2) return;
-
-    const slide1Img = slides[1].querySelector(".bg-image");
-    const slide1Content = slides[1].querySelector(".slide-content");
-
-    // Set initial states for slide-up effect
-    gsap.set(slides[1], { yPercent: 100 });
-
-    // Slight initial parallax for the image and content
-    if (slide1Img) gsap.set(slide1Img, { scale: 1.15 });
-    if (slide1Content) gsap.set(slide1Content, { y: 60, opacity: 0 });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=150%", // Scroll distance
-        pin: true,
-        scrub: 1.2, // Smooth scrubbing
-      }
-    });
-
-    // 1. Slide 0 shrinks back gracefully
-    tl.to(slides[0], {
-      scale: 0.92,
-      opacity: 0.3,
-      ease: "none"
-    }, 0)
-      // 2. Slide 1 slides up physically
-      .to(slides[1], {
-        yPercent: 0,
-        ease: "none"
-      }, 0)
-      // 3. Slide 1's background image slowly settles (parallax zoom out)
-      .to(slide1Img, {
-        scale: 1,
-        ease: "none"
-      }, 0)
-      // 4. Slide 1's content floats up gracefully
-      .to(slide1Content, {
-        y: 0,
-        opacity: 1,
-        ease: "power2.out"
-      }, 0.1);
-
-  }, { scope: containerRef, dependencies: [prefersReducedMotion] });
+// Reusable Accordion Component
+function AccordionItem({ 
+  title, 
+  children, 
+  isOpen, 
+  onToggle 
+}: { 
+  title: string; 
+  children: React.ReactNode; 
+  isOpen: boolean; 
+  onToggle: () => void 
+}) {
+  const contentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section
-      ref={containerRef}
-      id="commercial-solutions"
-      className="relative w-full h-[100dvh] bg-black overflow-hidden select-none"
-    >
-      {SYSTEMS_DATA.map((system, index) => (
-        <div
-          key={index}
-          className={`solution-slide absolute inset-0 w-full h-full bg-black ${index === 0 ? 'z-10' : 'z-20'}`}
-        >
-          {/* Background Image */}
-          <div className="bg-image absolute inset-0 w-full h-full z-0 pointer-events-none">
-            <NextImage
-              src={system.image}
-              alt={system.title}
-              fill
-              priority={index === 0}
-              className="object-cover"
-            />
-            {/* Cinematic dark gradients anchored at the bottom for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-100 z-[1]" />
-            <div className="absolute inset-0 bg-black/20 z-[2]" />
-          </div>
-
-          {/* Content Wrapper - Aligned strictly to the bottom */}
-          <div className="slide-content absolute bottom-0 left-0 w-full z-10 px-6 sm:px-12 md:px-20 lg:px-32 pb-8 sm:pb-12 md:pb-16">
-            <div className="max-w-[1440px] mx-auto flex flex-col gap-6 md:gap-8">
-
-              {/* Header */}
-              <div className="max-w-4xl">
-                <div className="flex items-center gap-3 mb-3 md:mb-4">
-                  <div className="h-[1px] w-6 bg-white/30" />
-                  <span className="font-mono tracking-[0.3em] uppercase text-white/60">
-                    {index === 0 ? "Localized Control" : "Unified Infrastructure"}
-                  </span>
-                </div>
-
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-white mb-3 md:mb-4">
-                  {system.title}
-                </h2>
-
-                <p className="text-sm sm:text-base md:text-lg lg:text-[21px] font-light leading-relaxed tracking-wide text-white/70 max-w-2xl">
-                  {system.description}
-                </p>
-              </div>
-
-              {/* Data Grid (Pills) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-5xl border-t border-white/10 pt-5 md:pt-6">
-
-                {/* Ideal For */}
-                <div className="flex flex-col gap-3">
-                  <span className="font-mono tracking-[0.3em] uppercase text-white/40">
-                    Ideal For
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {system.idealFor.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] md:text-xs text-white/80 whitespace-nowrap">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Key Features */}
-                <div className="flex flex-col gap-3">
-                  <span className="font-mono tracking-[0.3em] uppercase text-white/40">
-                    Key Features
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {system.features.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] md:text-xs text-white/90 whitespace-nowrap shadow-[0_0_10px_rgba(140,24,23,0.05)]">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Benefits */}
-                <div className="flex flex-col gap-3">
-                  <span className="font-mono tracking-[0.3em] uppercase text-white/40">
-                    Benefits
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {system.benefits.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] md:text-xs text-white/80 whitespace-nowrap">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-
-              {/* CTA */}
-              <div className="mt-2 flex items-center group cursor-pointer w-fit">
-                <span className="text-xs md:text-sm font-medium tracking-wide text-white group-hover:text-accent transition-colors duration-300">
-                  {system.ctaText}
-                </span>
-                <div className="ml-3 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent transition-colors duration-300 border border-white/10 group-hover:border-transparent">
-                  <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-300 ease-out" />
-                </div>
-              </div>
-
-            </div>
-          </div>
+    <div className="border-b border-border w-full">
+      <button 
+        onClick={onToggle}
+        className="w-full flex items-center justify-between py-6 text-left focus:outline-none group"
+      >
+        <span className={clsx(
+          "text-lg md:text-xl font-light tracking-wide transition-colors duration-300",
+          isOpen ? "text-accent" : "text-foreground group-hover:text-accent"
+        )}>
+          {title}
+        </span>
+        <div className={clsx(
+          "w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ml-4",
+          isOpen ? "border-accent bg-accent text-white rotate-180" : "border-border text-muted group-hover:border-accent group-hover:text-accent"
+        )}>
+          {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </div>
-      ))}
+      </button>
+      
+      <div 
+        ref={contentRef}
+        className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"
+        style={{ 
+          maxHeight: isOpen ? (contentRef.current?.scrollHeight ?? 1000) + "px" : "0px",
+          opacity: isOpen ? 1 : 0
+        }}
+      >
+        <div className="pb-8 text-muted font-light leading-relaxed">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Formatter for complex lists (splitting title and description)
+function FormattedList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-4">
+      {items.map((item, idx) => {
+        const split = item.split(":");
+        if (split.length > 1) {
+          return (
+            <li key={idx} className="flex items-start gap-3">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+              <div>
+                <strong className="font-medium text-foreground mr-1">{split[0].trim()}:</strong>
+                {split.slice(1).join(":").trim()}
+              </div>
+            </li>
+          );
+        }
+        return (
+          <li key={idx} className="flex items-start gap-3">
+            <div className="w-1.5 h-1.5 rounded-full bg-muted mt-2 shrink-0" />
+            <span>{item.trim()}</span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+export function CommercialSolutions() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  
+  // Track open accordion state per system
+  // Using an object: { [systemIndex]: openAccordionIndex }
+  const [openAccordions, setOpenAccordions] = useState<Record<number, number>>({
+    0: 0, // Vive defaults to first accordion open
+    1: 0  // Athena defaults to first accordion open
+  });
+
+  const toggleAccordion = (sysIndex: number, accIndex: number) => {
+    setOpenAccordions(prev => ({
+      ...prev,
+      [sysIndex]: prev[sysIndex] === accIndex ? -1 : accIndex
+    }));
+  };
+
+  useGSAP(() => {
+    if (prefersReducedMotion || !sectionRef.current) return;
+
+    // Fade up sections as you scroll down
+    const blocks = gsap.utils.toArray(".solution-block") as HTMLElement[];
+    
+    blocks.forEach((block) => {
+      gsap.from(block, {
+        scrollTrigger: {
+          trigger: block,
+          start: "top 80%",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out"
+      });
+    });
+
+  }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
+
+  return (
+    <section ref={sectionRef} id="commercial-solutions" className="py-24 sm:py-32 bg-background text-foreground w-full">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24">
+        
+        {/* Section Header */}
+        <div className="mb-20 md:mb-32 text-center max-w-3xl mx-auto solution-block">
+          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+            Architecture & Infrastructure
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.1] text-foreground">
+            Commercial Automation Solutions
+          </h2>
+        </div>
+
+        {/* Systems List */}
+        <div className="space-y-32 md:space-y-48">
+          {SYSTEMS_DATA.map((system, sysIndex) => {
+            const isEven = sysIndex % 2 === 0;
+
+            return (
+              <div 
+                key={sysIndex} 
+                className={clsx(
+                  "solution-block flex flex-col gap-12 lg:gap-20 items-center",
+                  isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                )}
+              >
+                
+                {/* Text & Accordion Content */}
+                <div className="w-full lg:w-[45%] flex flex-col">
+                  <span className="text-accent uppercase tracking-widest text-sm mb-4 block font-medium">
+                    {system.topHeading}
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-light leading-[1.1] mb-12">
+                    {system.title}
+                  </h3>
+
+                  {/* Accordion Group */}
+                  <div className="w-full flex flex-col border-t border-border">
+                    <AccordionItem 
+                      title="Ideal Applications" 
+                      isOpen={openAccordions[sysIndex] === 0} 
+                      onToggle={() => toggleAccordion(sysIndex, 0)}
+                    >
+                      <FormattedList items={system.idealFor} />
+                    </AccordionItem>
+                    
+                    <AccordionItem 
+                      title="Key Infrastructure Features" 
+                      isOpen={openAccordions[sysIndex] === 1} 
+                      onToggle={() => toggleAccordion(sysIndex, 1)}
+                    >
+                      <FormattedList items={system.features} />
+                    </AccordionItem>
+                    
+                    <AccordionItem 
+                      title="Operational Benefits" 
+                      isOpen={openAccordions[sysIndex] === 2} 
+                      onToggle={() => toggleAccordion(sysIndex, 2)}
+                    >
+                      <FormattedList items={system.benefits} />
+                    </AccordionItem>
+                  </div>
+
+                  {/* CTA Button */}
+                  <button className="mt-12 px-8 py-4 border border-border rounded-full w-fit hover:border-accent hover:text-accent transition-all duration-300 flex items-center gap-3 group">
+                    <span className="text-sm tracking-widest uppercase">{system.ctaText}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+                {/* Imagery */}
+                <div className="w-full lg:w-[55%] relative h-[450px] sm:h-[600px] lg:h-[750px] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl group">
+                  <NextImage 
+                    src={system.image} 
+                    alt={system.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
+                    priority={sysIndex === 0}
+                  />
+                  {/* Subtle vignette for depth */}
+                  <div className="absolute inset-0 border border-black/10 rounded-[24px] md:rounded-[40px] z-10 pointer-events-none" />
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
     </section>
   );
 }

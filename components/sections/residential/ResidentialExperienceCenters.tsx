@@ -102,7 +102,7 @@ export function ResidentialExperienceCenters() {
   const activeCenter = CENTERS_DATA[activeIndex];
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-black text-white border-t border-white/10">
+    <section ref={triggerRef} className="relative w-full bg-secondary text-white border-t border-white/10">
       <div
         ref={containerRef}
         className="relative w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden"
@@ -123,13 +123,13 @@ export function ResidentialExperienceCenters() {
         <div className="absolute top-0 left-0 h-full w-full md:w-[65%] lg:w-[55%] xl:w-[50%] px-6 sm:px-10 md:px-12 lg:px-20 py-8 z-10">
           <div className="flex flex-col justify-center h-full">
             <div className="mb-6">
-              <span className="font-mono tracking-[0.3em] uppercase text-black/50 text-[10px] md:text-xs mb-3 block">
+              <span className="tracking-widest text-sm md:text-base text-muted mb-3 block">
                 The Environment
               </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-wide leading-[1.2] text-black drop-shadow-sm mb-4 text-balance">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug text-foreground drop-shadow-sm mb-4 text-balance">
                 The Experience Ecosystem
               </h2>
-              <p className="text-sm font-light text-black/70 leading-relaxed max-w-lg">
+              <p className="text-sm md:text-base font-light text-muted leading-relaxed max-w-lg">
                 The nuance of lighting control and spatial acoustics cannot be captured on a screen. Our private experience centers offer architects and homeowners a tactile, real-world demonstration of how our systems interact with high-end interior spaces.
               </p>
             </div>
@@ -147,7 +147,7 @@ export function ResidentialExperienceCenters() {
                       onClick={() => handleNavClick(idx)}
                       className="w-full text-left flex items-center justify-between group"
                     >
-                      <span className={`text-lg md:text-xl font-light tracking-widest transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/50 group-hover:text-black/80'}`}>
+                      <span className={`text-lg md:text-xl font-light tracking-widest transition-colors duration-300 ${isActive ? 'text-foreground' : 'text-muted group-hover:text-foreground/80'}`}>
                         {center.title}
                       </span>
                     </button>
@@ -157,11 +157,11 @@ export function ResidentialExperienceCenters() {
                       className={`grid transition-all duration-500 ease-out ${isActive ? 'grid-rows-[1fr] mt-3' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
                     >
                       <div className="overflow-hidden">
-                        <p className="text-xs md:text-sm font-light leading-relaxed tracking-wide text-black/70 max-w-sm font-sans whitespace-pre-wrap">
+                        <p className="text-sm md:text-base font-light leading-relaxed tracking-wide text-muted max-w-sm font-sans whitespace-pre-wrap">
                           {center.address}
                         </p>
 
-                        <button className="mt-3 text-[9px] md:text-[10px] font-mono tracking-[0.3em] text-black hover:text-black/70 transition-colors duration-300 uppercase flex items-center gap-2">
+                        <button className="mt-3 text-xs tracking-widest text-foreground hover:text-muted transition-colors duration-300 flex items-center gap-2">
                           Get Directions
                           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />

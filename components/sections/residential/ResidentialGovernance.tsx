@@ -66,7 +66,7 @@ export function ResidentialGovernance() {
 
           {/* Left Column: Context (Sticky on Desktop) */}
           <div className="w-full lg:w-1/2 flex flex-col gov-header lg:sticky lg:top-40">
-            <span className="font-mono tracking-[0.3em] text-xs uppercase text-accent mb-4 block">
+            <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
               Asset Governance
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-6">

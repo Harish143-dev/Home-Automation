@@ -22,7 +22,7 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
       {/* Metadata Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-y border-border/50">
         <div className="flex flex-wrap items-center gap-3 text-xs font-light text-muted-foreground">
-          <span className="flex items-center gap-1.5 uppercase font-mono tracking-widest text-accent">
+          <span className="flex items-center gap-1.5 uppercase tracking-widest text-accent">
             {post.category}
           </span>
           <span className="hidden sm:inline text-border">•</span>
@@ -45,7 +45,7 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
 
         {/* Social Share Options */}
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground mr-2">Share</span>
+          <span className="text-xs uppercase tracking-widest text-muted-foreground mr-2">Share</span>
           {[LinkIcon, Mail, Share2].map((Icon, idx) => (
             <button key={idx} className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent hover:bg-accent/5 transition-colors">
               <Icon className="w-3.5 h-3.5" />

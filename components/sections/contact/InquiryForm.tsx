@@ -46,7 +46,7 @@ export function InquiryForm() {
         {/* Header */}
         <div className="flex flex-col gap-6 form-stagger">
           <div className="flex items-center gap-4">
-            <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-accent">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
               Inquiry
             </span>
             <div className="h-[1px] w-12 bg-border" />

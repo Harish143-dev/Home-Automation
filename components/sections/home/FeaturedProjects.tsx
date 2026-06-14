@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 import React, { useRef } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Button } from '../../ui/button';
 import privateResidenceImage from '../../../assets/projects/private-residence.jpg';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
@@ -56,6 +57,25 @@ export function FeaturedProjects() {
     // Defer initialization so upstream ScrollTrigger pins (HeroSection, AutomationSpaces)
     // are fully set up first — prevents miscalculated scroll positions.
     if (!containerRef.current || !pinRef.current) return;
+
+    // --- Box Entrance Animation ---
+    const innerBox = containerRef.current.querySelector('.fp-inner-box');
+    if (innerBox) {
+      gsap.fromTo(innerBox,
+        { scale: 0.85, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 85%',
+            end: 'top 15%',
+            scrub: 1,
+          }
+        }
+      );
+    }
 
     // Query elements scoped strictly to our container (audit M3 — namespace prefix)
     const navs = gsap.utils.toArray('.fp-nav', containerRef.current) as HTMLLIElement[];
@@ -144,9 +164,9 @@ export function FeaturedProjects() {
 
       {/* ═══ Mobile Layout ═══ */}
       <div className={isMobile ? 'block' : 'hidden'}>
-        <div className="py-14 sm:py-16 md:py-20 px-5 sm:px-6">
+        <div className="py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-12">
-            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] text-muted mb-3 sm:mb-4">Projects</p>
+            <p className="text-sm md:text-base tracking-widest text-muted mb-3 sm:mb-4">Projects</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">Elevated Environments</h2>
           </div>
           <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
@@ -164,7 +184,7 @@ export function FeaturedProjects() {
                 </div>
                 <div className="p-5 sm:p-6">
                   <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-3 py-1 mb-3 shadow-sm">
-                    <span className="text-[10px] uppercase tracking-widest text-foreground font-bold">{proj.category}</span>
+                    <span className="text-sm md:text-base tracking-widest text-foreground font-medium">{proj.category}</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-light leading-[1.2] tracking-wide mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
                   <ul className="flex flex-col gap-1 sm:gap-1.5 mb-3 sm:mb-4 text-muted text-xs sm:text-sm">
@@ -188,11 +208,12 @@ export function FeaturedProjects() {
 
       {/* ═══ Desktop Pinned Layout ═══ */}
       <div className={isMobile ? 'hidden' : 'block'}>
-        <div ref={pinRef} className="h-screen w-full flex">
+        <div ref={pinRef} className="h-screen w-full flex items-center justify-center bg-background px-4 md:px-8 lg:px-12 py-8 md:py-12 overflow-hidden">
+          <div className="fp-inner-box w-full max-w-[1440px] h-full flex rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-border/50 origin-center bg-background relative">
 
           {/* Left Side: Sidebar Navigation */}
           <div className="w-[30%] lg:w-[35%] h-full border-r border-border flex flex-col justify-center px-6 md:px-10 lg:px-16 xl:px-20 relative z-20 bg-background">
-            <h2 className="text-xs font-medium font-mono uppercase tracking-[0.3em] text-muted mb-16">Projects</h2>
+            <h2 className="text-sm md:text-base font-medium tracking-widest text-muted mb-16">Projects</h2>
             <div className="relative">
               {/* Progress Track */}
               <div className="absolute left-[3px] top-2 bottom-2 w-[1px] bg-white/10" />
@@ -205,8 +226,8 @@ export function FeaturedProjects() {
               <ul className="flex flex-col gap-12 pl-12">
                 {PROJECTS.map((proj, i) => (
                   <li key={proj.id} className="fp-nav flex items-center gap-6">
-                    <span className="text-xs font-mono opacity-50">0{i + 1}</span>
-                    <span className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight whitespace-nowrap">{proj.name}</span>
+                    <span className="text-xs opacity-50">0{i + 1}</span>
+                    <span className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide whitespace-nowrap">{proj.name}</span>
                   </li>
                 ))}
               </ul>
@@ -239,7 +260,7 @@ export function FeaturedProjects() {
                   {/* Left: Title & Description */}
                   <div className="max-w-xl pr-4 md:pr-6 lg:pr-8 pb-2">
                     <div className="fp-stagger mb-5">
-                      <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase">{proj.category}</span>
+                      <span className="text-sm md:text-base font-normal tracking-widest text-white/70">{proj.category}</span>
                     </div>
                     <h3 className="fp-stagger text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-white mb-2 md:mb-3 lg:mb-4 leading-[1.2]">
                       {proj.name}
@@ -260,19 +281,23 @@ export function FeaturedProjects() {
                       ))}
                     </ul>
                     <div className="fp-stagger mt-auto">
-                      <button
-                        type="button"
+                      <Button
+                        variant="accent"
+                        size="lg"
+                        shape="full"
                         aria-label={`View ${proj.name}`}
-                        className="group flex items-center gap-4 bg-accent text-white px-7 py-3.5 rounded-full font-medium transition-all hover:bg-accent-soft hover:scale-105 active:scale-95 shadow-sm"
+                        className="group"
                       >
                         View Project
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+
           </div>
         </div>
       </div>

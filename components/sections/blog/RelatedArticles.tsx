@@ -40,7 +40,7 @@ export default function RelatedArticles({ posts }: RelatedArticlesProps) {
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-4 mb-16">
-          <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-accent">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
             Continue Reading
           </span>
           <div className="h-[1px] w-12 bg-border" />
@@ -70,7 +70,7 @@ export default function RelatedArticles({ posts }: RelatedArticlesProps) {
 
               {/* Content Block */}
               <div className="flex flex-col gap-4 pl-2 border-l border-transparent transition-colors duration-500 group-hover:border-accent flex-grow">
-                <div className="flex items-center gap-3 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-muted-foreground">
+                <div className="flex items-center gap-3 text-[10px] sm:text-xs tracking-[0.2em] uppercase text-muted-foreground">
                   <span className="text-accent">{article.category}</span>
                   <span className="w-1 h-1 rounded-full bg-border" />
                   <span>{article.date}</span>

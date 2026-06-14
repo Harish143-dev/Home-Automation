@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, ClipboardList } from 'lucide-react';
 import { Button } from '../../ui/button';
 import { gsap, ScrollTrigger, useGSAP, SplitText } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
@@ -14,23 +14,28 @@ export function CommercialCTA() {
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current || !headlineRef.current) return;
 
-    // High-end typographic reveal
-    const split = new SplitText(headlineRef.current, {
-      type: 'lines,words',
-      linesClass: 'overflow-hidden'
-    });
+    let split: any = null;
 
-    gsap.from(split.words, {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 75%',
-      },
-      yPercent: 120,
-      rotationZ: 2,
-      opacity: 0,
-      duration: 1.2,
-      stagger: 0.05,
-      ease: 'power4.out',
+    // High-end typographic reveal
+    document.fonts.ready.then(() => {
+      if (!headlineRef.current || !sectionRef.current) return;
+      split = new SplitText(headlineRef.current, {
+        type: 'lines,words',
+        linesClass: 'overflow-hidden'
+      });
+
+      gsap.from(split.words, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+        },
+        yPercent: 120,
+        rotationZ: 2,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.05,
+        ease: 'power4.out',
+      });
     });
 
     gsap.from('.cta-subhead', {
@@ -57,7 +62,9 @@ export function CommercialCTA() {
       delay: 0.4
     });
 
-    return () => split.revert();
+    return () => {
+      if (split) split.revert();
+    };
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
@@ -76,7 +83,7 @@ export function CommercialCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="font-mono tracking-[0.3em] uppercase text-muted">Partner With Us</span>
+          <span className="tracking-widest text-sm md:text-base text-muted">Transform Your Commercial Space</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
@@ -85,11 +92,11 @@ export function CommercialCTA() {
           ref={headlineRef}
           className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-8"
         >
-          Automate your enterprise
+          Automate your Commercial Infrastructure
         </h2>
 
-        <p className="cta-subhead text-sm sm:text-base md:text-lg lg:text-[21px] font-light leading-relaxed tracking-wide text-muted max-w-2xl mx-auto mb-12">
-          Experience seamless commercial automation designed for operational excellence. Schedule your enterprise consultation today.
+        <p className="cta-subhead text-sm sm:text-base md:text-lg lg:text-[21px] font-light leading-relaxed tracking-wide text-muted max-w-4xl mx-auto mb-12">
+          High-performance spaces drive high-performance business. Before a single blueprint is finalized or a wire path is laid, discover how adaptive engineering can enhance your real estate portfolio. Run your upcoming layout through our validation framework to visualize your exact utility savings, operational efficiency gains, and accelerated payback timelines.
         </p>
 
         {/* Standard Project Buttons */}
@@ -101,8 +108,8 @@ export function CommercialCTA() {
             className="group relative h-auto py-4 sm:py-5 px-8 w-full sm:w-auto overflow-hidden rounded-full"
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
-            <span className="relative z-10 text-base sm:text-lg font-semibold tracking-wide">
-              Book Project Consultation
+            <span className="relative z-10 text-base sm:text-lg font-medium tracking-wide">
+              Calculate System ROI
             </span>
             <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
@@ -113,9 +120,9 @@ export function CommercialCTA() {
             size="lg"
             className="group h-auto py-4 sm:py-5 px-8 w-full sm:w-auto border-border text-foreground hover:bg-surface-darker rounded-full"
           >
-            <Phone className="w-5 h-5 mr-2 text-muted group-hover:text-foreground transition-colors duration-300" />
-            <span className="text-base sm:text-lg font-semibold tracking-wide">
-              Call Commercial Sales
+            <ClipboardList className="w-5 h-5 mr-2 text-muted group-hover:text-foreground transition-colors duration-300" />
+            <span className="text-base sm:text-lg font-medium tracking-wide">
+              Request an Engineering Feasibility Study
             </span>
           </Button>
         </div>

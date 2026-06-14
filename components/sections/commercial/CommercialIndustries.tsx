@@ -9,39 +9,45 @@ import { useReducedMotion } from "../../../hooks/useReducedMotion";
 const INDUSTRIES = [
   {
     id: "corporate",
-    title: "Corporate Offices",
+    title: "Corporate Offices & Workspaces",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
-    useCase: "Intelligent lighting and climate control for enhanced productivity."
+    useCase: "Optimizing hybrid environments for a multigenerational workforce. Systems dynamically adjust to layout changes, supporting collaborative connection and individual focus."
   },
   {
     id: "hospitality",
-    title: "Cafe, Restro, bars",
+    title: "Restaurants and Hospitality",
     image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop",
-    useCase: "Automated ambiance and AV systems for memorable guest experiences."
+    useCase: "Cultivating atmosphere through time locked lighting scenes and acoustic zones that guide occupant transit, dwell times, and visual comfort."
   },
   {
     id: "retail",
-    title: "Retail Spaces",
+    title: "Retail Environments",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop",
-    useCase: "Dynamic lighting and security solutions to elevate retail environments."
-  },
-  {
-    id: "buildings",
-    title: "Commercial Buildings",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
-    useCase: "Centralized energy management and access control for modern structures."
-  },
-  {
-    id: "healthcare",
-    title: "Healthcare Facilities",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop",
-    useCase: "Precision climate and lighting for patient comfort and operational efficiency."
+    useCase: "Accentuating spatial branding, architecture, and inventory texturing through highly calibrated lighting scenes that influence consumer engagement."
   },
   {
     id: "education",
-    title: "Educational Institutions",
+    title: "Educational Institutions & Auditoriums",
     image: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop",
-    useCase: "Smart campus solutions bridging security, AV, and energy efficiency."
+    useCase: "Enhancing cognitive stamina, auditory absorption, and sensory clarity through distraction-free acoustics and automated daylight harvesting"
+  },
+  {
+    id: "transit",
+    title: "Airport Lounges & Transit Hubs",
+    image: "https://images.unsplash.com/photo-1544015759-2475e6d8713a?q=80&w=800&auto=format&fit=crop",
+    useCase: "Mitigating traveler fatigue on a continuous 24-hour operational cycle through adaptive lighting paths and zoned environmental controls that support rest, focus, and transition."
+  },
+  {
+    id: "entertainment",
+    title: "Multiplexes & Entertainment Centers",
+    image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=800&auto=format&fit=crop",
+    useCase: "Executing high stakes automated theater transitions. Centralized lighting scene changes link directly to show scheduling protocols, maximizing cinematic impact while protecting lamp and system lifecycle."
+  },
+  {
+    id: "healthcare",
+    title: "Healthcare & Wellness Facilities",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop",
+    useCase: "Deploying adaptive lighting and precise climate zoning to stabilize circadian rhythms, actively reducing patient stress and supporting clinical performance."
   }
 ];
 
@@ -88,9 +94,11 @@ export function CommercialIndustries() {
     <section ref={sectionRef} className="py-20 md:py-32 bg-background relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 industry-header">
         <div>
+          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+            Operational Scales
+          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
-            Automation Solutions Across <br className="hidden md:inline" />
-            <span className="text-accent">Commercial Environments</span>
+            Sectors of Influence
           </h2>
         </div>
 
@@ -133,11 +141,11 @@ export function CommercialIndustries() {
               />
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-light tracking-wide leading-[1.2] text-foreground mb-3">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-snug text-foreground mb-3">
               {industry.title}
             </h3>
 
-            <p className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-light tracking-wide text-muted">
+            <p className="text-sm md:text-base leading-relaxed font-light tracking-wide text-muted">
               {industry.useCase}
             </p>
           </div>

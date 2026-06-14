@@ -60,7 +60,7 @@ export default function FeaturedArticle() {
 
           {/* Typography block */}
           <div className="flex flex-col gap-6 md:w-3/4 lg:w-2/3">
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono tracking-[0.2em] uppercase text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-4 text-xs tracking-[0.2em] uppercase text-muted-foreground">
               <span className="text-accent">Architectural Technology</span>
               <span>•</span>
               <span>May 28, 2026</span>

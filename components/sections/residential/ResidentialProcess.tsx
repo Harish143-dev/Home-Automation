@@ -83,7 +83,7 @@ export function ResidentialProcess() {
   const translateY = -(activeIndex * ITEM_HEIGHT) - (ITEM_HEIGHT / 2);
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-black text-white">
+    <section ref={triggerRef} className="relative w-full bg-secondary text-white">
       <div
         ref={containerRef}
         className="w-full h-[100dvh] relative overflow-hidden hidden md:block"
@@ -125,7 +125,7 @@ export function ResidentialProcess() {
 
           {/* Left Spacer */}
           <div className="hidden md:block relative w-[30%] lg:w-[35%] pr-8 h-full z-30">
-            <p className="absolute top-[60%] -translate-y-1/2 left-0 font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-white/50">
+            <p className="absolute top-[60%] -translate-y-1/2 left-0 tracking-widest text-sm md:text-base text-white/50">
               The Methodology
             </p>
           </div>
@@ -185,7 +185,7 @@ export function ResidentialProcess() {
       </div>
 
       {/* Mobile Stacked Layout (Visible only on small screens) */}
-      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-black gap-12 relative">
+      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-secondary gap-12 relative">
         {/* Background Image for mobile process section */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <img
@@ -197,7 +197,7 @@ export function ResidentialProcess() {
         </div>
 
         <div className="mb-8 relative z-10">
-          <span className="font-mono tracking-[0.3em] uppercase text-white/50 text-[10px] sm:text-xs">
+          <span className="tracking-widest text-sm md:text-base text-white/50">
             The Methodology
           </span>
           <h2 className="text-3xl sm:text-4xl font-light tracking-wide leading-[1.2] text-white mt-4 mb-4">
@@ -217,7 +217,7 @@ export function ResidentialProcess() {
               {/* Timeline dot */}
               <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent" />
 
-              <span className="font-mono tracking-[0.3em] uppercase text-accent mb-1 block">
+              <span className="tracking-widest text-sm md:text-base text-accent mb-1 block">
                 STEP {idx + 1}
               </span>
               <h3 className="text-xl font-light tracking-wide text-white leading-snug">

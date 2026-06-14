@@ -85,7 +85,7 @@ export function ExperienceGallery() {
   return (
     <section 
       ref={containerRef} 
-      className="bg-[#040404] text-white relative w-full overflow-hidden"
+      className="bg-secondary text-white relative w-full overflow-hidden"
     >
       <div className={`w-full flex flex-col justify-center ${prefersReducedMotion ? 'py-24' : 'h-screen'}`}>
         
@@ -94,7 +94,7 @@ export function ExperienceGallery() {
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-8 bg-white/30" />
-              <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-white/60">
+              <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/60">
                 Gallery
               </span>
             </div>

@@ -5,6 +5,7 @@ import BrandStory from "@/components/sections/about/BrandStory";
 import LegacyExpertise from "@/components/sections/about/LegacyExpertise";
 import ProcessPhilosophy from "@/components/sections/about/ProcessPhilosophy";
 import ExperienceEcosystem from "@/components/sections/about/ExperienceEcosystem";
+import { AwardsSection } from "@/components/sections/home/AwardsSection";
 import ClosingStatement from "@/components/sections/about/ClosingStatement";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function AboutPage() {
       <LegacyExpertise />
       <ProcessPhilosophy />
       <ExperienceEcosystem />
+      <AwardsSection />
       <ClosingStatement />
     </main>
   );

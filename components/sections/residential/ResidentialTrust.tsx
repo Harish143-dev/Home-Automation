@@ -82,7 +82,7 @@ function MetricCard({ target, prefix, label }: { target: number; prefix?: string
           <span ref={numberRef}>0</span>
         </div>
 
-        <span className="font-mono tracking-[0.3em] uppercase text-muted">
+        <span className="tracking-widest text-sm md:text-base text-muted">
           {label}
         </span>
       </div>
@@ -132,7 +132,7 @@ export function ResidentialTrust() {
         {/* Section Heading & Subtext */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-16 w-full mb-16 md:mb-24">
           <div className="max-w-sm lg:max-w-md">
-            <span className="font-mono tracking-[0.3em] text-[10px] md:text-xs uppercase text-accent mb-4 block">
+            <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
               The Residential Paradigm
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">

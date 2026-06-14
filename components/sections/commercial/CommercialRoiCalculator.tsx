@@ -84,7 +84,7 @@ export function CommercialRoiCalculator() {
       snap: { innerHTML: 1 },
       onUpdate: function () {
         if (savingsRef.current) {
-          savingsRef.current.innerHTML = currencySymbol + Number(this.targets()[0].innerHTML).toLocaleString();
+          savingsRef.current.innerHTML = currencySymbol + Number(this.targets()[0].innerHTML).toLocaleString('en-US');
         }
       }
     });
@@ -100,24 +100,24 @@ export function CommercialRoiCalculator() {
       ref={containerRef}
       className="relative w-full bg-background py-24 sm:py-32 text-foreground flex justify-center"
     >
-      <div className="max-w-4xl w-full mx-6 px-6 sm:px-12 py-12 bg-surface-darker rounded-[32px] border border-white/5 shadow-2xl">
+      <div className="max-w-4xl w-full mx-6 px-6 sm:px-12 py-12 bg-white rounded-[32px] border border-border shadow-xl">
 
         {/* Header Title */}
-        <div className="animate-item text-center mb-10 border-b border-white/5 pb-6">
-          <h2 className="text-2xl font-medium tracking-wide">ROI Calculator</h2>
+        <div className="animate-item text-center mb-10 border-b border-border pb-6">
+          <h2 className="text-2xl md:text-3xl font-light tracking-wide leading-[1.2]">ROI Calculator</h2>
         </div>
 
         {/* Currency Toggle */}
         <div className="animate-item flex flex-col items-center gap-3 mb-12">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-muted font-mono">
+          <div className="flex items-center gap-2 text-sm md:text-base tracking-widest text-muted">
             <CheckCircle2 className="w-4 h-4 text-accent" /> Currency
           </div>
-          <div className="flex p-1 bg-black/20 rounded-full border border-white/5">
+          <div className="flex p-1 bg-black/5 rounded-full border border-border/50">
             <button
               onClick={() => setCurrency("USD")}
               className={clsx(
                 "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                currency === "USD" ? "bg-white text-black" : "text-muted hover:text-white"
+                currency === "USD" ? "bg-white text-foreground shadow-sm" : "text-muted hover:text-foreground"
               )}
             >
               USD ($)
@@ -126,7 +126,7 @@ export function CommercialRoiCalculator() {
               onClick={() => setCurrency("EUR")}
               className={clsx(
                 "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                currency === "EUR" ? "bg-white text-black" : "text-muted hover:text-white"
+                currency === "EUR" ? "bg-white text-foreground shadow-sm" : "text-muted hover:text-foreground"
               )}
             >
               EUR (€)
@@ -139,7 +139,7 @@ export function CommercialRoiCalculator() {
 
           {/* Rooms */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-muted font-mono">
+            <div className="flex items-center gap-2 text-sm md:text-base tracking-widest text-muted">
               <CheckCircle2 className="w-4 h-4 text-accent" /> Number of Rooms
             </div>
             <div className="flex flex-wrap gap-2">
@@ -151,7 +151,7 @@ export function CommercialRoiCalculator() {
                     "px-4 py-2.5 rounded-xl border text-sm font-medium transition-all duration-300",
                     rooms === opt
                       ? "border-accent text-accent bg-accent/10"
-                      : "border-white/10 text-muted hover:border-white/30 hover:text-white"
+                      : "border-border text-muted hover:border-foreground/30 hover:text-foreground"
                   )}
                 >
                   {opt}{opt === 1000 ? "+" : ""}
@@ -162,7 +162,7 @@ export function CommercialRoiCalculator() {
 
           {/* Monthly Bill */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-muted font-mono">
+            <div className="flex items-center gap-2 text-sm md:text-base tracking-widest text-muted">
               <CheckCircle2 className="w-4 h-4 text-accent" /> Monthly Energy Bill
             </div>
             <div className="flex flex-wrap gap-2">
@@ -174,7 +174,7 @@ export function CommercialRoiCalculator() {
                     "px-4 py-2.5 rounded-xl border text-sm font-medium transition-all duration-300",
                     monthlyBill === opt
                       ? "border-accent text-accent bg-accent/10"
-                      : "border-white/10 text-muted hover:border-white/30 hover:text-white"
+                      : "border-border text-muted hover:border-foreground/30 hover:text-foreground"
                   )}
                 >
                   {formatBillOption(opt)}
@@ -185,8 +185,8 @@ export function CommercialRoiCalculator() {
         </div>
 
         {/* Full width Tier row */}
-        <div className="animate-item flex flex-col gap-4 mb-16 pb-12 border-b border-white/5">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-muted font-mono">
+        <div className="animate-item flex flex-col gap-4 mb-16 pb-12 border-b border-border">
+          <div className="flex items-center gap-2 text-sm md:text-base tracking-widest text-muted">
             <CheckCircle2 className="w-4 h-4 text-accent" /> Automation Package
           </div>
           <div className="flex flex-wrap gap-2">
@@ -198,7 +198,7 @@ export function CommercialRoiCalculator() {
                   "flex-1 min-w-[140px] px-4 py-3 rounded-xl border text-sm font-medium transition-all duration-300",
                   selectedTier === key
                     ? "border-accent text-accent bg-accent/10"
-                    : "border-white/10 text-muted hover:border-white/30 hover:text-white"
+                    : "border-border text-muted hover:border-foreground/30 hover:text-foreground"
                 )}
               >
                 {data.name}
@@ -209,21 +209,21 @@ export function CommercialRoiCalculator() {
 
         {/* Big Result Section */}
         <div className="animate-item flex flex-col items-center text-center gap-2">
-          <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-muted mb-2">
+          <h3 className="text-sm md:text-base tracking-widest text-muted mb-2">
             Opportunity Cost This Year
           </h3>
-          <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.1]">
+          <div className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide leading-[1.2]">
             You're leaving <br className="sm:hidden" />
             <span ref={savingsRef} className="text-accent mx-2 block sm:inline mt-2 sm:mt-0">
-              {currencySymbol}{annualSavings.toLocaleString()}
+              {currencySymbol}{annualSavings.toLocaleString('en-US')}
             </span>
             <br className="sm:hidden" /> on the table.
           </div>
 
           <p className="text-muted text-sm max-w-2xl mt-8 leading-relaxed">
-            At a {tier.savingsPercent * 100}% energy savings rate on a {currencySymbol}{monthlyBill.toLocaleString()} monthly bill.
-            That's {currencySymbol}{(annualSavings * 5).toLocaleString()} in savings over 5 years.
-            With an estimated initial investment of {currencySymbol}{totalInvestment.toLocaleString()},
+            At a {tier.savingsPercent * 100}% energy savings rate on a {currencySymbol}{monthlyBill.toLocaleString('en-US')} monthly bill.
+            That's {currencySymbol}{(annualSavings * 5).toLocaleString('en-US')} in savings over 5 years.
+            With an estimated initial investment of {currencySymbol}{totalInvestment.toLocaleString('en-US')},
             the system pays for itself in roughly <span className="text-accent font-medium">{paybackYears.toFixed(1)} years</span>,
             yielding a 5-year ROI of <span className="text-accent font-medium">{roi5Year.toFixed(0)}%</span>.
           </p>

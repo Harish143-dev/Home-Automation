@@ -58,7 +58,7 @@ export function ProjectsSidebar() {
       
       {/* Social Sharing */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className="text-sm font-mono tracking-widest uppercase text-foreground mb-4 flex items-center gap-2">
+        <h3 className="text-sm tracking-widest uppercase text-foreground mb-4 flex items-center gap-2">
           Share
         </h3>
         <div className="flex items-center gap-3">
@@ -81,7 +81,7 @@ export function ProjectsSidebar() {
       {/* Featured Projects */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-sm font-mono tracking-widest uppercase text-foreground">Featured Projects</h3>
+          <h3 className="text-sm tracking-widest uppercase text-foreground">Featured Projects</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-6">
@@ -99,7 +99,7 @@ export function ProjectsSidebar() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 w-full p-4">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-white/70 mb-1 block">
+                <span className="text-[10px] tracking-widest uppercase text-white/70 mb-1 block">
                   {project.category}
                 </span>
                 <h4 className="text-white font-light text-lg tracking-wide group-hover:text-accent transition-colors">
@@ -114,7 +114,7 @@ export function ProjectsSidebar() {
       {/* Recent Projects */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-sm font-mono tracking-widest uppercase text-foreground">Recent Projects</h3>
+          <h3 className="text-sm tracking-widest uppercase text-foreground">Recent Projects</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">

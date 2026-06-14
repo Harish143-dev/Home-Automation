@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
-import { cn } from '@/lib/utils';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface AwardItem {
   year: string;
@@ -35,132 +35,43 @@ const AWARDS: AwardItem[] = [
   { year: '2026', title: 'Hall of Fame', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
 ];
 
-function AwardRow({
-  award,
-  index,
-  hoveredIndex,
-  setHoveredIndex
-}: {
-  award: AwardItem;
-  index: number;
-  hoveredIndex: number | null;
-  setHoveredIndex: (idx: number | null) => void;
-}) {
-  const rowRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const isAnyHovered = hoveredIndex !== null;
-  const isThisHovered = hoveredIndex === index;
-
-  useGSAP(() => {
-    if (!rowRef.current || !imageRef.current) return;
-
-    const row = rowRef.current;
-    const image = imageRef.current;
-
-    gsap.set(image, { xPercent: -50, yPercent: -50 });
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = row.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      gsap.to(image, {
-        x: x,
-        y: y,
-        duration: 0.6,
-        ease: 'power3.out',
-      });
-    };
-
-    const handleMouseEnter = (e: MouseEvent) => {
-      setHoveredIndex(index);
-
-      const rect = row.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      gsap.set(image, { x, y });
-
-      gsap.to(image, {
-        scale: 1,
-        opacity: 1,
-        duration: 0.5,
-        ease: 'power3.out',
-      });
-    };
-
-    const handleMouseLeave = () => {
-      setHoveredIndex(null);
-      gsap.to(image, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power3.out',
-      });
-    };
-
-    row.addEventListener('mousemove', handleMouseMove);
-    row.addEventListener('mouseenter', handleMouseEnter);
-    row.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      row.removeEventListener('mousemove', handleMouseMove);
-      row.removeEventListener('mouseenter', handleMouseEnter);
-      row.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, [index, setHoveredIndex]);
-
+function AwardCard({ award }: { award: AwardItem }) {
   return (
-    <div
-      ref={rowRef}
-      className={cn(
-        "group award-row relative flex flex-col md:flex-row md:items-center justify-between py-10 border-b border-black/[0.08] cursor-pointer transition-all duration-700 ease-out",
-        isAnyHovered && !isThisHovered ? "opacity-30" : "opacity-100"
-      )}
-      style={{ zIndex: isThisHovered ? 50 : 1 }}
-    >
-      {/* Floating Image */}
-      <div
-        ref={imageRef}
-        className="absolute top-0 left-0 pointer-events-none z-[100] w-[280px] h-[200px] md:w-[400px] md:h-[280px] rounded-2xl overflow-hidden opacity-0 scale-75 shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
-      >
+    <div className="award-card group relative flex-shrink-0 w-[280px] md:w-[320px] lg:w-[380px] flex flex-col gap-6 snap-start">
+      <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-surface-darker">
         <Image
           src={award.image}
           alt={award.title}
           fill
-          sizes="(min-width: 768px) 400px, 280px"
-          className="object-cover"
+          sizes="(max-width: 768px) 280px, 380px"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
+        {/* Subtle overlay */}
+        <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:opacity-0" />
       </div>
 
-      <div className="flex-shrink-0 w-full md:w-[120px] text-sm md:text-base font-medium text-accent/40 mb-4 md:mb-0 transition-colors duration-500 group-hover:text-accent/60">
-        {award.year}
-      </div>
-
-      <div className="flex-1 flex items-center pr-4">
-        <h3 className={cn(
-          "text-xl md:text-2xl lg:text-3xl font-light tracking-wide text-black transition-transform duration-700 ease-out",
-          isThisHovered ? "md:translate-x-8" : ""
-        )}>
+      <div className="flex flex-col gap-3 px-2">
+        <div className="flex items-center justify-between border-b border-black/5 pb-3">
+          <span className="text-sm md:text-base font-medium text-accent">{award.year}</span>
+          <span className="text-xs md:text-sm font-normal text-muted tracking-widest">{award.category}</span>
+        </div>
+        <h3 className="text-lg md:text-xl lg:text-2xl font-light tracking-wide text-foreground leading-snug">
           {award.title}
         </h3>
-      </div>
-
-      <div className="flex-shrink-0 mt-4 md:mt-0 text-xs md:text-sm font-medium text-black/40 uppercase tracking-[0.2em] transition-colors duration-500 group-hover:text-black/60 md:text-right">
-        {award.category}
       </div>
     </div>
   );
 }
 
 export function AwardsSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (!containerRef.current) return;
 
     gsap.fromTo('.awards-header > *',
-      { y: 50, opacity: 0 },
+      { y: 40, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -174,14 +85,14 @@ export function AwardsSection() {
       }
     );
 
-    const rows = gsap.utils.toArray('.award-row', containerRef.current);
-    gsap.fromTo(rows,
-      { y: 40, opacity: 0 },
+    const cards = gsap.utils.toArray('.award-card', containerRef.current);
+    gsap.fromTo(cards,
+      { y: 30, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.15,
+        duration: 0.8,
+        stagger: 0.1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.awards-list',
@@ -191,38 +102,78 @@ export function AwardsSection() {
     );
   }, { scope: containerRef });
 
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.firstElementChild?.clientWidth || 320;
+      carouselRef.current.scrollBy({ left: -(cardWidth + 32), behavior: 'smooth' }); // 32 is roughly gap-8
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.firstElementChild?.clientWidth || 320;
+      carouselRef.current.scrollBy({ left: (cardWidth + 32), behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#fcfcfc] py-24 md:py-40 overflow-hidden"
+      className="relative w-full bg-background overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32"
       id="awards"
     >
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="awards-header flex flex-col md:flex-row md:items-end justify-between mb-20 md:mb-32 gap-8">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-16 lg:px-24">
+        <div className="awards-header flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
           <div>
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[1px] w-8 bg-black/20" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-black/60">Recognition</span>
+              <span className="text-sm md:text-base font-normal tracking-widest text-accent">Recognition</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-black leading-[1.2]">
-              Awards<span className="text-black/30">.</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-foreground leading-[1.2]">
+              Awards<span className="text-foreground/30">.</span>
             </h2>
           </div>
-          <div className="max-w-[300px] text-black/50 text-sm md:text-base leading-relaxed font-medium">
-            A testament to our unwavering commitment to design excellence and innovation over the years.
+          
+          <div className="flex flex-col items-start md:items-end gap-6 md:gap-8">
+            <div className="max-w-[300px] text-muted text-sm md:text-base leading-relaxed font-light md:text-right">
+              A testament to our unwavering commitment to design excellence and innovation over the years.
+            </div>
           </div>
         </div>
 
-        <div className="awards-list w-full flex flex-col border-t border-black/[0.08]">
-          {AWARDS.map((award, index) => (
-            <AwardRow
-              key={index}
-              award={award}
-              index={index}
-              hoveredIndex={hoveredIndex}
-              setHoveredIndex={setHoveredIndex}
-            />
-          ))}
+        {/* Carousel Navigation */}
+        <div className="flex justify-end mb-6">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={scrollLeft}
+              className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-black/5 hover:border-black/20 transition-all duration-300 group"
+              aria-label="Previous awards"
+            >
+              <ArrowLeft className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-black/5 hover:border-black/20 transition-all duration-300 group"
+              aria-label="Next awards"
+            >
+              <ArrowRight className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+            </button>
+          </div>
+        </div>
+
+        {/* Carousel Container */}
+        <div className="awards-list -mx-5 sm:-mx-8 md:-mx-16 lg:-mx-24 px-5 sm:px-8 md:px-16 lg:px-24">
+          <div 
+            ref={carouselRef}
+            className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] pb-12 pt-4"
+          >
+            {AWARDS.map((award, index) => (
+              <AwardCard
+                key={index}
+                award={award}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

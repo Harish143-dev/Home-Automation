@@ -5,6 +5,7 @@ import { ProjectGrid } from "@/components/sections/projects/ProjectGrid";
 import { ProjectsSidebar } from "@/components/sections/projects/ProjectsSidebar";
 import { ConsultationForm } from "@/components/sections/projects/ConsultationForm";
 import { NewsletterSignup } from "@/components/sections/projects/NewsletterSignup";
+import { AwardsSection } from "@/components/sections/home/AwardsSection";
 
 export const metadata: Metadata = {
   title: "Proud Projects | AT Smart Living",
@@ -20,6 +21,8 @@ export default function ProjectsPage() {
         <ProjectGrid />
         <ProjectsSidebar />
       </ProjectsLayout>
+
+      <AwardsSection />
 
       <ConsultationForm />
       <NewsletterSignup />

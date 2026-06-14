@@ -20,61 +20,65 @@ export function CommercialHero() {
     () => {
       if (!containerRef.current || !isReady) return;
 
-      const split = h1Ref.current
-        ? new SplitText(h1Ref.current, { type: "words" })
-        : null;
+      let split: any = null;
 
-      // Set initial states
-      if (split?.words) {
-        gsap.set(split.words, { y: 40, opacity: 0 });
-      } else {
-        gsap.set(h1Ref.current, { y: 30, opacity: 0 });
-      }
+      document.fonts.ready.then(() => {
+        split = h1Ref.current
+          ? new SplitText(h1Ref.current, { type: "words" })
+          : null;
 
-      gsap.set(subRef.current, { y: 20, autoAlpha: 0 });
-      gsap.set(ctaRef.current, { y: 20, autoAlpha: 0 });
-
-      const runEntrance = () => {
-        const entranceTl = gsap.timeline({
-          defaults: { ease: "power3.out" }
-        });
-
-        // Heading words cascade in
+        // Set initial states
         if (split?.words) {
-          entranceTl.to(split.words, {
-            y: 0,
-            opacity: 1,
-            stagger: 0.04,
-            duration: 1.1,
-          }, 0.1);
+          gsap.set(split.words, { y: 40, opacity: 0 });
         } else {
-          entranceTl.to(h1Ref.current, {
-            y: 0,
-            opacity: 1,
-            duration: 1.1,
-          }, 0.1);
+          gsap.set(h1Ref.current, { y: 30, opacity: 0 });
         }
 
-        // Subheading slides up
-        entranceTl.to(subRef.current, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.9,
-        }, 0.3);
+        gsap.set(subRef.current, { y: 20, autoAlpha: 0 });
+        gsap.set(ctaRef.current, { y: 20, autoAlpha: 0 });
 
-        // CTA button slides up
-        entranceTl.to(ctaRef.current, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.9,
-        }, 0.45);
-      };
+        const runEntrance = () => {
+          const entranceTl = gsap.timeline({
+            defaults: { ease: "power3.out" }
+          });
 
-      // Trigger entrance immediately on mount
-      runEntrance();
+          // Heading words cascade in
+          if (split?.words) {
+            entranceTl.to(split.words, {
+              y: 0,
+              opacity: 1,
+              stagger: 0.04,
+              duration: 1.1,
+            }, 0.1);
+          } else {
+            entranceTl.to(h1Ref.current, {
+              y: 0,
+              opacity: 1,
+              duration: 1.1,
+            }, 0.1);
+          }
+
+          // Subheading slides up
+          entranceTl.to(subRef.current, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.9,
+          }, 0.3);
+
+          // CTA button slides up
+          entranceTl.to(ctaRef.current, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.9,
+          }, 0.45);
+        };
+
+        // Trigger entrance immediately on mount
+        runEntrance();
+      });
 
       return () => {
-        split?.revert();
+        if (split) split.revert();
       };
     },
     { scope: containerRef, dependencies: [isReady] }
@@ -84,7 +88,7 @@ export function CommercialHero() {
     <section
       ref={containerRef}
       id="commercial-hero"
-      className={`relative h-screen w-full bg-[#040404] overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`relative h-screen w-full bg-secondary overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Static Background */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
@@ -111,18 +115,17 @@ export function CommercialHero() {
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white text-balance"
           >
-            Intelligent Automation <br className="hidden sm:inline" />
-            for Modern Commercial Spaces
+            The Responsive Workspace.
           </h1>
 
           {/* Understated luxury supporting text */}
           <p
             ref={subRef}
-            className="text-sm sm:text-base md:text-lg lg:text-[21px] font-light leading-relaxed tracking-wide text-white/70 max-w-lg"
+            className="text-sm md:text-base text-white/80 font-light tracking-wide leading-relaxed max-w-md text-balance"
           >
-            Scalable automation systems designed to enhance operational efficiency, security, energy management, and user experience.
+            We engineer adaptive commercial environments where infrastructure responds to human rhythms and environmental signals, adjusting light, sound, and micro climates to unlock focus, rest, and cross organizational connection.
           </p>
 
           {/* CTA Buttons */}
@@ -137,7 +140,7 @@ export function CommercialHero() {
                 shape="full"
                 className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm transition-all duration-500 hover:bg-accent-soft hover:shadow-[0_0_40px_rgba(140,24,23,0.35)]"
               >
-                Schedule a Consultation
+                Schedule an Institutional Consultation
               </Button>
             </Link>
             
@@ -146,9 +149,9 @@ export function CommercialHero() {
                 variant="outline"
                 size="lg"
                 shape="full"
-                className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm bg-transparent border-white text-white hover:bg-white hover:text-foreground transition-all duration-500"
+                className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm bg-transparent border-white text-white hover:bg-white hover:text-black transition-all duration-500"
               >
-                Explore Commercial Projects
+                Explore Commercial Portfolios
               </Button>
             </Link>
           </div>

@@ -36,7 +36,7 @@ export default function BlogDetailHero({ post }: BlogDetailHeroProps) {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full h-[70vh] min-h-[600px] flex flex-col justify-end overflow-hidden bg-black pb-16 md:pb-24 px-6 sm:px-12 md:px-24"
+      className="relative w-full h-[70vh] min-h-[600px] flex flex-col justify-end overflow-hidden bg-secondary pb-16 md:pb-24 px-6 sm:px-12 md:px-24"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 detail-hero-bg will-change-transform">
@@ -55,7 +55,7 @@ export default function BlogDetailHero({ post }: BlogDetailHeroProps) {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col gap-6 text-center items-center">
-        <div className="post-meta-anim flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs font-mono tracking-[0.2em] uppercase text-white/70">
+        <div className="post-meta-anim flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs tracking-[0.2em] uppercase text-white/70">
           <span className="text-accent">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-white/40" />
           <span>{post.date}</span>

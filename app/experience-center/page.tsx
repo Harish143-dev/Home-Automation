@@ -9,6 +9,7 @@ import { ExperienceCentersList } from "../../components/sections/experience-cent
 import { ExperienceAudience } from "../../components/sections/experience-center/ExperienceAudience";
 import { ExperienceGallery } from "../../components/sections/experience-center/ExperienceGallery";
 import { ResidentialCTA } from "../../components/sections/residential/ResidentialCTA";
+import { AwardsSection } from "../../components/sections/home/AwardsSection";
 
 export default function ExperienceCenterPage() {
   return (
@@ -33,6 +34,8 @@ export default function ExperienceCenterPage() {
 
       {/* Why Visit (USP) Section */}
       <ExperienceUSP />
+
+      <AwardsSection />
 
       {/* Client Testimonials */}
       <ExperienceTestimonials />

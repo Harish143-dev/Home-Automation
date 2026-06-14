@@ -140,7 +140,7 @@ export function ResidentialCaseStudies() {
   const activeData = PROJECTS_DATA[activeIndex];
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-white text-black">
+    <section ref={triggerRef} className="relative w-full bg-background text-foreground">
       {/* 
         This is the container that gets pinned.
         It takes exactly 100vh.
@@ -151,7 +151,7 @@ export function ResidentialCaseStudies() {
       >
         {/* LEFT: Navigation Panel (~1/3 width) */}
         <div className="w-full md:w-[50%] lg:w-[45%] xl:w-[40%] h-full bg-background flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24 py-12 md:py-20 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.05)] relative">
-          <span className="font-mono tracking-[0.3em] text-[9px] md:text-[10px] uppercase text-accent mb-3 block">
+          <span className="tracking-widest text-sm md:text-base text-accent mb-3 block">
             See Smart Living in Action
           </span>
           <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug text-foreground mb-3">
@@ -175,7 +175,7 @@ export function ResidentialCaseStudies() {
                     onClick={() => handleNavClick(idx)}
                     className="group flex items-baseline gap-4 text-left"
                   >
-                    <span className={`font-mono tracking-[0.3em] text-[10px] uppercase transition-colors duration-300 ${isActive ? 'text-foreground' : 'text-muted group-hover:text-foreground/50'}`}>
+                    <span className={`tracking-widest text-sm transition-colors duration-300 ${isActive ? 'text-foreground' : 'text-muted group-hover:text-foreground/50'}`}>
                       {project.number}
                     </span>
                     <span className={`text-sm lg:text-base font-light tracking-wide transition-colors duration-300 ${isActive ? 'text-foreground font-medium' : 'text-muted group-hover:text-foreground/50'}`}>
@@ -188,7 +188,7 @@ export function ResidentialCaseStudies() {
           </ul>
 
           <div className="mt-8 md:mt-10 pt-6 border-t border-border">
-            <span className="text-[9px] font-mono uppercase tracking-widest text-muted mb-2 block">The Registry Includes</span>
+            <span className="text-sm md:text-base tracking-widest text-muted mb-2 block">The Registry Includes</span>
             <p className="text-[10px] lg:text-xs font-light text-foreground/60 leading-[1.8]">
               Hrithik Roshan — Ranbir & Alia — K.M. Birla — Laxmi Mittal — Pirojsha Godrej — Aman Gupta — Abhay Soi — Boman Irani — K.P. Singh — Ujjwal Munjal
             </p>
@@ -196,7 +196,7 @@ export function ResidentialCaseStudies() {
         </div>
 
         {/* RIGHT: Full-Bleed Image Panel (~2/3 width) */}
-        <div className="w-full md:w-[50%] lg:w-[55%] xl:w-[60%] h-full relative bg-black overflow-hidden">
+        <div className="w-full md:w-[50%] lg:w-[55%] xl:w-[60%] h-full relative bg-secondary overflow-hidden">
           {/* Background Images with Crossfade and Zoom */}
           {activeData.images.map((imgUrl, idx) => {
             const isActiveImage = imageIndex === idx;
@@ -227,7 +227,7 @@ export function ResidentialCaseStudies() {
           >
             {/* Left side of overlay: Title and Desc */}
             <div className="max-w-lg text-white">
-              <span className="font-mono tracking-[0.3em] uppercase text-white/50 mb-2 block text-[9px] md:text-[10px]">
+              <span className="tracking-widest text-sm md:text-base text-white/50 mb-2 block">
                 Residential
               </span>
               <h3 className="text-lg lg:text-2xl font-light tracking-wide mb-3 leading-snug">
@@ -254,10 +254,10 @@ export function ResidentialCaseStudies() {
       {/* Mobile Stacked Layout */}
       <div className="md:hidden flex flex-col w-full bg-background py-16 px-6 gap-12">
         <div className="flex flex-col mb-2">
-          <span className="font-mono tracking-[0.3em] text-[9px] uppercase text-accent mb-3 block">
+          <span className="tracking-widest text-sm md:text-base text-accent mb-3 block">
             See Smart Living in Action
           </span>
-          <h2 className="text-xl font-light tracking-wide leading-snug text-foreground mb-3">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug text-foreground mb-3">
             Proven in India’s Most Exclusive Residences.
           </h2>
           <p className="text-xs font-light text-foreground/70 leading-[1.8]">
@@ -267,7 +267,7 @@ export function ResidentialCaseStudies() {
 
         {PROJECTS_DATA.map((project, pIdx) => (
           <div key={project.id} className="flex flex-col gap-4">
-            <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden mb-2 bg-black">
+            <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden mb-2 bg-secondary">
               {project.images.map((imgUrl, iIdx) => {
                 const isActiveImage = imageIndex === iIdx;
                 return (
@@ -288,7 +288,7 @@ export function ResidentialCaseStudies() {
             </div>
 
             <div>
-              <span className="font-mono tracking-[0.3em] text-[10px] uppercase text-accent mb-2 block">
+              <span className="tracking-widest text-sm md:text-base text-accent mb-2 block">
                 {project.number}
               </span>
               <h3 className="text-lg font-light tracking-wide text-foreground mb-2 leading-snug">
@@ -313,7 +313,7 @@ export function ResidentialCaseStudies() {
 
         {/* Mobile Registry Footer */}
         <div className="mt-6 pt-6 border-t border-border">
-          <span className="text-[9px] font-mono uppercase tracking-widest text-muted mb-2 block">The Registry Includes</span>
+          <span className="tracking-widest text-sm md:text-base text-muted mb-2 block">The Registry Includes</span>
           <p className="text-[10px] font-light text-foreground/60 leading-[1.8]">
             Hrithik Roshan — Ranbir & Alia — K.M. Birla — Laxmi Mittal — Pirojsha Godrej — Aman Gupta — Abhay Soi — Boman Irani — K.P. Singh — Ujjwal Munjal
           </p>

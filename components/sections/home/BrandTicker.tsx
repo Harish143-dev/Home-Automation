@@ -82,7 +82,7 @@ export function BrandTicker({ brands = DEFAULT_BRANDS }: BrandTickerProps = {}) 
     tlRef.current.to(trackRef.current, {
       xPercent: -50,
       ease: 'none',
-      duration: 150, // Increased duration to slow down the animation due to more brands
+      duration: 200, // Medium duration (slightly faster than 250)
     });
 
     // 3. Scroll Velocity Boost — scoped to section viewport (audit M4)
@@ -132,13 +132,13 @@ export function BrandTicker({ brands = DEFAULT_BRANDS }: BrandTickerProps = {}) 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-y border-white/10 bg-black py-16 sm:py-20 md:py-24 text-white lg:py-32"
+      className="relative w-full overflow-hidden border-y border-white/10 bg-secondary py-10 sm:py-12 md:py-16 lg:py-20 text-white px-5 sm:px-8 md:px-16 lg:px-24"
     >
       {/* Advanced Layout: Custom Edge Masks for smooth fade & blur effect while maintaining center focus visibility. */}
       {/* Left Mask */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-24 bg-black/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_right,black_20%,transparent_100%)] md:w-48 lg:w-64" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-24 bg-secondary/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_right,black_20%,transparent_100%)] md:w-48 lg:w-64" />
       {/* Right Mask */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24 bg-black/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_left,black_20%,transparent_100%)] md:w-48 lg:w-64" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24 bg-secondary/80 backdrop-blur-[4px] [mask-image:linear-gradient(to_left,black_20%,transparent_100%)] md:w-48 lg:w-64" />
 
       {/* Interactive Main Ticker Row */}
       <div
@@ -150,7 +150,7 @@ export function BrandTicker({ brands = DEFAULT_BRANDS }: BrandTickerProps = {}) 
         {LOOPED_BRANDS.map((brand, i) => (
           <div
             key={i}
-            className="brand-item flex-shrink-0 px-6 sm:px-10 md:px-16 lg:px-24 flex items-center justify-center cursor-default opacity-55 transition-all duration-500 ease-out group-hover/ticker:opacity-25 hover:!opacity-100 hover:scale-105"
+            className="brand-item flex-shrink-0 px-6 sm:px-10 md:px-16 lg:px-24 flex items-center justify-center cursor-default opacity-55 transition-opacity duration-500 ease-out group-hover/ticker:opacity-25 hover:!opacity-100"
           >
             {brand.src ? (
               <img

@@ -12,6 +12,7 @@ import {
   Star,
   Layers
 } from 'lucide-react';
+import { Button } from '../../ui/button';
 
 const usps = [
   {
@@ -76,7 +77,7 @@ export function WhyChooseUsSection() {
   const [activePanel, setActivePanel] = useState<number>(0);
 
   return (
-    <section className="relative z-10 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 overflow-hidden bg-background text-foreground">
+    <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background text-foreground">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-10 sm:mb-14 md:mb-16 lg:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
@@ -84,7 +85,7 @@ export function WhyChooseUsSection() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] mb-3 sm:mb-4 md:mb-6 text-foreground">
               WHAT SETS US APART?
             </h2>
-            <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-tight">
+            <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-wide">
               Our commitment to excellence ensures unmatched quality and innovation in every project.
             </p>
           </div>
@@ -149,7 +150,7 @@ export function WhyChooseUsSection() {
                       <Icon size={20} className="text-foreground sm:hidden" strokeWidth={1.5} />
                       <Icon size={24} className="text-foreground hidden sm:block" strokeWidth={1.5} />
                     </div>
-                    <div className="ml-3 sm:ml-5 font-semibold text-[15px] sm:text-[17px] text-foreground tracking-tight">
+                    <div className="ml-3 sm:ml-5 font-medium text-[15px] sm:text-[17px] text-foreground tracking-wide">
                       {usp.title}
                     </div>
                   </div>
@@ -191,21 +192,21 @@ export function WhyChooseUsSection() {
                       {usp.title}
                     </h3>
                     <p className={`
-                      text-muted text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] mb-6 sm:mb-8 md:mb-10 leading-relaxed font-medium tracking-tight
+                      text-muted text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] mb-6 sm:mb-8 md:mb-10 leading-relaxed font-medium tracking-wide
                       transition-all duration-500 transform
                       ${isActive ? 'translate-y-0 opacity-100 delay-200' : 'translate-y-8 opacity-0'}
                     `}>
                       {usp.description}
                     </p>
 
-                    <button className={`
-                      flex items-center gap-2 text-[15px] font-semibold text-white
-                      bg-accent hover:bg-accent-soft shadow-sm px-5 sm:px-6 py-3 sm:py-3.5 rounded-full
-                      transition-all duration-500 transform text-[13px] sm:text-[15px]
-                      ${isActive ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-8 opacity-0'}
-                    `}>
+                    <Button 
+                      variant="accent" 
+                      size="lg" 
+                      shape="full" 
+                      className={`transition-all duration-500 transform ${isActive ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-8 opacity-0'}`}
+                    >
                       Learn More
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>

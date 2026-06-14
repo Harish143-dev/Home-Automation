@@ -393,7 +393,7 @@ export function HeroSection() {
             borderBottomLeftRadius: "15vw",
             borderBottomRightRadius: "15vw",
             ease: "power2.inOut",
-            duration: 0.2,
+            duration: 0.12,
           },
           0.74,
         );
@@ -405,9 +405,9 @@ export function HeroSection() {
             opacity: 1,
             y: 0,
             ease: "power2.out",
-            duration: 0.15,
+            duration: 0.10,
           },
-          0.80,
+          0.78,
         );
 
         // 7. Video container collapses fully upward and disappears
@@ -416,9 +416,9 @@ export function HeroSection() {
           {
             height: "0%",
             ease: "power2.inOut",
-            duration: 0.2,
+            duration: 0.10,
           },
-          0.92,
+          0.84,
         );
 
         // 8. Transition section background from accent to theme background color
@@ -427,9 +427,9 @@ export function HeroSection() {
           {
             backgroundColor: "var(--color-background)",
             ease: "power2.inOut",
-            duration: 0.2,
+            duration: 0.12,
           },
-          1.04,
+          0.90,
         );
 
         // Fade out the accent (crimson) reveal background layer
@@ -438,9 +438,9 @@ export function HeroSection() {
           {
             backgroundColor: "transparent",
             ease: "power2.inOut",
-            duration: 0.2,
+            duration: 0.12,
           },
-          1.04,
+          0.90,
         );
 
         // Move reveal text upward and change color to theme foreground (near-black)
@@ -450,9 +450,9 @@ export function HeroSection() {
             color: "var(--color-foreground)",
             y: "-30vh",
             ease: "power2.inOut",
-            duration: 0.2,
+            duration: 0.12,
           },
-          1.04,
+          0.90,
         );
 
         // 9. Fade out the reveal text at the very end of the scroll sequence
@@ -462,9 +462,9 @@ export function HeroSection() {
             opacity: 0,
             y: "-40vh",
             ease: "power2.in",
-            duration: 0.1,
+            duration: 0.06,
           },
-          1.20,
+          0.98,
         );
 
         scheduleScrollRefresh();

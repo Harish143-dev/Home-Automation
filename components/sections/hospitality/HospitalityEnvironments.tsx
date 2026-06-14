@@ -107,7 +107,7 @@ export function HospitalityEnvironments() {
           {ENVIRONMENTS.map((env, idx) => (
             <div
               key={idx}
-              className="env-card group relative h-[220px] sm:h-[260px] rounded-2xl overflow-hidden bg-black"
+              className="env-card group relative h-[220px] sm:h-[260px] rounded-2xl overflow-hidden bg-secondary"
             >
               {/* Background Image */}
               <div className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-105">

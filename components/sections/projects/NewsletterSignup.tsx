@@ -21,7 +21,7 @@ export function NewsletterSignup() {
         
         <div className="flex items-center gap-4 overflow-hidden mb-6">
           <div className="h-[1px] w-8 sm:w-12 bg-border" />
-          <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-muted-foreground">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground">
             Newsletter
           </span>
           <div className="h-[1px] w-8 sm:w-12 bg-border" />

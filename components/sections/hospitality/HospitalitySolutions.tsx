@@ -173,7 +173,7 @@ export function HospitalitySolutions() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     {/* List 1 */}
                     <div className="flex flex-col gap-3">
-                      <h4 className="font-mono tracking-[0.3em] uppercase text-foreground text-sm">
+                      <h4 className="tracking-[0.3em] uppercase text-foreground text-sm">
                         {solution.list1Title}
                       </h4>
                       <ul className="flex flex-col gap-2">
@@ -188,7 +188,7 @@ export function HospitalitySolutions() {
 
                     {/* List 2 */}
                     <div className="flex flex-col gap-3">
-                      <h4 className="font-mono tracking-[0.3em] uppercase text-foreground text-sm">
+                      <h4 className="tracking-[0.3em] uppercase text-foreground text-sm">
                         {solution.list2Title}
                       </h4>
                       <ul className="flex flex-col gap-2">

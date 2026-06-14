@@ -1,144 +1,179 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { Zap, ShieldCheck, Settings, TrendingUp } from "lucide-react";
+import React, { useRef } from "react";
 import { gsap, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
-const BENEFITS_DATA = [
+const STRATEGIC_BENEFITS = [
   {
-    title: "Energy Optimization",
-    description: "Reduce operational costs through intelligent energy management.",
-    icon: Zap,
+    num: "01",
+    title: "Cognitive Optimization & Human Yield",
+    significance: "Tenant wellbeing directly dictates organizational output and retention.",
+    specifics: [
+      {
+        label: "Circadian Stabilization",
+        text: "Automatically shifts spectral intensity to combat employee visual fatigue during indoor-bound shifts."
+      },
+      {
+        label: "Stamina Protection",
+        text: "Proactively tracks space density to optimize fresh air filtration, proven to enhance analytical clarity and reduce stress levels."
+      }
+    ]
   },
   {
-    title: "Enhanced Security",
-    description: "Centralized surveillance and access management.",
-    icon: ShieldCheck,
+    num: "02",
+    title: "Macro-Level Resource Resilience",
+    significance: "Insulates capital assets from rising utility instability and seasonal climate extremes.",
+    specifics: [
+      {
+        label: "Automated Drift Setbacks",
+        text: "Executes precision occupancy-based setbacks to slash standby electricity waste by up to 25%."
+      },
+      {
+        label: "Thermal Shielding",
+        text: "Deploys solar-adaptive shading preventatively, lowering peak cooling loads and protecting primary chiller lifecycles."
+      }
+    ]
   },
   {
-    title: "Operational Efficiency",
-    description: "Simplify building management with automation workflows.",
-    icon: Settings,
+    num: "03",
+    title: "Maximized Spatial Agility",
+    significance: "Eliminates the extreme financial waste of fixed, unyielding, and underutilized floorplates.",
+    specifics: [
+      {
+        label: "Telemetry-Driven Loading",
+        text: "Harnesses non-intrusive sensor matrices to scale environmental loads in real time based on fluctuating headcounts."
+      },
+      {
+        label: "Instant Kinematic Adaptation",
+        text: "Reconfigures lighting logic, acoustics, and displays automatically the moment divisible partition walls are moved."
+      }
+    ]
   },
   {
-    title: "Scalability",
-    description: "Infrastructure built to grow with your business.",
-    icon: TrendingUp,
+    num: "04",
+    title: "Enterprise Governance & Asset Continuity",
+    significance: "Satisfies strict global ESG mandates and modern data confidentiality thresholds.",
+    specifics: [
+      {
+        label: "Access Governance",
+        text: "Unifies biometric perimeters and role-based tracking to secure intellectual property without disrupting occupant flow."
+      },
+      {
+        label: "Edge Processing Security",
+        text: "Relies on robust, decentralized network processors that keep core systems fully operational during external network downtime."
+      }
+    ]
   }
 ];
 
 export function CommercialBenefits() {
   const containerRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  const [hoveredIndex, setHoveredIndex] = useState<number>(0);
 
   useGSAP(() => {
     if (prefersReducedMotion || !containerRef.current) return;
 
-    // Animate Heading
-    gsap.fromTo(".benefit-heading",
-      { y: 30, opacity: 0 },
+    // Fade in the sticky left panel
+    gsap.fromTo(".benefit-sticky-panel",
+      { opacity: 0, x: -30 },
       {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power4.out",
+        opacity: 1, x: 0, duration: 1.2, ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 85%",
+          start: "top 70%",
         }
       }
     );
 
-    // Animate Cards Container
-    gsap.fromTo(".benefit-card-container",
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
+    // Fade up each scrolling chapter on the right
+    const chapters = gsap.utils.toArray(".benefit-chapter") as HTMLElement[];
+    chapters.forEach((chapter) => {
+      gsap.fromTo(chapter,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1, y: 0, duration: 1, ease: "power3.out",
+          scrollTrigger: {
+            trigger: chapter,
+            start: "top 85%",
+          }
         }
-      }
-    );
+      );
+    });
 
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section 
-      ref={containerRef}
-      className="relative w-full bg-background py-24 sm:py-32 px-6 sm:px-12 md:px-20 lg:px-32"
-    >
-      <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-16 md:gap-20">
-        
-        {/* Header - Apple Style (Centered, smaller, highly refined) */}
-        <div className="flex flex-col items-center text-center max-w-2xl benefit-heading">
-          <span className="font-mono tracking-[0.3em] uppercase text-muted mb-4">
-            The Advantage
+    <section ref={containerRef} className="relative bg-background text-foreground py-24 sm:py-32 lg:py-48">
+
+      {/* Background Noise Texture for premium feel */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none">
+        <filter id="noiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+      </svg>
+
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col lg:flex-row gap-16 lg:gap-32 relative z-10">
+
+        {/* Sticky Left Column (Narrative) */}
+        <div className="w-full lg:w-[45%] lg:sticky lg:top-24 h-fit benefit-sticky-panel">
+          <span className="text-accent tracking-widest uppercase text-sm mb-6 block font-medium">
+            Why Commercial Automation Matters
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
-            Why Commercial Automation Matters.
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] mb-8 text-balance">
+            The Strategic Significance of Adaptive Infrastructure
           </h2>
+          <p className="text-foreground/70 text-lg md:text-xl leading-relaxed font-light">
+            Static buildings are financial liabilities. Automation is an investment evaluated on institutional metrics: human yield, environmental resilience, and asset future proofing. By aligning your infrastructure with real time operational signals, we unlock hidden margins across infrastructure.
+          </p>
         </div>
 
-        {/* Expanding Accordion Grid */}
-        <div className="benefit-card-container flex flex-col lg:flex-row w-full h-[600px] lg:h-[450px] gap-3 lg:gap-4">
-          {BENEFITS_DATA.map((benefit, index) => {
-            const Icon = benefit.icon;
-            const isHovered = hoveredIndex === index;
-            
-            return (
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredIndex(index)}
-                className={`group relative overflow-hidden rounded-[2rem] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer flex flex-col justify-end p-6 md:p-8 border ${
-                  isHovered 
-                    ? "lg:flex-[2.5] bg-[#050505] border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)]" 
-                    : "lg:flex-1 bg-panel border-black/[0.04] shadow-sm hover:shadow-md hover:bg-surface-darker"
-                } flex-1`}
-              >
-                {/* Content Overlay */}
-                <div className="relative z-10 flex flex-col">
-                  
-                  {/* Icon */}
-                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-6 md:mb-8 transition-all duration-700 ${
-                    isHovered 
-                      ? 'bg-accent text-white shadow-[0_0_20px_rgba(140,24,23,0.3)] scale-110' 
-                      : 'bg-[#f5f5f7] text-muted group-hover:text-foreground group-hover:scale-105'
-                  }`}>
-                    <Icon strokeWidth={1.5} className="w-5 h-5 md:w-6 md:h-6" />
-                  </div>
-                  
-                  {/* Title */}
-                  <h3 className={`text-2xl md:text-3xl font-light tracking-wide leading-[1.2] mb-2 transition-colors duration-700 whitespace-nowrap lg:whitespace-normal ${
-                    isHovered ? 'text-white' : 'text-foreground'
-                  }`}>
-                    {benefit.title}
-                  </h3>
-                  
-                  {/* Expandable Details (Smooth height animation using CSS Grid) */}
-                  <div 
-                    className={`grid transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                      isHovered ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                    }`}
-                  >
-                    <div className="overflow-hidden">
-                      <p className={`text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] leading-relaxed font-light tracking-wide max-w-sm pt-2 transition-colors duration-700 ${
-                        isHovered ? 'text-white/70' : 'text-muted'
-                      }`}>
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
+        {/* Scrolling Right Column (Chapters) */}
+        <div className="w-full lg:w-[55%] flex flex-col gap-24 md:gap-32 lg:pt-12">
+          {STRATEGIC_BENEFITS.map((item, i) => (
+            <div key={i} className="flex flex-col benefit-chapter relative">
 
+              {/* Massive faded number */}
+              <span className="absolute -top-12 -left-6 md:-left-12 text-7xl md:text-9xl font-light text-foreground/[0.03] select-none pointer-events-none">
+                {item.num}
+              </span>
+
+              <h3 className="text-2xl md:text-3xl font-light leading-tight mb-8 relative z-10">
+                {item.title}
+              </h3>
+
+              {/* "The Significance" Box */}
+              <div className="mb-10 p-6 md:p-8 bg-white border border-border shadow-sm rounded-2xl relative z-10">
+                <span className="block text-accent uppercase tracking-widest text-xs mb-3 font-medium">
+                  The Significance
+                </span>
+                <p className="text-foreground text-lg md:text-xl font-light leading-relaxed">
+                  {item.significance}
+                </p>
+              </div>
+
+              {/* "The Specifics" List */}
+              <div className="space-y-8 relative z-10">
+                <span className="block text-foreground/40 uppercase tracking-widest text-xs font-medium">
+                  The Specifics
+                </span>
+                <div className="space-y-6 border-l border-border pl-6 md:pl-8">
+                  {item.specifics.map((spec, j) => (
+                    <div key={j} className="flex flex-col gap-2">
+                      <strong className="font-medium text-foreground text-lg tracking-wide">
+                        {spec.label}
+                      </strong>
+                      <span className="text-muted text-sm md:text-base font-light leading-relaxed">
+                        {spec.text}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            );
-          })}
+
+            </div>
+          ))}
         </div>
 
       </div>

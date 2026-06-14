@@ -7,16 +7,15 @@
 @theme {
   --font-sans: "Lato";
   --font-display: "Playfair Display";
-  --font-mono: "JetBrains Mono";
 
-  /* Primary — Light Luxury Corporate */
-  --color-background: #F7F7F5;
-  --color-foreground: #111111;
+  /* Primary — Organic Editorial Theme */
+  --color-background: #F1EBD9;
+  --color-foreground: #0a0a0a;
   --color-panel: #FFFFFF;
-  --color-muted: #555555;
+  --color-muted: #5F6856;
   --color-accent: #8c1817;
-  --color-accent-soft: #D32F2F;
-  --color-secondary: #2a3724;
+  --color-accent-soft: #E56B55;
+  --color-secondary: #3B4434;
 
   /* Secondary — Surfaces */
   --color-surface-dark: #FFFFFF;
@@ -254,18 +253,18 @@ h6 {
 }
 
 :root {
-  --background: #F7F7F5;
-  --foreground: #111111;
+  --background: #F1EBD9;
+  --foreground: #0a0a0a;
   --card: #FFFFFF;
-  --card-foreground: #111111;
+  --card-foreground: #0a0a0a;
   --popover: #FFFFFF;
-  --popover-foreground: #111111;
-  --primary: #111111;
-  --primary-foreground: #F7F7F5;
-  --secondary: #2a3724;
-  --secondary-foreground: #F7F7F5;
-  --muted: #555555;
-  --muted-foreground: #777777;
+  --popover-foreground: #2A3222;
+  --primary: #2A3222;
+  --primary-foreground: #F1EBD9;
+  --secondary: #3B4434;
+  --secondary-foreground: #F1EBD9;
+  --muted: #5F6856;
+  --muted-foreground: #77816D;
   --accent: #8c1817;
   --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);

@@ -184,9 +184,9 @@ export function ResidentialServices() {
           {/* LEFT: Navigation List */}
           <div className="w-full h-full flex flex-col justify-center md:items-end min-w-0">
             <div className="flex flex-col items-start w-full md:w-fit">
-              <h2 className="font-mono text-xs tracking-[0.3em] uppercase text-muted mb-8 md:mb-12">
+              <span className="block tracking-widest text-sm md:text-base text-muted mb-8 md:mb-12">
                 Our Solutions
-              </h2>
+              </span>
               <ul className="flex flex-row md:flex-col gap-5 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full">
                 {SERVICES_DATA.map((service, idx) => {
                   const isActive = activeIndex === idx;
@@ -225,7 +225,7 @@ export function ResidentialServices() {
           {/* RIGHT: Content Details */}
           <div className="w-full h-full flex flex-col justify-center md:items-start min-w-0">
             <div className="flex flex-col items-start w-full md:max-w-[320px] lg:max-w-[400px]">
-              <h3 className="text-2xl lg:text-3xl font-light tracking-wide mb-8 text-foreground">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug mb-8 text-foreground">
                 {activeData.title}
               </h3>
 

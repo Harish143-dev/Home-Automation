@@ -9,6 +9,7 @@ import { HospitalitySolutions } from "../../components/sections/hospitality/Hosp
 import { HospitalityBenefits } from "../../components/sections/hospitality/HospitalityBenefits";
 import { HospitalityEcosystem } from "../../components/sections/hospitality/HospitalityEcosystem";
 import { HospitalityTestimonials } from "../../components/sections/hospitality/HospitalityTestimonials";
+import { AwardsSection } from "../../components/sections/home/AwardsSection";
 import { HospitalityCTA } from "../../components/sections/hospitality/HospitalityCTA";
 
 export default function HospitalityPage() {
@@ -21,6 +22,7 @@ export default function HospitalityPage() {
       <HospitalitySolutions />
       <HospitalityBenefits />
       <HospitalityEcosystem />
+      <AwardsSection />
       <HospitalityTestimonials />
       <HospitalityCTA />
     </main>

@@ -98,7 +98,7 @@ export function ExperienceCentersList() {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full bg-[#040404]"
+      className="relative w-full bg-secondary"
       style={{ height: prefersReducedMotion ? 'auto' : '300vh' }}
     >
       <div 
@@ -130,7 +130,7 @@ export function ExperienceCentersList() {
               
               <div className="flex items-center gap-4 mb-6 md:mb-8">
                 <div className="h-[1px] w-8 bg-white/30" />
-                <span className="text-[10px] sm:text-xs font-mono tracking-[0.3em] uppercase text-white/60">
+                <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/60">
                   Visit Our Experience Centres
                 </span>
               </div>
