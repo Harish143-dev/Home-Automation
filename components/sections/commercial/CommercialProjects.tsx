@@ -19,7 +19,7 @@ const CASE_STUDIES = [
   },
   {
     id: 2,
-    title: "Meta Office Gurgaon",
+    title: "Meta",
     asset: "Meta’s Corporate Office",
     image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200&auto=format&fit=crop",
     strain: "xx [CLIENT PLACEHOLDER]",
@@ -29,7 +29,7 @@ const CASE_STUDIES = [
   },
   {
     id: 3,
-    title: "Tiffany & Co. Mumbai",
+    title: "Tiffany & Co.",
     asset: "Retail Space",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
     strain: "N/A",
@@ -131,9 +131,9 @@ export function CommercialProjects() {
   return (
     <section ref={containerRef} className="py-24 sm:py-32 lg:py-40 bg-background text-foreground w-full overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 case-header">
-        
+
         <div className="max-w-2xl">
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block uppercase font-medium">
+          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block font-medium">
             The Proof Matrix
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
@@ -146,14 +146,14 @@ export function CommercialProjects() {
 
         {/* Carousel Controls */}
         <div className="flex gap-4">
-          <button 
+          <button
             onClick={() => scroll("left")}
             className="w-14 h-14 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
             aria-label="Previous project"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           </button>
-          <button 
+          <button
             onClick={() => scroll("right")}
             className="w-14 h-14 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
             aria-label="Next project"
@@ -165,21 +165,21 @@ export function CommercialProjects() {
       </div>
 
       {/* Horizontal Scrolling Deck */}
-      <div 
+      <div
         ref={carouselRef}
         className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-12 pt-4 px-6 sm:px-12 md:px-20 lg:px-24 hide-scrollbar"
       >
         {CASE_STUDIES.map((study) => (
-          <div 
-            key={study.id} 
+          <div
+            key={study.id}
             className="case-card flex-shrink-0 w-full md:w-[85vw] lg:w-[900px] snap-center bg-white rounded-[24px] overflow-hidden border border-border flex flex-col lg:flex-row shadow-xl"
           >
             {/* Image Side */}
             <div className="w-full lg:w-[40%] h-[250px] lg:h-auto relative">
-              <NextImage 
-                src={study.image} 
-                alt={study.title} 
-                fill 
+              <NextImage
+                src={study.image}
+                alt={study.title}
+                fill
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 to-transparent" />
@@ -187,7 +187,7 @@ export function CommercialProjects() {
 
             {/* Data Side */}
             <div className="w-full lg:w-[60%] p-6 lg:p-8 flex flex-col justify-center">
-              <span className="text-accent tracking-widest text-[10px] uppercase mb-2 font-medium">
+              <span className="text-accent tracking-widest text-xs md:text-sm mb-2 font-medium">
                 {study.asset}
               </span>
               <h3 className="text-2xl md:text-3xl font-light mb-6 text-foreground">
@@ -197,28 +197,28 @@ export function CommercialProjects() {
               <div className="space-y-5">
                 {study.strain !== "N/A" && (
                   <div>
-                    <h4 className="text-xs tracking-widest uppercase text-foreground/50 mb-1 font-medium">The Structural Strain</h4>
+                    <h4 className="text-xs tracking-widest text-foreground/50 mb-1 font-medium">The Structural Strain</h4>
                     <p className="text-foreground/80 font-light text-sm leading-relaxed">{study.strain}</p>
                   </div>
                 )}
-                
+
                 {study.yield !== "N/A" && (
                   <div>
-                    <h4 className="text-xs tracking-widest uppercase text-foreground/50 mb-1 font-medium">The Strategic Yield</h4>
+                    <h4 className="text-xs tracking-widest text-foreground/50 mb-1 font-medium">The Strategic Yield</h4>
                     <p className="text-foreground/80 font-light text-sm leading-relaxed">{study.yield}</p>
                   </div>
                 )}
-                
+
                 {study.roi !== "N/A" && (
                   <div>
-                    <h4 className="text-xs tracking-widest uppercase text-accent mb-1 font-medium">The ROI Signal</h4>
+                    <h4 className="text-xs tracking-widest text-accent mb-1 font-medium">The ROI Signal</h4>
                     <p className="text-foreground/90 font-light text-sm leading-relaxed border-l-2 border-accent pl-3">{study.roi}</p>
                   </div>
                 )}
 
                 {study.similar.length > 0 && (
                   <div className="pt-6 border-t border-border">
-                    <h4 className="text-xs tracking-widest uppercase text-foreground/40 mb-3 font-medium">Similar Deployments</h4>
+                    <h4 className="text-xs tracking-widest text-foreground/40 mb-3 font-medium">Similar Deployments</h4>
                     <div className="flex flex-wrap gap-2">
                       {study.similar.map((sim, idx) => (
                         <span key={idx} className="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs text-foreground/70">
@@ -235,7 +235,8 @@ export function CommercialProjects() {
         ))}
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }

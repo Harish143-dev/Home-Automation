@@ -118,7 +118,7 @@ export function CommercialBenefits() {
 
         {/* Sticky Left Column (Narrative) */}
         <div className="w-full lg:w-[45%] lg:sticky lg:top-24 h-fit benefit-sticky-panel">
-          <span className="text-accent tracking-widest uppercase text-sm mb-6 block font-medium">
+          <span className="text-accent tracking-widest text-sm mb-6 block font-medium">
             Why Commercial Automation Matters
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] mb-8 text-balance">
@@ -145,7 +145,7 @@ export function CommercialBenefits() {
 
               {/* "The Significance" Box */}
               <div className="mb-10 p-6 md:p-8 bg-white border border-border shadow-sm rounded-2xl relative z-10">
-                <span className="block text-accent uppercase tracking-widest text-xs mb-3 font-medium">
+                <span className="block text-accent tracking-widest text-xs mb-3 font-medium">
                   The Significance
                 </span>
                 <p className="text-foreground text-lg md:text-xl font-light leading-relaxed">
@@ -155,7 +155,7 @@ export function CommercialBenefits() {
 
               {/* "The Specifics" List */}
               <div className="space-y-8 relative z-10">
-                <span className="block text-foreground/40 uppercase tracking-widest text-xs font-medium">
+                <span className="block text-foreground/40 tracking-widest text-xs font-medium">
                   The Specifics
                 </span>
                 <div className="space-y-6 border-l border-border pl-6 md:pl-8">

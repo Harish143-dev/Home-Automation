@@ -85,7 +85,7 @@ export function CommercialCoreCapabilities() {
         
         {/* Header & Tabs */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block uppercase font-medium">
+          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block font-medium">
             System Capabilities
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-12 text-balance">

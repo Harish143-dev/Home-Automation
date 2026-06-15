@@ -149,7 +149,7 @@ export function HospitalityBenefits() {
                   </div>
 
                   {/* Bottom section: Expanded Content */}
-                  <div className="card-content absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end gap-3 pointer-events-none opacity-0 translate-y-5 bg-gradient-to-t from-background via-background/80 to-transparent pt-20">
+                  <div className="card-content absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end gap-3 pointer-events-none opacity-0 translate-y-5 pt-20">
                     <h3 className="text-2xl lg:text-3xl font-light tracking-wide text-foreground whitespace-nowrap">
                       {benefit.title}
                     </h3>

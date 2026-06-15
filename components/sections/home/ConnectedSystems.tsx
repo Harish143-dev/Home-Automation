@@ -227,7 +227,7 @@ function ServicePanelCard({
             {service.description}
           </p>
 
-          <p className="cs-stagger-el mt-3 text-xs sm:text-sm md:text-base leading-[1.6] text-muted/75 mb-6 sm:mb-8 md:mb-12 max-w-[95%] sm:max-w-[88%]">
+          <p className="cs-stagger-el mt-5 text-xs sm:text-sm md:text-base leading-[1.6] text-foreground/90 bg-foreground/5 p-4 sm:p-5 rounded-xl border border-foreground/10 mb-6 sm:mb-8 md:mb-12 max-w-[95%] sm:max-w-[88%] backdrop-blur-sm">
             {service.secondaryDescription}
           </p>
 

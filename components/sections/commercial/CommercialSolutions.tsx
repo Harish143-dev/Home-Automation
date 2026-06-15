@@ -194,7 +194,7 @@ export function CommercialSolutions() {
           <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
             Architecture & Infrastructure
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.1] text-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
             Commercial Automation Solutions
           </h2>
         </div>
@@ -215,10 +215,10 @@ export function CommercialSolutions() {
                 
                 {/* Text & Accordion Content */}
                 <div className="w-full lg:w-[45%] flex flex-col">
-                  <span className="text-accent uppercase tracking-widest text-sm mb-4 block font-medium">
+                  <span className="text-accent tracking-widest text-sm mb-4 block font-medium">
                     {system.topHeading}
                   </span>
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-light leading-[1.1] mb-12">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-light leading-[1.2] mb-8 md:mb-10 text-balance">
                     {system.title}
                   </h3>
 
@@ -251,7 +251,7 @@ export function CommercialSolutions() {
 
                   {/* CTA Button */}
                   <button className="mt-12 px-8 py-4 border border-border rounded-full w-fit hover:border-accent hover:text-accent transition-all duration-300 flex items-center gap-3 group">
-                    <span className="text-sm tracking-widest uppercase">{system.ctaText}</span>
+                    <span className="text-sm tracking-widest">{system.ctaText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

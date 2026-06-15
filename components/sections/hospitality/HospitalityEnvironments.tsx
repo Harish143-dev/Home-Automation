@@ -12,33 +12,28 @@ interface EnvironmentCard {
 
 const ENVIRONMENTS: EnvironmentCard[] = [
   {
-    title: "Hotels",
-    description: "Intelligent lighting, climate, and AV for a five-star guest experience.",
-    image: "https://images.unsplash.com/photo-1542314831-c6a4d14d8c85?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
     title: "Resorts",
-    description: "Seamless landscape audio and outdoor automation for expansive properties.",
+    description: "Unifying sprawling multi-acre property footprints under a cohesive backbone that balances hyper-personalized guest comfort with automated micro-climate and thermal asset preservation.",
     image: "https://images.unsplash.com/photo-1582719478250-c894e4dc240e?q=80&w=1200&auto=format&fit=crop"
   },
   {
     title: "Business Hotels",
-    description: "Smart meeting rooms, automated conferencing, and reliable network solutions.",
+    description: "Deploying zero-latency environmental and connectivity networks that eliminate technical friction, maximize executive traveler productivity, and execute predictive energy conservation.",
     image: "https://images.unsplash.com/photo-1551882547-ff40c0d129df?q=80&w=1200&auto=format&fit=crop"
   },
   {
     title: "Restaurants & Lounges",
-    description: "Dynamic mood lighting and zoning audio to create the perfect ambiance.",
+    description: "Orchestrating emotionally intelligent, time-locked lighting scenes and acoustic zoning to instinctively guide guest transit, extend dwell times, and elevate brand intimacy.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop"
   },
   {
     title: "Banquet Spaces",
-    description: "Event-ready AV systems and lighting scenes managed from a single touch interface.",
+    description: "Synthesizing high-availability architectural lighting presets, heavy AV matrices, and high-occupancy environmental climate moderation for flawless, high-velocity event execution.",
     image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop"
   },
   {
     title: "Wellness & Spa Spaces",
-    description: "Tranquil environmental controls integrating temperature, sound, and lighting.",
+    description: "Engineering deeply restorative, biophilic sanctuaries that modulate lighting spectra, precise temperatures, and sensory parameters to actively stabilize mood and promote recovery.",
     image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop"
   }
 ];
@@ -95,7 +90,7 @@ export function HospitalityEnvironments() {
         <div ref={headerRef} className="flex flex-col items-start gap-4">
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground max-w-2xl">
-            Automation Solutions Across Hospitality Spaces
+            Hospitality Environments we Automate
           </h2>
         </div>
 

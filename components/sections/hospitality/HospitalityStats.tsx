@@ -6,19 +6,19 @@ import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
 interface MetricItem {
   target: number;
-  suffix: string;
+  prefix?: string;
+  suffix?: string;
   label: string;
 }
 
 const METRICS: MetricItem[] = [
-  { target: 100, suffix: "+", label: "Hotels Automated" },
-  { target: 5000, suffix: "+", label: "Rooms Integrated" },
-  { target: 30, suffix: "+", label: "Hospitality Brands" },
-  { target: 10, suffix: "+", label: "Resort Projects" },
-  { target: 24, suffix: "/7", label: "Premium Support" }
+  { target: 250, prefix: "Over", label: "Hotels" },
+  { target: 2500, prefix: "Over", label: "Rooms Integrated" },
+  { target: 30, prefix: "Over", label: "Global Manufacturers" },
+  { target: 24, suffix: "/7", label: "Support" }
 ];
 
-function MetricCard({ target, suffix, label }: { target: number; suffix: string; label: string }) {
+function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?: string; suffix?: string; label: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const numberRef = useRef<HTMLSpanElement>(null);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -78,12 +78,13 @@ function MetricCard({ target, suffix, label }: { target: number; suffix: string;
       
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-center gap-3 text-center">
-        <span className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground">
+        <div className="flex flex-row items-baseline justify-center gap-2 sm:gap-3 text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground">
+          {prefix && <span className="text-xl sm:text-2xl md:text-3xl text-foreground/70 font-normal">{prefix}</span>}
           <span ref={numberRef}>0</span>
-          <span className="text-foreground/80">{suffix}</span>
-        </span>
+          {suffix && <span className="text-3xl sm:text-4xl text-foreground/80 font-light">{suffix}</span>}
+        </div>
         
-        <span className="tracking-[0.3em] uppercase text-muted">
+        <span className="tracking-widest text-sm md:text-base text-muted">
           {label}
         </span>
       </div>
@@ -133,12 +134,13 @@ export function HospitalityStats() {
         {/* Specs Grid */}
         <div 
           ref={gridRef}
-          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 bg-border gap-[1px] border-y border-border overflow-hidden"
+          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-border gap-[1px] border-y border-border overflow-hidden"
         >
           {METRICS.map((metric, index) => (
             <MetricCard
               key={index}
               target={metric.target}
+              prefix={metric.prefix}
               suffix={metric.suffix}
               label={metric.label}
             />

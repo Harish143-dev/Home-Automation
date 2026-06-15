@@ -103,7 +103,7 @@ export function ProcessSection() {
         </div>
 
         {/* Horizontal Center Axis Line */}
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/20 z-10 -translate-y-1/2" />
+        {/* <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/20 z-10 -translate-y-1/2" /> */}
 
         {/* Top Centered Title and Description */}
         <div className="absolute top-8 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 z-30 w-full max-w-2xl px-6 md:px-0 text-center pointer-events-none hidden md:block">
