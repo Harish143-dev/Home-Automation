@@ -9,7 +9,7 @@ import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 
 const STATS = [
   { prefix: 'Over', value: '24', label: 'Years of Industry Experience' },
-  { prefix: 'Over', value: '1000+', label: 'Projects Completed' },
+  { prefix: 'Over', value: '1000', label: 'Projects Completed' },
   { prefix: 'Over', value: '15', label: 'Cities with Sales & Service Presence' },
   { prefix: '', value: '3', label: 'Experience Centres\nDelhi • Mumbai • Bengaluru' },
 ];
