@@ -119,7 +119,7 @@ export function AwardsSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-background overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32"
+      className="relative w-full bg-background overflow-hidden pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-4 sm:pb-6 md:pb-8 lg:pb-10"
       id="awards"
     >
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-16 lg:px-24">

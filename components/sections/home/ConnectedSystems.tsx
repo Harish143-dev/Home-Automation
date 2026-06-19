@@ -294,7 +294,7 @@ export function ConnectedSystems() {
       className="relative z-20 w-full bg-background"
     >
       {/* Intro Pin Section - Sticks at top before cards slide over it */}
-      <div className="cs-header-container sticky top-0 z-10 flex h-[60vh] sm:h-[65vh] md:h-[70vh] lg:h-[80vh] w-full flex-col items-center justify-center overflow-hidden px-5 sm:px-6 text-center">
+      <div className="cs-header-container sticky top-0 z-10 flex h-[50vh] md:h-[60vh] w-full flex-col items-center justify-center overflow-hidden px-5 sm:px-6 text-center">
         <div className="absolute inset-0 bg-background" />
 
         <div className="relative z-10 max-w-4xl">

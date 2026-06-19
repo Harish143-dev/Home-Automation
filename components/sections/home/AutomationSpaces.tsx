@@ -290,7 +290,7 @@ export function AutomationSpaces() {
       </section>
 
       {/* Global Section CTA - scrolls naturally after pin */}
-      <div className="relative w-full flex items-center justify-center pb-32 pt-16 bg-background">
+      <div className="relative w-full flex items-center justify-center pb-16 pt-12 bg-background">
         <button
           type="button"
           className="group flex h-14 md:h-16 items-center gap-3 rounded-full bg-accent px-8 md:px-10 font-medium text-white text-base md:text-lg transition-all duration-300 hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95"

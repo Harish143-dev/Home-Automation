@@ -120,6 +120,7 @@ export function HeroSection() {
       let resizeTimeout: number | undefined;
       let entranceFallback: ReturnType<typeof setTimeout> | undefined;
       let onIntroComplete: (() => void) | undefined;
+      let nextSection: HTMLElement | null = null;
 
       const getNearestLoadedFrame = (frameIndex: number) => {
         if (loadedFrames.has(frameIndex)) return frameIndex;
@@ -208,6 +209,12 @@ export function HeroSection() {
         ) as HTMLParagraphElement[];
         const heroCta = section.querySelector('.hero-cta') as HTMLElement;
 
+        // Ensure the next section overlaps the pinned HeroSection by forcing its z-index above the pin-spacer
+        nextSection = section.nextElementSibling as HTMLElement | null;
+        if (nextSection) {
+          gsap.set(nextSection, { position: "relative", zIndex: 20 });
+        }
+
         // Set initial states for the scroll-driven timeline
         gsap.set(frame, {
           height: "85%",
@@ -215,7 +222,7 @@ export function HeroSection() {
           borderBottomRightRadius: "10vw",
         });
         // Hide reveal text (shown later during the accent background phase)
-        gsap.set(revealTextRef.current, { opacity: 0, y: 30 });
+        gsap.set(revealTextRef.current, { opacity: 0, y: "20vh" });
         gsap.set(heroScrollCopy, { opacity: 0 });
         gsap.set(scrollDescriptions, { opacity: 0, y: 24 });
 
@@ -305,7 +312,7 @@ export function HeroSection() {
           {
             index: FRAME_COUNT - 1,
             ease: "none",
-            duration: 0.88,
+            duration: 0.94,
             onUpdate: () => renderFrame(Math.round(frameState.index)),
           },
           0,
@@ -349,7 +356,7 @@ export function HeroSection() {
 
         // Cycle through each description with staggered fade-in / fade-out
         scrollDescriptions.forEach((description, index) => {
-          const start = 0.26 + index * 0.15;
+          const start = 0.26 + index * 0.18;
 
           timeline.to(
             description,
@@ -370,7 +377,7 @@ export function HeroSection() {
               ease: "power2.in",
               duration: 0.07,
             },
-            start + 0.12,
+            start + 0.14,
           );
         });
 
@@ -380,79 +387,55 @@ export function HeroSection() {
           {
             opacity: 0,
             ease: "power2.in",
-            duration: 0.08,
+            duration: 0.06,
           },
-          0.72,
+          0.82,
         );
 
-        // 5. Shrink video to top 35% and round bottom edges — reveals accent background beneath
+        // 5. Shrink video to top 40% and round bottom edges — reveals accent background beneath
         timeline.to(
           frame,
           {
-            height: "35%",
+            height: "40%",
             borderBottomLeftRadius: "15vw",
             borderBottomRightRadius: "15vw",
-            ease: "power2.inOut",
-            duration: 0.12,
+            ease: "none",
+            duration: 0.08,
           },
-          0.74,
+          0.88,
         );
 
-        // 6. Fade in the reveal text on the accent (crimson) background
+        // 6. Fade in the reveal text on the accent (crimson) background as video reveals it
         timeline.to(
           revealTextRef.current,
           {
             opacity: 1,
-            y: 0,
             ease: "power2.out",
-            duration: 0.10,
+            duration: 0.04,
           },
-          0.78,
+          0.92,
         );
 
-        // 7. Video container collapses fully upward and disappears
+        // 7. Video container collapses fully upward and disappears EXACTLY as StatsSection natively slides up
         timeline.to(
           frame,
           {
             height: "0%",
-            ease: "power2.inOut",
-            duration: 0.10,
+            ease: "none",
+            duration: 0.04,
           },
-          0.84,
+          0.96,
         );
 
-        // 8. Transition section background from accent to theme background color
-        timeline.to(
-          section,
-          {
-            backgroundColor: "var(--color-background)",
-            ease: "power2.inOut",
-            duration: 0.12,
-          },
-          0.90,
-        );
-
-        // Fade out the accent (crimson) reveal background layer
-        timeline.to(
-          heroRevealBg,
-          {
-            backgroundColor: "transparent",
-            ease: "power2.inOut",
-            duration: 0.12,
-          },
-          0.90,
-        );
-
-        // Move reveal text upward and change color to theme foreground (near-black)
+        // Move reveal text upward to stay perfectly centered between the video and StatsSection
         timeline.to(
           revealTextRef.current,
           {
-            color: "var(--color-foreground)",
-            y: "-30vh",
-            ease: "power2.inOut",
-            duration: 0.12,
+            y: "-30vh", // Moves from 70vh to 20vh
+            ease: "none",
+            duration: 0.04,
           },
-          0.90,
+          0.96,
         );
 
         // 9. Fade out the reveal text at the very end of the scroll sequence
@@ -460,9 +443,8 @@ export function HeroSection() {
           revealTextRef.current,
           {
             opacity: 0,
-            y: "-40vh",
             ease: "power2.in",
-            duration: 0.06,
+            duration: 0.02,
           },
           0.98,
         );
@@ -562,6 +544,9 @@ export function HeroSection() {
         mainTl?.scrollTrigger?.kill();
         mainTl?.kill();
         split?.revert();
+        if (nextSection) {
+          gsap.set(nextSection, { clearProps: "zIndex,position" });
+        }
       };
     },
     {
@@ -625,7 +610,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className={`relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 z-[0] mb-[-60vh] ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Video Frame Container — canvas-rendered image sequence with rounded bottom */}
       <div
@@ -676,7 +661,7 @@ export function HeroSection() {
       </div>
 
       {/* 🎨 Accent Reveal Background — sits behind the video, exposed when video shrinks/vanishes */}
-      <div className="hero-reveal-bg absolute inset-0 z-[0] flex flex-col items-center justify-end pb-[10vh] pointer-events-none bg-accent">
+      <div className="hero-reveal-bg absolute inset-0 z-[0] flex flex-col items-center justify-center pointer-events-none bg-accent">
         <p
           ref={revealTextRef}
           className="text-white text-[1.2rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[2.8rem] font-light tracking-wider leading-[1.3] opacity-0 text-center max-w-5xl px-4"

@@ -186,7 +186,7 @@ export function FeaturedProjects() {
                   <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-3 py-1 mb-3 shadow-sm">
                     <span className="text-sm md:text-base tracking-widest text-foreground font-medium">{proj.category}</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-light leading-[1.2] tracking-wide mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-light leading-[1.2] tracking-wide mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
                   <ul className="flex flex-col gap-1 sm:gap-1.5 mb-3 sm:mb-4 text-muted text-xs sm:text-sm">
                     {proj.usps.map(usp => (
                       <li key={usp} className="flex flex-row items-center gap-2">
@@ -227,7 +227,7 @@ export function FeaturedProjects() {
                 {PROJECTS.map((proj, i) => (
                   <li key={proj.id} className="fp-nav flex items-center gap-6">
                     <span className="text-xs opacity-50">0{i + 1}</span>
-                    <span className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide whitespace-nowrap">{proj.name}</span>
+                    <span className="text-lg md:text-xl lg:text-2xl font-light tracking-wide whitespace-nowrap">{proj.name}</span>
                   </li>
                 ))}
               </ul>
@@ -262,7 +262,7 @@ export function FeaturedProjects() {
                     <div className="fp-stagger mb-5">
                       <span className="text-sm md:text-base font-normal tracking-widest text-white/70">{proj.category}</span>
                     </div>
-                    <h3 className="fp-stagger text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-white mb-2 md:mb-3 lg:mb-4 leading-[1.2]">
+                    <h3 className="fp-stagger text-xl md:text-2xl lg:text-3xl font-light tracking-wide text-white mb-2 md:mb-3 lg:mb-4 leading-[1.2]">
                       {proj.name}
                     </h3>
                     <p className="fp-stagger text-xs md:text-sm lg:text-base text-white/75 leading-relaxed">

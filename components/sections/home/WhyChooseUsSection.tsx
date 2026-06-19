@@ -77,7 +77,7 @@ export function WhyChooseUsSection() {
   const [activePanel, setActivePanel] = useState<number>(0);
 
   return (
-    <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background text-foreground">
+    <section className="relative z-10 pt-8 sm:pt-10 md:pt-12 lg:pt-4 pb-16 sm:pb-20 md:pb-24 lg:pb-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background text-foreground">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-10 sm:mb-14 md:mb-16 lg:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
@@ -199,10 +199,10 @@ export function WhyChooseUsSection() {
                       {usp.description}
                     </p>
 
-                    <Button 
-                      variant="accent" 
-                      size="lg" 
-                      shape="full" 
+                    <Button
+                      variant="accent"
+                      size="lg"
+                      shape="full"
                       className={`transition-all duration-500 transform ${isActive ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-8 opacity-0'}`}
                     >
                       Learn More
