@@ -1,12 +1,14 @@
 import { Metadata } from "next";
 
 import AboutHero from "@/components/sections/about/AboutHero";
-import BrandStory from "@/components/sections/about/BrandStory";
-import LegacyExpertise from "@/components/sections/about/LegacyExpertise";
-import ProcessPhilosophy from "@/components/sections/about/ProcessPhilosophy";
-import ExperienceEcosystem from "@/components/sections/about/ExperienceEcosystem";
-import { AwardsSection } from "@/components/sections/home/AwardsSection";
-import ClosingStatement from "@/components/sections/about/ClosingStatement";
+import AboutTheCompany from "@/components/sections/about/AboutTheCompany";
+import CompanyAtAGlance from "@/components/sections/about/CompanyAtAGlance";
+import MissionVision from "@/components/sections/about/MissionVision";
+import OurJourney from "@/components/sections/about/OurJourney";
+import MeetOurFounders from "@/components/sections/about/MeetOurFounders";
+import OurTeam from "@/components/sections/about/OurTeam";
+import Awards from "@/components/sections/about/Awards";
+import AboutCTA from "@/components/sections/about/AboutCTA";
 
 export const metadata: Metadata = {
   title: "About Us | AT Smart Living",
@@ -16,19 +18,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="relative bg-background text-foreground min-h-screen">
-
-
-      {/* 
-        Hero Section is Dark Theme (black overlay, white text).
-        The rest of the sections are Light Theme (bg-background, text-foreground).
-      */}
       <AboutHero />
-      <BrandStory />
-      <LegacyExpertise />
-      <ProcessPhilosophy />
-      <ExperienceEcosystem />
-      <AwardsSection />
-      <ClosingStatement />
+      <AboutTheCompany />
+      <CompanyAtAGlance />
+      <MissionVision />
+      <OurJourney />
+      <MeetOurFounders />
+      <OurTeam />
+      <Awards />
+      <AboutCTA />
     </main>
   );
 }
