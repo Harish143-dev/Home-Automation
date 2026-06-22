@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { cn } from "../../../lib/utils";
 import { gsap, ScrollTrigger, useGSAP, SplitText } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
@@ -9,36 +9,39 @@ const PHILOSOPHY_DATA = [
   {
     id: "luxury-living",
     title: "Luxury Living",
-    description: "Emotionally intelligent spaces, built around human experience rather than hardware, transform how you inhabit every room, and how every room makes you feel. A truly intelligent home responds to you. Light shifts with the time of day, sound adjusts to the mood of the room, temperature follows the rhythm of rest, focus and gathering. These conditions make a home feel alive."
+    description: "Emotionally intelligent spaces, built around human experience rather than hardware, transform how you inhabit every room, and how every room makes you feel. A truly intelligent home responds to you. Light shifts with the time of day, sound adjusts to the mood of the room, temperature follows the rhythm of rest, focus and gathering. These conditions make a home feel alive.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: "future-ready",
     title: "Future-Ready Homes",
-    description: "Built for multigenerational living, a smart home grows with the family inside it, adapting to diverse needs and remaining relevant long after the first installation. The homes being built today will be lived in across generations, by people with different physical, cognitive and sensory needs. Intelligent systems designed with this in mind, evolve. Scalable architecture supports new devices, new routines and new residents without rewiring or replacing."
+    description: "Built for multigenerational living, a smart home grows with the family inside it, adapting to diverse needs and remaining relevant long after the first installation. The homes being built today will be lived in across generations, by people with different physical, cognitive and sensory needs. Intelligent systems designed with this in mind, evolve. Scalable architecture supports new devices, new routines and new residents without rewiring or replacing.",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: "security",
     title: "Security You Control",
-    description: "Real security places human agency at its centre. Transparent controls, explainable systems and clear boundaries around data and access ensure that the people who live in a home remain in full command of it. Integrated sensors, cameras and alerts respond to what matters, when it matters. Monitored remotely and controlled intuitively, your home protects what is most important while preserving the trust of everyone inside it."
+    description: "Real security places human agency at its centre. Transparent controls, explainable systems and clear boundaries around data and access ensure that the people who live in a home remain in full command of it. Integrated sensors, cameras and alerts respond to what matters, when it matters. Monitored remotely and controlled intuitively, your home protects what is most important while preserving the trust of everyone inside it.",
+    image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: "convenience",
     title: "Convenience",
-    description: "Buildings that respond to human rhythms remove the need for constant decision-making. Lighting adjusts to the time of day, climate responds to occupancy, entertainment follows the room you are in. The best automation is invisible, it simply ensures that every space is ready for how you intend to use it, without requiring you to think about it. Life at home becomes less managed and more lived."
+    description: "Buildings that respond to human rhythms remove the need for constant decision-making. Lighting adjusts to the time of day, climate responds to occupancy, entertainment follows the room you are in. The best automation is invisible, it simply ensures that every space is ready for how you intend to use it, without requiring you to think about it. Life at home becomes less managed and more lived.",
+    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: "energy",
     title: "Automatic Energy Savings",
-    description: "As energy instability reshapes the demands placed on buildings worldwide, the homes that are designed to respond intelligently will be the ones that endure. Automated climate systems, motorised shading and occupancy-led lighting work together to reduce consumption without reducing comfort. This is efficiency as a design principle, embedded into how the home operates from the moment it is switched on."
+    description: "As energy instability reshapes the demands placed on buildings worldwide, the homes that are designed to respond intelligently will be the ones that endure. Automated climate systems, motorised shading and occupancy-led lighting work together to reduce consumption without reducing comfort. This is efficiency as a design principle, embedded into how the home operates from the moment it is switched on.",
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop"
   }
 ];
 
 export function ResidentialPhilosophy() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const currentIndexRef = useRef(0);
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
@@ -57,125 +60,111 @@ export function ResidentialPhilosophy() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
+            start: "top 80%",
           }
         }
       );
     }
 
-    const numItems = PHILOSOPHY_DATA.length;
+    // Scroll trigger for each editorial block
+    itemsRef.current.forEach((item, index) => {
+      if (!item) return;
 
-    if (cardsRef.current) {
-      ScrollTrigger.create({
-        trigger: cardsRef.current,
-        start: "center center",
-        end: "+=2500", // Pin for 2500px to ensure a smooth, readable scroll speed
-        pin: true,
-        scrub: 1,
-        onUpdate: (self) => {
-          let newIndex = Math.floor(self.progress * numItems);
-          if (newIndex >= numItems) newIndex = numItems - 1;
+      const num = item.querySelector('.phil-num');
+      const title = item.querySelector('.phil-title');
+      const desc = item.querySelector('.phil-desc');
+      const line = item.querySelector('.phil-line');
+      const imgContainer = item.querySelector('.phil-image-container');
+      const img = item.querySelector('.phil-image');
 
-          if (newIndex !== currentIndexRef.current) {
-            currentIndexRef.current = newIndex;
-            setActiveIndex(newIndex);
-          }
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
         }
       });
-    }
 
-    return () => {
-      ScrollTrigger.getAll().forEach(st => {
-        if (st.trigger === cardsRef.current || st.trigger === sectionRef.current) st.kill();
-      });
-    };
+      // Image reveal and parallax zoom
+      if (imgContainer && img) {
+        tl.fromTo(imgContainer,
+          { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+          { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1.5, ease: "power3.inOut" },
+          0
+        );
+        tl.fromTo(img,
+          { scale: 1.2 },
+          { scale: 1, duration: 2, ease: "power2.out" },
+          0
+        );
+      }
+
+      // Text reveal staggered slightly after image
+      tl.fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 1, ease: "power3.inOut" }, 0.4)
+        .fromTo(num, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, 0.6)
+        .fromTo(title, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.7)
+    });
+
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
-  const handleItemClick = (index: number) => {
-    if (prefersReducedMotion) {
-      setActiveIndex(index);
-      return;
-    }
-
-    const st = ScrollTrigger.getAll().find(t => t.trigger === cardsRef.current);
-    if (st) {
-      const segmentProgress = (index + 0.5) / PHILOSOPHY_DATA.length;
-      const scrollPos = st.start + (st.end - st.start) * segmentProgress;
-      window.scrollTo({ top: scrollPos, behavior: 'smooth' });
-    } else {
-      setActiveIndex(index);
-    }
-  };
-
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-background relative z-10 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12 md:mb-16">
-        <div className="max-w-3xl">
-          <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-5 text-balance break-words">
+    <section ref={sectionRef} className="pt-8 md:pt-12 pb-8 md:pb-12 bg-background relative z-10 overflow-hidden">
+      {/* Header */}
+      <div className="container mx-auto px-5 sm:px-8 md:px-16 lg:px-24 max-w-7xl mb-16 md:mb-18 lg:mb-24">
+        <div className="flex flex-col items-center text-center">
+          <span className="text-accent tracking-widest text-sm md:text-base mb-6 block">
+            Core Philosophy
+          </span>
+          <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
             Why Invest in Smart Home Automation?
           </h2>
         </div>
       </div>
 
-      <div ref={cardsRef} className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex flex-col md:flex-row w-full h-[60vh] md:h-[450px] lg:h-[500px] gap-2 sm:gap-3 md:gap-4">
+      {/* Alternating Blocks */}
+      <div className="container mx-auto px-5 sm:px-8 md:px-16 lg:px-24 max-w-7xl">
+        <div className="flex flex-col gap-24 md:gap-32 lg:gap-40">
           {PHILOSOPHY_DATA.map((item, index) => {
-            const isActive = activeIndex === index;
+            const isReverse = index % 2 !== 0;
 
             return (
               <div
                 key={item.id}
-                onClick={() => handleItemClick(index)}
+                ref={el => { itemsRef.current[index] = el; }}
                 className={cn(
-                  "relative overflow-hidden rounded-2xl sm:rounded-[28px] md:rounded-[32px] cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group border border-border flex flex-col",
-                  isActive
-                    ? "h-[340px] sm:h-[380px] md:h-full md:flex-[4_4_0%] bg-panel shadow-md z-10 scale-[1.01] md:scale-100"
-                    : "h-[72px] sm:h-[80px] md:h-full md:flex-[1_1_0%] bg-surface-darker hover:bg-panel z-0"
+                  "flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 group",
+                  isReverse && "lg:flex-row-reverse"
                 )}
               >
-                {/* Collapsed Layout Container */}
-                <div className={cn(
-                  "absolute inset-0 z-20 pointer-events-none transition-opacity duration-300",
-                  isActive ? "opacity-0" : "opacity-100 delay-300"
-                )}>
-                  {/* Desktop Collapsed Layout - Vertical Text at Bottom */}
-                  <div className="hidden md:flex flex-col items-center justify-end w-full h-full pb-8 lg:pb-12">
-                    <div className="relative w-6 h-[200px] lg:h-[250px]">
-                      <div className="absolute top-full left-0 origin-top-left -rotate-90 whitespace-nowrap font-light text-[15px] lg:text-[17px] leading-6 text-foreground tracking-wide transition-colors duration-300 group-hover:text-accent w-[200px] lg:w-[250px] text-left overflow-hidden text-ellipsis">
-                        {item.title}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Mobile Collapsed Layout - Horizontal Text */}
-                  <div className="md:hidden flex items-center w-full h-full px-4 sm:p-5">
-                    <div className="font-light text-[15px] sm:text-[17px] text-foreground tracking-wide transition-colors duration-300 group-hover:text-accent line-clamp-2 break-words">
-                      {item.title}
-                    </div>
+                {/* Image Side */}
+                <div className="w-full lg:w-5/12 phil-image-container overflow-hidden rounded-2xl shadow-lg shadow-black/5">
+                  <div className="relative w-full aspect-[4/3]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover object-center phil-image"
+                    />
+                    <div className="absolute inset-0 bg-black/10 pointer-events-none" />
                   </div>
                 </div>
 
-                {/* Expanded Content Area */}
-                <div className={cn(
-                  "flex-1 flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12 relative w-full h-full transition-all duration-500 delay-100",
-                  isActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                )}>
-                  <div className="relative z-10 mt-auto max-w-xl">
-                    <h3 className={cn(
-                      "text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-[1.2] text-foreground mb-3 md:mb-4 text-balance break-words",
-                      "transition-all duration-500 transform",
-                      isActive ? "translate-y-0 opacity-100 delay-150" : "translate-y-8 opacity-0"
-                    )}>
-                      {item.title}
-                    </h3>
-                    <p className={cn(
-                      "text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light tracking-wide text-balance",
-                      "transition-all duration-500 transform",
-                      isActive ? "translate-y-0 opacity-100 delay-200" : "translate-y-8 opacity-0"
-                    )}>
-                      {item.description}
-                    </p>
+                {/* Text Side */}
+                <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
+                  <div className="flex items-center gap-6 mb-6">
+                    <span className="phil-num text-accent font-light text-2xl md:text-3xl lg:text-4xl">
+                      0{index + 1}
+                    </span>
+                    <div className="phil-line w-16 h-[1px] bg-foreground/20 origin-left" />
                   </div>
+
+                  <h3 className="phil-title text-2xl md:text-3xl font-light tracking-wide leading-[1.2] text-foreground mb-4 md:mb-6">
+                    {item.title}
+                  </h3>
+
+                  <p className="phil-desc text-sm sm:text-base md:text-lg font-light leading-relaxed text-muted text-balance max-w-2xl">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             );

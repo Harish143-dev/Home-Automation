@@ -62,7 +62,7 @@ export function ResidentialCredentials() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section className="relative bg-background text-foreground py-24 md:py-32 overflow-hidden" ref={containerRef}>
+    <section className="relative bg-background text-foreground pt-24 md:pt-32 pb-8 md:pb-12 overflow-hidden" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 

@@ -13,26 +13,26 @@ interface AwardItem {
 }
 
 const AWARDS: AwardItem[] = [
+  { year: '2026', title: 'Hall of Fame', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
+  { year: '2024', title: 'Residential & Hospitality National Award', category: 'Lutron', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
+  { year: '2023', title: 'Authorised Dealer', category: 'Control 4', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
+  { year: '2023', title: 'Luxury Residential & Hospitality Business Championship', category: 'Lutron', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop' },
+  { year: '2022', title: 'Authorised Dealer', category: 'Crestron', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
+  { year: '2022', title: 'Smart Space Award', category: 'Smart Space Award', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
+  { year: '2022', title: 'Deepest Appreciation', category: 'Smart Space Award', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
+  { year: '2022', title: 'Luxury Residential Business Championship', category: 'Lutron', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
+  { year: '2021', title: 'Luxury Residential Business Championship', category: 'Lutron', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
   { year: '2020', title: 'Authorised Dealer', category: 'Crestron', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
+  { year: '2020', title: 'Unstoppable Signature Award', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
+  { year: '2019', title: 'Platinum Award', category: 'Lutron', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
+  { year: '2018', title: 'Annual Partner Colloquium Recognition', category: 'Lutron', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop' },
+  { year: '2017', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
+  { year: '2016', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
+  { year: '2015', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
   { year: '—', title: 'Certificate of Authorisation', category: 'Samsung', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
   { year: '—', title: 'Certificate of Authorisation', category: 'Sony', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop' },
-  { year: '2022', title: 'Authorised Dealer', category: 'Crestron', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
-  { year: '2023', title: 'Authorised Dealer', category: 'Control 4', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
   { year: '—', title: 'Financial Control', category: 'Jsa Online', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
-  { year: '2022', title: 'Smart Space Award', category: 'Smart Space Award', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
   { year: '—', title: 'Certificate of Authorisation', category: 'Sony', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop' },
-  { year: '2022', title: 'Deepest Appreciation', category: 'Smart Space Award', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
-  { year: '2015', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
-  { year: '2016', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
-  { year: '2017', title: 'Top Performer – All India', category: 'Lutron', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
-  { year: '2018', title: 'Annual Partner Colloquium Recognition', category: 'Lutron', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop' },
-  { year: '2019', title: 'Platinum Award', category: 'Lutron', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
-  { year: '2020', title: 'Unstoppable Signature Award', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
-  { year: '2021', title: 'Luxury Residential Business Championship', category: 'Lutron', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
-  { year: '2022', title: 'Luxury Residential Business Championship', category: 'Lutron', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop' },
-  { year: '2023', title: 'Luxury Residential & Hospitality Business Championship', category: 'Lutron', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&auto=format&fit=crop' },
-  { year: '2024', title: 'Residential & Hospitality National Award', category: 'Lutron', image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
-  { year: '2026', title: 'Hall of Fame', category: 'Lutron', image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop' },
 ];
 
 function AwardCard({ award }: { award: AwardItem }) {
@@ -63,7 +63,7 @@ function AwardCard({ award }: { award: AwardItem }) {
   );
 }
 
-export function AwardsSection() {
+export function AwardsSection({ className }: { className?: string }) {
   const containerRef = useRef<HTMLElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -119,7 +119,7 @@ export function AwardsSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-background overflow-hidden pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-4 sm:pb-6 md:pb-8 lg:pb-10"
+      className={`relative w-full bg-background overflow-hidden pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-4 sm:pb-6 md:pb-8 lg:pb-10 ${className || ''}`}
       id="awards"
     >
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-16 lg:px-24">

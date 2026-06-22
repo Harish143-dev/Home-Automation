@@ -83,7 +83,7 @@ export function ResidentialProcess() {
   const translateY = -(activeIndex * ITEM_HEIGHT) - (ITEM_HEIGHT / 2);
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-secondary text-white">
+    <section ref={triggerRef} className="relative w-full bg-background text-white">
       <div
         ref={containerRef}
         className="w-full h-[100dvh] relative overflow-hidden hidden md:block"
@@ -95,13 +95,12 @@ export function ResidentialProcess() {
             alt="Smart Home Process"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
           />
-          {/* Gradients for readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
-          <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/80" />
         </div>
 
         {/* Horizontal Axis Line */}
-        <div className="absolute top-[60%] left-0 w-full h-[1px] bg-white/20 z-10 -translate-y-1/2" />
+        {/* <div className="absolute top-[60%] left-0 w-full h-[1px] bg-white/20 z-10 -translate-y-1/2" /> */}
 
         {/* Top Header Layout: Text Left, CTA Right */}
         <div className="absolute top-10 md:top-12 lg:top-16 left-0 right-0 z-30 w-full px-8 md:px-16 lg:px-32 max-w-[1600px] mx-auto flex flex-col md:flex-row md:justify-between md:items-end gap-6 pointer-events-none">
@@ -185,7 +184,7 @@ export function ResidentialProcess() {
       </div>
 
       {/* Mobile Stacked Layout (Visible only on small screens) */}
-      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-secondary gap-12 relative">
+      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-background gap-12 relative">
         {/* Background Image for mobile process section */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <img
@@ -193,7 +192,7 @@ export function ResidentialProcess() {
             alt="Smart Home Process"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.15]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
+          <div className="absolute inset-0 bg-black/80" />
         </div>
 
         <div className="mb-8 relative z-10">

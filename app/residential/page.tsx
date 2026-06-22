@@ -45,7 +45,6 @@ export default function ResidentialPage() {
       {/* Asset Governance & Service SLAs */}
       <ResidentialGovernance />
 
-
       {/* Fullscreen Interactive Process Timeline */}
       <ResidentialProcess />
 

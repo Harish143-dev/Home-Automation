@@ -72,7 +72,7 @@ export function HospitalityEcosystem() {
   }, { scope: containerRef, dependencies: [isReady] });
 
   return (
-    <section ref={containerRef} className={`w-full py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
+    <section ref={containerRef} className={`w-full pt-8 md:pt-12 pb-8 md:pb-12 px-6 md:px-12 lg:px-24 bg-background overflow-hidden transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
 
         {/* Header */}

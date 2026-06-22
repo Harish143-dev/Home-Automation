@@ -104,7 +104,7 @@ export function CommercialBenefits() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="relative bg-background text-foreground py-24 sm:py-32 lg:py-48">
+    <section ref={containerRef} className="relative bg-background text-foreground pt-8 md:pt-12 pb-8 md:pb-12">
 
       {/* Background Noise Texture for premium feel */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none">

@@ -21,17 +21,6 @@ const METRICS: MetricItem[] = [
 function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?: string; suffix?: string; label: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const numberRef = useRef<HTMLSpanElement>(null);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setCoords({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
 
   useGSAP(
     () => {
@@ -62,26 +51,14 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
   return (
     <div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-center justify-center py-14 sm:py-16 md:py-20 px-4 sm:px-6 xl:px-8 bg-background transition-colors duration-500 hover:bg-surface-darker sm:last:col-span-2 lg:last:col-span-1"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-center py-14 sm:py-16 md:py-20 px-6 sm:px-8 xl:px-12 bg-background sm:last:col-span-2 lg:last:col-span-1"
     >
-      {/* Spotlight highlight element */}
-      <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-0"
-        style={{
-          opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(300px circle at ${coords.x}px ${coords.y}px, rgba(0, 0, 0, 0.03), transparent 75%)`
-        }}
-      />
-      
       {/* Card Content */}
-      <div className="relative z-10 flex flex-col items-center gap-3 text-center">
-        <div className="flex flex-row items-baseline justify-center gap-2 sm:gap-3 text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground">
-          {prefix && <span className="text-xl sm:text-2xl md:text-3xl text-foreground/70 font-normal">{prefix}</span>}
+      <div className="relative z-10 flex flex-col items-start text-left">
+        {prefix && <span className="text-xs sm:text-sm font-medium tracking-widest text-accent mb-2">{prefix}</span>}
+        <div className="flex flex-row items-baseline justify-start text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground mb-3">
           <span ref={numberRef}>0</span>
-          {suffix && <span className="text-3xl sm:text-4xl text-foreground/80 font-light">{suffix}</span>}
+          {suffix && <span className="text-3xl sm:text-4xl text-foreground/80 font-light ml-2">{suffix}</span>}
         </div>
         
         <span className="tracking-widest text-sm md:text-base text-muted">
@@ -127,7 +104,7 @@ export function HospitalityStats() {
     <section
       ref={sectionRef}
       id="hospitality-stats"
-      className="relative w-full overflow-hidden bg-background py-16 sm:py-24 md:py-32 text-foreground select-none"
+      className="relative w-full overflow-hidden bg-background pt-16 sm:pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-12 lg:px-24 text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col items-center justify-center">
         

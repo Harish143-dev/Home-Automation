@@ -120,16 +120,16 @@ export function ResidentialExperienceCenters() {
         </div>
 
         {/* LEFT FLOATING CONTENT */}
-        <div className="absolute top-0 left-0 h-full w-full md:w-[65%] lg:w-[55%] xl:w-[50%] px-6 sm:px-10 md:px-12 lg:px-20 py-8 z-10">
+        <div className="absolute top-0 left-0 h-full w-full md:w-[75%] lg:w-[65%] xl:w-[60%] px-6 sm:px-10 md:px-12 lg:px-20 py-8 z-10">
           <div className="flex flex-col justify-center h-full">
             <div className="mb-6">
-              <span className="tracking-widest text-sm md:text-base text-muted mb-3 block">
+              <span className="tracking-widest text-sm md:text-base text-accent mb-3 block">
                 The Environment
               </span>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug text-foreground drop-shadow-sm mb-4 text-balance">
                 The Experience Ecosystem
               </h2>
-              <p className="text-sm md:text-base font-light text-muted leading-relaxed max-w-lg">
+              <p className="text-sm md:text-base font-light text-muted leading-relaxed max-w-xl">
                 The nuance of lighting control and spatial acoustics cannot be captured on a screen. Our private experience centers offer architects and homeowners a tactile, real-world demonstration of how our systems interact with high-end interior spaces.
               </p>
             </div>

@@ -129,7 +129,7 @@ export function CommercialProjects() {
   };
 
   return (
-    <section ref={containerRef} className="py-24 sm:py-32 lg:py-40 bg-background text-foreground w-full overflow-hidden">
+    <section ref={containerRef} className="pt-8 md:pt-12 pb-8 md:pb-12 bg-background text-foreground w-full overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 case-header">
 
         <div className="max-w-2xl">

@@ -109,6 +109,12 @@ py-20 sm:py-28 md:py-32 lg:py-48
 px-5 sm:px-8 md:px-16 lg:px-24
 ```
 
+**Exception for Adjacent Sections:**
+If two sections have the exact same background color (e.g. `bg-background` followed by `bg-background`), prevent "double padding" by reducing the vertical padding where they touch:
+- First section: `pt-20 md:pt-32 pb-8 md:pb-12`
+- Second section: `pt-8 md:pt-12 pb-20 md:pb-48`
+This maintains the visual gap mathematics without creating massive, disjointed whitespace.
+
 ### Content Max Width
 
 ```

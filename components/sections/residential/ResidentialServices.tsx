@@ -248,12 +248,7 @@ export function ResidentialServices() {
                 ))}
               </ul>
 
-              {/* Optional text or logos can go below */}
-              <div className="mt-6 pt-6 border-t border-border/10 feature-item w-full">
-                <p className="text-xs text-muted font-light leading-relaxed">
-                  Our bespoke {activeData.title.toLowerCase()} solutions integrate seamlessly into your daily rhythm, offering uncompromising luxury and absolute control.
-                </p>
-              </div>
+
             </div>
           </div>
 

@@ -69,22 +69,22 @@ const SYSTEMS_DATA = [
 ];
 
 // Reusable Accordion Component
-function AccordionItem({ 
-  title, 
-  children, 
-  isOpen, 
-  onToggle 
-}: { 
-  title: string; 
-  children: React.ReactNode; 
-  isOpen: boolean; 
-  onToggle: () => void 
+function AccordionItem({
+  title,
+  children,
+  isOpen,
+  onToggle
+}: {
+  title: string;
+  children: React.ReactNode;
+  isOpen: boolean;
+  onToggle: () => void
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="border-b border-border w-full">
-      <button 
+      <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-6 text-left focus:outline-none group"
       >
@@ -101,11 +101,11 @@ function AccordionItem({
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </div>
       </button>
-      
-      <div 
+
+      <div
         ref={contentRef}
         className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"
-        style={{ 
+        style={{
           maxHeight: isOpen ? (contentRef.current?.scrollHeight ?? 1000) + "px" : "0px",
           opacity: isOpen ? 1 : 0
         }}
@@ -149,7 +149,7 @@ function FormattedList({ items }: { items: string[] }) {
 export function CommercialSolutions() {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  
+
   // Track open accordion state per system
   // Using an object: { [systemIndex]: openAccordionIndex }
   const [openAccordions, setOpenAccordions] = useState<Record<number, number>>({
@@ -169,7 +169,7 @@ export function CommercialSolutions() {
 
     // Fade up sections as you scroll down
     const blocks = gsap.utils.toArray(".solution-block") as HTMLElement[];
-    
+
     blocks.forEach((block) => {
       gsap.from(block, {
         scrollTrigger: {
@@ -186,11 +186,11 @@ export function CommercialSolutions() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} id="commercial-solutions" className="py-24 sm:py-32 bg-background text-foreground w-full">
+    <section ref={sectionRef} id="commercial-solutions" className="pt-8 md:pt-12 pb-8 md:pb-12 bg-background text-foreground w-full">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24">
-        
+
         {/* Section Header */}
-        <div className="mb-20 md:mb-32 text-center max-w-3xl mx-auto solution-block">
+        <div className="mb-16 md:mb-20 text-center max-w-3xl mx-auto solution-block">
           <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
             Architecture & Infrastructure
           </span>
@@ -205,14 +205,14 @@ export function CommercialSolutions() {
             const isEven = sysIndex % 2 === 0;
 
             return (
-              <div 
-                key={sysIndex} 
+              <div
+                key={sysIndex}
                 className={clsx(
                   "solution-block flex flex-col gap-12 lg:gap-20 items-center",
                   isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                 )}
               >
-                
+
                 {/* Text & Accordion Content */}
                 <div className="w-full lg:w-[45%] flex flex-col">
                   <span className="text-accent tracking-widest text-sm mb-4 block font-medium">
@@ -224,25 +224,25 @@ export function CommercialSolutions() {
 
                   {/* Accordion Group */}
                   <div className="w-full flex flex-col border-t border-border">
-                    <AccordionItem 
-                      title="Ideal Applications" 
-                      isOpen={openAccordions[sysIndex] === 0} 
+                    <AccordionItem
+                      title="Ideal Applications"
+                      isOpen={openAccordions[sysIndex] === 0}
                       onToggle={() => toggleAccordion(sysIndex, 0)}
                     >
                       <FormattedList items={system.idealFor} />
                     </AccordionItem>
-                    
-                    <AccordionItem 
-                      title="Key Infrastructure Features" 
-                      isOpen={openAccordions[sysIndex] === 1} 
+
+                    <AccordionItem
+                      title="Key Infrastructure Features"
+                      isOpen={openAccordions[sysIndex] === 1}
                       onToggle={() => toggleAccordion(sysIndex, 1)}
                     >
                       <FormattedList items={system.features} />
                     </AccordionItem>
-                    
-                    <AccordionItem 
-                      title="Operational Benefits" 
-                      isOpen={openAccordions[sysIndex] === 2} 
+
+                    <AccordionItem
+                      title="Operational Benefits"
+                      isOpen={openAccordions[sysIndex] === 2}
                       onToggle={() => toggleAccordion(sysIndex, 2)}
                     >
                       <FormattedList items={system.benefits} />
@@ -258,10 +258,10 @@ export function CommercialSolutions() {
 
                 {/* Imagery */}
                 <div className="w-full lg:w-[55%] relative h-[450px] sm:h-[600px] lg:h-[750px] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl group">
-                  <NextImage 
-                    src={system.image} 
-                    alt={system.title} 
-                    fill 
+                  <NextImage
+                    src={system.image}
+                    alt={system.title}
+                    fill
                     className="object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
                     priority={sysIndex === 0}
                   />

@@ -60,12 +60,12 @@ export function ResidentialGovernance() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-24 md:py-32 bg-surface relative overflow-hidden">
+    <section ref={containerRef} className="pt-8 md:pt-12 pb-24 md:pb-32 bg-surface relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
           {/* Left Column: Context (Sticky on Desktop) */}
-          <div className="w-full lg:w-1/2 flex flex-col gov-header lg:sticky lg:top-40">
+          <div className="w-full lg:w-1/2 flex flex-col gov-header lg:sticky">
             <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
               Asset Governance
             </span>

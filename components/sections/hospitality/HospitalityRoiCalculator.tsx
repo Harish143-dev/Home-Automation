@@ -25,7 +25,7 @@ const TIERS: Record<Tier, TierData> = {
 const ROOM_OPTIONS = [50, 100, 250, 500, 1000];
 const BILL_OPTIONS = [5000, 10000, 25000, 50000, 100000];
 
-export function CommercialRoiCalculator() {
+export function HospitalityRoiCalculator() {
   const containerRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
 

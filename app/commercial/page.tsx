@@ -48,7 +48,7 @@ export default function CommercialPage() {
       {/* ROI Calculator */}
       <CommercialRoiCalculator />
 
-      <AwardsSection />
+      <AwardsSection className="!pt-8 md:!pt-12" />
 
       {/* Commercial Testimonials */}
       <CommercialTestimonials />

@@ -6,7 +6,10 @@ import { HospitalityStats } from "../../components/sections/hospitality/Hospital
 import { HospitalityFeaturedProjects } from "../../components/sections/hospitality/HospitalityFeaturedProjects";
 import { HospitalityEnvironments } from "../../components/sections/hospitality/HospitalityEnvironments";
 import { HospitalitySolutions } from "../../components/sections/hospitality/HospitalitySolutions";
+import { HospitalityCapabilities } from "../../components/sections/hospitality/HospitalityCapabilities";
 import { HospitalityBenefits } from "../../components/sections/hospitality/HospitalityBenefits";
+import { HospitalityCaseStudies } from "../../components/sections/hospitality/HospitalityCaseStudies";
+import { HospitalityRoiCalculator } from "../../components/sections/hospitality/HospitalityRoiCalculator";
 import { HospitalityEcosystem } from "../../components/sections/hospitality/HospitalityEcosystem";
 import { HospitalityTestimonials } from "../../components/sections/hospitality/HospitalityTestimonials";
 import { AwardsSection } from "../../components/sections/home/AwardsSection";
@@ -14,15 +17,19 @@ import { HospitalityCTA } from "../../components/sections/hospitality/Hospitalit
 
 export default function HospitalityPage() {
   return (
-    <main className="relative bg-background overflow-hidden w-full">
+    <main className="relative bg-background overflow-clip w-full">
       <HospitalityHero />
       <HospitalityStats />
-      <HospitalityFeaturedProjects />
       <HospitalityEnvironments />
+      <HospitalityFeaturedProjects />
       <HospitalitySolutions />
+      <HospitalityCapabilities />
       <HospitalityBenefits />
-      <HospitalityEcosystem />
-      <AwardsSection />
+
+      <HospitalityCaseStudies />
+      <HospitalityRoiCalculator />
+      {/* <HospitalityEcosystem /> */}
+      {/* <AwardsSection className="!pt-8 md:!pt-12" /> */}
       <HospitalityTestimonials />
       <HospitalityCTA />
     </main>

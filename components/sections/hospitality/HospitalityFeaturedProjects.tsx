@@ -6,42 +6,50 @@ import { useReducedMotion } from "../../../hooks/useReducedMotion";
 import { gsap, useGSAP } from "../../../lib/gsapSetup";
 import { SCROLL, EASE, DURATION, STAGGER } from "../../../lib/animation.config";
 import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
-import SawaiManMahalImage from "../../../assets/projects/SawaiManMahal.jpg";
-import privateResidenceImage from "../../../assets/projects/private-residence.jpg";
 
 interface Project {
   id: string;
   name: string;
-  scope: string;
-  challenges: string;
-  result: string;
+  description: string;
   image: string;
 }
 
 const PROJECTS: Project[] = [
   {
     id: "p1",
-    name: "Luxury Beach Resort",
-    scope: "Complete property-wide integration including guest rooms, landscape audio, and pool climate control.",
-    challenges: "Harsh coastal environment requiring weather-proof equipment and complex outdoor routing over a 10-acre property.",
-    result: "A seamless, corrosion-resistant system reducing energy waste by 30% while significantly enhancing the guest experience.",
-    image: SawaiManMahalImage.src
+    name: "Common Spaces & Public Areas",
+    description: "Managing expansive architectural volumes through automated daylight harvesting and astrological scheduling. Public areas smoothly adjust light levels and acoustic layers in response to shifting solar tracks and foot-traffic density, minimizing operational strain while ensuring an uncompromised sensory welcoming sequence.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200"
   },
   {
     id: "p2",
-    name: "Metropolitan Business Hotel",
-    scope: "Conference room AV, lobby digital signage, and intelligent HVAC management integrated with the PMS.",
-    challenges: "High-traffic areas requiring robust, zero-downtime systems and an intuitive interface for rotating staff.",
-    result: "Streamlined event management and a 25% reduction in HVAC costs through real-time occupancy sensing.",
-    image: privateResidenceImage.src
+    name: "Boardrooms & Meeting Rooms",
+    description: "Eliminating administrative setup delays with integrated, unified control backbones. One-touch command matrices instantly lower presentation shading, configure sound-masking profiles, and launch zero-latency wireless collaboration layers, protecting corporate guest productivity and corporate event revenue streams.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
   },
   {
     id: "p3",
-    name: "Boutique Heritage Property",
-    scope: "Invisible architectural lighting, motorized shading, and bespoke centralized room controls.",
-    challenges: "Retrofitting a historic 19th-century structure without compromising its architectural integrity or original stonework.",
-    result: "A perfect blend of classic aesthetics and modern luxury, achieving a 5-star technology rating without a single visible wire.",
-    image: "/images/commercial_project_property.png"
+    name: "Banquet Halls & Event Spaces",
+    description: "Engineered to transition effortlessly from high-brightness corporate keynotes to dramatic, low-light evening gala events. High-power zoning interfaces manage intricate lighting networks, motorized partition-tracking logic, and heavy climate loads proactively as occupancy density shifts in real-time.",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1200"
+  },
+  {
+    id: "p4",
+    name: "Restaurants & Dining Spaces",
+    description: "Elevating the hospitality experience by manipulating spatial perception. Lighting and audio elements adapt to the mood, time of day, and specific service windows through smooth, imperceptible transitions, sculpting culinary atmospheres that naturally maximize table turn rates and guest spend.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200"
+  },
+  {
+    id: "p5",
+    name: "Spa & Wellness Areas",
+    description: "Designing environments that actively reduce physical stress and complement restorative treatments. By locking tunable white lighting profiles to organic circadian patterns, purifying micro-climates, and isolating acoustics, these spaces deliver unparalleled sensory choice and cognitive comfort.",
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1200"
+  },
+  {
+    id: "p6",
+    name: "Guest Rooms",
+    description: "Evolving the stay experience through intelligent sleep science. Non-intrusive sensor matrices and magnetic contact points execute silent, invisible climate and shading setups that align with the guest's circadian rhythms, guaranteeing unparalleled sleep consistency while capturing 5% to 15% energy reductions.",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200"
   }
 ];
 
@@ -79,7 +87,7 @@ export function HospitalityFeaturedProjects() {
         scrollTrigger: {
           trigger: pinRef.current,
           start: "top top",
-          end: `+=${PROJECTS.length * 300}vh`,
+          end: `+=${PROJECTS.length * 250}vh`, 
           pin: true,
           scrub: SCROLL.scrub,
           anticipatePin: SCROLL.anticipatePin,
@@ -128,11 +136,10 @@ export function HospitalityFeaturedProjects() {
   return (
     <section
       ref={containerRef}
-      className={`bg-surface-darker text-foreground w-full relative transition-opacity duration-500 overflow-hidden ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`bg-background pt-8 md:pt-12 pb-8 md:pb-12 overflow-hidden text-foreground`}
     >
       {/* ═══ Header (Not Pinned) ═══ */}
-      <div className="w-full pt-24 pb-12 px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col items-center text-center">
-
+      <div className="w-full pb-12 px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col items-center text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground max-w-4xl">
           Hospitality Spaces Powered by Intelligent Automation
         </h2>
@@ -147,21 +154,8 @@ export function HospitalityFeaturedProjects() {
                 <img src={proj.image} alt={proj.name} className="w-full h-full object-cover" />
               </div>
               <div>
-                <h3 className="text-2xl font-light mb-6">{proj.name}</h3>
-                <div className="flex flex-col gap-4">
-                  <div>
-                    <h4 className="tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Scope of Automation</h4>
-                    <p className="text-sm text-muted">{proj.scope}</p>
-                  </div>
-                  <div>
-                    <h4 className="tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Challenges Solved</h4>
-                    <p className="text-sm text-muted">{proj.challenges}</p>
-                  </div>
-                  <div>
-                    <h4 className="tracking-[0.3em] uppercase text-accent text-[10px] mb-1">Result Achieved</h4>
-                    <p className="text-sm text-muted">{proj.result}</p>
-                  </div>
-                </div>
+                <h3 className="text-2xl font-light mb-4">{proj.name}</h3>
+                <p className="text-sm md:text-base text-muted leading-relaxed">{proj.description}</p>
               </div>
             </div>
           ))}
@@ -206,21 +200,8 @@ export function HospitalityFeaturedProjects() {
                     {proj.name}
                   </h3>
 
-                  <div className="flex flex-col gap-6">
-                    <div className="fp-stagger">
-                      <h4 className="tracking-[0.3em] uppercase text-muted mb-2">Scope of Automation</h4>
-                      <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.scope}</p>
-                    </div>
-
-                    <div className="fp-stagger">
-                      <h4 className="tracking-[0.3em] uppercase text-muted mb-2">Challenges Solved</h4>
-                      <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.challenges}</p>
-                    </div>
-
-                    <div className="fp-stagger">
-                      <h4 className="tracking-[0.3em] uppercase text-muted mb-2">Result Achieved</h4>
-                      <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans line-clamp-2">{proj.result}</p>
-                    </div>
+                  <div className="fp-stagger">
+                    <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-sans">{proj.description}</p>
                   </div>
                 </div>
               ))}

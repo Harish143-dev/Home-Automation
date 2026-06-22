@@ -127,7 +127,7 @@ export function ResidentialEfficiency() {
   };
 
   return (
-    <section ref={containerRef} className="py-24 md:py-32 bg-background relative z-10 overflow-hidden min-h-screen flex flex-col">
+    <section ref={containerRef} className="pt-16 pb-8 md:pt-24 md:pb-8 bg-background relative z-10 overflow-hidden flex flex-col">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
           Efficiency & Performance
@@ -244,7 +244,7 @@ export function ResidentialEfficiency() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mt-0 md:mt-2 flex-1 flex flex-col justify-start">
         <div className="mb-6">
           <span className="tracking-widest text-sm md:text-base text-muted">
-            Services under <span className="text-foreground">{activeCategory.title}</span>
+            Services under <span className="text-accent">{activeCategory.title}</span>
           </span>
         </div>
         <div className="border-t border-border transition-all duration-500">

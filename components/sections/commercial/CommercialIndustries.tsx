@@ -91,7 +91,7 @@ export function CommercialIndustries() {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="pt-20 md:pt-32 pb-8 md:pb-12 bg-background relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 industry-header">
         <div>
           <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
@@ -123,13 +123,13 @@ export function CommercialIndustries() {
 
       <div
         ref={carouselRef}
-        className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar px-6 sm:px-12 md:px-20 lg:px-24 pb-12 gap-6"
+        className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar px-6 sm:px-12 md:px-20 lg:px-24 pb-4 gap-6"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {INDUSTRIES.map((industry) => (
           <div
             key={industry.id}
-            className="industry-card flex-none w-[85vw] sm:w-[350px] md:w-[400px] snap-start group cursor-pointer"
+            className="industry-card flex-none p-2 w-[85vw] sm:w-[350px] md:w-[400px] snap-start group cursor-pointer"
           >
             <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface-darker mb-6">
               <Image

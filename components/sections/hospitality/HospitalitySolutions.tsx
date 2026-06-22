@@ -10,76 +10,54 @@ interface SolutionData {
   title: string;
   shortDescription: string;
   list1Title: string;
-  list1: string[];
-  list2Title: string;
-  list2: string[];
+  list1: { title: string; description: string }[];
   ctaText: string;
   image: string;
 }
 
 const SOLUTIONS: SolutionData[] = [
   {
-    title: "Public Area Systems",
-    shortDescription: "Create immersive and intelligently managed public spaces that enhance guest impressions and operational efficiency.",
-    list1Title: "Includes",
+    title: "System 01: Energy Smart System",
+    shortDescription: "The Paradigm: Invisible Logic for Carbon Resilience",
+    list1Title: "Capabilities & Components",
     list1: [
-      "Lobby lighting automation",
-      "Background music systems",
-      "Digital signage integration",
-      "Climate control",
-      "Event space automation"
+      { title: "Key Card Replacement", description: "Replaces traditional, failure-prone physical key card slots with advanced, software-driven automated logic." },
+      { title: "Multi-Sensor Presence Matrix", description: "Integrates discrete magnetic door thresholds and digital occupancy sensors to dynamically map real-time guest presence without violating individual privacy." },
+      { title: "Automated Energy Saving", description: "The moment the room is verified as unoccupied, the system automatically triggers standby logic—dimming active illumination layers and adjusting climate controls to eliminate utility waste." },
+      { title: "Hardware Standards", description: "Ultra-precise occupancy sensors, high-availability switching modules, and phase-cut dimming modules engineered for load management." }
     ],
-    list2Title: "Benefits",
-    list2: [
-      "Consistent ambiance",
-      "Energy optimization",
-      "Simplified centralized control",
-      "Premium guest experience"
-    ],
-    ctaText: "Explore Public Area Solutions →",
-    image: "https://images.unsplash.com/photo-1551882547-ff40c0d129df?q=80&w=1200&auto=format&fit=crop" // Placeholder
+    ctaText: "Explore Energy Smart System →",
+    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200&auto=format&fit=crop"
   },
   {
-    title: "Room Systems",
-    shortDescription: "Deliver comfort, convenience, and personalization through intelligent in-room automation systems.",
-    list1Title: "Features",
+    title: "System 02: Lutron MyRoom Prime",
+    shortDescription: "The Paradigm: Localized Sensory Autonomy",
+    list1Title: "Capabilities & Components",
     list1: [
-      "Smart lighting scenes",
-      "Automated curtains/shades",
-      "HVAC controls",
-      "AV integration",
-      "Occupancy-based automation"
+      { title: "Wireless Keypads", description: "Utilizes high-aesthetic, cord-free controls (such as Pico wireless keypads) to preserve interior wall finishes and eliminate complex wiring overheads." },
+      { title: "Bedside Lighting Scene Harmonization", description: "Provides intuitive, scene-based lighting adjustments right from the entryway or bedside to protect the designer's vision and room composition." },
+      { title: "Motorized Silhouette Integration", description: "Offers direct control to smoothly transition motorized window drapes and blinds, balancing natural daylight with privacy." },
+      { title: "Elegant Wireless Keypads", description: "Utilizes aesthetic, cord-free keypads (such as Pico wireless keypads) for seamless control without complex wall wiring." },
+      { title: "Lighting Control", description: "Provides dedicated, scene-based lighting adjustments right from the guest's bedside or entryway." },
+      { title: "Shades Control", description: "Offers built-in integration to smoothly open or close motorized window drapes and blinds." },
+      { title: "HVAC Control", description: "Gives guests standalone control over room temperature and fan speeds for localized comfort." }
     ],
-    list2Title: "Benefits",
-    list2: [
-      "Personalized comfort",
-      "Seamless room control",
-      "Enhanced stay experience",
-      "Reduced energy consumption",
-      "Improved operational efficiency"
-    ],
-    ctaText: "Explore Room Automation →",
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200&auto=format&fit=crop" // Placeholder
+    ctaText: "Explore MyRoom Prime →",
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop"
   },
   {
-    title: "Guest Room Controller (GRC)",
-    shortDescription: "Centralized room management systems designed to optimize guest comfort and hotel operations.",
-    list1Title: "Features",
+    title: "System 03: Lutron MyRoom XC",
+    shortDescription: "The Paradigm: Enterprise-Scale Environmental Orchestration",
+    list1Title: "Capabilities & Components",
     list1: [
-      "One-touch room controls",
-      "Scene management",
-      "DND/MUR integration",
-      "Centralized monitoring",
-      "PMS integration capability"
+      { title: "Centralized Network Processor Core", description: "Powered by an institutional-grade MyRoom XC processor that unifies multiple guestrooms into a singular, high-availability property backbone." },
+      { title: "Premium Sculpted Controls", description: "Interfaces with architectural wired controls, including Palladiom keypads, featuring bespoke custom engraving and dynamic backlighting elements." },
+      { title: "Server-Side Energy Analytics Software", description: "Connects to central enterprise software providing live dashboard tracking, interactive floorplan navigation, and advanced analytics for engineering teams." },
+      { title: "Centralized Property Monitoring", description: "Allows hotel operations to view real-time occupancy, thermal status, \"Do Not Disturb\" (DND), and \"Make Up Room\" (MUR) logs from a centralized command center." },
+      { title: "Advanced PMS/BMS Automation Workflows", description: "Deep native integration with Property Management Systems (PMS) and Building Management Systems (BMS) to trigger automated arrival scenes and predictive equipment maintenance alerts." }
     ],
-    list2Title: "Benefits",
-    list2: [
-      "Enhanced operational visibility",
-      "Improved energy management",
-      "Better guest engagement"
-    ],
-    ctaText: "Explore GRC Solutions →",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop" // Placeholder
+    ctaText: "Explore MyRoom XC →",
+    image: "https://images.unsplash.com/photo-1551882547-ff40c0d129df?q=80&w=1200&auto=format&fit=crop"
   }
 ];
 
@@ -125,16 +103,22 @@ export function HospitalitySolutions() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-surface-darker py-24 sm:py-32 overflow-hidden text-foreground"
+      className="relative w-full bg-background pt-8 md:pt-12 pb-8 md:pb-12 overflow-hidden text-foreground"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col gap-16 sm:gap-24">
 
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4 max-w-3xl mx-auto">
 
+          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+            Guest Room Management Systems
+          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
-            Smart Automation Solutions for Hospitality Environments
+            Guest Room Management Systems (GRMS)
           </h2>
+          <p className="text-muted text-base lg:text-lg leading-relaxed font-sans mt-4 max-w-2xl text-center">
+            Orchestrate an emotionally intelligent, biophilic guest room experience that elevates sleep consistency while executing predictive energy conservation.
+          </p>
         </div>
 
         {/* Solutions List */}
@@ -170,32 +154,17 @@ export function HospitalitySolutions() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  <div className="flex flex-col w-full">
                     {/* List 1 */}
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-4">
                       <h4 className="tracking-[0.3em] uppercase text-foreground text-sm">
                         {solution.list1Title}
                       </h4>
-                      <ul className="flex flex-col gap-2">
+                      <ul className="flex flex-col gap-5">
                         {solution.list1.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted">
-                            <Check className="w-4 h-4 mt-0.5 text-accent shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* List 2 */}
-                    <div className="flex flex-col gap-3">
-                      <h4 className="tracking-[0.3em] uppercase text-foreground text-sm">
-                        {solution.list2Title}
-                      </h4>
-                      <ul className="flex flex-col gap-2">
-                        {solution.list2.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted">
-                            <Check className="w-4 h-4 mt-0.5 text-accent shrink-0" />
-                            <span>{item}</span>
+                          <li key={i} className="flex flex-col gap-1 border-l-2 border-accent/20 pl-4">
+                            <span className="text-base text-foreground tracking-wide font-light">{item.title}</span>
+                            <span className="text-sm text-muted font-light leading-relaxed">{item.description}</span>
                           </li>
                         ))}
                       </ul>
