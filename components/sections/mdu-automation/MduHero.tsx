@@ -8,13 +8,17 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import heroImage from "@/assets/projects/private-residence.jpg";
 import { Button } from "@/components/ui/button";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useBreakpoint } from "@/hooks/useBreakpoint";
 
-export default function AboutHero() {
+export default function MduHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { isReady } = useBreakpoint();
 
   useGSAP(() => {
-    if (!textRef.current || !sectionRef.current) return;
+    if (!isReady || prefersReducedMotion || !textRef.current || !sectionRef.current) return;
 
     // Split text for line-by-line reveal
     const split = new SplitText(textRef.current.querySelectorAll(".hero-line"), {
@@ -58,7 +62,7 @@ export default function AboutHero() {
     }
 
     // Subtle parallax on the background image
-    gsap.to(".about-hero-bg", {
+    gsap.to(".mdu-hero-bg", {
       yPercent: 15,
       ease: "none",
       scrollTrigger: {
@@ -70,7 +74,7 @@ export default function AboutHero() {
     });
 
     return () => split.revert();
-  }, { scope: sectionRef });
+  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
     <section 
@@ -78,10 +82,10 @@ export default function AboutHero() {
       className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-secondary"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 about-hero-bg will-change-transform">
+      <div className="absolute inset-0 z-0 mdu-hero-bg will-change-transform">
         <NextImage
           src={heroImage}
-          alt="Architectural Smart Home"
+          alt="Smart Multi Division unit (MDU) Automation"
           fill
           priority
           sizes="100vw"
@@ -94,11 +98,11 @@ export default function AboutHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-center text-center mt-12 md:mt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-24 flex flex-col items-center text-center mt-12 md:mt-20">
         <div className="mb-6 flex items-center justify-center gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-white/40" />
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/70">
-            About Anusha Technovision
+          <span className="text-sm md:text-base tracking-[0.3em] text-white/50">
+            MDU Automation
           </span>
           <div className="h-[1px] w-8 bg-white/40" />
         </div>
@@ -106,31 +110,31 @@ export default function AboutHero() {
         <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
           <div className="hero-line">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
-              Engineering Intelligent
+              Smart Multi Division unit (MDU)
             </h1>
           </div>
           <div className="hero-line">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
-              Spaces Since 2002
+              Automation Solutions
             </h1>
           </div>
         </div>
 
         <p className="hero-fade-up mt-8 max-w-2xl text-white/80 font-light text-base sm:text-lg md:text-xl leading-relaxed opacity-0">
-          For over two decades, Anusha Technovision has been transforming residential, hospitality, and commercial spaces through intelligent automation, innovative technology, and customer-centric solutions.
+          Create intelligent apartment communities with integrated smart home automation that enhances convenience, energy efficiency, security, and modern living for every resident.
         </p>
 
-        <div className="hero-fade-up mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0">
-          <Link href="/projects" className="w-full sm:w-auto">
-            <Button variant="accent" size="lg" shape="full" className="w-full sm:w-auto">
-              Explore Our Solutions
-            </Button>
-          </Link>
+        <div className="hero-fade-up mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 w-full sm:w-auto">
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button variant="glass" size="lg" shape="full" className="w-full sm:w-auto">
-              Talk to Our Experts
+            <Button variant="accent" size="lg" shape="full" className="w-full sm:w-auto">
+              Schedule a Consultation
             </Button>
           </Link>
+          <a href="/api/brochure" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <Button variant="glass" size="lg" shape="full" className="w-full sm:w-auto">
+              Download Brochure
+            </Button>
+          </a>
         </div>
       </div>
     </section>

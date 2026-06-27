@@ -63,6 +63,8 @@ smarthome-os/
 │   ├── contact/page.tsx          # Contact page (client component)
 │   ├── experience-center/page.tsx
 │   ├── hospitality/page.tsx      # Hospitality service page
+│   ├── mdu-automation/page.tsx   # MDU Automation page
+│   ├── careers/page.tsx          # Careers page
 │   ├── projects/page.tsx         # Projects portfolio page
 │   ├── residential/page.tsx      # Residential service page
 │   ├── thank-you/page.tsx        # Post-form submission page
@@ -80,6 +82,8 @@ smarthome-os/
 │   │   ├── residential/          # 12 components
 │   │   ├── commercial/           # 10 components
 │   │   ├── hospitality/          # 9 components
+│   │   ├── mdu-automation/       # 5 components
+│   │   ├── careers/              # Careers page components
 │   │   ├── experience-center/    # 7 components
 │   │   ├── about/                # 6 components (AboutHero, BrandStory, etc.)
 │   │   ├── blog/                 # 13 components (BlogHero, BlogGrid, BlogDetailContent, etc.)
@@ -123,6 +127,8 @@ smarthome-os/
 | `/residential` | ✅ Complete | Client | Residential automation — 12 sections |
 | `/commercial` | ✅ Complete | Client | Commercial B2B automation — 10 sections |
 | `/hospitality` | ✅ Complete | Client | Hospitality & Hotels — 9 sections |
+| `/mdu-automation` | ✅ Complete | Client | MDU Automation — 5 sections |
+| `/careers` | ✅ In Progress | Client | Careers & open positions |
 | `/experience-center` | ✅ Complete | Client | Experience centers — 9 sections |
 | `/about` | ✅ Complete | Server | Company story — 6 sections |
 | `/blog` | ✅ Complete | Server | Blog listing with sidebar |
@@ -150,7 +156,7 @@ smarthome-os/
 
 ### Typography Rules (CRITICAL)
 - **Headings:** `font-light leading-[1.2] tracking-wide` — luxurious, editorial feel
-- **Section Labels (eyebrows):** `font-mono tracking-[0.3em] uppercase`
+- **Section Labels (eyebrows):** `tracking-[0.3em]` (do not use font-mono)
 - **Never use:** `font-display`, `tracking-tight`, or default bold/black weights on headings
 - **Dark theme text hierarchy:** `text-white`, `text-white/70`, `text-white/50`
 - **Light theme:** Use Tailwind vars: `bg-background`, `text-foreground`, `text-muted-foreground`
@@ -326,7 +332,7 @@ When modifying this project:
 3. Scope all GSAP queries to the component's ref
 4. Call `scheduleScrollRefresh()` after any ScrollTrigger pinning setup
 5. Follow typography rules: `font-light tracking-wide leading-[1.2]` for headings
-6. Use `font-mono tracking-[0.3em] uppercase` for eyebrow labels
+6. Use `tracking-[0.3em]` for eyebrow labels (do not use font-mono)
 7. Never use `font-display` or `tracking-tight` on headings
 8. Use Tailwind CSS vars for theming, not hardcoded hex
 9. Check the Next.js docs at `node_modules/next/dist/docs/` for API changes (v16)

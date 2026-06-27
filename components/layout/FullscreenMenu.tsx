@@ -20,6 +20,7 @@ const STANDALONE_LINKS = [
   { id: 'about', label: 'About Us', href: '/about' },
   { id: 'projects', label: 'Projects', href: '/projects' },
   { id: 'blog', label: 'The Journal', href: '/blog' },
+  { id: 'careers', label: 'Careers', href: '/careers' },
   { id: 'contact', label: 'Contact Us', href: '/contact' }
 ];
 
@@ -30,12 +31,13 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
       { label: 'Residential', href: '/residential' },
       { label: 'Hospitality', href: '/hospitality' },
       { label: 'Commercial', href: '/commercial' },
+      { label: 'MDU Automation', href: '/mdu-automation' },
     ]
   },
   {
     title: 'Disciplines',
     items: [
-      { label: 'Lighting Automation', href: '#lighting' },
+      { label: 'Lighting Automation', href: '/lighting-automation' },
       { label: 'Audio Video Automation', href: '#av' },
       { label: 'Shades Automation', href: '#shades' },
       { label: 'HVAC Automation', href: '#hvac' },

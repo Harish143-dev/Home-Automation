@@ -7,15 +7,16 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const FOOTER_LINKS = {
   services: [
-    { label: 'Lighting Automation', href: '#lighting' },
+    { label: 'Lighting Automation', href: '/lighting-automation' },
     { label: 'Audio Video', href: '#av' },
     { label: 'Climate Control', href: '#hvac' },
     { label: 'Smart Security', href: '#security' },
   ],
   solutions: [
     { label: 'Residential', href: '/residential' },
-    { label: 'Hospitality', href: '#hospitality' },
+    { label: 'Hospitality', href: '/hospitality' },
     { label: 'Commercial', href: '/commercial' },
+    { label: 'MDU Automation', href: '/mdu-automation' },
     { label: 'Experience Center', href: '/experience-center' },
     { label: 'All Projects', href: '/projects' },
   ],
@@ -23,6 +24,7 @@ const FOOTER_LINKS = {
     { label: 'About Us', href: '/about' },
     { label: 'The Journal', href: '/blog' },
     { label: 'Process', href: '/about#process' },
+    { label: 'Careers', href: '/careers' },
     { label: 'Contact', href: '/contact' },
   ]
 };

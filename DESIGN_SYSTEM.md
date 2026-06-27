@@ -390,7 +390,7 @@ For sections with dark backgrounds:
 
   {/* Content */}
   <div className="relative z-10">
-    <span className="tracking-[0.3em] uppercase text-white/50">Label</span>
+    <span className="tracking-[0.3em] text-white/50">Label</span>
     <h2 className="font-light tracking-wide leading-[1.2] text-white">Heading</h2>
     <p className="text-white/70 font-light">Body text</p>
   </div>
@@ -414,7 +414,7 @@ For sections with dark backgrounds:
 | `transition-all` on GSAP elements | Remove Tailwind transitions |
 | Conditional JSX for responsive | CSS `block`/`hidden` |
 | Heavy shadows on light bg | `shadow-sm` or `shadow-lg shadow-black/5` |
-| `font-mono` for labels | `tracking-[0.3em] uppercase` (inherits Lato) |
+| `font-mono` for labels | `tracking-[0.3em]` (inherits Lato) |
 
 ---
 

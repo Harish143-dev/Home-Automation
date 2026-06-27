@@ -55,6 +55,8 @@
 | `/residential` | ✅ Complete | Residential service page |
 | `/commercial` | ✅ Complete | Commercial B2B automation page |
 | `/hospitality` | ✅ Complete | Hospitality & Hotels automation page |
+| `/mdu-automation` | ✅ Complete | MDU Automation page |
+| `/careers` | ✅ In Progress | Careers & open positions page |
 | `/experience-center` | ✅ Complete | Experience center page with full animations and standardized theme |
 
 ---
@@ -99,6 +101,10 @@ smarthome-os/
 │   ├── layout.tsx                # Root layout (fonts, SmoothScrollProvider, Footer)
 │   ├── page.tsx                  # Home page (client component)
 │   ├── favicon.ico
+│   ├── mdu-automation/
+│   │   └── page.tsx              # MDU Automation page
+│   ├── careers/
+│   │   └── page.tsx              # Careers page
 │   └── residential/
 │       └── page.tsx              # Residential service page
 │
@@ -123,6 +129,16 @@ smarthome-os/
 │   │   │   ├── ProcessSection.tsx
 │   │   │   ├── TestimonialsSection.tsx
 │   │   │   └── CallToActionSection.tsx
+│   │   │
+│   │   ├── mdu-automation/      # MDU Automation page sections
+│   │   │   ├── MduHero.tsx
+│   │   │   ├── MduFeatures.tsx
+│   │   │   ├── MduPlatform.tsx
+│   │   │   ├── MduProjects.tsx
+│   │   │   └── MduCTA.tsx
+│   │   │
+│   │   ├── careers/             # Careers page sections
+│   │   │   └── CareersHero.tsx
 │   │   │
 │   │   └── residential/         # Residential page sections (2 components)
 │   │       ├── ResidentialHero.tsx
@@ -203,7 +219,7 @@ smarthome-os/
 > **Source of Truth:** The Home (`/`) page is the strict baseline for all typography and design conventions. All new pages (like `/residential`) MUST follow the exact typography weight, letter-spacing, and sizing rules established on the home page.
 
 - **Headings:** MUST use `font-light leading-[1.2] tracking-wide text-3xl md:text-4xl lg:text-5xl` for a luxurious, editorial feel. Never use `font-display` or `tracking-tight`. Never use default bold/black weights unless specifically required.
-- **Section Labels:** Small descriptive labels above headings (e.g., "Client Stories", "The Audience") MUST use `font-mono tracking-[0.3em] uppercase` and appropriate opacity (e.g. `text-muted-foreground` or `text-white/50`). Do not use `font-bold` or `tracking-[0.2em]`.
+- **Section Labels:** Small descriptive labels above headings (e.g., "Client Stories", "The Audience") MUST use `tracking-[0.3em]` and appropriate opacity (e.g. `text-muted-foreground` or `text-white/50`). Do not use `font-mono`, `font-bold` or `tracking-[0.2em]`.
 - **Numbers/Metrics:** Keep number fonts consistent with the body or heading fonts. Do not override with serif fonts unless explicitly matched on the home page.
 - **Colors (Dark Theme):** Use `text-white`, `text-white/70`, `text-white/50` for text hierarchy on dark backgrounds. Avoid hardcoded grays.
 - **Colors (Light Theme):** Use standard Tailwind variables like `bg-background`, `text-foreground`, `text-muted-foreground`, and `bg-card` rather than hardcoded hex values (e.g., `#fcfcfc`).
@@ -1127,7 +1143,7 @@ Returns `true` if the user prefers reduced motion. Components use this to:
 This audit tracks components against the new global guidelines established in the Home and Experience Center pages. 
 **Target Guidelines:** 
 - Headings must use `font-light leading-[1.2] tracking-wide` (remove `font-display`, remove `tracking-tight`).
-- Eyebrow labels must use `font-mono tracking-[0.3em] uppercase` (remove `font-bold`).
+- Eyebrow labels must use `font-mono tracking-[0.3em]` (remove `font-bold`).
 - Theme usage should leverage tailwind CSS vars (`text-foreground`, `bg-background`) or specific dark mode hexes without conflicting Tailwind `transition-all` on GSAP elements.
 
 ### ✅ Updated & Compliant (Experience Center, Commercial, Residential, Hospitality & Home)
