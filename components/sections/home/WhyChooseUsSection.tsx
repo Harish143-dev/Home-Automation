@@ -83,7 +83,7 @@ export function WhyChooseUsSection() {
         <div className="mb-10 sm:mb-14 md:mb-16 lg:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] mb-3 sm:mb-4 md:mb-6 text-foreground">
-              WHAT SETS US APART?
+              What Sets Us Apart?
             </h2>
             <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-wide">
               Our commitment to excellence ensures unmatched quality and innovation in every project.
@@ -136,9 +136,9 @@ export function WhyChooseUsSection() {
                       <Icon size={24} className="text-foreground" strokeWidth={1.5} />
                     </div>
 
-                    {/* The text container uses a fixed width relative to the rotation to ensure it aligns nicely */}
+                    {/* The text container aligns horizontally centered */}
                     <div className="flex-1 flex items-end justify-center pb-12">
-                      <div className="-rotate-90 whitespace-nowrap origin-center font-medium text-[17px] text-foreground tracking-wide">
+                      <div className="whitespace-nowrap font-medium text-[17px] text-foreground tracking-wide">
                         {usp.shortTitle}
                       </div>
                     </div>

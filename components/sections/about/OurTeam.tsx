@@ -82,13 +82,13 @@ export default function OurTeam() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative py-24 md:py-32 lg:py-40 bg-background text-foreground overflow-hidden"
+      className="relative pt-24 md:pt-32 lg:pt-40 pb-8 md:pb-12 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-24">
         
         {/* Header */}
         <div className="team-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 opacity-0">
-          <span className="block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Our Team
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] mb-4">
@@ -107,7 +107,7 @@ export default function OurTeam() {
               className="team-card flex flex-col items-center text-center group cursor-pointer opacity-0"
             >
               {/* Image Container with Hover Scale */}
-              <div className="relative w-full aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-md transition-shadow duration-500 group-hover:shadow-2xl">
+              <div className="relative w-full aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-lg shadow-black/5 transition-shadow duration-500 group-hover:shadow-2xl">
                 <NextImage 
                   src={member.image}
                   alt={member.name}

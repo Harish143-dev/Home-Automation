@@ -57,7 +57,7 @@ export default function AboutCTA() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative py-24 md:py-32 lg:py-48 bg-background text-foreground overflow-hidden"
+      className="relative pt-8 md:pt-12 pb-24 md:pb-48 bg-background text-foreground overflow-hidden"
     >
       {/* Dynamic Background Glows */}
       <div 
@@ -78,7 +78,7 @@ export default function AboutCTA() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-12 md:px-24 text-center">
         
         <div className="cta-content space-y-6 md:space-y-8 mb-12 md:mb-16">
-          <span className="block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Final CTA
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.1]">

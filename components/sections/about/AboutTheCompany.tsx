@@ -63,7 +63,7 @@ export default function AboutTheCompany() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative py-24 md:py-40 px-6 sm:px-12 md:px-24 overflow-hidden bg-background"
+      className="relative pt-24 md:pt-40 pb-8 md:pb-12 px-6 sm:px-12 md:px-24 overflow-hidden bg-background"
     >
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -76,7 +76,7 @@ export default function AboutTheCompany() {
         <div className="flex flex-col gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <span className="atc-eyebrow block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium opacity-0">
+              <span className="atc-eyebrow block tracking-[0.3em] text-sm md:text-base text-accent font-medium opacity-0">
                 The Architecture of Living
               </span>
               <div className="atc-line h-[1px] w-12 bg-accent opacity-0 origin-left" />

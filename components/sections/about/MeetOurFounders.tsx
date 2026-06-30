@@ -105,7 +105,7 @@ export default function MeetOurFounders() {
         
         {/* Header */}
         <div className="founder-header text-center max-w-3xl mx-auto space-y-4 mb-20 md:mb-32 opacity-0">
-          <span className="block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Meet Our Founder
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2]">

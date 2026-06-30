@@ -88,65 +88,69 @@ export function HospitalityEnvironments() {
       ref={sectionRef}
       className="relative w-full bg-background pt-8 md:pt-12 pb-8 md:pb-12 overflow-hidden text-foreground"
     >
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 env-header">
-        <div>
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
-            Operational Scales
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
-            Hospitality Environments we Automate
-          </h2>
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="hidden md:flex gap-4">
-          <button
-            onClick={() => scroll("left")}
-            className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
-      </div>
-
-      <div
-        ref={carouselRef}
-        className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar px-6 sm:px-12 md:px-20 lg:px-24 pb-4 gap-6"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {ENVIRONMENTS.map((env, idx) => (
-          <div
-            key={idx}
-            className="env-card flex-none p-2 w-[85vw] sm:w-[350px] md:w-[400px] snap-start group cursor-pointer"
-          >
-            <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface-darker mb-6">
-              <Image
-                src={env.image}
-                alt={env.title}
-                fill
-                sizes="(max-width: 768px) 85vw, 400px"
-                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:opacity-0" />
-            </div>
-
-            <h3 className="text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-snug text-foreground mb-3">
-              {env.title}
-            </h3>
-
-            <p className="text-sm md:text-base leading-relaxed font-light tracking-wide text-muted">
-              {env.description}
-            </p>
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 w-full">
+        {/* Header */}
+        <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 env-header">
+          <div>
+            <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+              Operational Scales
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
+              Hospitality Environments we Automate
+            </h2>
           </div>
-        ))}
+
+          {/* Navigation Buttons */}
+          <div className="hidden md:flex gap-4">
+            <button
+              onClick={() => scroll("left")}
+              className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+
+        {/* Carousel */}
+        <div
+          ref={carouselRef}
+          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 gap-6"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {ENVIRONMENTS.map((env, idx) => (
+            <div
+              key={idx}
+              className="env-card flex-none p-2 w-[85vw] sm:w-[350px] md:w-[400px] snap-start group cursor-pointer"
+            >
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface-darker mb-6">
+                <Image
+                  src={env.image}
+                  alt={env.title}
+                  fill
+                  sizes="(max-width: 768px) 85vw, 400px"
+                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:opacity-0" />
+              </div>
+
+              <h3 className="text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-snug text-foreground mb-3">
+                {env.title}
+              </h3>
+
+              <p className="text-sm md:text-base leading-relaxed font-light tracking-wide text-muted">
+                {env.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <style dangerouslySetInnerHTML={{

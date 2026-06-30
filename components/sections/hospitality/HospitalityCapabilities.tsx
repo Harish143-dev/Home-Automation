@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { Plus } from "lucide-react";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
-import { gsap, useGSAP } from "../../../lib/gsapSetup";
+import { gsap, useGSAP, ScrollTrigger } from "../../../lib/gsapSetup";
 import { EASE } from "../../../lib/animation.config";
 import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 
@@ -105,6 +106,25 @@ export function HospitalityCapabilities() {
   const { isMobile, isReady } = useBreakpoint();
   const prefersReducedMotion = useReducedMotion();
 
+  const [openAccordions, setOpenAccordions] = useState<Record<string, number | null>>(() => {
+    const initial: Record<string, number | null> = {};
+    CAPABILITIES_DATA.forEach(section => {
+      initial[section.id] = 0; // First item open by default
+    });
+    return initial;
+  });
+
+  const toggleAccordion = (sectionId: string, index: number) => {
+    setOpenAccordions(prev => ({
+      ...prev,
+      [sectionId]: prev[sectionId] === index ? null : index
+    }));
+    // Refresh ScrollTrigger after transition to account for height changes
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 350);
+  };
+
   useGSAP(
     () => {
       if (!isReady || isMobile || prefersReducedMotion) return;
@@ -157,7 +177,7 @@ export function HospitalityCapabilities() {
 
 
       {/* ═══ Mobile Layout ═══ */}
-      <div className={isMobile ? "block" : "hidden"}>
+      <div className="block lg:hidden">
         <div className="px-6 pb-24 flex flex-col gap-16">
           {CAPABILITIES_DATA.map((section) => (
             <div key={section.id} className="flex flex-col gap-6">
@@ -169,14 +189,32 @@ export function HospitalityCapabilities() {
                 <p className="text-sm md:text-base text-muted leading-relaxed font-light mb-6 italic">
                   {section.subheading}
                 </p>
-                <ul className="flex flex-col gap-5">
-                  {section.capabilities.map((cap, j) => (
-                    <li key={j} className="flex flex-col gap-1 border-l-2 border-accent/20 pl-4">
-                      <span className="text-base md:text-lg text-foreground tracking-wide font-light">{cap.title}</span>
-                      <span className="text-sm text-muted font-light leading-relaxed">{cap.description}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-col w-full border-t border-border mt-2">
+                  {section.capabilities.map((cap, j) => {
+                    const isOpen = openAccordions[section.id] === j;
+                    return (
+                      <div
+                        key={j}
+                        className="flex flex-col border-b border-border py-4 cursor-pointer group"
+                        onClick={() => toggleAccordion(section.id, j)}
+                      >
+                        <div className="flex justify-between items-center gap-4">
+                          <span className={`text-base md:text-lg tracking-wide font-light transition-colors ${isOpen ? "text-accent" : "text-foreground group-hover:text-accent/70"}`}>
+                            {cap.title}
+                          </span>
+                          <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45 text-accent" : "text-muted group-hover:text-foreground"}`}>
+                            <Plus className="w-4 h-4 md:w-5 md:h-5" />
+                          </span>
+                        </div>
+                        <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0'}`}>
+                          <div className="overflow-hidden">
+                            <span className="text-sm md:text-base text-muted font-light leading-relaxed block pr-6">{cap.description}</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           ))}
@@ -184,7 +222,7 @@ export function HospitalityCapabilities() {
       </div>
 
       {/* ═══ Desktop Pinned Layout (Native Sticky Scroll) ═══ */}
-      <div className={isMobile ? "hidden" : "block"}>
+      <div className="hidden lg:block">
         <div className="w-full max-w-[1440px] mx-auto relative px-12 lg:px-24 flex items-start">
 
           {/* Left Side: Sticky Image Container */}
@@ -216,7 +254,7 @@ export function HospitalityCapabilities() {
                   key={section.id + "content"}
                   className={`cap-right-block flex flex-col justify-center min-h-[80vh] ${i === 0 ? "pt-[10vh]" : ""}`}
                 >
-                  <h3 className="text-3xl lg:text-4xl font-light leading-tight text-accent mb-4">
+                  <h3 className="text-3xl lg:text-4xl font-light leading-tight text-accent my-4">
                     {section.name}
                   </h3>
 
@@ -224,14 +262,32 @@ export function HospitalityCapabilities() {
                     {section.subheading}
                   </p>
 
-                  <ul className="flex flex-col gap-6 max-w-xl">
-                    {section.capabilities.map((cap, j) => (
-                      <li key={j} className="flex flex-col gap-1 border-l-2 border-accent/20 pl-5">
-                        <span className="text-lg lg:text-xl text-foreground tracking-wide font-light">{cap.title}</span>
-                        <span className="text-base text-muted font-light leading-relaxed">{cap.description}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex flex-col w-full max-w-xl border-t border-border">
+                    {section.capabilities.map((cap, j) => {
+                      const isOpen = openAccordions[section.id] === j;
+                      return (
+                        <div
+                          key={j}
+                          className="flex flex-col border-b border-border py-5 cursor-pointer group"
+                          onClick={() => toggleAccordion(section.id, j)}
+                        >
+                          <div className="flex justify-between items-center gap-4">
+                            <span className={`text-lg lg:text-xl tracking-wide font-light transition-colors ${isOpen ? "text-accent" : "text-foreground group-hover:text-accent/70"}`}>
+                              {cap.title}
+                            </span>
+                            <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45 text-accent" : "text-muted group-hover:text-foreground"}`}>
+                              <Plus className="w-5 h-5" />
+                            </span>
+                          </div>
+                          <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}>
+                            <div className="overflow-hidden">
+                              <span className="text-base lg:text-lg text-muted font-light leading-relaxed block pr-8">{cap.description}</span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               ))}
             </div>

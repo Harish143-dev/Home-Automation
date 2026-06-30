@@ -105,7 +105,7 @@ export default function OurJourney() {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full bg-background text-foreground py-16 md:py-20 overflow-hidden"
+      className="relative w-full bg-background text-foreground pt-8 md:pt-12 pb-24 md:pb-32 overflow-hidden"
     >
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" aria-hidden="true">
@@ -115,7 +115,7 @@ export default function OurJourney() {
 
       {/* Header */}
       <div className="relative z-10 max-w-7xl w-full mx-auto px-6 sm:px-12 md:px-24 mb-12 text-center">
-        <span className="block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium mb-4">
+        <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium mb-4">
           Our Journey
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2]">

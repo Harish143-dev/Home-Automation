@@ -25,7 +25,6 @@ export default function HospitalityPage() {
       <HospitalitySolutions />
       <HospitalityCapabilities />
       <HospitalityBenefits />
-
       <HospitalityCaseStudies />
       <HospitalityRoiCalculator />
       {/* <HospitalityEcosystem /> */}

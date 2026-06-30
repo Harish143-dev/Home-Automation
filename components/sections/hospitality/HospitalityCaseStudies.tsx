@@ -68,12 +68,12 @@ export function HospitalityCaseStudies() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="bg-background py-16 md:py-24 px-6 md:px-12 lg:px-24">
+    <section ref={containerRef} className="bg-background pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col gap-12 lg:gap-20">
 
         {/* Header */}
         <div className="cs-header text-center flex flex-col items-center">
-          <span className="tracking-widest uppercase text-accent text-sm md:text-base">
+          <span className="tracking-widest  text-accent text-sm md:text-base">
             Proven Implementations
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground mt-4">

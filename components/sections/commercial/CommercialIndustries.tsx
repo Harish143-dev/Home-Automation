@@ -92,7 +92,8 @@ export function CommercialIndustries() {
 
   return (
     <section ref={sectionRef} className="pt-20 md:pt-32 pb-8 md:pb-12 bg-background relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 industry-header">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 w-full">
+        <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 industry-header">
         <div>
           <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
             Operational Scales
@@ -119,13 +120,13 @@ export function CommercialIndustries() {
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
-      </div>
+        </div>
 
-      <div
-        ref={carouselRef}
-        className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar px-6 sm:px-12 md:px-20 lg:px-24 pb-4 gap-6"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
+        <div
+          ref={carouselRef}
+          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 gap-6"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
         {INDUSTRIES.map((industry) => (
           <div
             key={industry.id}
@@ -151,6 +152,7 @@ export function CommercialIndustries() {
           </div>
         ))}
       </div>
+    </div>
 
       <style dangerouslySetInnerHTML={{
         __html: `

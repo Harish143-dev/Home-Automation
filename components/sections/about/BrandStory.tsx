@@ -41,7 +41,7 @@ export default function BrandStory() {
         
         {/* Subtitle */}
         <div className="mb-12 flex items-center gap-4">
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
             Our Philosophy
           </span>
           <div className="h-[1px] w-12 bg-border" />

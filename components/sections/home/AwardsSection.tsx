@@ -123,7 +123,7 @@ export function AwardsSection({ className }: { className?: string }) {
       id="awards"
     >
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-16 lg:px-24">
-        <div className="awards-header flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
+        <div className="awards-header flex flex-col md:flex-row md:items-end justify-between mb-6 gap-8">
           <div>
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[1px] w-8 bg-black/20" />
@@ -133,9 +133,9 @@ export function AwardsSection({ className }: { className?: string }) {
               Awards<span className="text-foreground/30">.</span>
             </h2>
           </div>
-          
+
           <div className="flex flex-col items-start md:items-end gap-6 md:gap-8">
-            <div className="max-w-[300px] text-muted text-sm md:text-base leading-relaxed font-light md:text-right">
+            <div className="max-w-[320px] text-muted text-sm md:text-base leading-relaxed font-light md:text-right">
               A testament to our unwavering commitment to design excellence and innovation over the years.
             </div>
           </div>
@@ -163,7 +163,7 @@ export function AwardsSection({ className }: { className?: string }) {
 
         {/* Carousel Container */}
         <div className="awards-list -mx-5 sm:-mx-8 md:-mx-16 lg:-mx-24 px-5 sm:px-8 md:px-16 lg:px-24">
-          <div 
+          <div
             ref={carouselRef}
             className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] pb-12 pt-4"
           >

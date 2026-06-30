@@ -52,7 +52,7 @@ export default function ProcessPhilosophy() {
         <div className="flex-1 flex flex-col gap-12 lg:pr-8">
           <div className="flex flex-col gap-6 process-text">
             <div className="flex items-center gap-4">
-              <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
+              <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
                 Engineering Precision
               </span>
               <div className="h-[1px] w-8 bg-border" />

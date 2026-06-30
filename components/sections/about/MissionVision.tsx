@@ -68,13 +68,13 @@ export default function MissionVision() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative py-24 md:py-32 lg:py-48 px-6 sm:px-12 md:px-24 overflow-hidden bg-background text-foreground"
+      className="relative pb-8 md:pb-12 px-6 sm:px-12 md:px-24 overflow-hidden bg-background text-foreground"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-20 lg:gap-32">
         
         {/* Header */}
-        <div className="mission-header text-center max-w-3xl mx-auto space-y-4 mb-20 md:mb-32 opacity-0">
-          <span className="block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium">
+        <div className="mission-header text-center max-w-3xl mx-auto space-y-4 opacity-0">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Mission & Vision
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">

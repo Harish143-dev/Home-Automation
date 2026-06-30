@@ -70,7 +70,7 @@ export default function Awards() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative py-24 md:py-32 lg:py-40 bg-background text-foreground overflow-hidden"
+      className="relative pt-8 md:pt-12 pb-8 md:pb-12 bg-background text-foreground overflow-hidden"
     >
       {/* Background glow */}
       <div 
@@ -88,7 +88,7 @@ export default function Awards() {
         
         {/* Header */}
         <div className="award-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 opacity-0">
-          <span className="block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Awards & Certifications
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2]">

@@ -91,41 +91,18 @@ export function HospitalityBenefits() {
       scrollTrigger: { trigger: containerRef.current, start: "top 75%" }
     });
 
-    // Pinned scroll logic for Desktop
-    if (!isMobile) {
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top 15%",
-        end: "+=200%", // Provides plenty of scroll distance to read through all 4 items
-        pin: true,
-        scrub: true,
-        onUpdate: (self) => {
-          // Calculate which item should be active based on scroll progress (0 to 1)
-          const progress = self.progress;
-          const index = Math.min(
-            BUSINESS_CASE_DATA.items.length - 1,
-            Math.floor(progress * BUSINESS_CASE_DATA.items.length)
-          );
-          
-          if (BUSINESS_CASE_DATA.items[index].id !== activeItem) {
-             setActiveItem(BUSINESS_CASE_DATA.items[index].id);
-          }
-        }
-      });
-    }
-
-  }, { dependencies: [isReady, isMobile, activeItem], scope: containerRef });
+  }, { dependencies: [isReady, isMobile], scope: containerRef });
 
   return (
     <section
       ref={containerRef}
-      className={`w-full py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-background transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`w-full pt-8 md:pt-12 pb-8 md:pb-12 px-6 md:px-12 lg:px-24 bg-background transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
         
-        {/* Left Column: Static Header (Pinned by GSAP) */}
-        <div className="w-full lg:w-5/12">
-          <div className="bc-left-content flex flex-col gap-6">
+        {/* Left Column: Static Header (Sticky) */}
+        <div className="w-full lg:w-5/12 relative">
+          <div className="bc-left-content flex flex-col gap-6 lg:sticky lg:top-[15vh]">
             <span className="tracking-widest text-sm md:text-base text-accent">
               {BUSINESS_CASE_DATA.eyebrow}
             </span>

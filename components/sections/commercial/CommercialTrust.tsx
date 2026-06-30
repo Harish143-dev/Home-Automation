@@ -20,11 +20,11 @@ const METRICS: MetricItem[] = [
 
 function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?: string; suffix?: string; label: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const numberRef = useRef<HTMLSpanElement>(null);
+  const [displayValue, setDisplayValue] = useState("0");
 
   useGSAP(
     () => {
-      if (!numberRef.current || !cardRef.current) return;
+      if (!cardRef.current) return;
 
       const obj = { val: 0 };
       
@@ -39,9 +39,7 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
           invalidateOnRefresh: true,
         },
         onUpdate: () => {
-          if (numberRef.current) {
-            numberRef.current.textContent = Math.round(obj.val).toLocaleString();
-          }
+          setDisplayValue(Math.round(obj.val).toLocaleString());
         }
       });
     },
@@ -51,14 +49,16 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
   return (
     <div
       ref={cardRef}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-center py-14 sm:py-16 md:py-20 px-6 sm:px-8 xl:px-12 bg-background sm:last:col-span-2 lg:last:col-span-1"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-start py-14 sm:py-16 md:py-20 px-6 sm:px-8 xl:px-12 bg-background sm:last:col-span-2 lg:last:col-span-1"
     >
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-start text-left">
-        {prefix && <span className="text-xs sm:text-sm font-medium tracking-widest text-accent mb-2">{prefix}</span>}
+        <span className={`text-xs sm:text-sm font-medium tracking-widest text-accent mb-2 ${!prefix ? 'invisible' : ''}`}>
+          {prefix || "\u00A0"}
+        </span>
         <div className="flex flex-row items-baseline justify-start text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light leading-none tracking-wide text-foreground mb-3">
-          <span ref={numberRef}>0</span>
-          {suffix && <span className="text-3xl sm:text-4xl text-foreground/80 font-light ml-2">{suffix}</span>}
+          <span>{displayValue}</span>
+          {suffix && <span className="text-4xl sm:text-6xl text-foreground/80 font-light ml-2">{suffix}</span>}
         </div>
         
         <span className="tracking-widest text-sm md:text-base text-muted">

@@ -69,13 +69,13 @@ export default function CompanyAtAGlance() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
+      className="relative w-full bg-background pt-8 md:pt-12 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
         {/* Section Header */}
         <div ref={leftColRef} className="atg-header max-w-3xl mb-16 md:mb-24 opacity-0 md:sticky md:top-32 md:h-fit">
-          <span className="block tracking-[0.3em] uppercase text-sm md:text-base text-accent font-medium mb-4">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium mb-4">
             Company at a Glance
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
@@ -84,14 +84,14 @@ export default function CompanyAtAGlance() {
         </div>
 
         {/* Right Stats Vertical Stack (Native Scrolling) */}
-        <div className="w-full md:w-1/2 flex flex-col gap-16 sm:gap-20 md:gap-32 lg:gap-40 border-l border-black/5 pl-6 sm:pl-8 md:pl-16 pb-20 md:pb-40 lg:pb-[30vh]">
+        <div className="w-full md:w-1/2 flex flex-col gap-16 sm:gap-20 border-l border-black/5 pl-6 sm:pl-8 md:pl-16">
           {STATS.map((stat, i) => (
             <div
               key={i}
               ref={el => { statsRefs.current[i] = el; }}
               className="flex flex-col border-b border-black/5 pb-6 sm:pb-8 last:border-b-0 last:pb-0 group cursor-default opacity-0"
             >
-              {stat.prefix && <span className="text-sm md:text-base tracking-[0.3em] uppercase text-accent font-normal mt-5 mb-1 sm:mb-2 block">{stat.prefix}</span>}
+              {stat.prefix && <span className="text-sm md:text-base tracking-[0.3em] text-accent font-normal mt-5 mb-1 sm:mb-2 block">{stat.prefix}</span>}
               <div className="font-light tracking-wide leading-none text-foreground mb-3 sm:mb-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 text-3xl sm:text-4xl lg:text-5xl">
                 <span>{stat.value}</span>
               </div>
