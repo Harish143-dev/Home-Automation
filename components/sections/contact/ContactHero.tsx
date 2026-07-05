@@ -80,15 +80,15 @@ export function ContactHero() {
           </span>
           <div className="h-[1px] w-8 bg-accent" />
         </div>
-        
+
         <div ref={textRef} className="flex flex-col gap-2">
           <div className="overflow-hidden">
-            <h1 className="hero-line text-4xl md:text-5xl lg:text-7xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
+            <h1 className="hero-line text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
               Let's Design Your
             </h1>
           </div>
           <div className="overflow-hidden">
-            <h1 className="hero-line text-4xl md:text-5xl lg:text-7xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
+            <h1 className="hero-line text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
               Intelligent Space
             </h1>
           </div>

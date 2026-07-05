@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
-import { gsap, useGSAP } from "../../../lib/gsapSetup";
-import { useReducedMotion } from "../../../hooks/useReducedMotion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useBreakpoint } from "@/hooks/useBreakpoint";
 
 interface MetricItem {
   target: number;
@@ -11,20 +13,21 @@ interface MetricItem {
 }
 
 const METRICS: MetricItem[] = [
-  { target: 20, prefix: "Over", label: "Years Experience" },
+  { target: 24, prefix: "Over", label: "Years Experience" },
   { target: 1000, prefix: "Over", label: "Projects Delivered" },
-  { target: 50, prefix: "Over", label: "Cities" },
-  { target: 5, label: "Experience Centers" },
-  { target: 200, prefix: "Over", label: "Premium Clients" }
+  { target: 650, prefix: "Over", label: "Premium Residences" },
+  { target: 3, label: "Experience Centers" },
+  { target: 12, prefix: "Over", label: "Cities" }
 ];
 
 function MetricCard({ target, prefix, label }: { target: number; prefix?: string; label: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const numberRef = useRef<HTMLSpanElement>(null);
+  const { isReady } = useBreakpoint();
 
   useGSAP(
     () => {
-      if (!numberRef.current || !cardRef.current) return;
+      if (!isReady || !numberRef.current || !cardRef.current) return;
 
       const obj = { val: 0 };
 
@@ -34,9 +37,8 @@ function MetricCard({ target, prefix, label }: { target: number; prefix?: string
         ease: "power3.out",
         scrollTrigger: {
           trigger: cardRef.current,
-          start: "top 90%",
+          start: "top 95%",
           toggleActions: "play none none none",
-          invalidateOnRefresh: true,
         },
         onUpdate: () => {
           if (numberRef.current) {
@@ -45,13 +47,13 @@ function MetricCard({ target, prefix, label }: { target: number; prefix?: string
         }
       });
     },
-    { scope: cardRef, dependencies: [target] }
+    { scope: cardRef, dependencies: [isReady, target] }
   );
 
   return (
     <div
       ref={cardRef}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-center py-12 sm:py-16 md:py-20 px-6 sm:px-8 bg-background"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-center py-12 sm:py-16 md:py-20 px-6 sm:px-8 bg-background opacity-0"
     >
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-start text-left">
@@ -76,15 +78,15 @@ export default function LightingTrust() {
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const { isReady } = useBreakpoint();
 
   useGSAP(
     () => {
-      if (!sectionRef.current || prefersReducedMotion) return;
+      if (!isReady || !sectionRef.current || prefersReducedMotion) return;
 
       if (gridRef.current) {
         const cards = gridRef.current.querySelectorAll(".metric-card");
-        gsap.set(cards, { y: 40, opacity: 0 });
-
+        
         gsap.to(cards, {
           y: 0,
           opacity: 1,
@@ -95,12 +97,11 @@ export default function LightingTrust() {
             trigger: sectionRef.current,
             start: "top 82%",
             toggleActions: "play none none none",
-            invalidateOnRefresh: true,
           }
         });
       }
     },
-    { scope: sectionRef, dependencies: [prefersReducedMotion] }
+    { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] }
   );
 
   return (
@@ -122,7 +123,7 @@ export default function LightingTrust() {
             </h2>
           </div>
           <p className="text-sm md:text-base font-light tracking-wide text-muted leading-relaxed max-w-2xl text-balance">
-            Building premium automation spaces requires more than just smart technology—it demands decades of robust integration expertise. We map out precise intelligent environments that balance structural performance with daily rhythms, delivering custom systems designed to last.
+            With over 24 years of experience, ATPL has successfully delivered over 1,000 projects, including more than 650 premium residences, over 250 hospitality projects, and over 100 commercial projects. With Experience Centres in Delhi, Mumbai, and Bangalore, and sales and service support across over 12 cities.
           </p>
         </div>
 
@@ -140,6 +141,47 @@ export default function LightingTrust() {
             />
           ))}
         </div>
+
+        {/* Clients and Accolades */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mt-16 md:mt-24 text-left">
+          <div className="flex-1">
+            <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-6">
+              Trusted by the Best
+            </h3>
+            <p className="text-muted font-light text-base md:text-lg leading-relaxed">
+              ATPL is trusted by India's leading homeowners, business leaders, celebrities, and prestigious residences. Its portfolio includes distinguished clients such as Madhuri Dixit, Rajan Mittal (Airtel), BKT Farms, Atul Raheja, Khazana Jewellery (Chennai), along with hundreds of premium homes across the country.
+            </p>
+          </div>
+          
+          <div className="flex-1">
+            <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-6">
+              Awards & Recognitions
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-muted font-light text-base">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-2 flex-shrink-0" />
+                <span>Lutron Electronics (USA) Authorized Distributor</span>
+              </li>
+              <li className="flex items-start gap-3 text-muted font-light text-base">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-2 flex-shrink-0" />
+                <span>Founding India Member of CEDIA</span>
+              </li>
+              <li className="flex items-start gap-3 text-muted font-light text-base">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-2 flex-shrink-0" />
+                <span>2026 Lutron Hall of Fame &ndash; First company in Asia to receive this recognition</span>
+              </li>
+              <li className="flex items-start gap-3 text-muted font-light text-base">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-2 flex-shrink-0" />
+                <span>Multiple Residential &amp; Hospitality Business Awards</span>
+              </li>
+              <li className="flex items-start gap-3 text-muted font-light text-base">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-2 flex-shrink-0" />
+                <span>Nationally recognized for excellence in luxury home automation.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </section>
   );

@@ -81,10 +81,10 @@ export default function OurTeam() {
 
   return (
     <section 
-      ref={sectionRef} 
-      className="relative pt-24 md:pt-32 lg:pt-40 pb-8 md:pb-12 bg-background text-foreground overflow-hidden"
+      ref={sectionRef}
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-24">
+      <div className="max-w-7xl w-full mx-auto">
         
         {/* Header */}
         <div className="team-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 opacity-0">

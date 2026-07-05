@@ -57,7 +57,7 @@ export default function AboutCTA() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative pt-8 md:pt-12 pb-24 md:pb-48 bg-background text-foreground overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Dynamic Background Glows */}
       <div 
@@ -70,16 +70,16 @@ export default function AboutCTA() {
       />
 
       {/* Noise Texture */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" aria-hidden="true">
+      <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
         <filter id="noise-cta"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch" /></filter>
         <rect width="100%" height="100%" filter="url(#noise-cta)" />
       </svg>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-12 md:px-24 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto w-full text-center">
         
         <div className="cta-content space-y-6 md:space-y-8 mb-12 md:mb-16">
-          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
-            Final CTA
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium uppercase">
+            Take the Next Step
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.1]">
             Let's Create Smarter Spaces Together

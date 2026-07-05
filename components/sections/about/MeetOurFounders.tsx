@@ -83,20 +83,10 @@ export default function MeetOurFounders() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-secondary text-white py-24 md:py-32 lg:py-40 overflow-hidden"
+      className="relative w-full bg-background text-foreground py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden"
     >
-      {/* Ambient glow overlays */}
-      <div 
-        className="absolute top-0 right-0 w-[600px] h-[600px] opacity-20 pointer-events-none" 
-        style={{ background: 'radial-gradient(circle, rgba(229,107,85,0.4) 0%, rgba(0,0,0,0) 70%)' }} 
-      />
-      <div 
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] opacity-10 pointer-events-none" 
-        style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0) 70%)' }} 
-      />
-      
       {/* Noise Texture */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" aria-hidden="true">
+      <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
         <filter id="noise-founders"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch" /></filter>
         <rect width="100%" height="100%" filter="url(#noise-founders)" />
       </svg>
@@ -125,7 +115,7 @@ export default function MeetOurFounders() {
                 
                 {/* Image Column */}
                 <div className="founder-img-col w-full lg:w-5/12 opacity-0">
-                  <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-2xl">
+                  <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-lg shadow-black/5">
                     <NextImage 
                       src={founder.image}
                       alt={founder.name}
@@ -133,7 +123,7 @@ export default function MeetOurFounders() {
                       className="object-cover"
                       unoptimized
                     />
-                    <div className="absolute inset-0 border border-white/10 rounded-2xl md:rounded-[2.5rem] pointer-events-none" />
+                    <div className="absolute inset-0 border border-black/5 rounded-2xl md:rounded-[2.5rem] pointer-events-none" />
                   </div>
                 </div>
 
@@ -150,7 +140,7 @@ export default function MeetOurFounders() {
                   
                   <div className="space-y-6">
                     {founder.message.map((paragraph, pIdx) => (
-                      <p key={pIdx} className="text-white/70 font-light text-base md:text-lg leading-relaxed">
+                      <p key={pIdx} className="text-muted font-light text-base md:text-lg leading-relaxed">
                         {paragraph}
                       </p>
                     ))}

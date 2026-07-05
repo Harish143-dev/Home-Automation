@@ -24,10 +24,10 @@ export default function CareersHero() {
 
     // Split text for staggered line reveal
     const split = new SplitText(textRef.current, { type: "lines" });
-    
+
     // Initial state
     gsap.set(split.lines, { y: 30, opacity: 0 });
-    
+
     const tl = gsap.timeline();
 
     tl.to(split.lines, {
@@ -38,11 +38,11 @@ export default function CareersHero() {
       ease: EASE.premium,
       delay: 0.2
     })
-    .fromTo(".hero-element", 
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.wide, ease: EASE.reveal },
-      "-=0.8"
-    );
+      .fromTo(".hero-element",
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.wide, ease: EASE.reveal },
+        "-=0.8"
+      );
 
     // Subtle parallax on the background image
     gsap.to(".hero-bg", {
@@ -59,8 +59,8 @@ export default function CareersHero() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black"
     >
       {/* Background Image */}
@@ -86,9 +86,9 @@ export default function CareersHero() {
           <div className="h-[1px] w-8 bg-white/40" />
         </div>
 
-        <h1 
+        <h1
           ref={textRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white mb-8 max-w-5xl"
+          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white mb-8 max-w-5xl"
         >
           Build the Future of Smart Automation with Anusha Technovision
         </h1>
@@ -98,7 +98,7 @@ export default function CareersHero() {
         </p>
 
         <div className="hero-element flex flex-col sm:flex-row items-center gap-6">
-          <Link 
+          <Link
             href="#open-positions"
             className={cn(
               buttonVariants({ variant: "glass", size: "lg", shape: "full" }),

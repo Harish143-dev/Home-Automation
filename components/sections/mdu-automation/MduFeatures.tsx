@@ -12,89 +12,66 @@ import {
   ShieldCheck, 
   Speaker, 
   Film, 
-  Tv, 
+  LayoutGrid, 
   Wifi 
 } from "lucide-react";
+
+const EXPERTISE = [
+  "Apartments",
+  "Entrance Lobbies",
+  "Clubhouses",
+  "Common Areas",
+  "Amenities and Recreational Spaces"
+];
 
 const SYSTEMS = [
   {
     id: "lighting",
-    title: "Lighting Control System",
+    title: "Lighting Control",
     icon: Lightbulb,
-    spanClass: "md:col-span-2 lg:col-span-2",
-    items: [
-      "Lighting Control processor",
-      "Lighting Control Dimmer module",
-      "Wireless occupancy",
-      "Keypad"
-    ]
+    description: "Lighting automation enables scene-based control, scheduling, and motion/occupancy-based operation. It also supports security lighting response and keypad-based control for easy management."
   },
   {
-    id: "hvac",
-    title: "HVAC Control System",
-    icon: Thermometer,
-    spanClass: "col-span-1",
-    items: [
-      "Interface for HVAC",
-      "Thermostat"
-    ]
-  },
-  {
-    id: "shades",
-    title: "Motorised Shades",
-    icon: Blinds,
-    spanClass: "col-span-1",
-    items: [
-      "Roller Blinds",
-      "Drapery Track"
-    ]
-  },
-  {
-    id: "audio",
-    title: "Audio System",
+    id: "audio-video",
+    title: "Audio Video Solutions",
     icon: Speaker,
-    spanClass: "md:col-span-2 lg:col-span-2",
-    items: [
-      "Amplifier",
-      "Decorative on wall speaker",
-      "In Ceiling Speaker",
-      "Decorative Hanging speaker"
-    ]
+    description: "Provides centralized control of multi-room audio and video systems with streaming support, home theatre integration, and coverage of indoor and outdoor areas."
   },
   {
     id: "security",
-    title: "Security System",
+    title: "Security Solutions",
     icon: ShieldCheck,
-    spanClass: "md:col-span-2 lg:col-span-2",
-    items: [
-      "Camera",
-      "Door Bell with Camera",
-      "Digital door lock"
-    ]
+    description: "Includes surveillance, access control, remote monitoring, video door phone integration, smart locks, and intrusion detection systems for overall security."
+  },
+  {
+    id: "shades",
+    title: "Shades Solutions",
+    icon: Blinds,
+    description: "Motorized blinds and curtains with time- and sunlight-based control. Supports manual scene or one-touch operation for privacy and shading."
+  },
+  {
+    id: "hvac",
+    title: "HVAC Solutions",
+    icon: Thermometer,
+    description: "Automated temperature control based on occupancy and schedules to improve comfort and reduce energy use."
   },
   {
     id: "theater",
-    title: "Home Theater System",
+    title: "Home Theatre",
     icon: Film,
-    spanClass: "col-span-1",
-    items: [
-      "Projector",
-      "Screen"
-    ]
+    description: "Provides integrated audio and video control for a cinema-like experience at home with centralized switching and high-quality output."
   },
   {
-    id: "tv",
-    title: "Motorized TV Lift",
-    icon: Tv,
-    spanClass: "col-span-1",
-    items: []
+    id: "keypads",
+    title: "Wireless Keypads",
+    icon: LayoutGrid,
+    description: "Simple wall-mounted or portable controls to manage lighting and scenes without using mobile apps or switches."
   },
   {
     id: "wifi",
-    title: "Wi-Fi Access Points",
+    title: "Wi-Fi Infrastructure",
     icon: Wifi,
-    spanClass: "md:col-span-2 lg:col-span-2",
-    items: []
+    description: "Ensures stable, high-speed connectivity across the space for all smart devices, automation, and streaming needs."
   }
 ];
 
@@ -106,13 +83,14 @@ export default function MduFeatures() {
   useGSAP(() => {
     if (!isReady || prefersReducedMotion || !sectionRef.current) return;
 
-    gsap.fromTo(".feature-header",
+    gsap.fromTo(".feature-header-el",
       { y: 40, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 0.8,
         ease: "power3.out",
+        stagger: 0.15,
         scrollTrigger: {
           trigger: ".feature-header",
           start: "top 85%",
@@ -144,31 +122,47 @@ export default function MduFeatures() {
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
-        {/* Header */}
+        {/* Header Section */}
         <div className="feature-header max-w-4xl text-center mb-16 md:mb-24 flex flex-col items-center">
-          <div className="mb-6 flex items-center justify-center gap-4">
+          <div className="feature-header-el mb-6 flex items-center justify-center gap-4">
             <div className="h-[1px] w-6 bg-accent/30" />
-            <span className="text-sm md:text-base tracking-[0.3em] text-accent">
+            <span className="text-sm md:text-base tracking-[0.3em] text-accent uppercase">
               Smart Home Automation
             </span>
             <div className="h-[1px] w-6 bg-accent/30" />
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6">
+          <h2 className="feature-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-8">
             Intelligent Automation Designed for Modern Residential Communities
           </h2>
           
-          <p className="text-muted font-light text-base md:text-lg leading-relaxed max-w-3xl">
-            Our Multi Division unit (MDU) solution enables developers and builders to deliver connected, future-ready apartments equipped with intelligent lighting, climate, entertainment, security, and centralized control systems.
+          <p className="feature-header-el text-muted font-light text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+            We deliver intelligent automation solutions for Multi-Dwelling Unit (MDU) developments, creating connected and efficient living experiences across residential communities.
+          </p>
+
+          <div className="feature-header-el flex flex-wrap justify-center gap-3 mb-10">
+            {EXPERTISE.map((exp, idx) => (
+              <span key={idx} className="px-4 py-2 rounded-full border border-border/60 bg-black/[0.02] text-sm md:text-base font-light text-muted">
+                {exp}
+              </span>
+            ))}
+          </div>
+
+          <p className="feature-header-el text-muted font-light text-base md:text-lg leading-relaxed max-w-3xl mb-6">
+            Our solutions are powered by Lutron and designed to support future KNX integration, ensuring flexibility, scalability, and long-term value for modern developments.
+          </p>
+          
+          <p className="feature-header-el text-muted font-light text-base md:text-lg leading-relaxed max-w-3xl">
+            We have successfully delivered automation solutions for leading residential projects by developers such as Unity Amaryllis, Elan, and M3M, enhancing comfort, convenience, energy efficiency, and the overall resident experience.
           </p>
         </div>
 
-        {/* Bento Grid */}
+        {/* Features Grid */}
         <div className="bento-grid w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {SYSTEMS.map((system) => (
             <div 
               key={system.id} 
-              className={`bento-card group relative flex flex-col p-8 rounded-2xl bg-panel shadow-sm border border-border overflow-hidden transition-shadow duration-500 hover:shadow-xl ${system.spanClass}`}
+              className="bento-card group relative flex flex-col p-8 rounded-2xl bg-panel shadow-sm border border-border overflow-hidden transition-shadow duration-500 hover:shadow-xl"
             >
               {/* Subtle Background Glow on Hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -178,20 +172,13 @@ export default function MduFeatures() {
                   <system.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-4">
+                <h3 className="text-xl font-medium tracking-wide text-foreground mb-3">
                   {system.title}
                 </h3>
                 
-                {system.items.length > 0 && (
-                  <ul className="flex flex-col gap-2.5 mt-auto pt-4 border-t border-border/50">
-                    {system.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm md:text-base text-muted font-light">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-2 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <p className="text-muted font-light text-sm md:text-base leading-relaxed mt-auto">
+                  {system.description}
+                </p>
               </div>
             </div>
           ))}

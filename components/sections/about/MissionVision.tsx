@@ -8,14 +8,7 @@ import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
 import { DURATION, EASE } from "@/lib/animation.config";
-import { Check } from "lucide-react";
 
-const VALUES = [
-  "Relentless Innovation",
-  "Uncompromising Quality",
-  "Customer-Centric Design",
-  "Sustainable Solutions",
-];
 
 export default function MissionVision() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -26,7 +19,7 @@ export default function MissionVision() {
     if (!isReady || prefersReducedMotion || !sectionRef.current) return;
 
     // Header reveal
-    gsap.fromTo(".mv-header",
+    gsap.fromTo(".mission-header",
       { y: 40, opacity: 0 },
       {
         y: 0, opacity: 1, duration: DURATION.slow, ease: EASE.reveal,
@@ -68,7 +61,7 @@ export default function MissionVision() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative pb-8 md:pb-12 px-6 sm:px-12 md:px-24 overflow-hidden bg-background text-foreground"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background text-foreground"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-20 lg:gap-32">
         
@@ -91,7 +84,7 @@ export default function MissionVision() {
                 Our Mission
               </h3>
               <p className="text-muted text-base md:text-lg font-light leading-relaxed">
-                To design and deliver intelligent automation solutions that enhance comfort, convenience, security, and energy efficiency while creating exceptional experiences for our clients.
+                To create intelligent, user-centric automation solutions that increase comfort, convenience, security, and energy efficiency while delivering exceptional experiences across residential, hospitality, and commercial spaces.
               </p>
             </div>
             <div className="mv-img-col w-full lg:w-1/2 opacity-0">
@@ -122,36 +115,6 @@ export default function MissionVision() {
                 <NextImage 
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
                   alt="Modern architectural building"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Values Row */}
-          <div className="mv-row flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div className="mv-text-col w-full lg:w-1/2 space-y-6 opacity-0">
-              <h3 className="text-2xl md:text-3xl font-light tracking-wide">
-                Our Values
-              </h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                {VALUES.map((val, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 mt-1 rounded-full bg-accent/10 flex items-center justify-center">
-                      <Check className="w-3 h-3 text-accent" />
-                    </div>
-                    <span className="text-muted text-base md:text-lg font-light">{val}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mv-img-col w-full lg:w-1/2 opacity-0">
-              <div className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden shadow-lg shadow-black/5 transform-gpu">
-                <NextImage 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
-                  alt="Team collaboration and values"
                   fill
                   className="object-cover"
                   unoptimized

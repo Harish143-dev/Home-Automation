@@ -8,13 +8,19 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import heroImage from "@/assets/projects/private-residence.jpg";
 import { Button } from "@/components/ui/button";
+import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
+import { DURATION, EASE, STAGGER, SCROLL } from "@/lib/animation.config";
 
 export default function AboutHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const { isReady } = useBreakpoint();
+  const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
-    if (!textRef.current || !sectionRef.current) return;
+    if (!isReady || prefersReducedMotion || !textRef.current || !sectionRef.current) return;
 
     // Split text for line-by-line reveal
     const split = new SplitText(textRef.current.querySelectorAll(".hero-line"), {
@@ -35,9 +41,9 @@ export default function AboutHero() {
       {
         yPercent: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: "power3.out",
+        duration: DURATION.slow,
+        stagger: STAGGER.wide,
+        ease: EASE.reveal,
         delay: 0.5
       }
     );
@@ -49,9 +55,9 @@ export default function AboutHero() {
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power3.out",
+          duration: DURATION.normal,
+          stagger: STAGGER.normal,
+          ease: EASE.reveal,
           delay: 1.2
         }
       );
@@ -60,21 +66,23 @@ export default function AboutHero() {
     // Subtle parallax on the background image
     gsap.to(".about-hero-bg", {
       yPercent: 15,
-      ease: "none",
+      ease: EASE.none,
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: true
+        scrub: SCROLL.scrub,
       }
     });
 
+    scheduleScrollRefresh();
+
     return () => split.revert();
-  }, { scope: sectionRef });
+  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-secondary"
     >
       {/* Background Image */}
@@ -88,39 +96,32 @@ export default function AboutHero() {
           className="object-cover"
         />
         {/* Cinematic dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" aria-hidden="true" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-center text-center mt-12 md:mt-20">
-        <div className="mb-6 flex items-center justify-center gap-4 overflow-hidden">
-          <div className="h-[1px] w-8 bg-white/40" />
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/70">
-            About Anusha Technovision
-          </span>
-          <div className="h-[1px] w-8 bg-white/40" />
-        </div>
-        
-        <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
+      <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-start text-left mt-12 md:mt-20">
+
+        <div ref={textRef} className="flex flex-col">
           <div className="hero-line">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-white drop-shadow-sm">
               Engineering Intelligent
             </h1>
           </div>
           <div className="hero-line">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
               Spaces Since 2002
             </h1>
           </div>
         </div>
 
-        <p className="hero-fade-up mt-8 max-w-2xl text-white/80 font-light text-base sm:text-lg md:text-xl leading-relaxed opacity-0">
-          For over two decades, Anusha Technovision has been transforming residential, hospitality, and commercial spaces through intelligent automation, innovative technology, and customer-centric solutions.
+        <p className="hero-fade-up mt-8 max-w-2xl text-white/70 font-light text-sm sm:text-base md:text-lg leading-relaxed opacity-0">
+          Transforming homes, hotels, and commercial spaces with intelligent automation, innovative technology, and seamless user experiences for over 20 years.
         </p>
 
-        <div className="hero-fade-up mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0">
+        <div className="hero-fade-up mt-10 flex flex-col sm:flex-row items-center justify-start gap-4 opacity-0">
           <Link href="/projects" className="w-full sm:w-auto">
             <Button variant="accent" size="lg" shape="full" className="w-full sm:w-auto">
               Explore Our Solutions
@@ -132,6 +133,12 @@ export default function AboutHero() {
             </Button>
           </Link>
         </div>
+      </div>
+      {/* Red curved wave bottom */}
+      <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16 md:h-20">
+          <path d="M0,80 C360,0 1080,0 1440,80 L1440,80 L0,80 Z" fill="#F1EBD9" />
+        </svg>
       </div>
     </section>
   );

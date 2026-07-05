@@ -1,76 +1,186 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsapSetup";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
-import { DURATION, EASE } from "@/lib/animation.config";
 import { Trophy } from "lucide-react";
 
 const AWARDS = [
   {
+    year: "2026",
+    title: "Lutron Hall of Fame",
+    organization: "Lutron",
+  },
+  {
+    year: "2024",
+    title: "Residential & Hospitality National Business Award",
+    organization: "Lutron",
+  },
+  {
     year: "2023",
-    title: "Best Smart Home Integrator",
-    organization: "Smart Space India Awards",
-    description: "Recognized for excellence in integrating complex automation systems in luxury residential spaces."
+    title: "Luxury Residential & Hospitality Business Championship",
+    organization: "Lutron",
+  },
+  {
+    year: "2023",
+    title: "Authorised Dealer",
+    organization: "Control 4",
+  },
+  {
+    year: "2022",
+    title: "Luxury Residential Business Championship",
+    organization: "Lutron",
+  },
+  {
+    year: "2022",
+    title: "Smart Space Award",
+    organization: "Smart Space Awards",
+  },
+  {
+    year: "2022",
+    title: "Deepest Appreciation",
+    organization: "Smart Space Awards",
+  },
+  {
+    year: "2022",
+    title: "Authorised Dealer",
+    organization: "Crestron",
   },
   {
     year: "2021",
-    title: "Platinum Partner Award",
-    organization: "Lutron Electronics",
-    description: "Awarded for exceptional sales and implementation of Lutron lighting control solutions."
+    title: "Luxury Residential Business Championship",
+    organization: "Lutron",
+  },
+  {
+    year: "2020",
+    title: "Unstoppable Signature Award",
+    organization: "Lutron",
+  },
+  {
+    year: "2020",
+    title: "Authorised Dealer",
+    organization: "Crestron",
   },
   {
     year: "2019",
-    title: "Innovation in Automation",
-    organization: "Tech Architecture Summit",
-    description: "Honored for our pioneering approach to sustainable and intelligent commercial building systems."
+    title: "Platinum Award",
+    organization: "Lutron",
+  },
+  {
+    year: "2018",
+    title: "Annual Partner Colloquium Recognition",
+    organization: "Lutron",
+  },
+  {
+    year: "2017",
+    title: "Top Performer - All India",
+    organization: "Lutron",
+  },
+  {
+    year: "2016",
+    title: "Top Performer - All India",
+    organization: "Lutron",
+  },
+  {
+    year: "2015",
+    title: "Top Performer - All India",
+    organization: "Lutron",
+  },
+  {
+    year: "Partner",
+    title: "Certificate of Authorisation",
+    organization: "Samsung",
+  },
+  {
+    year: "Partner",
+    title: "Certificate of Authorisation",
+    organization: "Sony",
+  },
+  {
+    year: "Partner",
+    title: "Financial Control",
+    organization: "Jsa Online",
   }
 ];
 
 export default function Awards() {
   const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const { isReady } = useBreakpoint();
 
   useGSAP(() => {
-    if (!isReady || prefersReducedMotion || !sectionRef.current) return;
+    if (!isReady || !trackRef.current || !sectionRef.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 75%",
-        onEnter: () => scheduleScrollRefresh(),
+    if (prefersReducedMotion) return; // Standard static layout for reduced motion
+
+    const trackWidth = trackRef.current.scrollWidth / 2;
+
+    // Reset timeline if exists
+    if (tlRef.current) {
+      tlRef.current.kill();
+    }
+
+    // Set initial position
+    gsap.set(trackRef.current, { x: 0 });
+
+    // Create the infinite scroll animation
+    tlRef.current = gsap.timeline({ repeat: -1, paused: false })
+      .to(trackRef.current, {
+        x: -trackWidth,
+        duration: 40, // Base duration for smooth scroll
+        ease: 'none',
+      });
+
+    // Add scroll velocity boost interaction
+    let timeout: ReturnType<typeof setTimeout>;
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        if (!tlRef.current) return;
+
+        // Check scroll velocity and apply mathematical boost to timeScale
+        const velocity = Math.abs(self.getVelocity());
+        if (velocity > 0) {
+          const maxClampSpeed = 3;
+          const timeScale = 1 + (velocity / 400);
+
+          // Boost speed
+          gsap.to(tlRef.current, {
+            timeScale: Math.min(timeScale, maxClampSpeed),
+            duration: 0.2,
+            ease: 'power2.out'
+          });
+
+          // Revert back safely
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            gsap.to(tlRef.current, {
+              timeScale: 1,
+              duration: 0.8,
+              ease: 'power2.out'
+            });
+          }, 100);
+        }
       }
     });
 
-    // Header reveal
-    tl.fromTo(".award-header",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: DURATION.slow, ease: EASE.reveal }
-    );
-
-    // Grid items reveal
-    tl.fromTo(".award-card",
-      { y: 40, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: DURATION.slow, 
-        ease: "power3.out", 
-        stagger: 0.2 
-      },
-      "-=0.6"
-    );
-
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
+
+  const pauseLoop = () => gsap.to(tlRef.current, { timeScale: 0, duration: 0.6, ease: 'power2.out' });
+  const playLoop = () => gsap.to(tlRef.current, { timeScale: 1, duration: 0.6, ease: 'power2.out' });
+
+  // Array duplicated specifically to allow standard -50% complete track transformation.
+  const LOOPED_AWARDS = [...AWARDS, ...AWARDS];
 
   return (
     <section 
       ref={sectionRef} 
-      className="relative pt-8 md:pt-12 pb-8 md:pb-12 bg-background text-foreground overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-background text-foreground overflow-hidden"
     >
       {/* Background glow */}
       <div 
@@ -84,10 +194,10 @@ export default function Awards() {
         <rect width="100%" height="100%" filter="url(#noise-awards)" />
       </svg>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-24">
+      <div className="relative z-10 w-full">
         
         {/* Header */}
-        <div className="award-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 opacity-0">
+        <div className="award-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 px-5 sm:px-8 md:px-16 lg:px-24">
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Awards & Certifications
           </span>
@@ -96,35 +206,47 @@ export default function Awards() {
           </h2>
         </div>
 
-        {/* Awards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {AWARDS.map((award, idx) => (
-            <div 
-              key={idx} 
-              className="award-card flex flex-col p-8 rounded-[2rem] bg-black/[0.02] border border-black/5 backdrop-blur-sm group hover:bg-black/[0.04] transition-colors duration-500 opacity-0"
-            >
-              {/* Top Row: Icon & Year */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent transition-transform duration-500 group-hover:scale-110 group-hover:bg-accent group-hover:text-white">
-                  <Trophy className="w-5 h-5" />
-                </div>
-                <span className="text-xl font-serif text-muted tracking-wider">
-                  {award.year}
-                </span>
-              </div>
+        {/* Ticker Container with fade masks */}
+        <div className="relative w-full overflow-hidden">
+          {/* Left Mask */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-24 bg-background [mask-image:linear-gradient(to_right,black_20%,transparent_100%)] md:w-48 lg:w-64" />
+          {/* Right Mask */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24 bg-background [mask-image:linear-gradient(to_left,black_20%,transparent_100%)] md:w-48 lg:w-64" />
 
-              {/* Content */}
-              <h3 className="text-xl lg:text-2xl font-light tracking-wide mb-2 transition-colors duration-300 group-hover:text-accent">
-                {award.title}
-              </h3>
-              <div className="text-accent text-sm md:text-base tracking-wide mb-4">
-                {award.organization}
+          {/* Infinite Track */}
+          <div
+            className="group/ticker flex w-max pointer-events-auto items-stretch"
+            onMouseEnter={pauseLoop}
+            onMouseLeave={playLoop}
+            ref={trackRef}
+          >
+            {LOOPED_AWARDS.map((award, idx) => (
+              <div 
+                key={idx} 
+                className="flex-shrink-0 w-[300px] md:w-[380px] lg:w-[420px] px-3 md:px-4 flex"
+              >
+                <div className="award-card flex flex-col p-8 rounded-[2rem] bg-black/[0.02] border border-black/5 backdrop-blur-sm group/card hover:bg-black/[0.04] transition-colors duration-500 w-full h-full">
+                  {/* Top Row: Icon & Year */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent transition-transform duration-500 group-hover/card:scale-110 group-hover/card:bg-accent group-hover/card:text-white">
+                      <Trophy className="w-5 h-5" />
+                    </div>
+                    <span className="text-xl font-serif text-muted tracking-wider">
+                      {award.year}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl lg:text-2xl font-light tracking-wide mb-2 transition-colors duration-300 group-hover/card:text-accent">
+                    {award.title}
+                  </h3>
+                  <div className="text-accent text-sm md:text-base tracking-wide mb-4 mt-auto">
+                    {award.organization}
+                  </div>
+                </div>
               </div>
-              <p className="text-muted font-light text-sm md:text-base leading-relaxed mt-auto">
-                {award.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
       </div>

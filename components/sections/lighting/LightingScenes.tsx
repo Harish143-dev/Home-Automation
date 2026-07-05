@@ -18,32 +18,32 @@ const SCENES = [
   {
     icon: Sun,
     title: "Morning Routine",
-    description: "Soft lighting that gradually brightens to wake you naturally."
+    description: "Begin your day with lights that brighten gradually while automated shades welcome natural daylight, creating a calm and refreshing start."
   },
   {
     icon: Film,
     title: "Movie Night",
-    description: "Dim lights automatically for the perfect cinema experience."
+    description: "Recreate a true cinematic experience as lights dim, shades close, and your entertainment system activates with a single command."
   },
   {
     icon: Utensils,
     title: "Dinner Ambience",
-    description: "Warm lighting scenes for memorable family dinners."
+    description: "Set a warm, inviting atmosphere for everyday family dinners or special gatherings with beautifully balanced lighting that enhances every moment."
   },
   {
     icon: ShieldCheck,
     title: "Away Mode",
-    description: "Automatically turn lights on and off to simulate occupancy."
+    description: "Maintain peace of mind by automatically operating lights and shades to create the appearance of an occupied home while you're away."
   },
   {
     icon: BookOpen,
     title: "Reading Mode",
-    description: "Focused lighting for comfort and reduced eye strain."
+    description: "Enjoy precisely tuned, glare-free lighting that provides visual comfort and the ideal environment for reading, working, or relaxing."
   },
   {
     icon: Sparkles,
     title: "Party Mode",
-    description: "One-touch lighting scenes for entertaining guests."
+    description: "Create the perfect setting for every celebration with pre-programmed lighting scenes that complement your music and entertainment system, delivering an effortless hosting experience."
   }
 ];
 
@@ -119,7 +119,7 @@ export default function LightingScenes() {
             Intelligent Control for Every Moment
           </h2>
           <p className="ls-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto">
-            Whether you&apos;re entertaining guests, relaxing after work, or enjoying a movie night, create the perfect atmosphere with personalized lighting scenes.
+            Create the perfect ambiance for every part of your day with personalized lighting scenes. From peaceful mornings to lively celebrations, intelligent controls let you adjust lighting with a single touch, app, voice command, or automated schedule.
           </p>
         </div>
 

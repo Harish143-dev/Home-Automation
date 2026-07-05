@@ -1,199 +1,305 @@
 "use client";
 
 import React, { useRef } from "react";
+import NextImage from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
+import { DURATION, EASE, STAGGER, SCROLL } from "@/lib/animation.config";
 
-const JOURNEY_MILESTONES = [
+const ERAS = [
   {
-    year: "2002",
-    title: "Foundation",
-    description: "Anusha Technovision was founded with a vision to redefine intelligent automation and smart living in India."
+    years: "2002–2005",
+    title: "The Foundation",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+    imageAlt: "Early smart home automation setup",
+    milestones: [
+      "ATPL started — Delhi office began operations",
+      "Expanded in-house team by establishing operations in Mumbai",
+      "Home automation integrator on Mr. Laxmi Mittal's (ArcelorMittal) residential project — the country's biggest at the time",
+      "Nucleus of ATPL's core team began",
+    ],
   },
   {
-    year: "2008",
-    title: "First Major Milestone",
-    description: "Expanded our portfolio by integrating advanced lighting control systems for premium residential projects."
+    years: "2006–2012",
+    title: "Expansion & Scale",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+    imageAlt: "Modern infrastructure and metro systems",
+    milestones: [
+      "Expanded operations to Bangalore",
+      "Executed the 19 Delhi Metro station project",
+      "First international projects in Afghanistan and Nepal",
+    ],
   },
   {
-    year: "2015",
-    title: "Commercial Expansion",
-    description: "Successfully delivered large-scale automation for leading corporate offices and hospitality chains."
+    years: "2013–2018",
+    title: "National Recognition",
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200",
+    imageAlt: "Luxury hotel with intelligent automation",
+    milestones: [
+      "Executed the largest Lutron public area dimming installation in India at ITC Grand Chola, Chennai",
+      "Delhi Experience Centre inaugurated",
+      "Awarded top performer across India in Residential, Corporate and Hospitality by Lutron",
+      "PAN India expansion across Delhi, Mumbai, Bangalore, Kolkata, Kochi, Pune and Hyderabad",
+      "India's first-ever Lutron guestroom automation at The Oberoi, New Delhi and Lulu Grand Hyatt, Kochi",
+      "Partnered with Meta Gurgaon for their new office",
+    ],
   },
   {
-    year: "2020",
-    title: "National Reach",
-    description: "Established a pan-India presence with Experience Centers in Delhi, Mumbai, and Bengaluru."
+    years: "2019–Present",
+    title: "Industry Leadership",
+    image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1200",
+    imageAlt: "Premium smart living space",
+    milestones: [
+      "Automated Google India's office in Gurgaon",
+      "Delivered the Prime Minister's Museum in New Delhi",
+      "Mumbai Experience Centre launched",
+      "Automation partner for Yashobhumi project in Dwarka",
+      "Service team expanded to 60+ engineers — the largest in the country",
+      "Residences of HNIs including Hritik Roshan and Madhuri Dixit",
+      "BKT Farms — the biggest lighting and curtain automation project in India",
+      "First company in India to introduce 24/7 call support and 4-hour on-site services",
+      "Team crossed 100+ people",
+    ],
   },
-  {
-    year: "2024",
-    title: "Future of Automation",
-    description: "Continuing to innovate and set new benchmarks in intelligent buildings and customer-centric technology."
-  }
 ];
 
 export default function OurJourney() {
-  const containerRef = useRef<HTMLElement>(null);
-  const scrollWrapperRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-
+  const sectionRef = useRef<HTMLElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  const { isReady, isMobile } = useBreakpoint();
+  const { isReady } = useBreakpoint();
 
   useGSAP(() => {
-    if (!isReady || prefersReducedMotion || !containerRef.current || !scrollWrapperRef.current || !trackRef.current) return;
+    if (!isReady || prefersReducedMotion || !sectionRef.current) return;
 
-    if (!isMobile) {
-      // Desktop Horizontal Scroll
-      const trackWidth = trackRef.current.scrollWidth;
-      const viewportWidth = window.innerWidth;
-      
+    // Header reveal
+    gsap.fromTo(".oj-header",
+      { y: 40, opacity: 0 },
+      {
+        y: 0, opacity: 1,
+        duration: DURATION.slow,
+        ease: EASE.reveal,
+        scrollTrigger: {
+          trigger: ".oj-header",
+          start: "top 80%",
+        }
+      }
+    );
+
+    // Progress line scrub
+    if (progressRef.current) {
+      gsap.fromTo(progressRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: EASE.none,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 60%",
+            end: "bottom 40%",
+            scrub: SCROLL.scrub,
+          }
+        }
+      );
+    }
+
+    // Era cards — staggered reveal
+    const cards = gsap.utils.toArray<HTMLElement>(".oj-era-card", sectionRef.current);
+    cards.forEach((card) => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "center center",
-          end: `+=${trackWidth}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onRefresh: () => scheduleScrollRefresh(),
+          trigger: card,
+          start: "top 78%",
         }
       });
 
-      // Move the track horizontally
-      tl.to(trackRef.current, {
-        x: -(trackWidth - viewportWidth),
-        ease: "none",
-      });
-
-      // Fill the line progress alongside scroll
-      if (lineRef.current) {
-        tl.fromTo(lineRef.current, 
-          { scaleX: 0 },
-          { scaleX: 1, ease: "none", transformOrigin: "left center" },
-          0
+      // Dot glow
+      const dot = card.querySelector(".oj-dot");
+      if (dot) {
+        tl.fromTo(dot,
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: DURATION.medium, ease: EASE.premium }
         );
       }
-    } else {
-      // Mobile Vertical Reveal
-      const items = gsap.utils.toArray(".journey-mobile-item");
-      items.forEach((item: any) => {
-        gsap.fromTo(item, 
-          { opacity: 0, y: 30 },
-          { 
-            opacity: 1, 
-            y: 0, 
-            duration: 0.8, 
-            ease: "power3.out",
+
+      // Year label
+      const year = card.querySelector(".oj-year");
+      if (year) {
+        tl.fromTo(year,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: DURATION.medium, ease: EASE.reveal },
+          "-=0.3"
+        );
+      }
+
+      // Text content
+      const textCol = card.querySelector(".oj-text");
+      if (textCol) {
+        tl.fromTo(textCol,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: DURATION.normal, ease: EASE.reveal },
+          "-=0.3"
+        );
+      }
+
+      // Image with Ken Burns
+      const imgWrapper = card.querySelector(".oj-img-wrapper");
+      const img = card.querySelector(".oj-img");
+      if (imgWrapper) {
+        tl.fromTo(imgWrapper,
+          { opacity: 0, scale: 0.92 },
+          { opacity: 1, scale: 1, duration: DURATION.slow, ease: EASE.premium },
+          "-=0.5"
+        );
+      }
+      if (img) {
+        // Ken Burns slow zoom on scroll
+        gsap.fromTo(img,
+          { scale: 1.15 },
+          {
+            scale: 1,
+            ease: EASE.none,
             scrollTrigger: {
-              trigger: item,
-              start: "top 85%",
+              trigger: card,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: SCROLL.scrubSlow,
             }
           }
         );
-      });
-    }
+      }
+
+      // Milestone bullets stagger
+      const bullets = card.querySelectorAll(".oj-milestone");
+      if (bullets.length > 0) {
+        tl.fromTo(bullets,
+          { x: -15, opacity: 0 },
+          {
+            x: 0, opacity: 1,
+            duration: DURATION.medium,
+            stagger: STAGGER.reveal,
+            ease: EASE.standard,
+          },
+          "-=0.4"
+        );
+      }
+    });
 
     scheduleScrollRefresh();
-  }, { scope: containerRef, dependencies: [isReady, prefersReducedMotion, isMobile] });
+  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={containerRef} 
-      className="relative w-full bg-background text-foreground pt-8 md:pt-12 pb-24 md:pb-32 overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-secondary text-white overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24"
     >
+      {/* Ambient glow overlays */}
+      <div
+        className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none opacity-[0.04]"
+        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none opacity-[0.03]"
+        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)" }}
+        aria-hidden="true"
+      />
+
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" aria-hidden="true">
         <filter id="noise-journey"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch" /></filter>
         <rect width="100%" height="100%" filter="url(#noise-journey)" />
       </svg>
 
-      {/* Header */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 sm:px-12 md:px-24 mb-12 text-center">
-        <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium mb-4">
-          Our Journey
-        </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2]">
-          Our Journey of Innovation
-        </h2>
-      </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="oj-header text-center mb-16 md:mb-24 opacity-0">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-white/50 font-medium mb-4">
+            Our Journey
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-white">
+            Impact Through the Years
+          </h2>
+        </div>
 
-      {/* Timeline Wrapper */}
-      <div 
-        ref={scrollWrapperRef} 
-        className="relative z-10 w-full md:h-[450px]"
-      >
-        {/* Mobile vertical line */}
-        <div className="md:hidden absolute left-[39px] top-0 bottom-0 w-[2px] bg-black/10 z-0" />
-
-        <div 
-          ref={trackRef} 
-          className="flex flex-col md:flex-row items-start md:items-center h-full w-full md:w-max md:px-[20vw] relative z-10 pt-8 md:pt-0"
-        >
-          
-          {/* Desktop horizontal lines */}
-          <div className="hidden md:flex absolute inset-0 items-center justify-start pointer-events-none z-0">
-            <div className="w-full h-[2px] bg-black/10" />
-          </div>
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Vertical Progress Line — Center (desktop) / Left (mobile) */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-[1px] bg-white/10 z-0" />
           <div 
-            ref={lineRef}
-            className="hidden md:flex absolute inset-0 items-center justify-start pointer-events-none z-0 origin-left scale-x-0"
-          >
-            <div className="w-full h-[2px] bg-accent shadow-[0_0_10px_rgba(229,107,85,0.3)]" />
-          </div>
+            ref={progressRef}
+            className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-[1px] bg-white/40 origin-top scale-y-0 z-[1]"
+            style={{ boxShadow: "0 0 12px rgba(255,255,255,0.15)" }}
+          />
 
-          {JOURNEY_MILESTONES.map((milestone, idx) => {
-            const isTop = idx % 2 === 0;
+          {/* Era Cards */}
+          <div className="flex flex-col gap-20 md:gap-28 lg:gap-36">
+            {ERAS.map((era, idx) => {
+              const isReversed = idx % 2 !== 0;
 
-            return (
-              <div 
-                key={idx} 
-                className="relative flex items-center justify-center w-full md:w-[400px] md:h-full flex-shrink-0 group z-10 journey-mobile-item"
-              >
-                
-                {/* Node Dot Desktop */}
-                <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-2 border-accent shadow-[0_0_15px_rgba(229,107,85,0.3)] transition-transform duration-300 group-hover:scale-150 z-20" />
-
-                {/* Content Container (Desktop: Top or Bottom) */}
-                <div className={`hidden md:flex flex-col items-center text-center absolute w-full px-8 ${isTop ? 'bottom-[50%] mb-8' : 'top-[50%] mt-8'}`}>
-                  <div className="text-4xl lg:text-5xl font-light text-accent-soft mb-3">
-                    {milestone.year}
+              return (
+                <div
+                  key={idx}
+                  className="oj-era-card relative"
+                >
+                  {/* Timeline Dot */}
+                  <div className="oj-dot absolute left-6 md:left-1/2 top-2 md:top-4 -translate-x-1/2 z-10">
+                    <div className="w-4 h-4 rounded-full bg-white border-2 border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]" />
+                    <div className="absolute inset-0 w-4 h-4 rounded-full bg-white/30 animate-ping" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-light mb-2 text-foreground">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-muted font-light text-sm leading-relaxed">
-                    {milestone.description}
-                  </p>
 
-                  {/* Connecting Vertical Line */}
-                  <div className={`absolute left-1/2 -translate-x-1/2 w-[1px] bg-black/10 transition-colors duration-300 group-hover:bg-accent/50 ${isTop ? 'top-full h-8' : 'bottom-full h-8'}`} />
-                </div>
+                  {/* Card Content */}
+                  <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-0`}>
 
-                {/* Mobile Layout */}
-                <div className="md:hidden flex w-full relative mb-12 last:mb-0 px-6 sm:px-12 text-left">
-                  <div className="absolute left-[31px] top-2 w-4 h-4 rounded-full bg-background border-2 border-accent shadow-[0_0_15px_rgba(229,107,85,0.3)] z-20" />
-                  <div className="ml-12 pr-4">
-                    <div className="text-4xl font-light text-accent-soft mb-2">
-                      {milestone.year}
+                    {/* Text Side */}
+                    <div className={`w-full md:w-1/2 ${isReversed ? 'md:pl-16 lg:pl-24' : 'md:pr-16 lg:pr-24'} pl-14 md:pl-0`}>
+                      {/* Year Badge */}
+                      <div className="oj-year mb-4 opacity-0">
+                        <span className="inline-block text-sm md:text-base tracking-[0.3em] text-white font-medium px-4 py-1.5 rounded-full border border-white/20 bg-white/5">
+                          {era.years}
+                        </span>
+                      </div>
+
+                      <div className="oj-text opacity-0">
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-white mb-6">
+                          {era.title}
+                        </h3>
+
+                        <ul className="flex flex-col gap-3">
+                          {era.milestones.map((milestone, mIdx) => (
+                            <li key={mIdx} className="oj-milestone flex items-start gap-3 opacity-0">
+                              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-white/40 mt-2.5" />
+                              <span className="text-white/70 font-light text-sm md:text-base leading-relaxed">
+                                {milestone}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-light mb-2 text-foreground">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-muted font-light text-sm leading-relaxed">
-                      {milestone.description}
-                    </p>
+
+                    {/* Image Side */}
+                    <div className={`w-full md:w-1/2 ${isReversed ? 'md:pr-16 lg:pr-24' : 'md:pl-16 lg:pl-24'} pl-14 md:pl-0 ${isReversed ? '' : 'md:pl-16 lg:pl-24'}`}>
+                      <div className="oj-img-wrapper relative w-full aspect-[16/10] rounded-2xl md:rounded-[32px] overflow-hidden shadow-2xl shadow-black/30 opacity-0 transform-gpu">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
+                        <NextImage
+                          src={era.image}
+                          alt={era.imageAlt}
+                          fill
+                          className="oj-img object-cover will-change-transform"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          unoptimized
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -83,10 +83,7 @@ export default function LightingIntro() {
           </h2>
           <div className="li-text-el space-y-6 text-sm sm:text-base md:text-lg font-light text-muted leading-relaxed max-w-xl">
             <p>
-              Lighting is not merely utility; it is the invisible thread that binds design, emotion, and functionality together. A thoughtful lighting design has the power to recalibrate a space: shifting from the crisp, high-productivity light of midday to a warm, relaxing glow that prompts the mind to unwind.
-            </p>
-            <p>
-              By integrating intelligent control protocols, your environment becomes dynamic—orchestrating light that respects your natural circadian rhythms, elevates your design aesthetics, and responds instantly to your changing moods.
+              Your home should do more than light up—it should understand how you live. With ATPL's intelligent lighting automation, every room transforms to match your mood and routine. From soft morning light to elegant dinner settings and immersive movie nights, customized lighting scenes work with shades, HVAC, and voice control to create a luxurious, effortless living experience.
             </p>
           </div>
         </div>

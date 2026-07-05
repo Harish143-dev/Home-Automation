@@ -24,10 +24,10 @@ export default function LightingHero() {
 
     // Split text for staggered line reveal
     const split = new SplitText(textRef.current, { type: "lines" });
-    
+
     // Initial state
     gsap.set(split.lines, { y: 30, opacity: 0 });
-    
+
     const tl = gsap.timeline();
 
     tl.to(split.lines, {
@@ -38,11 +38,11 @@ export default function LightingHero() {
       ease: EASE.premium,
       delay: 0.2
     })
-    .fromTo(".hero-element", 
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.wide, ease: EASE.reveal },
-      "-=0.8"
-    );
+      .fromTo(".hero-element",
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.wide, ease: EASE.reveal },
+        "-=0.8"
+      );
 
     // Subtle parallax on the background image
     gsap.to(".hero-bg", {
@@ -59,8 +59,8 @@ export default function LightingHero() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-start overflow-hidden bg-black"
     >
       {/* Background Image - Stunning Luxury Smart Lighting */}
@@ -77,33 +77,25 @@ export default function LightingHero() {
       </div>
 
       {/* Content Container (Left Aligned) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-24 flex flex-col items-start text-left mt-12 md:mt-20">
-        
-        {/* Left Aligned Eyebrow */}
-        <div className="hero-element mb-6 flex items-center gap-4 overflow-hidden">
-          <span className="text-sm md:text-base tracking-[0.3em] text-white/50">
-            Solutions
-          </span>
-          <div className="h-[1px] w-8 bg-white/40" />
-        </div>
+      <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-start text-left mt-12 md:mt-20">
 
         {/* H1 Heading sizing strictly matching DESIGN_SYSTEM.md */}
-        <h1 
+        <h1
           ref={textRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white mb-8 max-w-5xl"
+          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white mb-8 max-w-5xl"
         >
           Smart Lighting Automation for Modern Homes
         </h1>
 
         {/* Subheading */}
         <p className="hero-element text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-3xl mb-12">
-          Transform the way you experience your home with intelligent lighting automation that creates the perfect ambiance, enhances comfort, improves energy efficiency, and gives you complete control—all at the touch of a button.
+          Transform everyday living with intelligent lighting that automatically adjusts to your routine. From relaxing evenings to entertaining guests, create the perfect ambience with customized scenes, voice control, and seamless automation—all while improving energy efficiency and convenience.
         </p>
 
         {/* Left Aligned CTA Container */}
         <div className="hero-element flex flex-col sm:flex-row items-start justify-start gap-4 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <Link 
+          <Link
             href="/contact"
             className={cn(
               buttonVariants({ variant: "accent", size: "lg", shape: "full" }),
@@ -115,7 +107,7 @@ export default function LightingHero() {
           </Link>
 
           {/* Secondary CTA */}
-          <Link 
+          <Link
             href="/experience-center"
             className={cn(
               buttonVariants({ variant: "glass", size: "lg", shape: "full" }),

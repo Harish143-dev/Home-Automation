@@ -87,12 +87,12 @@ export function ProjectsHero() {
 
         <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
           <div className="hero-line">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
               Proud Projects
             </h1>
           </div>
           <div className="hero-line">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
               by ATPL
             </h1>
           </div>

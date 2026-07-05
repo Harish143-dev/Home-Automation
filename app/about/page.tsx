@@ -8,6 +8,7 @@ import OurJourney from "@/components/sections/about/OurJourney";
 import MeetOurFounders from "@/components/sections/about/MeetOurFounders";
 import OurTeam from "@/components/sections/about/OurTeam";
 import Awards from "@/components/sections/about/Awards";
+import OurLocations from "@/components/sections/about/OurLocations";
 import AboutCTA from "@/components/sections/about/AboutCTA";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function AboutPage() {
       <MeetOurFounders />
       <OurTeam />
       <Awards />
+      <OurLocations />
       <AboutCTA />
     </main>
   );

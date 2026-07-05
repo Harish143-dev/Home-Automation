@@ -9,12 +9,42 @@ import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
 import { DURATION, EASE } from "@/lib/animation.config";
 
 const STATS = [
-  { prefix: "Over", value: "20", label: "Years of Excellence" },
-  { prefix: "Over", value: "1000", label: "Projects Delivered" },
-  { prefix: "Over", value: "1000", label: "Happy Clients" },
-  { prefix: "", value: "3", label: "Experience Centers" },
-  { prefix: "Over", value: "50", label: "Technology Partners" },
-  { prefix: "", value: "Pan India", label: "Project Presence" },
+  {
+    prefix: "Over",
+    value: "24",
+    label: "Years of Industry Experience",
+    description: "Two decades of pioneering automation standards across India.",
+  },
+  {
+    prefix: "Over",
+    value: "1,000",
+    label: "Portfolios Completed",
+    description: "Delivering reliable, sophisticated systems to the country's most discerning private residences, hotels and offices.",
+  },
+  {
+    prefix: "",
+    value: "3",
+    label: "Experience Centres",
+    description: "",
+  },
+  {
+    prefix: "Over",
+    value: "30",
+    label: "Technology Partners",
+    description: "",
+  },
+  {
+    prefix: "Over",
+    value: "15",
+    label: "Regional Hubs",
+    description: "",
+  },
+  {
+    prefix: "",
+    value: "Pan India",
+    label: "Project Presence",
+    description: "",
+  },
 ];
 
 export default function CompanyAtAGlance() {
@@ -69,7 +99,7 @@ export default function CompanyAtAGlance() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background pt-8 md:pt-12 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
+      className="relative w-full bg-background py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
@@ -98,6 +128,11 @@ export default function CompanyAtAGlance() {
               <div className="text-muted font-light tracking-wide text-sm sm:text-base md:text-lg transition-colors duration-500 group-hover:text-foreground whitespace-pre-line">
                 {stat.label}
               </div>
+              {stat.description && (
+                <p className="text-muted/70 font-light text-sm md:text-base leading-relaxed mt-3">
+                  {stat.description}
+                </p>
+              )}
             </div>
           ))}
         </div>

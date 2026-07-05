@@ -136,7 +136,7 @@ export function HospitalityHero() {
                 Schedule a Consultation
               </Button>
             </Link>
-            
+
             <Link href="/projects#hospitality">
               <Button
                 variant="outline"

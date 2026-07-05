@@ -57,8 +57,8 @@ export default function BlogHero() {
   }, { scope: sectionRef });
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative w-full h-[60vh] min-h-[400px] flex flex-col justify-center overflow-hidden bg-secondary pb-0 px-6 sm:px-12 md:px-24"
     >
       {/* Background Image */}
@@ -85,10 +85,10 @@ export default function BlogHero() {
           </span>
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
         </div>
-        
+
         <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
           <div className="hero-line">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] tracking-wide text-white drop-shadow-sm">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
               Title Sample
             </h1>
           </div>

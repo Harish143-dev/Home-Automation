@@ -105,7 +105,7 @@ For sections with dark backgrounds (`bg-[#040404]`, `bg-black`):
 ### Section Padding
 
 ```
-py-20 sm:py-28 md:py-32 lg:py-48
+py-16 sm:py-20 md:py-24 lg:py-32
 px-5 sm:px-8 md:px-16 lg:px-24
 ```
 
@@ -128,7 +128,7 @@ For ultra-wide screens (2xl+):
 
 ### Generous Whitespace
 
-- Sections: `py-24 md:py-40` minimum
+- Sections: `py-16 sm:py-20 md:py-24 lg:py-32` standard
 - Between elements: Use `gap-6` to `gap-16` — never cramped
 - The design should breathe — whitespace is a feature, not waste
 

@@ -15,8 +15,6 @@ export default function MduAutomationPage() {
     <main className="flex min-h-screen flex-col items-center bg-background">
       <MduHero />
       <MduFeatures />
-      <MduPlatform />
-      <MduProjects />
       <MduCTA />
     </main>
   );

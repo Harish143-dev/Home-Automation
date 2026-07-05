@@ -19,25 +19,25 @@ const INTEGRATIONS = [
   {
     id: "light-control",
     title: "Light Control",
-    description: "Create the right mood for every activity with personalized lighting scenes, scheduling, dimming, and one-touch control.",
+    description: "Create the perfect atmosphere in every room with intelligent lighting scenes, precision dimming, automated schedules, occupancy sensing, and effortless one-touch control that complements the way you live.",
     image: "https://images.unsplash.com/photo-1565538810844-1e1194826c91?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: "blind-control",
     title: "Blind Control",
-    description: "Automate blinds to maximize natural daylight, reduce glare, and improve privacy while preserving outdoor views.",
+    description: "Motorized blinds and curtains adjust automatically throughout the day to maximize natural light, minimize glare, enhance privacy, and maintain a comfortable indoor environment.",
     image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: "temperature-control",
     title: "Temperature Control",
-    description: "Control HVAC systems alongside lighting to maintain ideal indoor comfort throughout the day.",
+    description: "Integrate climate control with lighting and occupancy settings to maintain consistent indoor comfort while improving overall system efficiency.",
     image: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: "energy-control",
     title: "Energy Control",
-    description: "Automatically optimize lighting usage to reduce energy consumption without compromising comfort.",
+    description: "Optimize energy performance through intelligent scheduling, occupancy sensing, daylight-responsive automation, and customized scene control helping reduce energy use while maintaining exceptional comfort.",
     image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop"
   }
 ];
@@ -106,10 +106,10 @@ export default function LightingIntegration() {
     <section
       ref={sectionRef}
       id="lighting-integration"
-      className="relative w-full py-20 sm:py-24 md:py-32 bg-[#0a0a0a] text-white overflow-hidden select-none"
+      className="relative w-full py-20 sm:py-24 md:py-32 bg-background text-foreground overflow-hidden select-none"
     >
-      {/* Dark Section Tactile Noise Texture Overlay */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" aria-hidden="true">
+      {/* Subtle Noise Texture Overlay */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
         <filter id="noise-integration">
           <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch" />
         </filter>
@@ -120,14 +120,14 @@ export default function LightingIntegration() {
         {/* Header Section with Slider Controls */}
         <div ref={headerRef} className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="li-header-el inline-block text-sm md:text-base tracking-[0.3em] text-white/50 mb-4 font-light">
+            <span className="li-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light uppercase">
               Integration
             </span>
-            <h2 className="li-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white mb-6 text-balance">
+            <h2 className="li-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6 text-balance">
               One Intelligent System. Complete Home Control.
             </h2>
-            <p className="li-header-el text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed mt-4">
-              Our lighting automation seamlessly integrates with other smart home systems, creating a connected and intuitive living experience.
+            <p className="li-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed mt-4">
+              Bring every smart home function together on a single platform. Control lighting, motorized shades, climate, and energy management through elegant keypads, mobile apps, voice commands, or personalized automation scenes.
             </p>
           </div>
 
@@ -135,14 +135,14 @@ export default function LightingIntegration() {
           <div className="li-header-el hidden md:flex items-center gap-4 shrink-0 pb-2">
             <button 
               onClick={scrollPrev}
-              className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-sm bg-white/5"
+              className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-black/5 transition-all duration-300 shadow-sm bg-panel"
               aria-label="Previous Integration"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button 
               onClick={scrollNext}
-              className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-sm bg-white/5"
+              className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-black/5 transition-all duration-300 shadow-sm bg-panel"
               aria-label="Next Integration"
             >
               <ChevronRight className="w-5 h-5" />
@@ -160,7 +160,7 @@ export default function LightingIntegration() {
           {INTEGRATIONS.map((feat) => (
             <div 
               key={feat.id}
-              className="li-card snap-start group relative bg-white/5 rounded-2xl border border-white/10 transition-all duration-500 flex flex-col w-[85vw] sm:w-[320px] md:w-[380px] shrink-0 min-h-[440px] hover:bg-white/[0.08] hover:border-white/15 overflow-hidden"
+              className="li-card snap-start group relative bg-panel rounded-2xl border border-border transition-all duration-500 flex flex-col w-[85vw] sm:w-[320px] md:w-[380px] shrink-0 min-h-[440px] hover:shadow-xl hover:-translate-y-1 overflow-hidden"
             >
               {/* Feature Image */}
               <div className="relative w-full aspect-[16/10] overflow-hidden">
@@ -171,15 +171,14 @@ export default function LightingIntegration() {
                   sizes="(max-width: 768px) 85vw, 380px"
                   className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Feature Text Content */}
-              <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-xl md:text-2xl font-light tracking-wide text-white mb-4">
+              <div className="p-8 flex flex-col flex-grow relative z-10">
+                <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-4">
                   {feat.title}
                 </h3>
-                <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
+                <p className="text-sm md:text-base text-muted font-light leading-relaxed">
                   {feat.description}
                 </p>
               </div>
@@ -192,13 +191,13 @@ export default function LightingIntegration() {
       <div className="flex md:hidden items-center justify-center gap-4 mt-6 px-6">
         <button 
           onClick={scrollPrev}
-          className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-sm bg-white/5"
+          className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-black/5 transition-all duration-300 shadow-sm bg-panel"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button 
           onClick={scrollNext}
-          className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-sm bg-white/5"
+          className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-black/5 transition-all duration-300 shadow-sm bg-panel"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
