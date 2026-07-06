@@ -99,7 +99,7 @@ export default function LightingScenes() {
     <section
       ref={sectionRef}
       id="lighting-scenes"
-      className="relative w-full overflow-hidden bg-background pt-8 md:pt-12 pb-24 md:pb-32 text-foreground select-none"
+      className="relative w-full overflow-hidden bg-background pt-8 md:pt-12 pb-10 md:pb-16 text-foreground select-none"
     >
       {/* Subtle Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">

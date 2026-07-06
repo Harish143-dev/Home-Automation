@@ -10,6 +10,9 @@ import LightingIntegration from "@/components/sections/lighting/LightingIntegrat
 import LightingControls from "@/components/sections/lighting/LightingControls";
 import LightingProjects from "@/components/sections/lighting/LightingProjects";
 import LightingPartners from "@/components/sections/lighting/LightingPartners";
+import LightingRoadmap from "@/components/sections/lighting/LightingRoadmap";
+import LightingWhyATPL from "@/components/sections/lighting/LightingWhyATPL";
+import LightingCTA from "@/components/sections/lighting/LightingCTA";
 
 export const metadata = {
   title: "Lighting Automation | Anusha Technovision",
@@ -28,8 +31,11 @@ export default function LightingAutomationPage() {
         <LightingBenefits />
         <LightingIntegration />
         <LightingControls />
-        <LightingProjects />
         <LightingPartners />
+        <LightingProjects />
+        <LightingRoadmap />
+        <LightingWhyATPL />
+        <LightingCTA />
       </main>
     </>
   );

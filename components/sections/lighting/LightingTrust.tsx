@@ -58,9 +58,9 @@ function MetricCard({ target, prefix, label }: { target: number; prefix?: string
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-start text-left">
         {prefix ? (
-          <span className="text-xs tracking-[0.3em] font-light uppercase text-accent mb-2">{prefix}</span>
+          <span className="text-xs tracking-[0.3em] font-light text-accent mb-2">{prefix}</span>
         ) : (
-          <span className="text-xs tracking-[0.3em] font-light uppercase text-muted mb-2">&nbsp;</span>
+          <span className="text-xs tracking-[0.3em] font-light text-muted mb-2">&nbsp;</span>
         )}
         <div className="flex flex-row items-baseline justify-start text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl font-light leading-none tracking-wide text-foreground mb-3">
           <span ref={numberRef}>0</span>

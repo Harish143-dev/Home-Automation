@@ -81,7 +81,7 @@ export default function LightingFeatures() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-20 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="relative w-full py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         

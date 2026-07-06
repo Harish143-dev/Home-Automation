@@ -79,7 +79,7 @@ export default function MduHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-secondary"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-secondary"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 mdu-hero-bg will-change-transform">

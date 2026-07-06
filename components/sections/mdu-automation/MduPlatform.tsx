@@ -109,7 +109,7 @@ export default function MduPlatform() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-20 sm:py-28 md:py-32 lg:py-48 px-5 sm:px-8 md:px-16 lg:px-24 bg-secondary text-white overflow-hidden"
+      className="relative w-full py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-secondary text-white overflow-hidden"
     >
       {/* Dark Section Background Glows */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px] pointer-events-none" />

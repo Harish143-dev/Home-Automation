@@ -118,7 +118,7 @@ export default function MduFeatures() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-20 sm:py-28 md:py-32 lg:py-48 px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="relative w-full pt-10 sm:pt-16 md:pt-20 pb-20 sm:pb-28 md:pb-32 lg:pb-40 px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
@@ -126,7 +126,7 @@ export default function MduFeatures() {
         <div className="feature-header max-w-4xl text-center mb-16 md:mb-24 flex flex-col items-center">
           <div className="feature-header-el mb-6 flex items-center justify-center gap-4">
             <div className="h-[1px] w-6 bg-accent/30" />
-            <span className="text-sm md:text-base tracking-[0.3em] text-accent uppercase">
+            <span className="text-sm md:text-base tracking-[0.3em] text-accent">
               Smart Home Automation
             </span>
             <div className="h-[1px] w-6 bg-accent/30" />

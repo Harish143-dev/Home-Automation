@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { gsap, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
-import { Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface SolutionData {
   title: string;
@@ -60,6 +60,53 @@ const SOLUTIONS: SolutionData[] = [
     image: "https://images.unsplash.com/photo-1551882547-ff40c0d129df?q=80&w=1200&auto=format&fit=crop"
   }
 ];
+
+function SolutionAccordion({ items }: { items: { title: string; description: string }[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
+
+  return (
+    <div className="flex flex-col border-t border-accent/20">
+      {items.map((item, idx) => {
+        const isOpen = openIndex === idx;
+        return (
+          <div key={idx} className="border-b border-accent/20">
+            <button
+              onClick={() => setOpenIndex(isOpen ? null : idx)}
+              className="w-full flex items-center justify-between py-4 text-left group outline-none"
+            >
+              <span className={cn(
+                "text-base tracking-wide font-light transition-colors duration-300",
+                isOpen ? "text-accent" : "text-foreground group-hover:text-accent-soft"
+              )}>
+                {item.title}
+              </span>
+              <svg 
+                className={cn("w-4 h-4 shrink-0 transition-transform duration-300 text-accent/50 group-hover:text-accent", isOpen && "rotate-180")} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div 
+              className={cn(
+                "grid transition-all duration-300 ease-in-out",
+                isOpen ? "grid-rows-[1fr] opacity-100 pb-4" : "grid-rows-[0fr] opacity-0"
+              )}
+            >
+              <div className="overflow-hidden">
+                <p className="text-sm text-muted font-light leading-relaxed pr-8">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export function HospitalitySolutions() {
   const containerRef = useRef<HTMLElement>(null);
@@ -156,19 +203,10 @@ export function HospitalitySolutions() {
 
                   <div className="flex flex-col w-full">
                     {/* List 1 */}
-                    <div className="flex flex-col gap-4">
-                      <h4 className="tracking-[0.3em] uppercase text-foreground text-sm">
+                      <h4 className="tracking-[0.3em] uppercase text-foreground text-sm mb-4">
                         {solution.list1Title}
                       </h4>
-                      <ul className="flex flex-col gap-5">
-                        {solution.list1.map((item, i) => (
-                          <li key={i} className="flex flex-col gap-1 border-l-2 border-accent/20 pl-4">
-                            <span className="text-base text-foreground tracking-wide font-light">{item.title}</span>
-                            <span className="text-sm text-muted font-light leading-relaxed">{item.description}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                      <SolutionAccordion items={solution.list1} />
                   </div>
 
                   <Link

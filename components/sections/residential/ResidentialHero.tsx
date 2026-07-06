@@ -154,12 +154,7 @@ export function ResidentialHero() {
           </div>
         </div>
       </div>
-      {/* Red curved wave bottom */}
-      <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16 md:h-20">
-          <path d="M0,80 C360,0 1080,0 1440,80 L1440,80 L0,80 Z" fill="#8c1817" />
-        </svg>
-      </div>
+
     </section>
   );
 }

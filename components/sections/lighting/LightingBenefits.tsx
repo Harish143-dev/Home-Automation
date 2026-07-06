@@ -87,13 +87,13 @@ export default function LightingBenefits() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-20 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="relative w-full py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Header */}
         <div ref={headerRef} className="lb-header text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light uppercase">
+          <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Value & Lifestyle
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6">

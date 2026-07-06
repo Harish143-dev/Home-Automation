@@ -78,7 +78,7 @@ export default function MduProjects() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-20 sm:py-28 md:py-32 lg:py-40 px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="relative w-full py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
@@ -123,7 +123,7 @@ export default function MduProjects() {
                 {/* Hover Glass Panel */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    <span className="text-sm tracking-widest uppercase">View Project</span>
+                    <span className="text-sm tracking-widest">View Project</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
