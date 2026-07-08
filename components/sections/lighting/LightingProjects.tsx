@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import NextImage from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -208,6 +209,21 @@ export default function LightingProjects() {
               </div>
             );
           })}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 md:mt-16 flex justify-center">
+          <Link 
+            href="/projects" 
+            className="group relative inline-flex items-center justify-center px-8 py-3.5 text-base text-white bg-accent border border-accent hover:bg-accent/90 rounded-full transition-all duration-500 overflow-hidden lproj-item shadow-sm hover:shadow-md"
+          >
+            <span className="relative z-10 flex items-center gap-2 font-medium">
+              View all projects
+              <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </Link>
         </div>
 
       </div>

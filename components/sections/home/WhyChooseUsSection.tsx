@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Globe,
   Headphones,
@@ -74,137 +74,52 @@ const usps = [
 ];
 
 export function WhyChooseUsSection() {
-  const [activePanel, setActivePanel] = useState<number>(0);
-
   return (
-    <section className="relative z-10 pt-8 sm:pt-10 md:pt-12 lg:pt-4 pb-16 sm:pb-20 md:pb-24 lg:pb-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background text-foreground">
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section className="relative z-10 pt-16 pb-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground">
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="mb-10 sm:mb-14 md:mb-16 lg:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] mb-3 sm:mb-4 md:mb-6 text-foreground">
-              What Sets Us Apart?
-            </h2>
-            <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-wide">
-              Our commitment to excellence ensures unmatched quality and innovation in every project.
-            </p>
-          </div>
-          <button className="hidden md:flex items-center gap-2 text-[15px] font-medium text-accent hover:underline transition-all group">
-            View All Capabilities
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+        <div className="mb-16 md:mb-24 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] mb-6 text-foreground">
+            What Sets Us Apart?
+          </h2>
+          <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
+            Our commitment to excellence ensures unmatched quality and innovation in every project.
+          </p>
         </div>
 
-        {/* Desktop & Mobile Layout Container */}
-        <div className="flex flex-col md:flex-row h-auto md:h-[500px] lg:h-[600px] gap-2 sm:gap-3 md:gap-4 w-full">
+        {/* Stacking Cards Container */}
+        <div className="flex flex-col gap-6 md:gap-10 pb-[10vh]">
           {usps.map((usp, index) => {
-            const isActive = activePanel === index;
             const Icon = usp.icon;
-
+            
             return (
               <div
                 key={usp.id}
-                onMouseEnter={() => setActivePanel(index)}
-                onFocus={() => setActivePanel(index)}
-                tabIndex={0}
-                className={`
-                  relative overflow-hidden rounded-2xl sm:rounded-[28px] md:rounded-[32px] cursor-pointer
-                  transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
-                  group flex flex-col border border-border
-                  ${isActive
-                    ? 'h-[340px] sm:h-[380px] md:h-full md:flex-[4_4_0%] bg-panel shadow-md z-10 scale-[1.01] md:scale-100'
-                    : 'h-[72px] sm:h-[80px] md:h-full md:flex-[1_1_0%] bg-surface-darker hover:bg-panel z-0'
-                  }
-                `}
+                className="sticky shadow-2xl border border-border bg-panel rounded-[24px] md:rounded-[32px] p-8 sm:p-10 md:p-14 lg:p-16 flex flex-col md:flex-row gap-8 md:gap-12 items-start md:items-center overflow-hidden"
+                style={{ 
+                  top: `calc(120px + ${index * 20}px)`,
+                  zIndex: 10 + index 
+                }}
               >
-                {/* 
-                  Compressed State Title Bar 
-                                <h3 className={`
-                      text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2]
-                      transition-colors duration-500
-                      ${isActive ? 'text-white' : 'text-black'}
-                    `}>
-                  {/* Desktop Layout */}
-                <div className={`
-                  absolute inset-0 z-20 pointer-events-none
-                  transition-opacity duration-300
-                  ${isActive ? 'opacity-0' : 'opacity-100 delay-300'}
-                `}>
-                  {/* Desktop Layout */}
-                  <div className="hidden md:flex flex-col items-center justify-between w-full h-full py-10">
-                    <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-full border border-border bg-surface-darker shadow-sm flex items-center justify-center shrink-0 transition-colors duration-500">
-                      <Icon size={24} className="text-foreground" strokeWidth={1.5} />
-                    </div>
-
-                    {/* The text container aligns horizontally centered */}
-                    <div className="flex-1 flex items-end justify-center pb-12">
-                      <div className="whitespace-nowrap font-medium text-[17px] text-foreground tracking-wide">
-                        {usp.shortTitle}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Mobile Layout */}
-                  <div className="md:hidden flex items-center w-full h-full px-4 sm:p-5">
-                    <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-border bg-surface-darker shadow-sm flex items-center justify-center shrink-0">
-                      <Icon size={20} className="text-foreground sm:hidden" strokeWidth={1.5} />
-                      <Icon size={24} className="text-foreground hidden sm:block" strokeWidth={1.5} />
-                    </div>
-                    <div className="ml-3 sm:ml-5 font-medium text-[15px] sm:text-[17px] text-foreground tracking-wide">
-                      {usp.title}
-                    </div>
-                  </div>
+                {/* Subtle gradient for depth */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
+                
+                {/* Left side: Icon */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-surface-darker border border-border shadow-inner flex items-center justify-center shrink-0 relative z-10">
+                  <Icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-accent" strokeWidth={1.5} />
                 </div>
-
-                {/* 
-                  Expanded Content Area 
-                */}
-                <div className={`
-                  flex-1 flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12 relative w-full h-full
-                  transition-all duration-500 delay-100
-                  ${isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
-                `}>
-                  {/* Subtle Background Icon */}
-                  <div className={`
-                    absolute top-8 right-8 md:top-12 md:right-12 
-                    flex items-center justify-center pointer-events-none
-                    transition-all duration-1000 transform
-                    ${isActive ? 'scale-100 rotate-0 opacity-100' : 'scale-50 -rotate-45 opacity-0'}
-                  `}>
-                    <Icon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 text-black/[0.03]" strokeWidth={0.75} />
-                  </div>
-
-                  <div className="relative z-10 mt-auto max-w-xl">
-                    {/* Small active icon above title */}
-                    <div className={`
-                      w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-accent flex items-center justify-center mb-5 sm:mb-6 md:mb-8
-                      transition-all duration-500 transform
-                      ${isActive ? 'translate-y-0 opacity-100 delay-100' : 'translate-y-8 opacity-0'}
-                    `}>
-                      <Icon size={24} className="text-white" strokeWidth={1.5} />
-                    </div>
-
-                    <h3 className={`
-                      text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground mb-2 sm:mb-3 md:mb-4
-                      transition-all duration-500 transform
-                      ${isActive ? 'translate-y-0 opacity-100 delay-150' : 'translate-y-8 opacity-0'}
-                    `}>
-                      {usp.title}
-                    </h3>
-                    <p className={`
-                      text-muted text-[14px] sm:text-[16px] md:text-[17px] lg:text-[19px] mb-6 sm:mb-8 md:mb-10 leading-relaxed font-medium tracking-wide
-                      transition-all duration-500 transform
-                      ${isActive ? 'translate-y-0 opacity-100 delay-200' : 'translate-y-8 opacity-0'}
-                    `}>
-                      {usp.description}
-                    </p>
-
-                    <Button
-                      variant="accent"
-                      size="lg"
-                      shape="full"
-                      className={`transition-all duration-500 transform ${isActive ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-8 opacity-0'}`}
-                    >
+                
+                {/* Right side: Content */}
+                <div className="flex-1 flex flex-col justify-center relative z-10">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground mb-4 md:mb-6">
+                    {usp.title}
+                  </h3>
+                  <p className="text-muted text-[15px] sm:text-[17px] md:text-[19px] leading-relaxed font-medium tracking-wide mb-6 md:mb-8 max-w-2xl">
+                    {usp.description}
+                  </p>
+                  
+                  <div className="mt-auto">
+                    <Button variant="accent" size="lg" shape="full" className="px-8 font-medium">
                       Learn More
                     </Button>
                   </div>
@@ -213,12 +128,14 @@ export function WhyChooseUsSection() {
             );
           })}
         </div>
-
-        {/* Mobile View All Button */}
-        <button className="md:hidden mt-10 w-full flex items-center justify-center gap-2 text-[15px] font-medium text-accent">
-          View All Capabilities
-          <ArrowRight size={16} />
-        </button>
+        
+        {/* View All Button */}
+        <div className="mt-12 flex justify-center relative z-20">
+           <button className="flex items-center justify-center px-8 py-4 gap-3 text-[15px] font-medium text-foreground bg-surface-darker hover:bg-panel border border-border rounded-full transition-all group">
+             View All Capabilities
+             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-accent" />
+           </button>
+        </div>
       </div>
     </section>
   );
