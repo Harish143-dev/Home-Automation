@@ -39,7 +39,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
     items: [
       { label: 'Lighting Automation', href: '/lighting-automation' },
       { label: 'Audio Video Automation', href: '#av' },
-      { label: 'Shades Automation', href: '#shades' },
+      { label: 'Curtain Automation', href: '/curtain-automation' },
       { label: 'HVAC Automation', href: '#hvac' },
       { label: 'Security Automation', href: '#security' },
       { label: 'AMC', href: '#amc' },

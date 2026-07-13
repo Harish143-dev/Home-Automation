@@ -9,6 +9,7 @@ const FOOTER_LINKS = {
   services: [
     { label: 'Lighting Automation', href: '/lighting-automation' },
     { label: 'Audio Video', href: '#av' },
+    { label: 'Curtain Automation', href: '/curtain-automation' },
     { label: 'Climate Control', href: '#hvac' },
     { label: 'Smart Security', href: '#security' },
   ],
