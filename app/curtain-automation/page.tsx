@@ -2,6 +2,7 @@
 
 import { CurtainHero } from "../../components/sections/curtain-automation/CurtainHero";
 import { CurtainTrust } from "../../components/sections/curtain-automation/CurtainTrust";
+import { CurtainCredentials } from "../../components/sections/curtain-automation/CurtainCredentials";
 import { CurtainOverview } from "../../components/sections/curtain-automation/CurtainOverview";
 import { CurtainScenarios } from "../../components/sections/curtain-automation/CurtainScenarios";
 import { CurtainWhyATPL } from "../../components/sections/curtain-automation/CurtainWhyATPL";
@@ -24,6 +25,9 @@ export default function CurtainAutomationPage() {
 
       {/* Prestigious Client Portfolio */}
       <CurtainClients />
+
+      {/* Industry Accolades & Certificates */}
+      <CurtainCredentials />
 
       {/* Intelligent Control Features */}
       <CurtainFeatures />

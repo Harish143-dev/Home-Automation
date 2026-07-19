@@ -143,7 +143,7 @@ export default function LightingScenes() {
                 <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-4">
                   {scene.title}
                 </h3>
-                <p className="text-sm md:text-base text-muted font-light leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed">
                   {scene.description}
                 </p>
               </div>

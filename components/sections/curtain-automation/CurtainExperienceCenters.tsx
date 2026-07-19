@@ -86,7 +86,7 @@ export function CurtainExperienceCenters() {
           <h2 className="exp-header-anim text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
             Experience Motorized Shades Before You Buy
           </h2>
-          <p className="exp-header-anim text-sm md:text-base font-light tracking-wide text-muted leading-relaxed text-balance mb-8">
+          <p className="exp-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance mb-8">
             Visit our experience centers and experience the elegance, quiet operation, and intelligent control of motorized shades in a real smart home environment.
           </p>
           <div className="exp-header-anim inline-block bg-background border border-black/5 rounded-full px-6 py-3 shadow-sm">

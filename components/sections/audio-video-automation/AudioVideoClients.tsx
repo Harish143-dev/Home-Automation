@@ -10,6 +10,8 @@ import imgMittal from '@/assets/curtain-automation/clients/mittal.png';
 import imgBkt from '@/assets/curtain-automation/clients/bkt.png';
 import imgRaheja from '@/assets/curtain-automation/clients/raheja.png';
 import imgKhazana from '@/assets/curtain-automation/clients/khazana.png';
+// Placeholder for Ujjawal Munjal
+import imgUjjawal from '@/assets/curtain-automation/clients/bkt.png'; 
 
 const CLIENTS = [
   {
@@ -42,9 +44,15 @@ const CLIENTS = [
     location: 'Chennai',
     image: imgKhazana,
   },
+  {
+    name: 'Ujjawal Munjal',
+    type: 'Luxury Residence',
+    location: 'Delhi',
+    image: imgUjjawal,
+  },
 ];
 
-export function CurtainClients() {
+export function AudioVideoClients() {
   const sectionRef = useRef<HTMLElement>(null);
   const pinContainerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -97,7 +105,7 @@ export function CurtainClients() {
         ease: 'none',
         scrollTrigger: {
           trigger: pinContainerRef.current,
-          start: 'center center', // Pin when the cards container reaches the center
+          start: 'center center',
           end: () => `+=${getScrollAmount()}`,
           pin: true,
           scrub: 1,
@@ -119,7 +127,7 @@ export function CurtainClients() {
           <h2 className="client-header-text text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-8 text-balance">
             Trusted by India's Leading Homeowners & Visionaries
           </h2>
-          <p className="client-header-text text-sm sm:text-base md:text-lg font-light tracking-wide text-foreground/70 leading-relaxed text-balance">
+          <p className="client-header-text text-sm md:text-base font-light tracking-wide text-foreground/70 leading-relaxed text-balance">
             ATPL is trusted by India's leading homeowners, business leaders, celebrities, and prestigious residences. Its portfolio includes distinguished clients such as Madhuri Dixit, Rajan Mittal (Airtel), BKT Farms, Atul Raheja, Khazana Jewellery (Chennai), along with hundreds of premium homes across the country.
           </p>
         </div>

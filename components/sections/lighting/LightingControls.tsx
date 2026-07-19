@@ -112,7 +112,7 @@ export default function LightingControls() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6 text-balance">
             Complete Home Control
           </h2>
-          <p className="text-muted font-light text-sm md:text-base leading-relaxed max-w-2xl">
+          <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
             A unified smart home architecture that seamlessly integrates every critical system into a single, intelligent interface.
           </p>
         </div>

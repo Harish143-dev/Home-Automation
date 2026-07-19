@@ -122,7 +122,7 @@ export default function LightingTrust() {
               Precision Engineering, At Scale.
             </h2>
           </div>
-          <p className="text-sm md:text-base font-light tracking-wide text-muted leading-relaxed max-w-2xl text-balance">
+          <p className="text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed max-w-2xl text-balance">
             With over 24 years of experience, ATPL has successfully delivered over 1,000 projects, including more than 650 premium residences, over 250 hospitality projects, and over 100 commercial projects. With Experience Centres in Delhi, Mumbai, and Bangalore, and sales and service support across over 12 cities.
           </p>
         </div>

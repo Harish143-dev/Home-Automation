@@ -142,7 +142,7 @@ export default function LightingPartners() {
               <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-3">
                 {brand.name}
               </h3>
-              <p className="text-muted font-light text-sm md:text-base leading-relaxed">
+              <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed">
                 {brand.description}
               </p>
             </div>
@@ -174,7 +174,7 @@ export default function LightingPartners() {
                   {reason.title}
                 </h4>
                 
-                <p className="text-muted font-light text-sm md:text-base leading-relaxed">
+                <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed">
                   {reason.description}
                 </p>
               </div>

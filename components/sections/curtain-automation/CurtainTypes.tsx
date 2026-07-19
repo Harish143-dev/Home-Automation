@@ -90,7 +90,7 @@ export function CurtainTypes() {
           <h2 className="type-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-white text-balance mb-6">
             Solutions for Every Window
           </h2>
-          <p className="type-header text-sm md:text-base font-light tracking-wide text-white/70 leading-relaxed text-balance">
+          <p className="type-header text-sm sm:text-base md:text-lg font-light tracking-wide text-white/70 leading-relaxed text-balance">
             Explore our extensive range of motorized window treatments, from elegant drapery systems to specialized tensioned shades for complex architectures.
           </p>
         </div>

@@ -57,7 +57,7 @@ export function CurtainOverview() {
           <h2 className="overview-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
             Why Homeowners Choose Motorized Shades & Curtain Automation
           </h2>
-          <p className="overview-header text-sm md:text-base font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl">
+          <p className="overview-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl">
             Manage natural light, privacy, and daily routines with motorized shades that integrate with your smart home. Control every window treatment using a keypad, mobile app, voice assistant, or automated schedules.
           </p>
         </div>
@@ -80,7 +80,7 @@ export function CurtainOverview() {
             <h3 className="overview-content text-2xl md:text-3xl font-light tracking-wide leading-[1.2] text-foreground mb-6">
               Convenient Control for Everyday Living
             </h3>
-            <p className="overview-content text-sm md:text-base font-light tracking-wide text-muted leading-relaxed mb-8">
+            <p className="overview-content text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed mb-8">
               Motorized shades simplify everyday living by eliminating manual operation. Open or close individual or multiple shades using a smart keypad, mobile app, voice assistant, or scheduled scenes. They can also adjust automatically throughout the day based on your preferred routines or sunlight conditions.
             </p>
             
@@ -90,7 +90,7 @@ export function CurtainOverview() {
                   <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-3.5 h-3.5 text-accent" strokeWidth={2} />
                   </div>
-                  <span className="text-sm md:text-base font-light text-foreground/80 leading-relaxed">
+                  <span className="text-sm sm:text-base md:text-lg font-light text-foreground/80 leading-relaxed">
                     {bullet}
                   </span>
                 </li>

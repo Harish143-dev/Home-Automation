@@ -95,7 +95,7 @@ export function CurtainBenefits() {
               <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground">
                 {benefit.title}
               </h3>
-              <p className="text-sm md:text-base font-light text-muted leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg font-light text-muted leading-relaxed">
                 {benefit.description}
               </p>
             </div>

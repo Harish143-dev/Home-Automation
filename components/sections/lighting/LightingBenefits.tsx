@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
+import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 import { 
   Palette, 
   Heart, 
@@ -73,14 +75,16 @@ export default function LightingBenefits() {
 
     tl.fromTo(".lb-header",
       { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+      { y: 0, opacity: 1, duration: DURATION.normal, ease: EASE.reveal }
     );
 
     tl.fromTo(".lb-item",
       { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out" },
+      { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.normal, ease: EASE.reveal },
       "-=0.4"
     );
+
+    scheduleScrollRefresh();
 
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
@@ -113,11 +117,11 @@ export default function LightingBenefits() {
                 <benefit.icon className="w-6 h-6 text-accent relative z-10" strokeWidth={1.5} />
               </div>
               
-              <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-4">
+              <h3 className="text-xl md:text-2xl font-light leading-[1.2] tracking-wide text-foreground mb-4">
                 {benefit.title}
               </h3>
               
-              <p className="text-muted font-light text-sm md:text-base leading-relaxed">
+              <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed">
                 {benefit.description}
               </p>
             </div>

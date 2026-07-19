@@ -57,7 +57,7 @@ export function CurtainFeatures() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
             Bring Comfort, Privacy & Natural Light Under Intelligent Control
           </h2>
-          <p className="text-sm md:text-base font-light tracking-wide text-foreground/70 leading-relaxed text-balance max-w-lg">
+          <p className="text-sm sm:text-base md:text-lg font-light tracking-wide text-foreground/70 leading-relaxed text-balance max-w-lg">
             Motorized shades do more than open and close curtains. They automatically adjust to changing daylight, helping reduce glare, manage indoor heat, provide privacy when needed, and become part of your daily routines through schedules, scenes, or smart home controls.
           </p>
         </div>

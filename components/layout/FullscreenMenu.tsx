@@ -38,7 +38,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
     title: 'Disciplines',
     items: [
       { label: 'Lighting Automation', href: '/lighting-automation' },
-      { label: 'Audio Video Automation', href: '#av' },
+      { label: 'Audio Video Automation', href: '/audio-video-automation' },
       { label: 'Curtain Automation', href: '/curtain-automation' },
       { label: 'HVAC Automation', href: '#hvac' },
       { label: 'Security Automation', href: '#security' },

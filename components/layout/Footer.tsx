@@ -8,7 +8,7 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 const FOOTER_LINKS = {
   services: [
     { label: 'Lighting Automation', href: '/lighting-automation' },
-    { label: 'Audio Video', href: '#av' },
+    { label: 'Audio Video', href: '/audio-video-automation' },
     { label: 'Curtain Automation', href: '/curtain-automation' },
     { label: 'Climate Control', href: '#hvac' },
     { label: 'Smart Security', href: '#security' },

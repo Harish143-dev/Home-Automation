@@ -98,7 +98,7 @@ export function CurtainScenarios() {
           <h2 className="scenario-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
             Experience Smart Living Scenarios
           </h2>
-          <p className="scenario-header text-sm md:text-base font-light tracking-wide text-muted leading-relaxed text-balance">
+          <p className="scenario-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
             Watch your home effortlessly adapt to your lifestyle with single-touch scenes that coordinate your shades, lighting, and climate.
           </p>
         </div>

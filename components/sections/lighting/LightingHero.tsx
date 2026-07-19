@@ -12,6 +12,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
+import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 
 export default function LightingHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -56,6 +57,8 @@ export default function LightingHero() {
       }
     });
 
+    scheduleScrollRefresh();
+
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
@@ -82,7 +85,7 @@ export default function LightingHero() {
         {/* H1 Heading sizing strictly matching DESIGN_SYSTEM.md */}
         <h1
           ref={textRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white mb-8 max-w-5xl"
+          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white mb-8 max-w-5xl"
         >
           Smart Lighting Automation for Modern Homes
         </h1>

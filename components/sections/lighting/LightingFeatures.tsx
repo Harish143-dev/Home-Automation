@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
+import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 import { 
   UserCheck, 
   Blinds, 
@@ -66,15 +68,17 @@ export default function LightingFeatures() {
       {
         y: 0,
         opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
+        duration: DURATION.normal,
+        stagger: STAGGER.normal,
+        ease: EASE.reveal,
         scrollTrigger: {
           trigger: ".lf-grid",
           start: "top 85%",
         }
       }
     );
+
+    scheduleScrollRefresh();
 
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
@@ -100,11 +104,11 @@ export default function LightingFeatures() {
                   <feature.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-4">
+                <h3 className="text-xl md:text-2xl font-light leading-[1.2] tracking-wide text-foreground mb-4">
                   {feature.title}
                 </h3>
                 
-                <p className="text-muted font-light text-sm md:text-base leading-relaxed mt-auto">
+                <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed mt-auto">
                   {feature.description}
                 </p>
               </div>

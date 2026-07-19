@@ -6,9 +6,9 @@ import Link from "next/link";
 import { Button } from "../../ui/button";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { gsap, SplitText, useGSAP } from "../../../lib/gsapSetup";
-import hero from "@/assets/curtain-automation/hero.png"
+import hero from "@/assets/residential/hero.jpg";
 
-export function CurtainHero() {
+export function AudioVideoHero() {
   const containerRef = useRef<HTMLElement>(null);
   const h1Ref = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
@@ -84,14 +84,14 @@ export function CurtainHero() {
   return (
     <section
       ref={containerRef}
-      id="curtain-hero"
+      id="audio-video-hero"
       className={`relative h-screen w-full bg-secondary overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Static Background */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
         <NextImage
           src={hero}
-          alt="Intelligent Motorized Curtains Interior"
+          alt="Intelligent Audio & Video Integration"
           fill
           priority
           sizes="100vw"
@@ -112,17 +112,17 @@ export function CurtainHero() {
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white text-balance"
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
           >
-            Motorized Shades & Curtain Automation for Smart Homes
+            Intelligent Audio & Video Integration for Modern Homes
           </h1>
 
           {/* Understated luxury supporting text */}
           <p
             ref={subRef}
-            className="text-sm sm:text-base md:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance"
+            className="text-sm md:text-base text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance"
           >
-            Enhance your home with intelligent motorized curtains and automated window shades that combine convenience, and energy efficiency. Open, close, or schedule your curtains with a keypad, smartphone, voice assistant, or preset scenes—creating the perfect ambiance while improving privacy and reducing heat gain.
+            Enjoy high-quality audio and video with integrated systems that deliver clear sound, stunning visuals, and simple control across your home.
           </p>
 
           {/* CTA Buttons */}
@@ -137,7 +137,7 @@ export function CurtainHero() {
                 shape="full"
                 className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm transition-all duration-500 hover:bg-accent-soft hover:shadow-[0_0_40px_rgba(140,24,23,0.35)]"
               >
-                Book a Free Consultation
+                Book a Consultation
               </Button>
             </Link>
 

@@ -81,7 +81,7 @@ export function CurtainWhyATPL() {
           <h2 className="why-header-anim text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
             Why Homeowners Choose ATPL
           </h2>
-          <p className="why-header-anim text-sm md:text-base font-light tracking-wide text-muted leading-relaxed text-balance">
+          <p className="why-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
             For over 24 years, ATPL has been delivering intelligent lighting control and home automation solutions that combine world-class technology, expert execution, and dependable after-sales support. Trusted by luxury homeowners across India, we create smart homes that are reliable and built for the future.
           </p>
         </div>
@@ -108,7 +108,7 @@ export function CurtainWhyATPL() {
                 <span className="why-stat-number" data-target={stat.target}>0</span>
               </div>
               
-              <span className="text-sm md:text-base font-light tracking-wide text-muted leading-relaxed text-balance">
+              <span className="text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
                 {stat.label}
               </span>
             </div>
