@@ -53,7 +53,7 @@ export function ContactHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[85vh] min-h-[600px] w-full overflow-hidden flex items-center justify-center pt-24"
+      className="relative h-[85vh] min-h-[600px] w-full overflow-hidden flex items-center justify-end"
     >
       {/* Background Image */}
       <div ref={bgRef} className="absolute inset-0 z-0 will-change-transform">
@@ -66,16 +66,16 @@ export function ContactHero() {
           className="object-cover"
         />
         {/* Cinematic gradients */}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-center text-center">
-        <div className="mb-6 flex items-center justify-center gap-4 overflow-hidden">
+        <div className="mb-2 flex items-center justify-end gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-accent" />
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
+          <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">
             Get in touch
           </span>
           <div className="h-[1px] w-8 bg-accent" />
@@ -83,12 +83,12 @@ export function ContactHero() {
 
         <div ref={textRef} className="flex flex-col gap-2">
           <div className="overflow-hidden">
-            <h1 className="hero-line text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
+            <h1 className="hero-element text-white text-balance mb-2">
               Let's Design Your
             </h1>
           </div>
           <div className="overflow-hidden">
-            <h1 className="hero-line text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
+            <h1 className="hero-element text-white text-balance mb-2">
               Intelligent Space
             </h1>
           </div>

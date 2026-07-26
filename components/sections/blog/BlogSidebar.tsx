@@ -14,7 +14,7 @@ export default function BlogSidebar() {
       
       {/* Social Sharing Icons */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className="text-sm tracking-widest uppercase text-foreground mb-4 flex items-center gap-2">
+        <h3 className="text-foreground mb-4 flex items-center gap-2">
           Share
         </h3>
         <div className="flex items-center gap-3">
@@ -37,7 +37,7 @@ export default function BlogSidebar() {
       {/* Featured Blogs */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-sm tracking-widest uppercase text-foreground">Featured Blogs</h3>
+          <h3 className="text-foreground">Featured Blogs</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-6">
@@ -55,10 +55,10 @@ export default function BlogSidebar() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 w-full p-4">
-                <span className="text-[10px] tracking-widest uppercase text-white/70 mb-1 block">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-[10px] text-white/70 mb-1 block">
                   {post.category}
                 </span>
-                <h4 className="text-white font-light text-sm md:text-base tracking-wide group-hover:text-accent transition-colors line-clamp-2">
+                <h4 className="text-white group-hover:text-accent transition-colors line-clamp-2">
                   {post.title}
                 </h4>
               </div>
@@ -70,7 +70,7 @@ export default function BlogSidebar() {
       {/* Latest Articles */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-sm tracking-widest uppercase text-foreground">Latest Articles</h3>
+          <h3 className="text-foreground">Latest Articles</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">
@@ -89,7 +89,7 @@ export default function BlogSidebar() {
                 />
               </div>
               <div className="flex flex-col">
-                <h4 className="text-foreground font-light text-sm tracking-wide line-clamp-2 group-hover:text-accent transition-colors">
+                <h4 className="text-foreground line-clamp-2 group-hover:text-accent transition-colors">
                   {post.title}
                 </h4>
                 <span className="text-xs text-muted-foreground font-light mt-1">

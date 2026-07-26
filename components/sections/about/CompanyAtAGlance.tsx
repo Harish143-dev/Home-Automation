@@ -99,7 +99,7 @@ export default function CompanyAtAGlance() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
+      className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
@@ -108,7 +108,7 @@ export default function CompanyAtAGlance() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium mb-4">
             Company at a Glance
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
+          <h2 className="text-foreground">
             Our Impact in Numbers
           </h2>
         </div>

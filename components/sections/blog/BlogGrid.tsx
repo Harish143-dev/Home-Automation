@@ -74,7 +74,7 @@ export default function BlogGrid() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                <span className="text-[10px] tracking-widest uppercase text-foreground">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-[10px] text-foreground">
                   {article.category}
                 </span>
               </div>
@@ -82,7 +82,7 @@ export default function BlogGrid() {
 
             {/* Content Container */}
             <div className="p-5 flex flex-col flex-grow">
-              <h3 className="text-xl font-light tracking-wide text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300">
+              <h3 className="text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300">
                 {article.title}
               </h3>
               

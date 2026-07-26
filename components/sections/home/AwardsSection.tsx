@@ -53,11 +53,11 @@ function AwardCard({ award }: { award: AwardItem }) {
       <div className="flex flex-col gap-3 px-2">
         <div className="flex items-center justify-between border-b border-black/5 pb-3">
           <span className="text-sm md:text-base font-medium text-accent">{award.year}</span>
-          <span className="text-xs md:text-sm font-normal text-muted tracking-widest">{award.category}</span>
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted">{award.category}</span>
         </div>
-        <h3 className="text-lg md:text-xl lg:text-2xl font-light tracking-wide text-foreground leading-snug">
+        <h4 className="text-foreground">
           {award.title}
-        </h3>
+        </h4>
       </div>
     </div>
   );
@@ -119,7 +119,7 @@ export function AwardsSection({ className }: { className?: string }) {
   return (
     <section
       ref={containerRef}
-      className={`relative w-full bg-background overflow-hidden pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-4 sm:pb-6 md:pb-8 lg:pb-10 ${className || ''}`}
+      className={`pt-16 md:pt-24 pb-4 md:pb-12 relative w-full bg-background overflow-hidden ${className || ''}`}
       id="awards"
     >
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-16 lg:px-24">
@@ -127,9 +127,9 @@ export function AwardsSection({ className }: { className?: string }) {
           <div>
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[1px] w-8 bg-black/20" />
-              <span className="text-sm md:text-base font-normal tracking-widest text-accent">Recognition</span>
+              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">Recognition</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-foreground leading-[1.2]">
+            <h2 className="text-foreground">
               Awards<span className="text-foreground/30">.</span>
             </h2>
           </div>

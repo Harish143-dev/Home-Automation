@@ -66,15 +66,15 @@ export function AudioVideoTrust() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background pt-16 sm:pt-24 md:pt-32 pb-8 md:pb-12 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
+      className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
         <div ref={leftColRef} className="w-full md:w-1/2 md:sticky md:top-[20vh] pb-6 md:pb-0 opacity-0">
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Our Legacy
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-6 sm:mb-8">
+          <h2 className="text-foreground mb-6 sm:mb-8">
             Decades of Excellence.
           </h2>
           <p className="text-muted text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10 text-balance">
@@ -82,12 +82,12 @@ export function AudioVideoTrust() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/projects">
-              <Button variant="accent" size="lg" shape="full" className="w-full sm:w-auto">
+              <Button variant="interactive" size="lg" className="w-full sm:w-auto">
                 View Our Projects
               </Button>
             </Link>
             <Link href="/experience-center">
-              <Button variant="outline" size="lg" shape="full" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 Visit Experience Center
               </Button>
             </Link>
@@ -102,7 +102,7 @@ export function AudioVideoTrust() {
               ref={el => { statsRefs.current[i] = el; }}
               className="flex flex-col border-b border-black/5 pb-6 sm:pb-8 last:border-b-0 last:pb-0 group cursor-default opacity-0"
             >
-              {stat.prefix && <span className="text-sm md:text-base tracking-widest text-accent font-normal mt-5 mb-1 sm:mb-2 block">{stat.prefix}</span>}
+              {stat.prefix && <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mt-5 mb-1 sm:mb-2 block">{stat.prefix}</span>}
               <div className="font-light tracking-wide leading-none text-foreground mb-3 sm:mb-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 text-4xl sm:text-5xl md:text-6xl">
                 <span>{stat.value}</span>
               </div>

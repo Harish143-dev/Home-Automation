@@ -70,15 +70,15 @@ export function CurtainWhyATPL() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
         
         {/* Left Side: Sticky Header & Context */}
         <div ref={leftColRef} className="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-[30vh] self-start">
-          <span className="why-header-anim tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base why-header-anim text-accent mb-4 block">
             The ATPL Legacy
           </span>
-          <h2 className="why-header-anim text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="why-header-anim text-foreground text-balance mb-6">
             Why Homeowners Choose ATPL
           </h2>
           <p className="why-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -94,12 +94,12 @@ export function CurtainWhyATPL() {
               className="why-stat-card bg-[#fcfcfc] rounded-2xl p-8 border border-black/5 flex flex-col items-start hover:shadow-md transition-all duration-300 hover:-translate-y-1"
             >
               {stat.prefix && (
-                <span className="text-xs md:text-sm tracking-widest text-muted mb-2 block">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted mb-2 block">
                   {stat.prefix}
                 </span>
               )}
               {!stat.prefix && (
-                <span className="text-xs md:text-sm tracking-widest text-transparent mb-2 block select-none">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-transparent mb-2 block select-none">
                   Spacer
                 </span>
               )}

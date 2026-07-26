@@ -106,7 +106,7 @@ export default function CareersBenefits() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-12 md:py-16 px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       {/* Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -122,7 +122,7 @@ export default function CareersBenefits() {
           <span className="cb-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
             Culture & Benefits
           </span>
-          <h2 className="cb-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-8">
+          <h2 className="cb-header-el text-foreground mb-8">
             Why Work With Us?
           </h2>
           <p className="cb-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto">
@@ -147,7 +147,7 @@ export default function CareersBenefits() {
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center border border-border mb-8 group-hover:scale-110 transition-transform duration-500 ease-out">
                   <benefit.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-4">
+                <h3 className="text-foreground mb-4">
                   {benefit.title}
                 </h3>
                 <p className="text-sm md:text-base text-muted font-light leading-relaxed">

@@ -74,7 +74,7 @@ export default function OurLocations() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-16 md:py-24 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -89,7 +89,7 @@ export default function OurLocations() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Our Locations
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2]">
+          <h2 className="">
             Experience Centers & Offices
           </h2>
         </div>
@@ -101,7 +101,7 @@ export default function OurLocations() {
               key={idx} 
               className="loc-item flex flex-col items-center text-center opacity-0 group py-10 md:py-0 px-4 md:px-8 lg:px-12 first:pt-0 md:first:pt-0 last:pb-0 md:last:pb-0"
             >
-              <h3 className="text-2xl md:text-3xl font-light tracking-wide mb-8 text-foreground transition-colors duration-300">
+              <h3 className="mb-8 text-foreground transition-colors duration-300">
                 {loc.city}
               </h3>
               

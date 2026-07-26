@@ -83,7 +83,7 @@ export default function AboutHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-secondary"
+      className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-end overflow-hidden bg-black"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 about-hero-bg will-change-transform">
@@ -97,8 +97,8 @@ export default function AboutHero() {
         />
         {/* Cinematic dark overlay */}
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" aria-hidden="true" />
       </div>
 
       {/* Content */}
@@ -106,29 +106,29 @@ export default function AboutHero() {
 
         <div ref={textRef} className="flex flex-col">
           <div className="hero-line">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-white drop-shadow-sm">
+            <h1 className="hero-element text-white text-balance mb-2">
               Engineering Intelligent
             </h1>
           </div>
           <div className="hero-line">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
+            <h1 className="hero-element text-white text-balance mb-2">
               Spaces Since 2002
             </h1>
           </div>
         </div>
 
-        <p className="hero-fade-up mt-8 max-w-2xl text-white/70 font-light text-sm sm:text-base md:text-lg leading-relaxed opacity-0">
+        <p className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4">
           Transforming homes, hotels, and commercial spaces with intelligent automation, innovative technology, and seamless user experiences for over 20 years.
         </p>
 
         <div className="hero-fade-up mt-10 flex flex-col sm:flex-row items-center justify-start gap-4 opacity-0">
           <Link href="/projects" className="w-full sm:w-auto">
-            <Button variant="accent" size="lg" shape="full" className="w-full sm:w-auto">
+            <Button variant="interactive" size="lg" className="w-full sm:w-auto">
               Explore Our Solutions
             </Button>
           </Link>
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button variant="glass" size="lg" shape="full" className="w-full sm:w-auto">
+            <Button variant="shiny" size="lg" className="w-full sm:w-auto">
               Talk to Our Experts
             </Button>
           </Link>

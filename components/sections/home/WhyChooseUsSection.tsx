@@ -75,11 +75,11 @@ const usps = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="relative z-10 pt-16 pb-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground">
-      <div className="max-w-5xl mx-auto relative z-10">
+    <section className="py-16 md:py-24 relative z-10 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground">
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-16 md:mb-24 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] mb-6 text-foreground">
+          <h2 className="mb-6 text-foreground">
             What Sets Us Apart?
           </h2>
           <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
@@ -95,7 +95,7 @@ export function WhyChooseUsSection() {
             return (
               <div
                 key={usp.id}
-                className="sticky shadow-2xl border border-border bg-panel rounded-[24px] md:rounded-[32px] p-8 sm:p-10 md:p-14 lg:p-16 flex flex-col md:flex-row gap-8 md:gap-12 items-start md:items-center overflow-hidden"
+                className="sticky shadow-lg border border-border bg-panel rounded-[24px] md:rounded-[32px] p-8 sm:p-10 md:p-14 lg:p-16 flex flex-col md:flex-row gap-8 md:gap-12 items-start md:items-center overflow-hidden"
                 style={{ 
                   top: `calc(120px + ${index * 20}px)`,
                   zIndex: 10 + index 
@@ -111,17 +111,17 @@ export function WhyChooseUsSection() {
                 
                 {/* Right side: Content */}
                 <div className="flex-1 flex flex-col justify-center relative z-10">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground mb-4 md:mb-6">
+                  <h3 className="text-foreground mb-4 md:mb-6">
                     {usp.title}
                   </h3>
-                  <p className="text-muted text-[15px] sm:text-[17px] md:text-[19px] leading-relaxed font-medium tracking-wide mb-6 md:mb-8 max-w-2xl">
+                  <p className="text-muted text-sm md:text-base leading-relaxed font-light tracking-wide mb-6 md:mb-8 max-w-2xl">
                     {usp.description}
                   </p>
                   
                   <div className="mt-auto">
-                    <Button variant="accent" size="lg" shape="full" className="px-8 font-medium">
-                      Learn More
-                    </Button>
+                    <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                Learn More
+              </Button>
                   </div>
                 </div>
               </div>

@@ -102,7 +102,7 @@ export default function LightingProjects() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-6xl mx-auto flex flex-col">
         
@@ -111,7 +111,7 @@ export default function LightingProjects() {
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Featured Work
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6">
+          <h2 className="text-foreground mb-6">
             Lighting Automation Projects
           </h2>
           <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -140,7 +140,7 @@ export default function LightingProjects() {
                       {project.client}
                     </h3>
                     <div className={`flex items-center gap-1.5 transition-colors ${isOpen ? 'text-accent/70' : 'text-muted'}`}>
-                      <MapPin className="w-4 h-4" />
+                      <MapPin className="text-xl sm:text-2xl lg:text-3xl w-4 h-4" />
                       <span className="text-sm font-medium uppercase tracking-wider">{project.location}</span>
                     </div>
                   </div>
@@ -186,12 +186,12 @@ export default function LightingProjects() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                         <div>
-                          <span className="block text-xs uppercase tracking-[0.2em] text-accent mb-2 font-medium">Scope</span>
+                          <span className="block text-xs tracking-[0.2em] text-accent mb-2 font-medium">Scope</span>
                           <p className="text-foreground font-light text-base">{project.scope}</p>
                         </div>
                         
                         <div>
-                          <span className="block text-xs uppercase tracking-[0.2em] text-accent mb-2 font-medium">Integrated Solutions</span>
+                          <span className="block text-xs tracking-[0.2em] text-accent mb-2 font-medium">Integrated Solutions</span>
                           <div className="flex flex-wrap gap-2 mt-3">
                             {project.solutions.split(',').map((sol, i) => (
                               <span key={i} className="px-3 py-1 bg-panel border border-border rounded-full text-xs font-medium text-foreground">

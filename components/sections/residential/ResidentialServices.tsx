@@ -184,7 +184,7 @@ export function ResidentialServices() {
           {/* LEFT: Navigation List */}
           <div className="w-full h-full flex flex-col justify-center md:items-end min-w-0">
             <div className="flex flex-col items-start w-full md:w-fit">
-              <span className="block tracking-widest text-sm md:text-base text-muted mb-8 md:mb-12">
+              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base block text-muted mb-8 md:mb-12">
                 Our Solutions
               </span>
               <ul className="flex flex-row md:flex-col gap-5 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full">
@@ -225,7 +225,7 @@ export function ResidentialServices() {
           {/* RIGHT: Content Details */}
           <div className="w-full h-full flex flex-col justify-center md:items-start min-w-0">
             <div className="flex flex-col items-start w-full md:max-w-[320px] lg:max-w-[400px]">
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug mb-8 text-foreground">
+              <h3 className="mb-8 text-foreground">
                 {activeData.title}
               </h3>
 

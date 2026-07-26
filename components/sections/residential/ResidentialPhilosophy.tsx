@@ -108,14 +108,14 @@ export function ResidentialPhilosophy() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="pt-8 md:pt-12 pb-8 md:pb-12 bg-background relative z-10 overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-background relative z-10 overflow-hidden">
       {/* Header */}
       <div className="container mx-auto px-5 sm:px-8 md:px-16 lg:px-24 max-w-7xl mb-16 md:mb-18 lg:mb-24">
         <div className="flex flex-col items-center text-center">
-          <span className="text-accent tracking-widest text-sm md:text-base mb-6 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6 block">
             Core Philosophy
           </span>
-          <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
+          <h2 ref={headingRef} className="text-foreground text-balance">
             Why Invest in Smart Home Automation?
           </h2>
         </div>
@@ -158,7 +158,7 @@ export function ResidentialPhilosophy() {
                     <div className="phil-line w-16 h-[1px] bg-foreground/20 origin-left" />
                   </div>
 
-                  <h3 className="phil-title text-2xl md:text-3xl font-light tracking-wide leading-[1.2] text-foreground mb-4 md:mb-6">
+                  <h3 className="phil-title text-foreground mb-4 md:mb-6">
                     {item.title}
                   </h3>
 

@@ -78,7 +78,7 @@ export default function MduProjects() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
@@ -92,7 +92,7 @@ export default function MduProjects() {
             <div className="h-[1px] w-6 bg-accent/30" />
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6">
+          <h2 className="text-foreground mb-6">
             Featured MDU Deployments
           </h2>
           
@@ -123,7 +123,7 @@ export default function MduProjects() {
                 {/* Hover Glass Panel */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    <span className="text-sm tracking-widest">View Project</span>
+                    <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base">View Project</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export default function MduProjects() {
                   {project.tags.join(" • ")}
                 </div>
                 
-                <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
                 

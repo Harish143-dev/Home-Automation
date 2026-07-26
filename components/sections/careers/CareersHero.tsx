@@ -61,7 +61,7 @@ export default function CareersHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black"
+      className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-end overflow-hidden bg-black"
     >
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -73,14 +73,14 @@ export default function CareersHero() {
           className="hero-bg object-cover opacity-60 scale-105"
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-24 flex flex-col items-center text-center mt-12 md:mt-20">
-        <div className="hero-element mb-6 flex items-center justify-center gap-4 overflow-hidden">
+        <div className="hero-element mb-2 flex items-center justify-end gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-white/40" />
-          <span className="text-sm md:text-base tracking-[0.3em] text-white/50">
+          <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">
             Careers
           </span>
           <div className="h-[1px] w-8 bg-white/40" />
@@ -88,16 +88,16 @@ export default function CareersHero() {
 
         <h1
           ref={textRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white mb-8 max-w-5xl"
+          className="hero-element text-white text-balance mb-2"
         >
           Build the Future of Smart Automation with Anusha Technovision
         </h1>
 
-        <p className="hero-element text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-3xl mb-12">
+        <p className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4">
           Join a team that&apos;s shaping intelligent homes, hospitality, and commercial spaces through automation, innovation, and engineering excellence.
         </p>
 
-        <div className="hero-element flex flex-col sm:flex-row items-center gap-6">
+        <div className="hero-element flex flex-col sm:flex-row items-center ">
           <Link
             href="#open-positions"
             className={cn(
@@ -105,7 +105,7 @@ export default function CareersHero() {
               "group overflow-hidden"
             )}
           >
-            <span className="relative z-10 tracking-widest text-sm">View Open Positions</span>
+            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">View Open Positions</span>
             <ArrowRight className="relative z-10 ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           </Link>

@@ -219,7 +219,7 @@ function ServicePanelCard({
 
         <div className="relative z-10 max-w-xl mx-auto md:mx-0">
 
-          <h3 className="cs-stagger-el mb-3 sm:mb-4 md:mb-6 text-2xl md:text-3xl lg:text-4xl font-light leading-[1.2] tracking-wide text-foreground drop-shadow-sm">
+          <h3 className="cs-stagger-el mb-3 sm:mb-4 md:mb-6 text-foreground drop-shadow-sm">
             {service.title}
           </h3>
 
@@ -233,18 +233,12 @@ function ServicePanelCard({
 
           <div className="cs-stagger-el">
             <Button
-              variant="accent"
+              variant="interactive"
               size="lg"
-              shape="full"
               aria-label={`Explore ${service.title} solution`}
-              className="group relative overflow-hidden"
+              className="w-full sm:w-auto mt-4"
             >
-              <span className="relative z-10">Talk to an Expert</span>
-              <ArrowRight className="relative z-10 w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              <div
-                className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-20"
-                style={{ backgroundColor: service.accent }}
-              />
+              Talk to an Expert
             </Button>
           </div>
         </div>
@@ -291,17 +285,17 @@ export function ConnectedSystems() {
     <section
       ref={containerRef}
       id="platform"
-      className="relative z-20 w-full bg-background"
+      className="py-16 md:py-24 relative z-20 w-full bg-background"
     >
       {/* Intro Pin Section - Sticks at top before cards slide over it */}
       <div className="cs-header-container sticky top-0 z-10 flex h-[50vh] md:h-[60vh] w-full flex-col items-center justify-center overflow-hidden px-5 sm:px-6 text-center">
         <div className="absolute inset-0 bg-background" />
 
         <div className="relative z-10 max-w-4xl">
-          <p className="cs-header-el text-sm md:text-base font-normal tracking-widest text-accent mb-6 sm:mb-8">
+          <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base cs-header-el text-accent mb-6 sm:mb-8">
             Core Capabilities
           </p>
-          <h2 className="cs-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+          <h2 className="cs-header-el text-foreground">
             Engineering Disciplines
           </h2>
           <p className="cs-header-el mt-4 sm:mt-6 text-sm sm:text-base text-muted max-w-xl mx-auto">

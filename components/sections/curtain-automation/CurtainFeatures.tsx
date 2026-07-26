@@ -49,12 +49,12 @@ export function CurtainFeatures() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background pt-8 md:pt-12 pb-8 md:pb-12 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
         
         {/* Left Side: Sticky Text */}
         <div ref={textRef} className="w-full lg:w-1/2 lg:sticky lg:top-[30vh] flex flex-col gap-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
+          <h2 className="text-foreground text-balance">
             Bring Comfort, Privacy & Natural Light Under Intelligent Control
           </h2>
           <p className="text-sm sm:text-base md:text-lg font-light tracking-wide text-foreground/70 leading-relaxed text-balance max-w-lg">

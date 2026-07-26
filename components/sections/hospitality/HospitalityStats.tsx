@@ -61,7 +61,7 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
           {suffix && <span className="text-4xl sm:text-6xl text-foreground/80 font-light ml-2">{suffix}</span>}
         </div>
 
-        <span className="tracking-widest text-sm md:text-base text-muted whitespace-nowrap">
+        <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted whitespace-nowrap">
           {label}
         </span>
       </div>
@@ -104,7 +104,7 @@ export function HospitalityStats() {
     <section
       ref={sectionRef}
       id="hospitality-stats"
-      className="relative w-full overflow-hidden bg-background pt-16 sm:pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-12 lg:px-24 text-foreground select-none"
+      className="py-16 md:py-24 relative w-full overflow-hidden bg-background px-6 md:px-12 lg:px-24 text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col items-center justify-center">
 

@@ -177,10 +177,10 @@ export function AutomationSpaces() {
   if (isReady && (isMobile || prefersReducedMotion)) {
     return (
       <div id="automation-spaces" className="bg-background">
-        <section className="text-foreground py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
+        <section className="py-16 md:py-24 text-foreground px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-16 px-4 text-center">
-            <p className="text-sm md:text-base tracking-widest font-normal text-accent mb-4">Sectors</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">Environments We Transform</h2>
+            <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4">Sectors</p>
+            <h2 className="text-foreground">Environments We Transform</h2>
           </div>
           <div className="flex flex-col gap-24">
             {PANELS.map((panel) => (
@@ -192,7 +192,7 @@ export function AutomationSpaces() {
                   <div className="text-sm md:text-base tracking-widest font-normal text-accent mb-4">
                     {panel.label} - {panel.title}
                   </div>
-                  <h3 className="text-lg sm:text-xl leading-[1.5] font-light mb-8 tracking-wide text-foreground/80">{panel.description}</h3>
+                  <p className="text-lg sm:text-xl leading-[1.5] font-light mb-8 tracking-wide text-foreground/80">{panel.description}</p>
                   {panel.title === 'Residential' ? (
                     <Link href="/residential" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 tracking-wider hover:opacity-70 transition-opacity w-fit">
                       {panel.btn}
@@ -228,14 +228,14 @@ export function AutomationSpaces() {
     <div id="automation-spaces" className="relative w-full bg-background">
       <section
         ref={sectionRef}
-        className={`relative h-screen w-full text-foreground overflow-hidden transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
+        className={`py-16 md:py-24 relative h-screen w-full text-foreground overflow-hidden transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
       >
         {/* Intro Heading */}
         <div className="section-intro absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-[50] pointer-events-none">
-          <p className="text-sm md:text-base tracking-widest font-normal text-accent mb-6">
+          <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6">
             Sectors
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+          <h2 className="text-foreground">
             Environments We Transform
           </h2>
         </div>
@@ -270,9 +270,9 @@ export function AutomationSpaces() {
               <div className="text-sm md:text-base tracking-widest font-normal text-accent mb-6">
                 {panel.label} - {panel.title}
               </div>
-              <h3 className="text-base md:text-lg leading-[1.5] font-light mb-10 tracking-wide text-foreground/80">
+              <p className="text-base md:text-lg leading-[1.5] font-light mb-10 tracking-wide text-foreground/80">
                 {panel.description}
-              </h3>
+              </p>
               {panel.title === 'Residential' ? (
                 <Link href="/residential" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity tracking-wider">
                   {panel.btn}

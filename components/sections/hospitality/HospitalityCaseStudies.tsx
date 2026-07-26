@@ -68,15 +68,15 @@ export function HospitalityCaseStudies() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="bg-background pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-12 lg:px-24">
+    <section ref={containerRef} className="py-16 md:py-24 bg-background px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col gap-12 lg:gap-20">
 
         {/* Header */}
         <div className="cs-header text-center flex flex-col items-center">
-          <span className="tracking-widest  text-accent text-sm md:text-base">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">
             Proven Implementations
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground mt-4">
+          <h2 className="text-foreground mt-4">
             Signature Case Studies
           </h2>
         </div>
@@ -102,22 +102,22 @@ export function HospitalityCaseStudies() {
 
                 {/* Right Side: Content */}
                 <div className="w-full lg:w-7/12 p-6 md:p-10 flex flex-col justify-center">
-                  <h3 className="text-2xl lg:text-3xl font-light tracking-wide">{cs.title}</h3>
-                  <p className="text-accent-soft text-xs tracking-widest uppercase mt-3 mb-8">
+                  <h3 className="">{cs.title}</h3>
+                  <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent-soft mt-3 mb-8">
                     {cs.asset}
                   </p>
 
                   <div className="flex flex-col gap-6">
                     <div>
-                      <h4 className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mb-1.5">The Structural Strain</h4>
+                      <h4 className="text-white/50 mb-1.5">The Structural Strain</h4>
                       <p className="text-sm font-light leading-relaxed text-white/80">{cs.strain}</p>
                     </div>
                     <div>
-                      <h4 className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mb-1.5">The Strategic Yield</h4>
+                      <h4 className="text-white/50 mb-1.5">The Strategic Yield</h4>
                       <p className="text-sm font-light leading-relaxed text-white/80">{cs.yield}</p>
                     </div>
                     <div>
-                      <h4 className="text-[10px] md:text-xs uppercase tracking-widest text-accent-soft mb-1.5">The ROI Signal</h4>
+                      <h4 className="text-accent-soft mb-1.5">The ROI Signal</h4>
                       <p className="text-sm font-light leading-relaxed text-white">{cs.roi}</p>
                     </div>
                   </div>

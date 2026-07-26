@@ -37,7 +37,7 @@ export default function MduCTA() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden flex flex-col items-center justify-center text-center"
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden flex flex-col items-center justify-center text-center"
     >
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
@@ -57,7 +57,7 @@ export default function MduCTA() {
           <div className="h-[1px] w-6 bg-accent/30" />
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.1] mb-6">
+        <h2 className="mb-6">
           Build Smarter Residential Communities with Intelligent Automation
         </h2>
 
@@ -67,16 +67,14 @@ export default function MduCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto">
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button variant="accent" size="lg" shape="full" className="w-full sm:w-auto text-sm tracking-widest font-medium">
+            <Button variant="interactive" size="lg" className="w-full sm:w-auto">
               Talk to an Expert
-              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
           
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" shape="full" className="w-full sm:w-auto text-sm tracking-widest font-medium">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
               Request a Proposal
-              <FileText className="w-4 h-4 ml-2" />
             </Button>
           </Link>
         </div>

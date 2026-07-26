@@ -35,7 +35,7 @@ export default function BrandStory() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground py-32 md:py-48 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
         

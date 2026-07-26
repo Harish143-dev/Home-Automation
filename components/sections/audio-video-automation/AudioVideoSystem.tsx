@@ -69,15 +69,15 @@ export function AudioVideoSystem() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
         
         {/* Header */}
         <div className="max-w-4xl flex flex-col items-start mb-16 md:mb-24">
-          <span className="system-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base system-header text-accent mb-4 block">
             Seamless Connectivity
           </span>
-          <h2 className="system-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="system-header text-foreground text-balance mb-6">
             One System. Endless Entertainment.
           </h2>
           <p className="system-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -109,7 +109,7 @@ export function AudioVideoSystem() {
 
           {/* Right Side: Benefits */}
           <div className="system-benefits-container w-full lg:w-[40%] bg-black/[0.03] border border-black/5 rounded-[2rem] p-8 sm:p-10 lg:p-12 shadow-xl shadow-black/[0.02]">
-            <h3 className="text-2xl font-light tracking-wide text-foreground mb-8">
+            <h3 className="text-foreground mb-8">
               Key Benefits
             </h3>
             <ul className="flex flex-col gap-6 w-full">

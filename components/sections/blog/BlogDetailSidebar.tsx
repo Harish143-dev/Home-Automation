@@ -16,7 +16,7 @@ export default function BlogDetailSidebar() {
       
       {/* Search Widget */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className="text-sm tracking-widest uppercase text-foreground mb-4 flex items-center gap-2">
+        <h3 className="text-foreground mb-4 flex items-center gap-2">
           Search
         </h3>
         <div className="relative group">
@@ -31,7 +31,7 @@ export default function BlogDetailSidebar() {
 
       {/* Categories Dropdown/List */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className="text-sm tracking-widest uppercase text-foreground mb-4 flex items-center gap-2">
+        <h3 className="text-foreground mb-4 flex items-center gap-2">
           Categories
         </h3>
         <div className="relative">
@@ -47,7 +47,7 @@ export default function BlogDetailSidebar() {
       {/* Featured Blogs */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-sm tracking-widest uppercase text-foreground">Featured Blogs</h3>
+          <h3 className="text-foreground">Featured Blogs</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-6">
@@ -65,7 +65,7 @@ export default function BlogDetailSidebar() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 w-full p-4">
-                <h4 className="text-white font-light text-sm tracking-wide group-hover:text-accent transition-colors line-clamp-2">
+                <h4 className="text-white group-hover:text-accent transition-colors line-clamp-2">
                   {post.title}
                 </h4>
               </div>
@@ -77,19 +77,19 @@ export default function BlogDetailSidebar() {
       {/* Recent Blogs */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-sm tracking-widest uppercase text-foreground">Recent Blogs</h3>
+          <h3 className="text-foreground">Recent Blogs</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">
           {recentBlogs.map((post, idx) => (
             <div key={`rec-${idx}`} className="group flex flex-col gap-2 hover:bg-accent/5 p-4 -ml-4 rounded-xl transition-colors border border-transparent hover:border-border/50">
-              <h4 className="text-foreground font-medium text-sm tracking-wide line-clamp-2 transition-colors">
+              <h4 className="text-foreground line-clamp-2 transition-colors">
                 {post.title}
               </h4>
               <p className="text-xs font-light text-muted-foreground line-clamp-2">
                 {post.excerpt}
               </p>
-              <Link href={`/blog/${post.slug}`} className="text-accent text-xs font-medium uppercase tracking-widest hover:underline mt-1">
+              <Link href={`/blog/${post.slug}`} className="text-accent text-xs font-medium tracking-widest hover:underline mt-1">
                 Learn More
               </Link>
             </div>

@@ -88,7 +88,7 @@ export function CommercialHero() {
     <section
       ref={containerRef}
       id="commercial-hero"
-      className={`relative h-screen w-full bg-secondary overflow-hidden flex flex-col justify-between transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`relative h-[100svh] w-full bg-black overflow-hidden flex flex-col justify-end transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Static Background */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
@@ -102,20 +102,20 @@ export function CommercialHero() {
         />
 
         {/* Clean, simple dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 z-[2]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
       </div>
 
       {/* 🌌 Premium Typography & CTA Content Overlay */}
       {/* Upper spacing for fixed NavBar alignment */}
       <div className="h-28 sm:h-32 md:h-36 z-10 pointer-events-none" />
 
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-32 flex flex-col justify-end flex-grow pb-[8vh] sm:pb-[12vh] pointer-events-none select-none">
-        <div className="max-w-3xl flex flex-col items-start text-left gap-5 sm:gap-7">
+      <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-32 flex flex-col justify-end flex-grow pb-12 md:pb-16 lg:pb-20 pointer-events-none select-none">
+        <div className="max-w-3xl flex flex-col items-start text-left ">
 
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance"
+            className="hero-element text-white text-balance mb-2"
           >
             The Responsive Workspace.
           </h1>
@@ -123,7 +123,7 @@ export function CommercialHero() {
           {/* Understated luxury supporting text */}
           <p
             ref={subRef}
-            className="text-sm md:text-base text-white/80 font-light tracking-wide leading-relaxed max-w-md text-balance"
+            className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4"
           >
             We engineer adaptive commercial environments where infrastructure responds to human rhythms and environmental signals, adjusting light, sound, and micro climates to unlock focus, rest, and cross organizational connection.
           </p>
@@ -135,10 +135,9 @@ export function CommercialHero() {
           >
             <Link href="#consultation">
               <Button
-                variant="accent"
+                variant="interactive"
                 size="lg"
-                shape="full"
-                className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm transition-all duration-500 hover:bg-accent-soft hover:shadow-[0_0_40px_rgba(140,24,23,0.35)]"
+                className="w-full sm:w-auto"
               >
                 Schedule an Institutional Consultation
               </Button>
@@ -146,10 +145,9 @@ export function CommercialHero() {
 
             <Link href="/projects/commercial">
               <Button
-                variant="outline"
+                variant="shiny"
                 size="lg"
-                shape="full"
-                className="w-full sm:w-auto px-8 h-11 sm:h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm bg-transparent border-white text-white hover:bg-white hover:text-black transition-all duration-500"
+                className="w-full sm:w-auto"
               >
                 Explore Commercial Portfolios
               </Button>

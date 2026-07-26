@@ -70,7 +70,7 @@ export function CommercialCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center w-full bg-background overflow-hidden py-20 md:py-32 px-6 border-t border-border"
+      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -83,14 +83,14 @@ export function CommercialCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="tracking-widest text-sm md:text-base text-muted">Transform Your Commercial Space</span>
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted">Transform Your Commercial Space</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-8"
+          className="text-foreground mb-8"
         >
           Automate your Commercial Infrastructure
         </h2>
@@ -103,15 +103,11 @@ export function CommercialCTA() {
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
           <Button
-            variant="accent"
+            variant="interactive"
             size="lg"
-            className="group relative h-auto py-4 sm:py-5 px-8 w-full sm:w-auto overflow-hidden rounded-full"
+            className="w-full sm:w-auto"
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
-            <span className="relative z-10 text-base sm:text-lg font-medium tracking-wide">
-              Calculate System ROI
-            </span>
-            <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            Calculate System ROI
           </Button>
 
           {/* Secondary CTA */}

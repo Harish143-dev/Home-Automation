@@ -61,7 +61,7 @@ export default function MissionVision() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background text-foreground"
+      className="py-16 md:py-24 relative px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background text-foreground"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-20 lg:gap-32">
         
@@ -70,7 +70,7 @@ export default function MissionVision() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Mission & Vision
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+          <h2 className="text-foreground">
             Our Purpose Drives Every Innovation
           </h2>
         </div>
@@ -80,7 +80,7 @@ export default function MissionVision() {
           {/* Mission Row */}
           <div className="mv-row flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="mv-text-col w-full lg:w-1/2 space-y-6 opacity-0">
-              <h3 className="text-2xl md:text-3xl font-light tracking-wide">
+              <h3 className="">
                 Our Mission
               </h3>
               <p className="text-muted text-base md:text-lg font-light leading-relaxed">
@@ -103,7 +103,7 @@ export default function MissionVision() {
           {/* Vision Row */}
           <div className="mv-row flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
             <div className="mv-text-col w-full lg:w-1/2 space-y-6 opacity-0">
-              <h3 className="text-2xl md:text-3xl font-light tracking-wide">
+              <h3 className="">
                 Our Vision
               </h3>
               <p className="text-muted text-base md:text-lg font-light leading-relaxed">

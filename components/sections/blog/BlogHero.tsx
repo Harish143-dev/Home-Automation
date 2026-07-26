@@ -59,7 +59,7 @@ export default function BlogHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[60vh] min-h-[400px] flex flex-col justify-center overflow-hidden bg-secondary pb-0 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 relative w-full h-[60vh] min-h-[400px] flex flex-col justify-center overflow-hidden bg-secondary px-6 sm:px-12 md:px-24"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 blog-hero-bg will-change-transform">
@@ -80,7 +80,7 @@ export default function BlogHero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center gap-6 mt-16">
         <div className="flex items-center gap-4 overflow-hidden">
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/70">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/70">
             Blog Collection
           </span>
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
@@ -88,12 +88,12 @@ export default function BlogHero() {
 
         <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
           <div className="hero-line">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-wide text-white drop-shadow-sm">
+            <h1 className="text-white drop-shadow-sm">
               Title Sample
             </h1>
           </div>
           <div className="hero-line mt-2">
-            <span className="text-lg md:text-xl font-light tracking-widest text-white/80">
+            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/80">
               (Blogs by ATPL)
             </span>
           </div>

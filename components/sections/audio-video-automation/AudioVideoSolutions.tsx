@@ -3,15 +3,15 @@
 import React, { useRef } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
-import { 
-  Film, 
-  Speaker, 
-  RadioTower, 
-  MonitorPlay, 
-  ArrowUpDown, 
-  Projector, 
-  TreePine, 
-  Smartphone 
+import {
+  Film,
+  Speaker,
+  RadioTower,
+  MonitorPlay,
+  ArrowUpDown,
+  Projector,
+  TreePine,
+  Smartphone
 } from 'lucide-react';
 
 const SOLUTIONS = [
@@ -63,7 +63,7 @@ export function AudioVideoSolutions() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header animation
     gsap.fromTo('.solution-header',
       { opacity: 0, y: 30 },
@@ -91,15 +91,15 @@ export function AudioVideoSolutions() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
-          <span className="solution-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base solution-header text-accent mb-4 block">
             Service Section
           </span>
-          <h2 className="solution-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="solution-header text-foreground text-balance mb-6">
             Our Audio & Video Integration Solutions
           </h2>
           <p className="solution-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -112,18 +112,18 @@ export function AudioVideoSolutions() {
           {SOLUTIONS.map((solution, idx) => {
             const Icon = solution.icon;
             return (
-              <div 
+              <div
                 key={idx}
-                className="solution-card bg-black/[0.03] border border-black/5 p-8 rounded-3xl flex flex-col items-start gap-6 hover:shadow-md hover:bg-black/[0.05] hover:border-black/10 transition-all duration-500 group"
+                className="solution-card bg-black/[0.03] border border-black/5 p-5 rounded-3xl flex flex-col items-start gap-6 hover:shadow-md hover:bg-black/[0.05] hover:border-black/10 transition-all duration-500 group"
               >
                 <div className="w-14 h-14 rounded-2xl bg-accent/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500">
                   <Icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
-                
+
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-xl font-medium tracking-wide text-foreground group-hover:text-accent transition-colors duration-300">
+                  <h4 className="text-foreground group-hover:text-accent transition-colors duration-300">
                     {solution.title}
-                  </h3>
+                  </h4>
                   <p className="text-sm font-light text-foreground/70 leading-relaxed transition-colors duration-300">
                     {solution.description}
                   </p>

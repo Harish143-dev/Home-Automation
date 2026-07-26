@@ -62,7 +62,7 @@ export function AudioVideoExperienceCenters() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#f8f8f8] py-20 sm:py-28 md:py-36 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#f8f8f8] px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
       
       {/* Decorative subtle background map/glow */}
       <div className="absolute top-0 right-0 w-full h-full bg-accent/5 rounded-full blur-[150px] pointer-events-none transform translate-x-1/3 -translate-y-1/3" />
@@ -71,10 +71,10 @@ export function AudioVideoExperienceCenters() {
         
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-          <span className="ec-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base ec-header text-accent mb-4 block">
             Experience Centers
           </span>
-          <h2 className="ec-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="ec-header text-foreground text-balance mb-6">
             Experience Our Audio & Video Systems Before You Buy
           </h2>
           <p className="ec-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl">
@@ -90,7 +90,7 @@ export function AudioVideoExperienceCenters() {
               className="ec-card bg-white border border-black/5 p-8 sm:p-10 rounded-[2rem] flex flex-col justify-between hover:shadow-xl hover:shadow-black/[0.03] hover:border-black/10 hover:-translate-y-1 transition-all duration-500 group"
             >
               <div className="flex flex-col gap-6 mb-10">
-                <h3 className="text-2xl font-medium tracking-wide text-foreground group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-foreground group-hover:text-accent transition-colors duration-300">
                   {center.city}
                 </h3>
                 <p className="text-sm sm:text-base font-light text-foreground/70 leading-relaxed min-h-[80px]">
@@ -123,13 +123,12 @@ export function AudioVideoExperienceCenters() {
               {/* CTAs */}
               <div className="flex flex-col gap-3 mt-auto">
                 <Link href="/contact" className="w-full">
-                  <Button variant="accent" size="lg" shape="full" className="w-full justify-center group/btn">
+                  <Button variant="interactive" size="lg" className="w-full">
                     Book a Visit
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <a href={`https://maps.google.com/?q=${encodeURIComponent(center.address)}`} target="_blank" rel="noopener noreferrer" className="w-full">
-                  <Button variant="outline" size="lg" shape="full" className="w-full justify-center bg-transparent text-foreground hover:bg-black/5">
+                  <Button variant="outline" size="lg" className="w-full justify-center">
                     Get Directions
                     <Navigation className="w-4 h-4 ml-2" />
                   </Button>

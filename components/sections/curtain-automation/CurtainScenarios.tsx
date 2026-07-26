@@ -87,15 +87,15 @@ export function CurtainScenarios() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#fcfcfc] py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#fcfcfc] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
-          <span className="scenario-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base scenario-header text-accent mb-4 block">
             Seamless Integration
           </span>
-          <h2 className="scenario-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="scenario-header text-foreground text-balance mb-6">
             Experience Smart Living Scenarios
           </h2>
           <p className="scenario-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -129,7 +129,7 @@ export function CurtainScenarios() {
                   <span className="text-accent font-medium text-lg">{idx + 1}</span>
                 </div>
                 
-                <h3 className="text-3xl md:text-4xl font-light tracking-wide leading-[1.2] text-foreground mb-8">
+                <h3 className="text-foreground mb-8">
                   {scenario.title}
                 </h3>
                 

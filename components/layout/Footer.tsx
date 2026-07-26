@@ -11,7 +11,7 @@ const FOOTER_LINKS = {
     { label: 'Audio Video', href: '/audio-video-automation' },
     { label: 'Curtain Automation', href: '/curtain-automation' },
     { label: 'Climate Control', href: '#hvac' },
-    { label: 'Smart Security', href: '#security' },
+    { label: 'Smart Security', href: '/security-automation' },
   ],
   solutions: [
     { label: 'Residential', href: '/residential' },
@@ -150,7 +150,7 @@ export function Footer() {
           </div>
 
           <div className="footer-col flex flex-col gap-6 lg:pl-8">
-            <h3 className="text-[13px] md:text-sm text-black mb-4">Services</h3>
+            <p className="text-[13px] md:text-sm text-black mb-4">Services</p>
             <ul className="flex flex-col gap-1.5">
               {FOOTER_LINKS.services.map((link) => (
                 <li key={link.label}>
@@ -163,7 +163,7 @@ export function Footer() {
           </div>
 
           <div className="footer-col flex flex-col gap-6">
-            <h3 className="text-[13px] md:text-sm text-black mb-4">Solutions</h3>
+            <p className="text-[13px] md:text-sm text-black mb-4">Solutions</p>
             <ul className="flex flex-col gap-1.5">
               {FOOTER_LINKS.solutions.map((link) => (
                 <li key={link.label}>
@@ -176,7 +176,7 @@ export function Footer() {
           </div>
 
           <div className="footer-col flex flex-col gap-6">
-            <h3 className="text-[13px] md:text-sm text-black mb-4">Company</h3>
+            <p className="text-[13px] md:text-sm text-black mb-4">Company</p>
             <ul className="flex flex-col gap-1.5">
               {FOOTER_LINKS.company.map((link) => (
                 <li key={link.label}>

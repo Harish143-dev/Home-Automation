@@ -33,7 +33,7 @@ export default function FeaturedArticle() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground pb-24 md:pb-40 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <Link href="/blog/the-invisible-interface" className="max-w-7xl mx-auto cursor-pointer group block">
         <div className="featured-content flex flex-col gap-10 lg:gap-16">
@@ -60,7 +60,7 @@ export default function FeaturedArticle() {
 
           {/* Typography block */}
           <div className="flex flex-col gap-6 md:w-3/4 lg:w-2/3">
-            <div className="flex flex-wrap items-center gap-4 text-xs tracking-[0.2em] uppercase text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-4 text-xs tracking-[0.2em] text-muted-foreground">
               <span className="text-accent">Architectural Technology</span>
               <span>•</span>
               <span>May 28, 2026</span>
@@ -68,7 +68,7 @@ export default function FeaturedArticle() {
               <span>6 Min Read</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground group-hover:text-accent transition-colors duration-500">
+            <h2 className="text-foreground group-hover:text-accent transition-colors duration-500">
               The Invisible Interface: Designing Automation That Disappears
             </h2>
             

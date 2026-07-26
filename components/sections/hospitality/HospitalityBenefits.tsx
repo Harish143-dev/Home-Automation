@@ -96,17 +96,17 @@ export function HospitalityBenefits() {
   return (
     <section
       ref={containerRef}
-      className={`w-full pt-8 md:pt-12 pb-8 md:pb-12 px-6 md:px-12 lg:px-24 bg-background transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`py-16 md:py-24 w-full px-6 md:px-12 lg:px-24 bg-background transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
         
         {/* Left Column: Static Header (Sticky) */}
         <div className="w-full lg:w-5/12 relative">
           <div className="bc-left-content flex flex-col gap-6 lg:sticky lg:top-[15vh]">
-            <span className="tracking-widest text-sm md:text-base text-accent">
+            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">
               {BUSINESS_CASE_DATA.eyebrow}
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground">
+            <h2 className="text-foreground">
               {BUSINESS_CASE_DATA.title}
             </h2>
             <p className="text-muted text-base md:text-lg font-light leading-relaxed">
@@ -132,7 +132,7 @@ export function HospitalityBenefits() {
                     {item.title}
                   </h3>
                   <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-500 mt-1 ${isActive ? "border-accent bg-accent text-white rotate-45" : "border-border text-muted"}`}>
-                    <Plus className="w-4 h-4" strokeWidth={1.5} />
+                    <Plus className="text-xl sm:text-2xl lg:text-3xl w-4 h-4" strokeWidth={1.5} />
                   </div>
                 </div>
 

@@ -109,7 +109,7 @@ export default function CareersOpenings() {
     <section 
       id="open-positions"
       ref={sectionRef} 
-      className="relative w-full py-12 md:py-16 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full bg-background overflow-hidden"
     >
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24">
         {/* Header Section with Navigation Buttons */}
@@ -118,7 +118,7 @@ export default function CareersOpenings() {
             <span className="co-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4">
               Openings
             </span>
-            <h2 className="co-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+            <h2 className="co-header-el text-foreground">
               Current Openings
             </h2>
             <p className="co-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed mt-4">
@@ -158,7 +158,7 @@ export default function CareersOpenings() {
               className="co-card snap-start group relative bg-white rounded-2xl p-8 border border-border shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col w-[85vw] sm:w-[320px] md:w-[380px] shrink-0 min-h-[400px]"
             >
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-6">
+                <h3 className="text-foreground mb-6">
                   {job.title}
                 </h3>
                 
@@ -183,9 +183,8 @@ export default function CareersOpenings() {
               </div>
 
               <div className="pt-6 border-t border-border mt-6">
-                <Button variant="accent" size="lg" shape="full" className="w-full group/btn">
-                  <span>Apply Now</span>
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                <Button variant="interactive" size="lg" className="w-full">
+                  Apply Now
                 </Button>
               </div>
             </div>

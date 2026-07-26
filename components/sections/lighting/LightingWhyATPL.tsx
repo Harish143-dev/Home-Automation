@@ -81,7 +81,7 @@ export default function LightingWhyATPL() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col">
         
@@ -93,7 +93,7 @@ export default function LightingWhyATPL() {
             <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
               The ATPL Advantage
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6">
+            <h2 className="text-foreground mb-6">
               Why Homeowners Choose ATPL
             </h2>
             <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed mb-8">
@@ -120,7 +120,7 @@ export default function LightingWhyATPL() {
         <div className="w-full">
           <div className="lwhy-header mb-12 flex items-center justify-center gap-4">
             <div className="h-[1px] w-8 sm:w-16 bg-accent/50" />
-            <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground text-center">
+            <h3 className="text-foreground text-center">
               Visit Our Experience Centres
             </h3>
             <div className="h-[1px] w-8 sm:w-16 bg-accent/50" />
@@ -132,7 +132,7 @@ export default function LightingWhyATPL() {
                 key={idx} 
                 className="lwhy-center flex flex-col h-full bg-panel rounded-2xl border border-border p-8 sm:p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-accent/30 transition-all duration-500 group"
               >
-                <h4 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-4 group-hover:text-accent transition-colors">
+                <h4 className="text-foreground mb-4 group-hover:text-accent transition-colors">
                   {center.title}
                 </h4>
                 

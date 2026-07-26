@@ -62,7 +62,7 @@ export default function LightingIntro() {
     <section
       ref={sectionRef}
       id="lighting-intro"
-      className="relative w-full overflow-hidden bg-background pt-8 md:pt-12 pb-8 md:pb-12 text-foreground"
+      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground"
     >
       {/* Subtle Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -78,9 +78,9 @@ export default function LightingIntro() {
           <span className="li-text-el tracking-[0.3em] text-sm md:text-base text-accent mb-4 block font-light">
             Introduction
           </span>
-          <h2 className="li-text-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-8 text-balance">
-            More Than Lighting—It&apos;s About the Perfect Living Experience
-          </h2>
+          <h3 className="li-text-el text-foreground mb-8 text-balance">
+            More Than Lighting—It's About the Perfect Living Experience
+          </h3>
           <div className="li-text-el space-y-6 text-sm sm:text-base md:text-lg font-light text-muted leading-relaxed max-w-xl">
             <p>
               Your home should do more than light up—it should understand how you live. With ATPL's intelligent lighting automation, every room transforms to match your mood and routine. From soft morning light to elegant dinner settings and immersive movie nights, customized lighting scenes work with shades, HVAC, and voice control to create a luxurious, effortless living experience.
@@ -89,7 +89,7 @@ export default function LightingIntro() {
         </div>
 
         {/* Right Side: Media Container */}
-        <div 
+        <div
           ref={mediaRef}
           className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/5 border border-border group"
         >

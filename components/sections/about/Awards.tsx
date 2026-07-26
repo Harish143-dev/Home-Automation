@@ -130,7 +130,7 @@ export default function Awards() {
     tlRef.current = gsap.timeline({ repeat: -1, paused: false })
       .to(trackRef.current, {
         x: -trackWidth,
-        duration: 40, // Base duration for smooth scroll
+        duration: 80, // Base duration for smooth scroll (slower)
         ease: 'none',
       });
 
@@ -146,8 +146,8 @@ export default function Awards() {
         // Check scroll velocity and apply mathematical boost to timeScale
         const velocity = Math.abs(self.getVelocity());
         if (velocity > 0) {
-          const maxClampSpeed = 3;
-          const timeScale = 1 + (velocity / 400);
+          const maxClampSpeed = 2; // Reduced from 3
+          const timeScale = 1 + (velocity / 800); // Reduced boost intensity
 
           // Boost speed
           gsap.to(tlRef.current, {
@@ -178,14 +178,14 @@ export default function Awards() {
   const LOOPED_AWARDS = [...AWARDS, ...AWARDS];
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-16 md:py-24 relative bg-background text-foreground overflow-hidden"
     >
       {/* Background glow */}
-      <div 
-        className="absolute top-0 right-1/4 w-[500px] h-[500px] opacity-10 pointer-events-none" 
-        style={{ background: 'radial-gradient(circle, rgba(229,107,85,0.2) 0%, rgba(0,0,0,0) 70%)' }} 
+      <div
+        className="absolute top-0 right-1/4 w-[500px] h-[500px] opacity-10 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(229,107,85,0.2) 0%, rgba(0,0,0,0) 70%)' }}
       />
 
       {/* Noise Texture */}
@@ -195,13 +195,13 @@ export default function Awards() {
       </svg>
 
       <div className="relative z-10 w-full">
-        
+
         {/* Header */}
         <div className="award-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 px-5 sm:px-8 md:px-16 lg:px-24">
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Awards & Certifications
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2]">
+          <h2 className="">
             Recognized for Excellence
           </h2>
         </div>
@@ -221,8 +221,8 @@ export default function Awards() {
             ref={trackRef}
           >
             {LOOPED_AWARDS.map((award, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="flex-shrink-0 w-[300px] md:w-[380px] lg:w-[420px] px-3 md:px-4 flex"
               >
                 <div className="award-card flex flex-col p-8 rounded-[2rem] bg-black/[0.02] border border-black/5 backdrop-blur-sm group/card hover:bg-black/[0.04] transition-colors duration-500 w-full h-full">
@@ -237,9 +237,9 @@ export default function Awards() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl lg:text-2xl font-light tracking-wide mb-2 transition-colors duration-300 group-hover/card:text-accent">
+                  <h4 className="mb-2 transition-colors duration-300 group-hover/card:text-accent">
                     {award.title}
-                  </h3>
+                  </h4>
                   <div className="text-accent text-sm md:text-base tracking-wide mb-4 mt-auto">
                     {award.organization}
                   </div>

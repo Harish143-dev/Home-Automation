@@ -194,7 +194,7 @@ export default function OurJourney() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-secondary text-white overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24"
+      className="py-16 md:py-24 relative w-full bg-secondary text-white overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24"
     >
       {/* Ambient glow overlays */}
       <div
@@ -220,7 +220,7 @@ export default function OurJourney() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-white/50 font-medium mb-4">
             Our Journey
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-white">
+          <h2 className="text-white">
             Impact Through the Years
           </h2>
         </div>
@@ -264,7 +264,7 @@ export default function OurJourney() {
                       </div>
 
                       <div className="oj-text opacity-0">
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-white mb-6">
+                        <h3 className="text-white mb-6">
                           {era.title}
                         </h3>
 

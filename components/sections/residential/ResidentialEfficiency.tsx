@@ -127,9 +127,9 @@ export function ResidentialEfficiency() {
   };
 
   return (
-    <section ref={containerRef} className="pt-16 pb-8 md:pt-24 md:pb-8 bg-background relative z-10 overflow-hidden flex flex-col">
+    <section ref={containerRef} className="py-16 md:py-24 bg-background relative z-10 overflow-hidden flex flex-col">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
+        <h2 className="text-foreground mb-4">
           Efficiency & Performance
         </h2>
         <p className="text-base md:text-lg text-muted max-w-2xl font-sans leading-relaxed">
@@ -230,7 +230,7 @@ export function ResidentialEfficiency() {
                   isCenter ? "opacity-100" : "opacity-0"
                 )}>
 
-                  <h3 className="text-xl md:text-2xl font-light tracking-wide leading-[1.2] text-white drop-shadow-md">
+                  <h3 className="text-white drop-shadow-md">
                     {category.title}
                   </h3>
                 </div>
@@ -243,7 +243,7 @@ export function ResidentialEfficiency() {
       {/* Bottom Accordion Section (Services for Active Category) */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mt-0 md:mt-2 flex-1 flex flex-col justify-start">
         <div className="mb-6">
-          <span className="tracking-widest text-sm md:text-base text-muted">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted">
             Services under <span className="text-accent">{activeCategory.title}</span>
           </span>
         </div>
@@ -256,13 +256,12 @@ export function ResidentialEfficiency() {
                   onClick={() => toggleAccordion(service.id)}
                   className="w-full py-4 md:py-5 flex items-center justify-between group text-left focus:outline-none"
                 >
-                  <h3 className={cn(
-                    "text-base md:text-lg lg:text-xl font-light tracking-wide leading-[1.2] transition-colors duration-500",
+                  <h3 className={cn("font-light leading-[1.2] tracking-wide text-lg sm:text-xl lg:text-2xl transition-colors duration-500",
                     isOpen ? "text-accent" : "text-foreground group-hover:text-foreground/60"
                   )}>
                     {service.title}
                   </h3>
-                  <div className="ml-4 flex-shrink-0">
+                  <div className="text-xl sm:text-2xl lg:text-3xl ml-4 flex-shrink-0">
                     <div className={cn(
                       "w-6 h-6 flex items-center justify-center transition-transform duration-500",
                       isOpen ? "rotate-180" : "rotate-0"
@@ -291,7 +290,7 @@ export function ResidentialEfficiency() {
                         </p>
                       </div>
                       <div className="md:w-[35%] flex flex-col justify-end border-l border-border/60 pl-4 md:pl-6">
-                        <span className="tracking-widest text-sm md:text-base text-muted mb-1.5 opacity-70">Efficiency Metric</span>
+                        <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted mb-1.5 opacity-70">Efficiency Metric</span>
                         <span className="text-base md:text-lg font-light tracking-wide text-accent leading-tight">{service.metric}</span>
                       </div>
                     </div>

@@ -76,7 +76,7 @@ export default function LightingHero() {
           className="hero-bg object-cover opacity-60 scale-105"
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
       </div>
 
       {/* Content Container (Left Aligned) */}
@@ -85,18 +85,18 @@ export default function LightingHero() {
         {/* H1 Heading sizing strictly matching DESIGN_SYSTEM.md */}
         <h1
           ref={textRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white mb-8 max-w-5xl"
+          className="hero-element text-white text-balance mb-2"
         >
           Smart Lighting Automation for Modern Homes
         </h1>
 
         {/* Subheading */}
-        <p className="hero-element text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-3xl mb-12">
+        <p className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4">
           Transform everyday living with intelligent lighting that automatically adjusts to your routine. From relaxing evenings to entertaining guests, create the perfect ambience with customized scenes, voice control, and seamless automation—all while improving energy efficiency and convenience.
         </p>
 
         {/* Left Aligned CTA Container */}
-        <div className="hero-element flex flex-col sm:flex-row items-start justify-start gap-4 sm:gap-6 w-full sm:w-auto">
+        <div className="hero-element flex flex-col sm:flex-row items-start justify-start gap-4 sm: w-full sm:w-auto">
           {/* Primary CTA */}
           <Link
             href="/contact"
@@ -105,7 +105,7 @@ export default function LightingHero() {
               "group overflow-hidden w-full sm:w-auto"
             )}
           >
-            <span className="relative z-10 tracking-widest text-sm">Book a Consultation</span>
+            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">Book a Consultation</span>
             <ArrowRight className="relative z-10 ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
 
@@ -118,7 +118,7 @@ export default function LightingHero() {
             )}
           >
             <MapPin className="relative z-10 mr-3 w-4 h-4 text-white/70" />
-            <span className="relative z-10 tracking-widest text-sm text-white/90">Visit Our Experience Center</span>
+            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">Visit Our Experience Center</span>
             <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           </Link>
         </div>

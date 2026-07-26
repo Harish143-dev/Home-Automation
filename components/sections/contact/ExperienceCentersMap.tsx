@@ -65,19 +65,19 @@ export function ExperienceCentersMap() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background text-foreground py-24 md:py-32 px-6 sm:px-12 md:px-24 border-t border-border"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 border-t border-border"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
         
         {/* Header */}
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-4">
-            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
               Locations
             </span>
             <div className="h-[1px] w-12 bg-border" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+          <h2 className="text-foreground">
             Experience Centres
           </h2>
         </div>
@@ -107,7 +107,7 @@ export function ExperienceCentersMap() {
                   
                   {/* Location Details */}
                   <div className={`flex flex-col lg:items-end gap-2 transition-all duration-700 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-40 lg:opacity-0 lg:translate-y-4'}`}>
-                    <p className="text-sm tracking-widest uppercase text-muted-foreground">
+                    <p className="text-xl sm:text-2xl lg:text-3xl tracking-[0.3em] text-muted-foreground">
                       {loc.title}
                     </p>
                     <p className="text-base md:text-lg font-light text-foreground max-w-sm lg:text-right">

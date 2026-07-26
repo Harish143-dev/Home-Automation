@@ -186,15 +186,15 @@ export function CommercialSolutions() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} id="commercial-solutions" className="pt-8 md:pt-12 pb-8 md:pb-12 bg-background text-foreground w-full">
+    <section ref={sectionRef} id="commercial-solutions" className="py-16 md:py-24 bg-background text-foreground w-full">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24">
 
         {/* Section Header */}
         <div className="mb-16 md:mb-20 text-center max-w-3xl mx-auto solution-block">
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Architecture & Infrastructure
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
+          <h2 className="text-foreground">
             Commercial Automation Solutions
           </h2>
         </div>
@@ -215,10 +215,10 @@ export function CommercialSolutions() {
 
                 {/* Text & Accordion Content */}
                 <div className="w-full lg:w-[45%] flex flex-col">
-                  <span className="text-accent tracking-widest text-sm mb-4 block font-medium">
+                  <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
                     {system.topHeading}
                   </span>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-light leading-[1.2] mb-8 md:mb-10 text-balance">
+                  <h3 className="mb-8 md:mb-10 text-balance">
                     {system.title}
                   </h3>
 
@@ -251,7 +251,7 @@ export function CommercialSolutions() {
 
                   {/* CTA Button */}
                   <button className="mt-12 px-8 py-4 border border-border rounded-full w-fit hover:border-accent hover:text-accent transition-all duration-300 flex items-center gap-3 group">
-                    <span className="text-sm tracking-widest">{system.ctaText}</span>
+                    <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base">{system.ctaText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

@@ -39,19 +39,19 @@ export function InquiryForm() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background text-foreground py-24 md:py-32 lg:py-40 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-4xl mx-auto flex flex-col gap-16">
         
         {/* Header */}
         <div className="flex flex-col gap-6 form-stagger">
           <div className="flex items-center gap-4">
-            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
               Inquiry
             </span>
             <div className="h-[1px] w-12 bg-border" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+          <h2 className="text-foreground">
             Send us a message
           </h2>
           <p className="text-muted-foreground text-lg font-light max-w-lg">

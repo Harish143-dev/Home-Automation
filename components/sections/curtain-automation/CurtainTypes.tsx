@@ -72,7 +72,7 @@ export function CurtainTypes() {
   };
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-secondary text-white py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-secondary text-white px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden">
       
       {/* Noise Texture for Premium Dark Feel */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none">
@@ -84,10 +84,10 @@ export function CurtainTypes() {
         
         {/* Left Side: Sticky Text */}
         <div className="w-full lg:w-1/3 lg:sticky lg:top-[30vh] flex flex-col items-start self-start">
-          <span className="type-header tracking-widest text-sm md:text-base text-white/50 mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base type-header text-white/50 mb-4 block">
             Curtain & Shade Types
           </span>
-          <h2 className="type-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-white text-balance mb-6">
+          <h2 className="type-header text-white text-balance mb-6">
             Solutions for Every Window
           </h2>
           <p className="type-header text-sm sm:text-base md:text-lg font-light tracking-wide text-white/70 leading-relaxed text-balance">
@@ -116,7 +116,7 @@ export function CurtainTypes() {
                   </h3>
                   <div className={`ml-4 shrink-0 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`}>
                     {isOpen ? (
-                      <Minus className="w-5 h-5 text-white" strokeWidth={1} />
+                      <Minus className="text-xl sm:text-2xl lg:text-3xl w-5 h-5 text-white" strokeWidth={1} />
                     ) : (
                       <Plus className="w-5 h-5 text-white/50 group-hover:text-white" strokeWidth={1} />
                     )}

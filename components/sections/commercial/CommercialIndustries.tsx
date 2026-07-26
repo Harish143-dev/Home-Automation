@@ -91,14 +91,14 @@ export function CommercialIndustries() {
   };
 
   return (
-    <section ref={sectionRef} className="pt-20 md:pt-32 pb-8 md:pb-12 bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-background relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 w-full">
         <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 industry-header">
         <div>
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Operational Scales
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
+          <h2 className="text-foreground mb-4">
             Sectors of Influence
           </h2>
         </div>
@@ -142,7 +142,7 @@ export function CommercialIndustries() {
               />
             </div>
 
-            <h3 className="text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-snug text-foreground mb-3">
+            <h3 className="text-foreground mb-3">
               {industry.title}
             </h3>
 

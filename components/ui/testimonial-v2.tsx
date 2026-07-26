@@ -190,7 +190,7 @@ export default function TestimonialV2({
         <div className="flex flex-col items-center justify-center max-w-[600px] mx-auto mb-16">
 
 
-          <h2 id="testimonials-heading" className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-center">
+          <h2 id="testimonials-heading" className="text-foreground text-center">
             {title}
           </h2>
         </div>

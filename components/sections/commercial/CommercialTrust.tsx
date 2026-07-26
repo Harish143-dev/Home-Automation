@@ -61,7 +61,7 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
           {suffix && <span className="text-4xl sm:text-6xl text-foreground/80 font-light ml-2">{suffix}</span>}
         </div>
         
-        <span className="tracking-widest text-sm md:text-base text-muted">
+        <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted">
           {label}
         </span>
       </div>
@@ -104,17 +104,17 @@ export function CommercialTrust() {
     <section
       ref={sectionRef}
       id="commercial-trust"
-      className="relative w-full overflow-hidden bg-background py-16 sm:py-24 md:py-32 text-foreground select-none"
+      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
         
         {/* Section Heading & Subtext */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-16 w-full mb-16 md:mb-24">
           <div className="max-w-sm lg:max-w-md">
-            <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
               Core Corporate Paradigm
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
+            <h2 className="text-foreground text-balance">
               The Performance Baseline
             </h2>
           </div>

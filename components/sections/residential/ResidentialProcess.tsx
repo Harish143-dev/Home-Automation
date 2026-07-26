@@ -105,7 +105,7 @@ export function ResidentialProcess() {
         {/* Top Header Layout: Text Left, CTA Right */}
         <div className="absolute top-10 md:top-12 lg:top-16 left-0 right-0 z-30 w-full px-8 md:px-16 lg:px-32 max-w-[1600px] mx-auto flex flex-col md:flex-row md:justify-between md:items-end gap-6 pointer-events-none">
           <div className="max-w-2xl text-left pointer-events-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 lg:mb-5 tracking-wide leading-[1.2]">
+            <h2 className="text-white mb-4 lg:mb-5">
               Execution Architecture
             </h2>
             <p className="text-sm lg:text-base font-light text-white/70 leading-relaxed">
@@ -113,9 +113,9 @@ export function ResidentialProcess() {
             </p>
           </div>
           <div className="pointer-events-auto shrink-0 md:pb-1">
-            <Button variant="accent" size="lg" className="rounded-full px-8 font-light tracking-wide">
-              Book a Consultation
-            </Button>
+            <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                Book a Consultation
+              </Button>
           </div>
         </div>
 
@@ -124,7 +124,7 @@ export function ResidentialProcess() {
 
           {/* Left Spacer */}
           <div className="hidden md:block relative w-[30%] lg:w-[35%] pr-8 h-full z-30">
-            <p className="absolute top-[60%] -translate-y-1/2 left-0 tracking-widest text-sm md:text-base text-white/50">
+            <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base absolute top-[60%] -translate-y-1/2 left-0 text-white/50">
               The Methodology
             </p>
           </div>
@@ -170,7 +170,7 @@ export function ResidentialProcess() {
                 ref={textContentRef}
                 className="max-w-lg pl-0 md:pl-8"
               >
-                <h3 className="text-xl lg:text-2xl font-light tracking-wide mb-4 text-white leading-snug">
+                <h3 className="mb-4 text-white">
                   {activeStep.title}
                 </h3>
                 <p className="text-sm lg:text-base font-light text-white/70 leading-relaxed">
@@ -196,18 +196,18 @@ export function ResidentialProcess() {
         </div>
 
         <div className="mb-8 relative z-10">
-          <span className="tracking-widest text-sm md:text-base text-white/50">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/50">
             The Methodology
           </span>
-          <h2 className="text-3xl sm:text-4xl font-light tracking-wide leading-[1.2] text-white mt-4 mb-4">
+          <h2 className="text-white mt-4 mb-4">
             Execution Architecture
           </h2>
           <p className="text-white/70 font-light text-sm leading-relaxed mb-8">
             An automated environment requires disciplined sequencing. Our structured deployment methodology integrates directly with your project’s construction timeline, managing technical risk from initial architectural alignment to multi-system commissioning.
           </p>
-          <Button variant="accent" size="default" className="rounded-full w-full sm:w-auto font-light tracking-wide">
-            Book a Consultation
-          </Button>
+          <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                Book a Consultation
+              </Button>
         </div>
 
         <div className="flex flex-col gap-10 relative z-10">
@@ -216,10 +216,10 @@ export function ResidentialProcess() {
               {/* Timeline dot */}
               <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent" />
 
-              <span className="tracking-widest text-sm md:text-base text-accent mb-1 block">
+              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-1 block">
                 STEP {idx + 1}
               </span>
-              <h3 className="text-xl font-light tracking-wide text-white leading-snug">
+              <h3 className="text-white">
                 {step.title}
               </h3>
               <p className="text-sm font-light text-white/60 leading-relaxed mt-2">

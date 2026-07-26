@@ -159,15 +159,15 @@ export function FeaturedProjects() {
     <section
       ref={containerRef}
       id="ecosystem"
-      className={`bg-background text-foreground w-full relative transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
+      className={`py-16 md:py-24 bg-background text-foreground w-full relative transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
     >
 
       {/* ═══ Mobile Layout ═══ */}
       <div className={isMobile ? 'block' : 'hidden'}>
         <div className="py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-12">
-            <p className="text-sm md:text-base tracking-widest text-muted mb-3 sm:mb-4">Projects</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">Elevated Environments</h2>
+            <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted mb-3 sm:mb-4">Projects</p>
+            <h2 className="text-foreground">Elevated Environments</h2>
           </div>
           <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
             {PROJECTS.map((proj) => (
@@ -184,9 +184,9 @@ export function FeaturedProjects() {
                 </div>
                 <div className="p-5 sm:p-6">
                   <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-3 py-1 mb-3 shadow-sm">
-                    <span className="text-sm md:text-base tracking-widest text-foreground font-medium">{proj.category}</span>
+                    <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-foreground">{proj.category}</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-light leading-[1.2] tracking-wide mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
+                  <h3 className="mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
                   <ul className="flex flex-col gap-1 sm:gap-1.5 mb-3 sm:mb-4 text-muted text-xs sm:text-sm">
                     {proj.usps.map(usp => (
                       <li key={usp} className="flex flex-row items-center gap-2">
@@ -213,7 +213,7 @@ export function FeaturedProjects() {
 
           {/* Left Side: Sidebar Navigation */}
           <div className="w-[30%] lg:w-[35%] h-full border-r border-border flex flex-col justify-center px-6 md:px-10 lg:px-16 xl:px-20 relative z-20 bg-background">
-            <h2 className="text-sm md:text-base font-medium tracking-widest text-muted mb-16">Projects</h2>
+            <h2 className="text-muted mb-16">Projects</h2>
             <div className="relative">
               {/* Progress Track */}
               <div className="absolute left-[3px] top-2 bottom-2 w-[1px] bg-white/10" />
@@ -260,9 +260,9 @@ export function FeaturedProjects() {
                   {/* Left: Title & Description */}
                   <div className="max-w-xl pr-4 md:pr-6 lg:pr-8 pb-2">
                     <div className="fp-stagger mb-5">
-                      <span className="text-sm md:text-base font-normal tracking-widest text-white/70">{proj.category}</span>
+                      <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/70">{proj.category}</span>
                     </div>
-                    <h3 className="fp-stagger text-xl md:text-2xl lg:text-3xl font-light tracking-wide text-white mb-2 md:mb-3 lg:mb-4 leading-[1.2]">
+                    <h3 className="fp-stagger text-white mb-2 md:mb-3 lg:mb-4">
                       {proj.name}
                     </h3>
                     <p className="fp-stagger text-xs md:text-sm lg:text-base text-white/75 leading-relaxed">
@@ -281,16 +281,9 @@ export function FeaturedProjects() {
                       ))}
                     </ul>
                     <div className="fp-stagger mt-auto">
-                      <Button
-                        variant="accent"
-                        size="lg"
-                        shape="full"
-                        aria-label={`View ${proj.name}`}
-                        className="group"
-                      >
-                        View Project
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </Button>
+                      <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+              View Project
+            </Button>
                     </div>
                   </div>
                 </div>

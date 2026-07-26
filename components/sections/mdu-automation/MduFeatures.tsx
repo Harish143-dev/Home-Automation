@@ -118,7 +118,7 @@ export default function MduFeatures() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full pt-10 sm:pt-16 md:pt-20 pb-20 sm:pb-28 md:pb-32 lg:pb-40 px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
@@ -132,7 +132,7 @@ export default function MduFeatures() {
             <div className="h-[1px] w-6 bg-accent/30" />
           </div>
           
-          <h2 className="feature-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-8">
+          <h2 className="feature-header-el text-foreground mb-8">
             Intelligent Automation Designed for Modern Residential Communities
           </h2>
           
@@ -172,7 +172,7 @@ export default function MduFeatures() {
                   <system.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-xl font-medium tracking-wide text-foreground mb-3">
+                <h3 className="text-foreground mb-3">
                   {system.title}
                 </h3>
                 

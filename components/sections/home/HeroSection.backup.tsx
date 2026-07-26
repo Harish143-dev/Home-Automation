@@ -514,7 +514,7 @@ export function HeroSection() {
       <section
         ref={sectionRef}
         id="hero"
-        className="relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 pb-16 sm:pb-20 pt-24 sm:pt-28 md:items-start md:px-16 md:pb-24 lg:px-24"
+        className="py-16 md:py-24 relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 md:items-start md:px-16 lg:px-24"
       >
         <NextImage
           src="/heroFrames/0001.webp"
@@ -528,7 +528,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
 
         <div className="relative z-10 flex w-full max-w-xl flex-col items-start text-left">
-          <h1 className="mb-4 sm:mb-6 max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-2.5rem)] break-words text-[clamp(1.7rem,9vw,3.2rem)] sm:text-[clamp(1.95rem,9.2vw,3.4rem)] font-semibold leading-[1.06] tracking-tight text-white md:max-w-full md:text-[clamp(3rem,6vw,4.8rem)]">
+          <h1 className="mb-4 sm:mb-6 max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-2.5rem)] break-words leading-[1.06] text-white md:max-w-full">
             Intelligent Spaces <br />
             Intelligent Integration
           </h1>
@@ -566,7 +566,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className={`relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`py-16 md:py-24 relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Background Video Layer (Canvas sequence) */}
       <div
@@ -618,7 +618,7 @@ export function HeroSection() {
       <div className="hero-reveal-bg absolute inset-0 z-[0] flex flex-col items-center justify-end pb-[10vh] pointer-events-none bg-accent">
         <h2
           ref={jobyTextRef}
-          className="text-white text-[1.5rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] uppercase font-bold tracking-tighter leading-[1.1] opacity-0 text-center max-w-6xl px-4"
+          className="text-white opacity-0 text-center max-w-6xl px-4"
         >
           The future of rooms is coming soon
         </h2>
@@ -630,7 +630,7 @@ export function HeroSection() {
         <div className="flex flex-col items-start gap-8 max-w-2xl">
           <h1
             ref={h1Ref}
-            className="text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[1.05] tracking-tight font-medium text-white"
+            className="leading-[1.05] text-white"
           >
             Intelligent Spaces <br />
             Intelligent Integration

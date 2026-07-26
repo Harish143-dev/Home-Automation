@@ -63,7 +63,7 @@ export function HospitalityCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center w-full bg-background overflow-hidden py-20 md:py-32 px-6 border-t border-border"
+      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -76,14 +76,14 @@ export function HospitalityCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="tracking-[0.3em] uppercase text-muted">Next Steps</span>
+          <span className="tracking-[0.3em] text-muted">Next Steps</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-light tracking-wide text-foreground leading-[1.2] mb-8"
+          className="text-foreground mb-8"
         >
           Elevate every stay
         </h2>
@@ -96,15 +96,11 @@ export function HospitalityCTA() {
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
           <Button
-            variant="accent"
+            variant="interactive"
             size="lg"
-            className="group relative h-auto py-4 sm:py-5 px-8 w-full sm:w-auto overflow-hidden rounded-full"
+            className="w-full sm:w-auto"
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
-            <span className="relative z-10 text-base sm:text-lg font-semibold tracking-wide">
-              Book Property Consultation
-            </span>
-            <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            Book Property Consultation
           </Button>
 
           {/* Secondary CTA */}

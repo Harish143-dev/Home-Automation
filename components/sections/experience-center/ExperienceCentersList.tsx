@@ -98,7 +98,7 @@ export function ExperienceCentersList() {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full bg-secondary"
+      className="relative w-full bg-background"
       style={{ height: prefersReducedMotion ? 'auto' : '300vh' }}
     >
       <div 
@@ -130,7 +130,7 @@ export function ExperienceCentersList() {
               
               <div className="flex items-center gap-4 mb-6 md:mb-8">
                 <div className="h-[1px] w-8 bg-white/30" />
-                <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/60">
+                <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/60">
                   Visit Our Experience Centres
                 </span>
               </div>
@@ -139,7 +139,7 @@ export function ExperienceCentersList() {
                 
                 {/* Left: Titles & CTAs */}
                 <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.2] tracking-wide text-white">
+                  <h2 className="text-white">
                     {center.city}
                   </h2>
                   
@@ -149,24 +149,14 @@ export function ExperienceCentersList() {
 
                   <div className="flex flex-col sm:flex-row gap-4 mt-4">
                     <Link href={center.ctas[0].action}>
-                      <Button
-                        variant="accent"
-                        size="lg"
-                        shape="full"
-                        className="w-full sm:w-auto px-8 h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm hover:shadow-[0_0_40px_rgba(140,24,23,0.35)] transition-all duration-500"
-                      >
-                        {center.ctas[0].label}
-                      </Button>
+                      <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                {center.ctas[0].label}
+              </Button>
                     </Link>
                     <Link href={center.ctas[1].action}>
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        shape="full"
-                        className="w-full sm:w-auto px-8 h-12 md:h-14 font-medium tracking-wider text-xs sm:text-sm bg-transparent border-white/30 text-white hover:bg-white hover:text-black transition-all duration-500"
-                      >
-                        {center.ctas[1].label}
-                      </Button>
+                      <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                {center.ctas[1].label}
+              </Button>
                     </Link>
                   </div>
                 </div>

@@ -56,13 +56,13 @@ export default function CareersApplicationForm() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full pt-12 md:pt-16 pb-24 md:pb-40 px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
         <span className="ca-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
           Apply Now
         </span>
-        <h2 className="ca-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6">
+        <h2 className="ca-el text-foreground mb-6">
           Don't See the Right Opportunity?
         </h2>
         <p className="ca-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed mb-12 md:mb-16 max-w-2xl">
@@ -158,11 +158,10 @@ export default function CareersApplicationForm() {
           <div className="pt-6 flex justify-center md:justify-end">
             <Button 
               type="submit"
-              variant="accent"
+              variant="interactive"
               size="xl"
-              shape="full"
               disabled={isSubmitted}
-              className="w-full md:w-auto px-12"
+              className="w-full md:w-auto"
             >
               {isSubmitted ? (
                 <>
@@ -170,10 +169,7 @@ export default function CareersApplicationForm() {
                   <CheckCircle2 className="ml-2 w-5 h-5" />
                 </>
               ) : (
-                <>
-                  <span>Submit Resume</span>
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </>
+                <span>Submit Resume</span>
               )}
             </Button>
           </div>

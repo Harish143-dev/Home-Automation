@@ -16,18 +16,18 @@ export function NewsletterSignup() {
   };
 
   return (
-    <section className="relative w-full py-20 px-6 sm:px-10 lg:px-20 bg-background border-t border-border flex items-center justify-center text-center">
+    <section className="py-16 md:py-24 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border flex items-center justify-center text-center">
       <div className="max-w-2xl mx-auto flex flex-col items-center">
         
         <div className="flex items-center gap-4 overflow-hidden mb-6">
           <div className="h-[1px] w-8 sm:w-12 bg-border" />
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] text-muted-foreground">
             Newsletter
           </span>
           <div className="h-[1px] w-8 sm:w-12 bg-border" />
         </div>
 
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] text-foreground mb-4">
+        <h2 className="text-foreground mb-4">
           Stay Ahead of the Curve
         </h2>
         

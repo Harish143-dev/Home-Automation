@@ -37,14 +37,14 @@ export default function ThankYouPage() {
         </Link>
       </div>
 
-      <div className="w-full max-w-2xl flex flex-col items-center text-center gap-6 sm:gap-8 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-forwards delay-200">
+      <div className="w-full max-w-2xl flex flex-col items-center text-center gap-6 sm:gap-8">
         <div className="w-20 h-20 sm:w-24 sm:h-24 bg-accent/10 rounded-full flex items-center justify-center mb-4">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-12 sm:h-12 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
         
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-wide text-foreground">
+        <h1 className="text-foreground">
           Thank You
         </h1>
         
@@ -54,9 +54,8 @@ export default function ThankYouPage() {
 
         <Link href="/" className="mt-8">
           <Button
-            variant="outline"
+            variant="interactive"
             size="lg"
-            className="px-8 h-12 sm:h-14 font-medium tracking-wider text-xs sm:text-sm uppercase border-foreground/20 text-foreground hover:bg-foreground hover:text-background transition-all duration-500"
           >
             Return to Home
           </Button>

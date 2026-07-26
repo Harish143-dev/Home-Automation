@@ -65,20 +65,20 @@ export function ExperienceAudience() {
   );
 
   return (
-    <section ref={sectionRef} className="w-full bg-background text-[#2d2a26] py-24 md:py-32 relative z-10">
+    <section ref={sectionRef} className="py-16 md:py-24 w-full bg-background text-[#2d2a26] relative z-10">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 flex flex-col items-center">
         
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-12 lg:mb-16 audience-heading opacity-0 translate-y-10">
           <div className="h-[1px] w-8 bg-accent/40" />
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-black/40">
+          <span className="text-[10px] sm:text-xs tracking-[0.3em] text-black/40">
             The Audience
           </span>
           <div className="h-[1px] w-8 bg-accent/40" />
         </div>
 
         {/* Huge Title */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-center text-balance max-w-4xl mb-20 audience-heading opacity-0 translate-y-10">
+        <h2 className="text-center text-balance max-w-4xl mb-20 audience-heading opacity-0 translate-y-10">
           Built for Homeowners, Architects, Designers & Developers
         </h2>
 
@@ -89,9 +89,9 @@ export function ExperienceAudience() {
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/5 flex items-center justify-center mb-6 md:mb-8 text-black/80 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                 <item.icon strokeWidth={1.5} className="w-8 h-8 md:w-10 md:h-10" />
               </div>
-              <h3 className="text-xl md:text-2xl font-light tracking-wide text-black mb-4">
+              <h4 className="text-black mb-4">
                 {item.title}
-              </h3>
+              </h4>
               <p className="text-sm md:text-base text-black/60 leading-relaxed font-light tracking-wide">
                 {item.description}
               </p>

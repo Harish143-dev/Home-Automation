@@ -30,17 +30,17 @@ export default function ClosingStatement() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground py-32 md:py-48 px-6 sm:px-12 md:px-24 flex flex-col items-center justify-center text-center overflow-hidden"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 flex flex-col items-center justify-center text-center overflow-hidden"
     >
       {/* Decorative large faint text in background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap">
-        <h2 className="text-[12vw] font-light text-border opacity-50 tracking-tighter">
+        <h2 className="text-border opacity-50">
           AT SMART LIVING
         </h2>
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-12 max-w-4xl mx-auto">
-        <h2 className="closing-element text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+        <h2 className="closing-element text-foreground">
           Ready to design your <br className="hidden md:block" />
           intelligent space?
         </h2>

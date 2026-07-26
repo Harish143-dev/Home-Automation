@@ -41,7 +41,7 @@ export default function LightingCTA() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full pt-10 sm:pt-16 pb-20 sm:pb-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground"
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground"
     >
       <div className="max-w-5xl mx-auto lcta-content bg-panel border border-border shadow-sm rounded-3xl p-10 md:p-16 lg:p-20 text-center relative overflow-hidden flex flex-col items-center">
         
@@ -50,7 +50,7 @@ export default function LightingCTA() {
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6 max-w-3xl relative z-10">
+        <h2 className="text-foreground mb-6 max-w-3xl relative z-10">
           Ready to Transform Your Home with Intelligent Lighting?
         </h2>
         

@@ -6,15 +6,15 @@ import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { cn } from "@/lib/utils";
-import { 
-  Lightbulb, 
-  Blinds, 
-  ThermometerSun, 
-  ShieldCheck, 
-  Speaker, 
-  Film, 
-  Tv, 
-  Wifi 
+import {
+  Lightbulb,
+  Blinds,
+  ThermometerSun,
+  ShieldCheck,
+  Speaker,
+  Film,
+  Tv,
+  Wifi
 } from "lucide-react";
 
 const SYSTEM_NODES = [
@@ -93,23 +93,23 @@ export default function LightingControls() {
     // CP2 enters node horizontally
     const cp2x = side === "left" ? x + 10 : x - 10;
     const cp2y = y;
-    
+
     return `M ${startX} ${startY} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x} ${y}`;
   };
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="relative w-full py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        
+
         {/* Header */}
         <div className="lc-header text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Ecosystem
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6 text-balance">
+          <h2 className="text-foreground mb-6 text-balance">
             Complete Home Control
           </h2>
           <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
@@ -120,7 +120,7 @@ export default function LightingControls() {
         {/* Mobile View: Vertical Stack */}
         <div className="w-full flex flex-col gap-4 md:hidden">
           <div className="bg-panel border border-border rounded-2xl p-8 mb-6 text-center shadow-sm">
-            <h3 className="text-2xl font-light text-foreground mb-2">Central Hub</h3>
+            <h3 className="text-foreground mb-2">Central Hub</h3>
             <p className="text-muted text-sm font-light">The brain of your smart home</p>
           </div>
           {SYSTEM_NODES.map((node) => (
@@ -129,7 +129,7 @@ export default function LightingControls() {
                 <node.icon className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-medium text-foreground">{node.title}</h4>
+                <h4 className="text-foreground">{node.title}</h4>
                 <p className="text-xs text-muted font-light mt-1">{node.items.join(" • ")}</p>
               </div>
             </div>
@@ -137,23 +137,23 @@ export default function LightingControls() {
         </div>
 
         {/* Tablet/Desktop View: Infographic Radial Layout */}
-        <div 
+        <div
           ref={containerRef}
-          className="hidden md:block relative w-full max-w-[900px] aspect-[4/3] lg:aspect-[16/9] mx-auto mt-0"
+          className="hidden md:block relative w-full max-w-[1100px] aspect-[4/3] lg:aspect-[16/9] mx-auto mt-0"
         >
           {/* SVG Connection Lines */}
-          <svg 
-            className="absolute inset-0 w-full h-full pointer-events-none" 
-            viewBox="0 0 100 100" 
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
             {SYSTEM_NODES.map((node) => (
-              <path 
+              <path
                 key={`path-${node.id}`}
                 d={generatePath(node.pos.x, node.pos.y, node.side)}
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={hoveredNode === node.id ? "0.6" : "0.3"}
+                strokeWidth={hoveredNode === node.id ? "0.4" : "0.2"}
                 className={cn(
                   "lc-path drop-shadow-sm transition-all duration-500",
                   hoveredNode === node.id ? "text-accent shadow-accent drop-shadow-lg" : "text-border"
@@ -178,10 +178,10 @@ export default function LightingControls() {
               <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-accent/5 flex items-center justify-center mb-2 lg:mb-4">
                 <ShieldCheck className="w-6 h-6 lg:w-8 lg:h-8 text-accent" />
               </div>
-              <h3 className="text-xl lg:text-2xl font-light tracking-wide text-foreground mb-1 lg:mb-2 leading-tight">
-                Smart Home<br/>Ecosystem
+              <h3 className="text-foreground mb-1 lg:mb-2">
+                Smart Home<br />Ecosystem
               </h3>
-              <p className="text-[10px] lg:text-xs font-medium tracking-[0.2em] uppercase text-accent/80">
+              <p className="text-[10px] lg:text-xs font-medium tracking-[0.2em] text-accent/80">
                 Central Hub
               </p>
             </div>
@@ -189,7 +189,7 @@ export default function LightingControls() {
 
           {/* The 8 Nodes */}
           {SYSTEM_NODES.map((node) => (
-            <div 
+            <div
               key={node.id}
               className="absolute w-12 h-12 lg:w-16 lg:h-16 -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer"
               style={{ left: `${node.pos.x}%`, top: `${node.pos.y}%` }}
@@ -212,23 +212,22 @@ export default function LightingControls() {
               </div>
 
               {/* Text Content (positioned outside the circle) */}
-              <div 
+              <div
                 data-side={node.side}
                 className={cn(
-                  "lc-node-content absolute top-1/2 -translate-y-1/2 w-max max-w-[140px] lg:max-w-[180px] pointer-events-none transition-all duration-300",
+                  "lc-node-content absolute top-1/4 -translate-y-1/2 w-max max-w-[200px] lg:max-w-[240px] pointer-events-none transition-all duration-300",
                   node.side === "left" ? "right-[130%] text-right" : "left-[130%] text-left",
                   hoveredNode && hoveredNode !== node.id ? "opacity-40" : "opacity-100"
                 )}
               >
-                <h4 className={cn(
-                  "text-sm lg:text-base font-medium tracking-wide mb-1 transition-colors duration-300",
+                <h5 className={cn("transition-colors duration-300",
                   hoveredNode === node.id ? "text-accent" : "text-foreground"
                 )}>
                   {node.title}
-                </h4>
+                </h5>
                 {node.items.length > 0 && (
                   <p className={cn(
-                    "text-[10px] lg:text-xs font-light leading-relaxed transition-colors duration-300",
+                    "text-[10px] lg:text-xs font-light leading-relaxed transition-colors duration-300 mt-1",
                     hoveredNode === node.id ? "text-foreground" : "text-muted"
                   )}>
                     {node.items.join(" • ")}

@@ -30,10 +30,10 @@ export default function AboutCTA() {
     // Content reveal
     tl.fromTo(".cta-content > *",
       { y: 30, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: DURATION.slow, 
+      {
+        y: 0,
+        opacity: 1,
+        duration: DURATION.slow,
         ease: EASE.reveal,
         stagger: 0.15
       }
@@ -42,10 +42,10 @@ export default function AboutCTA() {
     // Buttons reveal
     tl.fromTo(".cta-button",
       { y: 20, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: DURATION.normal, 
+      {
+        y: 0,
+        opacity: 1,
+        duration: DURATION.normal,
         ease: "power3.out",
         stagger: 0.1
       },
@@ -55,18 +55,18 @@ export default function AboutCTA() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-16 md:py-24 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Dynamic Background Glows */}
-      <div 
-        className="absolute top-0 right-0 w-[800px] h-[800px] opacity-20 pointer-events-none translate-x-1/3 -translate-y-1/3" 
-        style={{ background: 'radial-gradient(circle, rgba(229,107,85,0.2) 0%, rgba(0,0,0,0) 70%)' }} 
+      <div
+        className="absolute top-0 right-0 w-[800px] h-[800px] opacity-20 pointer-events-none translate-x-1/3 -translate-y-1/3"
+        style={{ background: 'radial-gradient(circle, rgba(229,107,85,0.2) 0%, rgba(0,0,0,0) 70%)' }}
       />
-      <div 
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] opacity-10 pointer-events-none -translate-x-1/3 translate-y-1/3" 
-        style={{ background: 'radial-gradient(circle, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 70%)' }} 
+      <div
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] opacity-10 pointer-events-none -translate-x-1/3 translate-y-1/3"
+        style={{ background: 'radial-gradient(circle, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 70%)' }}
       />
 
       {/* Noise Texture */}
@@ -76,12 +76,12 @@ export default function AboutCTA() {
       </svg>
 
       <div className="relative z-10 max-w-5xl mx-auto w-full text-center">
-        
+
         <div className="cta-content space-y-6 md:space-y-8 mb-12 md:mb-16">
-          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium uppercase">
+          <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium ">
             Take the Next Step
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.1]">
+          <h2 className="">
             Let's Create Smarter Spaces Together
           </h2>
           <p className="text-muted text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
@@ -91,23 +91,22 @@ export default function AboutCTA() {
 
         {/* Buttons Grid */}
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 md:gap-6">
-          
+
           <Link href="/contact" className="w-full sm:w-auto cta-button">
-            <Button variant="accent" size="lg" shape="full" className="w-full">
+            <Button variant="interactive" size="lg" className="w-full">
               Schedule a Consultation
-              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
 
           <Link href="/experience-center" className="w-full sm:w-auto cta-button">
-            <Button variant="outline" size="lg" shape="full" className="w-full">
+            <Button variant="green" size="lg" className="w-full">
               <MapPin className="w-4 h-4 mr-2" />
               Visit an Experience Center
             </Button>
           </Link>
 
           <Link href="/contact" className="w-full sm:w-auto cta-button">
-            <Button variant="outline" size="lg" shape="full" className="w-full">
+            <Button variant="outline" size="lg" className="w-full text-black">
               <Briefcase className="w-4 h-4 mr-2" />
               Work With Us
             </Button>

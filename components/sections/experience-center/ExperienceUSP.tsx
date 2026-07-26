@@ -66,7 +66,7 @@ export function ExperienceUSP() {
   );
 
   return (
-    <section ref={sectionRef} className="w-full bg-secondary text-white py-24 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 w-full bg-secondary text-white relative overflow-hidden">
 
       {/* Subtle Background Glow */}
       {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent/10 blur-[120px] rounded-full pointer-events-none opacity-50" /> */}
@@ -77,13 +77,13 @@ export function ExperienceUSP() {
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
           <div className="flex items-center gap-4 mb-8 usp-header opacity-0 translate-y-10">
             <div className="h-[1px] w-8 bg-white/20" />
-            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/50">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/50">
               The Advantage
             </span>
             <div className="h-[1px] w-8 bg-white/20" />
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white mb-6 usp-header opacity-0 translate-y-10">
+          <h2 className="text-white mb-6 usp-header opacity-0 translate-y-10">
             Why Visit an Experience Centre?
           </h2>
 
@@ -103,9 +103,9 @@ export function ExperienceUSP() {
                 <item.icon strokeWidth={1.5} className="w-6 h-6" />
               </div>
 
-              <h3 className="text-xl md:text-2xl font-light tracking-wide text-white mb-4 leading-[1.2]">
+              <h4 className="text-white mb-4">
                 {item.title}
-              </h3>
+              </h4>
 
               <p className="text-sm md:text-base text-white/50 leading-relaxed font-light">
                 {item.description}

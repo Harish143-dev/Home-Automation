@@ -151,10 +151,10 @@ export function ResidentialCaseStudies() {
       >
         {/* LEFT: Navigation Panel (~1/3 width) */}
         <div className="w-full md:w-[50%] lg:w-[45%] xl:w-[40%] h-full bg-background flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24 py-12 md:py-20 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.05)] relative">
-          <span className="tracking-widest text-sm md:text-base text-accent mb-3 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-3 block">
             See Smart Living in Action
           </span>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug text-foreground mb-3">
+          <h2 className="text-foreground mb-3">
             Proven in India’s Most Exclusive Residences.
           </h2>
           <p className="text-xs lg:text-sm font-light text-foreground/70 leading-[1.8] mb-8 md:mb-10">
@@ -188,7 +188,7 @@ export function ResidentialCaseStudies() {
           </ul>
 
           <div className="mt-8 md:mt-10 pt-6 border-t border-border">
-            <span className="text-sm md:text-base tracking-widest text-muted mb-2 block">The Registry Includes</span>
+            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted mb-2 block">The Registry Includes</span>
             <p className="text-[10px] lg:text-xs font-light text-foreground/60 leading-[1.8]">
               Hrithik Roshan — Ranbir & Alia — K.M. Birla — Laxmi Mittal — Pirojsha Godrej — Aman Gupta — Abhay Soi — Boman Irani — K.P. Singh — Ujjwal Munjal
             </p>
@@ -227,10 +227,10 @@ export function ResidentialCaseStudies() {
           >
             {/* Left side of overlay: Title and Desc */}
             <div className="max-w-lg text-white">
-              <span className="tracking-widest text-sm md:text-base text-white/50 mb-2 block">
+              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/50 mb-2 block">
                 Residential
               </span>
-              <h3 className="text-lg lg:text-2xl font-light tracking-wide mb-3 leading-snug">
+              <h3 className="mb-3">
                 {activeData.title}
               </h3>
               <p className="text-xs md:text-sm font-light text-white/80 leading-[1.8] mb-6 max-w-sm">
@@ -238,13 +238,9 @@ export function ResidentialCaseStudies() {
               </p>
 
               <Link href={activeData.link}>
-                <Button
-                  variant="accent"
-                  size="lg"
-                  className="px-8 h-12 text-sm font-medium tracking-wider hover:bg-accent-soft hover:shadow-[0_0_30px_rgba(140,24,23,0.3)] transition-all duration-500"
-                >
-                  Learn More
-                </Button>
+                <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                Learn More
+              </Button>
               </Link>
             </div>
           </div>
@@ -254,10 +250,10 @@ export function ResidentialCaseStudies() {
       {/* Mobile Stacked Layout */}
       <div className="md:hidden flex flex-col w-full bg-background py-16 px-6 gap-12">
         <div className="flex flex-col mb-2">
-          <span className="tracking-widest text-sm md:text-base text-accent mb-3 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-3 block">
             See Smart Living in Action
           </span>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-snug text-foreground mb-3">
+          <h2 className="text-foreground mb-3">
             Proven in India’s Most Exclusive Residences.
           </h2>
           <p className="text-xs font-light text-foreground/70 leading-[1.8]">
@@ -288,10 +284,10 @@ export function ResidentialCaseStudies() {
             </div>
 
             <div>
-              <span className="tracking-widest text-sm md:text-base text-accent mb-2 block">
+              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-2 block">
                 {project.number}
               </span>
-              <h3 className="text-lg font-light tracking-wide text-foreground mb-2 leading-snug">
+              <h3 className="text-foreground mb-2">
                 {project.title}
               </h3>
               <p className="text-xs font-light text-muted leading-[1.8] mb-5">
@@ -299,13 +295,9 @@ export function ResidentialCaseStudies() {
               </p>
 
               <Link href={project.link}>
-                <Button
-                  variant="outline"
-                  size="default"
-                  className="w-full text-sm font-medium tracking-wider"
-                >
-                  View Case Study
-                </Button>
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                View Case Study
+              </Button>
               </Link>
             </div>
           </div>
@@ -313,7 +305,7 @@ export function ResidentialCaseStudies() {
 
         {/* Mobile Registry Footer */}
         <div className="mt-6 pt-6 border-t border-border">
-          <span className="tracking-widest text-sm md:text-base text-muted mb-2 block">The Registry Includes</span>
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted mb-2 block">The Registry Includes</span>
           <p className="text-[10px] font-light text-foreground/60 leading-[1.8]">
             Hrithik Roshan — Ranbir & Alia — K.M. Birla — Laxmi Mittal — Pirojsha Godrej — Aman Gupta — Abhay Soi — Boman Irani — K.P. Singh — Ujjwal Munjal
           </p>

@@ -81,15 +81,15 @@ export function AudioVideoFeatures() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="relative w-full bg-background pt-16 md:pt-24 pb-16 md:pb-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={containerRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-12 lg:gap-24 relative">
         
         {/* Section Header */}
         <div className="max-w-4xl flex flex-col items-start">
-          <span className="av-features-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base av-features-header text-accent mb-4 block">
             Entertainment Without Complexity
           </span>
-          <h2 className="av-features-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="av-features-header text-foreground text-balance mb-6">
             Modern entertainment should be effortless.
           </h2>
           <p className="av-features-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -111,7 +111,7 @@ export function AudioVideoFeatures() {
                   <span className="text-accent font-medium text-lg">{feature.id + 1}</span>
                 </div>
                 
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light leading-[1.3] text-foreground tracking-wide text-balance">
+                <h3 className="leading-[1.3] text-foreground text-balance">
                   {feature.text}
                 </h3>
                 

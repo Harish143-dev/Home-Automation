@@ -49,7 +49,7 @@ export function AudioVideoWhyChooseUs() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background py-20 sm:py-28 md:py-36 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5"
+      className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5"
     >
       <div className="max-w-4xl w-full mx-auto relative z-10 flex flex-col items-center text-center">
         
@@ -58,7 +58,7 @@ export function AudioVideoWhyChooseUs() {
         
         <h2 
           ref={textRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-8"
+          className="text-foreground text-balance mb-8"
         >
           Why Choose <br className="hidden sm:block" /> Anusha Technovision
         </h2>

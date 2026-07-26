@@ -83,22 +83,22 @@ export function ExperienceGallery() {
   );
 
   return (
-    <section 
-      ref={containerRef} 
-      className="bg-secondary text-white relative w-full overflow-hidden"
+    <section
+      ref={containerRef}
+      className="bg-secondary pt-10 text-white relative w-full overflow-hidden"
     >
       <div className={`w-full flex flex-col justify-center ${prefersReducedMotion ? 'py-24' : 'h-screen'}`}>
-        
+
         {/* Header Area */}
         <div className="w-full px-6 sm:px-12 lg:px-16 mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-6 shrink-0">
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-8 bg-white/30" />
-              <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white/60">
+              <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/60">
                 Gallery
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-white">
+            <h2 className="text-white">
               Step Inside Our<br />Experience Centres
             </h2>
           </div>
@@ -108,12 +108,12 @@ export function ExperienceGallery() {
         </div>
 
         {/* Horizontal Media Track */}
-        <div 
-          ref={trackRef} 
+        <div
+          ref={trackRef}
           className={`flex items-center gap-6 md:gap-10 px-6 sm:px-12 lg:px-16 pb-12 ${prefersReducedMotion ? 'flex-wrap overflow-x-auto overflow-y-hidden pb-8' : 'w-max will-change-transform'}`}
         >
           {GALLERY_MEDIA.map((item, index) => {
-            
+
             // Define dimensions based on editorial type
             let sizingClass = "";
             if (item.type === "landscape") {
@@ -125,8 +125,8 @@ export function ExperienceGallery() {
             }
 
             return (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className={`relative overflow-hidden group shrink-0 ${sizingClass}`}
               >
                 <div className="absolute inset-0 w-full h-full transform transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105">

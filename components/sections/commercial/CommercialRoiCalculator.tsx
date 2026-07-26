@@ -98,13 +98,13 @@ export function CommercialRoiCalculator() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-background pt-8 md:pt-12 pb-8 md:pb-12 text-foreground flex justify-center"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground flex justify-center"
     >
       <div className="max-w-4xl w-full mx-6 px-6 sm:px-12 py-12 bg-white rounded-[32px] border border-border shadow-xl">
 
         {/* Header Title */}
         <div className="animate-item text-center mb-10 border-b border-border pb-6">
-          <h2 className="text-2xl md:text-3xl font-light tracking-wide leading-[1.2]">ROI Calculator</h2>
+          <h2 className="">ROI Calculator</h2>
         </div>
 
         {/* Currency Toggle */}
@@ -209,7 +209,7 @@ export function CommercialRoiCalculator() {
 
         {/* Big Result Section */}
         <div className="animate-item flex flex-col items-center text-center gap-2">
-          <h3 className="text-sm md:text-base tracking-widest text-muted mb-2">
+          <h3 className="text-muted mb-2">
             Opportunity Cost This Year
           </h3>
           <div className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide leading-[1.2]">

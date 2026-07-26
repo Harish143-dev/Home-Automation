@@ -7,13 +7,13 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
 import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
-import { 
-  UserCheck, 
-  Blinds, 
-  CalendarClock, 
-  Thermometer, 
-  Smartphone, 
-  Sun 
+import {
+  UserCheck,
+  Blinds,
+  CalendarClock,
+  Thermometer,
+  Smartphone,
+  Sun
 } from "lucide-react";
 
 const FEATURES = [
@@ -83,31 +83,31 @@ export default function LightingFeatures() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="relative w-full py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        
+
         {/* Features Grid */}
         <div className="lf-grid w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {FEATURES.map((feature) => (
-            <div 
-              key={feature.id} 
+            <div
+              key={feature.id}
               className="lf-card group relative flex flex-col p-8 md:p-10 rounded-2xl bg-panel shadow-sm border border-border overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
             >
               {/* Subtle Background Glow on Hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
-              
+
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 ease-out border border-border">
                   <feature.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
-                
-                <h3 className="text-xl md:text-2xl font-light leading-[1.2] tracking-wide text-foreground mb-4">
+
+                <h4 className="text-foreground mb-4">
                   {feature.title}
-                </h3>
-                
+                </h4>
+
                 <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed mt-auto">
                   {feature.description}
                 </p>

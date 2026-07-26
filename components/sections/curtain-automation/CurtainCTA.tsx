@@ -64,7 +64,7 @@ export function CurtainCTA() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative flex flex-col items-center justify-center w-full bg-background overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
+      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
     >
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
@@ -76,13 +76,13 @@ export function CurtainCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="text-sm md:text-base font-normal tracking-widest text-accent">Next Steps</span>
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">Next Steps</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
         <h2 
           ref={headlineRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-foreground leading-[1.2] mb-8"
+          className="text-foreground mb-8"
         >
           Experience the Perfect Balance <br className="hidden md:block" /> of Comfort, Privacy
         </h2>
@@ -93,31 +93,18 @@ export function CurtainCTA() {
         
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           <Link href="#consultation" className="w-full sm:w-auto">
-            <Button 
-              variant="accent" 
-              size="lg" 
-              shape="full"
-              className="group relative w-full sm:w-auto overflow-hidden"
-            >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
-              <span className="relative z-10">
-                Schedule a Free Consultation
-              </span>
-              <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+            <Button
+            variant="interactive"
+            size="lg"
+            className="w-full sm:w-auto"
+          >
+            Schedule a Free Consultation
+          </Button>
           </Link>
           <Link href="#contact" className="w-full sm:w-auto">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              shape="full"
-              className="group w-full sm:w-auto"
-            >
-              <Phone className="w-5 h-5 mr-2 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-              <span>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 Talk to a Smart Home Expert
-              </span>
-            </Button>
+              </Button>
           </Link>
         </div>
       </div>

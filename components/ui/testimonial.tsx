@@ -212,9 +212,9 @@ const TestimonialCarousel = React.forwardRef<
                   "{testimonial.description}"
                 </p>
                 <div className="mt-auto pointer-events-none select-none">
-                  <h3 className="text-lg font-light tracking-wide text-card-foreground">
+                  <h4 className="text-card-foreground">
                     {testimonial.name}
-                  </h3>
+                  </h4>
                 </div>
               </div>
             </div>

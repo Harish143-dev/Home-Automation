@@ -44,7 +44,7 @@ export default function ProcessPhilosophy() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground py-32 md:py-48 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         
@@ -57,7 +57,7 @@ export default function ProcessPhilosophy() {
               </span>
               <div className="h-[1px] w-8 bg-border" />
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+            <h2 className="text-foreground">
               Invisible <br /> Architecture
             </h2>
           </div>

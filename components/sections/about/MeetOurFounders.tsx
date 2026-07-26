@@ -83,7 +83,7 @@ export default function MeetOurFounders() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden"
     >
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -98,7 +98,7 @@ export default function MeetOurFounders() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Meet Our Founder
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2]">
+          <h2 className="">
             Leadership That Inspires Innovation
           </h2>
         </div>
@@ -130,7 +130,7 @@ export default function MeetOurFounders() {
                 {/* Text Column */}
                 <div className="founder-text-col w-full lg:w-7/12 space-y-8 opacity-0">
                   <div>
-                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-3">
+                    <h3 className="mb-3">
                       {founder.name}
                     </h3>
                     <div className="text-accent text-lg md:text-xl font-light tracking-wide">

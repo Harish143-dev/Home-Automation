@@ -19,19 +19,21 @@
 
 ### Heading Rules (STRICT)
 
-All headings (`h1`–`h6`) MUST use:
+All headings MUST use the following rules to maintain a premium editorial feel.
 
+**1. Primary Section Headings (`h1`, `h2`)**
+Used for the main title of a large section.
 ```
-font-light leading-[1.2] tracking-wide
-```
-
-Responsive sizing:
-
-```
-text-3xl md:text-4xl lg:text-5xl
+font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl
 ```
 
-**NEVER use on headings:**
+**2. Secondary / Small Headings (`h3`, `h4`)**
+Used for feature cards, grid items, or smaller sub-sections.
+```
+font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl
+```
+
+**NEVER use on any headings:**
 - `font-bold`, `font-semibold`, `font-black`, `font-medium`
 - `font-display` (this was the old convention — removed)
 - `tracking-tight` (destroys the editorial feel)
@@ -39,10 +41,10 @@ text-3xl md:text-4xl lg:text-5xl
 
 ### Eyebrow / Section Labels
 
-Small descriptive labels above headings (e.g., "Client Stories", "The Audience"):
+Small descriptive labels above headings (e.g., "Client Stories", "The Audience"). They must always be exactly one step down in size from the body text.
 
 ```
-tracking-widest text-sm md:text-base
+tracking-[0.3em] text-xs sm:text-sm md:text-base
 ```
 
 Color guidelines:
@@ -105,7 +107,7 @@ For sections with dark backgrounds (`bg-[#040404]`, `bg-black`):
 ### Section Padding
 
 ```
-py-16 sm:py-20 md:py-24 lg:py-32
+py-16 md:py-24
 px-5 sm:px-8 md:px-16 lg:px-24
 ```
 
@@ -128,7 +130,7 @@ For ultra-wide screens (2xl+):
 
 ### Generous Whitespace
 
-- Sections: `py-16 sm:py-20 md:py-24 lg:py-32` standard
+- Sections: `py-16 md:py-24` standard
 - Between elements: Use `gap-6` to `gap-16` — never cramped
 - The design should breathe — whitespace is a feature, not waste
 
@@ -181,36 +183,38 @@ Used for the `glass` button variant and overlay panels.
 
 ## 5. Buttons & CTAs
 
-The project uses a reusable `Button` component built with `class-variance-authority` (located in `components/ui/button.tsx`). All buttons across the site **must** follow the pattern established in the Hero section.
+The project uses a reusable `Button` component built with `class-variance-authority` (located in `components/ui/button.tsx`). **Never** use hardcoded utility classes (like `px-8`, `bg-accent`, custom hover gradients, or manually nested `<ArrowRight />` SVGs) for buttons. Always use the central `<Button>` component variants.
 
 ### Standard Button Usage
 
 ```tsx
 import { Button } from "@/components/ui/button";
 
-// Primary Button
-<Button variant="accent" size="lg" shape="full">
-  Book a Consultation
+// Hero Sections (Dark Backgrounds)
+<Button variant="interactive" size="lg">
+  Primary Action
+</Button>
+<Button variant="shiny" size="lg">
+  Secondary Action
 </Button>
 
-// Secondary Button (Dark Backgrounds)
-<Button variant="glass" size="lg" shape="full">
-  Explore Projects
+// CTA & Content Sections (Light/Solid Backgrounds)
+<Button variant="interactive" size="lg">
+  Primary Action
 </Button>
-
-// Secondary Button (Light Backgrounds)
-<Button variant="outline" size="lg" shape="full">
-  Learn More
+<Button variant="outline" size="lg">
+  Secondary Action
 </Button>
 ```
 
 ### Button API Rules:
 - **`variant`**: 
-  - `accent`: Primary action (Deep Crimson background, white text).
-  - `glass`: Secondary action on dark/image backgrounds (translucent white, white text).
-  - `outline`: Secondary action on light backgrounds.
+  - `interactive`: Primary action (Deep Crimson background, expanding dot hover effect, automated arrow). Do not manually nest SVG icons into this variant.
+  - `shiny`: Secondary action on dark/image backgrounds (glassmorphism with white reflection sweep).
+  - `outline`: Secondary action on light backgrounds (transparent with border).
+  - `green`: Alternative aesthetic (used when contextually required by theme).
 - **`size`**: Always use `size="lg"` for main call-to-actions to ensure a premium, clickable feel.
-- **`shape`**: Always use `shape="full"` (fully rounded corners) to match the Hero section pattern.
+- **Clean Code Requirements**: Remove bloated configurations (e.g., `shape="full"`, complex `group-hover` rules) from all button invocations. The `<Button>` component handles everything natively.
 
 ---
 

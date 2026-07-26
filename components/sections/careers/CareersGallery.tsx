@@ -93,7 +93,7 @@ export default function CareersGallery() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-12 md:py-16 px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       {/* Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -109,7 +109,7 @@ export default function CareersGallery() {
           <span className="cg-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
             Life at Anusha
           </span>
-          <h2 className="cg-header-el text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-8">
+          <h2 className="cg-header-el text-foreground mb-8">
             People are at the heart of everything we do.
           </h2>
         </div>

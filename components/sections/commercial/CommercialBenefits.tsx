@@ -104,7 +104,7 @@ export function CommercialBenefits() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="relative bg-background text-foreground pt-8 md:pt-12 pb-8 md:pb-12">
+    <section ref={containerRef} className="py-16 md:py-24 relative bg-background text-foreground">
 
       {/* Background Noise Texture for premium feel */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none">
@@ -118,10 +118,10 @@ export function CommercialBenefits() {
 
         {/* Sticky Left Column (Narrative) */}
         <div className="w-full lg:w-[45%] lg:sticky lg:top-24 h-fit benefit-sticky-panel">
-          <span className="text-accent tracking-widest text-sm mb-6 block font-medium">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6 block">
             Why Commercial Automation Matters
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-[1.2] mb-8 text-balance">
+          <h2 className="mb-8 text-balance">
             The Strategic Significance of Adaptive Infrastructure
           </h2>
           <p className="text-foreground/70 text-lg md:text-xl leading-relaxed font-light">
@@ -139,13 +139,13 @@ export function CommercialBenefits() {
                 {item.num}
               </span>
 
-              <h3 className="text-2xl md:text-3xl font-light leading-tight mb-8 relative z-10">
+              <h3 className="mb-8 relative z-10">
                 {item.title}
               </h3>
 
               {/* "The Significance" Box */}
               <div className="mb-10 p-6 md:p-8 bg-white border border-border shadow-sm rounded-2xl relative z-10">
-                <span className="block text-accent tracking-widest text-xs mb-3 font-medium">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base block text-accent mb-3">
                   The Significance
                 </span>
                 <p className="text-foreground text-lg md:text-xl font-light leading-relaxed">
@@ -155,7 +155,7 @@ export function CommercialBenefits() {
 
               {/* "The Specifics" List */}
               <div className="space-y-8 relative z-10">
-                <span className="block text-foreground/40 tracking-widest text-xs font-medium">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base block text-foreground/40">
                   The Specifics
                 </span>
                 <div className="space-y-6 border-l border-border pl-6 md:pl-8">

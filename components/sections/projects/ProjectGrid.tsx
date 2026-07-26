@@ -44,10 +44,10 @@ export function ProjectGrid() {
 
   return (
     <div className="lg:col-span-9 flex flex-col gap-10">
-      
+
       {/* Filters & Search */}
       <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-border pb-4">
-        
+
         {/* Category Pills */}
         <div className="w-full overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-2 md:gap-4 min-w-max">
@@ -57,8 +57,8 @@ export function ProjectGrid() {
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
                   "px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border",
-                  activeCategory === cat 
-                    ? "bg-accent text-white border-accent" 
+                  activeCategory === cat
+                    ? "bg-accent text-white border-accent"
                     : "bg-transparent text-muted-foreground border-border hover:border-accent hover:text-foreground"
                 )}
               >
@@ -70,9 +70,9 @@ export function ProjectGrid() {
 
         {/* Search Widget */}
         <div className="relative group w-full lg:w-auto lg:min-w-[260px] flex-shrink-0">
-          <input 
-            type="text" 
-            placeholder="Search keywords..." 
+          <input
+            type="text"
+            placeholder="Search keywords..."
             className="w-full bg-background border border-border rounded-full pl-4 pr-10 py-2.5 text-sm font-light text-foreground focus:outline-none focus:border-accent/50 transition-colors shadow-sm"
           />
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-accent transition-colors" />
@@ -83,8 +83,8 @@ export function ProjectGrid() {
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
         {DUMMY_PROJECTS.map((project) => (
-          <Link 
-            href={project.href} 
+          <Link
+            href={project.href}
             key={project.id}
             className="group flex flex-col bg-background border border-border/50 rounded-xl overflow-hidden hover:border-border transition-colors duration-300"
           >
@@ -97,7 +97,7 @@ export function ProjectGrid() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                <span className="text-[10px] tracking-widest uppercase text-foreground">
+                <span className="tracking-[0.1em] text-xs text-foreground">
                   {project.category}
                 </span>
               </div>
@@ -105,10 +105,10 @@ export function ProjectGrid() {
 
             {/* Content Container */}
             <div className="p-5 flex flex-col flex-grow">
-              <h3 className="text-xl font-light tracking-wide text-foreground mb-3 line-clamp-2">
+              <h4 className="text-foreground mb-3 line-clamp-2">
                 {project.title}
-              </h3>
-              
+              </h4>
+
               <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6 line-clamp-3 flex-grow">
                 {project.description}
               </p>
@@ -126,7 +126,7 @@ export function ProjectGrid() {
                   </span>
                 </div>
               </div>
-              
+
               <div className="mt-4 flex items-center gap-2 text-sm font-medium text-accent transition-colors duration-300">
                 Read full study
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -147,8 +147,8 @@ export function ProjectGrid() {
               key={i}
               className={cn(
                 "w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center rounded-full text-sm font-medium transition-colors",
-                page === 1 
-                  ? "bg-foreground text-background" 
+                page === 1
+                  ? "bg-foreground text-background"
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
             >

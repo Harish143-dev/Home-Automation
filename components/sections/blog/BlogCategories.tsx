@@ -38,7 +38,7 @@ export default function BlogCategories() {
   return (
     <section 
       ref={sectionRef} 
-      className="w-full bg-background text-foreground py-12 md:py-20 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-7xl mx-auto flex flex-wrap gap-x-8 gap-y-4">
         {CATEGORIES.map((category) => {

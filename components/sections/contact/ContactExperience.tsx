@@ -40,7 +40,7 @@ export function ContactExperience() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background text-foreground py-16 md:py-24 lg:py-28 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div 
         ref={contentRef}
@@ -49,12 +49,12 @@ export function ContactExperience() {
         {/* Left: Contact Philosophy */}
         <div className="flex-1 flex flex-col gap-8 lg:max-w-xl">
           <div className="stagger-reveal flex items-center gap-4">
-            <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-accent">
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
               Direct Access
             </span>
           </div>
           
-          <h2 className="stagger-reveal text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground">
+          <h2 className="stagger-reveal text-foreground">
             Connect with our specialists to begin your journey into intelligent living.
           </h2>
           
@@ -97,7 +97,7 @@ function ContactRow({ label, value, href, hasBorderBottom = false }: { label: st
       href={href}
       className={`stagger-reveal group flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-6 border-b border-border hover:border-accent transition-colors duration-500 ${!hasBorderBottom && 'border-none sm:border-solid'}`}
     >
-      <span className="text-muted-foreground text-sm uppercase tracking-[0.2em] group-hover:text-accent transition-colors duration-300">
+      <span className="text-muted-foreground text-sm tracking-[0.2em] group-hover:text-accent transition-colors duration-300">
         {label}
       </span>
       <div className="flex items-center gap-6">

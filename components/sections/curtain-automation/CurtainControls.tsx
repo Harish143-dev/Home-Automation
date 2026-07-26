@@ -34,7 +34,7 @@ export function CurtainControls() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header animation
     gsap.fromTo('.control-header',
       { opacity: 0, y: 30 },
@@ -61,30 +61,30 @@ export function CurtainControls() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background pt-8 md:pt-12 pb-16 sm:pb-24 md:pb-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <span className="control-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base control-header text-accent mb-4 block">
             Seamless Interfaces
           </span>
-          <h2 className="control-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
+          <h2 className="control-header text-foreground text-balance">
             Multiple Ways to Control Your Shades
           </h2>
         </div>
 
         <div className="controls-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {CONTROLS.map((control, idx) => (
-            <div 
-              key={idx} 
-              className="control-card bg-panel p-8 md:p-10 rounded-2xl border border-border shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow duration-500"
+            <div
+              key={idx}
+              className="control-card bg-panel p-5 md:p-6 rounded-2xl border border-border shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow duration-500"
             >
               <div className="w-12 h-12 rounded-full bg-secondary/5 flex items-center justify-center mb-2">
                 <control.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
               </div>
-              <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground">
+              <h4 className="text-foreground">
                 {control.title}
-              </h3>
+              </h4>
               <p className="text-sm sm:text-base md:text-lg font-light text-muted leading-relaxed">
                 {control.description}
               </p>

@@ -561,7 +561,7 @@ export function HeroSection() {
       <section
         ref={sectionRef}
         id="hero"
-        className="relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 pb-16 sm:pb-20 pt-24 sm:pt-28 md:items-start md:px-16 md:pb-24 lg:px-24"
+        className="py-16 md:py-24 relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 md:items-start md:px-16 lg:px-24"
       >
         <NextImage
           src="/heroFrames/0001.jpg"
@@ -575,27 +575,23 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
 
         <div className="relative z-10 flex w-full max-w-xl flex-col items-start text-left">
-          <h1 className="mb-4 sm:mb-6 max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-2.5rem)] break-words text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance md:max-w-full">
+          <h1 className="mb-4 sm:mb-6 max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-2.5rem)] break-words text-white text-balance md:max-w-full">
             Intelligent Spaces <br />
             Intelligent Integration
           </h1>
           <div className="flex w-full max-w-sm flex-col gap-2.5 sm:gap-3 sm:flex-row md:max-w-none">
             <Link href="/contact">
               <Button
-                variant="accent"
+                variant="interactive"
                 size="lg"
-                shape="full"
-                className="w-full sm:w-auto"
               >
                 Book a Consultation
               </Button>
             </Link>
             <Link href="/projects">
               <Button
-                variant="glass"
+                variant="shiny"
                 size="lg"
-                shape="full"
-                className="w-full sm:w-auto"
               >
                 Explore Projects
               </Button>
@@ -610,7 +606,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className={`relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 z-[0] mb-[-60vh] ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`py-16 md:py-24 relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 z-[0] mb-[-60vh] ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Video Frame Container — canvas-rendered image sequence with rounded bottom */}
       <div
@@ -651,7 +647,7 @@ export function HeroSection() {
               key={text}
               className="hero-scroll-desc absolute inset-x-0 bottom-0 text-[clamp(1.1rem,2.5vw,2.5rem)] font-light leading-[1.2] tracking-wide text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.55)]"
             >
-              <span className="mb-6 block text-xs font-semibold uppercase tracking-widest text-white/50">
+              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base mb-6 block text-white/50">
                 0{index + 1} / 03
               </span>
               {text}
@@ -677,7 +673,7 @@ export function HeroSection() {
           {/* opacity-0 prevents unsplit text flash — GSAP restores after SplitText setup */}
           <h1
             ref={h1Ref}
-            className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] tracking-wide text-white text-balance opacity-0"
+            className="text-white text-balance opacity-0"
           >
             Intelligent Spaces <br />
             Intelligent Integration
@@ -686,10 +682,8 @@ export function HeroSection() {
           <div className="hero-cta flex items-center gap-4 pointer-events-auto">
             <Link href="/contact">
               <Button
-                variant="accent"
+                variant="interactive"
                 size="lg"
-                shape="full"
-                className="px-5 sm:px-6 md:px-8 h-11 sm:h-12 md:h-14"
               >
                 Book a Consultation
               </Button>
@@ -697,13 +691,12 @@ export function HeroSection() {
 
             <Link href="/projects">
               <Button
-                variant="glass"
+                variant="shiny"
                 size="lg"
-                shape="full"
-                className="px-5 sm:px-6 md:px-8 h-11 sm:h-12 md:h-14"
+
               >
                 <span>Explore Projects</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+
               </Button>
             </Link>
           </div>

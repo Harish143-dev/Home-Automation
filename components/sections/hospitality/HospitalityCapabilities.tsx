@@ -172,7 +172,7 @@ export function HospitalityCapabilities() {
   return (
     <section
       ref={containerRef}
-      className="bg-background pt-16 md:pt-24 pb-8 md:pb-12 text-foreground"
+      className="py-16 md:py-24 bg-background text-foreground"
     >
 
 
@@ -185,7 +185,7 @@ export function HospitalityCapabilities() {
                 <img src={section.image} alt={section.name} className="w-full h-full object-cover" />
               </div>
               <div>
-                <h3 className="text-2xl font-light mb-3 text-accent">{section.name}</h3>
+                <h3 className="mb-3 text-accent">{section.name}</h3>
                 <p className="text-sm md:text-base text-muted leading-relaxed font-light mb-6 italic">
                   {section.subheading}
                 </p>
@@ -199,7 +199,7 @@ export function HospitalityCapabilities() {
                         onClick={() => toggleAccordion(section.id, j)}
                       >
                         <div className="flex justify-between items-center gap-4">
-                          <span className={`text-base md:text-lg tracking-wide font-light transition-colors ${isOpen ? "text-accent" : "text-foreground group-hover:text-accent/70"}`}>
+                          <span className={`text-sm md:text-base tracking-wide font-light transition-colors ${isOpen ? "text-accent" : "text-foreground group-hover:text-accent/70"}`}>
                             {cap.title}
                           </span>
                           <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45 text-accent" : "text-muted group-hover:text-foreground"}`}>
@@ -254,7 +254,7 @@ export function HospitalityCapabilities() {
                   key={section.id + "content"}
                   className={`cap-right-block flex flex-col justify-center min-h-[80vh] ${i === 0 ? "pt-[10vh]" : ""}`}
                 >
-                  <h3 className="text-3xl lg:text-4xl font-light leading-tight text-accent my-4">
+                  <h3 className="text-accent my-4">
                     {section.name}
                   </h3>
 
@@ -272,7 +272,7 @@ export function HospitalityCapabilities() {
                           onClick={() => toggleAccordion(section.id, j)}
                         >
                           <div className="flex justify-between items-center gap-4">
-                            <span className={`text-lg lg:text-xl tracking-wide font-light transition-colors ${isOpen ? "text-accent" : "text-foreground group-hover:text-accent/70"}`}>
+                            <span className={`text-base sm:text-lg lg:text-xl tracking-wide font-light transition-colors ${isOpen ? "text-accent" : "text-foreground group-hover:text-accent/70"}`}>
                               {cap.title}
                             </span>
                             <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45 text-accent" : "text-muted group-hover:text-foreground"}`}>

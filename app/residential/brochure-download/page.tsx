@@ -69,9 +69,9 @@ export default function BrochureDownloadPage() {
         <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 sm:p-12 shadow-xl shadow-black/5">
 
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-light tracking-wide text-foreground mb-4">
+            <h2 className="text-foreground mb-4">
               Download Brochure
-            </h1>
+            </h2>
             <p className="text-muted text-sm sm:text-base font-light">
               Please provide your details below to access the AT Smart Living Residential Brochure.
             </p>
@@ -157,9 +157,8 @@ export default function BrochureDownloadPage() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              variant="accent"
+              variant="interactive"
               size="lg"
-              className="mt-4 w-full h-14 text-sm font-medium tracking-widest uppercase disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Processing...' : 'Download Brochure'}
             </Button>

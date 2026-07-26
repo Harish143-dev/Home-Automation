@@ -49,7 +49,7 @@ export default function AboutTheCompany() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background"
+      className="py-16 md:py-24 relative px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background"
     >
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">

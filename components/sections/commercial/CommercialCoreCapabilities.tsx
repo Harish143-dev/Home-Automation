@@ -36,7 +36,7 @@ function BentoCard({
             <Icon className="w-5 h-5 text-foreground group-hover:text-white transition-colors" />
           </div>
         )}
-        <h4 className="text-xl md:text-2xl font-light text-foreground">{title}</h4>
+        <h4 className="text-foreground">{title}</h4>
       </div>
 
       <ul className="space-y-3 relative z-10">
@@ -80,15 +80,15 @@ export function CommercialCoreCapabilities() {
   }, [activeTab, prefersReducedMotion]);
 
   return (
-    <section ref={containerRef} id="commercial-core-capabilities" className="pt-8 md:pt-12 pb-8 md:pb-12 bg-background w-full">
+    <section ref={containerRef} id="commercial-core-capabilities" className="py-16 md:py-24 bg-background w-full">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24">
 
         {/* Header & Tabs */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block font-medium">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             System Capabilities
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-12 text-balance">
+          <h2 className="text-foreground mb-12 text-balance">
             Integrated Enterprise Infrastructure
           </h2>
 

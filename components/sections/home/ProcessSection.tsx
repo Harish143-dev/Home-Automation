@@ -84,10 +84,10 @@ export function ProcessSection() {
   const translateY = -(activeIndex * ITEM_HEIGHT) - (ITEM_HEIGHT / 2);
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-secondary text-white" id="process">
+    <section ref={triggerRef} className="relative w-full text-white" id="process">
       <div
         ref={containerRef}
-        className="w-full h-[100dvh] relative overflow-hidden hidden md:block"
+        className="w-full h-[100dvh] bg-black relative overflow-hidden hidden md:block"
       >
         {/* Fullscreen Background Images */}
         <div className="absolute inset-0 w-full h-full">
@@ -107,7 +107,7 @@ export function ProcessSection() {
 
         {/* Top Centered Title and Description */}
         <div className="absolute top-8 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 z-30 w-full max-w-2xl px-6 md:px-0 text-center pointer-events-none hidden md:block">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 tracking-wide leading-[1.2]">
+          <h2 className="text-white mb-4">
             Execution Architecture
           </h2>
           <p className="text-sm font-light text-white/70 leading-relaxed mx-auto max-w-xl">
@@ -120,7 +120,7 @@ export function ProcessSection() {
 
           {/* Left Spacer */}
           <div className="hidden md:block relative md:w-[35%] lg:w-[40%] pr-8 h-full z-30 pointer-events-none">
-            <p className="absolute top-1/2 -translate-y-1/2 left-0 tracking-widest text-sm md:text-base text-white/50">
+            <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base absolute top-1/2 -translate-y-1/2 left-0 text-white/50">
               The Methodology
             </p>
           </div>
@@ -166,7 +166,7 @@ export function ProcessSection() {
                 ref={textContentRef}
                 className="max-w-lg pl-0 md:pl-8"
               >
-                <h3 className="text-base md:text-lg lg:text-xl font-light tracking-wide mb-4 md:mb-5 text-white leading-snug">
+                <h3 className="mb-4 md:mb-5 text-white">
                   {activeStep.title}
                 </h3>
                 <p className="text-xs md:text-sm font-light text-white/70 leading-relaxed">
@@ -180,7 +180,7 @@ export function ProcessSection() {
       </div>
 
       {/* Mobile Stacked Layout (Visible only on small screens) */}
-      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-secondary gap-12 relative">
+      <div className="md:hidden flex flex-col w-full px-6 py-20 bg-black gap-12 relative">
         {/* Background Image for mobile process section */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <Image
@@ -193,10 +193,10 @@ export function ProcessSection() {
         </div>
 
         <div className="mb-4 relative z-10">
-          <span className="tracking-widest text-sm md:text-base text-white/50 mb-3 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/50 mb-3 block">
             The Methodology
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 tracking-wide leading-[1.2]">
+          <h2 className="text-white mb-4">
             Execution Architecture
           </h2>
           <p className="text-sm font-light text-white/70 leading-relaxed">
@@ -210,10 +210,10 @@ export function ProcessSection() {
               {/* Timeline dot */}
               <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent" />
 
-              <span className="tracking-widest text-sm md:text-base text-accent mb-1 block">
+              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-1 block">
                 PHASE 0{idx + 1}
               </span>
-              <h3 className="text-xl font-light tracking-wide text-white leading-snug">
+              <h3 className="text-white">
                 {step.title}
               </h3>
               <p className="text-sm font-light text-white/60 leading-relaxed mt-2">

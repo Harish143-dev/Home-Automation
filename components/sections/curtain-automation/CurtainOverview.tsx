@@ -46,15 +46,15 @@ export function CurtainOverview() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background pt-12 md:pt-16 pb-16 sm:pb-24 md:pb-32 px-5 sm:px-8 md:px-16 lg:px-24">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-16 lg:gap-24">
         
         {/* Top Header */}
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-          <span className="overview-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base overview-header text-accent mb-4 block">
             The AT Smart Living Standard
           </span>
-          <h2 className="overview-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="overview-header text-foreground text-balance mb-6">
             Why Homeowners Choose Motorized Shades & Curtain Automation
           </h2>
           <p className="overview-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl">
@@ -77,7 +77,7 @@ export function CurtainOverview() {
 
           {/* Text Side */}
           <div className="flex flex-col items-start">
-            <h3 className="overview-content text-2xl md:text-3xl font-light tracking-wide leading-[1.2] text-foreground mb-6">
+            <h3 className="overview-content text-foreground mb-6">
               Convenient Control for Everyday Living
             </h3>
             <p className="overview-content text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed mb-8">

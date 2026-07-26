@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
+import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { Check } from 'lucide-react';
 
 const STEPS = [
@@ -20,9 +21,10 @@ export function AudioVideoProcess() {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const { isReady } = useBreakpoint();
 
   useGSAP(() => {
-    if (prefersReducedMotion || !sectionRef.current || !containerRef.current || !lineRef.current) return;
+    if (!isReady || prefersReducedMotion || !sectionRef.current || !containerRef.current || !lineRef.current) return;
     
     // Header animation
     gsap.fromTo('.process-header',
@@ -57,17 +59,18 @@ export function AudioVideoProcess() {
       
       const dot = step.querySelector('.process-dot');
       const text = step.querySelector('.process-text');
-      const number = step.querySelector('.process-number');
 
       // Highlight active step as we scroll past
       gsap.to(dot, {
         backgroundColor: '#8c1817', // accent color
         borderColor: '#8c1817',
         scale: 1.2,
+        duration: 0.3,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: step,
           start: 'top 60%',
-          end: 'bottom 60%',
+          end: 'top 40%',
           toggleActions: 'play reverse play reverse',
         }
       });
@@ -76,39 +79,29 @@ export function AudioVideoProcess() {
         color: 'var(--foreground)',
         opacity: 1,
         x: 10,
+        duration: 0.3,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: step,
           start: 'top 60%',
-          end: 'bottom 60%',
-          toggleActions: 'play reverse play reverse',
-        }
-      });
-      
-      gsap.to(number, {
-        color: '#8c1817',
-        opacity: 0.1,
-        x: -10,
-        scrollTrigger: {
-          trigger: step,
-          start: 'top 60%',
-          end: 'bottom 60%',
+          end: 'top 40%',
           toggleActions: 'play reverse play reverse',
         }
       });
     });
 
-  }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
+  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-4xl w-full mx-auto flex flex-col md:flex-row gap-16 lg:gap-24">
         
         {/* Left Side: Header Content */}
         <div className="w-full md:w-1/3 flex flex-col items-start md:sticky md:top-32 h-fit">
-          <span className="process-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base process-header text-accent mb-4 block">
             Our Process
           </span>
-          <h2 className="process-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="process-header text-foreground text-balance mb-6">
             A Seamless Journey
           </h2>
           <p className="process-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -142,13 +135,8 @@ export function AudioVideoProcess() {
                   
                   {/* Step Content */}
                   <div className="ml-8 sm:ml-12 relative flex-grow">
-                    {/* Background Number */}
-                    <span className="process-number absolute -top-10 sm:-top-14 -left-4 text-6xl sm:text-7xl font-bold text-black/[0.03] pointer-events-none transition-all duration-300">
-                      {stepNumber}
-                    </span>
-                    
                     {/* Step Title */}
-                    <h3 className="process-text text-xl sm:text-2xl md:text-3xl font-light tracking-wide text-foreground/40 opacity-70 transition-all duration-300 relative z-10">
+                    <h3 className="process-text text-foreground/40 opacity-70 transition-all duration-300 relative z-10">
                       {step}
                     </h3>
                   </div>

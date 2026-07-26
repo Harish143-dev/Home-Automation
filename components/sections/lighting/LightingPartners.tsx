@@ -107,7 +107,7 @@ export default function LightingPartners() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Subtle Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -124,7 +124,7 @@ export default function LightingPartners() {
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Global Partners
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-6">
+          <h2 className="text-foreground mb-6">
             Powered by World-Class Lighting Control Systems
           </h2>
           <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -139,7 +139,7 @@ export default function LightingPartners() {
               key={idx}
               className="lp-brand p-8 rounded-2xl border border-border bg-panel shadow-sm hover:shadow-md hover:border-border/80 transition-all duration-300 flex flex-col items-start text-left"
             >
-              <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-3">
+              <h3 className="text-foreground mb-3">
                 {brand.name}
               </h3>
               <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed">
@@ -153,7 +153,7 @@ export default function LightingPartners() {
         <div className="w-full">
           <div className="lp-header mb-12 flex items-center justify-center gap-4">
             <div className="h-[1px] w-12 bg-accent/50" />
-            <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground text-center">
+            <h3 className="text-foreground text-center">
               Why These Technologies?
             </h3>
             <div className="h-[1px] w-12 bg-accent/50" />
@@ -170,7 +170,7 @@ export default function LightingPartners() {
                   <reason.icon className="w-7 h-7 text-accent relative z-10" strokeWidth={1.2} />
                 </div>
                 
-                <h4 className="text-lg md:text-xl font-medium tracking-wide text-foreground mb-3">
+                <h4 className="text-foreground mb-3">
                   {reason.title}
                 </h4>
                 

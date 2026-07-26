@@ -41,7 +41,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
       { label: 'Audio Video Automation', href: '/audio-video-automation' },
       { label: 'Curtain Automation', href: '/curtain-automation' },
       { label: 'HVAC Automation', href: '#hvac' },
-      { label: 'Security Automation', href: '#security' },
+      { label: 'Security Automation', href: '/security-automation' },
       { label: 'AMC', href: '#amc' },
     ]
   },
@@ -198,9 +198,9 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
               <div key={idx} className="menu-category will-change-transform flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-6 h-[1px] bg-accent/40" />
-                  <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-black/40">
+                  <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-black/40">
                     {category.title}
-                  </h3>
+                  </p>
                 </div>
 
                 <ul className="flex flex-col gap-3">

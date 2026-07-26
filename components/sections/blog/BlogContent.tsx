@@ -32,7 +32,7 @@ export default function BlogContent({ post }: BlogContentProps) {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground py-24 md:py-32 px-6 sm:px-12 md:px-24"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-3xl mx-auto prose-anim text-lg md:text-xl font-light leading-relaxed text-muted-foreground">
         {/* We use standard styling for the raw HTML content injected from the mock data */}

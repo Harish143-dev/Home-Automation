@@ -33,7 +33,7 @@ export default function ArticleGrid() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground py-24 md:py-32 px-6 sm:px-12 md:px-24 border-t border-border"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 border-t border-border"
     >
       <div className="max-w-7xl mx-auto">
         
@@ -62,13 +62,13 @@ export default function ArticleGrid() {
 
                 {/* Content Block */}
                 <div className="flex flex-col gap-4 pl-2 border-l border-transparent transition-colors duration-500 group-hover:border-accent flex-grow">
-                  <div className="flex items-center gap-3 text-[10px] sm:text-xs tracking-[0.2em] uppercase text-muted-foreground">
+                  <div className="flex items-center gap-3 text-[10px] sm:text-xs tracking-[0.2em] text-muted-foreground">
                     <span className="text-accent">{article.category}</span>
                     <span className="w-1 h-1 rounded-full bg-border" />
                     <span>{article.date}</span>
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-light leading-[1.2] tracking-wide text-foreground group-hover:text-accent transition-colors duration-500">
+                  <h3 className="text-foreground group-hover:text-accent transition-colors duration-500">
                     {article.title}
                   </h3>
                   

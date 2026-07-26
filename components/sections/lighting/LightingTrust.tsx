@@ -108,7 +108,7 @@ export default function LightingTrust() {
     <section
       ref={sectionRef}
       id="lighting-trust"
-      className="relative w-full overflow-hidden bg-background pt-20 md:pt-24 pb-8 md:pb-12 text-foreground select-none"
+      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
 
@@ -118,7 +118,7 @@ export default function LightingTrust() {
             <span className="tracking-[0.3em] text-sm md:text-base text-accent mb-4 block">
               Proven Experience
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance">
+            <h2 className="text-foreground text-balance">
               Precision Engineering, At Scale.
             </h2>
           </div>
@@ -145,7 +145,7 @@ export default function LightingTrust() {
         {/* Clients and Accolades */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mt-16 md:mt-24 text-left">
           <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-6">
+            <h3 className="text-foreground mb-6">
               Trusted by the Best
             </h3>
             <p className="text-muted font-light text-base md:text-lg leading-relaxed">
@@ -154,7 +154,7 @@ export default function LightingTrust() {
           </div>
           
           <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-light tracking-wide text-foreground mb-6">
+            <h3 className="text-foreground mb-6">
               Awards & Recognitions
             </h3>
             <ul className="space-y-4">

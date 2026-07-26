@@ -70,16 +70,16 @@ export function CurtainCredentials() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section className="relative bg-background text-foreground pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden border-t border-black/5" ref={containerRef}>
+    <section className="py-16 md:py-24 relative bg-background text-foreground overflow-hidden border-t border-black/5" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
           {/* Sticky Left Column */}
           <div className="w-full lg:w-[40%] xl:w-1/3 lg:sticky lg:top-40 flex flex-col gap-4 z-10">
-            <span className="tracking-widest text-sm md:text-base text-accent block mb-2">
+            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent block mb-2">
               Industry Accolades
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
+            <h2 className="text-foreground">
               Certifications &<br />Awards.
             </h2>
           </div>
@@ -94,7 +94,7 @@ export function CurtainCredentials() {
 
                 <div className="w-16 h-[1px] bg-foreground/20 mb-6 credential-line" />
 
-                <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground mb-4 credential-title">
+                <h3 className="text-foreground mb-4 credential-title">
                   {cred.title}
                 </h3>
 

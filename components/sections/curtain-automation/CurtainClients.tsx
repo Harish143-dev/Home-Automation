@@ -110,13 +110,13 @@ export function CurtainClients() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background pt-8 md:pt-12 pb-8 md:pb-12 px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto mb-16 md:mb-24">
         <div className="max-w-4xl">
-          <span className="client-header-text tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base client-header-text text-accent mb-4 block">
             Prestigious Portfolio
           </span>
-          <h2 className="client-header-text text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-8 text-balance">
+          <h2 className="client-header-text text-foreground mb-8 text-balance">
             Trusted by India's Leading Homeowners & Visionaries
           </h2>
           <p className="client-header-text text-sm sm:text-base md:text-lg font-light tracking-wide text-foreground/70 leading-relaxed text-balance">
@@ -146,10 +146,10 @@ export function CurtainClients() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="text-xl md:text-2xl font-light text-foreground tracking-wide">
+                <h3 className="text-foreground">
                   {client.name}
                 </h3>
-                <p className="text-sm text-accent tracking-widest">
+                <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">
                   {client.type} • {client.location}
                 </p>
               </div>

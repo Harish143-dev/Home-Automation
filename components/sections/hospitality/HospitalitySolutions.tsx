@@ -150,17 +150,17 @@ export function HospitalitySolutions() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-background pt-8 md:pt-12 pb-8 md:pb-12 overflow-hidden text-foreground"
+      className="py-16 md:py-24 relative w-full bg-background overflow-hidden text-foreground"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col gap-16 sm:gap-24">
 
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4 max-w-3xl mx-auto">
 
-          <span className="tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Guest Room Management Systems
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground">
+          <h2 className="text-foreground">
             Guest Room Management Systems (GRMS)
           </h2>
           <p className="text-muted text-base lg:text-lg leading-relaxed font-sans mt-4 max-w-2xl text-center">
@@ -193,7 +193,7 @@ export function HospitalitySolutions() {
                 {/* Content */}
                 <div className="solution-content w-full md:w-1/2 flex flex-col gap-8">
                   <div>
-                    <h3 className="text-3xl lg:text-4xl font-light mb-4 text-foreground">
+                    <h3 className="mb-4 text-foreground">
                       {solution.title}
                     </h3>
                     <p className="text-muted text-base lg:text-lg leading-relaxed font-sans max-w-lg">
@@ -203,7 +203,7 @@ export function HospitalitySolutions() {
 
                   <div className="flex flex-col w-full">
                     {/* List 1 */}
-                      <h4 className="tracking-[0.3em] uppercase text-foreground text-sm mb-4">
+                      <h4 className="text-foreground mb-4">
                         {solution.list1Title}
                       </h4>
                       <SolutionAccordion items={solution.list1} />

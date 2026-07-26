@@ -63,7 +63,7 @@ export function CallToActionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center w-full bg-background overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
+      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -76,14 +76,14 @@ export function CallToActionSection() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="text-sm md:text-base font-normal tracking-widest text-accent">Next Steps</span>
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">Next Steps</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-foreground leading-[1.2] mb-8"
+          className="text-foreground mb-8"
         >
           Ready to Transform <br className="hidden md:block" /> Your Space?
         </h2>
@@ -96,30 +96,17 @@ export function CallToActionSection() {
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
           <Button
-            variant="accent"
+            variant="interactive"
             size="lg"
-            shape="full"
-            className="group relative w-full sm:w-auto overflow-hidden"
+            className="w-full sm:w-auto"
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-[sweep_1s_ease-in-out_forwards]" />
-            <span className="relative z-10">
-              Book Consultation
-            </span>
-            <ArrowRight className="relative z-10 w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            Book Consultation
           </Button>
 
           {/* Secondary CTA */}
-          <Button
-            variant="outline"
-            size="lg"
-            shape="full"
-            className="group w-full sm:w-auto"
-          >
-            <Phone className="w-5 h-5 mr-2 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-            <span>
-              Call Now
-            </span>
-          </Button>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                Call Now
+              </Button>
         </div>
 
       </div>

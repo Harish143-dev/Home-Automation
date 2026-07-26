@@ -85,15 +85,15 @@ export function AudioVideoExperience() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#f8f8f8] py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#f8f8f8] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
-          <span className="experience-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base experience-header text-accent mb-4 block">
             Everyday Living
           </span>
-          <h2 className="experience-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className="experience-header text-foreground text-balance mb-6">
             Entertainment Designed for Everyday Living
           </h2>
           <p className="experience-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -121,7 +121,7 @@ export function AudioVideoExperience() {
                 </div>
                 
                 <div className={`flex flex-col gap-3 ${isLarge ? 'md:pr-12 lg:pr-24' : ''}`}>
-                  <h3 className="text-xl sm:text-2xl font-medium tracking-wide text-foreground group-hover:text-accent transition-colors duration-300">
+                  <h3 className="text-foreground group-hover:text-accent transition-colors duration-300">
                     {exp.title}
                   </h3>
                   <p className="text-sm sm:text-base font-light text-foreground/70 leading-relaxed transition-colors duration-300">

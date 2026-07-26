@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
+import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { ChevronDown, Speaker, Tv, Film, Server, ArrowUpDown, Projector } from 'lucide-react';
 
 const TECHNOLOGIES = [
@@ -41,10 +42,11 @@ const TECHNOLOGIES = [
 export function AudioVideoTech() {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const { isReady } = useBreakpoint();
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   useGSAP(() => {
-    if (prefersReducedMotion || !sectionRef.current) return;
+    if (!isReady || prefersReducedMotion || !sectionRef.current) return;
     
     // Header animation
     gsap.fromTo('.tech-header',
@@ -70,21 +72,21 @@ export function AudioVideoTech() {
       }
     );
 
-  }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
+  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
         
         {/* Left Side: Header Content */}
         <div className="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32 h-fit">
-          <span className="tech-header tracking-widest text-sm md:text-base text-accent mb-4 block">
+          <span className={`tracking-[0.3em] text-xs sm:text-sm md:text-base tech-header text-accent mb-4 block ${!prefersReducedMotion && 'opacity-0'}`}>
             Tech Section
           </span>
-          <h2 className="tech-header text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground text-balance mb-6">
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide tech-header text-foreground text-balance mb-6 ${!prefersReducedMotion && 'opacity-0'}`}>
             Audio & Video Technologies
           </h2>
-          <p className="tech-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
+          <p className={`tech-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance ${!prefersReducedMotion && 'opacity-0'}`}>
             We work with trusted global technology partners to deliver reliable audio and video solutions for every home.
           </p>
         </div>
@@ -99,6 +101,8 @@ export function AudioVideoTech() {
               <div 
                 key={idx}
                 className={`tech-item rounded-[2rem] overflow-hidden transition-all duration-500 border ${
+                  !prefersReducedMotion ? 'opacity-0' : ''
+                } ${
                   isOpen 
                     ? 'bg-black/[0.03] border-black/10 shadow-lg shadow-black/[0.02]' 
                     : 'bg-white border-black/5 hover:border-black/10'

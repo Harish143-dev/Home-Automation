@@ -45,7 +45,7 @@ export default function LightingIntegration() {
   };
 
   return (
-    <section ref={containerRef} id="lighting-integration" className="pt-16 pb-16 md:pt-24 md:pb-24 bg-background relative z-10 overflow-hidden flex flex-col">
+    <section ref={containerRef} id="lighting-integration" className="py-16 md:py-24 bg-background relative z-10 overflow-hidden flex flex-col">
       {/* Subtle Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
         <filter id="noise-integration-redesign">
@@ -55,10 +55,10 @@ export default function LightingIntegration() {
       </svg>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16 relative z-10">
-        <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light uppercase">
+        <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light ">
           Integration
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide leading-[1.2] text-foreground mb-4 max-w-3xl">
+        <h2 className="text-foreground mb-4 max-w-3xl">
           One Intelligent System. Complete Home Control.
         </h2>
         <p className="text-base md:text-lg text-muted max-w-2xl font-sans leading-relaxed">
@@ -157,7 +157,7 @@ export default function LightingIntegration() {
                   "absolute bottom-0 left-0 right-0 p-5 md:p-8 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-700",
                   isCenter ? "opacity-100" : "opacity-0"
                 )}>
-                  <h3 className="text-2xl md:text-3xl font-light tracking-wide leading-[1.2] text-white drop-shadow-md">
+                  <h3 className="text-white drop-shadow-md">
                     {integration.title}
                   </h3>
                 </div>

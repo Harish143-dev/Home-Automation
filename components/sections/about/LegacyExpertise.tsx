@@ -47,7 +47,7 @@ export default function LegacyExpertise() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-background text-foreground py-24 md:py-32 px-6 sm:px-12 md:px-24 border-t border-border"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 border-t border-border"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
@@ -57,7 +57,7 @@ export default function LegacyExpertise() {
                 {metric.value}
               </span>
               <div className="h-[1px] w-full bg-border mt-4 mb-2" />
-              <h3 className="text-xl md:text-2xl font-light text-foreground tracking-wide leading-tight">
+              <h3 className="text-foreground">
                 {metric.label}
               </h3>
               <p className="text-sm md:text-base font-light text-muted-foreground mt-2 max-w-sm">
