@@ -5,6 +5,10 @@ import { SecurityEcosystem } from "@/components/sections/security-automation/Sec
 import { SecurityAreas } from "@/components/sections/security-automation/SecurityAreas";
 import { SecurityScenarios } from "@/components/sections/security-automation/SecurityScenarios";
 import { SecurityControls } from "@/components/sections/security-automation/SecurityControls";
+import { SecurityWhyChooseUs } from "@/components/sections/security-automation/SecurityWhyChooseUs";
+import { SecurityAboutATPL } from "@/components/sections/security-automation/SecurityAboutATPL";
+import { SecurityExperienceCenters } from "@/components/sections/security-automation/SecurityExperienceCenters";
+import { SecurityCTA } from "@/components/sections/security-automation/SecurityCTA";
 import { SecurityTrust } from "@/components/sections/security-automation/SecurityTrust";
 import { SecurityClients } from "@/components/sections/security-automation/SecurityClients";
 import { SecurityCredentials } from "@/components/sections/security-automation/SecurityCredentials";
@@ -27,6 +31,10 @@ export default function SecurityAutomationPage() {
       <SecurityAreas />
       <SecurityScenarios />
       <SecurityControls />
+      <SecurityWhyChooseUs />
+      <SecurityAboutATPL />
+      <SecurityExperienceCenters />
+      <SecurityCTA />
     </main>
   );
 }
