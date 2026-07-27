@@ -101,7 +101,7 @@ export default function CareersHero() {
           <Link
             href="#open-positions"
             className={cn(
-              buttonVariants({ variant: "glass", size: "lg", shape: "full" }),
+              buttonVariants({ variant: "glass", size: "lg", shape: "pill" }),
               "group overflow-hidden"
             )}
           >
