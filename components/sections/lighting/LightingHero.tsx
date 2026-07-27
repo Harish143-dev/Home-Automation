@@ -101,7 +101,7 @@ export default function LightingHero() {
           <Link
             href="/contact"
             className={cn(
-              buttonVariants({ variant: "accent", size: "lg", shape: "full" }),
+              buttonVariants({ variant: "accent", size: "lg", shape: "pill" }),
               "group overflow-hidden w-full sm:w-auto"
             )}
           >
@@ -113,7 +113,7 @@ export default function LightingHero() {
           <Link
             href="/experience-center"
             className={cn(
-              buttonVariants({ variant: "glass", size: "lg", shape: "full" }),
+              buttonVariants({ variant: "glass", size: "lg", shape: "pill" }),
               "group overflow-hidden w-full sm:w-auto"
             )}
           >
