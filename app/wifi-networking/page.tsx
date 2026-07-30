@@ -1,8 +1,9 @@
 import { WifiNetworkingHero } from "@/components/sections/wifi-networking/WifiNetworkingHero";
-import { WifiNetworkingIntro } from "@/components/sections/wifi-networking/WifiNetworkingIntro";
 import { WifiNetworkingTrust } from "@/components/sections/wifi-networking/WifiNetworkingTrust";
+import { WifiNetworkingWhyChooseUs } from "@/components/sections/wifi-networking/WifiNetworkingWhyChooseUs";
 import { WifiNetworkingClients } from "@/components/sections/wifi-networking/WifiNetworkingClients";
 import { WifiNetworkingCredentials } from "@/components/sections/wifi-networking/WifiNetworkingCredentials";
+import { WifiNetworkingIntro } from "@/components/sections/wifi-networking/WifiNetworkingIntro";
 import { WifiNetworkingFeatures } from "@/components/sections/wifi-networking/WifiNetworkingFeatures";
 import { WifiNetworkingComparison } from "@/components/sections/wifi-networking/WifiNetworkingComparison";
 import { WifiNetworkingPartners } from "@/components/sections/wifi-networking/WifiNetworkingPartners";
@@ -25,6 +26,7 @@ export default function WifiNetworkingPage() {
       <WifiNetworkingFeatures />
       <WifiNetworkingComparison />
       <WifiNetworkingPartners />
+      <WifiNetworkingWhyChooseUs />
       <WifiNetworkingExperienceCenters />
       <WifiNetworkingCTA />
     </main>

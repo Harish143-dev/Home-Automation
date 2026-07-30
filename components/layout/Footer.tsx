@@ -13,6 +13,7 @@ const FOOTER_LINKS = {
     { label: 'Climate Control', href: '#hvac' },
     { label: 'Smart Security', href: '/security-automation' },
     { label: 'Wi-Fi & Networking', href: '/wifi-networking' },
+    { label: 'Public Area Automation', href: '/public-area-automation' },
   ],
   solutions: [
     { label: 'Residential', href: '/residential' },

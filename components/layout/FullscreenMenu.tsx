@@ -43,6 +43,7 @@ const CATEGORIZED_LINKS: MenuCategory[] = [
       { label: 'HVAC Automation', href: '#hvac' },
       { label: 'Security Automation', href: '/security-automation' },
       { label: 'Wi-Fi & Networking', href: '/wifi-networking' },
+      { label: 'Public Area Automation', href: '/public-area-automation' },
       { label: 'AMC', href: '#amc' },
     ]
   },
