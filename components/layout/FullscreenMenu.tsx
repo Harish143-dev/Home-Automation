@@ -186,9 +186,17 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                       <div key={subCategory.id} className="flex flex-col">
                         <div className="flex items-center gap-3 mb-4 xl:mb-6">
                           <div className="w-4 h-[1px] bg-accent/40" />
-                          <h4 className="text-base xl:text-lg font-medium tracking-wide text-black">
-                            {subCategory.label}
-                          </h4>
+                          {subCategory.href ? (
+                            <Link href={subCategory.href} onClick={(e) => handleLinkClick(e, subCategory.href)} className="group inline-flex items-center">
+                              <h4 className="text-base xl:text-lg font-medium tracking-wide text-black transition-colors group-hover:text-accent">
+                                {subCategory.label}
+                              </h4>
+                            </Link>
+                          ) : (
+                            <h4 className="text-base xl:text-lg font-medium tracking-wide text-black">
+                              {subCategory.label}
+                            </h4>
+                          )}
                         </div>
                         <ul className="flex flex-col gap-2 xl:gap-4">
                           {subCategory.items?.map(link => (
@@ -292,6 +300,17 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                                 className={`grid transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${openAccordions.includes(subCategory.id) ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
                               >
                                 <ul className="overflow-hidden flex flex-col gap-4 pl-4 border-l border-black/10">
+                                  {subCategory.href && (
+                                    <li className="mb-2">
+                                      <Link
+                                        href={subCategory.href}
+                                        onClick={(e) => handleLinkClick(e, subCategory.href)}
+                                        className="text-base font-medium tracking-wide text-accent active:text-accent block py-1"
+                                      >
+                                        Explore {subCategory.label} &rarr;
+                                      </Link>
+                                    </li>
+                                  )}
                                   {subCategory.items.map(link => (
                                     <li key={link.id}>
                                       <Link

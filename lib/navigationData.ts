@@ -18,6 +18,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
       {
         id: 'future-residential',
         label: 'Residential',
+        href: '/residential',
         items: [
           { id: 'res-lighting', label: 'Lighting Automation', href: '/lighting-automation' },
           { id: 'res-shades', label: 'Motorized Shades & Curtain Automation', href: '/curtain-automation' },
@@ -30,6 +31,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
       {
         id: 'future-hospitality',
         label: 'Hospitality',
+        href: '/hospitality',
         items: [
           { id: 'hosp-public', label: 'Public areas', href: '/public-area-automation' },
           { id: 'hosp-boardroom', label: 'Boardroom and Meeting Room', href: '/boardroom-automation' },
@@ -42,6 +44,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
       {
         id: 'future-commercial',
         label: 'Commercial',
+        href: '/commercial',
         items: [
           { id: 'comm-restaurants', label: 'Restaurants', href: '#comm-restaurants' },
           { id: 'comm-offices', label: 'offices', href: '#comm-offices' },
@@ -60,10 +63,10 @@ export const MAIN_NAVIGATION: NavLink[] = [
     items: [
       { id: 'disc-lighting', label: 'Lighting Automation', href: '/lighting-automation' },
       { id: 'disc-av', label: 'Audio Video Automation', href: '/audio-video-automation' },
-      { id: 'disc-shades', label: 'Shades Automation', href: '/curtain-automation' },
-      { id: 'disc-hvac', label: 'HVAC Automation', href: '#hvac' },
+      { id: 'disc-curtain', label: 'Curtain Automation', href: '/curtain-automation' },
       { id: 'disc-security', label: 'Security Automation', href: '/security-automation' },
-      { id: 'disc-amc', label: 'AMC', href: '#amc' },
+      { id: 'disc-wifi', label: 'Wi-Fi & Networking', href: '/wifi-networking' },
+      { id: 'disc-mdu', label: 'MDU Automation', href: '/mdu-automation' },
     ]
   },
   {
