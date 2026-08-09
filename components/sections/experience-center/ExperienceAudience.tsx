@@ -53,21 +53,21 @@ export function ExperienceAudience() {
         duration: 0.8,
         ease: "power3.out"
       })
-      .to(".audience-card", {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out"
-      }, "-=0.4");
+        .to(".audience-card", {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out"
+        }, "-=0.4");
     },
     { scope: sectionRef, dependencies: [prefersReducedMotion] }
   );
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 w-full bg-background text-[#2d2a26] relative z-10">
+    <section ref={sectionRef} className="py-12 md:py-16 w-full bg-background text-[#2d2a26] relative z-10">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 flex flex-col items-center">
-        
+
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-12 lg:mb-16 audience-heading opacity-0 translate-y-10">
           <div className="h-[1px] w-8 bg-accent/40" />
@@ -78,7 +78,7 @@ export function ExperienceAudience() {
         </div>
 
         {/* Huge Title */}
-        <h2 className="text-center text-balance max-w-4xl mb-20 audience-heading opacity-0 translate-y-10">
+        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-center text-balance max-w-4xl mb-20 audience-heading opacity-0 translate-y-10">
           Built for Homeowners, Architects, Designers & Developers
         </h2>
 
@@ -89,7 +89,7 @@ export function ExperienceAudience() {
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/5 flex items-center justify-center mb-6 md:mb-8 text-black/80 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                 <item.icon strokeWidth={1.5} className="w-8 h-8 md:w-10 md:h-10" />
               </div>
-              <h4 className="text-black mb-4">
+              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-black mb-4">
                 {item.title}
               </h4>
               <p className="text-sm md:text-base text-black/60 leading-relaxed font-light tracking-wide">

@@ -34,7 +34,7 @@ export function AudioVideoCTA() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
+      className="py-12 md:py-16 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
     >
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
@@ -50,7 +50,7 @@ export function AudioVideoCTA() {
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
-        <h2 className="cta-content-anim text-foreground text-balance mb-8">
+        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cta-content-anim text-foreground text-balance mb-8">
           Bring Every Moment to Life with <br className="hidden md:block" /> Intelligent Audio & Video Integration
         </h2>
 
@@ -70,8 +70,8 @@ export function AudioVideoCTA() {
           </Link>
           <Link href="/contact" className="w-full sm:w-auto">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                Talk to an AV Expert
-              </Button>
+              Talk to an AV Expert
+            </Button>
           </Link>
         </div>
 

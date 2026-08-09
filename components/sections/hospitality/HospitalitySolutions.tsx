@@ -80,16 +80,16 @@ function SolutionAccordion({ items }: { items: { title: string; description: str
               )}>
                 {item.title}
               </span>
-              <svg 
-                className={cn("w-4 h-4 shrink-0 transition-transform duration-300 text-accent/50 group-hover:text-accent", isOpen && "rotate-180")} 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                className={cn("w-4 h-4 shrink-0 transition-transform duration-300 text-accent/50 group-hover:text-accent", isOpen && "rotate-180")}
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div 
+            <div
               className={cn(
                 "grid transition-all duration-300 ease-in-out",
                 isOpen ? "grid-rows-[1fr] opacity-100 pb-4" : "grid-rows-[0fr] opacity-0"
@@ -150,7 +150,7 @@ export function HospitalitySolutions() {
   return (
     <section
       ref={containerRef}
-      className="py-16 md:py-24 relative w-full bg-background overflow-hidden text-foreground"
+      className="py-12 md:py-16 relative w-full bg-background overflow-hidden text-foreground"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col gap-16 sm:gap-24">
 
@@ -160,7 +160,7 @@ export function HospitalitySolutions() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Guest Room Management Systems
           </span>
-          <h2 className="text-foreground">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
             Guest Room Management Systems (GRMS)
           </h2>
           <p className="text-muted text-base lg:text-lg leading-relaxed font-sans mt-4 max-w-2xl text-center">
@@ -193,7 +193,7 @@ export function HospitalitySolutions() {
                 {/* Content */}
                 <div className="solution-content w-full md:w-1/2 flex flex-col gap-8">
                   <div>
-                    <h3 className="mb-4 text-foreground">
+                    <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-4 text-foreground">
                       {solution.title}
                     </h3>
                     <p className="text-muted text-base lg:text-lg leading-relaxed font-sans max-w-lg">
@@ -203,10 +203,10 @@ export function HospitalitySolutions() {
 
                   <div className="flex flex-col w-full">
                     {/* List 1 */}
-                      <h4 className="text-foreground mb-4">
-                        {solution.list1Title}
-                      </h4>
-                      <SolutionAccordion items={solution.list1} />
+                    <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+                      {solution.list1Title}
+                    </h4>
+                    <SolutionAccordion items={solution.list1} />
                   </div>
 
                   <Link

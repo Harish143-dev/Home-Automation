@@ -72,22 +72,22 @@ export function WifiNetworkingFeatures() {
     });
 
     scheduleScrollRefresh();
-    
+
     return () => {
       mm.revert(); // Clean up matchMedia on unmount
     };
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-16 md:py-32 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
+    <section ref={containerRef} className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
       <div className="max-w-7xl mx-auto flex flex-col gap-16 lg:gap-24 relative pb-[10vh]">
-        
+
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4">
-          <h5 className="text-accent mb-4 block">
+          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-4 block">
             Connected Living
           </h5>
-          <h2 className="text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
             A Connected Home, Designed Around You
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
@@ -98,16 +98,16 @@ export function WifiNetworkingFeatures() {
         {/* Stacking Cards Container */}
         <div className="flex flex-col gap-12 lg:gap-0 mt-8 lg:mt-16 w-full relative z-20">
           {FEATURES.map((feature, idx) => (
-            <div 
+            <div
               key={feature.id}
               ref={el => { cardsRef.current[idx] = el; }}
               // In desktop, cards stick to the top. In mobile, they just stack with gap.
               className="lg:sticky lg:top-[20vh] w-full lg:h-[60vh] bg-panel rounded-[2rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl shadow-black/5 origin-top border border-black/5"
             >
-              
+
               {/* Left Side: Image */}
               <div className="w-full lg:w-1/2 h-[300px] lg:h-full relative shrink-0">
-                <NextImage 
+                <NextImage
                   src={feature.image}
                   alt={feature.title}
                   fill
@@ -122,11 +122,11 @@ export function WifiNetworkingFeatures() {
                   <span className="flex items-center justify-center w-12 h-12 rounded-full bg-background border border-black/5 text-foreground font-display text-xl shrink-0">
                     0{idx + 1}
                   </span>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight text-foreground text-balance">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground text-balance">
                     {feature.title}
                   </h3>
                 </div>
-                
+
                 <p className="text-base md:text-lg lg:text-xl font-light text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>

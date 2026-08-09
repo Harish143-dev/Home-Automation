@@ -31,19 +31,19 @@ export default function ArticleGrid() {
   }, { scope: sectionRef });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 border-t border-border"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 border-t border-border"
     >
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Uniform Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {BLOG_POSTS.map((article) => {
             return (
-              <Link 
+              <Link
                 href={`/blog/${article.slug}`}
-                key={article.id} 
+                key={article.id}
                 className="article-card group cursor-pointer flex flex-col gap-6 block"
               >
                 {/* Image Wrapper */}
@@ -67,11 +67,11 @@ export default function ArticleGrid() {
                     <span className="w-1 h-1 rounded-full bg-border" />
                     <span>{article.date}</span>
                   </div>
-                  
-                  <h3 className="text-foreground group-hover:text-accent transition-colors duration-500">
+
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-500">
                     {article.title}
                   </h3>
-                  
+
                   <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed line-clamp-3">
                     {article.excerpt}
                   </p>

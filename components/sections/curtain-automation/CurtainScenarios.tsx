@@ -50,7 +50,7 @@ export function CurtainScenarios() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header Animation
     gsap.fromTo('.scenario-header',
       { opacity: 0, y: 30 },
@@ -65,7 +65,7 @@ export function CurtainScenarios() {
 
     // Modern Stacking Animation
     const cards = gsap.utils.toArray('.scenario-stack-card') as HTMLElement[];
-    
+
     cards.forEach((card: HTMLElement, index: number) => {
       // We animate the scaling of the card as the NEXT card scrolls up over it
       if (index < cards.length - 1) {
@@ -87,15 +87,15 @@ export function CurtainScenarios() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#fcfcfc] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-[#fcfcfc] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base scenario-header text-accent mb-4 block">
             Seamless Integration
           </span>
-          <h2 className="scenario-header text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl scenario-header text-foreground text-balance mb-6">
             Experience Smart Living Scenarios
           </h2>
           <p className="scenario-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -106,14 +106,14 @@ export function CurtainScenarios() {
         {/* Stacking Cards Container */}
         <div className="scenario-stack-container relative flex flex-col gap-12 lg:gap-24 pb-24">
           {SCENARIOS.map((scenario, idx) => (
-            <div 
+            <div
               key={idx}
               className="scenario-stack-card sticky top-[15vh] lg:top-[20vh] w-full max-w-5xl mx-auto min-h-[500px] lg:h-[60vh] bg-background rounded-[2rem] shadow-xl border border-black/10 flex flex-col lg:flex-row overflow-hidden will-change-transform"
               style={{ zIndex: idx }}
             >
               {/* Image Side (Left) */}
               <div className="relative w-full lg:w-1/2 h-64 lg:h-full bg-black/5 shrink-0 overflow-hidden">
-                <NextImage 
+                <NextImage
                   src={scenario.image}
                   alt={scenario.title}
                   fill
@@ -122,17 +122,17 @@ export function CurtainScenarios() {
                 {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/5" />
               </div>
-              
+
               {/* Content Side (Right) */}
               <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-16 w-full lg:w-1/2 h-full bg-background">
                 <div className="w-12 h-12 rounded-2xl bg-accent/5 flex items-center justify-center mb-8 shrink-0">
                   <span className="text-accent font-medium text-lg">{idx + 1}</span>
                 </div>
-                
-                <h3 className="text-foreground mb-8">
+
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8">
                   {scenario.title}
                 </h3>
-                
+
                 <ul className="flex flex-col gap-5 w-full">
                   {scenario.items.map((item, itemIdx) => (
                     <li key={itemIdx} className="flex items-start gap-4">

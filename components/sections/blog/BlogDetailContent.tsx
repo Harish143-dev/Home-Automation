@@ -16,7 +16,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
         {/* Left Sidebar: Table of Contents */}
         <div className="lg:col-span-4 lg:sticky lg:top-32 hidden md:block">
           <div className="bg-transparent border border-border rounded-2xl p-6">
-            <h3 className="text-foreground mb-6">
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
               Table of Contents
             </h3>
             <ul className="flex flex-col gap-4 text-sm font-light text-muted-foreground">
@@ -45,7 +45,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
           
           {/* Key Takeaways */}
           <div className="bg-transparent border border-border rounded-2xl p-8">
-            <h3 className="text-foreground mb-4">Key Takeaways</h3>
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">Key Takeaways</h3>
             <ul className="flex flex-col gap-3 text-muted-foreground font-light text-sm md:text-base leading-relaxed list-disc list-inside">
               <li>Lighting is a fundamental architectural element, not just functional.</li>
               <li>Human-centric lighting aligns indoor environments with circadian rhythms.</li>
@@ -64,14 +64,14 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
 
           {/* FAQ Section */}
           <div className="flex flex-col gap-6">
-            <h3 className="text-foreground">Frequently Asked Questions</h3>
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Frequently Asked Questions</h3>
             <div className="flex flex-col gap-4">
               {[
                 { q: "How does human-centric lighting work?", a: "It adjusts color temperature and intensity throughout the day to mimic natural sunlight, supporting your natural circadian rhythm." },
                 { q: "Can these systems be retrofitted?", a: "Yes, many modern automation systems offer wireless or minimally invasive retrofit options for existing homes." }
               ].map((faq, idx) => (
                 <div key={idx} className="bg-transparent border border-border rounded-xl p-6">
-                  <h4 className="text-foreground mb-2">{faq.q}</h4>
+                  <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-2">{faq.q}</h4>
                   <p className="text-sm font-light text-muted-foreground">{faq.a}</p>
                 </div>
               ))}
@@ -99,7 +99,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
               AT
             </div>
             <div className="flex flex-col text-center sm:text-left">
-              <h4 className="text-foreground mb-2">ATPL Team</h4>
+              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-2">ATPL Team</h4>
               <p className="text-sm font-light text-muted-foreground leading-relaxed mb-4">
                 The ATPL Team consists of industry-leading architectural technologists, lighting designers, and luxury automation engineers dedicated to redefining modern living spaces.
               </p>

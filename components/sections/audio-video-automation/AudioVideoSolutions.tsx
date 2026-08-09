@@ -91,7 +91,7 @@ export function AudioVideoSolutions() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto relative z-10">
 
         {/* Section Header */}
@@ -99,7 +99,7 @@ export function AudioVideoSolutions() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base solution-header text-accent mb-4 block">
             Service Section
           </span>
-          <h2 className="solution-header text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl solution-header text-foreground text-balance mb-6">
             Our Audio & Video Integration Solutions
           </h2>
           <p className="solution-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -121,7 +121,7 @@ export function AudioVideoSolutions() {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <h4 className="text-foreground group-hover:text-accent transition-colors duration-300">
+                  <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                     {solution.title}
                   </h4>
                   <p className="text-sm font-light text-foreground/70 leading-relaxed transition-colors duration-300">

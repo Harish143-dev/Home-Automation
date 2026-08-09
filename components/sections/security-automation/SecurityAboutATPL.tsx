@@ -31,14 +31,14 @@ export function SecurityAboutATPL() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative">
-        
+
         <div ref={textRef} className="flex flex-col items-center gap-8">
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground text-balance">
             Why Choose Anusha Technovision
           </h2>
-          
+
           <p className="text-lg md:text-2xl font-light text-muted-foreground leading-relaxed text-balance">
             For over 24 years, ATPL has been delivering intelligent lighting control and home automation solutions that combine world-class technology, expert execution, and dependable after-sales support. Trusted by homeowners across India, we create smart homes that are reliable, and built for the future.
           </p>

@@ -119,16 +119,16 @@ export function SecurityFeatures() {
   return (
     <section
       ref={containerRef}
-      className="pt-16 md:pt-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5"
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mb-16 md:mb-24 flex flex-col items-center">
-          <h5 className="text-accent mb-6 block">
+          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-6 block">
             Core Capabilities
           </h5>
-          <h2 className="text-foreground text-balance mb-8">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-8">
             Smart Security Solutions for Modern Homes
           </h2>
           <p className="text-lg md:text-xl font-light tracking-wide text-muted leading-relaxed text-balance">

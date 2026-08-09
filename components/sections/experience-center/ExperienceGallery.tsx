@@ -85,7 +85,7 @@ export function ExperienceGallery() {
   return (
     <section
       ref={containerRef}
-      className="bg-secondary pt-10 text-white relative w-full overflow-hidden"
+      className="py-12 md:py-16 bg-secondary text-white relative w-full overflow-hidden"
     >
       <div className={`w-full flex flex-col justify-center ${prefersReducedMotion ? 'py-24' : 'h-screen'}`}>
 
@@ -98,7 +98,7 @@ export function ExperienceGallery() {
                 Gallery
               </span>
             </div>
-            <h2 className="text-white">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
               Step Inside Our<br />Experience Centres
             </h2>
           </div>

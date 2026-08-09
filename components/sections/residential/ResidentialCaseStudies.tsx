@@ -140,7 +140,7 @@ export function ResidentialCaseStudies() {
   const activeData = PROJECTS_DATA[activeIndex];
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-background text-foreground">
+    <section ref={triggerRef} className="py-12 md:py-16 relative w-full bg-background text-foreground">
       {/* 
         This is the container that gets pinned.
         It takes exactly 100vh.
@@ -154,7 +154,7 @@ export function ResidentialCaseStudies() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-3 block">
             See Smart Living in Action
           </span>
-          <h2 className="text-foreground mb-3">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
             Proven in India’s Most Exclusive Residences.
           </h2>
           <p className="text-xs lg:text-sm font-light text-foreground/70 leading-[1.8] mb-8 md:mb-10">
@@ -230,7 +230,7 @@ export function ResidentialCaseStudies() {
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/50 mb-2 block">
                 Residential
               </span>
-              <h3 className="mb-3">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-3">
                 {activeData.title}
               </h3>
               <p className="text-xs md:text-sm font-light text-white/80 leading-[1.8] mb-6 max-w-sm">
@@ -239,8 +239,8 @@ export function ResidentialCaseStudies() {
 
               <Link href={activeData.link}>
                 <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-                Learn More
-              </Button>
+                  Learn More
+                </Button>
               </Link>
             </div>
           </div>
@@ -248,12 +248,12 @@ export function ResidentialCaseStudies() {
       </div>
 
       {/* Mobile Stacked Layout */}
-      <div className="md:hidden flex flex-col w-full bg-background py-16 px-6 gap-12">
+      <div className="md:hidden flex flex-col w-full bg-background py-12 px-6 gap-12">
         <div className="flex flex-col mb-2">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-3 block">
             See Smart Living in Action
           </span>
-          <h2 className="text-foreground mb-3">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
             Proven in India’s Most Exclusive Residences.
           </h2>
           <p className="text-xs font-light text-foreground/70 leading-[1.8]">
@@ -287,7 +287,7 @@ export function ResidentialCaseStudies() {
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-2 block">
                 {project.number}
               </span>
-              <h3 className="text-foreground mb-2">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-2">
                 {project.title}
               </h3>
               <p className="text-xs font-light text-muted leading-[1.8] mb-5">
@@ -296,8 +296,8 @@ export function ResidentialCaseStudies() {
 
               <Link href={project.link}>
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                View Case Study
-              </Button>
+                  View Case Study
+                </Button>
               </Link>
             </div>
           </div>

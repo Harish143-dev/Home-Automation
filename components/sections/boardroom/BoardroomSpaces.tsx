@@ -50,11 +50,11 @@ export function BoardroomSpaces() {
 
         gsap.to(card, {
           scale: 0.9,
-          ease:"none",
+          ease: "none",
           scrollTrigger: {
             trigger: cardsRef.current[index + 1], // The card that comes next
-            start:"top bottom", // When the next card enters the bottom of the screen
-            end:"top top", // When the next card reaches the top (covering the current one)
+            start: "top bottom", // When the next card enters the bottom of the screen
+            end: "top top", // When the next card reaches the top (covering the current one)
             scrub: true,
           }
         });
@@ -62,22 +62,22 @@ export function BoardroomSpaces() {
     });
 
     scheduleScrollRefresh();
-    
+
     return () => {
       mm.revert(); // Clean up matchMedia on unmount
     };
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-16 md:py-32 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
+    <section ref={containerRef} className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
       <div className="max-w-7xl mx-auto flex flex-col gap-16 lg:gap-24 relative pb-[10vh]">
-        
+
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4">
           <span className="text-accent mb-4 block tracking-[0.1em]">
             Versatile Environments
           </span>
-          <h2 className="text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
             Meeting Experiences Designed for Every Business Need
           </h2>
         </div>
@@ -85,15 +85,15 @@ export function BoardroomSpaces() {
         {/* Stacking Cards Container */}
         <div className="flex flex-col gap-12 lg:gap-0 mt-8 lg:mt-16 w-full relative z-20">
           {SPACES.map((space, idx) => (
-            <div 
+            <div
               key={space.id}
               ref={el => { cardsRef.current[idx] = el; }}
               className="lg:sticky lg:top-[20vh] w-full lg:h-[60vh] bg-panel rounded-[2rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl shadow-black/5 origin-top border border-black/5"
             >
-              
+
               {/* Left Side: Image */}
               <div className="w-full lg:w-1/2 h-[300px] lg:h-full relative shrink-0">
-                <NextImage 
+                <NextImage
                   src={space.image}
                   alt={space.title}
                   fill
@@ -108,11 +108,11 @@ export function BoardroomSpaces() {
                   <span className="flex items-center justify-center w-12 h-12 rounded-full bg-background border border-black/5 text-foreground font-display text-xl shrink-0">
                     0{idx + 1}
                   </span>
-                  <h3 className="text-foreground text-balance">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
                     {space.title}
                   </h3>
                 </div>
-                
+
                 <p className="text-base md:text-lg lg:text-xl font-light text-muted-foreground leading-relaxed">
                   {space.description}
                 </p>

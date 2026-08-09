@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useRef } from "react";
-import { 
-  Lock, 
-  BellRing, 
-  Cctv, 
-  Activity, 
-  Scan, 
-  ShieldAlert, 
-  Flame, 
+import {
+  Lock,
+  BellRing,
+  Cctv,
+  Activity,
+  Scan,
+  ShieldAlert,
+  Flame,
   AlertCircle,
   Smartphone
 } from "lucide-react";
@@ -82,15 +82,15 @@ export function SecurityEcosystem() {
   }, { scope: containerRef, dependencies: [isReady] });
 
   return (
-    <section ref={containerRef} className={`py-16 md:py-24 w-full px-6 md:px-12 lg:px-24 bg-background overflow-hidden transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
+    <section ref={containerRef} className={`py-12 md:py-16 w-full px-6 md:px-12 lg:px-24 bg-background overflow-hidden transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24 z-10 relative">
-          <h5 className="text-accent mb-4 block">
+          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-4 block">
             Centralized Control
           </h5>
-          <h2 className="text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
             One Intelligent Security Ecosystem
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl">

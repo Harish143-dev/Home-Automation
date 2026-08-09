@@ -91,35 +91,35 @@ export function CommercialIndustries() {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-16 bg-background relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 w-full">
         <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 industry-header">
-        <div>
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
-            Operational Scales
-          </span>
-          <h2 className="text-foreground mb-4">
-            Sectors of Influence
-          </h2>
-        </div>
+          <div>
+            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
+              Operational Scales
+            </span>
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+              Sectors of Influence
+            </h2>
+          </div>
 
-        {/* Navigation Buttons */}
-        <div className="hidden md:flex gap-4">
-          <button
-            onClick={() => scroll("left")}
-            className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
+          {/* Navigation Buttons */}
+          <div className="hidden md:flex gap-4">
+            <button
+              onClick={() => scroll("left")}
+              className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-surface-darker transition-colors"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
         <div
@@ -127,32 +127,32 @@ export function CommercialIndustries() {
           className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 gap-6"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-        {INDUSTRIES.map((industry) => (
-          <div
-            key={industry.id}
-            className="industry-card flex-none p-2 w-[85vw] sm:w-[350px] md:w-[400px] snap-start group cursor-pointer"
-          >
-            <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface-darker mb-6">
-              <Image
-                src={industry.image}
-                alt={industry.title}
-                fill
-                sizes="(max-width: 768px) 85vw, 400px"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+          {INDUSTRIES.map((industry) => (
+            <div
+              key={industry.id}
+              className="industry-card flex-none p-2 w-[85vw] sm:w-[350px] md:w-[400px] snap-start group cursor-pointer"
+            >
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface-darker mb-6">
+                <Image
+                  src={industry.image}
+                  alt={industry.title}
+                  fill
+                  sizes="(max-width: 768px) 85vw, 400px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
+                {industry.title}
+              </h3>
+
+              <p className="text-sm md:text-base leading-relaxed font-light tracking-wide text-muted">
+                {industry.useCase}
+              </p>
             </div>
-
-            <h3 className="text-foreground mb-3">
-              {industry.title}
-            </h3>
-
-            <p className="text-sm md:text-base leading-relaxed font-light tracking-wide text-muted">
-              {industry.useCase}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
 
       <style dangerouslySetInnerHTML={{
         __html: `

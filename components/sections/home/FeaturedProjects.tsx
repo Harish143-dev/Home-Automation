@@ -159,15 +159,15 @@ export function FeaturedProjects() {
     <section
       ref={containerRef}
       id="ecosystem"
-      className={`py-16 md:py-24 bg-background text-foreground w-full relative transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
+      className={`py-12 md:py-16 bg-background text-foreground w-full relative transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
     >
 
       {/* ═══ Mobile Layout ═══ */}
       <div className={isMobile ? 'block' : 'hidden'}>
-        <div className="py-16 sm:py-20 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
+        <div className="py-12 sm:py-20 md:py-16 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-12">
             <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted mb-3 sm:mb-4">Projects</p>
-            <h2 className="text-foreground">Elevated Environments</h2>
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Elevated Environments</h2>
           </div>
           <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
             {PROJECTS.map((proj) => (
@@ -186,7 +186,7 @@ export function FeaturedProjects() {
                   <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-3 py-1 mb-3 shadow-sm">
                     <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-foreground">{proj.category}</span>
                   </div>
-                  <h3 className="mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
                   <ul className="flex flex-col gap-1 sm:gap-1.5 mb-3 sm:mb-4 text-muted text-xs sm:text-sm">
                     {proj.usps.map(usp => (
                       <li key={usp} className="flex flex-row items-center gap-2">
@@ -208,88 +208,88 @@ export function FeaturedProjects() {
 
       {/* ═══ Desktop Pinned Layout ═══ */}
       <div className={isMobile ? 'hidden' : 'block'}>
-        <div ref={pinRef} className="h-screen w-full flex items-center justify-center bg-background px-4 md:px-8 lg:px-12 py-8 md:py-12 overflow-hidden">
+        <div ref={pinRef} className="h-screen w-full flex items-center justify-center bg-background px-4 md:px-8 lg:px-12 py-8 md:py-16 overflow-hidden">
           <div className="fp-inner-box w-full max-w-[1440px] h-full flex rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-border/50 origin-center bg-background relative">
 
-          {/* Left Side: Sidebar Navigation */}
-          <div className="w-[30%] lg:w-[35%] h-full border-r border-border flex flex-col justify-center px-6 md:px-10 lg:px-16 xl:px-20 relative z-20 bg-background">
-            <h2 className="text-muted mb-16">Projects</h2>
-            <div className="relative">
-              {/* Progress Track */}
-              <div className="absolute left-[3px] top-2 bottom-2 w-[1px] bg-white/10" />
-              {/* Progress Active Line */}
-              <div
-                ref={lineRef}
-                className="absolute left-[2px] top-2 w-[3px] bg-accent origin-top rounded-full"
-                style={{ height: `${100 / PROJECTS.length}%` }}
-              />
-              <ul className="flex flex-col gap-12 pl-12">
-                {PROJECTS.map((proj, i) => (
-                  <li key={proj.id} className="fp-nav flex items-center gap-6">
-                    <span className="text-xs opacity-50">0{i + 1}</span>
-                    <span className="text-lg md:text-xl lg:text-2xl font-light tracking-wide whitespace-nowrap">{proj.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Right Side: Visual Display */}
-          <div className="w-[70%] lg:w-[65%] h-full relative overflow-hidden bg-surface-darker">
-            {/* Image Layers */}
-            {PROJECTS.map((proj) => (
-              <div key={proj.id + 'img'} className="motion-layer fp-image absolute inset-0 z-0">
-                <Image
-                  src={proj.image}
-                  alt=""
-                  fill
-                  sizes="65vw"
-                  className="object-cover"
-                  aria-hidden="true"
-                />
-              </div>
-            ))}
-
-            {/* Content Dock (Bottom 40%) — audit m11: reduced min-height to 280px */}
-            <div className="absolute inset-0 z-10">
-              {PROJECTS.map((proj) => (
+            {/* Left Side: Sidebar Navigation */}
+            <div className="w-[30%] lg:w-[35%] h-full border-r border-border flex flex-col justify-center px-6 md:px-10 lg:px-16 xl:px-20 relative z-20 bg-background">
+              <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-muted mb-16">Projects</h2>
+              <div className="relative">
+                {/* Progress Track */}
+                <div className="absolute left-[3px] top-2 bottom-2 w-[1px] bg-white/10" />
+                {/* Progress Active Line */}
                 <div
-                  key={proj.id + 'content'}
-                  className="fp-content absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-5 md:p-6 lg:p-8 xl:p-12 flex items-end justify-between"
-                >
-                  {/* Left: Title & Description */}
-                  <div className="max-w-xl pr-4 md:pr-6 lg:pr-8 pb-2">
-                    <div className="fp-stagger mb-5">
-                      <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/70">{proj.category}</span>
-                    </div>
-                    <h3 className="fp-stagger text-white mb-2 md:mb-3 lg:mb-4">
-                      {proj.name}
-                    </h3>
-                    <p className="fp-stagger text-xs md:text-sm lg:text-base text-white/75 leading-relaxed">
-                      {proj.description}
-                    </p>
-                  </div>
+                  ref={lineRef}
+                  className="absolute left-[2px] top-2 w-[3px] bg-accent origin-top rounded-full"
+                  style={{ height: `${100 / PROJECTS.length}%` }}
+                />
+                <ul className="flex flex-col gap-12 pl-12">
+                  {PROJECTS.map((proj, i) => (
+                    <li key={proj.id} className="fp-nav flex items-center gap-6">
+                      <span className="text-xs opacity-50">0{i + 1}</span>
+                      <span className="text-lg md:text-xl lg:text-2xl font-light tracking-wide whitespace-nowrap">{proj.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-                  {/* Right: USPs & CTA */}
-                  <div className="hidden lg:flex flex-col justify-end gap-6 border-l border-white/20 pl-6 lg:pl-8 pb-2 min-w-[220px] lg:min-w-[260px]">
-                    <ul className="flex flex-col gap-3">
-                      {proj.usps.map(usp => (
-                        <li key={usp} className="fp-stagger flex items-center gap-3 text-white/75">
-                          <CheckCircle2 className="w-4.5 h-4.5 text-white" />
-                          <span className="text-base font-medium">{usp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="fp-stagger mt-auto">
-                      <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-              View Project
-            </Button>
-                    </div>
-                  </div>
+            {/* Right Side: Visual Display */}
+            <div className="w-[70%] lg:w-[65%] h-full relative overflow-hidden bg-surface-darker">
+              {/* Image Layers */}
+              {PROJECTS.map((proj) => (
+                <div key={proj.id + 'img'} className="motion-layer fp-image absolute inset-0 z-0">
+                  <Image
+                    src={proj.image}
+                    alt=""
+                    fill
+                    sizes="65vw"
+                    className="object-cover"
+                    aria-hidden="true"
+                  />
                 </div>
               ))}
+
+              {/* Content Dock (Bottom 40%) — audit m11: reduced min-height to 280px */}
+              <div className="absolute inset-0 z-10">
+                {PROJECTS.map((proj) => (
+                  <div
+                    key={proj.id + 'content'}
+                    className="fp-content absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-5 md:p-6 lg:p-8 xl:p-12 flex items-end justify-between"
+                  >
+                    {/* Left: Title & Description */}
+                    <div className="max-w-xl pr-4 md:pr-6 lg:pr-8 pb-2">
+                      <div className="fp-stagger mb-5">
+                        <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/70">{proj.category}</span>
+                      </div>
+                      <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl fp-stagger text-white mb-2 md:mb-3 lg:mb-4">
+                        {proj.name}
+                      </h3>
+                      <p className="fp-stagger text-xs md:text-sm lg:text-base text-white/75 leading-relaxed">
+                        {proj.description}
+                      </p>
+                    </div>
+
+                    {/* Right: USPs & CTA */}
+                    <div className="hidden lg:flex flex-col justify-end gap-6 border-l border-white/20 pl-6 lg:pl-8 pb-2 min-w-[220px] lg:min-w-[260px]">
+                      <ul className="flex flex-col gap-3">
+                        {proj.usps.map(usp => (
+                          <li key={usp} className="fp-stagger flex items-center gap-3 text-white/75">
+                            <CheckCircle2 className="w-4.5 h-4.5 text-white" />
+                            <span className="text-base font-medium">{usp}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="fp-stagger mt-auto">
+                        <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                          View Project
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
           </div>
         </div>

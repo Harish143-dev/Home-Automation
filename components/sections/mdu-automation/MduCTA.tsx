@@ -35,13 +35,13 @@ export default function MduCTA() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden flex flex-col items-center justify-center text-center"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden flex flex-col items-center justify-center text-center"
     >
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
-      
+
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none">
         <filter id="noiseFilter-cta"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" /></filter>
@@ -57,7 +57,7 @@ export default function MduCTA() {
           <div className="h-[1px] w-6 bg-accent/30" />
         </div>
 
-        <h2 className="mb-6">
+        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-6">
           Build Smarter Residential Communities with Intelligent Automation
         </h2>
 
@@ -71,7 +71,7 @@ export default function MduCTA() {
               Talk to an Expert
             </Button>
           </Link>
-          
+
           <Link href="/contact" className="w-full sm:w-auto">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               Request a Proposal

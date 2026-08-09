@@ -61,7 +61,7 @@ export default function CareersHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-end overflow-hidden bg-black"
+      className="relative w-full h-[100svh] min-h-[600px] flex justify-end overflow-hidden bg-black flex-col justify-end"
     >
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -77,7 +77,7 @@ export default function CareersHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-24 flex flex-col items-center text-center mt-12 md:mt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="hero-element mb-2 flex items-center justify-end gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-white/40" />
           <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">
@@ -86,18 +86,17 @@ export default function CareersHero() {
           <div className="h-[1px] w-8 bg-white/40" />
         </div>
 
-        <h1
-          ref={textRef}
-          className="hero-element text-white text-balance mb-2"
-        >
-          Build the Future of Smart Automation with Anusha Technovision
-        </h1>
+        <div className="hero-line">
+          <h1 ref={textRef} className="hero-element text-white text-balance mb-6 max-w-4xl">
+            Build the Future of Smart Automation with Anusha Technovision
+          </h1>
+        </div>
 
-        <p className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4">
+        <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-10 text-balance">
           Join a team that&apos;s shaping intelligent homes, hospitality, and commercial spaces through automation, innovation, and engineering excellence.
         </p>
 
-        <div className="hero-element flex flex-col sm:flex-row items-center ">
+        <div className="pointer-events-auto hero-element flex flex-col sm:flex-row gap-5">
           <Link
             href="#open-positions"
             className={cn(

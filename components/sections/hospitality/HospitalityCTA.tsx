@@ -63,7 +63,7 @@ export function HospitalityCTA() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border"
+      className="py-12 md:py-16 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -83,7 +83,7 @@ export function HospitalityCTA() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-foreground mb-8"
+          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8"
         >
           Elevate every stay
         </h2>

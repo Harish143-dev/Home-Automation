@@ -48,7 +48,7 @@ function MetricCard({ target, prefix, label }: { target: number; prefix?: string
   return (
     <div
       ref={cardRef}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-start py-14 sm:py-16 md:py-20 px-6 sm:px-8 xl:px-12 bg-background"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-start py-14 sm:py-12 md:py-20 px-6 sm:px-8 xl:px-12 bg-background"
     >
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-start text-left">
@@ -102,7 +102,7 @@ export function ResidentialTrust() {
     <section
       ref={sectionRef}
       id="residential-trust"
-      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground select-none"
+      className="py-12 md:py-16 relative w-full overflow-hidden bg-background text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
 
@@ -112,7 +112,7 @@ export function ResidentialTrust() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
               The Residential Paradigm
             </span>
-            <h2 className="text-foreground text-balance">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
               Living, Calibrated to You.
             </h2>
           </div>

@@ -63,7 +63,7 @@ export function CallToActionSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
+      className="py-12 md:py-16 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -83,7 +83,7 @@ export function CallToActionSection() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-foreground mb-8"
+          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8"
         >
           Ready to Transform <br className="hidden md:block" /> Your Space?
         </h2>
@@ -105,8 +105,8 @@ export function CallToActionSection() {
 
           {/* Secondary CTA */}
           <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                Call Now
-              </Button>
+            Call Now
+          </Button>
         </div>
 
       </div>

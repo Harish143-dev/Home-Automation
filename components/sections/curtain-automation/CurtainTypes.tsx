@@ -43,7 +43,7 @@ export function CurtainTypes() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     gsap.fromTo('.type-header',
       { opacity: 0, y: 30 },
       {
@@ -72,8 +72,8 @@ export function CurtainTypes() {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-secondary text-white px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden">
-      
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-secondary text-white px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden">
+
       {/* Noise Texture for Premium Dark Feel */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none">
         <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" /></filter>
@@ -81,13 +81,13 @@ export function CurtainTypes() {
       </svg>
 
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10">
-        
+
         {/* Left Side: Sticky Text */}
         <div className="w-full lg:w-1/3 lg:sticky lg:top-[30vh] flex flex-col items-start self-start">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base type-header text-white/50 mb-4 block">
             Curtain & Shade Types
           </span>
-          <h2 className="type-header text-white text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl type-header text-white text-balance mb-6">
             Solutions for Every Window
           </h2>
           <p className="type-header text-sm sm:text-base md:text-lg font-light tracking-wide text-white/70 leading-relaxed text-balance">
@@ -98,13 +98,13 @@ export function CurtainTypes() {
         {/* Right Side: Headless Accordion */}
         <div className="types-accordion w-full lg:w-2/3 flex flex-col">
           <div className="border-t border-white/10" />
-          
+
           {SHADE_TYPES.map((type, idx) => {
             const isOpen = openIndex === idx;
-            
+
             return (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="type-accordion-item border-b border-white/10 flex flex-col"
               >
                 <button
@@ -122,8 +122,8 @@ export function CurtainTypes() {
                     )}
                   </div>
                 </button>
-                
-                <div 
+
+                <div
                   className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{ maxHeight: isOpen ? '200px' : '0px', opacity: isOpen ? 1 : 0 }}
                 >

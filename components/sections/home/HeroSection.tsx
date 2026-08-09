@@ -561,7 +561,7 @@ export function HeroSection() {
       <section
         ref={sectionRef}
         id="hero"
-        className="py-16 md:py-24 relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 md:items-start md:px-16 lg:px-24"
+        className="py-12 md:py-16 relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 md:items-start md:px-16 lg:px-24"
       >
         <NextImage
           src="/heroFrames/0001.jpg"
@@ -606,7 +606,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className={`py-16 md:py-24 relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 z-[0] mb-[-60vh] ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`py-12 md:py-16 relative h-screen w-full bg-background overflow-hidden flex flex-col transition-opacity duration-500 z-[0] mb-[-60vh] ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       {/* 🎬 Video Frame Container — canvas-rendered image sequence with rounded bottom */}
       <div

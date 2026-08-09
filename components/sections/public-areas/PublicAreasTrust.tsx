@@ -64,7 +64,7 @@ export function PublicAreasTrust() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
+      className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
@@ -72,7 +72,7 @@ export function PublicAreasTrust() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Our Legacy
           </span>
-          <h2 className="text-foreground mb-6 sm:mb-8">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 sm:mb-8">
             Decades of Excellence.
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10 text-balance">

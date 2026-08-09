@@ -1,29 +1,29 @@
 "use client";
 
-import React, { useRef } from"react";
-import { gsap, useGSAP } from"../../../lib/gsapSetup";
-import { useReducedMotion } from"../../../hooks/useReducedMotion";
+import React, { useRef } from "react";
+import { gsap, useGSAP } from "../../../lib/gsapSetup";
+import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
 const CREDENTIALS = [
   {
-    title:"Lutron Authorized Distributor",
-    description:"Proud to be an authorized distributor for Lutron Electronics (USA), delivering world-class security, lighting, and shading solutions.",
+    title: "Lutron Authorized Distributor",
+    description: "Proud to be an authorized distributor for Lutron Electronics (USA), delivering world-class security, lighting, and shading solutions.",
   },
   {
-    title:"CEDIA Founding Member",
-    description:"Serving as a founding India member of the Custom Electronic Design & Installation Association (CEDIA), upholding international engineering benchmarks.",
+    title: "CEDIA Founding Member",
+    description: "Serving as a founding India member of the Custom Electronic Design & Installation Association (CEDIA), upholding international engineering benchmarks.",
   },
   {
-    title:"2026 Lutron Hall of Fame",
-    description:"The first company in Asia to receive this prestigious recognition for our outstanding contribution to the automation industry.",
+    title: "2026 Lutron Hall of Fame",
+    description: "The first company in Asia to receive this prestigious recognition for our outstanding contribution to the automation industry.",
   },
   {
-    title:"Award-Winning Integrator",
-    description:"Recipient of multiple Residential & Hospitality Business Awards, demonstrating our commitment to unparalleled quality and execution.",
+    title: "Award-Winning Integrator",
+    description: "Recipient of multiple Residential & Hospitality Business Awards, demonstrating our commitment to unparalleled quality and execution.",
   },
   {
-    title:"Nationally Recognized",
-    description:"Nationally recognized for excellence in automation, delivering bespoke integrations for India's most prestigious projects.",
+    title: "Nationally Recognized",
+    description: "Nationally recognized for excellence in automation, delivering bespoke integrations for India's most prestigious projects.",
   }
 ];
 
@@ -70,7 +70,7 @@ export function PublicAreasCredentials() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section className="py-16 md:py-24 relative bg-background text-foreground overflow-hidden border-t border-black/5" ref={containerRef}>
+    <section className="py-12 md:py-16 relative bg-background text-foreground overflow-hidden border-t border-black/5" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
@@ -79,7 +79,7 @@ export function PublicAreasCredentials() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent block mb-2">
               Industry Accolades
             </span>
-            <h2 className="text-foreground">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
               Certifications &<br />Awards.
             </h2>
           </div>
@@ -94,7 +94,7 @@ export function PublicAreasCredentials() {
 
                 <div className="w-16 h-[1px] bg-foreground/20 mb-6 credential-line" />
 
-                <h3 className="text-foreground mb-4 credential-title">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 credential-title">
                   {cred.title}
                 </h3>
 

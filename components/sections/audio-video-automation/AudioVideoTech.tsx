@@ -47,7 +47,7 @@ export function AudioVideoTech() {
 
   useGSAP(() => {
     if (!isReady || prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header animation
     gsap.fromTo('.tech-header',
       { opacity: 0, y: 30 },
@@ -75,9 +75,9 @@ export function AudioVideoTech() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
-        
+
         {/* Left Side: Header Content */}
         <div className="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32 h-fit">
           <span className={`tracking-[0.3em] text-xs sm:text-sm md:text-base tech-header text-accent mb-4 block ${!prefersReducedMotion && 'opacity-0'}`}>
@@ -96,46 +96,40 @@ export function AudioVideoTech() {
           {TECHNOLOGIES.map((tech, idx) => {
             const isOpen = openIndex === idx;
             const Icon = tech.icon;
-            
+
             return (
-              <div 
+              <div
                 key={idx}
-                className={`tech-item rounded-[2rem] overflow-hidden transition-all duration-500 border ${
-                  !prefersReducedMotion ? 'opacity-0' : ''
-                } ${
-                  isOpen 
-                    ? 'bg-black/[0.03] border-black/10 shadow-lg shadow-black/[0.02]' 
+                className={`tech-item rounded-[2rem] overflow-hidden transition-all duration-500 border ${!prefersReducedMotion ? 'opacity-0' : ''
+                  } ${isOpen
+                    ? 'bg-black/[0.03] border-black/10 shadow-lg shadow-black/[0.02]'
                     : 'bg-white border-black/5 hover:border-black/10'
-                }`}
+                  }`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                   className="w-full text-left px-6 sm:px-8 py-6 flex items-center justify-between gap-6"
                 >
                   <div className="flex items-center gap-6">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors duration-500 ${
-                      isOpen ? 'bg-accent text-white' : 'bg-accent/5 text-accent'
-                    }`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors duration-500 ${isOpen ? 'bg-accent text-white' : 'bg-accent/5 text-accent'
+                      }`}>
                       <Icon className="w-5 h-5" strokeWidth={1.5} />
                     </div>
-                    <h3 className={`text-lg sm:text-xl font-medium tracking-wide transition-colors duration-300 ${
-                      isOpen ? 'text-foreground' : 'text-foreground/80'
-                    }`}>
+                    <h3 className={`text-lg sm:text-xl font-medium tracking-wide transition-colors duration-300 ${isOpen ? 'text-foreground' : 'text-foreground/80'
+                      }`}>
                       {tech.title}
                     </h3>
                   </div>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-500 ${
-                    isOpen ? 'rotate-180 bg-black/5' : 'bg-transparent'
-                  }`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-500 ${isOpen ? 'rotate-180 bg-black/5' : 'bg-transparent'
+                    }`}>
                     <ChevronDown className={`w-5 h-5 ${isOpen ? 'text-foreground' : 'text-foreground/40'}`} strokeWidth={2} />
                   </div>
                 </button>
-                
+
                 {/* Expandable Content Area */}
-                <div 
-                  className={`grid transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
-                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                  }`}
+                <div
+                  className={`grid transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                    }`}
                 >
                   <div className="overflow-hidden">
                     <div className="px-6 sm:px-8 pb-8 pt-2 pl-[5.5rem] sm:pl-[6.5rem]">

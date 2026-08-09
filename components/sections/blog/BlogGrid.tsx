@@ -82,7 +82,7 @@ export default function BlogGrid() {
 
             {/* Content Container */}
             <div className="p-5 flex flex-col flex-grow">
-              <h3 className="text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300">
                 {article.title}
               </h3>
               

@@ -27,7 +27,7 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
       if (!cardRef.current) return;
 
       const obj = { val: 0 };
-      
+
       gsap.to(obj, {
         val: target,
         duration: 2.2,
@@ -49,7 +49,7 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
   return (
     <div
       ref={cardRef}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-start py-14 sm:py-16 md:py-20 px-6 sm:px-8 xl:px-12 bg-background sm:last:col-span-2 lg:last:col-span-1"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-start py-14 sm:py-12 md:py-20 px-6 sm:px-8 xl:px-12 bg-background sm:last:col-span-2 lg:last:col-span-1"
     >
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-start text-left">
@@ -60,7 +60,7 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
           <span>{displayValue}</span>
           {suffix && <span className="text-4xl sm:text-6xl text-foreground/80 font-light ml-2">{suffix}</span>}
         </div>
-        
+
         <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted">
           {label}
         </span>
@@ -104,17 +104,17 @@ export function CommercialTrust() {
     <section
       ref={sectionRef}
       id="commercial-trust"
-      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground select-none"
+      className="py-12 md:py-16 relative w-full overflow-hidden bg-background text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
-        
+
         {/* Section Heading & Subtext */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-16 w-full mb-16 md:mb-24">
           <div className="max-w-sm lg:max-w-md">
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
               Core Corporate Paradigm
             </span>
-            <h2 className="text-foreground text-balance">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
               The Performance Baseline
             </h2>
           </div>
@@ -122,9 +122,9 @@ export function CommercialTrust() {
             Modern commercial real estate faces an intense tension between occupant comfort and constrained energy parameters. At ATPL, we reject short term fixes that degrade user experience. We treat buildings as active ecosystems designed to support human health, measuring operational success through cognitive performance, emotional wellbeing, and structural resilience, not resource efficiency alone.
           </p>
         </div>
-        
+
         {/* Specs Grid */}
-        <div 
+        <div
           ref={gridRef}
           className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-border gap-[1px] border-y border-border overflow-hidden"
         >

@@ -48,20 +48,20 @@ export function ExperienceTestimonials() {
         stagger: 0.15,
         ease: "power3.out"
       })
-      .to(".testimonials-carousel-wrapper", {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.4");
+        .to(".testimonials-carousel-wrapper", {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.4");
     },
     { scope: sectionRef, dependencies: [prefersReducedMotion] }
   );
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 w-full bg-background text-foreground relative overflow-hidden border-t border-border">
+    <section ref={sectionRef} className="py-12 md:py-16 w-full bg-background text-foreground relative overflow-hidden border-t border-border">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
-        
+
         {/* Left Side: Header */}
         <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="flex items-center gap-4 mb-8 testimonials-header opacity-0 translate-y-10">
@@ -72,7 +72,7 @@ export function ExperienceTestimonials() {
             <div className="h-[1px] w-8 bg-accent/40 lg:hidden" />
           </div>
 
-          <h2 className="text-foreground mb-6 testimonials-header opacity-0 translate-y-10">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 testimonials-header opacity-0 translate-y-10">
             Hear From Our Clients
           </h2>
 
@@ -83,7 +83,7 @@ export function ExperienceTestimonials() {
 
         {/* Right Side: Carousel */}
         <div className="w-full lg:w-6/12 flex justify-center testimonials-carousel-wrapper opacity-0 translate-y-12">
-          <TestimonialCarousel 
+          <TestimonialCarousel
             testimonials={TESTIMONIAL_DATA}
             className="max-w-md w-full mx-auto lg:mx-0"
           />

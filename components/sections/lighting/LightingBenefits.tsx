@@ -7,13 +7,13 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
 import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
-import { 
-  Palette, 
-  Heart, 
-  Leaf, 
-  ShieldCheck, 
-  Gem, 
-  Rocket 
+import {
+  Palette,
+  Heart,
+  Leaf,
+  ShieldCheck,
+  Gem,
+  Rocket
 } from "lucide-react";
 
 const BENEFITS = [
@@ -89,18 +89,18 @@ export default function LightingBenefits() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        
+
         {/* Header */}
         <div ref={headerRef} className="lb-header text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Value & Lifestyle
           </span>
-          <h2 className="text-foreground mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
             Everyday Benefits You'll Experience
           </h2>
         </div>
@@ -108,19 +108,19 @@ export default function LightingBenefits() {
         {/* Benefits Grid */}
         <div ref={listRef} className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16">
           {BENEFITS.map((benefit, idx) => (
-            <div 
-              key={benefit.id} 
+            <div
+              key={benefit.id}
               className="lb-item flex flex-col items-start text-left"
             >
               <div className="w-14 h-14 rounded-full bg-panel flex items-center justify-center mb-6 border border-border shadow-sm relative overflow-hidden group">
                 <div className="absolute inset-0 bg-accent/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                 <benefit.icon className="w-6 h-6 text-accent relative z-10" strokeWidth={1.5} />
               </div>
-              
-              <h4 className="text-foreground mb-4">
+
+              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
                 {benefit.title}
               </h4>
-              
+
               <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed">
                 {benefit.description}
               </p>

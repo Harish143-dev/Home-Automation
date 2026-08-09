@@ -53,7 +53,7 @@ function MetricCard({ target, prefix, label }: { target: number; prefix?: string
   return (
     <div
       ref={cardRef}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-center py-12 sm:py-16 md:py-20 px-6 sm:px-8 bg-background opacity-0"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-center py-12 sm:py-12 md:py-20 px-6 sm:px-8 bg-background opacity-0"
     >
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-start text-left">
@@ -86,7 +86,7 @@ export default function LightingTrust() {
 
       if (gridRef.current) {
         const cards = gridRef.current.querySelectorAll(".metric-card");
-        
+
         gsap.to(cards, {
           y: 0,
           opacity: 1,
@@ -108,7 +108,7 @@ export default function LightingTrust() {
     <section
       ref={sectionRef}
       id="lighting-trust"
-      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground select-none"
+      className="py-12 md:py-16 relative w-full overflow-hidden bg-background text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
 
@@ -118,7 +118,7 @@ export default function LightingTrust() {
             <span className="tracking-[0.3em] text-sm md:text-base text-accent mb-4 block">
               Proven Experience
             </span>
-            <h2 className="text-foreground text-balance">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
               Precision Engineering, At Scale.
             </h2>
           </div>
@@ -145,16 +145,16 @@ export default function LightingTrust() {
         {/* Clients and Accolades */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mt-16 md:mt-24 text-left">
           <div className="flex-1">
-            <h3 className="text-foreground mb-6">
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
               Trusted by the Best
             </h3>
             <p className="text-muted font-light text-base md:text-lg leading-relaxed">
               ATPL is trusted by India's leading homeowners, business leaders, celebrities, and prestigious residences. Its portfolio includes distinguished clients such as Madhuri Dixit, Rajan Mittal (Airtel), BKT Farms, Atul Raheja, Khazana Jewellery (Chennai), along with hundreds of premium homes across the country.
             </p>
           </div>
-          
+
           <div className="flex-1">
-            <h3 className="text-foreground mb-6">
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
               Awards & Recognitions
             </h3>
             <ul className="space-y-4">

@@ -31,13 +31,13 @@ export default function FeaturedArticle() {
   }, { scope: sectionRef });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <Link href="/blog/the-invisible-interface" className="max-w-7xl mx-auto cursor-pointer group block">
         <div className="featured-content flex flex-col gap-10 lg:gap-16">
-          
+
           {/* Magazine Cover Style Image */}
           <div className="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden rounded-2xl">
             <div ref={imageRef} className="absolute inset-0 will-change-transform">
@@ -50,7 +50,7 @@ export default function FeaturedArticle() {
               />
               <div className="absolute inset-0 bg-background/5 transition-opacity duration-700 group-hover:opacity-0" />
             </div>
-            
+
             {/* Elegant reading CTA overlay on image corner */}
             <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 flex items-center gap-4 bg-background/80 backdrop-blur-md px-6 py-4 rounded-full border border-white/10 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
               <span className="text-sm font-light tracking-wide text-foreground">Read Feature</span>
@@ -67,18 +67,18 @@ export default function FeaturedArticle() {
               <span>•</span>
               <span>6 Min Read</span>
             </div>
-            
-            <h2 className="text-foreground group-hover:text-accent transition-colors duration-500">
+
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-500">
               The Invisible Interface: Designing Automation That Disappears
             </h2>
-            
+
             <p className="text-lg font-light text-muted-foreground leading-relaxed">
-              Explore how modern architectural integration is shifting away from 
-              visible wall-acne and complex panels, moving towards ambient, 
+              Explore how modern architectural integration is shifting away from
+              visible wall-acne and complex panels, moving towards ambient,
               predictive systems that seamlessly blend into luxury interiors.
             </p>
           </div>
-          
+
         </div>
       </Link>
     </section>

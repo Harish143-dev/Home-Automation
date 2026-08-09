@@ -127,9 +127,9 @@ export function ResidentialEfficiency() {
   };
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 bg-background relative z-10 overflow-hidden flex flex-col">
+    <section ref={containerRef} className="py-12 md:py-16 bg-background relative z-10 overflow-hidden flex flex-col">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16">
-        <h2 className="text-foreground mb-4">
+        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
           Efficiency & Performance
         </h2>
         <p className="text-base md:text-lg text-muted max-w-2xl font-sans leading-relaxed">
@@ -230,7 +230,7 @@ export function ResidentialEfficiency() {
                   isCenter ? "opacity-100" : "opacity-0"
                 )}>
 
-                  <h3 className="text-white drop-shadow-md">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white drop-shadow-md">
                     {category.title}
                   </h3>
                 </div>
@@ -256,7 +256,7 @@ export function ResidentialEfficiency() {
                   onClick={() => toggleAccordion(service.id)}
                   className="w-full py-4 md:py-5 flex items-center justify-between group text-left focus:outline-none"
                 >
-                  <h3 className={cn("font-light leading-[1.2] tracking-wide text-lg sm:text-xl lg:text-2xl transition-colors duration-500",
+                  <h3 className={font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cn("font-light leading-[1.2] tracking-wide text-lg sm:text-xl lg:text-2xl transition-colors duration-500",
                     isOpen ? "text-accent" : "text-foreground group-hover:text-foreground/60"
                   )}>
                     {service.title}
@@ -297,10 +297,10 @@ export function ResidentialEfficiency() {
                   </div>
                 </div>
               </div>
-            );
+        );
           })}
-        </div>
       </div>
-    </section>
+    </div>
+    </section >
   );
 }

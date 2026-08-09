@@ -36,9 +36,9 @@ export const MAIN_NAVIGATION: NavLink[] = [
           { id: 'hosp-public', label: 'Public areas', href: '/public-area-automation' },
           { id: 'hosp-boardroom', label: 'Boardroom and Meeting Room', href: '/boardroom-automation' },
           { id: 'hosp-banquet', label: 'Banquet Halls & Event Spaces', href: '/banquet-hall-automation' },
-          { id: 'hosp-restaurants', label: 'Restaurants', href: '#hosp-restaurants' },
-          { id: 'hosp-spa', label: 'Spa and Wellness', href: '#hosp-spa' },
-          { id: 'hosp-guest', label: 'Guest Rooms', href: '#hosp-guest' },
+          { id: 'hosp-restaurants', label: 'Restaurants', href: '/restaurant-automation' },
+          { id: 'hosp-spa', label: 'Spa and Wellness', href: '/spa-and-wellness' },
+          { id: 'hosp-guest', label: 'Guest Rooms', href: '/guest-room-automation' },
         ]
       },
       {
@@ -46,7 +46,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
         label: 'Commercial',
         href: '/commercial',
         items: [
-          { id: 'comm-restaurants', label: 'Restaurants', href: '#comm-restaurants' },
+          { id: 'comm-restaurants', label: 'Restaurants', href: '/restaurant-automation' },
           { id: 'comm-offices', label: 'offices', href: '#comm-offices' },
           { id: 'comm-institutes', label: 'Institutes', href: '#comm-institutes' },
           { id: 'comm-exhibitions', label: 'Exhibitions', href: '#comm-exhibitions' },
@@ -55,18 +55,6 @@ export const MAIN_NAVIGATION: NavLink[] = [
           { id: 'comm-airport', label: 'Airport Lounges', href: '#comm-airport' },
         ]
       }
-    ]
-  },
-  {
-    id: 'disciplines',
-    label: 'Disciplines',
-    items: [
-      { id: 'disc-lighting', label: 'Lighting Automation', href: '/lighting-automation' },
-      { id: 'disc-av', label: 'Audio Video Automation', href: '/audio-video-automation' },
-      { id: 'disc-curtain', label: 'Curtain Automation', href: '/curtain-automation' },
-      { id: 'disc-security', label: 'Security Automation', href: '/security-automation' },
-      { id: 'disc-wifi', label: 'Wi-Fi & Networking', href: '/wifi-networking' },
-      { id: 'disc-mdu', label: 'MDU Automation', href: '/mdu-automation' },
     ]
   },
   {

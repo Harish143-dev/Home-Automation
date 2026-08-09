@@ -105,13 +105,13 @@ export function ExperienceHero() {
       {/* Upper spacing for fixed NavBar alignment */}
       <div className="h-28 sm:h-32 md:h-36 z-10 pointer-events-none" />
 
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-32 flex flex-col justify-end flex-grow pb-12 md:pb-16 lg:pb-20 pointer-events-none select-none">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="max-w-3xl flex flex-col items-start text-left ">
 
           {/* Refined editorial headline */}
           <h1
             ref={h1Ref}
-            className="hero-element text-white text-balance mb-2"
+            className="hero-element text-white text-balance mb-6 max-w-4xl"
           >
             Experience Intelligent Automation <br className="hidden sm:inline" />
             in Real Life
@@ -120,7 +120,7 @@ export function ExperienceHero() {
           {/* Understated luxury supporting text */}
           <p
             ref={subRef}
-            className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4"
+            className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-10 text-balance"
           >
             Visit our experience centres in Delhi, Mumbai, and Bangalore to explore immersive smart automation solutions across residential, hospitality, and commercial environments.
           </p>
@@ -131,20 +131,14 @@ export function ExperienceHero() {
             className="pointer-events-auto flex flex-col sm:flex-row gap-4"
           >
             <Link href="#schedule">
-              <Button
-                variant="interactive"
-                size="lg"
-                className="w-full sm:w-auto"
+              <Button variant="interactive" size="lg" className="w-full sm:w-auto"
               >
                 Schedule a Visit
               </Button>
             </Link>
 
             <Link href="#demo">
-              <Button
-                variant="shiny"
-                size="lg"
-                className="w-full sm:w-auto"
+              <Button variant="shiny" size="lg" className="w-full sm:w-auto"
               >
                 Book a Virtual Demo
               </Button>

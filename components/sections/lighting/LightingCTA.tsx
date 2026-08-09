@@ -39,29 +39,29 @@ export default function LightingCTA() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground"
     >
       <div className="max-w-5xl mx-auto lcta-content bg-panel border border-border shadow-sm rounded-3xl p-10 md:p-16 lg:p-20 text-center relative overflow-hidden flex flex-col items-center">
-        
+
         {/* Subtle Background Elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-50" />
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-        <h2 className="text-foreground mb-6 max-w-3xl relative z-10">
+        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 max-w-3xl relative z-10">
           Ready to Transform Your Home with Intelligent Lighting?
         </h2>
-        
+
         <p className="text-muted font-light text-base md:text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl relative z-10">
           Discover how personalized lighting automation can enhance comfort, improve energy efficiency, and elevate everyday living. Speak with our experts to design a solution tailored to your home.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto relative z-10">
-          
-          <Link 
-            href="/contact" 
+
+          <Link
+            href="/contact"
             className={cn(
               buttonVariants({ variant: "accent", size: "lg" }),
               "lcta-btn w-full sm:w-auto tracking-wide text-base gap-3 rounded-full"
@@ -70,9 +70,9 @@ export default function LightingCTA() {
             <Calendar className="w-5 h-5" />
             Schedule a Consultation
           </Link>
-          
-          <Link 
-            href="/experience-center" 
+
+          <Link
+            href="/experience-center"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               "lcta-btn group w-full sm:w-auto tracking-wide text-base gap-3 rounded-full border-border hover:border-accent hover:text-accent hover:bg-accent/5"

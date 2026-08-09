@@ -42,12 +42,12 @@ export default function ProcessPhilosophy() {
   }, { scope: sectionRef });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-        
+
         {/* Left Content */}
         <div className="flex-1 flex flex-col gap-12 lg:pr-8">
           <div className="flex flex-col gap-6 process-text">
@@ -57,16 +57,16 @@ export default function ProcessPhilosophy() {
               </span>
               <div className="h-[1px] w-8 bg-border" />
             </div>
-            <h2 className="text-foreground">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
               Invisible <br /> Architecture
             </h2>
           </div>
 
           <div className="flex flex-col gap-8 process-text">
             <p className="text-lg font-light text-muted-foreground leading-relaxed max-w-lg">
-              We approach home automation with the same rigor as structural engineering. 
-              Our process is rooted in meticulous planning, ensuring that complex 
-              systems—from tunable circadian lighting to invisible acoustic arrays—are integrated 
+              We approach home automation with the same rigor as structural engineering.
+              Our process is rooted in meticulous planning, ensuring that complex
+              systems—from tunable circadian lighting to invisible acoustic arrays—are integrated
               flawlessly without compromising the interior design.
             </p>
             <ul className="flex flex-col gap-4">

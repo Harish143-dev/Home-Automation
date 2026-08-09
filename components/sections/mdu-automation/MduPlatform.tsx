@@ -5,15 +5,15 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
-import { 
-  Lightbulb, 
-  Thermometer, 
-  Blinds, 
-  ShieldCheck, 
-  Speaker, 
-  Film, 
-  LayoutGrid, 
-  Wifi 
+import {
+  Lightbulb,
+  Thermometer,
+  Blinds,
+  ShieldCheck,
+  Speaker,
+  Film,
+  LayoutGrid,
+  Wifi
 } from "lucide-react";
 
 const PLATFORM_FEATURES = [
@@ -107,14 +107,14 @@ export default function MduPlatform() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-secondary text-white overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-secondary text-white overflow-hidden"
     >
       {/* Dark Section Background Glows */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
-      
+
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none">
         <filter id="noiseFilter-platform"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" /></filter>
@@ -122,7 +122,7 @@ export default function MduPlatform() {
       </svg>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-        
+
         {/* Header */}
         <div className="platform-header max-w-4xl text-center mb-16 md:mb-24 flex flex-col items-center">
           <div className="mb-6 flex items-center justify-center gap-4">
@@ -132,11 +132,11 @@ export default function MduPlatform() {
             </span>
             <div className="h-[1px] w-6 bg-white/30" />
           </div>
-          
-          <h2 className="text-white mb-6">
+
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-6">
             Everything Connected Through One Intelligent Platform
           </h2>
-          
+
           <p className="text-white/70 font-light text-base md:text-lg leading-relaxed max-w-3xl">
             Control every essential function of your apartment from a single intuitive interface using elegant keypads, mobile applications, or voice assistants.
           </p>
@@ -145,8 +145,8 @@ export default function MduPlatform() {
         {/* Grid */}
         <div className="platform-grid w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 md:gap-y-16">
           {PLATFORM_FEATURES.map((feature) => (
-            <div 
-              key={feature.id} 
+            <div
+              key={feature.id}
               className="platform-card group flex flex-col relative pt-4"
             >
               <div className="absolute top-0 left-0 w-8 h-[1px] bg-white/20 group-hover:w-full group-hover:bg-accent transition-all duration-700 ease-in-out" />
@@ -154,11 +154,11 @@ export default function MduPlatform() {
               <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/30 transition-all duration-500 mt-2">
                 <feature.icon className="w-5 h-5 text-white/90 group-hover:text-accent-soft transition-colors duration-500" strokeWidth={1.5} />
               </div>
-              
-              <h3 className="text-white mb-4">
+
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-4">
                 {feature.title}
               </h3>
-              
+
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
                 {feature.description}
               </p>

@@ -59,7 +59,7 @@ export default function BlogHero() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full h-[60vh] min-h-[400px] flex flex-col justify-center overflow-hidden bg-secondary px-6 sm:px-12 md:px-24"
+      className="relative w-full h-[60vh] min-h-[400px] flex overflow-hidden bg-secondary px-6 sm:px-12 md:px-24 flex-col justify-end"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 blog-hero-bg will-change-transform">
@@ -77,7 +77,7 @@ export default function BlogHero() {
       </div>
 
       {/* Content aligned to center for blog hero */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center gap-6 mt-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="flex items-center gap-4 overflow-hidden">
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
           <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/70">
@@ -87,11 +87,12 @@ export default function BlogHero() {
         </div>
 
         <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
-          <div className="hero-line">
-            <h1 className="text-white drop-shadow-sm">
-              Title Sample
-            </h1>
-          </div>
+          <h1
+            ref={textRef}
+            className="hero-element text-white text-balance mb-6 max-w-4xl"
+          >
+            Title Sample
+          </h1>
           <div className="hero-line mt-2">
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/80">
               (Blogs by ATPL)

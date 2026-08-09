@@ -81,10 +81,10 @@ export function ExperienceShowroom() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full bg-secondary overflow-hidden border-t border-white/5"
+      className="py-12 md:py-16 relative w-full bg-secondary overflow-hidden border-t border-white/5"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-        
+
         {/* Left Side: Brand Story */}
         <div className="w-full lg:w-5/12 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-8">
@@ -94,23 +94,23 @@ export function ExperienceShowroom() {
             </span>
           </div>
 
-          <h2 className="text-white mb-8">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-8">
             More Than a Showroom, A Complete Automation Experience
           </h2>
-          
+
           <p className="text-sm md:text-base font-light tracking-wide text-white/70 leading-relaxed text-balance">
             Our experience centres are designed to help clients, architects, consultants, and developers interact with intelligent automation in real-world environments.
           </p>
         </div>
 
         {/* Right Side: Media Collage */}
-        <div 
+        <div
           ref={mediaContainerRef}
           className="w-full lg:w-7/12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-5 auto-rows-[140px] md:auto-rows-[160px] lg:auto-rows-[180px]"
         >
           {MEDIA_ITEMS.map((item) => (
-            <div 
-              key={item.id} 
+            <div
+              key={item.id}
               className={`media-item relative overflow-hidden group ${item.className} bg-white/5`}
             >
               <NextImage

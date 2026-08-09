@@ -80,29 +80,29 @@ export function WifiNetworkingComparison() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-6xl w-full mx-auto flex flex-col items-center">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mb-16 md:mb-24">
-          <h5 className="comp-header text-accent tracking-[0.1em] mb-4">
+          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl comp-header text-accent tracking-[0.1em] mb-4">
             The Difference
           </h5>
-          <h2 className="comp-header text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl comp-header text-foreground text-balance">
             Standard vs. Smart Network
           </h2>
         </div>
 
         {/* Comparison Table */}
         <div className="w-full flex flex-col border border-black/10 rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl shadow-black/5 bg-white">
-          
+
           {/* Table Headers */}
           <div className="flex flex-col md:flex-row bg-panel border-b border-black/10">
             <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-black/10 flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center shrink-0">
                 <X className="w-5 h-5 text-muted-foreground" />
               </div>
-              <h3 className="text-xl md:text-2xl font-medium text-muted-foreground tracking-tight">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-muted-foreground">
                 Standard Home Wi-Fi
               </h3>
             </div>
@@ -110,7 +110,7 @@ export function WifiNetworkingComparison() {
               <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center shrink-0 shadow-lg shadow-accent/20">
                 <Check className="w-5 h-5 text-white" strokeWidth={3} />
               </div>
-              <h3 className="text-xl md:text-2xl font-medium text-accent tracking-tight">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent">
                 Professionally Designed
               </h3>
             </div>
@@ -119,8 +119,8 @@ export function WifiNetworkingComparison() {
           {/* Table Rows */}
           <div className="flex flex-col w-full bg-white">
             {COMPARISON_DATA.map((row, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 ref={el => { rowsRef.current[i] = el; }}
                 className="flex flex-col md:flex-row border-b border-black/5 last:border-b-0 group hover:bg-panel/50 transition-colors duration-300"
               >
@@ -131,7 +131,7 @@ export function WifiNetworkingComparison() {
                     {row.standard}
                   </p>
                 </div>
-                
+
                 {/* Pro (Right) */}
                 <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 flex items-center gap-4 md:gap-6 bg-accent/[0.02] group-hover:bg-accent/[0.04] transition-colors duration-300">
                   <Check className="w-5 h-5 text-accent shrink-0 hidden md:block" strokeWidth={2.5} />

@@ -5,13 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
-import { 
-  LayoutGrid, 
-  ShieldCheck, 
-  Leaf, 
-  Network, 
-  Gem, 
-  Home 
+import {
+  LayoutGrid,
+  ShieldCheck,
+  Leaf,
+  Network,
+  Gem,
+  Home
 } from "lucide-react";
 
 const BRANDS = [
@@ -105,9 +105,9 @@ export default function LightingPartners() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Subtle Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -118,13 +118,13 @@ export default function LightingPartners() {
       </svg>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-        
+
         {/* Header */}
         <div className="lp-header text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Global Partners
           </span>
-          <h2 className="text-foreground mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
             Powered by World-Class Lighting Control Systems
           </h2>
           <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -135,11 +135,11 @@ export default function LightingPartners() {
         {/* Brands List */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-20 md:mb-28 justify-center">
           {BRANDS.map((brand, idx) => (
-            <div 
+            <div
               key={idx}
               className="lp-brand p-8 rounded-2xl border border-border bg-panel shadow-sm hover:shadow-md hover:border-border/80 transition-all duration-300 flex flex-col items-start text-left"
             >
-              <h3 className="text-foreground mb-3">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
                 {brand.name}
               </h3>
               <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed">
@@ -153,7 +153,7 @@ export default function LightingPartners() {
         <div className="w-full">
           <div className="lp-header mb-12 flex items-center justify-center gap-4">
             <div className="h-[1px] w-12 bg-accent/50" />
-            <h3 className="text-foreground text-center">
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-center">
               Why These Technologies?
             </h3>
             <div className="h-[1px] w-12 bg-accent/50" />
@@ -161,19 +161,19 @@ export default function LightingPartners() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 md:gap-y-12 w-full">
             {REASONS.map((reason, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="lp-reason flex flex-col items-center text-center group"
               >
                 <div className="w-16 h-16 rounded-full bg-panel flex items-center justify-center mb-6 border border-border shadow-sm relative overflow-hidden group-hover:scale-110 transition-transform duration-500 ease-out">
                   <div className="absolute inset-0 bg-accent/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                   <reason.icon className="w-7 h-7 text-accent relative z-10" strokeWidth={1.2} />
                 </div>
-                
-                <h4 className="text-foreground mb-3">
+
+                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
                   {reason.title}
                 </h4>
-                
+
                 <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed">
                   {reason.description}
                 </p>

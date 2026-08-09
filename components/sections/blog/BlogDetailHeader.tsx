@@ -14,7 +14,7 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
       
       {/* Blog Title Section */}
       <div className="flex flex-col gap-4">
-        <h1 className="text-foreground">
+        <h1 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
           {post.title}
         </h1>
       </div>

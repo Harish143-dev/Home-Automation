@@ -75,11 +75,11 @@ const usps = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-16 md:py-24 relative z-10 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground">
+    <section className="py-12 md:py-16 relative z-10 px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground">
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-16 md:mb-24 text-center">
-          <h2 className="mb-6 text-foreground">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-6 text-foreground">
             What Sets Us Apart?
           </h2>
           <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
@@ -91,50 +91,50 @@ export function WhyChooseUsSection() {
         <div className="flex flex-col gap-6 md:gap-10 pb-[10vh]">
           {usps.map((usp, index) => {
             const Icon = usp.icon;
-            
+
             return (
               <div
                 key={usp.id}
                 className="sticky shadow-lg border border-border bg-panel rounded-[24px] md:rounded-[32px] p-8 sm:p-10 md:p-14 lg:p-16 flex flex-col md:flex-row gap-8 md:gap-12 items-start md:items-center overflow-hidden"
-                style={{ 
+                style={{
                   top: `calc(120px + ${index * 20}px)`,
-                  zIndex: 10 + index 
+                  zIndex: 10 + index
                 }}
               >
                 {/* Subtle gradient for depth */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
-                
+
                 {/* Left side: Icon */}
                 <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-surface-darker border border-border shadow-inner flex items-center justify-center shrink-0 relative z-10">
                   <Icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-accent" strokeWidth={1.5} />
                 </div>
-                
+
                 {/* Right side: Content */}
                 <div className="flex-1 flex flex-col justify-center relative z-10">
-                  <h3 className="text-foreground mb-4 md:mb-6">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 md:mb-6">
                     {usp.title}
                   </h3>
                   <p className="text-muted text-sm md:text-base leading-relaxed font-light tracking-wide mb-6 md:mb-8 max-w-2xl">
                     {usp.description}
                   </p>
-                  
+
                   <div className="mt-auto">
                     <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-                Learn More
-              </Button>
+                      Learn More
+                    </Button>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-        
+
         {/* View All Button */}
         <div className="mt-12 flex justify-center relative z-20">
-           <button className="flex items-center justify-center px-8 py-4 gap-3 text-[15px] font-medium text-foreground bg-surface-darker hover:bg-panel border border-border rounded-full transition-all group">
-             View All Capabilities
-             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-accent" />
-           </button>
+          <button className="flex items-center justify-center px-8 py-4 gap-3 text-[15px] font-medium text-foreground bg-surface-darker hover:bg-panel border border-border rounded-full transition-all group">
+            View All Capabilities
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-accent" />
+          </button>
         </div>
       </div>
     </section>

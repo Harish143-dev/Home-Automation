@@ -102,7 +102,7 @@ export function ResidentialExperienceCenters() {
   const activeCenter = CENTERS_DATA[activeIndex];
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-background text-foreground border-t border-border">
+    <section ref={triggerRef} className="py-12 md:py-16 relative w-full bg-background text-foreground border-t border-border">
       <div
         ref={containerRef}
         className="relative w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden"
@@ -126,7 +126,7 @@ export function ResidentialExperienceCenters() {
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-3 block">
                 The Environment
               </span>
-              <h2 className="text-foreground drop-shadow-sm mb-4 text-balance">
+              <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground drop-shadow-sm mb-4 text-balance">
                 The Experience Ecosystem
               </h2>
               <p className="text-sm md:text-base font-light text-muted leading-relaxed max-w-xl">

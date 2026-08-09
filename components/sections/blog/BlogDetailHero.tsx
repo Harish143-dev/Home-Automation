@@ -36,7 +36,7 @@ export default function BlogDetailHero({ post }: BlogDetailHeroProps) {
   return (
     <section 
       ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full h-[70vh] min-h-[600px] flex flex-col justify-end overflow-hidden bg-secondary px-6 sm:px-12 md:px-24"
+      className="relative w-full h-[70vh] min-h-[600px] flex justify-end overflow-hidden bg-secondary px-6 sm:px-12 md:px-24 flex-col justify-end"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 detail-hero-bg will-change-transform">
@@ -54,7 +54,7 @@ export default function BlogDetailHero({ post }: BlogDetailHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col gap-6 text-center items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="post-meta-anim flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs tracking-[0.2em] text-white/70">
           <span className="text-accent">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-white/40" />
@@ -63,8 +63,7 @@ export default function BlogDetailHero({ post }: BlogDetailHeroProps) {
           <span>{post.readTime}</span>
         </div>
         
-        <h1 className="post-meta-anim text-white drop-shadow-sm">
-          {post.title}
+        <h1 className="hero-element text-white text-balance mb-6 max-w-4xl">  {post.title}
         </h1>
       </div>
     </section>

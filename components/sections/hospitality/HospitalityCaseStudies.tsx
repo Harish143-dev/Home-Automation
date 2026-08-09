@@ -68,7 +68,7 @@ export function HospitalityCaseStudies() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 bg-background px-6 md:px-12 lg:px-24">
+    <section ref={containerRef} className="py-12 md:py-16 bg-background px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col gap-12 lg:gap-20">
 
         {/* Header */}
@@ -76,7 +76,7 @@ export function HospitalityCaseStudies() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">
             Proven Implementations
           </span>
-          <h2 className="text-foreground mt-4">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mt-4">
             Signature Case Studies
           </h2>
         </div>
@@ -109,15 +109,15 @@ export function HospitalityCaseStudies() {
 
                   <div className="flex flex-col gap-6">
                     <div>
-                      <h4 className="text-white/50 mb-1.5">The Structural Strain</h4>
+                      <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white/50 mb-1.5">The Structural Strain</h4>
                       <p className="text-sm font-light leading-relaxed text-white/80">{cs.strain}</p>
                     </div>
                     <div>
-                      <h4 className="text-white/50 mb-1.5">The Strategic Yield</h4>
+                      <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white/50 mb-1.5">The Strategic Yield</h4>
                       <p className="text-sm font-light leading-relaxed text-white/80">{cs.yield}</p>
                     </div>
                     <div>
-                      <h4 className="text-accent-soft mb-1.5">The ROI Signal</h4>
+                      <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent-soft mb-1.5">The ROI Signal</h4>
                       <p className="text-sm font-light leading-relaxed text-white">{cs.roi}</p>
                     </div>
                   </div>

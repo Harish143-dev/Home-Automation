@@ -49,7 +49,7 @@ function MetricCard({ target, prefix, suffix, label }: { target: number; prefix?
   return (
     <div
       ref={cardRef}
-      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-start py-14 sm:py-16 md:py-20 px-6 sm:px-8 xl:px-12 bg-background sm:last:col-span-2 lg:last:col-span-1"
+      className="metric-card relative overflow-hidden w-full flex flex-col items-start justify-start py-14 sm:py-12 md:py-20 px-6 sm:px-8 xl:px-12 bg-background sm:last:col-span-2 lg:last:col-span-1"
     >
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-start text-left">
@@ -104,7 +104,7 @@ export function HospitalityStats() {
     <section
       ref={sectionRef}
       id="hospitality-stats"
-      className="py-16 md:py-24 relative w-full overflow-hidden bg-background px-6 md:px-12 lg:px-24 text-foreground select-none"
+      className="py-12 md:py-16 relative w-full overflow-hidden bg-background px-6 md:px-12 lg:px-24 text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col items-center justify-center">
 

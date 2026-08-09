@@ -85,7 +85,7 @@ export default function LightingFeatures() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
 
@@ -104,7 +104,7 @@ export default function LightingFeatures() {
                   <feature.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
 
-                <h4 className="text-foreground mb-4">
+                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
                   {feature.title}
                 </h4>
 

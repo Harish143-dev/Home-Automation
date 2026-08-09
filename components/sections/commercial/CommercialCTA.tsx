@@ -70,7 +70,7 @@ export function CommercialCTA() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border"
+      className="py-12 md:py-16 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -90,7 +90,7 @@ export function CommercialCTA() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="text-foreground mb-8"
+          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8"
         >
           Automate your Commercial Infrastructure
         </h2>

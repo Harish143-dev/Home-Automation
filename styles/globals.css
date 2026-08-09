@@ -156,6 +156,7 @@ h6 {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -340,11 +341,11 @@ h6 {
   }
 
   h3 {
-    @apply text-xl sm:text-2xl lg:text-3xl font-light leading-[1.2] tracking-wide;
+    @apply text-lg sm:text-xl lg:text-2xl font-light leading-[1.2] tracking-wide;
   }
 
   h4 {
-    @apply text-lg sm:text-xl lg:text-2xl font-light leading-[1.2] tracking-wide;
+    @apply text-base sm:text-lg lg:text-xl font-light leading-[1.2] tracking-wide;
   }
 
   h5 {

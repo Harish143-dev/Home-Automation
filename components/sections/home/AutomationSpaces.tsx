@@ -177,10 +177,10 @@ export function AutomationSpaces() {
   if (isReady && (isMobile || prefersReducedMotion)) {
     return (
       <div id="automation-spaces" className="bg-background">
-        <section className="py-16 md:py-24 text-foreground px-5 sm:px-8 md:px-16 lg:px-24">
+        <section className="py-12 md:py-16 text-foreground px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-16 px-4 text-center">
             <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4">Sectors</p>
-            <h2 className="text-foreground">Environments We Transform</h2>
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Environments We Transform</h2>
           </div>
           <div className="flex flex-col gap-24">
             {PANELS.map((panel) => (
@@ -228,14 +228,14 @@ export function AutomationSpaces() {
     <div id="automation-spaces" className="relative w-full bg-background">
       <section
         ref={sectionRef}
-        className={`py-16 md:py-24 relative h-screen w-full text-foreground overflow-hidden transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
+        className={`py-12 md:py-16 relative h-screen w-full text-foreground overflow-hidden transition-opacity duration-500 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
       >
         {/* Intro Heading */}
         <div className="section-intro absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-[50] pointer-events-none">
           <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6">
             Sectors
           </p>
-          <h2 className="text-foreground">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
             Environments We Transform
           </h2>
         </div>

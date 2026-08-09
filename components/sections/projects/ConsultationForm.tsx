@@ -13,9 +13,9 @@ export function ConsultationForm() {
   };
 
   return (
-    <section className="py-16 md:py-24 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border">
+    <section className="py-12 md:py-16 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
+
         {/* Text Content */}
         <div className="flex flex-col">
           <div className="flex items-center gap-4 overflow-hidden mb-6">
@@ -24,11 +24,11 @@ export function ConsultationForm() {
             </span>
             <div className="h-[1px] w-12 bg-border" />
           </div>
-          
-          <h2 className="text-foreground mb-6 text-balance">
+
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 text-balance">
             Get a Free Consultation for Your Space.
           </h2>
-          
+
           <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed max-w-lg mb-10">
             Our automation architects will review your floor plans, understand your lifestyle requirements, and propose a bespoke technology framework tailored specifically to your project.
           </p>
@@ -54,9 +54,9 @@ export function ConsultationForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="firstName" className="text-[11px] tracking-widest text-muted-foreground">First Name</label>
-                  <input 
-                    type="text" 
-                    id="firstName" 
+                  <input
+                    type="text"
+                    id="firstName"
                     required
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -65,9 +65,9 @@ export function ConsultationForm() {
                 </div>
                 <div className="flex flex-col gap-2">
                   <label htmlFor="lastName" className="text-[11px] tracking-widest text-muted-foreground">Last Name</label>
-                  <input 
-                    type="text" 
-                    id="lastName" 
+                  <input
+                    type="text"
+                    id="lastName"
                     required
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -79,9 +79,9 @@ export function ConsultationForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-[11px] tracking-widest text-muted-foreground">Email Address</label>
-                  <input 
-                    type="email" 
-                    id="email" 
+                  <input
+                    type="email"
+                    id="email"
                     required
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -90,9 +90,9 @@ export function ConsultationForm() {
                 </div>
                 <div className="flex flex-col gap-2">
                   <label htmlFor="phone" className="text-[11px] tracking-widest text-muted-foreground">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
+                  <input
+                    type="tel"
+                    id="phone"
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
                     placeholder="+91 98765 43210"
@@ -102,8 +102,8 @@ export function ConsultationForm() {
 
               <div className="flex flex-col gap-2 mt-2">
                 <label htmlFor="message" className="text-[11px] tracking-widest text-muted-foreground">Project Details</label>
-                <textarea 
-                  id="message" 
+                <textarea
+                  id="message"
                   rows={4}
                   className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 resize-none shadow-none"
                   style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -111,7 +111,7 @@ export function ConsultationForm() {
                 />
               </div>
 
-              <button 
+              <button
                 type="submit"
                 className="mt-6 group flex items-center justify-center gap-3 bg-foreground text-background py-4 px-8 rounded-full font-medium tracking-wide hover:bg-accent hover:text-white transition-all duration-300 w-full md:w-max"
               >
@@ -124,7 +124,7 @@ export function ConsultationForm() {
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
                 <CheckCircle2 className="w-8 h-8 text-accent" />
               </div>
-              <h3 className="text-foreground mb-4">Request Received</h3>
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">Request Received</h3>
               <p className="text-muted-foreground font-light leading-relaxed">
                 Thank you for reaching out. One of our system architects will be in touch with you shortly to schedule your consultation.
               </p>

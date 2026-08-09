@@ -69,10 +69,10 @@ export function HospitalityBenefits() {
         }
       }
     });
-    
+
     // Refresh scroll triggers because heights have changed
     setTimeout(() => {
-        ScrollTrigger.refresh();
+      ScrollTrigger.refresh();
     }, 650);
   }, [activeItem, isReady]);
 
@@ -85,7 +85,7 @@ export function HospitalityBenefits() {
       y: 30, opacity: 0, duration: DURATION.normal, stagger: 0.1, ease: EASE.reveal,
       scrollTrigger: { trigger: containerRef.current, start: "top 75%" }
     });
-    
+
     gsap.from(".bc-accordion-item", {
       y: 30, opacity: 0, duration: DURATION.normal, stagger: 0.1, ease: EASE.reveal,
       scrollTrigger: { trigger: containerRef.current, start: "top 75%" }
@@ -96,17 +96,17 @@ export function HospitalityBenefits() {
   return (
     <section
       ref={containerRef}
-      className={`py-16 md:py-24 w-full px-6 md:px-12 lg:px-24 bg-background transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
+      className={`py-12 md:py-16 w-full px-6 md:px-12 lg:px-24 bg-background transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-        
+
         {/* Left Column: Static Header (Sticky) */}
         <div className="w-full lg:w-5/12 relative">
           <div className="bc-left-content flex flex-col gap-6 lg:sticky lg:top-[15vh]">
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">
               {BUSINESS_CASE_DATA.eyebrow}
             </span>
-            <h2 className="text-foreground">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
               {BUSINESS_CASE_DATA.title}
             </h2>
             <p className="text-muted text-base md:text-lg font-light leading-relaxed">
@@ -120,8 +120,8 @@ export function HospitalityBenefits() {
           {BUSINESS_CASE_DATA.items.map((item) => {
             const isActive = activeItem === item.id;
             return (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 ref={(el) => { itemRefs.current[item.id] = el; }}
                 className="bc-accordion-item group border-b border-border py-6 md:py-8 cursor-pointer"
                 onClick={() => setActiveItem(isActive ? "" : item.id)}
@@ -137,7 +137,7 @@ export function HospitalityBenefits() {
                 </div>
 
                 {/* Accordion Content (Animated by GSAP) */}
-                <div 
+                <div
                   ref={(el) => { contentRefs.current[item.id] = el; }}
                   className="overflow-hidden h-0 opacity-0"
                 >

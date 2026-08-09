@@ -40,9 +40,9 @@ export function ContactExperience() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
-      <div 
+      <div
         ref={contentRef}
         className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-12 lg:gap-16"
       >
@@ -53,11 +53,11 @@ export function ContactExperience() {
               Direct Access
             </span>
           </div>
-          
-          <h2 className="stagger-reveal text-foreground">
+
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl stagger-reveal text-foreground">
             Connect with our specialists to begin your journey into intelligent living.
           </h2>
-          
+
           <p className="stagger-reveal text-muted-foreground text-lg font-light leading-relaxed max-w-md">
             Whether you are building a new luxury residence or integrating advanced technology into a commercial space, our team is ready to assist you with precision and expertise.
           </p>
@@ -66,20 +66,20 @@ export function ContactExperience() {
         {/* Right: Contact Info */}
         <div className="flex-1 flex flex-col pt-4 lg:pt-0">
           <div className="stagger-reveal w-full border-t border-border" />
-          
-          <ContactRow 
+
+          <ContactRow
             label="General Inquiries"
             value="info@anushagroup.com"
             href="mailto:info@anushagroup.com"
           />
-          
-          <ContactRow 
+
+          <ContactRow
             label="Project Sales"
             value="sales@anushagroup.com"
             href="mailto:sales@anushagroup.com"
           />
-          
-          <ContactRow 
+
+          <ContactRow
             label="Direct Line"
             value="+91 11 4160 8415"
             href="tel:+911141608415"
@@ -93,7 +93,7 @@ export function ContactExperience() {
 
 function ContactRow({ label, value, href, hasBorderBottom = false }: { label: string; value: string; href: string; hasBorderBottom?: boolean }) {
   return (
-    <Link 
+    <Link
       href={href}
       className={`stagger-reveal group flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-6 border-b border-border hover:border-accent transition-colors duration-500 ${!hasBorderBottom && 'border-none sm:border-solid'}`}
     >

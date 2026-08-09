@@ -33,12 +33,12 @@ export default function BrandStory() {
   }, { scope: sectionRef });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
-        
+
         {/* Subtitle */}
         <div className="mb-12 flex items-center gap-4">
           <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
@@ -63,9 +63,9 @@ export default function BrandStory() {
         {/* Supporting Minimal Text */}
         <div className="mt-24 max-w-2xl mx-auto text-left md:text-center">
           <p className="story-line text-lg font-light text-muted-foreground leading-relaxed">
-            Since our inception, AT Smart Living has been driven by a singular vision: 
-            to seamlessly blend architectural elegance with cutting-edge engineering. 
-            We believe that true luxury lies in technology that anticipates your needs 
+            Since our inception, AT Smart Living has been driven by a singular vision:
+            to seamlessly blend architectural elegance with cutting-edge engineering.
+            We believe that true luxury lies in technology that anticipates your needs
             while remaining entirely invisible.
           </p>
         </div>

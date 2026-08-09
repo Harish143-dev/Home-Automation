@@ -8,9 +8,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
-import { ArrowRight, MapPin } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
 import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 
@@ -64,62 +62,54 @@ export default function LightingHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-start overflow-hidden bg-black"
+      className="relative w-full h-[100svh] min-h-[600px] flex overflow-hidden bg-black flex-col justify-end"
     >
-      {/* Background Image - Stunning Luxury Smart Lighting */}
+      {/* Background Container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <NextImage
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-          alt="Luxury Smart Lighting Automation"
-          fill
-          priority
-          className="hero-bg object-cover opacity-60 scale-105"
-        />
+        {/* Animated Image Wrapper */}
+        <div className="hero-bg absolute inset-0 w-full h-full scale-110">
+          <NextImage
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+            alt="Luxury Smart Lighting Automation"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+        </div>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
       </div>
 
       {/* Content Container (Left Aligned) */}
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-start text-left mt-12 md:mt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
 
-        {/* H1 Heading sizing strictly matching DESIGN_SYSTEM.md */}
+        {/* Refined editorial headline */}
         <h1
           ref={textRef}
-          className="hero-element text-white text-balance mb-2"
+          className="hero-element text-white text-balance mb-6 max-w-4xl"
         >
           Smart Lighting Automation for Modern Homes
         </h1>
 
         {/* Subheading */}
-        <p className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4">
+        <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-10 text-balance">
           Transform everyday living with intelligent lighting that automatically adjusts to your routine. From relaxing evenings to entertaining guests, create the perfect ambience with customized scenes, voice control, and seamless automation—all while improving energy efficiency and convenience.
         </p>
 
-        {/* Left Aligned CTA Container */}
-        <div className="hero-element flex flex-col sm:flex-row items-start justify-start gap-4 sm: w-full sm:w-auto">
+        {/* CTA Container */}
+        <div className="pointer-events-auto hero-element flex flex-col sm:flex-row gap-5">
           {/* Primary CTA */}
-          <Link
-            href="/contact"
-            className={cn(
-              buttonVariants({ variant: "accent", size: "lg", shape: "pill" }),
-              "group overflow-hidden w-full sm:w-auto"
-            )}
-          >
-            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">Book a Consultation</span>
-            <ArrowRight className="relative z-10 ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+              Book a Consultation
+            </Button>
           </Link>
 
           {/* Secondary CTA */}
-          <Link
-            href="/experience-center"
-            className={cn(
-              buttonVariants({ variant: "glass", size: "lg", shape: "pill" }),
-              "group overflow-hidden w-full sm:w-auto"
-            )}
-          >
-            <MapPin className="relative z-10 mr-3 w-4 h-4 text-white/70" />
-            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">Visit Our Experience Center</span>
-            <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+          <Link href="/experience-center" className="w-full sm:w-auto">
+            <Button variant="shiny" size="lg" className="w-full sm:w-auto">
+              Visit Our Experience Center
+            </Button>
           </Link>
         </div>
       </div>

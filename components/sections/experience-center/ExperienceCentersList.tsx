@@ -13,9 +13,9 @@ const EXPERIENCE_CENTRES = [
     city: "Delhi Experience Centre",
     description: "Explore integrated automation solutions crafted for luxury residences, hospitality spaces, and commercial environments.",
     features: [
-      "Live automation demos", 
-      "Lighting control scenes", 
-      "Home theatre experience", 
+      "Live automation demos",
+      "Lighting control scenes",
+      "Home theatre experience",
       "Centralized automation systems"
     ],
     ctas: [
@@ -29,10 +29,10 @@ const EXPERIENCE_CENTRES = [
     city: "Mumbai Experience Centre",
     description: "A luxury automation environment showcasing intelligent living through immersive lighting, AV, security, and comfort experiences.",
     features: [
-      "Residential automation experience", 
-      "Conference room setups", 
-      "Smart theatre systems", 
-      "Advanced AV demonstrations", 
+      "Residential automation experience",
+      "Conference room setups",
+      "Smart theatre systems",
+      "Advanced AV demonstrations",
       "Security & surveillance integration"
     ],
     ctas: [
@@ -46,9 +46,9 @@ const EXPERIENCE_CENTRES = [
     city: "Bangalore Experience Centre",
     description: "Experience enterprise-grade automation solutions designed for modern homes, hospitality, and smart commercial environments.",
     features: [
-      "Smart controls", 
-      "Integrated systems", 
-      "Hospitality automation", 
+      "Smart controls",
+      "Integrated systems",
+      "Hospitality automation",
       "Commercial automation demos"
     ],
     ctas: [
@@ -69,7 +69,7 @@ export function ExperienceCentersList() {
       if (!containerRef.current || !pinRef.current || prefersReducedMotion) return;
 
       const panels = gsap.utils.toArray<HTMLElement>(".center-panel");
-      
+
       // Initial state: hide panels 2 and 3 below the viewport
       gsap.set(panels.slice(1), { yPercent: 100 });
 
@@ -96,17 +96,17 @@ export function ExperienceCentersList() {
   );
 
   return (
-    <section 
-      ref={containerRef} 
-      className="relative w-full bg-background"
+    <section
+      ref={containerRef}
+      className="py-12 md:py-16 relative w-full bg-background"
       style={{ height: prefersReducedMotion ? 'auto' : '300vh' }}
     >
-      <div 
+      <div
         ref={pinRef}
         className={`w-full ${prefersReducedMotion ? 'relative flex flex-col h-auto' : 'h-screen overflow-hidden sticky top-0'}`}
       >
         {EXPERIENCE_CENTRES.map((center, index) => (
-          <div 
+          <div
             key={center.id}
             className={`center-panel w-full ${prefersReducedMotion ? 'h-screen relative' : 'absolute inset-0 h-full flex flex-col justify-end'}`}
             style={{ zIndex: index + 1 }}
@@ -127,7 +127,7 @@ export function ExperienceCentersList() {
 
             {/* Content Container */}
             <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-32 pb-24 md:pb-32 pt-32 flex flex-col justify-end h-full">
-              
+
               <div className="flex items-center gap-4 mb-6 md:mb-8">
                 <div className="h-[1px] w-8 bg-white/30" />
                 <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/60">
@@ -136,13 +136,13 @@ export function ExperienceCentersList() {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end">
-                
+
                 {/* Left: Titles & CTAs */}
                 <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
-                  <h2 className="text-white">
+                  <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
                     {center.city}
                   </h2>
-                  
+
                   <p className="text-base md:text-lg font-light tracking-wide text-white/80 leading-relaxed max-w-xl text-balance">
                     {center.description}
                   </p>
@@ -150,13 +150,13 @@ export function ExperienceCentersList() {
                   <div className="flex flex-col sm:flex-row gap-4 mt-4">
                     <Link href={center.ctas[0].action}>
                       <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-                {center.ctas[0].label}
-              </Button>
+                        {center.ctas[0].label}
+                      </Button>
                     </Link>
                     <Link href={center.ctas[1].action}>
                       <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                {center.ctas[1].label}
-              </Button>
+                        {center.ctas[1].label}
+                      </Button>
                     </Link>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export function ExperienceCentersList() {
                 {/* Right: Feature Pills */}
                 <div className="lg:col-span-5 flex flex-wrap gap-3 items-end lg:justify-end">
                   {center.features.map((feature, fIndex) => (
-                    <div 
+                    <div
                       key={fIndex}
                       className="px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs md:text-sm text-white font-medium tracking-wide"
                     >

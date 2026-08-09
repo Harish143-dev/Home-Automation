@@ -186,7 +186,7 @@ export function CommercialSolutions() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} id="commercial-solutions" className="py-16 md:py-24 bg-background text-foreground w-full">
+    <section ref={sectionRef} id="commercial-solutions" className="py-12 md:py-16 bg-background text-foreground w-full">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24">
 
         {/* Section Header */}
@@ -194,7 +194,7 @@ export function CommercialSolutions() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Architecture & Infrastructure
           </span>
-          <h2 className="text-foreground">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
             Commercial Automation Solutions
           </h2>
         </div>
@@ -218,7 +218,7 @@ export function CommercialSolutions() {
                   <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
                     {system.topHeading}
                   </span>
-                  <h3 className="mb-8 md:mb-10 text-balance">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 md:mb-10 text-balance">
                     {system.title}
                   </h3>
 

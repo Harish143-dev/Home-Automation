@@ -104,7 +104,7 @@ export function CommercialBenefits() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 relative bg-background text-foreground">
+    <section ref={containerRef} className="py-12 md:py-16 relative bg-background text-foreground">
 
       {/* Background Noise Texture for premium feel */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none">
@@ -121,7 +121,7 @@ export function CommercialBenefits() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6 block">
             Why Commercial Automation Matters
           </span>
-          <h2 className="mb-8 text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 text-balance">
             The Strategic Significance of Adaptive Infrastructure
           </h2>
           <p className="text-foreground/70 text-lg md:text-xl leading-relaxed font-light">
@@ -139,7 +139,7 @@ export function CommercialBenefits() {
                 {item.num}
               </span>
 
-              <h3 className="mb-8 relative z-10">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 relative z-10">
                 {item.title}
               </h3>
 

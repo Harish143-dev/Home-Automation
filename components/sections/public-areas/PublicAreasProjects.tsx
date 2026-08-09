@@ -1,60 +1,60 @@
 'use client';
 
-import React, { useRef } from"react";
-import NextImage from"next/image";
-import { ArrowRight, ArrowLeft } from"lucide-react";
-import { gsap, useGSAP } from"../../../lib/gsapSetup";
-import { useReducedMotion } from"../../../hooks/useReducedMotion";
+import React, { useRef } from "react";
+import NextImage from "next/image";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import { gsap, useGSAP } from "../../../lib/gsapSetup";
+import { useReducedMotion } from "../../../hooks/useReducedMotion";
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 
 const PROJECTS = [
   {
     id: 1,
-    title:"ITC Hotels",
-    asset:"Luxury Hospitality Automation",
-    image:"https://picsum.photos/seed/hotel1/1200/800",
+    title: "ITC Hotels",
+    asset: "Luxury Hospitality Automation",
+    image: "https://picsum.photos/seed/hotel1/1200/800",
   },
   {
     id: 2,
-    title:"Taj Hotels",
-    asset:"Premium Guest Experience",
-    image:"https://picsum.photos/seed/hotel2/1200/800",
+    title: "Taj Hotels",
+    asset: "Premium Guest Experience",
+    image: "https://picsum.photos/seed/hotel2/1200/800",
   },
   {
     id: 3,
-    title:"Marriott",
-    asset:"Integrated Public Area Control",
-    image:"https://picsum.photos/seed/hotel3/1200/800",
+    title: "Marriott",
+    asset: "Integrated Public Area Control",
+    image: "https://picsum.photos/seed/hotel3/1200/800",
   },
   {
     id: 4,
-    title:"Hilton",
-    asset:"Intelligent Lighting & AV",
-    image:"https://picsum.photos/seed/hotel4/1200/800",
+    title: "Hilton",
+    asset: "Intelligent Lighting & AV",
+    image: "https://picsum.photos/seed/hotel4/1200/800",
   },
   {
     id: 5,
-    title:"Hyatt",
-    asset:"Seamless Automation Solutions",
-    image:"https://picsum.photos/seed/hotel5/1200/800",
+    title: "Hyatt",
+    asset: "Seamless Automation Solutions",
+    image: "https://picsum.photos/seed/hotel5/1200/800",
   },
   {
     id: 6,
-    title:"Four Seasons",
-    asset:"Elite Environmental Management",
-    image:"https://picsum.photos/seed/hotel6/1200/800",
+    title: "Four Seasons",
+    asset: "Elite Environmental Management",
+    image: "https://picsum.photos/seed/hotel6/1200/800",
   },
   {
     id: 7,
-    title:"The Oberoi",
-    asset:"Bespoke Automation Architecture",
-    image:"https://picsum.photos/seed/hotel7/1200/800",
+    title: "The Oberoi",
+    asset: "Bespoke Automation Architecture",
+    image: "https://picsum.photos/seed/hotel7/1200/800",
   },
   {
     id: 8,
-    title:"IHG Hotels & Resorts",
-    asset:"Scalable Hospitality Framework",
-    image:"https://picsum.photos/seed/hotel8/1200/800",
+    title: "IHG Hotels & Resorts",
+    asset: "Scalable Hospitality Framework",
+    image: "https://picsum.photos/seed/hotel8/1200/800",
   }
 ];
 
@@ -69,10 +69,10 @@ export function PublicAreasProjects() {
     gsap.fromTo(".project-header",
       { y: 40, opacity: 0 },
       {
-        y: 0, opacity: 1, duration: 1.2, ease:"power3.out",
+        y: 0, opacity: 1, duration: 1.2, ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start:"top 80%",
+          start: "top 80%",
         }
       }
     );
@@ -80,33 +80,33 @@ export function PublicAreasProjects() {
     gsap.fromTo(".project-card",
       { x: 100, opacity: 0 },
       {
-        x: 0, opacity: 1, duration: 1, stagger: 0.1, ease:"power3.out",
+        x: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out",
         scrollTrigger: {
           trigger: carouselRef.current,
-          start:"top 85%",
+          start: "top 85%",
         }
       }
     );
-    
+
     scheduleScrollRefresh();
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
-  const scroll = (direction:"left" |"right") => {
+  const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
-      const scrollAmount = direction ==="left" ? -600 : 600;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior:"smooth" });
+      const scrollAmount = direction === "left" ? -600 : 600;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 bg-background text-foreground w-full overflow-hidden border-t border-black/5">
+    <section ref={containerRef} className="py-12 md:py-16 bg-background text-foreground w-full overflow-hidden border-t border-black/5">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 project-header">
 
         <div className="max-w-2xl">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Proven Excellence
           </span>
-          <h2 className="text-foreground">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
             Hospitality Projects
           </h2>
           <p className="mt-6 text-foreground/70 text-lg md:text-xl font-light leading-relaxed">
@@ -156,10 +156,10 @@ export function PublicAreasProjects() {
 
               {/* Title & Asset */}
               <div className="flex flex-col gap-2">
-                <h3 className="text-foreground group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
-                <span className="text-sm tracking-widest  text-muted-foreground font-medium">
+                <span className="tracking-[0.3em] uppercase text-xs sm:text-sm md:text-base text-muted-foreground">
                   {project.asset}
                 </span>
               </div>

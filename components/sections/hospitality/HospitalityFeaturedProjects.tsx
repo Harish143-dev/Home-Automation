@@ -87,7 +87,7 @@ export function HospitalityFeaturedProjects() {
         scrollTrigger: {
           trigger: pinRef.current,
           start: "top top",
-          end: `+=${PROJECTS.length * 250}vh`, 
+          end: `+=${PROJECTS.length * 250}vh`,
           pin: true,
           scrub: SCROLL.scrub,
           anticipatePin: SCROLL.anticipatePin,
@@ -136,11 +136,11 @@ export function HospitalityFeaturedProjects() {
   return (
     <section
       ref={containerRef}
-      className={`py-16 md:py-24 bg-background overflow-hidden text-foreground`}
+      className={`py-12 md:py-16 bg-background overflow-hidden text-foreground`}
     >
       {/* ═══ Header (Not Pinned) ═══ */}
       <div className="w-full pb-12 px-6 sm:px-12 md:px-20 lg:px-24 flex flex-col items-center text-center">
-        <h2 className="text-foreground max-w-4xl">
+        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground max-w-4xl">
           Hospitality Spaces Powered by Intelligent Automation
         </h2>
       </div>
@@ -154,7 +154,7 @@ export function HospitalityFeaturedProjects() {
                 <img src={proj.image} alt={proj.name} className="w-full h-full object-cover" />
               </div>
               <div>
-                <h3 className="mb-4">{proj.name}</h3>
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-4">{proj.name}</h3>
                 <p className="text-sm md:text-base text-muted leading-relaxed">{proj.description}</p>
               </div>
             </div>
@@ -196,7 +196,7 @@ export function HospitalityFeaturedProjects() {
             <div className="relative w-full h-full">
               {PROJECTS.map((proj) => (
                 <div key={proj.id + "content"} className="fp-content absolute inset-0 flex flex-col justify-center gap-8 lg:gap-10">
-                  <h3 className="fp-stagger text-foreground mb-4">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl fp-stagger text-foreground mb-4">
                     {proj.name}
                   </h3>
 

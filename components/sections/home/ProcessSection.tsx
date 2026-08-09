@@ -84,7 +84,7 @@ export function ProcessSection() {
   const translateY = -(activeIndex * ITEM_HEIGHT) - (ITEM_HEIGHT / 2);
 
   return (
-    <section ref={triggerRef} className="relative w-full text-white" id="process">
+    <section ref={triggerRef} className="py-12 md:py-16 relative w-full text-white" id="process">
       <div
         ref={containerRef}
         className="w-full h-[100dvh] bg-black relative overflow-hidden hidden md:block"
@@ -107,7 +107,7 @@ export function ProcessSection() {
 
         {/* Top Centered Title and Description */}
         <div className="absolute top-8 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 z-30 w-full max-w-2xl px-6 md:px-0 text-center pointer-events-none hidden md:block">
-          <h2 className="text-white mb-4">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-4">
             Execution Architecture
           </h2>
           <p className="text-sm font-light text-white/70 leading-relaxed mx-auto max-w-xl">
@@ -166,7 +166,7 @@ export function ProcessSection() {
                 ref={textContentRef}
                 className="max-w-lg pl-0 md:pl-8"
               >
-                <h3 className="mb-4 md:mb-5 text-white">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-4 md:mb-5 text-white">
                   {activeStep.title}
                 </h3>
                 <p className="text-xs md:text-sm font-light text-white/70 leading-relaxed">
@@ -196,7 +196,7 @@ export function ProcessSection() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/50 mb-3 block">
             The Methodology
           </span>
-          <h2 className="text-white mb-4">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-4">
             Execution Architecture
           </h2>
           <p className="text-sm font-light text-white/70 leading-relaxed">
@@ -213,7 +213,7 @@ export function ProcessSection() {
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-1 block">
                 PHASE 0{idx + 1}
               </span>
-              <h3 className="text-white">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
                 {step.title}
               </h3>
               <p className="text-sm font-light text-white/60 leading-relaxed mt-2">

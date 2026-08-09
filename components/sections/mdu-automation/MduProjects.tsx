@@ -76,12 +76,12 @@ export default function MduProjects() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        
+
         {/* Header */}
         <div className="projects-header max-w-4xl text-center mb-16 md:mb-24 flex flex-col items-center">
           <div className="mb-6 flex items-center justify-center gap-4">
@@ -91,11 +91,11 @@ export default function MduProjects() {
             </span>
             <div className="h-[1px] w-6 bg-accent/30" />
           </div>
-          
-          <h2 className="text-foreground mb-6">
+
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
             Featured MDU Deployments
           </h2>
-          
+
           <p className="text-muted font-light text-base md:text-lg leading-relaxed max-w-2xl">
             Explore how we have transformed premier residential properties with state-of-the-art automation systems tailored for modern living.
           </p>
@@ -104,8 +104,8 @@ export default function MduProjects() {
         {/* Grid */}
         <div className="projects-grid w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           {PROJECTS.map((project) => (
-            <Link 
-              key={project.id} 
+            <Link
+              key={project.id}
               href={project.href}
               className="project-card group relative flex flex-col overflow-hidden outline-none"
             >
@@ -119,7 +119,7 @@ export default function MduProjects() {
                   className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-                
+
                 {/* Hover Glass Panel */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
@@ -134,11 +134,11 @@ export default function MduProjects() {
                 <div className="flex items-center gap-3 mb-3 text-xs md:text-sm tracking-[0.2em] text-accent font-medium">
                   {project.tags.join(" • ")}
                 </div>
-                
-                <h3 className="text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
-                
+
                 <p className="text-base text-muted font-light leading-relaxed">
                   {project.description}
                 </p>

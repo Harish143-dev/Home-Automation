@@ -132,7 +132,7 @@ export function BrandTicker({ brands = DEFAULT_BRANDS }: BrandTickerProps = {}) 
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full overflow-hidden border-y border-white/10 bg-secondary text-white px-5 sm:px-8 md:px-16 lg:px-24"
+      className="py-12 md:py-16 relative w-full overflow-hidden border-y border-white/10 bg-secondary text-white px-5 sm:px-8 md:px-16 lg:px-24"
     >
       {/* Advanced Layout: Custom Edge Masks for smooth fade & blur effect while maintaining center focus visibility. */}
       {/* Left Mask */}

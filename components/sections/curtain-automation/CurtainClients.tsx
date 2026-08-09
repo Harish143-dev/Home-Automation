@@ -52,9 +52,9 @@ export function CurtainClients() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current || !trackRef.current || !pinContainerRef.current) return;
-    
+
     // Animate header text
-    gsap.fromTo('.client-header-text', 
+    gsap.fromTo('.client-header-text',
       { y: 30, opacity: 0 },
       {
         y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: 'power3.out',
@@ -79,7 +79,7 @@ export function CurtainClients() {
 
     // Horizontal Scroll Animation
     const track = trackRef.current;
-    
+
     const getScrollAmount = () => {
       let trackWidth = track.scrollWidth;
       // Get the width of the container that masks the overflow
@@ -110,13 +110,13 @@ export function CurtainClients() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto mb-16 md:mb-24">
         <div className="max-w-4xl">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base client-header-text text-accent mb-4 block">
             Prestigious Portfolio
           </span>
-          <h2 className="client-header-text text-foreground mb-8 text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl client-header-text text-foreground mb-8 text-balance">
             Trusted by India's Leading Homeowners & Visionaries
           </h2>
           <p className="client-header-text text-sm sm:text-base md:text-lg font-light tracking-wide text-foreground/70 leading-relaxed text-balance">
@@ -126,18 +126,18 @@ export function CurtainClients() {
       </div>
 
       <div ref={pinContainerRef} className="max-w-7xl w-full mx-auto md:overflow-hidden">
-        <div 
+        <div
           ref={trackRef}
           className="flex w-full md:w-max overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-10"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {CLIENTS.map((client, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="client-card snap-start md:snap-align-none shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] flex flex-col group cursor-grab active:cursor-grabbing"
             >
               <div className="relative w-full aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden bg-black/5 mb-6">
-                <NextImage 
+                <NextImage
                   src={client.image}
                   alt={client.name}
                   fill
@@ -146,7 +146,7 @@ export function CurtainClients() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="text-foreground">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
                   {client.name}
                 </h3>
                 <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">

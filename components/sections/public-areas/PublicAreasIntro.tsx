@@ -20,10 +20,10 @@ export function PublicAreasIntro() {
         opacity: 1,
         duration: 1,
         stagger: 0.15,
-        ease:"power3.out",
+        ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start:"top 80%",
+          start: "top 80%",
         }
       }
     );
@@ -32,14 +32,14 @@ export function PublicAreasIntro() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative">
-        
+
         <div ref={textRef} className="flex flex-col items-center gap-6">
-          <h2 className="text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
             First Impressions Begin in Your Public Spaces
           </h2>
-          
+
           <p className="text-lg md:text-2xl font-light text-foreground/80 leading-relaxed text-balance mt-4">
             From the moment guests step into your hotel, every interaction shapes their perception. Intelligent automation brings together lighting, motorized shades, background music, climate control, networking, displays, and security to create welcoming, comfortable, and consistently managed public spaces.
           </p>

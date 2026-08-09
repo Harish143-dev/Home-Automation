@@ -14,7 +14,7 @@ export default function BlogSidebar() {
       
       {/* Social Sharing Icons */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className="text-foreground mb-4 flex items-center gap-2">
+        <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 flex items-center gap-2">
           Share
         </h3>
         <div className="flex items-center gap-3">
@@ -37,7 +37,7 @@ export default function BlogSidebar() {
       {/* Featured Blogs */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-foreground">Featured Blogs</h3>
+          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Featured Blogs</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-6">
@@ -58,7 +58,7 @@ export default function BlogSidebar() {
                 <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-[10px] text-white/70 mb-1 block">
                   {post.category}
                 </span>
-                <h4 className="text-white group-hover:text-accent transition-colors line-clamp-2">
+                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white group-hover:text-accent transition-colors line-clamp-2">
                   {post.title}
                 </h4>
               </div>
@@ -70,7 +70,7 @@ export default function BlogSidebar() {
       {/* Latest Articles */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-foreground">Latest Articles</h3>
+          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Latest Articles</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">
@@ -89,7 +89,7 @@ export default function BlogSidebar() {
                 />
               </div>
               <div className="flex flex-col">
-                <h4 className="text-foreground line-clamp-2 group-hover:text-accent transition-colors">
+                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground line-clamp-2 group-hover:text-accent transition-colors">
                   {post.title}
                 </h4>
                 <span className="text-xs text-muted-foreground font-light mt-1">

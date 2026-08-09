@@ -99,7 +99,7 @@ export default function LightingScenes() {
     <section
       ref={sectionRef}
       id="lighting-scenes"
-      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground select-none"
+      className="py-12 md:py-16 relative w-full overflow-hidden bg-background text-foreground select-none"
     >
       {/* Subtle Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -115,7 +115,7 @@ export default function LightingScenes() {
           <span className="ls-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Personalized Scenes
           </span>
-          <h2 className="ls-header-el text-foreground mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl ls-header-el text-foreground mb-6">
             Intelligent Control for Every Moment
           </h2>
           <p className="ls-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto">
@@ -135,12 +135,12 @@ export default function LightingScenes() {
             >
               {/* Subtle accent gradient on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               <div className="relative z-10">
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center border border-border mb-8 group-hover:scale-110 transition-transform duration-500 ease-out">
                   <scene.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
-                <h4 className="text-foreground mb-4">
+                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
                   {scene.title}
                 </h4>
                 <p className="text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed">

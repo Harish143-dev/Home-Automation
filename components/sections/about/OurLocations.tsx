@@ -52,12 +52,12 @@ export default function OurLocations() {
     // Locations reveal
     tl.fromTo(".loc-item",
       { y: 40, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: DURATION.slow, 
-        ease: "power3.out", 
-        stagger: STAGGER.wide 
+      {
+        y: 0,
+        opacity: 1,
+        duration: DURATION.slow,
+        ease: "power3.out",
+        stagger: STAGGER.wide
       },
       "-=0.6"
     );
@@ -72,9 +72,9 @@ export default function OurLocations() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -83,7 +83,7 @@ export default function OurLocations() {
       </svg>
 
       <div className="relative z-10 max-w-7xl w-full mx-auto">
-        
+
         {/* Header */}
         <div className="loc-header text-center max-w-3xl mx-auto space-y-4 mb-20 md:mb-32 opacity-0">
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
@@ -97,14 +97,14 @@ export default function OurLocations() {
         {/* Centered Locations Layout with Dividers */}
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/10">
           {LOCATIONS.map((loc, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="loc-item flex flex-col items-center text-center opacity-0 group py-10 md:py-0 px-4 md:px-8 lg:px-12 first:pt-0 md:first:pt-0 last:pb-0 md:last:pb-0"
             >
-              <h3 className="mb-8 text-foreground transition-colors duration-300">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 text-foreground transition-colors duration-300">
                 {loc.city}
               </h3>
-              
+
               <div className="flex-grow flex flex-col space-y-8 w-full items-center">
                 {/* Address */}
                 <div className="flex flex-col items-center gap-3">
@@ -119,8 +119,8 @@ export default function OurLocations() {
                   <Phone className="w-5 h-5 text-accent opacity-80" />
                   <div className="flex flex-col items-center gap-1.5">
                     {loc.phones.map((phone, pIdx) => (
-                      <a 
-                        key={pIdx} 
+                      <a
+                        key={pIdx}
                         href={`tel:${phone.replace(/[^\d+]/g, '')}`}
                         className="text-foreground/80 hover:text-accent font-light text-[15px] transition-colors"
                       >

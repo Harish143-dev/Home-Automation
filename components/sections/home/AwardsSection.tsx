@@ -55,7 +55,7 @@ function AwardCard({ award }: { award: AwardItem }) {
           <span className="text-sm md:text-base font-medium text-accent">{award.year}</span>
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted">{award.category}</span>
         </div>
-        <h4 className="text-foreground">
+        <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
           {award.title}
         </h4>
       </div>
@@ -119,7 +119,7 @@ export function AwardsSection({ className }: { className?: string }) {
   return (
     <section
       ref={containerRef}
-      className={`pt-16 md:pt-24 pb-4 md:pb-12 relative w-full bg-background overflow-hidden ${className || ''}`}
+      className={`py-12 md:py-16 relative w-full bg-background overflow-hidden ${className || ''}`}
       id="awards"
     >
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-16 lg:px-24">
@@ -129,7 +129,7 @@ export function AwardsSection({ className }: { className?: string }) {
               <div className="h-[1px] w-8 bg-black/20" />
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">Recognition</span>
             </div>
-            <h2 className="text-foreground">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
               Awards<span className="text-foreground/30">.</span>
             </h2>
           </div>

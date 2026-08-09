@@ -180,7 +180,7 @@ export default function Awards() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative bg-background text-foreground overflow-hidden"
+      className="py-12 md:py-16 relative bg-background text-foreground overflow-hidden"
     >
       {/* Background glow */}
       <div
@@ -237,7 +237,7 @@ export default function Awards() {
                   </div>
 
                   {/* Content */}
-                  <h4 className="mb-2 transition-colors duration-300 group-hover/card:text-accent">
+                  <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-2 transition-colors duration-300 group-hover/card:text-accent">
                     {award.title}
                   </h4>
                   <div className="text-accent text-sm md:text-base tracking-wide mb-4 mt-auto">

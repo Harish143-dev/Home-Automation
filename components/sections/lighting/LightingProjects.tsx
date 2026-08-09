@@ -100,18 +100,18 @@ export default function LightingProjects() {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-6xl mx-auto flex flex-col">
-        
+
         {/* Header */}
         <div className="lproj-header text-center mb-16 md:mb-24 flex flex-col items-center">
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Featured Work
           </span>
-          <h2 className="text-foreground mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
             Lighting Automation Projects
           </h2>
           <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -123,14 +123,14 @@ export default function LightingProjects() {
         <div className="w-full flex flex-col border-t border-border">
           {PROJECTS.map((project) => {
             const isOpen = openId === project.id;
-            
+
             return (
-              <div 
-                key={project.id} 
+              <div
+                key={project.id}
                 className="lproj-item flex flex-col border-b border-border transition-colors duration-300 hover:bg-black/[0.02]"
               >
                 {/* Header (Clickable) */}
-                <button 
+                <button
                   onClick={() => toggleAccordion(project.id)}
                   className="w-full py-6 md:py-8 flex items-center justify-between group focus:outline-none"
                   aria-expanded={isOpen}
@@ -144,31 +144,29 @@ export default function LightingProjects() {
                       <span className="text-sm font-medium uppercase tracking-wider">{project.location}</span>
                     </div>
                   </div>
-                  
+
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ml-4 ${isOpen ? 'border-accent bg-accent text-white rotate-180' : 'border-border bg-panel text-foreground group-hover:border-accent group-hover:text-accent'}`}>
                     {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                   </div>
                 </button>
 
                 {/* Content (Expandable) */}
-                <div 
-                  className={`overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    isOpen ? "max-h-[1200px] opacity-100 pb-8 md:pb-12" : "max-h-0 opacity-0"
-                  }`}
+                <div
+                  className={`overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "max-h-[1200px] opacity-100 pb-8 md:pb-12" : "max-h-0 opacity-0"
+                    }`}
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 pt-6">
-                    
+
                     {/* Left Col: Image */}
                     <div className="lg:col-span-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
                       <div className="absolute inset-0 bg-black/5 z-10" />
-                      <NextImage 
+                      <NextImage
                         src={project.image}
                         alt={project.client}
                         fill
                         sizes="(max-width: 1024px) 100vw, 40vw"
-                        className={`object-cover transition-transform duration-[1.5s] ease-out origin-center ${
-                          isOpen ? 'scale-100' : 'scale-110'
-                        }`}
+                        className={`object-cover transition-transform duration-[1.5s] ease-out origin-center ${isOpen ? 'scale-100' : 'scale-110'
+                          }`}
                       />
                     </div>
 
@@ -189,7 +187,7 @@ export default function LightingProjects() {
                           <span className="block text-xs tracking-[0.2em] text-accent mb-2 font-medium">Scope</span>
                           <p className="text-foreground font-light text-base">{project.scope}</p>
                         </div>
-                        
+
                         <div>
                           <span className="block text-xs tracking-[0.2em] text-accent mb-2 font-medium">Integrated Solutions</span>
                           <div className="flex flex-wrap gap-2 mt-3">
@@ -201,7 +199,7 @@ export default function LightingProjects() {
                           </div>
                         </div>
                       </div>
-                      
+
                     </div>
 
                   </div>
@@ -213,8 +211,8 @@ export default function LightingProjects() {
 
         {/* CTA */}
         <div className="mt-12 md:mt-16 flex justify-center">
-          <Link 
-            href="/projects" 
+          <Link
+            href="/projects"
             className="group relative inline-flex items-center justify-center px-8 py-3.5 text-base text-white bg-accent border border-accent hover:bg-accent/90 rounded-full transition-all duration-500 overflow-hidden lproj-item shadow-sm hover:shadow-md"
           >
             <span className="relative z-10 flex items-center gap-2 font-medium">

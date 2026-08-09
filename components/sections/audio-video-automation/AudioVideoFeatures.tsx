@@ -81,15 +81,15 @@ export function AudioVideoFeatures() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={containerRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-12 lg:gap-24 relative">
-        
+
         {/* Section Header */}
         <div className="max-w-4xl flex flex-col items-start">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base av-features-header text-accent mb-4 block">
             Entertainment Without Complexity
           </span>
-          <h2 className="av-features-header text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl av-features-header text-foreground text-balance mb-6">
             Modern entertainment should be effortless.
           </h2>
           <p className="av-features-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -99,30 +99,30 @@ export function AudioVideoFeatures() {
 
         {/* ScrollSpy Container */}
         <div className="flex flex-col lg:flex-row relative items-start lg:gap-16">
-          
+
           {/* Left Side: Scrolling Text Blocks */}
           <div className="w-full lg:w-[45%] flex flex-col pt-[5vh] lg:pt-[10vh] pb-[5vh] lg:pb-[30vh]">
             {FEATURES.map((feature) => (
-              <div 
-                key={feature.id} 
+              <div
+                key={feature.id}
                 className="av-feature-text min-h-[40vh] lg:min-h-[50vh] flex flex-col justify-center py-12 lg:py-0 transition-opacity duration-300 lg:transition-none"
               >
                 <div className="w-12 h-12 rounded-full bg-accent/5 flex items-center justify-center mb-6 shrink-0 lg:hidden">
                   <span className="text-accent font-medium text-lg">{feature.id + 1}</span>
                 </div>
-                
-                <h3 className="leading-[1.3] text-foreground text-balance">
+
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl leading-[1.3] text-foreground text-balance">
                   {feature.text}
                 </h3>
-                
+
                 {/* Mobile Inline Image */}
                 <div className="lg:hidden w-full aspect-video rounded-2xl overflow-hidden mt-8 relative shadow-sm border border-black/5 bg-black/5">
-                  <NextImage 
-                    src={feature.image} 
-                    alt="Audio Video Feature" 
-                    fill 
+                  <NextImage
+                    src={feature.image}
+                    alt="Audio Video Feature"
+                    fill
                     sizes="(max-width: 1023px) 100vw, 50vw"
-                    className="object-cover" 
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -132,17 +132,17 @@ export function AudioVideoFeatures() {
           {/* Right Side: Sticky Image Gallery (Desktop Only) */}
           <div className="hidden lg:block w-[55%] sticky top-[20vh] h-[60vh] rounded-[2rem] overflow-hidden bg-black/5 shadow-xl border border-black/5">
             {FEATURES.map((feature, idx) => (
-              <div 
-                key={feature.id} 
+              <div
+                key={feature.id}
                 className="av-feature-image absolute inset-0 w-full h-full will-change-transform opacity-0 pointer-events-none"
                 style={{ zIndex: FEATURES.length - idx }}
               >
-                <NextImage 
-                  src={feature.image} 
+                <NextImage
+                  src={feature.image}
                   alt={feature.text}
-                  fill 
+                  fill
                   sizes="50vw"
-                  className="object-cover" 
+                  className="object-cover"
                 />
                 {/* Subtle overlay for depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none mix-blend-multiply opacity-50" />

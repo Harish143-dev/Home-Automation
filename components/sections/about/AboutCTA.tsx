@@ -57,7 +57,7 @@ export default function AboutCTA() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-12 md:py-16 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Dynamic Background Glows */}
       <div
@@ -81,40 +81,39 @@ export default function AboutCTA() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium ">
             Take the Next Step
           </span>
-          <h2 className="">
-            Let's Create Smarter Spaces Together
-          </h2>
-          <p className="text-muted text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
-            Whether you're planning a luxury residence, hospitality project, or commercial development, our experts are ready to help you bring intelligent automation to life.
-          </p>
-        </div>
+          <h2 className="" font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl > Let's Create Smarter Spaces Together
+        </h2>
+        <p className="text-muted text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
+          Whether you're planning a luxury residence, hospitality project, or commercial development, our experts are ready to help you bring intelligent automation to life.
+        </p>
+      </div>
 
-        {/* Buttons Grid */}
-        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 md:gap-6">
+      {/* Buttons Grid */}
+      <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 md:gap-6">
 
-          <Link href="/contact" className="w-full sm:w-auto cta-button">
-            <Button variant="interactive" size="lg" className="w-full">
-              Schedule a Consultation
-            </Button>
-          </Link>
+        <Link href="/contact" className="w-full sm:w-auto cta-button">
+          <Button variant="interactive" size="lg" className="w-full">
+            Schedule a Consultation
+          </Button>
+        </Link>
 
-          <Link href="/experience-center" className="w-full sm:w-auto cta-button">
-            <Button variant="green" size="lg" className="w-full">
-              <MapPin className="w-4 h-4 mr-2" />
-              Visit an Experience Center
-            </Button>
-          </Link>
+        <Link href="/experience-center" className="w-full sm:w-auto cta-button">
+          <Button variant="green" size="lg" className="w-full">
+            <MapPin className="w-4 h-4 mr-2" />
+            Visit an Experience Center
+          </Button>
+        </Link>
 
-          <Link href="/contact" className="w-full sm:w-auto cta-button">
-            <Button variant="outline" size="lg" className="w-full text-black">
-              <Briefcase className="w-4 h-4 mr-2" />
-              Work With Us
-            </Button>
-          </Link>
-
-        </div>
+        <Link href="/contact" className="w-full sm:w-auto cta-button">
+          <Button variant="outline" size="lg" className="w-full text-black">
+            <Briefcase className="w-4 h-4 mr-2" />
+            Work With Us
+          </Button>
+        </Link>
 
       </div>
-    </section>
+
+    </div>
+    </section >
   );
 }

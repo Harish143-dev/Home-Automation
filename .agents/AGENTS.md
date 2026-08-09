@@ -1,14 +1,15 @@
 # SmartHome OS Typography Design Rules
 
-## Heading Sizes (Standardized Scale)
+## Heading Typography (Global CSS)
 
-- **H1 (Hero Titles):** `text-4xl sm:text-5xl lg:text-6xl`
-- **H2 (Section Titles):** `text-3xl sm:text-4xl lg:text-5xl`
-- **H3 (Component / Card Titles):** `text-xl sm:text-2xl lg:text-3xl`
-- **H4 (Small Capabilities / Accordions):** `text-lg sm:text-xl lg:text-2xl`
-- **H5 (Eyebrows / Labels / Minor Steps):** `tracking-[0.1em] text-xs sm:text-sm md:text-base`
+**CRITICAL RULE:** DO NOT apply inline Tailwind typography utility classes (like `text-4xl`, `font-light`, `tracking-wide`, `leading-[1.2]`) to heading tags. 
 
-*Note: The H5 size does NOT use uppercase or font-light by default; it strictly follows the `tracking-[0.1em]` and sizing defined above.*
+All standard heading sizes, font weights, letter spacing, and line heights are strictly defined in `styles/globals.css` under `@layer base`.
+
+When creating headings or eyebrows:
+- **H1-H4 (Titles):** Use standard HTML tags (`<h1>` for Hero, `<h2>` for Sections, `<h3>` for Cards/Components) with NO typography sizing/weight classes.
+- **H5 (Eyebrows / Labels / Minor Steps):** Use the `<h5>` tag instead of `<span>` or `<p>`. It will automatically inherit the global eyebrow styling (`tracking-[0.1em] text-xs sm:text-sm md:text-base`).
+- You may still apply layout, alignment, or color classes (e.g., `text-foreground`, `mb-8`, `text-balance`, `text-center`) directly to the headings as needed.
 
 ## Button Standardization Rules
 

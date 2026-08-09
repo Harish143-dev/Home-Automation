@@ -17,7 +17,7 @@ export function CurtainFeatures() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Fade in left text
     gsap.fromTo(textRef.current,
       { opacity: 0, y: 30 },
@@ -49,12 +49,12 @@ export function CurtainFeatures() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
-        
+
         {/* Left Side: Sticky Text */}
         <div ref={textRef} className="w-full lg:w-1/2 lg:sticky lg:top-[30vh] flex flex-col gap-6">
-          <h2 className="text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
             Bring Comfort, Privacy & Natural Light Under Intelligent Control
           </h2>
           <p className="text-sm sm:text-base md:text-lg font-light tracking-wide text-foreground/70 leading-relaxed text-balance max-w-lg">
@@ -64,9 +64,9 @@ export function CurtainFeatures() {
 
         {/* Right Side: Scrolling Images */}
         <div className="w-full lg:w-1/2 flex flex-col gap-8 md:gap-16 lg:gap-24">
-          
+
           <div className="feature-img-container relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
-            <NextImage 
+            <NextImage
               src={imgLifestyle}
               alt="Luxury lifestyle with smart curtains"
               fill
@@ -76,7 +76,7 @@ export function CurtainFeatures() {
           </div>
 
           <div className="feature-img-container relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
-            <NextImage 
+            <NextImage
               src={imgBedroom}
               alt="Luxury bedroom with motorized blackout curtains"
               fill
@@ -86,7 +86,7 @@ export function CurtainFeatures() {
           </div>
 
           <div className="feature-img-container relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
-            <NextImage 
+            <NextImage
               src={imgOpen}
               alt="Curtains opening automatically to scenic view"
               fill

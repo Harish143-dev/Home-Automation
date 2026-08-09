@@ -82,7 +82,7 @@ export default function OurTeam() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-12 md:py-16 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl w-full mx-auto">
 
@@ -91,7 +91,7 @@ export default function OurTeam() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Our Team
           </span>
-          <h2 className="mb-4">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-4">
             The Experts Behind Every Intelligent Solution
           </h2>
           <p className="text-muted text-base md:text-lg font-light leading-relaxed">
@@ -120,7 +120,7 @@ export default function OurTeam() {
               </div>
 
               {/* Text Info */}
-              <h4 className="mb-1 transition-colors duration-300 group-hover:text-accent">
+              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-1 transition-colors duration-300 group-hover:text-accent">
                 {member.name}
               </h4>
               <div className="text-muted font-light tracking-wider text-sm md:text-base">

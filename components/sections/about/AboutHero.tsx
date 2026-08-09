@@ -83,7 +83,7 @@ export default function AboutHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-end overflow-hidden bg-black"
+      className="relative w-full h-[100svh] min-h-[600px] flex justify-end overflow-hidden bg-black flex-col justify-end"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 about-hero-bg will-change-transform">
@@ -102,22 +102,22 @@ export default function AboutHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-start text-left mt-12 md:mt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
 
         <div ref={textRef} className="flex flex-col">
           <div className="hero-line">
-            <h1 className="hero-element text-white text-balance mb-2">
+            <h1 className="hero-element text-white text-balance mb-6 max-w-4xl">
               Engineering Intelligent
             </h1>
           </div>
           <div className="hero-line">
-            <h1 className="hero-element text-white text-balance mb-2">
+            <h1 className="hero-element text-white mb-6 max-w-4xl">
               Spaces Since 2002
             </h1>
           </div>
         </div>
 
-        <p className="hero-element text-sm md:text-base lg:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-2xl text-balance mb-4">
+        <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-10 text-balance">
           Transforming homes, hotels, and commercial spaces with intelligent automation, innovative technology, and seamless user experiences for over 20 years.
         </p>
 

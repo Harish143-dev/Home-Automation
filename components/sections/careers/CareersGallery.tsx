@@ -91,9 +91,9 @@ export default function CareersGallery() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       {/* Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -109,18 +109,18 @@ export default function CareersGallery() {
           <span className="cg-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
             Life at Anusha
           </span>
-          <h2 className="cg-header-el text-foreground mb-8">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cg-header-el text-foreground mb-8">
             People are at the heart of everything we do.
           </h2>
         </div>
 
         {/* Bento Grid Gallery */}
-        <div 
+        <div
           ref={galleryRef}
           className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 w-full auto-rows-[200px] md:auto-rows-[300px]"
         >
           {GALLERY_IMAGES.map((img, idx) => (
-            <div 
+            <div
               key={idx}
               className={`cg-image-container group relative rounded-2xl overflow-hidden bg-white/5 ${img.className}`}
             >
@@ -133,7 +133,7 @@ export default function CareersGallery() {
               />
               {/* Subtle gradient overlay to match the premium dark feel */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-40" />
-              
+
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="text-white/90 font-light tracking-wide text-sm md:text-base opacity-0 translate-y-4 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0">
                   {img.alt}

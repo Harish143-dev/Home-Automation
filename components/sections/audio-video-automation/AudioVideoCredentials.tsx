@@ -70,7 +70,7 @@ export function AudioVideoCredentials() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section className="py-16 md:py-24 relative bg-background text-foreground overflow-hidden border-t border-black/5" ref={containerRef}>
+    <section className="py-12 md:py-16 relative bg-background text-foreground overflow-hidden border-t border-black/5" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
@@ -79,7 +79,7 @@ export function AudioVideoCredentials() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent block mb-2">
               Industry Accolades
             </span>
-            <h2 className="text-foreground">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
               Certifications &<br />Awards.
             </h2>
           </div>
@@ -94,7 +94,7 @@ export function AudioVideoCredentials() {
 
                 <div className="w-16 h-[1px] bg-foreground/20 mb-6 credential-line" />
 
-                <h3 className="text-foreground mb-4 credential-title">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 credential-title">
                   {cred.title}
                 </h3>
 

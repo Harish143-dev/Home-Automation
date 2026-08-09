@@ -40,7 +40,7 @@ export function CurtainExperienceCenters() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header Reveal
     gsap.fromTo('.exp-header-anim',
       { opacity: 0, y: 30 },
@@ -75,15 +75,15 @@ export function CurtainExperienceCenters() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#fcfcfc] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-[#fcfcfc] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base exp-header-anim text-accent mb-4 block">
             Experience Centers
           </span>
-          <h2 className="exp-header-anim text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl exp-header-anim text-foreground text-balance mb-6">
             Experience Motorized Shades Before You Buy
           </h2>
           <p className="exp-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance mb-8">
@@ -99,26 +99,26 @@ export function CurtainExperienceCenters() {
         {/* Experience Centers Stacked */}
         <div className="exp-stack-container relative flex flex-col gap-10 lg:gap-16 pb-24">
           {CENTERS.map((center, idx) => (
-            <div 
+            <div
               key={idx}
               className="exp-card-anim sticky top-[15vh] lg:top-[20vh] bg-background rounded-3xl p-8 md:p-12 lg:p-16 border border-black/5 flex flex-col lg:flex-row gap-10 lg:gap-20 shadow-xl relative overflow-hidden group will-change-transform"
               style={{ zIndex: idx }}
             >
               {/* Subtle top/left accent border */}
               <div className="absolute top-0 left-0 right-0 lg:right-auto lg:bottom-0 h-1 lg:h-full lg:w-1 bg-accent/20 transition-colors duration-500 group-hover:bg-accent" />
-              
+
               {/* Left Column: Title & Description */}
               <div className="flex flex-col lg:w-5/12 justify-center">
-                <h3 className="text-foreground mb-4">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
                   {center.city.replace(' Experience Centre', '')}
                   <span className="block text-lg md:text-xl text-muted mt-2">Experience Centre</span>
                 </h3>
-                
+
                 <p className="text-base md:text-lg font-light text-muted leading-relaxed">
                   {center.description}
                 </p>
               </div>
-              
+
               {/* Right Column: Contact & CTAs */}
               <div className="flex flex-col lg:w-7/12 justify-center lg:border-l lg:border-black/5 lg:pl-16">
                 <div className="flex flex-col gap-6 mb-10">
@@ -141,17 +141,17 @@ export function CurtainExperienceCenters() {
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href={center.bookLink} className="flex-1 sm:flex-none">
                     <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-                Book a Visit
-              </Button>
+                      Book a Visit
+                    </Button>
                   </Link>
                   <Link href={center.directionsLink} className="flex-1 sm:flex-none">
                     <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                Get Directions
-              </Button>
+                      Get Directions
+                    </Button>
                   </Link>
                 </div>
               </div>

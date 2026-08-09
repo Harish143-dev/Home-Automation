@@ -7,13 +7,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
-import { 
-  Building2, 
-  GraduationCap, 
-  TrendingUp, 
-  Users, 
-  Lightbulb, 
-  Globe 
+import {
+  Building2,
+  GraduationCap,
+  TrendingUp,
+  Users,
+  Lightbulb,
+  Globe
 } from "lucide-react";
 import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
 
@@ -59,7 +59,7 @@ export default function CareersBenefits() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-  
+
   const prefersReducedMotion = useReducedMotion();
   const { isReady } = useBreakpoint();
 
@@ -104,9 +104,9 @@ export default function CareersBenefits() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       {/* Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -122,7 +122,7 @@ export default function CareersBenefits() {
           <span className="cb-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
             Culture & Benefits
           </span>
-          <h2 className="cb-header-el text-foreground mb-8">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cb-header-el text-foreground mb-8">
             Why Work With Us?
           </h2>
           <p className="cb-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto">
@@ -131,23 +131,23 @@ export default function CareersBenefits() {
         </div>
 
         {/* Benefits Grid */}
-        <div 
+        <div
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full"
         >
           {BENEFITS.map((benefit, idx) => (
-            <div 
+            <div
               key={idx}
               className="cb-card group relative bg-panel rounded-2xl p-8 border border-border shadow-sm hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-2 transition-all duration-500 overflow-hidden"
             >
               {/* Subtle accent gradient on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               <div className="relative z-10">
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center border border-border mb-8 group-hover:scale-110 transition-transform duration-500 ease-out">
                   <benefit.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-foreground mb-4">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
                   {benefit.title}
                 </h3>
                 <p className="text-sm md:text-base text-muted font-light leading-relaxed">

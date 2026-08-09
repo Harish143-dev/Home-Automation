@@ -66,7 +66,7 @@ export function ExperienceUSP() {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 w-full bg-secondary text-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-16 w-full bg-secondary text-white relative overflow-hidden">
 
       {/* Subtle Background Glow */}
       {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent/10 blur-[120px] rounded-full pointer-events-none opacity-50" /> */}
@@ -83,7 +83,7 @@ export function ExperienceUSP() {
             <div className="h-[1px] w-8 bg-white/20" />
           </div>
 
-          <h2 className="text-white mb-6 usp-header opacity-0 translate-y-10">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-6 usp-header opacity-0 translate-y-10">
             Why Visit an Experience Centre?
           </h2>
 
@@ -103,7 +103,7 @@ export function ExperienceUSP() {
                 <item.icon strokeWidth={1.5} className="w-6 h-6" />
               </div>
 
-              <h4 className="text-white mb-4">
+              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-4">
                 {item.title}
               </h4>
 

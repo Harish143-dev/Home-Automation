@@ -12,14 +12,14 @@ export function AudioVideoWhyChooseUs() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Animate the main heading in
     gsap.fromTo(textRef.current,
       { opacity: 0, y: 40 },
       {
-        opacity: 1, 
-        y: 0, 
-        duration: 1.2, 
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -32,9 +32,9 @@ export function AudioVideoWhyChooseUs() {
     gsap.fromTo(pRef.current,
       { opacity: 0, y: 30 },
       {
-        opacity: 1, 
-        y: 0, 
-        duration: 1.2, 
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
         delay: 0.2,
         ease: 'power3.out',
         scrollTrigger: {
@@ -47,23 +47,23 @@ export function AudioVideoWhyChooseUs() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5"
     >
       <div className="max-w-4xl w-full mx-auto relative z-10 flex flex-col items-center text-center">
-        
+
         {/* Decorative Line */}
         <div className="w-8 h-[1px] bg-accent/40 mb-8" />
-        
-        <h2 
+
+        <h2
           ref={textRef}
-          className="text-foreground text-balance mb-8"
+          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-8"
         >
           Why Choose <br className="hidden sm:block" /> Anusha Technovision
         </h2>
-        
-        <p 
+
+        <p
           ref={pRef}
           className="text-base sm:text-lg md:text-xl font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl mx-auto"
         >

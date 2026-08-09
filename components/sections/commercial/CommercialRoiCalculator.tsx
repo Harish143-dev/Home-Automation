@@ -98,7 +98,7 @@ export function CommercialRoiCalculator() {
   return (
     <section
       ref={containerRef}
-      className="py-16 md:py-24 relative w-full bg-background text-foreground flex justify-center"
+      className="py-12 md:py-16 relative w-full bg-background text-foreground flex justify-center"
     >
       <div className="max-w-4xl w-full mx-6 px-6 sm:px-12 py-12 bg-white rounded-[32px] border border-border shadow-xl">
 
@@ -209,7 +209,7 @@ export function CommercialRoiCalculator() {
 
         {/* Big Result Section */}
         <div className="animate-item flex flex-col items-center text-center gap-2">
-          <h3 className="text-muted mb-2">
+          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-muted mb-2">
             Opportunity Cost This Year
           </h3>
           <div className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide leading-[1.2]">

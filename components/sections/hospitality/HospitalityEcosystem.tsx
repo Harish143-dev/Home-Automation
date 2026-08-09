@@ -72,12 +72,12 @@ export function HospitalityEcosystem() {
   }, { scope: containerRef, dependencies: [isReady] });
 
   return (
-    <section ref={containerRef} className={`py-16 md:py-24 w-full px-6 md:px-12 lg:px-24 bg-background overflow-hidden transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
+    <section ref={containerRef} className={`py-12 md:py-16 w-full px-6 md:px-12 lg:px-24 bg-background overflow-hidden transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
 
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4">
-          <h2 className="text-foreground">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
             Connected Hospitality Ecosystem
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl">

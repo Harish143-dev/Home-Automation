@@ -21,7 +21,7 @@ export function CurtainWhyATPL() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header Reveal
     gsap.fromTo('.why-header-anim',
       { opacity: 0, y: 30 },
@@ -70,15 +70,15 @@ export function CurtainWhyATPL() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
-        
+
         {/* Left Side: Sticky Header & Context */}
         <div ref={leftColRef} className="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-[30vh] self-start">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base why-header-anim text-accent mb-4 block">
             The ATPL Legacy
           </span>
-          <h2 className="why-header-anim text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl why-header-anim text-foreground text-balance mb-6">
             Why Homeowners Choose ATPL
           </h2>
           <p className="why-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -89,8 +89,8 @@ export function CurtainWhyATPL() {
         {/* Right Side: Compact Stats Grid */}
         <div ref={rightColRef} className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
           {STATS.map((stat, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="why-stat-card bg-[#fcfcfc] rounded-2xl p-8 border border-black/5 flex flex-col items-start hover:shadow-md transition-all duration-300 hover:-translate-y-1"
             >
               {stat.prefix && (
@@ -103,11 +103,11 @@ export function CurtainWhyATPL() {
                   Spacer
                 </span>
               )}
-              
+
               <div className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-4 leading-none tabular-nums flex items-baseline">
                 <span className="why-stat-number" data-target={stat.target}>0</span>
               </div>
-              
+
               <span className="text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
                 {stat.label}
               </span>

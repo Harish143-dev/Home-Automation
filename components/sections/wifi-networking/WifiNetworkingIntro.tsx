@@ -6,17 +6,17 @@ import { EASE, DURATION } from '../../../lib/animation.config';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
-import { 
+import {
   Router,
-  Lightbulb, 
-  Cctv, 
-  MonitorPlay, 
-  Speaker, 
-  Tv, 
-  Thermometer, 
-  Mic, 
-  Blinds, 
-  Smartphone, 
+  Lightbulb,
+  Cctv,
+  MonitorPlay,
+  Speaker,
+  Tv,
+  Thermometer,
+  Mic,
+  Blinds,
+  Smartphone,
   Tablet,
   CheckCircle2
 } from 'lucide-react';
@@ -130,10 +130,10 @@ export function WifiNetworkingIntro() {
       // Infinite Flowing Data animation on top of the wires
       gsap.fromTo(".eco-wire-flow",
         { strokeDashoffset: 100 },
-        { 
-          strokeDashoffset: 0, 
-          duration: 3, 
-          repeat: -1, 
+        {
+          strokeDashoffset: 0,
+          duration: 3,
+          repeat: -1,
           ease: "none",
           stagger: {
             each: 0.2,
@@ -171,15 +171,15 @@ export function WifiNetworkingIntro() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion, isReady] });
 
   return (
-    <section ref={sectionRef} className={`py-16 md:py-24 relative w-full bg-panel px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5 transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
+    <section ref={sectionRef} className={`py-12 md:py-16 relative w-full bg-panel px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5 transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
       <div className="max-w-7xl w-full mx-auto relative z-10 flex flex-col items-center">
-        
+
         {/* Intro Text Header (Reduced bottom margin) */}
         <div ref={textRef} className="flex flex-col items-center text-center gap-4 md:gap-6 w-full max-w-4xl mb-12 md:mb-16">
-          <h5 className="text-accent tracking-[0.1em]">
+          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent tracking-[0.1em]">
             The Foundation
           </h5>
-          <h2 className="text-foreground text-balance text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground text-balance">
             Every Smart Home Starts with a Reliable Network
           </h2>
           <p className="text-sm md:text-lg lg:text-xl font-light tracking-wide text-muted-foreground leading-relaxed text-balance">
@@ -189,7 +189,7 @@ export function WifiNetworkingIntro() {
 
         {/* Ecosystem Orbit Diagram (Reduced aspect ratio / max-height to tighten layout) */}
         <div ref={diagramRef} className="relative w-full max-w-4xl aspect-[4/3] sm:aspect-video lg:aspect-[16/9] lg:max-h-[600px] flex items-center justify-center mb-16 md:mb-24">
-          
+
           {/* SVG Wires Layer */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
             {NODES.map((node, i) => (
@@ -276,7 +276,7 @@ export function WifiNetworkingIntro() {
             <div key={i} className="wn-feature flex flex-col gap-3 group">
               <div className="flex items-center gap-3 mb-1">
                 <CheckCircle2 className="w-5 h-5 text-accent/70 group-hover:text-accent transition-colors duration-300 shrink-0" strokeWidth={2} />
-                <h3 className="text-lg md:text-xl font-medium tracking-tight text-foreground">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
                   {feature.title}
                 </h3>
               </div>

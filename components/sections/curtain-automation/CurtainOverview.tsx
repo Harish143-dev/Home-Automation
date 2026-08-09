@@ -19,7 +19,7 @@ export function CurtainOverview() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header animation
     gsap.fromTo('.overview-header',
       { opacity: 0, y: 30 },
@@ -46,15 +46,15 @@ export function CurtainOverview() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-16 lg:gap-24">
-        
+
         {/* Top Header */}
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base overview-header text-accent mb-4 block">
             The AT Smart Living Standard
           </span>
-          <h2 className="overview-header text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl overview-header text-foreground text-balance mb-6">
             Why Homeowners Choose Motorized Shades & Curtain Automation
           </h2>
           <p className="overview-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl">
@@ -64,11 +64,11 @@ export function CurtainOverview() {
 
         {/* Bottom Split Content */}
         <div className="overview-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
+
           {/* Image Side */}
           <div className="overview-content relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
-            <NextImage 
-              src="/images/curtain_overview.png" 
+            <NextImage
+              src="/images/curtain_overview.png"
               alt="Motorized shades overview"
               fill
               className="object-cover"
@@ -77,13 +77,13 @@ export function CurtainOverview() {
 
           {/* Text Side */}
           <div className="flex flex-col items-start">
-            <h3 className="overview-content text-foreground mb-6">
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl overview-content text-foreground mb-6">
               Convenient Control for Everyday Living
             </h3>
             <p className="overview-content text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed mb-8">
               Motorized shades simplify everyday living by eliminating manual operation. Open or close individual or multiple shades using a smart keypad, mobile app, voice assistant, or scheduled scenes. They can also adjust automatically throughout the day based on your preferred routines or sunlight conditions.
             </p>
-            
+
             <ul className="flex flex-col gap-4 w-full">
               {BULLETS.map((bullet, idx) => (
                 <li key={idx} className="overview-content flex items-start gap-4">
@@ -97,7 +97,7 @@ export function CurtainOverview() {
               ))}
             </ul>
           </div>
-          
+
         </div>
 
       </div>

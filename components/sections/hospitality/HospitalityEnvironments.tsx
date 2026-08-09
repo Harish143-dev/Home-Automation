@@ -86,7 +86,7 @@ export function HospitalityEnvironments() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full bg-background overflow-hidden text-foreground"
+      className="py-12 md:py-16 relative w-full bg-background overflow-hidden text-foreground"
     >
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 w-full">
         {/* Header */}
@@ -95,7 +95,7 @@ export function HospitalityEnvironments() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
               Operational Scales
             </span>
-            <h2 className="text-foreground mb-4">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
               Hospitality Environments we Automate
             </h2>
           </div>
@@ -141,7 +141,7 @@ export function HospitalityEnvironments() {
                 <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:opacity-0" />
               </div>
 
-              <h3 className="text-foreground mb-3">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
                 {env.title}
               </h3>
 

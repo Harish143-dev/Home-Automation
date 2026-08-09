@@ -14,7 +14,7 @@ export function CurtainCTA() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current || !headlineRef.current) return;
-    
+
     // High-end typographic reveal
     const split = new SplitText(headlineRef.current, {
       type: 'lines,words',
@@ -62,9 +62,9 @@ export function CurtainCTA() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
     >
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
@@ -72,7 +72,7 @@ export function CurtainCTA() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-[1440px] mx-auto w-full">
-        
+
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
@@ -80,31 +80,31 @@ export function CurtainCTA() {
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
-        <h2 
+        <h2
           ref={headlineRef}
-          className="text-foreground mb-8"
+          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8"
         >
           Experience the Perfect Balance <br className="hidden md:block" /> of Comfort, Privacy
         </h2>
-        
+
         <p className="cta-subhead text-lg md:text-xl text-muted font-light max-w-2xl mx-auto leading-relaxed mb-12">
           Let our experts design a motorized shading solution tailored to your home, lifestyle, and interior aesthetics. Discover how intelligent curtain automation can elevate everyday living.
         </p>
-        
+
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           <Link href="#consultation" className="w-full sm:w-auto">
             <Button
-            variant="interactive"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
-            Schedule a Free Consultation
-          </Button>
+              variant="interactive"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Schedule a Free Consultation
+            </Button>
           </Link>
           <Link href="#contact" className="w-full sm:w-auto">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                Talk to a Smart Home Expert
-              </Button>
+              Talk to a Smart Home Expert
+            </Button>
           </Link>
         </div>
       </div>

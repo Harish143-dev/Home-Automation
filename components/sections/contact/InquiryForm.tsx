@@ -39,10 +39,10 @@ export function InquiryForm() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-4xl mx-auto flex flex-col gap-16">
-        
+
         {/* Header */}
         <div className="flex flex-col gap-6 form-stagger">
           <div className="flex items-center gap-4">
@@ -51,7 +51,7 @@ export function InquiryForm() {
             </span>
             <div className="h-[1px] w-12 bg-border" />
           </div>
-          <h2 className="text-foreground">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
             Send us a message
           </h2>
           <p className="text-muted-foreground text-lg font-light max-w-lg">
@@ -60,8 +60,8 @@ export function InquiryForm() {
         </div>
 
         {/* Form */}
-        <form 
-          ref={formRef} 
+        <form
+          ref={formRef}
           className="flex flex-col gap-12"
           onSubmit={(e) => e.preventDefault()}
         >
@@ -69,7 +69,7 @@ export function InquiryForm() {
             <FloatingInput id="name" label="Full Name" type="text" />
             <FloatingInput id="email" label="Email Address" type="email" />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <FloatingInput id="phone" label="Phone Number" type="tel" />
             <FloatingInput id="project" label="Project Type (e.g. Residential, Commercial)" type="text" />
@@ -79,7 +79,7 @@ export function InquiryForm() {
 
           <div className="form-stagger pt-8 flex justify-end">
             <MagneticButton>
-              <button 
+              <button
                 type="submit"
                 className="group relative inline-flex items-center justify-center gap-4 px-8 py-5 bg-accent text-white overflow-hidden rounded-full font-medium tracking-wide transition-transform hover:scale-105"
               >
@@ -124,10 +124,10 @@ function FloatingInput({ id, label, type }: { id: string; label: string; type: s
       >
         {label}
       </label>
-      
+
       {/* Animated underline */}
-      <div 
-        className={`absolute bottom-0 left-0 h-[1px] bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`} 
+      <div
+        className={`absolute bottom-0 left-0 h-[1px] bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`}
       />
     </div>
   );
@@ -160,10 +160,10 @@ function FloatingTextarea({ id, label }: { id: string; label: string }) {
       >
         {label}
       </label>
-      
+
       {/* Animated underline */}
-      <div 
-        className={`absolute bottom-[3px] left-0 h-[1px] bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`} 
+      <div
+        className={`absolute bottom-[3px] left-0 h-[1px] bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`}
       />
     </div>
   );
@@ -172,19 +172,19 @@ function FloatingTextarea({ id, label }: { id: string; label: string }) {
 // Simple magnetic button wrapper
 function MagneticButton({ children }: { children: React.ReactElement }) {
   const buttonRef = useRef<HTMLDivElement>(null);
-  
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!buttonRef.current) return;
     const { clientX, clientY } = e;
     const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
     const x = (clientX - (left + width / 2)) * 0.2;
     const y = (clientY - (top + height / 2)) * 0.2;
-    
+
     gsap.to(buttonRef.current, {
       x, y, duration: 1, ease: "power3.out"
     });
   };
-  
+
   const handleMouseLeave = () => {
     if (!buttonRef.current) return;
     gsap.to(buttonRef.current, {
@@ -193,8 +193,8 @@ function MagneticButton({ children }: { children: React.ReactElement }) {
   };
 
   return (
-    <div 
-      ref={buttonRef} 
+    <div
+      ref={buttonRef}
       className="inline-block"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}

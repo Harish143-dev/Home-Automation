@@ -64,13 +64,13 @@ export function BoardroomProjects() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 bg-background text-foreground w-full border-t border-black/5">
+    <section ref={containerRef} className="py-12 md:py-16 bg-background text-foreground w-full border-t border-black/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 project-header">
         <div className="max-w-2xl">
           <span className="tracking-[0.1em] text-accent mb-4 block">
             Proven Excellence
           </span>
-          <h2 className="text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
             Hospitality Projects We've Delivered
           </h2>
           <p className="mt-6 text-foreground/70 text-lg md:text-xl font-light leading-relaxed text-balance">
@@ -80,14 +80,14 @@ export function BoardroomProjects() {
 
         {/* Desktop Slider Controls */}
         <div className="hidden md:flex gap-4">
-          <button 
+          <button
             onClick={prevSlide}
             className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-foreground hover:bg-accent hover:text-white hover:border-accent transition-colors duration-300 focus:outline-none"
             aria-label="Previous project"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button 
+          <button
             onClick={nextSlide}
             className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-foreground hover:bg-accent hover:text-white hover:border-accent transition-colors duration-300 focus:outline-none"
             aria-label="Next project"
@@ -100,7 +100,7 @@ export function BoardroomProjects() {
       <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 lg:px-24 w-full">
         {/* Desktop Slider View (Hidden on mobile) */}
         <div className="hidden md:block overflow-hidden w-full relative">
-          <div 
+          <div
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
@@ -118,7 +118,7 @@ export function BoardroomProjects() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-foreground text-3xl font-medium tracking-tight group-hover:text-accent transition-colors duration-300">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground font-light text-xl">
@@ -146,7 +146,7 @@ export function BoardroomProjects() {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-foreground text-2xl font-medium tracking-tight group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground font-light text-lg">

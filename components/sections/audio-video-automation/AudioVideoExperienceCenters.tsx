@@ -34,7 +34,7 @@ export function AudioVideoExperienceCenters() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header animation
     gsap.fromTo('.ec-header',
       { opacity: 0, y: 30 },
@@ -62,19 +62,19 @@ export function AudioVideoExperienceCenters() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#f8f8f8] px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
-      
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-[#f8f8f8] px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
+
       {/* Decorative subtle background map/glow */}
       <div className="absolute top-0 right-0 w-full h-full bg-accent/5 rounded-full blur-[150px] pointer-events-none transform translate-x-1/3 -translate-y-1/3" />
 
       <div className="max-w-7xl w-full mx-auto relative z-10 flex flex-col gap-16 md:gap-24">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base ec-header text-accent mb-4 block">
             Experience Centers
           </span>
-          <h2 className="ec-header text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl ec-header text-foreground text-balance mb-6">
             Experience Our Audio & Video Systems Before You Buy
           </h2>
           <p className="ec-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl">
@@ -85,12 +85,12 @@ export function AudioVideoExperienceCenters() {
         {/* Experience Centers Grid */}
         <div className="ec-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {CENTERS.map((center, idx) => (
-            <div 
+            <div
               key={idx}
               className="ec-card bg-white border border-black/5 p-8 sm:p-10 rounded-[2rem] flex flex-col justify-between hover:shadow-xl hover:shadow-black/[0.03] hover:border-black/10 hover:-translate-y-1 transition-all duration-500 group"
             >
               <div className="flex flex-col gap-6 mb-10">
-                <h3 className="text-foreground group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                   {center.city}
                 </h3>
                 <p className="text-sm sm:text-base font-light text-foreground/70 leading-relaxed min-h-[80px]">

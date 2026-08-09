@@ -61,14 +61,14 @@ export function CurtainControls() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
 
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base control-header text-accent mb-4 block">
             Seamless Interfaces
           </span>
-          <h2 className="control-header text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl control-header text-foreground text-balance">
             Multiple Ways to Control Your Shades
           </h2>
         </div>
@@ -82,7 +82,7 @@ export function CurtainControls() {
               <div className="w-12 h-12 rounded-full bg-secondary/5 flex items-center justify-center mb-2">
                 <control.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
               </div>
-              <h4 className="text-foreground">
+              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
                 {control.title}
               </h4>
               <p className="text-sm sm:text-base md:text-lg font-light text-muted leading-relaxed">

@@ -16,9 +16,9 @@ export function NewsletterSignup() {
   };
 
   return (
-    <section className="py-16 md:py-24 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border flex items-center justify-center text-center">
+    <section className="py-12 md:py-16 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border flex items-center justify-center text-center">
       <div className="max-w-2xl mx-auto flex flex-col items-center">
-        
+
         <div className="flex items-center gap-4 overflow-hidden mb-6">
           <div className="h-[1px] w-8 sm:w-12 bg-border" />
           <span className="text-[10px] sm:text-xs tracking-[0.3em] text-muted-foreground">
@@ -27,25 +27,25 @@ export function NewsletterSignup() {
           <div className="h-[1px] w-8 sm:w-12 bg-border" />
         </div>
 
-        <h2 className="text-foreground mb-4">
+        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
           Stay Ahead of the Curve
         </h2>
-        
+
         <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed mb-10 max-w-lg">
           Subscribe to our newsletter for the latest insights in architectural automation, product launches, and exclusive project showcases.
         </p>
 
         {!isSubscribed ? (
           <form onSubmit={handleSubmit} className="w-full relative max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
+            <input
+              type="email"
+              placeholder="Enter your email address"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-transparent border-b border-border py-4 pl-2 pr-12 text-center text-foreground font-light focus:outline-none focus:border-foreground transition-colors placeholder:text-muted-foreground/40"
             />
-            <button 
+            <button
               type="submit"
               className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-muted-foreground hover:text-foreground transition-colors group"
             >

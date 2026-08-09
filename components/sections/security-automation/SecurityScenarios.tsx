@@ -72,15 +72,15 @@ export function SecurityScenarios() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-32 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
       <div className="max-w-7xl mx-auto flex flex-col gap-12 lg:gap-20">
-        
+
         {/* Header */}
         <div className="ss-header text-center max-w-3xl mx-auto">
-          <h5 className="text-accent mb-4 block">
+          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-4 block">
             Intelligent Automation
           </h5>
-          <h2 className="text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
             Everyday Security Scenarios Made Smarter
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
@@ -90,31 +90,28 @@ export function SecurityScenarios() {
 
         {/* Scenarios Interactive Container */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          
+
           {/* Left Side: Tabs / Accordion Style */}
           <div className="w-full lg:w-[45%] flex flex-col justify-center gap-4">
             {SCENARIOS.map((scenario, idx) => {
               const isActive = activeTab === idx;
-              
+
               return (
-                <div 
+                <div
                   key={scenario.id}
                   onClick={() => setActiveTab(idx)}
-                  className={`group cursor-pointer p-6 rounded-2xl transition-all duration-500 border ${
-                    isActive 
-                      ? 'bg-panel border-black/10 shadow-lg' 
-                      : 'bg-transparent border-transparent hover:bg-black/5'
-                  }`}
+                  className={`group cursor-pointer p-6 rounded-2xl transition-all duration-500 border ${isActive
+                    ? 'bg-panel border-black/10 shadow-lg'
+                    : 'bg-transparent border-transparent hover:bg-black/5'
+                    }`}
                 >
-                  <h3 className={`text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 mb-3 ${
-                    isActive ? 'text-accent' : 'text-foreground group-hover:text-accent'
-                  }`}>
+                  <h3 className={`text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 mb-3 ${isActive ? 'text-accent' : 'text-foreground group-hover:text-accent'
+                    }`}>
                     {scenario.title}
                   </h3>
-                  
-                  <div className={`grid transition-all duration-500 ease-in-out ${
-                    isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                  }`}>
+
+                  <div className={`grid transition-all duration-500 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                    }`}>
                     <p className="overflow-hidden text-base lg:text-lg font-light text-muted-foreground leading-relaxed">
                       {scenario.description}
                     </p>
@@ -127,15 +124,14 @@ export function SecurityScenarios() {
           {/* Right Side: Image Crossfade */}
           <div className="w-full lg:w-[55%] relative h-[400px] md:h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden bg-panel shadow-xl">
             {SCENARIOS.map((scenario, idx) => (
-              <div 
-                key={scenario.id} 
-                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                  activeTab === idx 
-                    ? 'opacity-100 scale-100 z-10' 
-                    : 'opacity-0 scale-105 z-0'
-                }`}
+              <div
+                key={scenario.id}
+                className={`absolute inset-0 transition-all duration-700 ease-in-out ${activeTab === idx
+                  ? 'opacity-100 scale-100 z-10'
+                  : 'opacity-0 scale-105 z-0'
+                  }`}
               >
-                <NextImage 
+                <NextImage
                   src={scenario.image}
                   alt={scenario.title}
                   fill

@@ -194,7 +194,7 @@ export default function OurJourney() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full bg-secondary text-white overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24"
+      className="py-12 md:py-16 relative w-full bg-secondary text-white overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24"
     >
       {/* Ambient glow overlays */}
       <div
@@ -220,7 +220,7 @@ export default function OurJourney() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-white/50 font-medium mb-4">
             Our Journey
           </span>
-          <h2 className="text-white">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
             Impact Through the Years
           </h2>
         </div>
@@ -229,7 +229,7 @@ export default function OurJourney() {
         <div className="relative">
           {/* Vertical Progress Line — Center (desktop) / Left (mobile) */}
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-[1px] bg-white/10 z-0" />
-          <div 
+          <div
             ref={progressRef}
             className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-[1px] bg-white/40 origin-top scale-y-0 z-[1]"
             style={{ boxShadow: "0 0 12px rgba(255,255,255,0.15)" }}
@@ -264,7 +264,7 @@ export default function OurJourney() {
                       </div>
 
                       <div className="oj-text opacity-0">
-                        <h3 className="text-white mb-6">
+                        <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-6">
                           {era.title}
                         </h3>
 

@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useRef } from "react";
-import { 
-  Lightbulb, 
-  MonitorPlay, 
-  Volume2, 
-  Mic, 
-  Thermometer, 
-  Blinds, 
-  ShieldCheck, 
-  Wifi, 
-  Projector, 
+import {
+  Lightbulb,
+  MonitorPlay,
+  Volume2,
+  Mic,
+  Thermometer,
+  Blinds,
+  ShieldCheck,
+  Wifi,
+  Projector,
   Video,
   Smartphone
 } from "lucide-react";
@@ -86,7 +86,7 @@ export function BanquetHallControl() {
   }, { scope: containerRef, dependencies: [isReady] });
 
   return (
-    <section ref={containerRef} className={`py-16 md:py-24 w-full px-6 md:px-12 lg:px-24 bg-background overflow-hidden border-t border-black/5 transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
+    <section ref={containerRef} className={`py-12 md:py-16 w-full px-6 md:px-12 lg:px-24 bg-background overflow-hidden border-t border-black/5 transition-opacity duration-500 ${!isReady ? "opacity-0" : "opacity-100"}`}>
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
 
         {/* Header */}
@@ -94,7 +94,7 @@ export function BanquetHallControl() {
           <span className="tracking-[0.1em] text-accent mb-4 block">
             One-Touch Venue Control
           </span>
-          <h2 className="text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
             Connected To Everything
           </h2>
           <p className="text-base md:text-lg text-muted-foreground font-light max-w-2xl mx-auto text-balance">

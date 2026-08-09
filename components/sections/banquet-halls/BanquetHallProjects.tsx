@@ -31,9 +31,9 @@ export function BanquetHallProjects() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current || !trackRef.current || !pinContainerRef.current) return;
-    
+
     // Animate header text
-    gsap.fromTo('.project-header', 
+    gsap.fromTo('.project-header',
       { y: 30, opacity: 0 },
       {
         y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: 'power3.out',
@@ -58,7 +58,7 @@ export function BanquetHallProjects() {
 
     // Horizontal Scroll Animation
     const track = trackRef.current;
-    
+
     const getScrollAmount = () => {
       let trackWidth = track.scrollWidth;
       let viewportWidth = track.parentElement?.clientWidth || window.innerWidth;
@@ -86,31 +86,31 @@ export function BanquetHallProjects() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto mb-16 md:mb-24">
         <div className="max-w-4xl">
           <span className="tracking-[0.1em] text-xs sm:text-sm md:text-base project-header text-accent mb-4 block">
             Proven Excellence
           </span>
-          <h2 className="project-header text-foreground text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl project-header text-foreground text-balance">
             Hospitality Projects We've Delivered
           </h2>
         </div>
       </div>
 
       <div ref={pinContainerRef} className="max-w-7xl w-full mx-auto md:overflow-hidden">
-        <div 
+        <div
           ref={trackRef}
           className="flex w-full md:w-max overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-10"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {PROJECTS.map((project, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="project-card snap-start md:snap-align-none shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] flex flex-col group cursor-grab active:cursor-grabbing"
             >
               <div className="relative w-full aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden bg-black/5 mb-6">
-                <NextImage 
+                <NextImage
                   src={project.image}
                   alt={project.name}
                   fill
@@ -119,7 +119,7 @@ export function BanquetHallProjects() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="text-foreground text-balance">
+                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
                   {project.name}
                 </h3>
                 <p className="text-muted-foreground">
@@ -131,10 +131,10 @@ export function BanquetHallProjects() {
 
           {/* "And many more" Card */}
           <div className="project-card snap-start md:snap-align-none shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] flex flex-col group justify-center items-center bg-accent/[0.03] border border-accent/10 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300">
-             <div className="p-12 text-center">
-                <h3 className="text-accent italic text-balance mb-4">And many more...</h3>
-                <p className="text-muted-foreground text-sm font-light">Explore our full portfolio of premium automation projects.</p>
-             </div>
+            <div className="p-12 text-center">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent italic text-balance mb-4">And many more...</h3>
+              <p className="text-muted-foreground text-sm font-light">Explore our full portfolio of premium automation projects.</p>
+            </div>
           </div>
 
         </div>

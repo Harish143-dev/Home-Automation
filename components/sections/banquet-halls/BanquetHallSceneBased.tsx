@@ -61,12 +61,12 @@ export function BanquetHallSceneBased() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
+    <section ref={containerRef} className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground border-t border-black/5">
       <div className="max-w-7xl mx-auto flex flex-col items-center relative">
-        
+
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4 mb-16 lg:mb-20">
-          <h2 className="text-foreground text-balance scene-header mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance scene-header mb-6">
             Scene Based Automation
           </h2>
           <p className="scene-header text-lg md:text-xl font-light text-muted-foreground leading-relaxed text-balance max-w-3xl mx-auto">
@@ -77,18 +77,18 @@ export function BanquetHallSceneBased() {
         {/* Bento Grid */}
         <div className="scene-grid grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           {FEATURES.map((feature, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="scene-card bg-panel border border-black/5 rounded-[2rem] p-8 hover:shadow-xl hover:shadow-black/5 transition-all duration-300 flex flex-col items-start"
             >
               <div className="w-12 h-12 rounded-full bg-accent/5 flex items-center justify-center mb-6 shrink-0">
                 <feature.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
               </div>
-              
-              <h3 className="text-xl font-medium text-foreground mb-3 text-balance">
+
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 text-balance">
                 {feature.title}
               </h3>
-              
+
               <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>

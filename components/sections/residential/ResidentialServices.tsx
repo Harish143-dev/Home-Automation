@@ -170,7 +170,7 @@ export function ResidentialServices() {
   const activeData = SERVICES_DATA[activeIndex];
 
   return (
-    <section ref={triggerRef} className="relative w-full bg-background text-foreground">
+    <section ref={triggerRef} className="py-12 md:py-16 relative w-full bg-background text-foreground">
       {/* 
         This is the container that gets pinned.
         It takes exactly 100vh so it fills the screen perfectly while pinned.
@@ -225,7 +225,7 @@ export function ResidentialServices() {
           {/* RIGHT: Content Details */}
           <div className="w-full h-full flex flex-col justify-center md:items-start min-w-0">
             <div className="flex flex-col items-start w-full md:max-w-[320px] lg:max-w-[400px]">
-              <h3 className="mb-8 text-foreground">
+              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 text-foreground">
                 {activeData.title}
               </h3>
 

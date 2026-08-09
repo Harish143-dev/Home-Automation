@@ -3,13 +3,13 @@
 import React, { useRef } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
-import { 
-  Projector, 
-  Music, 
-  Gamepad2, 
-  MonitorSmartphone, 
-  TreePine, 
-  SlidersHorizontal 
+import {
+  Projector,
+  Music,
+  Gamepad2,
+  MonitorSmartphone,
+  TreePine,
+  SlidersHorizontal
 } from 'lucide-react';
 
 const EXPERIENCES = [
@@ -57,7 +57,7 @@ export function AudioVideoExperience() {
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
-    
+
     // Header animation
     gsap.fromTo('.experience-header',
       { opacity: 0, y: 30 },
@@ -85,15 +85,15 @@ export function AudioVideoExperience() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#f8f8f8] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-[#f8f8f8] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base experience-header text-accent mb-4 block">
             Everyday Living
           </span>
-          <h2 className="experience-header text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl experience-header text-foreground text-balance mb-6">
             Entertainment Designed for Everyday Living
           </h2>
           <p className="experience-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -107,9 +107,9 @@ export function AudioVideoExperience() {
             const Icon = exp.icon;
             // Differentiate layout slightly based on span size
             const isLarge = exp.span.includes("col-span-2");
-            
+
             return (
-              <div 
+              <div
                 key={idx}
                 className={`experience-card ${exp.span} bg-white border border-black/5 p-8 sm:p-10 rounded-[2rem] flex flex-col justify-between gap-8 hover:shadow-xl hover:shadow-black/[0.02] hover:-translate-y-1 transition-all duration-500 group overflow-hidden relative`}
               >
@@ -119,9 +119,9 @@ export function AudioVideoExperience() {
                 <div className="w-14 h-14 rounded-2xl bg-accent/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500 shrink-0">
                   <Icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
-                
+
                 <div className={`flex flex-col gap-3 ${isLarge ? 'md:pr-12 lg:pr-24' : ''}`}>
-                  <h3 className="text-foreground group-hover:text-accent transition-colors duration-300">
+                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                     {exp.title}
                   </h3>
                   <p className="text-sm sm:text-base font-light text-foreground/70 leading-relaxed transition-colors duration-300">

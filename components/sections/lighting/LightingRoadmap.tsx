@@ -57,7 +57,7 @@ export default function LightingRoadmap() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-5xl mx-auto flex flex-col items-center">
 
@@ -66,7 +66,7 @@ export default function LightingRoadmap() {
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Roadmap to a Smarter Home
           </span>
-          <h2 className="text-foreground mb-6 text-balance">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 text-balance">
             Bringing Intelligent Lighting to Life
           </h2>
         </div>
@@ -103,7 +103,7 @@ export default function LightingRoadmap() {
                   <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] ml-16 md:ml-0 ${isEven ? "md:text-right" : "md:text-left"
                     }`}>
                     <div className="bg-panel p-6 rounded-2xl border border-border shadow-sm hover:shadow-md hover:border-border/80 transition-all duration-300">
-                      <h5 className="text-foreground">
+                      <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
                         {step}
                       </h5>
                     </div>

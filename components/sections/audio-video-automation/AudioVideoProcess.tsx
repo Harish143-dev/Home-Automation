@@ -25,7 +25,7 @@ export function AudioVideoProcess() {
 
   useGSAP(() => {
     if (!isReady || prefersReducedMotion || !sectionRef.current || !containerRef.current || !lineRef.current) return;
-    
+
     // Header animation
     gsap.fromTo('.process-header',
       { opacity: 0, y: 30 },
@@ -56,7 +56,7 @@ export function AudioVideoProcess() {
     // Individual Steps Animation
     const steps = gsap.utils.toArray('.process-step') as HTMLElement[];
     steps.forEach((step, idx) => {
-      
+
       const dot = step.querySelector('.process-dot');
       const text = step.querySelector('.process-text');
 
@@ -93,15 +93,15 @@ export function AudioVideoProcess() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-4xl w-full mx-auto flex flex-col md:flex-row gap-16 lg:gap-24">
-        
+
         {/* Left Side: Header Content */}
         <div className="w-full md:w-1/3 flex flex-col items-start md:sticky md:top-32 h-fit">
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base process-header text-accent mb-4 block">
             Our Process
           </span>
-          <h2 className="process-header text-foreground text-balance mb-6">
+          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl process-header text-foreground text-balance mb-6">
             A Seamless Journey
           </h2>
           <p className="process-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -111,36 +111,36 @@ export function AudioVideoProcess() {
 
         {/* Right Side: Vertical Timeline */}
         <div className="w-full md:w-2/3 relative py-10" ref={containerRef}>
-          
+
           {/* Background Timeline Line */}
           <div className="absolute top-0 bottom-0 left-[23px] sm:left-[27px] w-[2px] bg-black/5 rounded-full" />
-          
+
           {/* Active Timeline Line */}
-          <div 
+          <div
             ref={lineRef}
-            className="absolute top-0 bottom-0 left-[23px] sm:left-[27px] w-[2px] bg-accent rounded-full origin-top" 
+            className="absolute top-0 bottom-0 left-[23px] sm:left-[27px] w-[2px] bg-accent rounded-full origin-top"
           />
 
           <div className="flex flex-col gap-12 sm:gap-16 relative z-10">
             {STEPS.map((step, idx) => {
               const stepNumber = String(idx + 1).padStart(2, '0');
-              
+
               return (
                 <div key={idx} className="process-step relative flex items-center group">
-                  
+
                   {/* Timeline Dot */}
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-background border-4 border-black/10 flex items-center justify-center shrink-0 z-10 process-dot transition-colors duration-300">
                     <Check className="w-5 h-5 sm:w-6 sm:h-6 text-background" strokeWidth={3} />
                   </div>
-                  
+
                   {/* Step Content */}
                   <div className="ml-8 sm:ml-12 relative flex-grow">
                     {/* Step Title */}
-                    <h3 className="process-text text-foreground/40 opacity-70 transition-all duration-300 relative z-10">
+                    <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl process-text text-foreground/40 opacity-70 transition-all duration-300 relative z-10">
                       {step}
                     </h3>
                   </div>
-                  
+
                 </div>
               );
             })}

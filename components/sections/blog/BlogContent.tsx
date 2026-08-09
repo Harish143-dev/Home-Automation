@@ -30,15 +30,15 @@ export default function BlogContent({ post }: BlogContentProps) {
   }, { scope: sectionRef });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <div className="max-w-3xl mx-auto prose-anim text-lg md:text-xl font-light leading-relaxed text-muted-foreground">
         {/* We use standard styling for the raw HTML content injected from the mock data */}
-        <div 
+        <div
           className="[&>h2]:text-3xl [&>h2]:md:text-4xl [&>h2]:font-light [&>h2]:tracking-wide [&>h2]:text-foreground [&>h2]:mt-16 [&>h2]:mb-6 [&>p]:mb-8 [&>p]:leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: post.content }} 
+          dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
     </section>

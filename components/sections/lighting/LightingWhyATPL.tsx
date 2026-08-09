@@ -79,21 +79,21 @@ export default function LightingWhyATPL() {
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col">
-        
+
         {/* Header & Stats Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 mb-20 md:mb-28">
-          
+
           {/* Left: Text */}
           <div className="lwhy-header flex flex-col items-start justify-center text-left max-w-2xl">
             <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
               The ATPL Advantage
             </span>
-            <h2 className="text-foreground mb-6">
+            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
               Why Homeowners Choose ATPL
             </h2>
             <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed mb-8">
@@ -120,7 +120,7 @@ export default function LightingWhyATPL() {
         <div className="w-full">
           <div className="lwhy-header mb-12 flex items-center justify-center gap-4">
             <div className="h-[1px] w-8 sm:w-16 bg-accent/50" />
-            <h3 className="text-foreground text-center">
+            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-center">
               Visit Our Experience Centres
             </h3>
             <div className="h-[1px] w-8 sm:w-16 bg-accent/50" />
@@ -128,14 +128,14 @@ export default function LightingWhyATPL() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10">
             {CENTERS.map((center, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="lwhy-center flex flex-col h-full bg-panel rounded-2xl border border-border p-8 sm:p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-accent/30 transition-all duration-500 group"
               >
-                <h4 className="text-foreground mb-4 group-hover:text-accent transition-colors">
+                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 group-hover:text-accent transition-colors">
                   {center.title}
                 </h4>
-                
+
                 <p className="text-sm font-light leading-relaxed text-muted mb-8">
                   {center.description}
                 </p>
@@ -148,7 +148,7 @@ export default function LightingWhyATPL() {
                       {center.address}
                     </p>
                   </div>
-                  
+
                   {/* Phones */}
                   <div className="flex items-start gap-4">
                     <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
@@ -165,8 +165,8 @@ export default function LightingWhyATPL() {
 
                   {/* Actions */}
                   <div className="flex flex-col gap-3 pt-2 w-full">
-                    <Link 
-                      href="/contact" 
+                    <Link
+                      href="/contact"
                       className={cn(
                         buttonVariants({ variant: "accent", size: "default" }),
                         "w-full text-center tracking-wide"
@@ -174,8 +174,8 @@ export default function LightingWhyATPL() {
                     >
                       Book a Visit
                     </Link>
-                    <Link 
-                      href="/contact" 
+                    <Link
+                      href="/contact"
                       className={cn(
                         buttonVariants({ variant: "outline", size: "default" }),
                         "w-full text-center tracking-wide group flex items-center justify-center gap-2"
