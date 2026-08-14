@@ -47,7 +47,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
         href: '/commercial',
         items: [
           { id: 'comm-restaurants', label: 'Restaurants', href: '/restaurant-automation' },
-          { id: 'comm-offices', label: 'offices', href: '#comm-offices' },
+          { id: 'comm-offices', label: 'Offices', href: '/office-automation' },
           { id: 'comm-institutes', label: 'Institutes', href: '#comm-institutes' },
           { id: 'comm-exhibitions', label: 'Exhibitions', href: '#comm-exhibitions' },
           { id: 'comm-retail', label: 'Retail Stores', href: '#comm-retail' },
