@@ -74,7 +74,7 @@ export function AudioVideoTrust() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Our Legacy
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 sm:mb-8">
+          <h2 className=" text-foreground mb-6 sm:mb-8">
             Decades of Excellence.
           </h2>
           <p className="text-muted text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10 text-balance">

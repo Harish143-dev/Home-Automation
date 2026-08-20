@@ -91,7 +91,7 @@ export default function OurTeam() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Our Team
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-4">
+          <h2 className=" mb-4">
             The Experts Behind Every Intelligent Solution
           </h2>
           <p className="text-muted text-base md:text-lg font-light leading-relaxed">
@@ -120,7 +120,7 @@ export default function OurTeam() {
               </div>
 
               {/* Text Info */}
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-1 transition-colors duration-300 group-hover:text-accent">
+              <h4 className=" mb-1 transition-colors duration-300 group-hover:text-accent">
                 {member.name}
               </h4>
               <div className="text-muted font-light tracking-wider text-sm md:text-base">

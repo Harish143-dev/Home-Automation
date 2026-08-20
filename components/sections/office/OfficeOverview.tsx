@@ -52,16 +52,16 @@ export function OfficeOverview() {
       { y: 30, opacity: 0 },
       { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.normal, ease: EASE.reveal }
     )
-    .fromTo('.oo-feature',
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.tight, ease: EASE.reveal },
-      "-=0.4"
-    )
-    .fromTo(imageRef.current,
-      { scale: 0.95, opacity: 0 },
-      { scale: 1, opacity: 1, duration: DURATION.slow, ease: EASE.premium },
-      0
-    );
+      .fromTo('.oo-feature',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.tight, ease: EASE.reveal },
+        "-=0.4"
+      )
+      .fromTo(imageRef.current,
+        { scale: 0.95, opacity: 0 },
+        { scale: 1, opacity: 1, duration: DURATION.slow, ease: EASE.premium },
+        0
+      );
 
     scheduleScrollRefresh();
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
@@ -69,13 +69,13 @@ export function OfficeOverview() {
   return (
     <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-        
+
         {/* Left Content */}
         <div ref={contentRef} className="w-full lg:w-1/2 flex flex-col">
           <span className="oo-header tracking-[0.3em] text-accent mb-4 block uppercase text-sm font-medium">
             Smart Infrastructure
           </span>
-          <h2 className="oo-header font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground mb-6">
+          <h2 className="oo-header text-foreground mb-6">
             Connecting Your Workspace
           </h2>
           <p className="oo-header text-muted-foreground text-base md:text-lg font-light leading-relaxed mb-10">
@@ -87,7 +87,7 @@ export function OfficeOverview() {
               <div key={i} className="oo-feature flex gap-4 items-start">
                 <CheckCircle2 className="w-6 h-6 text-accent shrink-0 mt-1" strokeWidth={1.5} />
                 <div className="flex flex-col gap-2">
-                  <h4 className="text-xl font-light text-foreground">{feature.title}</h4>
+                  <h4 className="text-foreground">{feature.title}</h4>
                   <p className="text-muted-foreground font-light text-sm md:text-base leading-relaxed">
                     {feature.description}
                   </p>

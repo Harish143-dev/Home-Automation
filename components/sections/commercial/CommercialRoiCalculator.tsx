@@ -209,10 +209,10 @@ export function CommercialRoiCalculator() {
 
         {/* Big Result Section */}
         <div className="animate-item flex flex-col items-center text-center gap-2">
-          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-muted mb-2">
+          <h3 className="text-muted mb-2">
             Opportunity Cost This Year
           </h3>
-          <div className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide leading-[1.2]">
+          <div className="text-2xl sm:text-3xl font-light tracking-wide leading-[1.2]">
             You're leaving <br className="sm:hidden" />
             <span ref={savingsRef} className="text-accent mx-2 block sm:inline mt-2 sm:mt-0">
               {currencySymbol}{annualSavings.toLocaleString('en-US')}

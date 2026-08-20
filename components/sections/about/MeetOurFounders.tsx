@@ -98,56 +98,56 @@ export default function MeetOurFounders() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Meet Our Founder
           </span>
-          <h2 className="" font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl > Leadership That Inspires Innovation </h2> </div> <div className="flex flex-col gap-24 md:gap-32 lg:gap-40">
-        {FOUNDERS.map((founder, idx) => {
-          const isReverse = idx % 2 !== 0;
+          <h2 className=""  > Leadership That Inspires Innovation </h2> </div> <div className="flex flex-col gap-24 md:gap-32 lg:gap-40">
+          {FOUNDERS.map((founder, idx) => {
+            const isReverse = idx % 2 !== 0;
 
-          return (
-            <div
-              key={idx}
-              className={`founder-row flex flex-col lg:flex-row ${isReverse ? 'lg:flex-row-reverse' : ''} items-center gap-12 lg:gap-24`}
-            >
+            return (
+              <div
+                key={idx}
+                className={`founder-row flex flex-col lg:flex-row ${isReverse ? 'lg:flex-row-reverse' : ''} items-center gap-12 lg:gap-24`}
+              >
 
-              {/* Image Column */}
-              <div className="founder-img-col w-full lg:w-5/12 opacity-0">
-                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-lg shadow-black/5">
-                  <NextImage
-                    src={founder.image}
-                    alt={founder.name}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 border border-black/5 rounded-2xl md:rounded-[2.5rem] pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Text Column */}
-              <div className="founder-text-col w-full lg:w-7/12 space-y-8 opacity-0">
-                <div>
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-3">
-                    {founder.name}
-                  </h3>
-                  <div className="text-accent text-lg md:text-xl font-light tracking-wide">
-                    {founder.role}
+                {/* Image Column */}
+                <div className="founder-img-col w-full lg:w-5/12 opacity-0">
+                  <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-lg shadow-black/5">
+                    <NextImage
+                      src={founder.image}
+                      alt={founder.name}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                    <div className="absolute inset-0 border border-black/5 rounded-2xl md:rounded-[2.5rem] pointer-events-none" />
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                  {founder.message.map((paragraph, pIdx) => (
-                    <p key={pIdx} className="text-muted font-light text-base md:text-lg leading-relaxed">
-                      {paragraph}
-                    </p>
-                  ))}
+                {/* Text Column */}
+                <div className="founder-text-col w-full lg:w-7/12 space-y-8 opacity-0">
+                  <div>
+                    <h3 className=" mb-3">
+                      {founder.name}
+                    </h3>
+                    <div className="text-accent text-lg md:text-xl font-light tracking-wide">
+                      {founder.role}
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    {founder.message.map((paragraph, pIdx) => (
+                      <p key={pIdx} className="text-muted font-light text-base md:text-lg leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
+
               </div>
+            );
+          })}
+        </div>
 
-            </div>
-          );
-        })}
       </div>
-
-    </div>
     </section >
   );
 }

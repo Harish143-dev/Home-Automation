@@ -89,7 +89,7 @@ export function AudioVideoFeatures() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base av-features-header text-accent mb-4 block">
             Entertainment Without Complexity
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl av-features-header text-foreground text-balance mb-6">
+          <h2 className=" av-features-header text-foreground text-balance mb-6">
             Modern entertainment should be effortless.
           </h2>
           <p className="av-features-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -111,7 +111,7 @@ export function AudioVideoFeatures() {
                   <span className="text-accent font-medium text-lg">{feature.id + 1}</span>
                 </div>
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl leading-[1.3] text-foreground text-balance">
+                <h3 className=" leading-[1.3] text-foreground text-balance">
                   {feature.text}
                 </h3>
 

@@ -36,11 +36,11 @@ export function OfficeClients() {
       { y: 30, opacity: 0 },
       { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.normal, ease: EASE.reveal }
     )
-    .fromTo('.oc-client',
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.fast, ease: EASE.reveal },
-      "-=0.4"
-    );
+      .fromTo('.oc-client',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.tight, ease: EASE.reveal },
+        "-=0.4"
+      );
 
     scheduleScrollRefresh();
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
@@ -53,7 +53,7 @@ export function OfficeClients() {
           <span className="oc-header tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
             Our Portfolio
           </span>
-          <h2 className="oc-header font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground text-balance">
+          <h2 className="oc-header text-foreground text-balance">
             Trusted by Corporate Leaders
           </h2>
         </div>
@@ -64,7 +64,7 @@ export function OfficeClients() {
               key={idx}
               className="oc-client bg-panel border border-black/5 rounded-[1.5rem] p-8 hover:border-black/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center justify-center min-h-[160px]"
             >
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl text-foreground mb-2">
+              <h3 className="text-foreground mb-2">
                 {client.name}
               </h3>
               <p className="text-sm font-medium tracking-[0.1em] text-muted-foreground uppercase">

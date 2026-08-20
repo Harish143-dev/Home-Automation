@@ -95,7 +95,7 @@ export function CurtainScenarios() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base scenario-header text-accent mb-4 block">
             Seamless Integration
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl scenario-header text-foreground text-balance mb-6">
+          <h2 className=" scenario-header text-foreground text-balance mb-6">
             Experience Smart Living Scenarios
           </h2>
           <p className="scenario-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -129,7 +129,7 @@ export function CurtainScenarios() {
                   <span className="text-accent font-medium text-lg">{idx + 1}</span>
                 </div>
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8">
+                <h3 className=" text-foreground mb-8">
                   {scenario.title}
                 </h3>
 

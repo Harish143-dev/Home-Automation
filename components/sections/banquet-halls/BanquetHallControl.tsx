@@ -94,7 +94,7 @@ export function BanquetHallControl() {
           <span className="tracking-[0.1em] text-accent mb-4 block">
             One-Touch Venue Control
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
+          <h2 className=" text-foreground text-balance mb-6">
             Connected To Everything
           </h2>
           <p className="text-base md:text-lg text-muted-foreground font-light max-w-2xl mx-auto text-balance">

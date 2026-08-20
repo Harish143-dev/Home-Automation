@@ -78,7 +78,7 @@ export function ExperienceAudience() {
         </div>
 
         {/* Huge Title */}
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-center text-balance max-w-4xl mb-20 audience-heading opacity-0 translate-y-10">
+        <h2 className=" text-center text-balance max-w-4xl mb-20 audience-heading opacity-0 translate-y-10">
           Built for Homeowners, Architects, Designers & Developers
         </h2>
 
@@ -89,7 +89,7 @@ export function ExperienceAudience() {
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/5 flex items-center justify-center mb-6 md:mb-8 text-black/80 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                 <item.icon strokeWidth={1.5} className="w-8 h-8 md:w-10 md:h-10" />
               </div>
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-black mb-4">
+              <h4 className=" text-black mb-4">
                 {item.title}
               </h4>
               <p className="text-sm md:text-base text-black/60 leading-relaxed font-light tracking-wide">

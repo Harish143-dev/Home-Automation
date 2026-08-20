@@ -121,7 +121,7 @@ export function CommercialBenefits() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6 block">
             Why Commercial Automation Matters
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 text-balance">
+          <h2 className="text-foreground mb-8 text-balance">
             The Strategic Significance of Adaptive Infrastructure
           </h2>
           <p className="text-foreground/70 text-lg md:text-xl leading-relaxed font-light">
@@ -139,7 +139,7 @@ export function CommercialBenefits() {
                 {item.num}
               </span>
 
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 relative z-10">
+              <h3 className="text-foreground mb-8 relative z-10">
                 {item.title}
               </h3>
 

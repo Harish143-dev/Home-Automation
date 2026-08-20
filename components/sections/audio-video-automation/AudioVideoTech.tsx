@@ -83,7 +83,7 @@ export function AudioVideoTech() {
           <span className={`tracking-[0.3em] text-xs sm:text-sm md:text-base tech-header text-accent mb-4 block ${!prefersReducedMotion && 'opacity-0'}`}>
             Tech Section
           </span>
-          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide tech-header text-foreground text-balance mb-6 ${!prefersReducedMotion && 'opacity-0'}`}>
+          <h2 className={`tech-header text-foreground text-balance mb-6 ${!prefersReducedMotion && 'opacity-0'}`}>
             Audio & Video Technologies
           </h2>
           <p className={`tech-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance ${!prefersReducedMotion && 'opacity-0'}`}>
@@ -115,7 +115,7 @@ export function AudioVideoTech() {
                       }`}>
                       <Icon className="w-5 h-5" strokeWidth={1.5} />
                     </div>
-                    <h3 className={`text-lg sm:text-xl font-medium tracking-wide transition-colors duration-300 ${isOpen ? 'text-foreground' : 'text-foreground/80'
+                    <h3 className={`transition-colors duration-300 ${isOpen ? 'text-foreground' : 'text-foreground/80'
                       }`}>
                       {tech.title}
                     </h3>

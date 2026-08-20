@@ -22,7 +22,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
 
   // Desktop State
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
-  
+
   // Mobile Accordion State
   const [openAccordions, setOpenAccordions] = useState<string[]>([]);
 
@@ -90,7 +90,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
 
   const handleLinkClick = (e: React.MouseEvent, href?: string) => {
     if (!href) return;
-    
+
     if (href.startsWith('#')) {
       e.preventDefault();
       onClose();
@@ -112,7 +112,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
   };
 
   const toggleAccordion = (id: string) => {
-    setOpenAccordions(prev => 
+    setOpenAccordions(prev =>
       prev.includes(id) ? prev.filter(a => a !== id) : [...prev, id]
     );
   };
@@ -137,12 +137,12 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
 
         {/* DESKTOP LAYOUT (lg and above) */}
         <div className="hidden lg:flex w-full h-full">
-          
+
           {/* Left Panel: Primary Categories */}
           <div className="w-[28%] xl:w-[25%] flex flex-col justify-start gap-3 lg:gap-4 xl:gap-5 pr-8 border-r border-black/10 relative z-10 overflow-y-auto hide-scrollbar pb-6">
             {MAIN_NAVIGATION.map((item) => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className="menu-link-large will-change-transform origin-left flex items-center"
                 onMouseEnter={() => item.items && setActiveCategoryId(item.id)}
               >
@@ -174,7 +174,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
           <div className="w-[72%] xl:w-[75%] pl-8 xl:pl-12 relative z-10 overflow-y-auto hide-scrollbar pb-12">
             {activeCategory && activeCategory.items && (
               <div className="right-panel-content w-full h-full animate-in fade-in slide-in-from-right-4 duration-500">
-                
+
                 <h3 className="text-sm tracking-[0.1em] text-black/40 uppercase mb-8 xl:mb-10">
                   {activeCategory.label}
                 </h3>
@@ -243,7 +243,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
           <div className="flex flex-col gap-6">
             {MAIN_NAVIGATION.map((item) => (
               <div key={item.id} className="menu-link-large will-change-transform flex flex-col border-b border-black/5 pb-4 last:border-0">
-                
+
                 {/* Level 1 Header */}
                 <div className="flex items-center justify-between w-full">
                   {item.href && !item.items ? (
@@ -262,8 +262,8 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                       <span className="text-3xl sm:text-4xl font-light text-black">
                         {item.label}
                       </span>
-                      <ChevronDown 
-                        className={`w-6 h-6 text-black/50 transition-transform duration-300 ${openAccordions.includes(item.id) ? 'rotate-180' : ''}`} 
+                      <ChevronDown
+                        className={`w-6 h-6 text-black/50 transition-transform duration-300 ${openAccordions.includes(item.id) ? 'rotate-180' : ''}`}
                       />
                     </button>
                   )}
@@ -271,11 +271,11 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
 
                 {/* Level 2 Sub-items */}
                 {item.items && (
-                  <div 
+                  <div
                     className={`grid transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${openAccordions.includes(item.id) ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
                   >
                     <div className="overflow-hidden flex flex-col gap-6 pl-4">
-                      
+
                       {item.items.some(sub => sub.items) ? (
                         // Render Level 2 Categories (which contain Level 3 links)
                         item.items.map(subCategory => (
@@ -288,15 +288,15 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                                 {subCategory.label}
                               </span>
                               {subCategory.items && (
-                                <ChevronDown 
-                                  className={`w-5 h-5 text-black/40 transition-transform duration-300 ${openAccordions.includes(subCategory.id) ? 'rotate-180' : ''}`} 
+                                <ChevronDown
+                                  className={`w-5 h-5 text-black/40 transition-transform duration-300 ${openAccordions.includes(subCategory.id) ? 'rotate-180' : ''}`}
                                 />
                               )}
                             </button>
 
                             {/* Level 3 Links */}
                             {subCategory.items && (
-                              <div 
+                              <div
                                 className={`grid transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${openAccordions.includes(subCategory.id) ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
                               >
                                 <ul className="overflow-hidden flex flex-col gap-4 pl-4 border-l border-black/10">

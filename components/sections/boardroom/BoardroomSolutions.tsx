@@ -88,7 +88,7 @@ export function BoardroomSolutions() {
           <span className="tracking-[0.1em] text-accent mb-4 block">
             Comprehensive Integration
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl solution-header text-foreground mb-6 text-balance">
+          <h2 className=" solution-header text-foreground mb-6 text-balance">
             Complete Boardroom & Meeting Room Solutions
           </h2>
           <p className="solution-header text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance max-w-3xl mx-auto">
@@ -111,7 +111,7 @@ export function BoardroomSolutions() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+                <h3 className=" text-foreground mb-4">
                   {solution.title}
                 </h3>
                 <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">

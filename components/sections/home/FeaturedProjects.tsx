@@ -167,7 +167,7 @@ export function FeaturedProjects() {
         <div className="py-12 sm:py-20 md:py-16 lg:py-32 px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-12">
             <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted mb-3 sm:mb-4">Projects</p>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Elevated Environments</h2>
+            <h2 className=" text-foreground">Elevated Environments</h2>
           </div>
           <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
             {PROJECTS.map((proj) => (
@@ -186,7 +186,7 @@ export function FeaturedProjects() {
                   <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-darker px-3 py-1 mb-3 shadow-sm">
                     <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-foreground">{proj.category}</span>
                   </div>
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
+                  <h3 className=" mb-2 sm:mb-3 text-foreground">{proj.name}</h3>
                   <ul className="flex flex-col gap-1 sm:gap-1.5 mb-3 sm:mb-4 text-muted text-xs sm:text-sm">
                     {proj.usps.map(usp => (
                       <li key={usp} className="flex flex-row items-center gap-2">
@@ -213,7 +213,7 @@ export function FeaturedProjects() {
 
             {/* Left Side: Sidebar Navigation */}
             <div className="w-[30%] lg:w-[35%] h-full border-r border-border flex flex-col justify-center px-6 md:px-10 lg:px-16 xl:px-20 relative z-20 bg-background">
-              <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-muted mb-16">Projects</h2>
+              <h2 className=" text-muted mb-16">Projects</h2>
               <div className="relative">
                 {/* Progress Track */}
                 <div className="absolute left-[3px] top-2 bottom-2 w-[1px] bg-white/10" />
@@ -262,7 +262,7 @@ export function FeaturedProjects() {
                       <div className="fp-stagger mb-5">
                         <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/70">{proj.category}</span>
                       </div>
-                      <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl fp-stagger text-white mb-2 md:mb-3 lg:mb-4">
+                      <h3 className=" fp-stagger text-white mb-2 md:mb-3 lg:mb-4">
                         {proj.name}
                       </h3>
                       <p className="fp-stagger text-xs md:text-sm lg:text-base text-white/75 leading-relaxed">

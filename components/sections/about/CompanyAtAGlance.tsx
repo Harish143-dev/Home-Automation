@@ -108,7 +108,7 @@ export default function CompanyAtAGlance() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium mb-4">
             Company at a Glance
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className=" text-foreground">
             Our Impact in Numbers
           </h2>
         </div>

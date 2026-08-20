@@ -11,10 +11,10 @@ interface BlogDetailHeaderProps {
 export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
   return (
     <div className="w-full flex flex-col gap-6 lg:gap-8 mb-12">
-      
+
       {/* Blog Title Section */}
       <div className="flex flex-col gap-4">
-        <h1 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+        <h1 className=" text-foreground">
           {post.title}
         </h1>
       </div>

@@ -89,7 +89,7 @@ export function RestaurantSpaces() {
           <span className="text-accent mb-4 block tracking-[0.1em]">
             Versatile Environments
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
+          <h2 className=" text-foreground text-balance mb-6">
             Intelligent Automation Across Every Restaurant Space
           </h2>
           <p className="text-muted-foreground font-light text-lg md:text-xl text-balance">
@@ -123,7 +123,7 @@ export function RestaurantSpaces() {
                   <span className="flex items-center justify-center w-12 h-12 rounded-full bg-background border border-black/5 text-foreground font-display text-xl shrink-0">
                     0{idx + 1}
                   </span>
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+                  <h3 className=" text-foreground text-balance">
                     {space.title}
                   </h3>
                 </div>

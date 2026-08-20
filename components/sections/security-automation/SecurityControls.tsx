@@ -75,10 +75,10 @@ export function SecurityControls() {
 
         {/* Header */}
         <div className="sc-header text-center max-w-3xl mx-auto">
-          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-4 block">
+          <h5 className=" text-accent mb-4 block">
             Seamless Control
           </h5>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
+          <h2 className=" text-foreground text-balance mb-6">
             Control Your Home Security Anytime, Anywhere
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
@@ -101,7 +101,7 @@ export function SecurityControls() {
 
               {/* Text */}
               <div className="flex flex-col gap-3">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground transition-colors duration-300">
+                <h3 className=" text-foreground transition-colors duration-300">
                   {control.title}
                 </h3>
                 <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">

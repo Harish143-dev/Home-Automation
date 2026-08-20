@@ -58,7 +58,7 @@ export function ProjectsSidebar() {
 
       {/* Social Sharing */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 flex items-center gap-2">
+        <h4 className=" text-foreground mb-4 flex items-center gap-2">
           Share
         </h4>
         <div className="flex items-center gap-3">
@@ -81,7 +81,7 @@ export function ProjectsSidebar() {
       {/* Featured Projects */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Featured Projects</h4>
+          <h4 className=" text-foreground">Featured Projects</h4>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-6">
@@ -102,7 +102,7 @@ export function ProjectsSidebar() {
                 <span className="tracking-[0.1em] text-xs text-white/70 mb-1 block">
                   {project.category}
                 </span>
-                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white group-hover:text-accent transition-colors">
+                <h4 className=" text-white group-hover:text-accent transition-colors">
                   {project.title}
                 </h4>
               </div>
@@ -114,7 +114,7 @@ export function ProjectsSidebar() {
       {/* Recent Projects */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Recent Projects</h3>
+          <h3 className=" text-foreground">Recent Projects</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">
@@ -133,7 +133,7 @@ export function ProjectsSidebar() {
                 />
               </div>
               <div className="flex flex-col">
-                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground line-clamp-2 group-hover:text-accent transition-colors">
+                <h4 className=" text-foreground line-clamp-2 group-hover:text-accent transition-colors">
                   {project.title}
                 </h4>
                 <span className="text-xs text-muted-foreground font-light mt-1">

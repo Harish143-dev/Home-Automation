@@ -83,7 +83,7 @@ export function BanquetHallSolutions() {
           <span className="tracking-[0.1em] text-accent mb-4 block">
             Comprehensive Integration
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl solution-header text-foreground mb-6 text-balance">
+          <h2 className=" solution-header text-foreground mb-6 text-balance">
             Intelligent Solutions for Every Event
           </h2>
           <p className="solution-header text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance max-w-3xl mx-auto">
@@ -92,13 +92,13 @@ export function BanquetHallSolutions() {
         </div>
 
         {/* Bento Grid */}
-        <div className="solutions-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
+        <div className="solutions-grid flex flex-wrap justify-center gap-6 md:gap-8 w-full">
           {SOLUTIONS.map((solution, idx) => {
             const Icon = solution.icon;
             return (
               <div
                 key={idx}
-                className="solution-card bg-white border border-black/5 rounded-[2rem] p-8 md:p-10 hover:shadow-xl hover:shadow-black/5 transition-all duration-500 group flex flex-col hover:-translate-y-1"
+                className="solution-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white border border-black/5 rounded-[2rem] p-8 md:p-10 hover:shadow-xl hover:shadow-black/5 transition-all duration-500 group flex flex-col hover:-translate-y-1"
               >
                 {/* Icon Container */}
                 <div className="w-14 h-14 rounded-2xl bg-panel border border-black/5 flex items-center justify-center mb-8 group-hover:bg-accent/5 group-hover:border-accent/10 transition-colors duration-500">
@@ -106,7 +106,7 @@ export function BanquetHallSolutions() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+                <h3 className=" text-foreground mb-4">
                   {solution.title}
                 </h3>
                 <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">

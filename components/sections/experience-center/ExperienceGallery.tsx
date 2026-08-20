@@ -98,7 +98,7 @@ export function ExperienceGallery() {
                 Gallery
               </span>
             </div>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
+            <h2 className=" text-white">
               Step Inside Our<br />Experience Centres
             </h2>
           </div>

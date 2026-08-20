@@ -77,7 +77,7 @@ export function AudioVideoSystem() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base system-header text-accent mb-4 block">
             Seamless Connectivity
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl system-header text-foreground text-balance mb-6">
+          <h2 className=" system-header text-foreground text-balance mb-6">
             One System. Endless Entertainment.
           </h2>
           <p className="system-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -109,7 +109,7 @@ export function AudioVideoSystem() {
 
           {/* Right Side: Benefits */}
           <div className="system-benefits-container w-full lg:w-[40%] bg-black/[0.03] border border-black/5 rounded-[2rem] p-8 sm:p-10 lg:p-12 shadow-xl shadow-black/[0.02]">
-            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8">
+            <h3 className=" text-foreground mb-8">
               Key Benefits
             </h3>
             <ul className="flex flex-col gap-6 w-full">

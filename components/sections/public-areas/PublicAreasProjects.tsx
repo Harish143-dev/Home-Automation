@@ -106,7 +106,7 @@ export function PublicAreasProjects() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Proven Excellence
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className=" text-foreground">
             Hospitality Projects
           </h2>
           <p className="mt-6 text-foreground/70 text-lg md:text-xl font-light leading-relaxed">
@@ -156,7 +156,7 @@ export function PublicAreasProjects() {
 
               {/* Title & Asset */}
               <div className="flex flex-col gap-2">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
+                <h3 className=" text-foreground group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
                 <span className="tracking-[0.3em] uppercase text-xs sm:text-sm md:text-base text-muted-foreground">

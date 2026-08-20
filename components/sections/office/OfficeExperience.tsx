@@ -132,12 +132,12 @@ export function OfficeExperience() {
       {/* 1. TRUST SIGNAL SECTION */}
       <section className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
         <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
-          
+
           <div ref={leftColRef} className="w-full md:w-1/2 md:sticky md:top-[20vh] pb-6 md:pb-0 opacity-0">
             <span className="tracking-[0.3em] text-accent mb-4 block uppercase text-sm font-medium">
               Proven Expertise
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground mb-6 sm:mb-8">
+            <h2 className="text-foreground mb-6 sm:mb-8">
               Trusted by the Best.
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10 text-balance">
@@ -188,7 +188,7 @@ export function OfficeExperience() {
             <div className="w-[150%] md:w-[120%] flex overflow-hidden opacity-80 group">
               <div className="flex gap-16 md:gap-24 items-center whitespace-nowrap animate-marquee-left">
                 {[...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS].map((brand, i) => (
-                  <span key={i} className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground hover:text-accent transition-colors duration-300">
+                  <span key={i} className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-foreground hover:text-accent transition-colors duration-300">
                     {brand}
                   </span>
                 ))}
@@ -202,12 +202,12 @@ export function OfficeExperience() {
       <section className="py-12 md:py-16 relative bg-background text-foreground overflow-hidden" ref={credentialsRef}>
         <div className="container mx-auto px-5 sm:px-8 md:px-16 lg:px-24 max-w-7xl">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
-            
+
             <div className="w-full lg:w-[40%] xl:w-1/3 lg:sticky lg:top-40 flex flex-col gap-4 z-10">
               <span className="tracking-[0.3em] text-accent block mb-2 uppercase text-sm font-medium">
                 Industry Accolades
               </span>
-              <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground">
+              <h2 className="text-foreground">
                 Certifications &<br />Awards.
               </h2>
             </div>
@@ -221,7 +221,7 @@ export function OfficeExperience() {
 
                   <div className="w-16 h-[1px] bg-foreground/20 mb-6 oe-cred-line" />
 
-                  <h3 className="font-light leading-[1.2] tracking-wide text-2xl sm:text-3xl text-foreground mb-4 oe-cred-title">
+                  <h3 className="text-foreground mb-4 oe-cred-title">
                     {cred.title}
                   </h3>
 

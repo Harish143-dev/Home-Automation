@@ -52,11 +52,11 @@ export function SecurityProtection() {
           {/* Text Content */}
           <div ref={textRef} className="w-full lg:w-[45%] flex flex-col justify-center">
             <div className="flex flex-col gap-6 w-full max-w-2xl">
-              <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent">
+              <h5 className=" text-accent">
                 Total Protection
               </h5>
 
-              <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+              <h2 className=" text-foreground text-balance">
                 Complete Protection for Every Corner of Your Home
               </h2>
 

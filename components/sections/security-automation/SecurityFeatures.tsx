@@ -125,10 +125,10 @@ export function SecurityFeatures() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mb-16 md:mb-24 flex flex-col items-center">
-          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-6 block">
+          <h5 className=" text-accent mb-6 block">
             Core Capabilities
           </h5>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-8">
+          <h2 className=" text-foreground text-balance mb-8">
             Smart Security Solutions for Modern Homes
           </h2>
           <p className="text-lg md:text-xl font-light tracking-wide text-muted leading-relaxed text-balance">

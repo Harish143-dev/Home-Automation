@@ -35,7 +35,7 @@ export function SecurityAboutATPL() {
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative">
 
         <div ref={textRef} className="flex flex-col items-center gap-8">
-          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground text-balance">
+          <h2 className="text-foreground text-balance">
             Why Choose Anusha Technovision
           </h2>
 

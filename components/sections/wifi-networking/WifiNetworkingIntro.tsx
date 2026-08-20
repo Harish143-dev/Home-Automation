@@ -176,10 +176,10 @@ export function WifiNetworkingIntro() {
 
         {/* Intro Text Header (Reduced bottom margin) */}
         <div ref={textRef} className="flex flex-col items-center text-center gap-4 md:gap-6 w-full max-w-4xl mb-12 md:mb-16">
-          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent tracking-[0.1em]">
+          <h5 className=" text-accent tracking-[0.1em]">
             The Foundation
           </h5>
-          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground text-balance">
+          <h2 className="text-foreground text-balance">
             Every Smart Home Starts with a Reliable Network
           </h2>
           <p className="text-sm md:text-lg lg:text-xl font-light tracking-wide text-muted-foreground leading-relaxed text-balance">
@@ -276,7 +276,7 @@ export function WifiNetworkingIntro() {
             <div key={i} className="wn-feature flex flex-col gap-3 group">
               <div className="flex items-center gap-3 mb-1">
                 <CheckCircle2 className="w-5 h-5 text-accent/70 group-hover:text-accent transition-colors duration-300 shrink-0" strokeWidth={2} />
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+                <h3 className=" text-foreground">
                   {feature.title}
                 </h3>
               </div>

@@ -25,7 +25,7 @@ export function ConsultationForm() {
             <div className="h-[1px] w-12 bg-border" />
           </div>
 
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 text-balance">
+          <h2 className=" text-foreground mb-6 text-balance">
             Get a Free Consultation for Your Space.
           </h2>
 
@@ -124,7 +124,7 @@ export function ConsultationForm() {
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
                 <CheckCircle2 className="w-8 h-8 text-accent" />
               </div>
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">Request Received</h3>
+              <h3 className=" text-foreground mb-4">Request Received</h3>
               <p className="text-muted-foreground font-light leading-relaxed">
                 Thank you for reaching out. One of our system architects will be in touch with you shortly to schedule your consultation.
               </p>

@@ -180,7 +180,7 @@ export function AutomationSpaces() {
         <section className="py-12 md:py-16 text-foreground px-5 sm:px-8 md:px-16 lg:px-24">
           <div className="mb-16 px-4 text-center">
             <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4">Sectors</p>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Environments We Transform</h2>
+            <h2 className=" text-foreground">Environments We Transform</h2>
           </div>
           <div className="flex flex-col gap-24">
             {PANELS.map((panel) => (
@@ -235,7 +235,7 @@ export function AutomationSpaces() {
           <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6">
             Sectors
           </p>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className=" text-foreground">
             Environments We Transform
           </h2>
         </div>

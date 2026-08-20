@@ -78,7 +78,7 @@ export function CurtainBenefits() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base benefit-header text-accent mb-4 block">
             The Advantage
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl benefit-header text-foreground text-balance">
+          <h2 className=" benefit-header text-foreground text-balance">
             Why Homeowners Choose Motorized Curtains
           </h2>
         </div>
@@ -92,7 +92,7 @@ export function CurtainBenefits() {
               <div className="w-12 h-12 rounded-full bg-secondary/5 flex items-center justify-center mb-2">
                 <benefit.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
               </div>
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+              <h4 className=" text-foreground">
                 {benefit.title}
               </h4>
               <p className="text-sm sm:text-base md:text-lg font-light text-muted leading-relaxed">

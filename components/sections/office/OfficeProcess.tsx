@@ -7,10 +7,10 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { DURATION, EASE } from '@/lib/animation.config';
 
 const STEPS = [
-  "Site Analysis & Architectural Review", 
-  "Schematics & Wiring Layouts", 
-  "Physical Integration & Hardware Placement", 
-  "System Optimization & Stress Testing", 
+  "Site Analysis & Architectural Review",
+  "Schematics & Wiring Layouts",
+  "Physical Integration & Hardware Placement",
+  "System Optimization & Stress Testing",
   "Handover, Audit & Ongoing Support"
 ];
 
@@ -51,7 +51,7 @@ export function OfficeProcess() {
           <span className="tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
             Execution Architecture
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground text-balance">
+          <h2 className="text-foreground text-balance">
             Our Process
           </h2>
         </div>
@@ -74,7 +74,7 @@ export function OfficeProcess() {
               {/* Content Box */}
               <div className="ml-8 w-full">
                 <div className="bg-background border border-black/5 rounded-2xl p-6 w-full group-hover:border-black/10 hover:shadow-xl hover:shadow-black/5 transition-all duration-500">
-                  <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl text-foreground text-balance">
+                  <h4 className="text-foreground text-balance">
                     {step}
                   </h4>
                 </div>

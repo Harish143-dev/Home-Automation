@@ -160,7 +160,7 @@ export function HospitalitySolutions() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Guest Room Management Systems
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className="text-foreground">
             Guest Room Management Systems (GRMS)
           </h2>
           <p className="text-muted text-base lg:text-lg leading-relaxed font-sans mt-4 max-w-2xl text-center">
@@ -193,7 +193,7 @@ export function HospitalitySolutions() {
                 {/* Content */}
                 <div className="solution-content w-full md:w-1/2 flex flex-col gap-8">
                   <div>
-                    <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-4 text-foreground">
+                    <h3 className="text-foreground mb-4">
                       {solution.title}
                     </h3>
                     <p className="text-muted text-base lg:text-lg leading-relaxed font-sans max-w-lg">
@@ -203,7 +203,7 @@ export function HospitalitySolutions() {
 
                   <div className="flex flex-col w-full">
                     {/* List 1 */}
-                    <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+                    <h4 className="text-foreground mb-4">
                       {solution.list1Title}
                     </h4>
                     <SolutionAccordion items={solution.list1} />

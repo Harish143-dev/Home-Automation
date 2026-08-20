@@ -185,7 +185,7 @@ export function HospitalityCapabilities() {
                 <img src={section.image} alt={section.name} className="w-full h-full object-cover" />
               </div>
               <div>
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-3 text-accent">{section.name}</h3>
+                <h3 className=" mb-3 text-accent">{section.name}</h3>
                 <p className="text-sm md:text-base text-muted leading-relaxed font-light mb-6 italic">
                   {section.subheading}
                 </p>
@@ -254,7 +254,7 @@ export function HospitalityCapabilities() {
                   key={section.id + "content"}
                   className={`cap-right-block flex flex-col justify-center min-h-[80vh] ${i === 0 ? "pt-[10vh]" : ""}`}
                 >
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent my-4">
+                  <h3 className=" text-accent my-4">
                     {section.name}
                   </h3>
 

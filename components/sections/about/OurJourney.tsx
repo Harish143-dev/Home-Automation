@@ -220,7 +220,7 @@ export default function OurJourney() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-white/50 font-medium mb-4">
             Our Journey
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
+          <h2 className=" text-white">
             Impact Through the Years
           </h2>
         </div>
@@ -264,7 +264,7 @@ export default function OurJourney() {
                       </div>
 
                       <div className="oj-text opacity-0">
-                        <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-6">
+                        <h3 className=" text-white mb-6">
                           {era.title}
                         </h3>
 

@@ -101,7 +101,7 @@ export function AudioVideoProcess() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base process-header text-accent mb-4 block">
             Our Process
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl process-header text-foreground text-balance mb-6">
+          <h2 className=" process-header text-foreground text-balance mb-6">
             A Seamless Journey
           </h2>
           <p className="process-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -136,7 +136,7 @@ export function AudioVideoProcess() {
                   {/* Step Content */}
                   <div className="ml-8 sm:ml-12 relative flex-grow">
                     {/* Step Title */}
-                    <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl process-text text-foreground/40 opacity-70 transition-all duration-300 relative z-10">
+                    <h3 className=" process-text text-foreground/40 opacity-70 transition-all duration-300 relative z-10">
                       {step}
                     </h3>
                   </div>

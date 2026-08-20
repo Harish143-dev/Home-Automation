@@ -82,7 +82,7 @@ export function CurtainCTA() {
 
         <h2
           ref={headlineRef}
-          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8"
+          className=" text-foreground mb-8"
         >
           Experience the Perfect Balance <br className="hidden md:block" /> of Comfort, Privacy
         </h2>

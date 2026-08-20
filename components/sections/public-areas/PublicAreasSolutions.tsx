@@ -82,7 +82,7 @@ export function PublicAreasSolutions() {
 
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4 mb-12 lg:mb-20">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
+          <h2 className=" text-foreground text-balance mb-6">
             Intelligent Solutions for Modern Public Spaces
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
@@ -101,7 +101,7 @@ export function PublicAreasSolutions() {
                 <solution.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
               </div>
 
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+              <h3 className=" text-foreground mb-4">
                 {solution.title}
               </h3>
 

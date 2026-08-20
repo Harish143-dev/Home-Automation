@@ -36,7 +36,7 @@ export function PublicAreasIntro() {
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative">
 
         <div ref={textRef} className="flex flex-col items-center gap-6">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             First Impressions Begin in Your Public Spaces
           </h2>
 

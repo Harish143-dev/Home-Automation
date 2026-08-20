@@ -47,7 +47,7 @@ export default function ExperienceEcosystem() {
             </span>
             <div className="h-[1px] w-12 bg-border" />
           </div>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className=" text-foreground">
             The Experience Ecosystem
           </h2>
           <p className="text-muted-foreground text-lg font-light max-w-xl">
@@ -75,7 +75,7 @@ export default function ExperienceEcosystem() {
 
                 <div className="relative z-10 flex flex-col lg:flex-row justify-between lg:items-center gap-6 lg:gap-12 px-4 md:px-8">
                   {/* City Name */}
-                  <h3 className={`text-3xl md:text-4xl lg:text-5xl font-light tracking-wide transition-all duration-500 ${isActive ? 'text-accent translate-x-4' : 'text-muted-foreground'}`}>
+                  <h3 className={`transition-all duration-500 ${isActive ? 'text-accent translate-x-4' : 'text-muted-foreground'}`}>
                     {loc.city}
                   </h3>
 

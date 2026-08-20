@@ -94,7 +94,7 @@ export function ExperienceShowroom() {
             </span>
           </div>
 
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-8">
+          <h2 className=" text-white mb-8">
             More Than a Showroom, A Complete Automation Experience
           </h2>
 

@@ -54,7 +54,7 @@ export function ContactExperience() {
             </span>
           </div>
 
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl stagger-reveal text-foreground">
+          <h2 className=" stagger-reveal text-foreground">
             Connect with our specialists to begin your journey into intelligent living.
           </h2>
 

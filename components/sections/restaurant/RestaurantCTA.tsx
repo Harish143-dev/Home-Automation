@@ -48,7 +48,7 @@ export function RestaurantCTA() {
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 max-w-3xl relative z-10 text-balance">
+        <h2 className=" text-foreground mb-6 max-w-3xl relative z-10 text-balance">
           Ready to Create Smarter Dining Experiences?
         </h2>
 

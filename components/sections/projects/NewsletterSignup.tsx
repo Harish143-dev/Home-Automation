@@ -27,7 +27,7 @@ export function NewsletterSignup() {
           <div className="h-[1px] w-8 sm:w-12 bg-border" />
         </div>
 
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+        <h2 className=" text-foreground mb-4">
           Stay Ahead of the Curve
         </h2>
 

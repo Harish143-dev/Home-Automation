@@ -68,7 +68,7 @@ export function StatsSection() {
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
         <div ref={leftColRef} className="w-full md:w-1/2 md:sticky md:top-[20vh] pb-6 md:pb-0 opacity-0">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 sm:mb-8">
+          <h2 className=" text-foreground mb-6 sm:mb-8">
             The Architecture of Intelligence
           </h2>
           <p className="text-muted text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10">

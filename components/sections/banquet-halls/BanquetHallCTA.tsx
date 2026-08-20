@@ -83,7 +83,7 @@ export function BanquetHallCTA() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8 text-balance max-w-4xl"
+          className=" text-foreground mb-8 text-balance max-w-4xl"
         >
           Transform Every Event into an Unforgettable Experience
         </h2>

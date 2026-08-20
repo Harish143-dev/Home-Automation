@@ -54,7 +54,7 @@ export function CurtainOverview() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base overview-header text-accent mb-4 block">
             The AT Smart Living Standard
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl overview-header text-foreground text-balance mb-6">
+          <h2 className=" overview-header text-foreground text-balance mb-6">
             Why Homeowners Choose Motorized Shades & Curtain Automation
           </h2>
           <p className="overview-header text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance max-w-3xl">
@@ -77,7 +77,7 @@ export function CurtainOverview() {
 
           {/* Text Side */}
           <div className="flex flex-col items-start">
-            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl overview-content text-foreground mb-6">
+            <h3 className=" overview-content text-foreground mb-6">
               Convenient Control for Everyday Living
             </h3>
             <p className="overview-content text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed mb-8">

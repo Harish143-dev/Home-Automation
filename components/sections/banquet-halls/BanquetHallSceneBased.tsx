@@ -66,7 +66,7 @@ export function BanquetHallSceneBased() {
 
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4 mb-16 lg:mb-20">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance scene-header mb-6">
+          <h2 className=" text-foreground text-balance scene-header mb-6">
             Scene Based Automation
           </h2>
           <p className="scene-header text-lg md:text-xl font-light text-muted-foreground leading-relaxed text-balance max-w-3xl mx-auto">
@@ -85,7 +85,7 @@ export function BanquetHallSceneBased() {
                 <feature.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
               </div>
 
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 text-balance">
+              <h3 className=" text-foreground mb-3 text-balance">
                 {feature.title}
               </h3>
 

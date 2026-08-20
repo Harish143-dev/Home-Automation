@@ -87,7 +87,7 @@ export function CurtainTypes() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base type-header text-white/50 mb-4 block">
             Curtain & Shade Types
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl type-header text-white text-balance mb-6">
+          <h2 className="type-header text-white text-balance mb-6">
             Solutions for Every Window
           </h2>
           <p className="type-header text-sm sm:text-base md:text-lg font-light tracking-wide text-white/70 leading-relaxed text-balance">
@@ -111,7 +111,7 @@ export function CurtainTypes() {
                   onClick={() => toggleAccordion(idx)}
                   className="w-full flex items-center justify-between py-4 sm:py-6 text-left group"
                 >
-                  <h3 className={`text-xl sm:text-2xl font-light tracking-wide leading-[1.2] transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/70 group-hover:text-white'}`}>
+                  <h3 className={`transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/70 group-hover:text-white'}`}>
                     {type.title}
                   </h3>
                   <div className={`ml-4 shrink-0 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`}>

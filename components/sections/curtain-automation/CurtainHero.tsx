@@ -104,9 +104,9 @@ export function CurtainHero() {
 
       {/* 🌌 Premium Typography & CTA Content Overlay */}
       {/* Upper spacing for fixed NavBar alignment */}
-      <div className="h-28 sm:h-32 md:h-36 z-10 pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 flex flex-col items-start justify-end pointer-events-none select-none">
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="max-w-4xl flex flex-col items-start text-left">
 
           {/* Refined editorial headline */}

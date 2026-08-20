@@ -104,7 +104,7 @@ export default function LightingFeatures() {
                   <feature.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
 
-                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+                <h4 className=" text-foreground mb-4">
                   {feature.title}
                 </h4>
 

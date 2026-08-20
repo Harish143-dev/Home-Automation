@@ -62,7 +62,7 @@ export default function CareersApplicationForm() {
         <span className="ca-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
           Apply Now
         </span>
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl ca-el text-foreground mb-6">
+        <h2 className=" ca-el text-foreground mb-6">
           Don't See the Right Opportunity?
         </h2>
         <p className="ca-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed mb-12 md:mb-16 max-w-2xl">

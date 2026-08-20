@@ -65,7 +65,7 @@ export function BoardroomWhyChooseUs() {
 
         {/* Text Section */}
         <div ref={textRef} className="flex flex-col items-center gap-8 max-w-4xl">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             Why Choose Anusha Technovision
           </h2>
 

@@ -70,7 +70,7 @@ export function OfficeWorkflow() {
           <span className="tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
             A Day in the Life
           </span>
-          <h2 className="text-3xl sm:text-4xl font-light text-foreground text-balance mb-6">
+          <h2 className="text-foreground text-balance mb-6">
             Experience One-Touch Workplace Automation
           </h2>
           <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
@@ -96,7 +96,7 @@ export function OfficeWorkflow() {
               {/* Content Box */}
               <div className="ml-8 w-full">
                 <div className="bg-background border border-black/5 rounded-[1.5rem] p-8 w-full group-hover:border-black/10 hover:shadow-xl hover:shadow-black/5 transition-all duration-500">
-                  <h3 className="text-xl sm:text-2xl font-light text-foreground mb-3 leading-snug">
+                  <h3 className="text-foreground mb-3 leading-snug">
                     {step.title}
                   </h3>
                   <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed">

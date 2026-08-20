@@ -87,7 +87,7 @@ export function RestaurantIntro() {
 
         {/* Intro Text */}
         <div ref={textRef} className="flex flex-col items-center text-center gap-6 max-w-4xl mb-20">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             Every Great Dining Experience Begins with the Right Ambience
           </h2>
 
@@ -97,17 +97,17 @@ export function RestaurantIntro() {
         </div>
 
         {/* Highlights Grid */}
-        <div className="highlights-grid w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-center">
+        <div className="highlights-grid flex flex-wrap justify-center gap-6 lg:gap-8 w-full">
           {HIGHLIGHTS.map((item, i) => (
             <div
               key={i}
               ref={el => { cardsRef.current[i] = el; }}
-              className="bg-panel rounded-3xl p-8 flex flex-col border border-black/5 hover:border-accent/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+              className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1.34rem)] bg-panel rounded-3xl p-8 flex flex-col border border-black/5 hover:border-accent/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="w-12 h-12 rounded-2xl bg-accent/5 flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors duration-300">
                 <item.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
               </div>
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
+              <h3 className=" text-foreground mb-3">
                 {item.title}
               </h3>
               <p className="text-muted-foreground font-light leading-relaxed">

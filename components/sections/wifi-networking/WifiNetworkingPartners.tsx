@@ -78,10 +78,10 @@ export function WifiNetworkingPartners() {
 
         {/* Header */}
         <div className="text-center max-w-4xl mb-16 md:mb-24">
-          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl partner-header text-accent tracking-[0.1em] mb-4">
+          <h5 className=" partner-header text-accent tracking-[0.1em] mb-4">
             Technology Partners
           </h5>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl partner-header text-foreground text-balance mb-6">
+          <h2 className=" partner-header text-foreground text-balance mb-6">
             Powered by Industry-Leading Technologies
           </h2>
           <p className="partner-header text-base md:text-xl font-light tracking-wide text-muted-foreground leading-relaxed text-balance">
@@ -103,7 +103,7 @@ export function WifiNetworkingPartners() {
                   <Icon className="w-6 h-6 md:w-7 md:h-7 text-accent" strokeWidth={1.5} />
                 </div>
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+                <h3 className=" text-foreground">
                   {partner.name}
                 </h3>
 

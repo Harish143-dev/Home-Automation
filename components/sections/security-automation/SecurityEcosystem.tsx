@@ -87,10 +87,10 @@ export function SecurityEcosystem() {
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24 z-10 relative">
-          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-4 block">
+          <h5 className=" text-accent mb-4 block">
             Centralized Control
           </h5>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             One Intelligent Security Ecosystem
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl">

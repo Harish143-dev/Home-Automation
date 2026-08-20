@@ -34,13 +34,13 @@ export default function ClosingStatement() {
     >
       {/* Decorative large faint text in background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap">
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-border opacity-50">
+        <h2 className=" text-border opacity-50">
           AT SMART LIVING
         </h2>
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-12 max-w-4xl mx-auto">
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl closing-element text-foreground">
+        <h2 className=" closing-element text-foreground">
           Ready to design your <br className="hidden md:block" />
           intelligent space?
         </h2>

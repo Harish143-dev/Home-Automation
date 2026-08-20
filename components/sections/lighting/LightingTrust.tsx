@@ -118,7 +118,7 @@ export default function LightingTrust() {
             <span className="tracking-[0.3em] text-sm md:text-base text-accent mb-4 block">
               Proven Experience
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+            <h2 className=" text-foreground text-balance">
               Precision Engineering, At Scale.
             </h2>
           </div>
@@ -145,7 +145,7 @@ export default function LightingTrust() {
         {/* Clients and Accolades */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mt-16 md:mt-24 text-left">
           <div className="flex-1">
-            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+            <h3 className=" text-foreground mb-6">
               Trusted by the Best
             </h3>
             <p className="text-muted font-light text-base md:text-lg leading-relaxed">
@@ -154,7 +154,7 @@ export default function LightingTrust() {
           </div>
 
           <div className="flex-1">
-            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+            <h3 className=" text-foreground mb-6">
               Awards & Recognitions
             </h3>
             <ul className="space-y-4">

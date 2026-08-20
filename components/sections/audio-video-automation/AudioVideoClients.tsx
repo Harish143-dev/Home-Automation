@@ -124,7 +124,7 @@ export function AudioVideoClients() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base client-header-text text-accent mb-4 block">
             Prestigious Portfolio
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl client-header-text text-foreground mb-8 text-balance">
+          <h2 className=" client-header-text text-foreground mb-8 text-balance">
             Trusted by India's Leading Homeowners & Visionaries
           </h2>
           <p className="client-header-text text-sm md:text-base font-light tracking-wide text-foreground/70 leading-relaxed text-balance">
@@ -154,7 +154,7 @@ export function AudioVideoClients() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+                <h3 className=" text-foreground">
                   {client.name}
                 </h3>
                 <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">

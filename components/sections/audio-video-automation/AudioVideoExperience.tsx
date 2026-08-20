@@ -93,7 +93,7 @@ export function AudioVideoExperience() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base experience-header text-accent mb-4 block">
             Everyday Living
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl experience-header text-foreground text-balance mb-6">
+          <h2 className=" experience-header text-foreground text-balance mb-6">
             Entertainment Designed for Everyday Living
           </h2>
           <p className="experience-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">
@@ -121,7 +121,7 @@ export function AudioVideoExperience() {
                 </div>
 
                 <div className={`flex flex-col gap-3 ${isLarge ? 'md:pr-12 lg:pr-24' : ''}`}>
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
+                  <h3 className=" text-foreground group-hover:text-accent transition-colors duration-300">
                     {exp.title}
                   </h3>
                   <p className="text-sm sm:text-base font-light text-foreground/70 leading-relaxed transition-colors duration-300">

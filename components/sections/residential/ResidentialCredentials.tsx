@@ -62,7 +62,7 @@ export function ResidentialCredentials() {
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section className="py-12 md:py-16 relative bg-background text-foreground overflow-hidden" ref={containerRef}>
+    <section className="pb-12 md:pb-16 pt-16 md:pt-32 relative bg-background text-foreground overflow-hidden" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
@@ -71,7 +71,7 @@ export function ResidentialCredentials() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent block mb-2">
               Global Benchmarks
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+            <h2 className=" text-foreground">
               Industry<br />Credentials.
             </h2>
           </div>
@@ -86,7 +86,7 @@ export function ResidentialCredentials() {
 
                 <div className="w-16 h-[1px] bg-foreground/20 mb-6 credential-line" />
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 credential-title">
+                <h3 className=" text-foreground mb-4 credential-title">
                   {cred.title}
                 </h3>
 

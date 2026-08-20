@@ -80,7 +80,7 @@ export function BoardroomComparison() {
           <span className="comp-header text-accent tracking-[0.1em] mb-4 block">
             The Difference
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl comp-header text-foreground text-balance mb-6">
+          <h2 className=" comp-header text-foreground text-balance mb-6">
             Smarter Meetings Start with Smarter Spaces
           </h2>
           <p className="comp-header text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
@@ -97,7 +97,7 @@ export function BoardroomComparison() {
               <div className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center shrink-0">
                 <X className="w-5 h-5 text-muted-foreground" />
               </div>
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-muted-foreground">
+              <h3 className=" text-muted-foreground">
                 Standard Boardroom
               </h3>
             </div>
@@ -105,7 +105,7 @@ export function BoardroomComparison() {
               <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center shrink-0 shadow-lg shadow-accent/20">
                 <Check className="w-5 h-5 text-white" strokeWidth={3} />
               </div>
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent">
+              <h3 className=" text-accent">
                 Intelligent Automation
               </h3>
             </div>

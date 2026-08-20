@@ -50,7 +50,7 @@ export function AudioVideoCTA() {
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cta-content-anim text-foreground text-balance mb-8">
+        <h2 className=" cta-content-anim text-foreground text-balance mb-8">
           Bring Every Moment to Life with <br className="hidden md:block" /> Intelligent Audio & Video Integration
         </h2>
 

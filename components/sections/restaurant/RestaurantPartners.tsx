@@ -53,7 +53,7 @@ export function RestaurantPartners() {
           <span className="inline-block text-sm md:text-base tracking-[0.1em] text-accent mb-4 font-light uppercase">
             Technology Partner
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+          <h2 className=" text-foreground mb-6">
             Powered by World-Class Technology
           </h2>
         </div>
@@ -65,7 +65,7 @@ export function RestaurantPartners() {
               key={idx}
               className="rp-brand p-8 sm:p-12 rounded-[2rem] border border-black/5 bg-panel shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-300 flex flex-col items-center text-center group"
             >
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 group-hover:text-accent transition-colors duration-300">
+              <h3 className=" text-foreground mb-6 group-hover:text-accent transition-colors duration-300">
                 {brand.name}
               </h3>
               <p className="text-muted-foreground font-light text-base md:text-lg leading-relaxed">

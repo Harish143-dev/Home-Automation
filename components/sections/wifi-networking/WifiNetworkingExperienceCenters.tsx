@@ -74,7 +74,7 @@ export function WifiNetworkingExperienceCenters() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base ec-header text-accent mb-4 block">
             Experience Centers
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl ec-header text-foreground text-balance mb-6">
+          <h2 className=" ec-header text-foreground text-balance mb-6">
             Experience Smart Living Before You Buy
           </h2>
           <p className="ec-header text-sm md:text-base lg:text-lg font-light tracking-wide text-muted-foreground leading-relaxed text-balance max-w-3xl">
@@ -90,7 +90,7 @@ export function WifiNetworkingExperienceCenters() {
               className="ec-card bg-white border border-black/5 p-8 sm:p-10 rounded-[2rem] flex flex-col justify-between hover:shadow-xl hover:shadow-black/[0.03] hover:border-black/10 hover:-translate-y-1 transition-all duration-500 group"
             >
               <div className="flex flex-col gap-6 mb-10">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
+                <h3 className=" text-foreground group-hover:text-accent transition-colors duration-300">
                   {center.city}
                 </h3>
                 <p className="text-sm md:text-base font-light text-muted-foreground leading-relaxed min-h-[80px]">

@@ -109,7 +109,7 @@ export default function CareersGallery() {
           <span className="cg-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
             Life at Anusha
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cg-header-el text-foreground mb-8">
+          <h2 className=" cg-header-el text-foreground mb-8">
             People are at the heart of everything we do.
           </h2>
         </div>

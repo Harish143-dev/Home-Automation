@@ -83,7 +83,7 @@ export function CallToActionSection() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-8"
+          className=" text-foreground mb-8"
         >
           Ready to Transform <br className="hidden md:block" /> Your Space?
         </h2>

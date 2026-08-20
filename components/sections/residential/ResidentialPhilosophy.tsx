@@ -115,7 +115,7 @@ export function ResidentialPhilosophy() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6 block">
             Core Philosophy
           </span>
-          <h2 ref={headingRef} className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 ref={headingRef} className=" text-foreground text-balance">
             Why Invest in Smart Home Automation?
           </h2>
         </div>
@@ -158,7 +158,7 @@ export function ResidentialPhilosophy() {
                     <div className="phil-line w-16 h-[1px] bg-foreground/20 origin-left" />
                   </div>
 
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl phil-title text-foreground mb-4 md:mb-6">
+                  <h3 className=" phil-title text-foreground mb-4 md:mb-6">
                     {item.title}
                   </h3>
 

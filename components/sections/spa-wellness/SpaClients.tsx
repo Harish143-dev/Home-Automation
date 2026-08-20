@@ -55,7 +55,7 @@ export function SpaClients() {
             <div className="flex gap-16 md:gap-24 items-center whitespace-nowrap animate-marquee-left">
               {/* Render 4 sets to ensure infinite seamless scrolling */}
               {[...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS].map((brand, i) => (
-                <span key={i} className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground hover:text-accent transition-colors duration-300">
+                <span key={i} className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-foreground hover:text-accent transition-colors duration-300">
                   {brand}
                 </span>
               ))}

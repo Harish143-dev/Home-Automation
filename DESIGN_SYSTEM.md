@@ -24,7 +24,7 @@ All headings MUST use the following rules to maintain a premium editorial feel.
 **1. Primary Section Headings (`h1`, `h2`)**
 Used for the main title of a large section.
 ```
-font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl
+lg:text-5xl
 ```
 
 **2. Secondary / Small Headings (`h3`, `h4`)**

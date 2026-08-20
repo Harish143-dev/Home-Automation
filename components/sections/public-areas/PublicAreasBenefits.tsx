@@ -73,7 +73,7 @@ export function PublicAreasBenefits() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Value Proposition
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             Business Benefits Beyond Automation
           </h2>
         </div>
@@ -89,7 +89,7 @@ export function PublicAreasBenefits() {
                 <benefit.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
               </div>
 
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 text-balance">
+              <h4 className=" text-foreground mb-3 text-balance">
                 {benefit.title}
               </h4>
 

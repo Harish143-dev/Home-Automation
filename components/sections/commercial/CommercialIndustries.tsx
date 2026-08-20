@@ -98,7 +98,7 @@ export function CommercialIndustries() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
               Operational Scales
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+            <h2 className="text-foreground mb-4">
               Sectors of Influence
             </h2>
           </div>
@@ -142,7 +142,7 @@ export function CommercialIndustries() {
                 />
               </div>
 
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
+              <h3 className="text-foreground mb-3">
                 {industry.title}
               </h3>
 

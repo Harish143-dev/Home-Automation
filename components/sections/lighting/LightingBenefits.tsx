@@ -96,11 +96,11 @@ export default function LightingBenefits() {
       <div className="max-w-7xl mx-auto flex flex-col items-center">
 
         {/* Header */}
-        <div ref={headerRef} className="lb-header text-center max-w-3xl mx-auto mb-16 md:mb-24">
+        <div ref={headerRef} className="lb-header text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Value & Lifestyle
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+          <h2 className="text-foreground mb-6">
             Everyday Benefits You'll Experience
           </h2>
         </div>
@@ -117,7 +117,7 @@ export default function LightingBenefits() {
                 <benefit.icon className="w-6 h-6 text-accent relative z-10" strokeWidth={1.5} />
               </div>
 
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+              <h4 className=" text-foreground mb-4">
                 {benefit.title}
               </h4>
 

@@ -88,7 +88,7 @@ export function BanquetHallBenefits() {
           <span className="tracking-[0.1em] text-accent mb-4 block benefit-header">
             The Advantage
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance benefit-header mb-6">
+          <h2 className=" text-foreground text-balance benefit-header mb-6">
             Why Hospitality Venues Choose Intelligent Event Automation
           </h2>
           <p className="benefit-header text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance max-w-3xl mx-auto">
@@ -107,7 +107,7 @@ export function BanquetHallBenefits() {
                 <benefit.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
               </div>
 
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 text-balance">
+              <h3 className=" text-foreground mb-3 text-balance">
                 {benefit.title}
               </h3>
 

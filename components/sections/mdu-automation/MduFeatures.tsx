@@ -132,7 +132,7 @@ export default function MduFeatures() {
             <div className="h-[1px] w-6 bg-accent/30" />
           </div>
 
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl feature-header-el text-foreground mb-8">
+          <h2 className=" feature-header-el text-foreground mb-8">
             Intelligent Automation Designed for Modern Residential Communities
           </h2>
 
@@ -172,7 +172,7 @@ export default function MduFeatures() {
                   <system.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
                 </div>
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3">
+                <h3 className=" text-foreground mb-3">
                   {system.title}
                 </h3>
 

@@ -11,10 +11,10 @@ export default function BlogSidebar() {
 
   return (
     <aside className="lg:col-span-3 flex flex-col gap-12 lg:sticky lg:top-32">
-      
+
       {/* Social Sharing Icons */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 flex items-center gap-2">
+        <h3 className=" text-foreground mb-4 flex items-center gap-2">
           Share
         </h3>
         <div className="flex items-center gap-3">
@@ -23,8 +23,8 @@ export default function BlogSidebar() {
             { icon: Mail, href: "#" },
             { icon: Share2, href: "#" },
           ].map((social, idx) => (
-            <Link 
-              key={idx} 
+            <Link
+              key={idx}
               href={social.href}
               className="w-10 h-10 rounded-full border border-border bg-background shadow-sm flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent hover:bg-accent/5 transition-all duration-300"
             >
@@ -37,17 +37,17 @@ export default function BlogSidebar() {
       {/* Featured Blogs */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Featured Blogs</h3>
+          <h3 className=" text-foreground">Featured Blogs</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-6">
           {featuredBlogs.map((post) => (
-            <Link 
-              href={`/blog/${post.slug}`} 
+            <Link
+              href={`/blog/${post.slug}`}
               key={post.id}
               className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden block border border-border/50"
             >
-              <NextImage 
+              <NextImage
                 src={post.image}
                 alt={post.title}
                 fill
@@ -58,7 +58,7 @@ export default function BlogSidebar() {
                 <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-[10px] text-white/70 mb-1 block">
                   {post.category}
                 </span>
-                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white group-hover:text-accent transition-colors line-clamp-2">
+                <h4 className=" text-white group-hover:text-accent transition-colors line-clamp-2">
                   {post.title}
                 </h4>
               </div>
@@ -70,18 +70,18 @@ export default function BlogSidebar() {
       {/* Latest Articles */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">Latest Articles</h3>
+          <h3 className=" text-foreground">Latest Articles</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">
           {latestArticles.map((post) => (
-            <Link 
-              href={`/blog/${post.slug}`} 
+            <Link
+              href={`/blog/${post.slug}`}
               key={post.id}
               className="group flex items-center gap-4 hover:bg-muted/30 p-2 -ml-2 rounded-lg transition-colors"
             >
               <div className="relative w-20 h-20 rounded-md overflow-hidden flex-shrink-0 border border-border/50">
-                <NextImage 
+                <NextImage
                   src={post.image}
                   alt={post.title}
                   fill
@@ -89,7 +89,7 @@ export default function BlogSidebar() {
                 />
               </div>
               <div className="flex flex-col">
-                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground line-clamp-2 group-hover:text-accent transition-colors">
+                <h4 className=" text-foreground line-clamp-2 group-hover:text-accent transition-colors">
                   {post.title}
                 </h4>
                 <span className="text-xs text-muted-foreground font-light mt-1">

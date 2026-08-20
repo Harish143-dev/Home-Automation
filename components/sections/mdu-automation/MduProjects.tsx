@@ -92,7 +92,7 @@ export default function MduProjects() {
             <div className="h-[1px] w-6 bg-accent/30" />
           </div>
 
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+          <h2 className=" text-foreground mb-6">
             Featured MDU Deployments
           </h2>
 
@@ -135,7 +135,7 @@ export default function MduProjects() {
                   {project.tags.join(" • ")}
                 </div>
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+                <h3 className=" text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
 

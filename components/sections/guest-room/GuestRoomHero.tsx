@@ -85,7 +85,7 @@ export function GuestRoomHero() {
         {/* H1 Heading sizing strictly matching DESIGN_SYSTEM.md */}
         <h1
           ref={textRef}
-          className="hero-element text-white text-balance mb-6 max-w-5xl"
+          className="hero-element text-white text-balance mb-6 max-w-4xl"
         >
           Smart Guest Room Automation & Guest Room Management Systems (GRMS)
         </h1>

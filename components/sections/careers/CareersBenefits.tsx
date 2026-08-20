@@ -122,7 +122,7 @@ export default function CareersBenefits() {
           <span className="cb-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
             Culture & Benefits
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cb-header-el text-foreground mb-8">
+          <h2 className=" cb-header-el text-foreground mb-8">
             Why Work With Us?
           </h2>
           <p className="cb-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto">
@@ -147,7 +147,7 @@ export default function CareersBenefits() {
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center border border-border mb-8 group-hover:scale-110 transition-transform duration-500 ease-out">
                   <benefit.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+                <h3 className=" text-foreground mb-4">
                   {benefit.title}
                 </h3>
                 <p className="text-sm md:text-base text-muted font-light leading-relaxed">

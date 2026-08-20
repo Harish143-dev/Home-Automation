@@ -194,7 +194,7 @@ export function CommercialSolutions() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Architecture & Infrastructure
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className="text-foreground mb-4">
             Commercial Automation Solutions
           </h2>
         </div>
@@ -218,7 +218,7 @@ export function CommercialSolutions() {
                   <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
                     {system.topHeading}
                   </span>
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 md:mb-10 text-balance">
+                  <h3 className="text-foreground mb-8 md:mb-10 text-balance">
                     {system.title}
                   </h3>
 

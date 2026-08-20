@@ -57,7 +57,7 @@ export default function ProcessPhilosophy() {
               </span>
               <div className="h-[1px] w-8 bg-border" />
             </div>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+            <h2 className=" text-foreground">
               Invisible <br /> Architecture
             </h2>
           </div>

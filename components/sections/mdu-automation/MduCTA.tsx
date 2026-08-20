@@ -57,7 +57,7 @@ export default function MduCTA() {
           <div className="h-[1px] w-6 bg-accent/30" />
         </div>
 
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-6">
+        <h2 className=" mb-6">
           Build Smarter Residential Communities with Intelligent Automation
         </h2>
 

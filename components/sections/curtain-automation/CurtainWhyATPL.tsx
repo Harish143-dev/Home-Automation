@@ -78,7 +78,7 @@ export function CurtainWhyATPL() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base why-header-anim text-accent mb-4 block">
             The ATPL Legacy
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl why-header-anim text-foreground text-balance mb-6">
+          <h2 className=" why-header-anim text-foreground text-balance mb-6">
             Why Homeowners Choose ATPL
           </h2>
           <p className="why-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance">

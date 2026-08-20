@@ -90,7 +90,7 @@ export function RestaurantWhyATPL() {
             <span className="inline-block text-sm md:text-base tracking-[0.1em] text-accent mb-4 font-light">
               The ATPL Advantage
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+            <h2 className=" text-foreground mb-6">
               Why Choose Anusha Technovision
             </h2>
             <p className="text-muted-foreground font-light text-sm sm:text-base md:text-lg leading-relaxed mb-8">
@@ -117,7 +117,7 @@ export function RestaurantWhyATPL() {
         <div className="w-full">
           <div className="lwhy-header mb-12 flex items-center justify-center gap-4">
             <div className="h-[1px] w-8 sm:w-16 bg-accent/20" />
-            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-center">
+            <h3 className=" text-foreground text-center">
               Visit Our Experience Centres
             </h3>
             <div className="h-[1px] w-8 sm:w-16 bg-accent/20" />
@@ -129,7 +129,7 @@ export function RestaurantWhyATPL() {
                 key={idx}
                 className="lwhy-center flex flex-col h-full bg-panel rounded-[2rem] border border-black/5 p-8 sm:p-10 hover:shadow-xl hover:-translate-y-1 hover:border-accent/30 transition-all duration-500 group"
               >
-                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 group-hover:text-accent transition-colors">
+                <h4 className=" text-foreground mb-4 group-hover:text-accent transition-colors">
                   {center.title}
                 </h4>
 

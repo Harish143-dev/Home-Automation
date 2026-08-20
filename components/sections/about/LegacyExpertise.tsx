@@ -57,7 +57,7 @@ export default function LegacyExpertise() {
                 {metric.value}
               </span>
               <div className="h-[1px] w-full bg-border mt-4 mb-2" />
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+              <h3 className=" text-foreground">
                 {metric.label}
               </h3>
               <p className="text-sm md:text-base font-light text-muted-foreground mt-2 max-w-sm">

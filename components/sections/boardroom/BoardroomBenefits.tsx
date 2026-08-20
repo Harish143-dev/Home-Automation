@@ -73,7 +73,7 @@ export function BoardroomBenefits() {
           <span className="tracking-[0.1em] text-accent mb-4 block">
             The Advantage
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             Why Businesses Choose Intelligent Boardrooms
           </h2>
         </div>
@@ -89,7 +89,7 @@ export function BoardroomBenefits() {
                 <benefit.icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
               </div>
 
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-3 text-balance">
+              <h4 className=" text-foreground mb-3 text-balance">
                 {benefit.title}
               </h4>
 

@@ -77,7 +77,7 @@ export function ExperienceCentersMap() {
             </span>
             <div className="h-[1px] w-12 bg-border" />
           </div>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className=" text-foreground">
             Experience Centres
           </h2>
         </div>

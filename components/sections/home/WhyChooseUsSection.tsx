@@ -79,7 +79,7 @@ export function WhyChooseUsSection() {
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-16 md:mb-24 text-center">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-6 text-foreground">
+          <h2 className=" mb-6 text-foreground">
             What Sets Us Apart?
           </h2>
           <p className="text-muted text-sm sm:text-base md:text-lg lg:text-[21px] font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
@@ -111,7 +111,7 @@ export function WhyChooseUsSection() {
 
                 {/* Right side: Content */}
                 <div className="flex-1 flex flex-col justify-center relative z-10">
-                  <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 md:mb-6">
+                  <h3 className=" text-foreground mb-4 md:mb-6">
                     {usp.title}
                   </h3>
                   <p className="text-muted text-sm md:text-base leading-relaxed font-light tracking-wide mb-6 md:mb-8 max-w-2xl">

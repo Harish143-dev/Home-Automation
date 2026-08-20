@@ -76,7 +76,7 @@ export default function RelatedArticles({ posts }: RelatedArticlesProps) {
                   <span>{article.date}</span>
                 </div>
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-accent transition-colors duration-500">
+                <h3 className=" text-foreground group-hover:text-accent transition-colors duration-500">
                   {article.title}
                 </h3>
 

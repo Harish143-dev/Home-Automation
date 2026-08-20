@@ -102,7 +102,7 @@ export function BanquetHallEventTypes() {
           <span className="tracking-[0.1em] text-accent mb-4 block event-header">
             Versatile Environments
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance event-header mb-6">
+          <h2 className=" text-foreground text-balance event-header mb-6">
             Designed for Every Type of Event
           </h2>
           <p className="event-header text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance max-w-3xl mx-auto">
@@ -117,7 +117,7 @@ export function BanquetHallEventTypes() {
               key={idx}
               className="event-card bg-panel border border-black/5 rounded-[2rem] p-8 hover:shadow-xl hover:shadow-black/5 transition-all duration-300 flex flex-col"
             >
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 text-balance">
+              <h3 className=" text-foreground mb-6 text-balance">
                 {event.title}
               </h3>
 

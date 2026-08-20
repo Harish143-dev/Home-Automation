@@ -111,7 +111,7 @@ export default function LightingProjects() {
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Featured Work
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+          <h2 className="text-foreground mb-6">
             Lighting Automation Projects
           </h2>
           <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -136,7 +136,7 @@ export default function LightingProjects() {
                   aria-expanded={isOpen}
                 >
                   <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 text-left">
-                    <h3 className={`text-xl md:text-2xl lg:text-3xl font-light tracking-wide transition-colors ${isOpen ? 'text-accent' : 'text-foreground group-hover:text-accent'}`}>
+                    <h3 className={`transition-colors ${isOpen ? 'text-accent' : 'text-foreground group-hover:text-accent'}`}>
                       {project.client}
                     </h3>
                     <div className={`flex items-center gap-1.5 transition-colors ${isOpen ? 'text-accent/70' : 'text-muted'}`}>

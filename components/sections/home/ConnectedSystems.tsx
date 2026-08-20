@@ -219,7 +219,7 @@ function ServicePanelCard({
 
         <div className="relative z-10 max-w-xl mx-auto md:mx-0">
 
-          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cs-stagger-el mb-3 sm:mb-4 md:mb-6 text-foreground drop-shadow-sm">
+          <h3 className=" cs-stagger-el mb-3 sm:mb-4 md:mb-6 text-foreground drop-shadow-sm">
             {service.title}
           </h3>
 
@@ -295,7 +295,7 @@ export function ConnectedSystems() {
           <p className="tracking-[0.3em] text-xs sm:text-sm md:text-base cs-header-el text-accent mb-6 sm:mb-8">
             Core Capabilities
           </p>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl cs-header-el text-foreground">
+          <h2 className=" cs-header-el text-foreground">
             Engineering Disciplines
           </h2>
           <p className="cs-header-el mt-4 sm:mt-6 text-sm sm:text-base text-muted max-w-xl mx-auto">

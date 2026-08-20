@@ -92,7 +92,7 @@ export function BanquetHallProjects() {
           <span className="tracking-[0.1em] text-xs sm:text-sm md:text-base project-header text-accent mb-4 block">
             Proven Excellence
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl project-header text-foreground text-balance">
+          <h2 className=" project-header text-foreground text-balance">
             Hospitality Projects We've Delivered
           </h2>
         </div>
@@ -119,7 +119,7 @@ export function BanquetHallProjects() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+                <h3 className=" text-foreground text-balance">
                   {project.name}
                 </h3>
                 <p className="text-muted-foreground">
@@ -132,7 +132,7 @@ export function BanquetHallProjects() {
           {/* "And many more" Card */}
           <div className="project-card snap-start md:snap-align-none shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] flex flex-col group justify-center items-center bg-accent/[0.03] border border-accent/10 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300">
             <div className="p-12 text-center">
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent italic text-balance mb-4">And many more...</h3>
+              <h3 className=" text-accent italic text-balance mb-4">And many more...</h3>
               <p className="text-muted-foreground text-sm font-light">Explore our full portfolio of premium automation projects.</p>
             </div>
           </div>

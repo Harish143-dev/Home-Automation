@@ -106,7 +106,7 @@ export function HospitalityBenefits() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">
               {BUSINESS_CASE_DATA.eyebrow}
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+            <h2 className="text-foreground">
               {BUSINESS_CASE_DATA.title}
             </h2>
             <p className="text-muted text-base md:text-lg font-light leading-relaxed">
@@ -128,7 +128,7 @@ export function HospitalityBenefits() {
               >
                 {/* Accordion Header */}
                 <div className="flex items-start justify-between gap-6">
-                  <h3 className={`text-xl md:text-2xl font-light tracking-wide transition-colors duration-500 leading-snug ${isActive ? "text-accent" : "text-foreground group-hover:text-foreground/70"}`}>
+                  <h3 className={`transition-colors duration-500 leading-snug ${isActive ? "text-accent" : "text-foreground group-hover:text-foreground/70"}`}>
                     {item.title}
                   </h3>
                   <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-500 mt-1 ${isActive ? "border-accent bg-accent text-white rotate-45" : "border-border text-muted"}`}>

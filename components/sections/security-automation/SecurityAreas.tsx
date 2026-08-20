@@ -90,10 +90,10 @@ export function SecurityAreas() {
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto z-10 py-6 px-4">
-          <h5 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-4 block">
+          <h5 className=" text-accent mb-4 block">
             Comprehensive Coverage
           </h5>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-6">
+          <h2 className=" text-foreground text-balance mb-6">
             Protect Every Part of Your Home
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
@@ -128,7 +128,7 @@ export function SecurityAreas() {
                   <span className="flex items-center justify-center w-12 h-12 rounded-full bg-background border border-black/5 text-foreground font-display text-xl">
                     0{idx + 1}
                   </span>
-                  <h3 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground">
+                  <h3 className="text-foreground">
                     {area.title}
                   </h3>
                 </div>

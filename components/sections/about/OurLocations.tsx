@@ -101,7 +101,7 @@ export default function OurLocations() {
               key={idx}
               className="loc-item flex flex-col items-center text-center opacity-0 group py-10 md:py-0 px-4 md:px-8 lg:px-12 first:pt-0 md:first:pt-0 last:pb-0 md:last:pb-0"
             >
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-8 text-foreground transition-colors duration-300">
+              <h3 className=" mb-8 text-foreground transition-colors duration-300">
                 {loc.city}
               </h3>
 

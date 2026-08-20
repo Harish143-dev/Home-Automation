@@ -65,7 +65,7 @@ export function WifiNetworkingWhyChooseUs() {
 
         {/* Text Section */}
         <div ref={textRef} className="flex flex-col items-center gap-8 max-w-4xl">
-          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground text-balance">
+          <h2 className="text-foreground text-balance">
             Why Choose Anusha Technovision
           </h2>
 

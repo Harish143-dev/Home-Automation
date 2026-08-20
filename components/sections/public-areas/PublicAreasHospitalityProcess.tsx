@@ -45,7 +45,7 @@ export function PublicAreasHospitalityProcess() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             Execution Architecture
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             Our Hospitality Process
           </h2>
         </div>
@@ -68,7 +68,7 @@ export function PublicAreasHospitalityProcess() {
               {/* Content Box */}
               <div className="ml-8 w-full">
                 <div className="bg-panel border border-black/5 rounded-2xl p-6 w-full group-hover:border-black/10 hover:shadow-xl hover:shadow-black/5 transition-all duration-500">
-                  <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+                  <h4 className=" text-foreground text-balance">
                     {step}
                   </h4>
                 </div>

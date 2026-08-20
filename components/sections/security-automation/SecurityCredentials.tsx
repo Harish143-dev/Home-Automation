@@ -79,7 +79,7 @@ export function SecurityCredentials() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent block mb-2">
               Industry Accolades
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+            <h2 className=" text-foreground">
               Certifications &<br />Awards.
             </h2>
           </div>
@@ -94,7 +94,7 @@ export function SecurityCredentials() {
 
                 <div className="w-16 h-[1px] bg-foreground/20 mb-6 credential-line" />
 
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4 credential-title">
+                <h3 className=" text-foreground mb-4 credential-title">
                   {cred.title}
                 </h3>
 

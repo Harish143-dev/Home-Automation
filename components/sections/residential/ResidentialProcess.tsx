@@ -83,7 +83,7 @@ export function ResidentialProcess() {
   const translateY = -(activeIndex * ITEM_HEIGHT) - (ITEM_HEIGHT / 2);
 
   return (
-    <section ref={triggerRef} className="py-12 md:py-16 relative w-full bg-background text-white">
+    <section ref={triggerRef} className="relative w-full bg-background text-white">
       <div
         ref={containerRef}
         className="w-full h-[100dvh] relative overflow-hidden hidden md:block"
@@ -105,7 +105,7 @@ export function ResidentialProcess() {
         {/* Top Header Layout: Text Left, CTA Right */}
         <div className="absolute top-10 md:top-12 lg:top-16 left-0 right-0 z-30 w-full px-8 md:px-16 lg:px-32 max-w-[1600px] mx-auto flex flex-col md:flex-row md:justify-between md:items-end gap-6 pointer-events-none">
           <div className="max-w-2xl text-left pointer-events-auto">
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-4 lg:mb-5">
+            <h2 className=" text-white mb-4 lg:mb-5">
               Execution Architecture
             </h2>
             <p className="text-sm lg:text-base font-light text-white/70 leading-relaxed">
@@ -170,7 +170,7 @@ export function ResidentialProcess() {
                 ref={textContentRef}
                 className="max-w-lg pl-0 md:pl-8"
               >
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-4 text-white">
+                <h3 className=" mb-4 text-white">
                   {activeStep.title}
                 </h3>
                 <p className="text-sm lg:text-base font-light text-white/70 leading-relaxed">
@@ -199,7 +199,7 @@ export function ResidentialProcess() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/50">
             The Methodology
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mt-4 mb-4">
+          <h2 className=" text-white mt-4 mb-4">
             Execution Architecture
           </h2>
           <p className="text-white/70 font-light text-sm leading-relaxed mb-8">
@@ -219,7 +219,7 @@ export function ResidentialProcess() {
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-1 block">
                 STEP {idx + 1}
               </span>
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
+              <h3 className=" text-white">
                 {step.title}
               </h3>
               <p className="text-sm font-light text-white/60 leading-relaxed mt-2">

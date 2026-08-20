@@ -84,7 +84,7 @@ export function OfficeCTA() {
         {/* Oversized Clean Headline */}
         <h2
           ref={headlineRef}
-          className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl lg:text-5xl text-foreground mb-8 text-balance max-w-4xl"
+          className="text-foreground mb-8 text-balance max-w-4xl"
         >
           Build a Smarter Workplace with Intelligent Office Automation
         </h2>

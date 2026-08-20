@@ -118,10 +118,10 @@ export function OfficeProjects() {
       {/* Header and Controls */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 lg:mb-16 project-header">
         <div className="max-w-2xl">
-          <h5 className="tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
+          <span className="tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
             Our Portfolio
-          </h5>
-          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground text-balance mb-6">
+          </span>
+          <h2 className="text-foreground text-balance mb-6">
             Trusted by Corporate Leaders
           </h2>
           <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
@@ -170,7 +170,7 @@ export function OfficeProjects() {
                 />
               </div>
               <div className="flex flex-col gap-2 text-left px-2">
-                <h3 className="font-light leading-[1.2] tracking-wide text-2xl text-foreground group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-foreground group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground font-light text-base">

@@ -83,7 +83,7 @@ export function CurtainExperienceCenters() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base exp-header-anim text-accent mb-4 block">
             Experience Centers
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl exp-header-anim text-foreground text-balance mb-6">
+          <h2 className=" exp-header-anim text-foreground text-balance mb-6">
             Experience Motorized Shades Before You Buy
           </h2>
           <p className="exp-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance mb-8">
@@ -109,7 +109,7 @@ export function CurtainExperienceCenters() {
 
               {/* Left Column: Title & Description */}
               <div className="flex flex-col lg:w-5/12 justify-center">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-4">
+                <h3 className=" text-foreground mb-4">
                   {center.city.replace(' Experience Centre', '')}
                   <span className="block text-lg md:text-xl text-muted mt-2">Experience Centre</span>
                 </h3>

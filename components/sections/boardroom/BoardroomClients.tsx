@@ -95,7 +95,7 @@ export function BoardroomClients() {
           <span className="tracking-[0.3em] client-header-text text-accent mb-4 block">
             Prestigious Portfolio
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl client-header-text text-foreground mb-8 text-balance">
+          <h2 className=" client-header-text text-foreground mb-8 text-balance">
             Trusted by India's Leading Visionaries
           </h2>
           <p className="client-header-text text-muted-foreground leading-relaxed text-balance">
@@ -125,7 +125,7 @@ export function BoardroomClients() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+                <h3 className=" text-foreground">
                   {client.name}
                 </h3>
                 <p className="text-muted-foreground">
@@ -147,7 +147,7 @@ export function BoardroomClients() {
             <div className="flex gap-16 md:gap-24 items-center whitespace-nowrap animate-marquee-left">
               {/* Render 4 sets to ensure infinite seamless scrolling */}
               {[...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS].map((brand, i) => (
-                <span key={i} className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground hover:text-accent transition-colors duration-300">
+                <span key={i} className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-foreground hover:text-accent transition-colors duration-300">
                   {brand}
                 </span>
               ))}

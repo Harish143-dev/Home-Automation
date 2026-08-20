@@ -114,7 +114,7 @@ export function CommercialTrust() {
             <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
               Core Corporate Paradigm
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+            <h2 className=" text-foreground text-balance">
               The Performance Baseline
             </h2>
           </div>

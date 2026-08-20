@@ -54,7 +54,7 @@ export function CurtainFeatures() {
 
         {/* Left Side: Sticky Text */}
         <div ref={textRef} className="w-full lg:w-1/2 lg:sticky lg:top-[30vh] flex flex-col gap-6">
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance">
+          <h2 className=" text-foreground text-balance">
             Bring Comfort, Privacy & Natural Light Under Intelligent Control
           </h2>
           <p className="text-sm sm:text-base md:text-lg font-light tracking-wide text-foreground/70 leading-relaxed text-balance max-w-lg">

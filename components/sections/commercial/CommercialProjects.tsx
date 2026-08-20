@@ -136,7 +136,7 @@ export function CommercialProjects() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             The Proof Matrix
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className="text-foreground">
             Infrastructure in Action: Case Studies
           </h2>
           <p className="mt-6 text-foreground/70 text-lg font-light leading-relaxed">
@@ -190,35 +190,35 @@ export function CommercialProjects() {
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-2">
                 {study.asset}
               </span>
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl mb-6 text-foreground">
+              <h3 className="text-foreground mb-6 text-balance">
                 {study.title}
               </h3>
 
               <div className="space-y-5">
                 {study.strain !== "N/A" && (
                   <div>
-                    <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground/50 mb-1">The Structural Strain</h4>
+                    <h4 className="text-foreground/50 mb-1">The Structural Strain</h4>
                     <p className="text-foreground/80 font-light text-sm leading-relaxed">{study.strain}</p>
                   </div>
                 )}
 
                 {study.yield !== "N/A" && (
                   <div>
-                    <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground/50 mb-1">The Strategic Yield</h4>
+                    <h4 className="text-foreground/50 mb-1">The Strategic Yield</h4>
                     <p className="text-foreground/80 font-light text-sm leading-relaxed">{study.yield}</p>
                   </div>
                 )}
 
                 {study.roi !== "N/A" && (
                   <div>
-                    <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-accent mb-1">The ROI Signal</h4>
+                    <h4 className="text-accent mb-1">The ROI Signal</h4>
                     <p className="text-foreground/90 font-light text-sm leading-relaxed border-l-2 border-accent pl-3">{study.roi}</p>
                   </div>
                 )}
 
                 {study.similar.length > 0 && (
                   <div className="pt-6 border-t border-border">
-                    <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground/40 mb-3">Similar Deployments</h4>
+                    <h4 className="text-foreground/40 mb-3">Similar Deployments</h4>
                     <div className="flex flex-wrap gap-2">
                       {study.similar.map((sim, idx) => (
                         <span key={idx} className="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs text-foreground/70">

@@ -133,7 +133,7 @@ export default function MduPlatform() {
             <div className="h-[1px] w-6 bg-white/30" />
           </div>
 
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-6">
+          <h2 className=" text-white mb-6">
             Everything Connected Through One Intelligent Platform
           </h2>
 
@@ -155,7 +155,7 @@ export default function MduPlatform() {
                 <feature.icon className="w-5 h-5 text-white/90 group-hover:text-accent-soft transition-colors duration-500" strokeWidth={1.5} />
               </div>
 
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white mb-4">
+              <h3 className=" text-white mb-4">
                 {feature.title}
               </h3>
 

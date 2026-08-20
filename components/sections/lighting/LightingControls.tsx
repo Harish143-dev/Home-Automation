@@ -109,7 +109,7 @@ export default function LightingControls() {
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
             Ecosystem
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 text-balance">
+          <h2 className=" text-foreground mb-6 text-balance">
             Complete Home Control
           </h2>
           <p className="text-muted font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
@@ -120,7 +120,7 @@ export default function LightingControls() {
         {/* Mobile View: Vertical Stack */}
         <div className="w-full flex flex-col gap-4 md:hidden">
           <div className="bg-panel border border-border rounded-2xl p-8 mb-6 text-center shadow-sm">
-            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-2">Central Hub</h3>
+            <h3 className=" text-foreground mb-2">Central Hub</h3>
             <p className="text-muted text-sm font-light">The brain of your smart home</p>
           </div>
           {SYSTEM_NODES.map((node) => (
@@ -129,7 +129,7 @@ export default function LightingControls() {
                 <node.icon className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">{node.title}</h4>
+                <h4 className=" text-foreground">{node.title}</h4>
                 <p className="text-xs text-muted font-light mt-1">{node.items.join(" • ")}</p>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function LightingControls() {
               <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-accent/5 flex items-center justify-center mb-2 lg:mb-4">
                 <ShieldCheck className="w-6 h-6 lg:w-8 lg:h-8 text-accent" />
               </div>
-              <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-1 lg:mb-2">
+              <h3 className=" text-foreground mb-1 lg:mb-2">
                 Smart Home<br />Ecosystem
               </h3>
               <p className="text-[10px] lg:text-xs font-medium tracking-[0.2em] text-accent/80">

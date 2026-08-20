@@ -7,15 +7,15 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const FOOTER_LINKS = {
   services: [
-    { label: 'Lighting Automation', href: '/lighting-automation' },
-    { label: 'Audio Video', href: '/audio-video-automation' },
-    { label: 'Curtain Automation', href: '/curtain-automation' },
-    { label: 'Climate Control', href: '#hvac' },
-    { label: 'Smart Security', href: '/security-automation' },
-    { label: 'Wi-Fi & Networking', href: '/wifi-networking' },
-    { label: 'Public Area Automation', href: '/public-area-automation' },
-    { label: 'Spa and Wellness', href: '/spa-and-wellness' },
-    { label: 'Guest Rooms', href: '/guest-room-automation' },
+    { label: 'Lighting Automation', href: '/residential/lighting-automation' },
+    { label: 'Audio Video', href: '/residential/audio-video-automation' },
+    { label: 'Curtain Automation', href: '/residential/curtain-automation' },
+    { label: 'Complete Home Automation', href: '/residential' },
+    { label: 'Smart Security', href: '/residential/security-automation' },
+    { label: 'Wi-Fi & Networking', href: '/residential/wifi-networking' },
+    { label: 'Public Area Automation', href: '/hospitality/public-area-automation' },
+    { label: 'Spa and Wellness', href: '/hospitality/spa-and-wellness' },
+    { label: 'Guest Rooms', href: '/hospitality/guest-room-automation' },
   ],
   solutions: [
     { label: 'Residential', href: '/residential' },

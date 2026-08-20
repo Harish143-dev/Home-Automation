@@ -118,7 +118,7 @@ export default function CareersOpenings() {
             <span className="co-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4">
               Openings
             </span>
-            <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl co-header-el text-foreground">
+            <h2 className=" co-header-el text-foreground">
               Current Openings
             </h2>
             <p className="co-header-el text-sm sm:text-base md:text-lg text-muted font-light leading-relaxed mt-4">
@@ -158,7 +158,7 @@ export default function CareersOpenings() {
               className="co-card snap-start group relative bg-white rounded-2xl p-8 border border-border shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col w-[85vw] sm:w-[320px] md:w-[380px] shrink-0 min-h-[400px]"
             >
               <div className="flex-1">
-                <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+                <h3 className=" text-foreground mb-6">
                   {job.title}
                 </h3>
 

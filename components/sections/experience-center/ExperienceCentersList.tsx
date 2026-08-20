@@ -139,7 +139,7 @@ export function ExperienceCentersList() {
 
                 {/* Left: Titles & CTAs */}
                 <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
-                  <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-white">
+                  <h2 className=" text-white">
                     {center.city}
                   </h2>
 

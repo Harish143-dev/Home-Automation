@@ -49,7 +49,7 @@ export function PublicAreasPartner() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base partner-header text-accent mb-4 block">
             Technology Partner
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl partner-header text-foreground text-balance">
+          <h2 className=" partner-header text-foreground text-balance">
             Powered by Industry Leaders
           </h2>
         </div>
@@ -61,7 +61,7 @@ export function PublicAreasPartner() {
         >
           {/* Content Area */}
           <div className="flex flex-col text-center justify-center">
-            <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6">
+            <h3 className=" text-foreground mb-6">
               Lutron
             </h3>
 

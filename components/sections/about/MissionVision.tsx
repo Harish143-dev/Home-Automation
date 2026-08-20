@@ -70,7 +70,7 @@ export default function MissionVision() {
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Mission & Vision
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+          <h2 className=" text-foreground">
             Our Purpose Drives Every Innovation
           </h2>
         </div>
@@ -80,44 +80,44 @@ export default function MissionVision() {
           {/* Mission Row */}
           <div className="mv-row flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="mv-text-col w-full lg:w-1/2 space-y-6 opacity-0">
-              <h3 className="" font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl > Our Mission </h3> <p className="text-muted text-base md:text-lg font-light leading-relaxed">
-              To create intelligent, user-centric automation solutions that increase comfort, convenience, security, and energy efficiency while delivering exceptional experiences across residential, hospitality, and commercial spaces.
-            </p>
-          </div>
-          <div className="mv-img-col w-full lg:w-1/2 opacity-0">
-            <div className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden shadow-lg shadow-black/5 transform-gpu">
-              <NextImage
-                src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1200"
-                alt="Intelligent living space"
-                fill
-                className="object-cover"
-                unoptimized
-              />
+              <h3 className=""  > Our Mission </h3> <p className="text-muted text-base md:text-lg font-light leading-relaxed">
+                To create intelligent, user-centric automation solutions that increase comfort, convenience, security, and energy efficiency while delivering exceptional experiences across residential, hospitality, and commercial spaces.
+              </p>
+            </div>
+            <div className="mv-img-col w-full lg:w-1/2 opacity-0">
+              <div className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden shadow-lg shadow-black/5 transform-gpu">
+                <NextImage
+                  src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1200"
+                  alt="Intelligent living space"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Vision Row */}
-        <div className="mv-row flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
-          <div className="mv-text-col w-full lg:w-1/2 space-y-6 opacity-0">
-            <h3 className="" font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl > Our Vision </h3> <p className="text-muted text-base md:text-lg font-light leading-relaxed">
-            To be India's most trusted automation solutions partner by continuously innovating, embracing emerging technologies, and setting new benchmarks in smart living and intelligent buildings.
-          </p>
-        </div>
-        <div className="mv-img-col w-full lg:w-1/2 opacity-0">
-          <div className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden shadow-lg shadow-black/5 transform-gpu">
-            <NextImage
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
-              alt="Modern architectural building"
-              fill
-              className="object-cover"
-              unoptimized
-            />
+          {/* Vision Row */}
+          <div className="mv-row flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+            <div className="mv-text-col w-full lg:w-1/2 space-y-6 opacity-0">
+              <h3 className=""  > Our Vision </h3> <p className="text-muted text-base md:text-lg font-light leading-relaxed">
+                To be India's most trusted automation solutions partner by continuously innovating, embracing emerging technologies, and setting new benchmarks in smart living and intelligent buildings.
+              </p>
+            </div>
+            <div className="mv-img-col w-full lg:w-1/2 opacity-0">
+              <div className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden shadow-lg shadow-black/5 transform-gpu">
+                <NextImage
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+                  alt="Modern architectural building"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-    </div>
+        </div>
       </div >
     </section >
   );

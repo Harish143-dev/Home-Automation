@@ -219,6 +219,13 @@ h6 {
 }
 
 @theme inline {
+  --animate-marquee-left: marquee-left 30s linear infinite;
+
+  @keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);

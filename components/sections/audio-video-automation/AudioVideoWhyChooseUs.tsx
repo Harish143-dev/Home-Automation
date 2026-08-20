@@ -58,7 +58,7 @@ export function AudioVideoWhyChooseUs() {
 
         <h2
           ref={textRef}
-          className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground text-balance mb-8"
+          className=" text-foreground text-balance mb-8"
         >
           Why Choose <br className="hidden sm:block" /> Anusha Technovision
         </h2>

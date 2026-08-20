@@ -89,7 +89,7 @@ export function OfficeSpaces() {
           <span className="text-accent mb-4 block tracking-[0.1em] uppercase text-sm font-medium">
             Tailored Environments
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground text-balance mb-6">
+          <h2 className="text-foreground text-balance mb-6">
             Intelligent Solutions for Every Office Space
           </h2>
           <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
@@ -123,7 +123,7 @@ export function OfficeSpaces() {
                   <span className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/5 border border-accent/10 text-accent font-display text-xl shrink-0">
                     0{idx + 1}
                   </span>
-                  <h3 className="font-light leading-[1.2] tracking-wide text-2xl sm:text-3xl lg:text-4xl text-foreground text-balance">
+                  <h3 className="text-foreground text-balance">
                     {space.title}
                   </h3>
                 </div>

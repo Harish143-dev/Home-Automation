@@ -78,7 +78,7 @@ export default function LightingIntro() {
           <span className="li-text-el tracking-[0.3em] text-sm md:text-base text-accent mb-4 block font-light">
             Introduction
           </span>
-          <h3 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl li-text-el text-foreground mb-8 text-balance">
+          <h3 className=" li-text-el text-foreground mb-8 text-balance">
             More Than Lighting—It's About the Perfect Living Experience
           </h3>
           <div className="li-text-el space-y-6 text-sm sm:text-base md:text-lg font-light text-muted leading-relaxed max-w-xl">

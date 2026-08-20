@@ -4,15 +4,15 @@ import React, { useRef } from 'react';
 import { gsap, useGSAP } from '@/lib/gsapSetup';
 import { scheduleScrollRefresh } from '@/lib/scrollRefresh';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { 
-  Lightbulb, 
-  MonitorPlay, 
-  Blinds, 
-  Thermometer, 
-  ShieldCheck, 
-  Presentation, 
-  Wifi, 
-  LayoutDashboard 
+import {
+  Lightbulb,
+  MonitorPlay,
+  Blinds,
+  Thermometer,
+  ShieldCheck,
+  Presentation,
+  Wifi,
+  LayoutDashboard
 } from 'lucide-react';
 import { DURATION, EASE, STAGGER } from '@/lib/animation.config';
 
@@ -77,17 +77,17 @@ export function OfficeSolutions() {
       { y: 30, opacity: 0 },
       { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.normal, ease: EASE.reveal }
     )
-    .fromTo('.os-card',
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DURATION.normal,
-        stagger: STAGGER.tight,
-        ease: EASE.reveal,
-      },
-      "-=0.4"
-    );
+      .fromTo('.os-card',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: DURATION.normal,
+          stagger: STAGGER.tight,
+          ease: EASE.reveal,
+        },
+        "-=0.4"
+      );
 
     scheduleScrollRefresh();
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
@@ -101,7 +101,7 @@ export function OfficeSolutions() {
           <span className="os-header tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
             Core Technologies
           </span>
-          <h2 className="os-header font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground text-balance mb-6">
+          <h2 className="os-header text-foreground text-balance mb-6">
             Our Smart Office Automation Solutions
           </h2>
           <p className="os-header text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
@@ -120,7 +120,7 @@ export function OfficeSolutions() {
                 <solution.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
               </div>
 
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl text-foreground mb-3 text-balance">
+              <h4 className="text-foreground mb-3 text-balance">
                 {solution.title}
               </h4>
 

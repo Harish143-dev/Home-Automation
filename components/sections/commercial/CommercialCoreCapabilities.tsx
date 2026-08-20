@@ -36,7 +36,7 @@ function BentoCard({
             <Icon className="w-5 h-5 text-foreground group-hover:text-white transition-colors" />
           </div>
         )}
-        <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">{title}</h4>
+        <h3 className="text-foreground">{title}</h3>
       </div>
 
       <ul className="space-y-3 relative z-10">
@@ -88,7 +88,7 @@ export function CommercialCoreCapabilities() {
           <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
             System Capabilities
           </span>
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-12 text-balance">
+          <h2 className="text-foreground mb-12 text-balance">
             Integrated Enterprise Infrastructure
           </h2>
 

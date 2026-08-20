@@ -66,7 +66,7 @@ export function CommercialCapabilities() {
   return (
     <section ref={sectionRef} className="py-12 md:py-16 bg-background relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-16 text-center cap-heading">
-        <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground">
+        <h2 className=" text-foreground">
           Smart Systems That <br className="hidden md:block" />
           <span className="text-accent">Work Together</span>
         </h2>

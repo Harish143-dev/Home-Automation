@@ -72,7 +72,7 @@ export function ExperienceTestimonials() {
             <div className="h-[1px] w-8 bg-accent/40 lg:hidden" />
           </div>
 
-          <h2 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl lg:text-3xl text-foreground mb-6 testimonials-header opacity-0 translate-y-10">
+          <h2 className=" text-foreground mb-6 testimonials-header opacity-0 translate-y-10">
             Hear From Our Clients
           </h2>
 

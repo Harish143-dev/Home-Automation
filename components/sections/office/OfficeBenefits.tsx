@@ -58,17 +58,17 @@ export function OfficeBenefits() {
       { y: 30, opacity: 0 },
       { y: 0, opacity: 1, duration: DURATION.normal, stagger: STAGGER.normal, ease: EASE.reveal }
     )
-    .fromTo('.ob-card',
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DURATION.normal,
-        stagger: STAGGER.tight,
-        ease: EASE.reveal,
-      },
-      "-=0.4"
-    );
+      .fromTo('.ob-card',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: DURATION.normal,
+          stagger: STAGGER.tight,
+          ease: EASE.reveal,
+        },
+        "-=0.4"
+      );
 
     scheduleScrollRefresh();
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
@@ -82,7 +82,7 @@ export function OfficeBenefits() {
           <span className="ob-header tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
             The Advantage
           </span>
-          <h2 className="ob-header font-light leading-[1.2] tracking-wide text-3xl sm:text-4xl text-foreground text-balance mb-6">
+          <h2 className="ob-header text-foreground text-balance mb-6">
             Benefits That Go Beyond Automation
           </h2>
           <p className="ob-header text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
@@ -101,7 +101,7 @@ export function OfficeBenefits() {
                 <benefit.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
               </div>
 
-              <h4 className="font-light leading-[1.2] tracking-wide text-xl sm:text-2xl text-foreground mb-3">
+              <h4 className="text-foreground mb-3">
                 {benefit.title}
               </h4>
 
