@@ -14,14 +14,14 @@ const STEPS = [
   "Handover, Audit & Ongoing Support"
 ];
 
-export function OfficeProcess() {
+export function InstitutesCommercialProcess() {
   const containerRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
     if (prefersReducedMotion) return;
 
-    const cards = gsap.utils.toArray('.process-step');
+    const cards = gsap.utils.toArray('.comm-process-step');
 
     cards.forEach((card: any, i) => {
       gsap.fromTo(card,
@@ -52,7 +52,7 @@ export function OfficeProcess() {
             Execution Architecture
           </span>
           <h2 className="text-foreground text-balance">
-            Our Process
+            Our Commercial Automation Process
           </h2>
         </div>
 
@@ -62,7 +62,7 @@ export function OfficeProcess() {
           <div className="absolute top-4 bottom-4 left-[23px] w-[1px] bg-black/10" />
 
           {STEPS.map((step, idx) => (
-            <div key={idx} className="process-step w-full flex items-center relative mb-8 last:mb-0 group">
+            <div key={idx} className="comm-process-step w-full flex items-center relative mb-8 last:mb-0 group">
 
               {/* Center Node */}
               <div className="w-12 h-12 rounded-full bg-background border border-black/10 flex items-center justify-center shrink-0 z-10 group-hover:border-accent group-hover:bg-accent/5 transition-colors duration-500 shadow-sm">

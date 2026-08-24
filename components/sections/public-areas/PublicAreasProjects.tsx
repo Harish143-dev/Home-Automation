@@ -159,7 +159,7 @@ export function PublicAreasProjects() {
                 <h3 className=" text-foreground group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
-                <span className="tracking-[0.3em] uppercase text-xs sm:text-sm md:text-base text-muted-foreground">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted-foreground">
                   {project.asset}
                 </span>
               </div>

@@ -7,14 +7,29 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { DURATION, EASE } from '@/lib/animation.config';
 
 const STEPS = [
-  "Site Analysis & Architectural Review",
-  "Schematics & Wiring Layouts",
-  "Physical Integration & Hardware Placement",
-  "System Optimization & Stress Testing",
-  "Handover, Audit & Ongoing Support"
+  {
+    title: "Understand Campus Requirements",
+    description: "Assess the institution’s spaces, requirements, and technology needs."
+  },
+  {
+    title: "Design the Solution",
+    description: "Develop an integrated automation plan tailored to the campus."
+  },
+  {
+    title: "System Integration & Installation",
+    description: "Deploy and integrate automation, AV, networking, security, and control systems."
+  },
+  {
+    title: "Testing & Commissioning",
+    description: "Test all systems and ensure reliable performance before handover."
+  },
+  {
+    title: "Ongoing Support",
+    description: "Provide service, monitoring, and support to keep campus systems performing efficiently."
+  }
 ];
 
-export function OfficeProcess() {
+export function InstitutesProcess() {
   const containerRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -49,7 +64,7 @@ export function OfficeProcess() {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4 mb-16 lg:mb-24">
           <span className="tracking-[0.1em] text-accent mb-4 block text-sm font-medium">
-            Execution Architecture
+            Approach
           </span>
           <h2 className="text-foreground text-balance">
             Our Process
@@ -72,12 +87,13 @@ export function OfficeProcess() {
               </div>
 
               {/* Content Box */}
-              <div className="ml-8 w-full">
-                <div className="bg-background border border-black/5 rounded-2xl p-6 w-full group-hover:border-black/10 hover:shadow-xl hover:shadow-black/5 transition-all duration-500">
-                  <h4 className="text-foreground text-balance">
-                    {step}
-                  </h4>
-                </div>
+              <div className="ml-8 w-full flex flex-col gap-2 bg-background border border-black/5 rounded-2xl p-6 group-hover:border-black/10 hover:shadow-xl hover:shadow-black/5 transition-all duration-500">
+                <h4 className="text-foreground text-balance">
+                  {step.title}
+                </h4>
+                <p className="text-muted-foreground font-light text-sm md:text-base leading-relaxed">
+                  {step.description}
+                </p>
               </div>
 
             </div>

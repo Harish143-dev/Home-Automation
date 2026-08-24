@@ -159,7 +159,7 @@ export function BrandTicker({ brands = DEFAULT_BRANDS }: BrandTickerProps = {}) 
                 className="h-8 sm:h-10 md:h-12 w-auto object-contain brightness-0 invert pointer-events-none select-none"
               />
             ) : (
-              <span className="text-base font-light uppercase tracking-[0.15em] text-white sm:text-xl md:text-2xl lg:text-4xl">
+              <span className="text-base font-light tracking-[0.15em] text-white sm:text-xl md:text-2xl lg:text-4xl">
                 {brand.name}
               </span>
             )}

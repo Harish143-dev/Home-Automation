@@ -134,7 +134,7 @@ export function OfficeExperience() {
         <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
           <div ref={leftColRef} className="w-full md:w-1/2 md:sticky md:top-[20vh] pb-6 md:pb-0 opacity-0">
-            <span className="tracking-[0.3em] text-accent mb-4 block uppercase text-sm font-medium">
+            <span className="tracking-[0.3em] text-accent mb-4 block text-sm font-medium">
               Proven Expertise
             </span>
             <h2 className="text-foreground mb-6 sm:mb-8">
@@ -164,7 +164,7 @@ export function OfficeExperience() {
                 ref={el => { statsRefs.current[i] = el; }}
                 className="flex flex-col border-b border-black/5 pb-6 sm:pb-8 last:border-b-0 last:pb-0 group cursor-default opacity-0"
               >
-                {stat.prefix && <span className="tracking-[0.3em] text-accent mt-5 mb-1 sm:mb-2 block uppercase text-xs">{stat.prefix}</span>}
+                {stat.prefix && <span className="tracking-[0.3em] text-accent mt-5 mb-1 sm:mb-2 block text-xs">{stat.prefix}</span>}
                 <div className="font-light tracking-wide leading-none text-foreground mb-3 sm:mb-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 text-4xl sm:text-5xl md:text-6xl">
                   <span>{stat.value}</span>
                 </div>
@@ -182,7 +182,7 @@ export function OfficeExperience() {
       <section className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
         <div className="max-w-7xl w-full mx-auto">
           <div className="w-full bg-accent/[0.03] border border-accent/10 rounded-[2rem] py-12 md:py-16 overflow-hidden flex flex-col items-center">
-            <span className="tracking-[0.2em] text-accent mb-8 md:mb-12 uppercase text-sm font-medium">
+            <span className="tracking-[0.2em] text-accent mb-8 md:mb-12 text-sm font-medium">
               Trusted Hospitality Brands
             </span>
             <div className="w-[150%] md:w-[120%] flex overflow-hidden opacity-80 group">
@@ -204,7 +204,7 @@ export function OfficeExperience() {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
             <div className="w-full lg:w-[40%] xl:w-1/3 lg:sticky lg:top-40 flex flex-col gap-4 z-10">
-              <span className="tracking-[0.3em] text-accent block mb-2 uppercase text-sm font-medium">
+              <span className="tracking-[0.3em] text-accent block mb-2 text-sm font-medium">
                 Industry Accolades
               </span>
               <h2 className="text-foreground">

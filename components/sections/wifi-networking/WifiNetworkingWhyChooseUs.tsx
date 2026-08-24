@@ -82,7 +82,7 @@ export function WifiNetworkingWhyChooseUs() {
             ref={el => { statsRefs.current[0] = el; }}
             className="bg-panel rounded-[2rem] p-8 flex flex-col justify-center border border-black/5 group hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500"
           >
-            <span className="tracking-[0.2em] text-xs md:text-sm text-accent uppercase mb-4 min-h-[20px]">
+            <span className="tracking-[0.2em] text-xs md:text-sm text-accent mb-4 min-h-[20px]">
               {STATS[0].prefix}
             </span>
             <span className="text-5xl md:text-6xl font-light tracking-tighter text-foreground mb-4">
@@ -103,7 +103,7 @@ export function WifiNetworkingWhyChooseUs() {
 
             <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 h-full">
               <div className="flex flex-col justify-center">
-                <span className="tracking-[0.2em] text-xs md:text-sm text-accent uppercase mb-4">
+                <span className="tracking-[0.2em] text-xs md:text-sm text-accent mb-4">
                   {STATS[1].prefix}
                 </span>
                 <span className="text-5xl md:text-7xl leading-none font-light tracking-tighter text-foreground mb-4">
@@ -123,7 +123,7 @@ export function WifiNetworkingWhyChooseUs() {
               ref={el => { statsRefs.current[i + 2] = el; }}
               className="bg-white rounded-[2rem] p-6 md:p-8 flex flex-col border border-black/5 group hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500"
             >
-              <span className="tracking-[0.2em] text-xs md:text-sm text-muted-foreground uppercase mb-4 min-h-[20px]">
+              <span className="tracking-[0.2em] text-xs md:text-sm text-muted-foreground mb-4 min-h-[20px]">
                 {stat.prefix}
               </span>
               <span className="text-4xl md:text-5xl font-light tracking-tighter text-foreground mb-4 group-hover:text-accent transition-colors duration-500">

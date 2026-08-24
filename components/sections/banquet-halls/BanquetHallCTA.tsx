@@ -76,7 +76,7 @@ export function BanquetHallCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="tracking-[0.1em] text-muted-foreground uppercase text-xs">Next Steps</span>
+          <span className="tracking-[0.1em] text-muted-foreground text-xs">Next Steps</span>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 

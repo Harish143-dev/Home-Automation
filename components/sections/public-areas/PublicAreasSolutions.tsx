@@ -110,7 +110,7 @@ export function PublicAreasSolutions() {
               </p>
 
               <div className="space-y-3 mt-auto pt-6 border-t border-black/5">
-                <span className="tracking-[0.3em] uppercase text-xs sm:text-sm md:text-base text-accent block mb-4">
+                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent block mb-4">
                   Benefits
                 </span>
                 {solution.benefits.map((benefit, i) => (

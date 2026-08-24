@@ -7,7 +7,7 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
-export function OfficeCTA() {
+export function InstitutesCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -86,11 +86,11 @@ export function OfficeCTA() {
           ref={headlineRef}
           className="text-foreground mb-8 text-balance max-w-4xl"
         >
-          Build a Smarter Workplace with Intelligent Office Automation
+          Ready to Build a Smarter Educational Institution?
         </h2>
 
         <p className="cta-subhead text-base md:text-lg text-muted-foreground font-light tracking-wide max-w-2xl mx-auto leading-relaxed mb-12">
-          Empower your business with integrated office automation solutions that improve productivity, optimize operations, and create exceptional workplace experiences.
+          Partner with Anusha Technovision to create connected, secure, and future-ready campuses that enhance learning, improve operational efficiency, and deliver long-term value.
         </p>
 
         {/* Standard Project Buttons */}
@@ -102,7 +102,7 @@ export function OfficeCTA() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Request a Consultation
+              Schedule a Consultation
             </Button>
           </Link>
 
@@ -115,7 +115,7 @@ export function OfficeCTA() {
             >
               <MessageSquare className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
               <span className="text-base sm:text-lg font-light tracking-wide">
-                Talk to a Commercial Automation Expert
+                Request a Campus Assessment
               </span>
             </Button>
           </Link>

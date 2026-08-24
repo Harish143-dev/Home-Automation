@@ -79,7 +79,7 @@ export function OfficeBenefits() {
 
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4 mb-12 lg:mb-16">
-          <span className="ob-header tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
+          <span className="ob-header tracking-[0.1em] text-accent mb-4 block text-sm font-medium">
             The Advantage
           </span>
           <h2 className="ob-header text-foreground text-balance mb-6">

@@ -175,7 +175,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
             {activeCategory && activeCategory.items && (
               <div className="right-panel-content w-full h-full animate-in fade-in slide-in-from-right-4 duration-500">
 
-                <h3 className="text-sm tracking-[0.1em] text-black/40 uppercase mb-8 xl:mb-10">
+                <h3 className="text-sm tracking-[0.1em] text-black/40 mb-8 xl:mb-10">
                   {activeCategory.label}
                 </h3>
 

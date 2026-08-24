@@ -50,7 +50,7 @@ export function OfficeClients() {
       <div className="max-w-7xl mx-auto flex flex-col items-center relative">
 
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4 mb-12 lg:mb-16">
-          <span className="oc-header tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
+          <span className="oc-header tracking-[0.1em] text-accent mb-4 block text-sm font-medium">
             Our Portfolio
           </span>
           <h2 className="oc-header text-foreground text-balance">
@@ -67,7 +67,7 @@ export function OfficeClients() {
               <h3 className="text-foreground mb-2">
                 {client.name}
               </h3>
-              <p className="text-sm font-medium tracking-[0.1em] text-muted-foreground uppercase">
+              <p className="text-sm font-medium tracking-[0.1em] text-muted-foreground ">
                 {client.location}
               </p>
             </div>

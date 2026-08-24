@@ -67,7 +67,7 @@ export function OfficeWorkflow() {
 
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto z-10 py-6 px-4 mb-16 lg:mb-24">
-          <span className="tracking-[0.1em] text-accent mb-4 block uppercase text-sm font-medium">
+          <span className="tracking-[0.1em] text-accent mb-4 block text-sm font-medium">
             A Day in the Life
           </span>
           <h2 className="text-foreground text-balance mb-6">

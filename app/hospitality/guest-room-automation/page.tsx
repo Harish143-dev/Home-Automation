@@ -8,6 +8,7 @@ import { GuestRoomWhyATPL } from "@/components/sections/guest-room/GuestRoomWhyA
 import { GuestRoomProjects } from "@/components/sections/guest-room/GuestRoomProjects";
 import { GuestRoomProcess } from "@/components/sections/guest-room/GuestRoomProcess";
 import { GuestRoomCTA } from "@/components/sections/guest-room/GuestRoomCTA";
+import { GuestRoomClients } from "@/components/sections/guest-room/GuestRoomClients";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,12 +20,13 @@ export default function GuestRoomAutomationPage() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-background">
       <GuestRoomHero />
+      <GuestRoomWhyATPL />
+      <GuestRoomClients />
       <GuestRoomIntro />
       <GuestRoomFeatures />
       <GuestRoomJourney />
       <GuestRoomBenefits />
       <GuestRoomWhyChooseUs />
-      <GuestRoomWhyATPL />
       <GuestRoomProjects />
       <GuestRoomProcess />
       <GuestRoomCTA />

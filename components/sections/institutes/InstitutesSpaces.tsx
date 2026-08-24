@@ -8,44 +8,44 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const SPACES = [
   {
-    id: "reception",
-    title: "Reception & Lobby",
-    description: "Lighting control, motorized shades, digital displays, and background audio.",
+    id: "classrooms",
+    title: "Classrooms",
+    description: "Intelligent lighting, occupancy sensing, AV, displays, HVAC and room controls for focused, comfortable and connected learning spaces.",
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2000&auto=format&fit=crop",
+  },
+  {
+    id: "lecture-halls",
+    title: "Lecture Halls",
+    description: "Integrated lighting, AV, presentation systems, video conferencing and automated controls for effective teaching and large-group sessions.",
+    image: "https://images.unsplash.com/photo-1544531585-9847b68c8c86?q=80&w=2000&auto=format&fit=crop",
+  },
+  {
+    id: "auditoriums",
+    title: "Auditoriums",
+    description: "Centralised control of lighting, AV, displays, audio, shades and presentation systems for events, performances and institutional programmes.",
+    image: "https://images.unsplash.com/photo-1507676184212-d0c30a51fb9b?q=80&w=2000&auto=format&fit=crop",
+  },
+  {
+    id: "libraries",
+    title: "Libraries",
+    description: "Automated lighting, occupancy sensing, HVAC and networking solutions that support quiet, comfortable and energy-efficient study environments.",
+    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop",
+  },
+  {
+    id: "administrative",
+    title: "Administrative Offices",
+    description: "Smart lighting, shades, AV, video conferencing, access control and workspace automation for efficient day-to-day campus operations.",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
   },
   {
-    id: "meeting",
-    title: "Meeting & Conference Rooms",
-    description: "Video conferencing, presentation systems, lighting control, shades, and touchscreen control.",
-    image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop",
-  },
-  {
-    id: "executive",
-    title: "Executive Cabins",
-    description: "Personal lighting control, motorized shades, AV integration, and room control.",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2000&auto=format&fit=crop",
-  },
-  {
-    id: "open",
-    title: "Open Workspaces",
-    description: "Occupancy-based lighting, daylight harvesting, shades, and distributed audio.",
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2000&auto=format&fit=crop",
-  },
-  {
-    id: "training",
-    title: "Training Rooms",
-    description: "Interactive displays, video conferencing, presentation systems, microphones, and room control.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop",
-  },
-  {
-    id: "breakout",
-    title: "Breakout & Collaboration Zones",
-    description: "Flexible lighting, audio, displays, and integrated controls.",
-    image: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=2000&auto=format&fit=crop",
+    id: "common-areas",
+    title: "Campus Common Areas",
+    description: "Connected lighting, security, networking, audio and occupancy-based controls for safer, efficient and well-managed shared spaces.",
+    image: "https://images.unsplash.com/photo-1525926477800-7a3afafebdd4?q=80&w=2000&auto=format&fit=crop",
   }
 ];
 
-export function OfficeSpaces() {
+export function InstitutesSpaces() {
   const containerRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const prefersReducedMotion = useReducedMotion();
@@ -53,20 +53,19 @@ export function OfficeSpaces() {
   useGSAP(() => {
     if (prefersReducedMotion || !cardsRef.current.length) return;
 
-    // Desktop Stacking Animation (scale down previous cards as new ones cover them)
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 1024px)", () => {
       cardsRef.current.forEach((card, index) => {
-        if (!card || index === cardsRef.current.length - 1) return; // Skip the last card as nothing covers it
+        if (!card || index === cardsRef.current.length - 1) return;
 
         gsap.to(card, {
           scale: 0.9,
           ease: "none",
           scrollTrigger: {
-            trigger: cardsRef.current[index + 1], // The card that comes next
-            start: "top bottom", // When the next card enters the bottom of the screen
-            end: "top top", // When the next card reaches the top (covering the current one)
+            trigger: cardsRef.current[index + 1],
+            start: "top bottom",
+            end: "top top",
             scrub: true,
           }
         });
@@ -90,10 +89,10 @@ export function OfficeSpaces() {
             Tailored Environments
           </span>
           <h2 className="text-foreground text-balance mb-6">
-            Intelligent Solutions for Every Office Space
+            Smart Solutions for Every Campus Space
           </h2>
           <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
-            Integrated automation solutions designed for every workspace, from reception areas and executive cabins to meeting rooms, workstations, and collaboration zones.
+            Comprehensive automation solutions tailored to different educational environments.
           </p>
         </div>
 

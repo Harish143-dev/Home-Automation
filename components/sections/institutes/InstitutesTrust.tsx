@@ -18,7 +18,7 @@ const STATS = [
   { prefix: 'Across', value: '12+', label: 'Cities Supported' },
 ];
 
-export function GuestRoomWhyATPL() {
+export function InstitutesTrust() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const statsRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -73,10 +73,10 @@ export function GuestRoomWhyATPL() {
               Proven Expertise
             </span>
             <h2 className="text-foreground mb-6 sm:mb-8">
-              Why Choose ATPL.
+              Trusted by the Best.
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10 text-balance">
-              For over 24 years, ATPL has been delivering intelligent lighting control and home automation solutions that combine world-class technology, expert execution, and dependable after-sales support. Trusted by luxury hotels across India, we create connected environments that are reliable and built for the future.
+              With over 24 years of experience, ATPL has successfully delivered over 1,000 projects, including more than 650 residences, over 250 hospitality projects, and over 100 commercial projects. With Experience Centres in Delhi, Mumbai, and Bangalore, and sales and service support across 12+ cities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/projects">

@@ -80,7 +80,7 @@ export default function CareersHero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="hero-element mb-2 flex items-center justify-end gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-white/40" />
-          <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">
+          <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent mb-4">
             Careers
           </span>
           <div className="h-[1px] w-8 bg-white/40" />
@@ -104,7 +104,7 @@ export default function CareersHero() {
               "group overflow-hidden"
             )}
           >
-            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent uppercase mb-4">View Open Positions</span>
+            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent mb-4">View Open Positions</span>
             <ArrowRight className="relative z-10 ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           </Link>

@@ -50,7 +50,7 @@ export function RestaurantPartners() {
 
         {/* Header */}
         <div className="rp-header text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-          <span className="inline-block text-sm md:text-base tracking-[0.1em] text-accent mb-4 font-light uppercase">
+          <span className="inline-block text-sm md:text-base tracking-[0.1em] text-accent mb-4 font-light ">
             Technology Partner
           </span>
           <h2 className=" text-foreground mb-6">

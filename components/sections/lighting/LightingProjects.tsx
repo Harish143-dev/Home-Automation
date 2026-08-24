@@ -141,7 +141,7 @@ export default function LightingProjects() {
                     </h3>
                     <div className={`flex items-center gap-1.5 transition-colors ${isOpen ? 'text-accent/70' : 'text-muted'}`}>
                       <MapPin className="text-xl sm:text-2xl lg:text-3xl w-4 h-4" />
-                      <span className="text-sm font-medium uppercase tracking-wider">{project.location}</span>
+                      <span className="text-sm font-medium tracking-wider">{project.location}</span>
                     </div>
                   </div>
 
