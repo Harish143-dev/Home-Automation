@@ -23,7 +23,6 @@ export default function RestaurantAutomationPage() {
     <main className="flex min-h-screen flex-col items-center bg-background">
       <RestaurantHero />
       <RestaurantTrust />
-      <RestaurantClients />
       <RestaurantCredentials />
       <RestaurantIntro />
       <RestaurantSpaces />

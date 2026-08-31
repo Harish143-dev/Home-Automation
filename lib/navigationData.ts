@@ -50,7 +50,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
           { id: 'comm-offices', label: 'Offices', href: '/commercial/office-automation' },
           { id: 'comm-institutes', label: 'Institutes', href: '/commercial/institutes' },
           { id: 'comm-exhibitions', label: 'Exhibitions', href: '#comm-exhibitions' },
-          { id: 'comm-retail', label: 'Retail Stores', href: '#comm-retail' },
+          { id: 'comm-retail', label: 'Retail Stores', href: '/commercial/retail-automation' },
           { id: 'comm-multiplexes', label: 'Multiplexes', href: '#comm-multiplexes' },
           { id: 'comm-airport', label: 'Airport Lounges', href: '#comm-airport' },
         ]

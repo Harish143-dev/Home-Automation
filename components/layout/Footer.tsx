@@ -16,6 +16,7 @@ const FOOTER_LINKS = {
     { label: 'Public Area Automation', href: '/hospitality/public-area-automation' },
     { label: 'Spa and Wellness', href: '/hospitality/spa-and-wellness' },
     { label: 'Guest Rooms', href: '/hospitality/guest-room-automation' },
+    { label: 'Retail Automation', href: '/commercial/retail-automation' },
   ],
   solutions: [
     { label: 'Residential', href: '/residential' },
