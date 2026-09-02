@@ -17,6 +17,8 @@ const FOOTER_LINKS = {
     { label: 'Spa and Wellness', href: '/hospitality/spa-and-wellness' },
     { label: 'Guest Rooms', href: '/hospitality/guest-room-automation' },
     { label: 'Retail Automation', href: '/commercial/retail-automation' },
+    { label: 'Multiplexes', href: '/commercial/multiplexes' },
+    { label: 'Airport Lounges', href: '/commercial/airport-lounges' },
   ],
   solutions: [
     { label: 'Residential', href: '/residential' },
