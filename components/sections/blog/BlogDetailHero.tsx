@@ -55,12 +55,12 @@ export default function BlogDetailHero({ post }: BlogDetailHeroProps) {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
-        <div className="post-meta-anim flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs tracking-[0.2em] text-white/70">
-          <span className="text-accent">{post.category}</span>
+        <div className="post-meta-anim flex flex-wrap items-center justify-center gap-3 md:gap-4 text-white/70">
+          <h5 className="text-accent !mb-0">{post.category}</h5>
           <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span>{post.date}</span>
+          <h5 className="!mb-0">{post.date}</h5>
           <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span>{post.readTime}</span>
+          <h5 className="!mb-0">{post.readTime}</h5>
         </div>
         
         <h1 className="hero-element text-white text-balance mb-6 max-w-4xl">  {post.title}

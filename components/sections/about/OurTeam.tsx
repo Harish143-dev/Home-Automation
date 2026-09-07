@@ -1,13 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import NextImage from "next/image";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useBreakpoint } from "@/hooks/useBreakpoint";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
-import { DURATION, EASE } from "@/lib/animation.config";
 
 const TEAM = [
   {
@@ -43,58 +37,21 @@ const TEAM = [
 ];
 
 export default function OurTeam() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const { isReady } = useBreakpoint();
-
-  useGSAP(() => {
-    if (!isReady || prefersReducedMotion || !sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 75%",
-        onEnter: () => scheduleScrollRefresh(),
-      }
-    });
-
-    // Header reveal
-    tl.fromTo(".team-header",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: DURATION.slow, ease: EASE.reveal }
-    );
-
-    // Grid items reveal
-    tl.fromTo(".team-card",
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DURATION.slow,
-        ease: "power3.out",
-        stagger: 0.15
-      },
-      "-=0.6"
-    );
-
-  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
-
   return (
     <section
-      ref={sectionRef}
       className="py-12 md:py-16 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-7xl w-full mx-auto">
 
         {/* Header */}
-        <div className="team-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 opacity-0">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24">
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Our Team
           </span>
           <h2 className=" mb-4">
             The Experts Behind Every Intelligent Solution
           </h2>
-          <p className="text-muted text-base md:text-lg font-light leading-relaxed">
+          <p className="text-muted-foreground text-base md:text-lg font-light leading-relaxed">
             From engineers and designers to project managers and support specialists, our team collaborates to deliver seamless automation experiences.
           </p>
         </div>
@@ -104,10 +61,10 @@ export default function OurTeam() {
           {TEAM.map((member, idx) => (
             <div
               key={idx}
-              className="team-card flex flex-col items-center text-center group cursor-pointer opacity-0"
+              className="flex flex-col items-center text-center group cursor-pointer"
             >
               {/* Image Container with Hover Scale */}
-              <div className="relative w-full aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-lg shadow-black/5 transition-shadow duration-500 group-hover:shadow-2xl">
+              <div className="relative w-full aspect-square md:aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden mb-6 transition-shadow duration-500 group-hover:shadow-2xl">
                 <NextImage
                   src={member.image}
                   alt={member.name}
@@ -123,7 +80,7 @@ export default function OurTeam() {
               <h4 className=" mb-1 transition-colors duration-300 group-hover:text-accent">
                 {member.name}
               </h4>
-              <div className="text-muted font-light tracking-wider text-sm md:text-base">
+              <div className="text-muted-foreground font-light tracking-wider text-sm md:text-base">
                 {member.role}
               </div>
             </div>

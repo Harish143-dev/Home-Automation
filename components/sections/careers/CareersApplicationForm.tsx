@@ -23,27 +23,8 @@ export default function CareersApplicationForm() {
   const { isReady } = useBreakpoint();
 
   useGSAP(() => {
-    if (!isReady || prefersReducedMotion || !sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-      }
-    });
-
-    const elements = gsap.utils.toArray(".ca-el", sectionRef.current);
-    tl.fromTo(elements,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DURATION.normal,
-        stagger: STAGGER.reveal,
-        ease: EASE.reveal,
-      }
-    );
-
+    // Intentionally leaving out heavy stagger animations on the form
+    // to reduce motion fatigue on this page.
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -56,12 +37,12 @@ export default function CareersApplicationForm() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
-        <span className="ca-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
+        <h5 className="ca-el text-accent !mb-6">
           Apply Now
-        </span>
+        </h5>
         <h2 className=" ca-el text-foreground mb-6">
           Don't See the Right Opportunity?
         </h2>

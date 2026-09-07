@@ -106,7 +106,7 @@ export default function AboutHero() {
 
         <div ref={textRef} className="flex flex-col">
           <div className="hero-line">
-            <h1 className="hero-element text-white text-balance mb-6 max-w-4xl">
+            <h1 className="hero-element text-white text-balance max-w-4xl">
               Engineering Intelligent
             </h1>
           </div>
@@ -117,7 +117,7 @@ export default function AboutHero() {
           </div>
         </div>
 
-        <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-10 text-balance">
+        <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-4 text-balance">
           Transforming homes, hotels, and commercial spaces with intelligent automation, innovative technology, and seamless user experiences for over 20 years.
         </p>
 

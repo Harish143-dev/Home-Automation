@@ -87,26 +87,12 @@ export default function CareersBenefits() {
       }
     );
 
-    // Animate Grid Cards
-    const cards = gsap.utils.toArray(".cb-card", gridRef.current);
-    tl.fromTo(cards,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DURATION.normal,
-        stagger: STAGGER.normal,
-        ease: EASE.reveal
-      },
-      "-=0.4"
-    );
-
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       {/* Noise Texture Overlay */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">
@@ -119,9 +105,9 @@ export default function CareersBenefits() {
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
         {/* Header Section */}
         <div ref={headerRef} className="text-center max-w-4xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
-          <span className="cb-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-6">
+          <h5 className="cb-header-el text-accent !mb-6">
             Culture & Benefits
-          </span>
+          </h5>
           <h2 className=" cb-header-el text-foreground mb-8">
             Why Work With Us?
           </h2>

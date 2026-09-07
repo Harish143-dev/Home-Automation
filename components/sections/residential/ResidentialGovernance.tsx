@@ -37,38 +37,33 @@ export function ResidentialGovernance() {
       }
     });
 
-    // Animate Header side
-    tl.fromTo(".gov-header > *",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }
-    );
+    // Header stagger removed — the line draw opens the section.
 
     // Animate Timeline Line
     tl.fromTo(".gov-line",
       { scaleY: 0, transformOrigin: "top" },
-      { scaleY: 1, duration: 1.2, ease: "power3.inOut" },
-      "-=0.8"
+      { scaleY: 1, duration: 1.2, ease: "power3.inOut" }
     );
 
     // Animate Guarantee Cards
     tl.fromTo(".gov-card",
       { x: 30, opacity: 0 },
       { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out" },
-      "-=1.0"
+      "-=0.8"
     );
 
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={containerRef} className="py-12 md:py-16 bg-surface relative overflow-hidden">
+    <section ref={containerRef} className="py-16 md:py-24 bg-surface relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
           {/* Left Column: Context (Sticky on Desktop) */}
           <div className="w-full lg:w-1/2 flex flex-col gov-header lg:sticky">
-            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
+            <h5 className="text-accent !mb-4">
               Asset Governance
-            </span>
+            </h5>
             <h2 className=" text-foreground mb-6">
               The Security of <br className="hidden md:block" />Continuous Performance.
             </h2>

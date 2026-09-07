@@ -40,45 +40,36 @@ const BENEFITS = [
 
 export function CurtainBenefits() {
   const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
 
-    // Header animation
-    gsap.fromTo('.benefit-header',
+    // Header animation using a scoped ref
+    gsap.fromTo(headerRef.current,
       { opacity: 0, y: 30 },
       {
-        opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out',
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: headerRef.current,
           start: 'top 80%',
         }
       }
     );
 
-    // Cards animation
-    gsap.fromTo('.benefit-card',
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.benefits-grid',
-          start: 'top 85%',
-        }
-      }
-    );
+    // Cards load natively to prevent motion fatigue
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
 
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base benefit-header text-accent mb-4 block">
+        <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
+          <h5 className="text-accent !mb-4">
             The Advantage
-          </span>
-          <h2 className=" benefit-header text-foreground text-balance">
+          </h5>
+          <h2 className=" text-foreground text-balance">
             Why Homeowners Choose Motorized Curtains
           </h2>
         </div>

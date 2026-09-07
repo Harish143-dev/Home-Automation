@@ -9,6 +9,8 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 export function ResidentialCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const subheadRef = useRef<HTMLParagraphElement>(null);
+  const btnGroupRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
@@ -20,42 +22,35 @@ export function ResidentialCTA() {
       linesClass: 'overflow-hidden'
     });
 
-    gsap.from(split.words, {
+    // Single timeline with one trigger — consolidates 3 separate ScrollTriggers
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 75%',
-      },
+      }
+    });
+
+    // Scoped refs used instead of bare class selectors (gsap-react: ❌ Target by selector without a scope)
+    tl.from(split.words, {
       yPercent: 120,
       rotationZ: 2,
       opacity: 0,
       duration: 1.2,
       stagger: 0.05,
       ease: 'power4.out',
-    });
-
-    gsap.from('.cta-subhead', {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 65%',
-      },
+    })
+    .from(subheadRef.current, {
       y: 40,
       opacity: 0,
       duration: 1.2,
       ease: 'power3.out',
-      delay: 0.3
-    });
-
-    gsap.from('.cta-btn-group', {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 55%',
-      },
+    }, '-=0.8')
+    .from(btnGroupRef.current, {
       y: 30,
       opacity: 0,
       duration: 1,
       ease: 'power3.out',
-      delay: 0.4
-    });
+    }, '-=0.8');
 
     return () => split.revert();
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
@@ -63,7 +58,7 @@ export function ResidentialCTA() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border shadow-[inset_0_20px_40px_-20px_rgba(0,0,0,0.05)]"
+      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-6 border-t border-border shadow-[inset_0_20px_40px_-20px_rgba(0,0,0,0.05)]"
       id="contact"
     >
       {/* Subtle ambient glow */}
@@ -76,7 +71,7 @@ export function ResidentialCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted">Next Steps</span>
+          <h5 className="text-muted !mb-0">Next Steps</h5>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
@@ -88,12 +83,18 @@ export function ResidentialCTA() {
           Bring Intelligent Infrastructure to Your Residence.
         </h2>
 
-        <p className="cta-subhead text-base md:text-lg text-muted font-light tracking-wide max-w-2xl mx-auto leading-relaxed mb-12">
+        <p
+          ref={subheadRef}
+          className="text-base md:text-lg text-muted font-light tracking-wide max-w-2xl mx-auto leading-relaxed mb-12"
+        >
           Partner with our system architects to design a low-profile, high-performance automation layer for your upcoming residential project.
         </p>
 
         {/* Standard Project Buttons */}
-        <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
+        <div
+          ref={btnGroupRef}
+          className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto"
+        >
           {/* Primary CTA */}
           <Button
             variant="interactive"
@@ -109,10 +110,8 @@ export function ResidentialCTA() {
             size="lg"
             className="group"
           >
-            <Phone className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
-            <span className="text-base sm:text-lg font-light tracking-wide">
-              Get in touch
-            </span>
+            <Phone className="w-4 h-4" />
+            Get in touch
           </Button>
         </div>
 

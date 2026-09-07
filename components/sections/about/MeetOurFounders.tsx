@@ -1,13 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import NextImage from "next/image";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useBreakpoint } from "@/hooks/useBreakpoint";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
-import { DURATION, EASE } from "@/lib/animation.config";
 
 const FOUNDERS = [
   {
@@ -33,56 +27,8 @@ const FOUNDERS = [
 ];
 
 export default function MeetOurFounders() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const { isReady } = useBreakpoint();
-
-  useGSAP(() => {
-    if (!isReady || prefersReducedMotion || !sectionRef.current) return;
-
-    // Header reveal
-    gsap.fromTo(".founder-header",
-      { y: 40, opacity: 0 },
-      {
-        y: 0, opacity: 1, duration: DURATION.slow, ease: EASE.reveal,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          onEnter: () => scheduleScrollRefresh(),
-        }
-      }
-    );
-
-    // Rows reveal
-    const rows = gsap.utils.toArray<HTMLElement>(".founder-row");
-    rows.forEach((row) => {
-      const isReverse = row.classList.contains("lg:flex-row-reverse");
-      const imgCol = row.querySelector(".founder-img-col");
-      const textCol = row.querySelector(".founder-text-col");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: row,
-          start: "top 80%",
-        }
-      });
-
-      tl.fromTo(imgCol,
-        { x: isReverse ? 50 : -50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1, ease: "power3.out" }
-      )
-        .fromTo(textCol,
-          { x: isReverse ? -50 : 50, opacity: 0 },
-          { x: 0, opacity: 1, duration: 1, ease: "power3.out" },
-          "-=0.6"
-        );
-    });
-
-  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
-
   return (
     <section
-      ref={sectionRef}
       className="py-12 md:py-16 relative w-full bg-background text-foreground px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden"
     >
       {/* Noise Texture */}
@@ -94,7 +40,7 @@ export default function MeetOurFounders() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-24">
 
         {/* Header */}
-        <div className="founder-header text-center max-w-3xl mx-auto space-y-4 mb-20 md:mb-32 opacity-0">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-20 md:mb-32">
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Meet Our Founder
           </span>
@@ -109,8 +55,8 @@ export default function MeetOurFounders() {
               >
 
                 {/* Image Column */}
-                <div className="founder-img-col w-full lg:w-5/12 opacity-0">
-                  <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-lg shadow-black/5">
+                <div className="w-full lg:w-5/12">
+                  <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden">
                     <NextImage
                       src={founder.image}
                       alt={founder.name}
@@ -118,12 +64,12 @@ export default function MeetOurFounders() {
                       className="object-cover"
                       unoptimized
                     />
-                    <div className="absolute inset-0 border border-black/5 rounded-2xl md:rounded-[2.5rem] pointer-events-none" />
+                    <div className="absolute inset-0 border border-black/5 rounded-xl md:rounded-2xl pointer-events-none" />
                   </div>
                 </div>
 
                 {/* Text Column */}
-                <div className="founder-text-col w-full lg:w-7/12 space-y-8 opacity-0">
+                <div className="w-full lg:w-7/12 space-y-8">
                   <div>
                     <h3 className=" mb-3">
                       {founder.name}
@@ -135,7 +81,7 @@ export default function MeetOurFounders() {
 
                   <div className="space-y-6">
                     {founder.message.map((paragraph, pIdx) => (
-                      <p key={pIdx} className="text-muted font-light text-base md:text-lg leading-relaxed">
+                      <p key={pIdx} className="text-muted-foreground font-light text-base md:text-lg leading-relaxed">
                         {paragraph}
                       </p>
                     ))}

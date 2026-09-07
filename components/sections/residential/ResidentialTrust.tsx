@@ -75,25 +75,7 @@ export function ResidentialTrust() {
   useGSAP(
     () => {
       if (!sectionRef.current || prefersReducedMotion) return;
-
-      if (gridRef.current) {
-        const cards = gridRef.current.querySelectorAll(".metric-card");
-        gsap.set(cards, { y: 40, opacity: 0 });
-
-        gsap.to(cards, {
-          y: 0,
-          opacity: 1,
-          stagger: 0.1,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 82%",
-            toggleActions: "play none none none",
-            invalidateOnRefresh: true,
-          }
-        });
-      }
+      // Card stagger removed — the animated counter inside MetricCard is the focal motion.
     },
     { scope: sectionRef, dependencies: [prefersReducedMotion] }
   );
@@ -102,16 +84,16 @@ export function ResidentialTrust() {
     <section
       ref={sectionRef}
       id="residential-trust"
-      className="py-12 md:py-16 relative w-full overflow-hidden bg-background text-foreground select-none"
+      className="py-16 md:py-24 relative w-full overflow-hidden bg-background text-foreground select-none"
     >
       <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-24 max-w-[1400px] mx-auto flex flex-col">
 
         {/* Section Heading & Subtext */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-16 w-full mb-16 md:mb-24">
           <div className="max-w-sm lg:max-w-md">
-            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
+            <h5 className="text-accent !mb-4">
               The Residential Paradigm
-            </span>
+            </h5>
             <h2 className=" text-foreground text-balance">
               Living, Calibrated to You.
             </h2>

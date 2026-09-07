@@ -18,38 +18,14 @@ export function CurtainFeatures() {
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
 
-    // Fade in left text
-    gsap.fromTo(textRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: 'top 75%',
-        }
-      }
-    );
-
-    // Fade in images individually
-    const images = gsap.utils.toArray('.feature-img-container');
-    images.forEach((img: any) => {
-      gsap.fromTo(img,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-          scrollTrigger: {
-            trigger: img,
-            start: 'top 85%',
-          }
-        }
-      );
-    });
+    // The sticky-scroll layout carries the section natively.
+    // Removed text and image fade-ups to prevent motion fatigue.
 
     scheduleScrollRefresh();
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
         {/* Left Side: Sticky Text */}

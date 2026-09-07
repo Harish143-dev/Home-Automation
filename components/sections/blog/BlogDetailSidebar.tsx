@@ -16,9 +16,9 @@ export default function BlogDetailSidebar() {
 
       {/* Search Widget */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className=" text-foreground mb-4 flex items-center gap-2">
+        <h4 className=" text-foreground mb-4 flex items-center gap-2">
           Search
-        </h3>
+        </h4>
         <div className="relative group">
           <input
             type="text"
@@ -31,9 +31,9 @@ export default function BlogDetailSidebar() {
 
       {/* Categories Dropdown/List */}
       <div className="bg-transparent border border-border/60 rounded-xl p-6">
-        <h3 className=" text-foreground mb-4 flex items-center gap-2">
+        <h4 className=" text-foreground mb-4 flex items-center gap-2">
           Categories
-        </h3>
+        </h4>
         <div className="relative">
           <select className="w-full appearance-none bg-background border border-border rounded-lg px-4 py-3 text-sm font-light text-foreground focus:outline-none focus:border-accent/50 transition-colors shadow-sm cursor-pointer">
             {categories.map((cat, idx) => (
@@ -47,7 +47,7 @@ export default function BlogDetailSidebar() {
       {/* Featured Blogs */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className=" text-foreground">Featured Blogs</h3>
+          <h4 className=" text-foreground">Featured Blogs</h4>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-6">
@@ -77,7 +77,7 @@ export default function BlogDetailSidebar() {
       {/* Recent Blogs */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className=" text-foreground">Recent Blogs</h3>
+          <h4 className=" text-foreground">Recent Blogs</h4>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">

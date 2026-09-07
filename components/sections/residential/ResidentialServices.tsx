@@ -184,9 +184,9 @@ export function ResidentialServices() {
           {/* LEFT: Navigation List */}
           <div className="w-full h-full flex flex-col justify-center md:items-end min-w-0">
             <div className="flex flex-col items-start w-full md:w-fit">
-              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base block text-muted mb-8 md:mb-12">
+              <h5 className="text-muted !mb-8 md:!mb-12">
                 Our Solutions
-              </span>
+              </h5>
               <ul className="flex flex-row md:flex-col gap-5 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full">
                 {SERVICES_DATA.map((service, idx) => {
                   const isActive = activeIndex === idx;

@@ -66,55 +66,48 @@ export function ResidentialPhilosophy() {
       );
     }
 
-    // Scroll trigger for each editorial block
-    itemsRef.current.forEach((item, index) => {
-      if (!item) return;
+      // Scroll trigger for each editorial block — image reveal only
+      itemsRef.current.forEach((item, index) => {
+        if (!item) return;
 
-      const num = item.querySelector('.phil-num');
-      const title = item.querySelector('.phil-title');
-      const desc = item.querySelector('.phil-desc');
-      const line = item.querySelector('.phil-line');
-      const imgContainer = item.querySelector('.phil-image-container');
-      const img = item.querySelector('.phil-image');
+        const imgContainer = item.querySelector('.phil-image-container');
+        const img = item.querySelector('.phil-image');
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            // Removed reverse — avoids jank and clip-path reversal performance hit
+            toggleActions: "play none none none"
+          }
+        });
+
+        // Image reveal (keep — this is the purposeful, cinematic motion)
+        if (imgContainer && img) {
+          tl.fromTo(imgContainer,
+            { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+            { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1.5, ease: "power3.inOut" },
+            0
+          );
+          tl.fromTo(img,
+            { scale: 1.2 },
+            { scale: 1, duration: 2, ease: "power2.out" },
+            0
+          );
         }
+        // Text loads natively — removed num/title/line stagger to reduce motion fatigue
       });
-
-      // Image reveal and parallax zoom
-      if (imgContainer && img) {
-        tl.fromTo(imgContainer,
-          { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
-          { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1.5, ease: "power3.inOut" },
-          0
-        );
-        tl.fromTo(img,
-          { scale: 1.2 },
-          { scale: 1, duration: 2, ease: "power2.out" },
-          0
-        );
-      }
-
-      // Text reveal staggered slightly after image
-      tl.fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 1, ease: "power3.inOut" }, 0.4)
-        .fromTo(num, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, 0.6)
-        .fromTo(title, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.7)
-    });
 
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-16 bg-background relative z-10 overflow-hidden">
+    <section ref={sectionRef} className="py-20 md:py-32 bg-background relative z-10 overflow-hidden">
       {/* Header */}
       <div className="container mx-auto px-5 sm:px-8 md:px-16 lg:px-24 max-w-7xl mb-16 md:mb-18 lg:mb-24">
         <div className="flex flex-col items-center text-center">
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-6 block">
+          <h5 className="text-accent !mb-6">
             Core Philosophy
-          </span>
+          </h5>
           <h2 ref={headingRef} className=" text-foreground text-balance">
             Why Invest in Smart Home Automation?
           </h2>

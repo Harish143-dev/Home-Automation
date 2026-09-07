@@ -67,20 +67,6 @@ export default function CareersOpenings() {
       }
     );
 
-    // Fade up cards
-    const cards = gsap.utils.toArray(".co-card", listRef.current);
-    tl.fromTo(cards,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DURATION.normal,
-        stagger: STAGGER.reveal,
-        ease: EASE.reveal,
-      },
-      "-=0.4"
-    );
-
     // Fade up mobile controls if visible
     const mobileControls = document.querySelector(".co-mobile-controls");
     if (mobileControls) {
@@ -109,15 +95,15 @@ export default function CareersOpenings() {
     <section
       id="open-positions"
       ref={sectionRef}
-      className="py-12 md:py-16 relative w-full bg-background overflow-hidden"
+      className="py-16 md:py-24 relative w-full bg-background overflow-hidden"
     >
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24">
         {/* Header Section with Navigation Buttons */}
         <div ref={headerRef} className="mb-10 md:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="co-header-el inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4">
+            <h5 className="co-header-el text-accent !mb-4">
               Openings
-            </span>
+            </h5>
             <h2 className=" co-header-el text-foreground">
               Current Openings
             </h2>

@@ -8,8 +8,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
-import { ArrowRight } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
 
@@ -80,9 +79,9 @@ export default function CareersHero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="hero-element mb-2 flex items-center justify-end gap-4 overflow-hidden">
           <div className="h-[1px] w-8 bg-white/40" />
-          <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent mb-4">
+          <h5 className="text-accent !mb-0">
             Careers
-          </span>
+          </h5>
           <div className="h-[1px] w-8 bg-white/40" />
         </div>
 
@@ -97,17 +96,15 @@ export default function CareersHero() {
         </p>
 
         <div className="pointer-events-auto hero-element flex flex-col sm:flex-row gap-5">
-          <Link
-            href="#open-positions"
-            className={cn(
-              buttonVariants({ variant: "glass", size: "lg", shape: "pill" }),
-              "group overflow-hidden"
-            )}
+          <Button
+            variant="interactive"
+            size="lg"
+            onClick={() => {
+              document.getElementById("open-positions")?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
-            <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent mb-4">View Open Positions</span>
-            <ArrowRight className="relative z-10 ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-          </Link>
+            View Open Positions
+          </Button>
         </div>
       </div>
     </section>

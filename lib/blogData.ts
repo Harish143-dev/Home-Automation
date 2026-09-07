@@ -96,7 +96,7 @@ export const FEATURED_POST = {
   date: "May 28, 2026",
   title: "The Invisible Interface: Designing Automation That Disappears",
   excerpt: "Explore how modern architectural integration is shifting away from visible wall-acne and complex panels, moving towards ambient, predictive systems that seamlessly blend into luxury interiors.",
-  image: "/assets/residential/project/SawaiManMahal.jpg", // Note: The actual path used earlier was an import, but for data consistency we use a string.
+  image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg", // Note: The actual path used earlier was an import, but for data consistency we use a string.
   readTime: "6 Min Read",
   content: `
     <p>The ultimate goal of home automation is not to add screens to every wall, but to remove them entirely. In the highest echelons of luxury design, technology must be felt, not seen. We call this the invisible interface.</p>

@@ -26,3 +26,19 @@ When adding or modifying buttons anywhere in the project, you must adhere to the
 3. **Clean Code Requirements:**
    - Remove bloated configurations (e.g., `shape="full"`, complex `group-hover` rules) from button invocations.
    - The `<Button variant="interactive">` component handles hover expansions and animated arrow icons globally. Do not manually nest SVG icons into this variant.
+
+## Section Padding & Layout Rules
+
+1. **Standard Section Padding:**
+   - Always apply standard vertical padding to standard sections: `py-16 md:py-24` (or `py-12 md:py-16` if tighter spacing is required).
+   
+2. **Sticky/Fullscreen Sections:**
+   - If a section relies on sticky scrolling (e.g., `sticky top-0`) and occupies the full viewport height (`min-h-screen`), DO NOT apply the standard `py-16 md:py-24` padding to its wrapper. Handle spacing within the sticky contents.
+
+## Design Aesthetic & Theme Rules
+
+1. **Theme Restriction:**
+   - DO NOT design or implement dark themes. The aesthetic of the site is Light Luxury Editorial. Stick to light backgrounds (`bg-background`, `bg-panel`) and dark text (`text-foreground`).
+   
+2. **Eyebrow Typography:**
+   - DO NOT use capital letters (ALL CAPS) or `uppercase` utility classes for eyebrow text. Always use Title Case (e.g., "The ATPL Advantage", not "THE ATPL ADVANTAGE").

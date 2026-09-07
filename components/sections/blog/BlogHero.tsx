@@ -80,9 +80,9 @@ export default function BlogHero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
         <div className="flex items-center gap-4 overflow-hidden">
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/70">
+          <h5 className="!text-[10px] text-white/70 !mb-0">
             Blog Collection
-          </span>
+          </h5>
           <div className="h-[1px] w-8 sm:w-12 bg-accent/60" />
         </div>
 
@@ -94,9 +94,9 @@ export default function BlogHero() {
             Title Sample
           </h1>
           <div className="hero-line mt-2">
-            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/80">
+            <h5 className="text-white/80 !mb-0">
               (Blogs by ATPL)
-            </span>
+            </h5>
           </div>
         </div>
       </div>

@@ -22,9 +22,9 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
       {/* Metadata Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-y border-border/50">
         <div className="flex flex-wrap items-center gap-3 text-xs font-light text-muted-foreground">
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base flex items-center gap-1.5 text-accent">
+          <h5 className="flex items-center gap-1.5 text-accent !mb-0">
             {post.category}
-          </span>
+          </h5>
           <span className="hidden sm:inline text-border">•</span>
           <span className="flex items-center gap-1.5">
             <CalendarDays className="w-3.5 h-3.5" />
@@ -45,7 +45,7 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
 
         {/* Social Share Options */}
         <div className="flex items-center gap-2">
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-muted-foreground mr-2">Share</span>
+          <h5 className="text-muted-foreground mr-2 !mb-0">Share</h5>
           {[LinkIcon, Mail, Share2].map((Icon, idx) => (
             <button key={idx} className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent hover:bg-accent/5 transition-colors">
               <Icon className="w-3.5 h-3.5" />

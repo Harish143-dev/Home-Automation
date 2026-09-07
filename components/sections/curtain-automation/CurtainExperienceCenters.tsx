@@ -36,25 +36,26 @@ const CENTERS = [
 
 export function CurtainExperienceCenters() {
   const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
 
     // Header Reveal
-    gsap.fromTo('.exp-header-anim',
+    gsap.fromTo(headerRef.current,
       { opacity: 0, y: 30 },
       {
-        opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out',
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: headerRef.current,
           start: 'top 80%',
         }
       }
     );
 
     // Modern Stacking Animation
-    const cards = gsap.utils.toArray('.exp-card-anim') as HTMLElement[];
+    const cards = gsap.utils.toArray<HTMLElement>('.exp-card-anim', sectionRef.current);
     cards.forEach((card: HTMLElement, index: number) => {
       if (index < cards.length - 1) {
         gsap.to(card, {
@@ -75,21 +76,21 @@ export function CurtainExperienceCenters() {
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-16 relative w-full bg-[#fcfcfc] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
+    <section ref={sectionRef} className="py-16 md:py-24 relative w-full bg-[#fcfcfc] px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5">
       <div className="max-w-7xl w-full mx-auto">
 
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base exp-header-anim text-accent mb-4 block">
+        <div ref={headerRef} className="text-center max-w-4xl mx-auto mb-16 md:mb-24 flex flex-col items-center">
+          <h5 className="text-accent !mb-4">
             Experience Centers
-          </span>
-          <h2 className=" exp-header-anim text-foreground text-balance mb-6">
+          </h5>
+          <h2 className=" text-foreground text-balance mb-6">
             Experience Motorized Shades Before You Buy
           </h2>
-          <p className="exp-header-anim text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance mb-8">
+          <p className="text-sm sm:text-base md:text-lg font-light tracking-wide text-muted leading-relaxed text-balance mb-8">
             Visit our experience centers and experience the elegance, quiet operation, and intelligent control of motorized shades in a real smart home environment.
           </p>
-          <div className="exp-header-anim inline-block bg-background border border-black/5 rounded-full px-6 py-3 shadow-sm">
+          <div className="inline-block bg-background border border-black/5 rounded-full px-6 py-3 shadow-sm">
             <span className="text-sm font-medium tracking-wide text-foreground">
               <strong className="text-accent">1,000+</strong> clients have experienced our solutions before making a decision
             </span>

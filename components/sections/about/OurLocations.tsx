@@ -1,12 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useBreakpoint } from "@/hooks/useBreakpoint";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
-import { DURATION, EASE, STAGGER } from "@/lib/animation.config";
+import React from "react";
 import { MapPin, Phone } from "lucide-react";
 
 const LOCATIONS = [
@@ -28,52 +22,8 @@ const LOCATIONS = [
 ];
 
 export default function OurLocations() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const { isReady } = useBreakpoint();
-
-  useGSAP(() => {
-    if (!isReady || prefersReducedMotion || !sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 75%",
-        onEnter: () => scheduleScrollRefresh(),
-      }
-    });
-
-    // Header reveal
-    tl.fromTo(".loc-header",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: DURATION.slow, ease: EASE.reveal }
-    );
-
-    // Locations reveal
-    tl.fromTo(".loc-item",
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DURATION.slow,
-        ease: "power3.out",
-        stagger: STAGGER.wide
-      },
-      "-=0.6"
-    );
-
-    // Divider lines reveal
-    tl.fromTo(".loc-divider",
-      { scaleX: 0, transformOrigin: "left center" },
-      { scaleX: 1, duration: 1, ease: "power3.inOut", stagger: 0.2 },
-      "-=0.8"
-    );
-
-  }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
-
   return (
     <section
-      ref={sectionRef}
       className="py-12 md:py-16 relative px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       {/* Noise Texture */}
@@ -85,7 +35,7 @@ export default function OurLocations() {
       <div className="relative z-10 max-w-7xl w-full mx-auto">
 
         {/* Header */}
-        <div className="loc-header text-center max-w-3xl mx-auto space-y-4 mb-20 md:mb-32 opacity-0">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-20 md:mb-32">
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Our Locations
           </span>
@@ -99,7 +49,7 @@ export default function OurLocations() {
           {LOCATIONS.map((loc, idx) => (
             <div
               key={idx}
-              className="loc-item flex flex-col items-center text-center opacity-0 group py-10 md:py-0 px-4 md:px-8 lg:px-12 first:pt-0 md:first:pt-0 last:pb-0 md:last:pb-0"
+              className="flex flex-col items-center text-center group py-10 md:py-0 px-4 md:px-8 lg:px-12 first:pt-0 md:first:pt-0 last:pb-0 md:last:pb-0"
             >
               <h3 className=" mb-8 text-foreground transition-colors duration-300">
                 {loc.city}
@@ -109,7 +59,7 @@ export default function OurLocations() {
                 {/* Address */}
                 <div className="flex flex-col items-center gap-3">
                   <MapPin className="w-5 h-5 text-accent opacity-80" />
-                  <p className="text-muted font-light text-[15px] leading-relaxed max-w-[280px]">
+                  <p className="text-muted-foreground font-light text-[15px] leading-relaxed max-w-[280px]">
                     {loc.address}
                   </p>
                 </div>

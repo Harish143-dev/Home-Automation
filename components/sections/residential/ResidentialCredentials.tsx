@@ -26,19 +26,19 @@ export function ResidentialCredentials() {
   useGSAP(() => {
     if (prefersReducedMotion) return;
 
-    const cards = gsap.utils.toArray('.credential-card');
+    // Scoped to containerRef — gsap-react: always scope gsap.utils.toArray
+    const cards = gsap.utils.toArray<HTMLElement>('.credential-card', containerRef.current);
 
-    cards.forEach((card: any) => {
+    cards.forEach((card) => {
       const line = card.querySelector('.credential-line');
       const title = card.querySelector('.credential-title');
-      const desc = card.querySelector('.credential-desc');
       const num = card.querySelector('.credential-num');
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: card,
           start: 'top 85%',
-          toggleActions: 'play none none reverse'
+          toggleActions: 'play none none none'
         }
       });
 
@@ -53,24 +53,21 @@ export function ResidentialCredentials() {
         .fromTo(title,
           { y: 30, opacity: 0, clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' },
           { y: 0, opacity: 1, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', duration: 1, ease: 'power3.out' }, 0.4
-        )
-        .fromTo(desc,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, ease: 'power2.out' }, 0.6
         );
+      // Body text loads natively — no desc stagger
     });
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
   return (
-    <section className="pb-12 md:pb-16 pt-16 md:pt-32 relative bg-background text-foreground overflow-hidden" ref={containerRef}>
+    <section className="py-16 md:py-24 relative bg-background text-foreground overflow-hidden" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
 
           {/* Sticky Left Column */}
           <div className="w-full lg:w-[40%] xl:w-1/3 lg:sticky lg:top-40 flex flex-col gap-4 z-10">
-            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent block mb-2">
+            <h5 className="text-accent !mb-2">
               Global Benchmarks
-            </span>
+            </h5>
             <h2 className=" text-foreground">
               Industry<br />Credentials.
             </h2>

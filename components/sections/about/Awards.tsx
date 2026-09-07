@@ -197,7 +197,7 @@ export default function Awards() {
       <div className="relative z-10 w-full">
 
         {/* Header */}
-        <div className="award-header text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 px-5 sm:px-8 md:px-16 lg:px-24">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16 md:mb-24 px-5 sm:px-8 md:px-16 lg:px-24">
           <span className="block tracking-[0.3em] text-sm md:text-base text-accent font-medium">
             Awards & Certifications
           </span>
@@ -225,13 +225,13 @@ export default function Awards() {
                 key={idx}
                 className="flex-shrink-0 w-[300px] md:w-[380px] lg:w-[420px] px-3 md:px-4 flex"
               >
-                <div className="award-card flex flex-col p-8 rounded-[2rem] bg-black/[0.02] border border-black/5 backdrop-blur-sm group/card hover:bg-black/[0.04] transition-colors duration-500 w-full h-full">
+                <div className="flex flex-col p-8 rounded-xl bg-black/[0.02] border border-black/5 group/card hover:bg-black/[0.04] transition-colors duration-500 w-full h-full">
                   {/* Top Row: Icon & Year */}
                   <div className="flex items-center justify-between mb-8">
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent transition-transform duration-500 group-hover/card:scale-110 group-hover/card:bg-accent group-hover/card:text-white">
                       <Trophy className="w-5 h-5" />
                     </div>
-                    <span className="text-xl font-serif text-muted tracking-wider">
+                    <span className="text-xl font-serif text-muted-foreground tracking-wider">
                       {award.year}
                     </span>
                   </div>

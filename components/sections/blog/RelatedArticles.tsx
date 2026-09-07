@@ -3,8 +3,6 @@
 import { useRef } from "react";
 import NextImage from "next/image";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
 import { BlogPost } from "@/lib/blogData";
 
@@ -13,36 +11,15 @@ interface RelatedArticlesProps {
 }
 
 export default function RelatedArticles({ posts }: RelatedArticlesProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    gsap.fromTo(
-      ".related-card",
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-        }
-      }
-    );
-  }, { scope: sectionRef });
-
   return (
     <section
-      ref={sectionRef}
       className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 border-t border-border"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-4 mb-16">
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
+          <h5 className="text-accent !mb-0">
             Continue Reading
-          </span>
+          </h5>
           <div className="h-[1px] w-12 bg-border" />
         </div>
 
@@ -52,7 +29,7 @@ export default function RelatedArticles({ posts }: RelatedArticlesProps) {
             <Link
               href={`/blog/${article.slug}`}
               key={article.id}
-              className="related-card group cursor-pointer flex flex-col gap-6 block"
+              className="group cursor-pointer flex flex-col gap-6 block"
             >
               {/* Image Wrapper */}
               <div className="relative w-full overflow-hidden rounded-xl aspect-[4/3]">
@@ -70,10 +47,10 @@ export default function RelatedArticles({ posts }: RelatedArticlesProps) {
 
               {/* Content Block */}
               <div className="flex flex-col gap-4 pl-2 border-l border-transparent transition-colors duration-500 group-hover:border-accent flex-grow">
-                <div className="flex items-center gap-3 text-[10px] sm:text-xs tracking-[0.2em] text-muted-foreground">
-                  <span className="text-accent">{article.category}</span>
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <h5 className="text-accent !mb-0">{article.category}</h5>
                   <span className="w-1 h-1 rounded-full bg-border" />
-                  <span>{article.date}</span>
+                  <h5>{article.date}</h5>
                 </div>
 
                 <h3 className=" text-foreground group-hover:text-accent transition-colors duration-500">

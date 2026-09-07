@@ -55,10 +55,10 @@ export default function BlogSidebar() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 w-full p-4">
-                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-[10px] text-white/70 mb-1 block">
+                <h5 className="!text-[10px] text-white/70 mb-1 block">
                   {post.category}
-                </span>
-                <h4 className=" text-white group-hover:text-accent transition-colors line-clamp-2">
+                </h5>
+                <h4 className="text-white text-sm font-medium leading-snug group-hover:text-accent transition-colors line-clamp-2">
                   {post.title}
                 </h4>
               </div>

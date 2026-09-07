@@ -14,11 +14,11 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
         {/* Left Sidebar: Table of Contents */}
-        <div className="lg:col-span-4 lg:sticky lg:top-32 hidden md:block">
+        <div className="lg:col-span-3 lg:sticky lg:top-32 hidden md:block">
           <div className="bg-transparent border border-border rounded-2xl p-6">
-            <h3 className=" text-foreground mb-6">
+            <h4 className=" text-foreground mb-6">
               Table of Contents
-            </h3>
+            </h4>
             <ul className="flex flex-col gap-4 text-sm font-light text-muted-foreground">
               <li className="flex items-center gap-2 text-accent cursor-pointer transition-colors hover:text-accent">
                 <ChevronRight className="w-3 h-3" />
@@ -41,11 +41,11 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
         </div>
 
         {/* Main Content Area */}
-        <div className="lg:col-span-8 flex flex-col gap-10">
+        <div className="lg:col-span-9 flex flex-col gap-10 min-w-0">
 
           {/* Key Takeaways */}
           <div className="bg-transparent border border-border rounded-2xl p-8">
-            <h3 className=" text-foreground mb-4">Key Takeaways</h3>
+            <h4 className=" text-foreground mb-4">Key Takeaways</h4>
             <ul className="flex flex-col gap-3 text-muted-foreground font-light text-sm md:text-base leading-relaxed list-disc list-inside">
               <li>Lighting is a fundamental architectural element, not just functional.</li>
               <li>Human-centric lighting aligns indoor environments with circadian rhythms.</li>
@@ -55,7 +55,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
 
           {/* Contextual Section (Blog Body) */}
           <article
-            className="prose prose-invert max-w-none prose-headings:font-light prose-headings:tracking-wide prose-p:font-light prose-p:leading-relaxed prose-p:text-muted-foreground prose-a:text-accent hover:prose-a:text-accent/80"
+            className="prose max-w-none prose-h2:!text-3xl prose-h2:md:!text-4xl prose-h2:!font-light prose-h2:!tracking-wide prose-h2:!mb-6 prose-h2:!mt-12 prose-headings:font-light prose-headings:tracking-wide prose-p:font-light prose-p:leading-relaxed prose-p:text-muted-foreground prose-a:text-accent hover:prose-a:text-accent/80"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -64,7 +64,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
 
           {/* FAQ Section */}
           <div className="flex flex-col gap-6">
-            <h3 className=" text-foreground">Frequently Asked Questions</h3>
+            <h4 className=" text-foreground">Frequently Asked Questions</h4>
             <div className="flex flex-col gap-4">
               {[
                 { q: "How does human-centric lighting work?", a: "It adjusts color temperature and intensity throughout the day to mimic natural sunlight, supporting your natural circadian rhythm." },
@@ -83,7 +83,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
 
           {/* Bottom Social Share */}
           <div className="flex items-center justify-between gap-4 flex-wrap">
-            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-foreground">Share this article</span>
+            <h5 className="text-foreground !mb-0">Share this article</h5>
             <div className="flex items-center gap-3">
               {[LinkIcon, Mail, Share2].map((Icon, idx) => (
                 <button key={idx} className="w-10 h-10 rounded-full border border-border bg-background shadow-sm flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent hover:bg-accent/5 transition-colors">

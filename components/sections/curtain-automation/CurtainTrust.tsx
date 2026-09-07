@@ -23,57 +23,20 @@ export function CurtainTrust() {
   const statsRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(() => {
-
-    // 1. Initial fade-in for the left sticky column
-    gsap.fromTo(leftColRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: DURATION.slow,
-        ease: EASE.reveal,
-        scrollTrigger: {
-          trigger: leftColRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none reverse',
-        }
-      }
-    );
-
-    // 2. Individual reveal triggers for each vertical stat
-    statsRefs.current.forEach((el) => {
-      if (!el) return;
-      gsap.fromTo(el, {
-        opacity: 0,
-        y: 60
-      }, {
-        opacity: 1,
-        y: 0,
-        duration: DURATION.slow,
-        ease: EASE.reveal,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 72%',
-          toggleActions: 'play none none reverse',
-        }
-      });
-    });
-
     scheduleScrollRefresh();
-
   }, { scope: sectionRef, dependencies: [] });
 
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
+      className="py-16 md:py-24 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 
-        <div ref={leftColRef} className="w-full md:w-1/2 md:sticky md:top-[20vh] pb-6 md:pb-0 opacity-0">
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
+        <div ref={leftColRef} className="w-full md:w-1/2 md:sticky md:top-[20vh] pb-6 md:pb-0">
+          <h5 className="text-accent !mb-4">
             Our Legacy
-          </span>
+          </h5>
           <h2 className=" text-foreground mb-6 sm:mb-8">
             Decades of Excellence.
           </h2>
@@ -100,7 +63,7 @@ export function CurtainTrust() {
             <div
               key={i}
               ref={el => { statsRefs.current[i] = el; }}
-              className="flex flex-col border-b border-black/5 pb-6 sm:pb-8 last:border-b-0 last:pb-0 group cursor-default opacity-0"
+              className="flex flex-col border-b border-black/5 pb-6 sm:pb-8 last:border-b-0 last:pb-0 group cursor-default"
             >
               {stat.prefix && <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mt-5 mb-1 sm:mb-2 block">{stat.prefix}</span>}
               <div className="font-light tracking-wide leading-none text-foreground mb-3 sm:mb-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 text-4xl sm:text-5xl md:text-6xl">

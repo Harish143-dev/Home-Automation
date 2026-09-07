@@ -58,7 +58,7 @@ export default function BlogGrid() {
       </div>
 
       {/* Grid of Articles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
         {ALL_POSTS.slice(0, 9).map((article) => (
           <Link
             href={`/blog/${article.slug}`}
@@ -73,8 +73,8 @@ export default function BlogGrid() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-[10px] text-foreground">
+              <div className="absolute top-3 left-3 bg-background/80 backdrop-blur-md px-2 py-0.5 rounded-full border border-black/10">
+                <span className="!mb-0 !text-[8px] text-foreground">
                   {article.category}
                 </span>
               </div>
@@ -82,9 +82,9 @@ export default function BlogGrid() {
 
             {/* Content Container */}
             <div className="p-5 flex flex-col flex-grow">
-              <h3 className=" text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300">
+              <h4 className=" text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300">
                 {article.title}
-              </h3>
+              </h4>
 
               <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6 line-clamp-3 flex-grow">
                 {article.excerpt}

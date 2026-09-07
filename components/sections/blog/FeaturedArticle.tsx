@@ -3,44 +3,20 @@
 import { useRef } from "react";
 import NextImage from "next/image";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
 import featuredImage from "@/assets/projects/SawaiManMahal.jpg";
 
 export default function FeaturedArticle() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    // Reveal animation
-    gsap.fromTo(
-      ".featured-content",
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        }
-      }
-    );
-  }, { scope: sectionRef });
-
   return (
     <section
-      ref={sectionRef}
       className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
     >
       <Link href="/blog/the-invisible-interface" className="max-w-7xl mx-auto cursor-pointer group block">
-        <div className="featured-content flex flex-col gap-10 lg:gap-16">
+        <div className="flex flex-col gap-10 lg:gap-16">
 
           {/* Magazine Cover Style Image */}
           <div className="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden rounded-2xl">
-            <div ref={imageRef} className="absolute inset-0 will-change-transform">
+            <div className="absolute inset-0 will-change-transform">
               <NextImage
                 src={featuredImage}
                 alt="Featured Editorial Image"
@@ -60,12 +36,12 @@ export default function FeaturedArticle() {
 
           {/* Typography block */}
           <div className="flex flex-col gap-6 md:w-3/4 lg:w-2/3">
-            <div className="flex flex-wrap items-center gap-4 text-xs tracking-[0.2em] text-muted-foreground">
-              <span className="text-accent">Architectural Technology</span>
-              <span>•</span>
-              <span>May 28, 2026</span>
-              <span>•</span>
-              <span>6 Min Read</span>
+            <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
+              <h5 className="text-accent !mb-0">Architectural Technology</h5>
+              <h5>•</h5>
+              <h5 className="!mb-0">May 28, 2026</h5>
+              <h5>•</h5>
+              <h5 className="!mb-0">6 Min Read</h5>
             </div>
 
             <h2 className=" text-foreground group-hover:text-accent transition-colors duration-500">

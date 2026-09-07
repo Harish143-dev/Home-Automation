@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { Button } from '../../ui/button';
 import { gsap, useGSAP, SplitText } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
@@ -10,6 +10,8 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 export function CurtainCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const subheadRef = useRef<HTMLParagraphElement>(null);
+  const btnGroupRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
@@ -21,42 +23,34 @@ export function CurtainCTA() {
       linesClass: 'overflow-hidden'
     });
 
-    gsap.from(split.words, {
+    // Single timeline with one trigger — consolidates 3 separate ScrollTriggers
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 75%',
-      },
+      }
+    });
+
+    tl.from(split.words, {
       yPercent: 120,
       rotationZ: 2,
       opacity: 0,
       duration: 1.2,
       stagger: 0.05,
       ease: 'power4.out',
-    });
-
-    gsap.from('.cta-subhead', {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 65%',
-      },
+    })
+    .from(subheadRef.current, {
       y: 40,
       opacity: 0,
       duration: 1.2,
       ease: 'power3.out',
-      delay: 0.3
-    });
-
-    gsap.from('.cta-btn-group', {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 55%',
-      },
+    }, '-=0.8')
+    .from(btnGroupRef.current, {
       y: 30,
       opacity: 0,
       duration: 1,
       ease: 'power3.out',
-      delay: 0.4
-    });
+    }, '-=0.8');
 
     return () => split.revert();
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
@@ -64,7 +58,7 @@ export function CurtainCTA() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
+      className="py-16 md:py-24 relative flex flex-col items-center justify-center w-full bg-background overflow-hidden px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/[0.03]"
     >
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
@@ -76,7 +70,7 @@ export function CurtainCTA() {
         {/* Minimal Section Label */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-[1px] w-12 bg-black/20" />
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent">Next Steps</span>
+          <h5 className="text-muted !mb-0">Next Steps</h5>
           <div className="h-[1px] w-12 bg-black/20" />
         </div>
 
@@ -87,11 +81,17 @@ export function CurtainCTA() {
           Experience the Perfect Balance <br className="hidden md:block" /> of Comfort, Privacy
         </h2>
 
-        <p className="cta-subhead text-lg md:text-xl text-muted font-light max-w-2xl mx-auto leading-relaxed mb-12">
+        <p
+          ref={subheadRef}
+          className="text-lg md:text-xl text-muted font-light max-w-2xl mx-auto leading-relaxed mb-12"
+        >
           Let our experts design a motorized shading solution tailored to your home, lifestyle, and interior aesthetics. Discover how intelligent curtain automation can elevate everyday living.
         </p>
 
-        <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
+        <div
+          ref={btnGroupRef}
+          className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto"
+        >
           <Link href="#consultation" className="w-full sm:w-auto">
             <Button
               variant="interactive"
