@@ -6,19 +6,13 @@ import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const FOOTER_LINKS = {
-  services: [
-    { label: 'Lighting Automation', href: '/residential/lighting-automation' },
-    { label: 'Audio Video', href: '/residential/audio-video-automation' },
-    { label: 'Curtain Automation', href: '/residential/curtain-automation' },
-    { label: 'Complete Home Automation', href: '/residential' },
-    { label: 'Smart Security', href: '/residential/security-automation' },
-    { label: 'Wi-Fi & Networking', href: '/residential/wifi-networking' },
-    { label: 'Public Area Automation', href: '/hospitality/public-area-automation' },
-    { label: 'Spa and Wellness', href: '/hospitality/spa-and-wellness' },
-    { label: 'Guest Rooms', href: '/hospitality/guest-room-automation' },
-    { label: 'Retail Automation', href: '/commercial/retail-automation' },
-    { label: 'Multiplexes', href: '/commercial/multiplexes' },
-    { label: 'Airport Lounges', href: '/commercial/airport-lounges' },
+  disciplines: [
+    { label: 'Lighting Automation', href: '/disciplines/lighting-automation' },
+    { label: 'Audio Video', href: '/disciplines/audio-video' },
+    { label: 'Shades Automation', href: '/disciplines/shade-automation' },
+    { label: 'HVAC Automation', href: '/disciplines/hvac-automation' },
+    { label: 'Security Automation', href: '/disciplines/security-automation' },
+    { label: 'AMC', href: '/disciplines/amc' },
   ],
   solutions: [
     { label: 'Residential', href: '/residential' },
@@ -157,9 +151,9 @@ export function Footer() {
           </div>
 
           <div className="footer-col flex flex-col gap-6 lg:pl-8">
-            <p className="text-[13px] md:text-sm text-black mb-4">Services</p>
+            <p className="text-[13px] md:text-sm text-black mb-4">Disciplines</p>
             <ul className="flex flex-col gap-1.5">
-              {FOOTER_LINKS.services.map((link) => (
+              {FOOTER_LINKS.disciplines.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-[13px] text-black/70 hover:text-black transition-colors">
                     {link.label}

@@ -62,8 +62,8 @@ export const MAIN_NAVIGATION: NavLink[] = [
     label: 'Disciplines',
     items: [
       { id: 'disc-lighting', label: 'Lighting Automation', href: '/disciplines/lighting-automation' },
-      { id: 'disc-av', label: 'Audio Video Automation', href: '/disciplines/audio-video-automation' },
-      { id: 'disc-shades', label: 'Shades Automation', href: '/disciplines/shades-automation' },
+      { id: 'disc-av', label: 'Audio Video Automation', href: '/disciplines/audio-video' },
+      { id: 'disc-shades', label: 'Shades Automation', href: '/disciplines/shade-automation' },
       { id: 'disc-hvac', label: 'HVAC Automation', href: '/disciplines/hvac-automation' },
       { id: 'disc-security', label: 'Security Automation', href: '/disciplines/security-automation' },
       { id: 'disc-amc', label: 'AMC', href: '/disciplines/amc' },
