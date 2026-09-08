@@ -8,9 +8,9 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { Button } from "@/components/ui/button";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
-import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
+import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
 
-export default function AudioVideoHero() {
+export default function WifiAutomationHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -42,7 +42,7 @@ export default function AudioVideoHero() {
       );
 
     // Subtle parallax on the background image
-    gsap.to(".hero-bg", {
+    gsap.to(".wifi-hero-bg", {
       yPercent: 15,
       ease: EASE.none,
       scrollTrigger: {
@@ -62,59 +62,55 @@ export default function AudioVideoHero() {
       ref={sectionRef}
       className="relative w-full h-[100svh] min-h-[600px] flex overflow-hidden bg-black flex-col justify-end"
     >
-      {/* Background Container */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        {/* Animated Image Wrapper */}
-        <div className="hero-bg absolute inset-0 w-full h-full scale-110">
-          <NextImage
-            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop"
-            alt="Intelligent Audio Video Automation"
+      
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <div className="wifi-hero-bg absolute inset-0 w-full h-full scale-110">
+          <NextImage 
+            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+            alt="Intelligent Wi-Fi and Networking Solutions"
             fill
             priority
             className="object-cover opacity-60"
           />
         </div>
-        {/* Dark overlay for text readability */}
+        {/* Dark gradient overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
       </div>
 
       {/* Content Container (Left Aligned) */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
-
+        
         <h5 className="hero-element text-white/80 mb-4 md:mb-6">
-          Audio Video Integration
+          Wi-Fi & Networking
         </h5>
         
-        {/* Refined editorial headline */}
-        <h1
-          ref={textRef}
-          className="hero-element text-white text-balance mb-6 max-w-4xl"
+        <h1 
+          ref={textRef} 
+          className="text-white text-balance mb-6 max-w-4xl"
         >
-          Intelligent Audio Video Automation &amp; Integration Solutions
+          Intelligent Wi-Fi & Networking Solutions for Connected Spaces
         </h1>
-
-        {/* Subheading */}
-        <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-10 text-balance">
-          Seamlessly integrate audio, video, entertainment, communication, and control systems into intelligent environments designed for effortless operation, exceptional experiences, and reliable performance.
+        
+        <p className="hero-element text-white/80 font-light text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed text-balance mb-10">
+          Build a fast, secure, and reliable network infrastructure designed to power intelligent homes, commercial environments, and hospitality spaces. From seamless Wi-Fi coverage to integrated networking, we create connectivity solutions tailored to your requirements.
         </p>
 
-        {/* CTA Container */}
-        <div className="pointer-events-auto hero-element flex flex-col sm:flex-row gap-5">
-          {/* Primary CTA */}
+        <div className="pointer-events-auto hero-element flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
           <Link href="/contact" className="w-full sm:w-auto">
             <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-              Discuss Your AV Project
+              Talk to a Connectivity Expert
             </Button>
           </Link>
-
-          {/* Secondary CTA */}
-          <Link href="/residential" className="w-full sm:w-auto">
+          <Link href="/contact" className="w-full sm:w-auto">
             <Button variant="shiny" size="lg" className="w-full sm:w-auto">
               Explore Our Solutions
             </Button>
           </Link>
         </div>
+
       </div>
+
     </section>
   );
 }

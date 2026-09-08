@@ -83,6 +83,10 @@ export default function LightingAutomationHero() {
       {/* Content Container (Left Aligned) */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
 
+        <h5 className="hero-element text-white/80 mb-4 md:mb-6">
+          Lighting Automation
+        </h5>
+        
         {/* Refined editorial headline */}
         <h1
           ref={textRef}
