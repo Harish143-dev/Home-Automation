@@ -4,23 +4,38 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { MapPin } from 'lucide-react';
 
 const FOOTER_LINKS = {
-  disciplines: [
-    { label: 'Lighting Automation', href: '/disciplines/lighting-automation' },
-    { label: 'Audio Video', href: '/disciplines/audio-video' },
-    { label: 'Shades Automation', href: '/disciplines/shade-automation' },
-    { label: 'HVAC Automation', href: '/disciplines/hvac-automation' },
-    { label: 'Security Automation', href: '/disciplines/security-automation' },
-    { label: 'AMC', href: '/disciplines/amc' },
+  residential: [
+    { label: 'Lighting Automation', href: '/residential/lighting-automation' },
+    { label: 'Motorized Shades & Curtain Automation', href: '/residential/curtain-automation' },
+    { label: 'Complete Home Automation Solutions', href: '/residential' },
+    { label: 'Audio, Video Integration', href: '/residential/audio-video-automation' },
+    { label: 'Security, Surveillance & Access Control', href: '/residential/security-automation' },
+    { label: 'Wi-Fi, Networking & Smart Control Interfaces', href: '/residential/wifi-networking' },
   ],
-  solutions: [
-    { label: 'Residential', href: '/residential' },
-    { label: 'Hospitality', href: '/hospitality' },
-    { label: 'Commercial', href: '/commercial' },
-    { label: 'MDU Automation', href: '/mdu-automation' },
-    { label: 'Experience Center', href: '/experience-center' },
-    { label: 'All Projects', href: '/projects' },
+  hospitality: [
+    { label: 'Public areas', href: '/hospitality/public-area-automation' },
+    { label: 'Boardroom and Meeting Room', href: '/hospitality/boardroom-automation' },
+    { label: 'Banquet Halls & Event Spaces', href: '/hospitality/banquet-hall-automation' },
+    { label: 'Restaurants', href: '/hospitality/restaurant-automation' },
+    { label: 'Spa and Wellness', href: '/hospitality/spa-and-wellness' },
+    { label: 'Guest Rooms', href: '/hospitality/guest-room-automation' },
+  ],
+  commercial: [
+    { label: 'Restaurants', href: '/commercial/restaurant-automation' },
+    { label: 'Offices', href: '/commercial/office-automation' },
+    { label: 'Institutes', href: '/commercial/institutes' },
+    { label: 'Exhibitions', href: '/commercial/exhibitions' },
+    { label: 'Retail Stores', href: '/commercial/retail-automation' },
+    { label: 'Multiplexes', href: '/commercial/multiplexes' },
+    { label: 'Airport Lounges', href: '/commercial/airport-lounges' },
+  ],
+  resources: [
+    { label: 'Case Studies', href: '#case-studies' },
+    { label: 'Blogs', href: '/blog' },
+    { label: 'Energy Saving guide', href: '#energy-saving' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
@@ -28,6 +43,8 @@ const FOOTER_LINKS = {
     { label: 'Process', href: '/about#process' },
     { label: 'Careers', href: '/careers' },
     { label: 'Contact', href: '/contact' },
+    { label: 'Terms and condition', href: '/terms' },
+    { label: 'Policy', href: '/privacy' },
   ]
 };
 
@@ -74,121 +91,163 @@ export function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="w-full bg-[#fcfcfc] text-[#2d2a26] border-t border-black/10 py-12 md:py-16"
+      className="w-full bg-[#fcfcfc] text-[#2d2a26] border-t border-black/10 py-16 lg:py-24"
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
 
-        {/* Top Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 min-h-[160px]">
-
-          <div className="footer-col flex flex-col">
-            <Link href="/" className="inline-block hover:opacity-80 transition-opacity mb-4">
-              <img src="/logo.svg" alt="AT Smart Living" className="h-12 w-auto" />
+        {/* 6-Column Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1.5fr] gap-10 lg:gap-8">
+          
+          {/* Col 1: Logo & Brief */}
+          <div className="footer-col flex flex-col pr-4">
+            <Link href="/" className="inline-block hover:opacity-80 transition-opacity mb-6">
+              <img src="/logo.svg" alt="AT Smart Living" className="h-10 w-auto" />
             </Link>
+            <p className="text-[13px] md:text-sm text-black/70 leading-relaxed mb-8">
+              For over 24 years, ATPL has been delivering intelligent lighting control and home automation solutions that combine world-class technology, expert execution, and dependable after-sales support.
+            </p>
+            <div className="flex items-center gap-4 text-black/60">
+              <a href="#" className="hover:text-accent transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" className="hover:text-accent transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="#" className="hover:text-accent transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a href="#" className="hover:text-accent transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+              </a>
+            </div>
           </div>
 
-          <div className="footer-col flex flex-col text-[13px] md:text-sm text-black/80">
-            <div className="flex flex-col mb-12">
-              <a href="mailto:hello@at-smart.com" className="hover:text-black transition-colors">hello@at-smart.com</a>
-              <a href="tel:+18005550199" className="hover:text-black transition-colors">+1 (800) 555-0199</a>
-            </div>
-            <a href="#" className="hover:text-black transition-colors mt-auto">@atsmartliving</a>
+          {/* Col 2: Residential */}
+          <div className="footer-col flex flex-col">
+            <h4 className="text-sm font-semibold text-black mb-6">Residential</h4>
+            <ul className="flex flex-col gap-3">
+              {FOOTER_LINKS.residential.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-[13px] text-black/70 hover:text-accent transition-colors leading-snug inline-block">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="footer-col flex flex-col text-[13px] md:text-sm text-black/80">
-            <div className="flex flex-col mb-12">
-              <p className="text-black">Delhi Showroom (HQ)</p>
-              <p>Okhla Industrial Area, Phase 2</p>
-              <p>New Delhi, DL 110020</p>
-              <p>Tuesday – Saturday, 11am – 6pm</p>
-            </div>
-            <Link href="#" className="hover:text-black transition-colors mt-auto">Book an Appointment</Link>
+          {/* Col 3: Hospitality */}
+          <div className="footer-col flex flex-col">
+            <h4 className="text-sm font-semibold text-black mb-6">Hospitality</h4>
+            <ul className="flex flex-col gap-3">
+              {FOOTER_LINKS.hospitality.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-[13px] text-black/70 hover:text-accent transition-colors leading-snug inline-block">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="footer-col flex flex-col text-[13px] md:text-sm text-black/80">
-            <div className="flex flex-col mb-12">
-              <p className="text-black">Mumbai Studio</p>
-              <p>Lower Parel, Suite 204</p>
-              <p>Mumbai, MH 400013</p>
-              <p>Monday – Friday, 10am – 5pm</p>
+          {/* Col 4: Commercial */}
+          <div className="footer-col flex flex-col">
+            <h4 className="text-sm font-semibold text-black mb-6">Commercial</h4>
+            <ul className="flex flex-col gap-3">
+              {FOOTER_LINKS.commercial.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-[13px] text-black/70 hover:text-accent transition-colors leading-snug inline-block">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5: Resources & About Company */}
+          <div className="footer-col flex flex-col gap-10">
+            <div>
+              <h4 className="text-sm font-semibold text-black mb-6">Resources</h4>
+              <ul className="flex flex-col gap-3">
+                {FOOTER_LINKS.resources.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-[13px] text-black/70 hover:text-accent transition-colors leading-snug inline-block">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <Link href="#" className="hover:text-black transition-colors mt-auto">Learn More</Link>
+            <div>
+              <h4 className="text-sm font-semibold text-black mb-6">About Company</h4>
+              <ul className="flex flex-col gap-3">
+                {FOOTER_LINKS.company.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-[13px] text-black/70 hover:text-accent transition-colors leading-snug inline-block">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Col 6: Map & Exp Centers */}
+          <div className="footer-col flex flex-col">
+            <h4 className="text-sm font-semibold text-black mb-6">Headquarters & Experience Centers</h4>
+            
+            {/* Map Embed */}
+            <div className="w-full h-32 bg-black/5 rounded-lg overflow-hidden mb-6 border border-black/10">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.6859546115984!2d77.2727146150807!3d28.54916298245053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3e26bc2299d%3A0xc48c1e28cf6741b6!2sOkhla%20Industrial%20Area%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            {/* Addresses */}
+            <div className="flex flex-col gap-5">
+              <div className="flex gap-3">
+                <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
+                <div className="flex flex-col text-[13px] text-black/70 leading-snug">
+                  <span className="font-semibold text-black">Delhi (HQ)</span>
+                  <span>Okhla Industrial Area, Phase 2</span>
+                  <span>New Delhi, DL 110020</span>
+                </div>
+              </div>
+              
+              <div className="flex gap-3">
+                <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
+                <div className="flex flex-col text-[13px] text-black/70 leading-snug">
+                  <span className="font-semibold text-black">Mumbai</span>
+                  <span>Lower Parel, Suite 204</span>
+                  <span>Mumbai, MH 400013</span>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
+                <div className="flex flex-col text-[13px] text-black/70 leading-snug">
+                  <span className="font-semibold text-black">Bangalore</span>
+                  <span>Indiranagar, 100 Feet Road</span>
+                  <span>Bangalore, KA 560038</span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
 
-        {/* Divider */}
-        <div className="w-full h-[1px] bg-black/10 my-16 md:my-24" />
-
-        {/* Bottom Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-
-          <div className="footer-col flex flex-col gap-12">
-            <p className="text-[13px] md:text-sm text-black/80 leading-relaxed pr-8">
-              Sign up for our newsletter to receive seasonal promotions and updates from our studio.
-            </p>
-
-            <div className="flex flex-col gap-3">
-              <p className="text-[13px] md:text-sm text-black/80">Our Newsletter</p>
-              <form className="flex border border-black/30 w-full max-w-[320px] transition-colors focus-within:border-black/60">
-                <input
-                  type="email"
-                  placeholder="Your Email Address"
-                  className="bg-transparent px-4 py-2.5 text-[13px] flex-grow outline-none placeholder:text-black/40 w-full"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-6 text-[13px] text-black/50 hover:text-black border-l border-black/30 transition-colors whitespace-nowrap"
-                >
-                  Sign Up
-                </button>
-              </form>
-              <p className="text-[11px] text-black/60 mt-1">
-                By signing up you are agreeing to our <Link href="#" className="underline underline-offset-2 hover:text-black transition-colors">Privacy Policy</Link>.
-              </p>
-            </div>
-          </div>
-
-          <div className="footer-col flex flex-col gap-6 lg:pl-8">
-            <p className="text-[13px] md:text-sm text-black mb-4">Disciplines</p>
-            <ul className="flex flex-col gap-1.5">
-              {FOOTER_LINKS.disciplines.map((link) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="text-[13px] text-black/70 hover:text-black transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="footer-col flex flex-col gap-6">
-            <p className="text-[13px] md:text-sm text-black mb-4">Solutions</p>
-            <ul className="flex flex-col gap-1.5">
-              {FOOTER_LINKS.solutions.map((link) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="text-[13px] text-black/70 hover:text-black transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="footer-col flex flex-col gap-6">
-            <p className="text-[13px] md:text-sm text-black mb-4">Company</p>
-            <ul className="flex flex-col gap-1.5">
-              {FOOTER_LINKS.company.map((link) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="text-[13px] text-black/70 hover:text-black transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        {/* Bottom Bar */}
+        <div className="w-full h-[1px] bg-black/10 mt-16 mb-8" />
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-black/50">
+          <p>© {new Date().getFullYear()} AT Smart Living. All rights reserved.</p>
+          <p>Designed for the future of connected spaces.</p>
         </div>
 
       </div>

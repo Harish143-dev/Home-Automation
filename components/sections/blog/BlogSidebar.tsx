@@ -6,7 +6,7 @@ import Link from "next/link";
 import { BLOG_POSTS, FEATURED_POST } from "@/lib/blogData";
 
 export default function BlogSidebar() {
-  const featuredBlogs = [FEATURED_POST, BLOG_POSTS[0]];
+  const featuredBlogs = [FEATURED_POST, BLOG_POSTS[0]].filter(Boolean);
   const latestArticles = BLOG_POSTS.slice(1, 4);
 
   return (

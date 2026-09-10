@@ -7,7 +7,7 @@ import { BLOG_POSTS, FEATURED_POST } from "@/lib/blogData";
 
 export default function BlogDetailSidebar() {
   // Demo data for the sidebar
-  const featuredBlogs = [FEATURED_POST, BLOG_POSTS[0]];
+  const featuredBlogs = [FEATURED_POST, BLOG_POSTS[0]].filter(Boolean);
   const recentBlogs = BLOG_POSTS.slice(1, 4);
   const categories = ["All Categories", "Smart Living", "Hospitality", "Home Automation", "Lighting Design"];
 

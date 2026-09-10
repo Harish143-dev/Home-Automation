@@ -9,8 +9,7 @@ import { BLOG_POSTS, FEATURED_POST } from "@/lib/blogData";
 
 const CATEGORIES = ["All Categories", "Smart Living", "Hospitality", "Home Automation", "Lighting Design"];
 
-// Combine all posts for the grid (duplicating some for dummy volume to match wireframe 3x3 grid)
-const ALL_POSTS = [FEATURED_POST, ...BLOG_POSTS, ...BLOG_POSTS].map((post, i) => ({
+const ALL_POSTS = [FEATURED_POST, ...BLOG_POSTS].map((post, i) => ({
   ...post,
   id: `grid-post-${i}`,
   author: "ATPL Team"
