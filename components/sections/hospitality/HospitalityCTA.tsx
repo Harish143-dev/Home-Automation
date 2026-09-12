@@ -107,10 +107,10 @@ export function HospitalityCTA() {
           <Button
             variant="glass"
             size="lg"
-            className="group h-auto py-4 sm:py-5 px-8 w-full sm:w-auto border-black/10 text-black hover:bg-black/[0.02] rounded-full"
+            className="group w-full sm:w-auto border-black/10 text-black hover:bg-black/[0.02]"
           >
             <Phone className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
-            <span className="text-base sm:text-lg font-semibold tracking-wide">
+            <span className="text-base sm:text-lg tracking-wide">
               Speak to our Experts
             </span>
           </Button>

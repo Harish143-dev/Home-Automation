@@ -141,13 +141,6 @@ export function RestaurantProjects() {
             </div>
           ))}
 
-          {/* "And many more" Card */}
-          <div className="project-card snap-start md:snap-align-none shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] flex flex-col group justify-center items-center bg-accent/[0.03] border border-accent/10 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 rounded-[2rem]">
-            <div className="p-12 text-center">
-              <h3 className="text-accent italic text-balance mb-4">And many more...</h3>
-              <p className="text-muted-foreground text-sm font-light">Explore our full portfolio of premium automation projects.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

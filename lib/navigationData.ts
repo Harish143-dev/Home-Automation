@@ -22,7 +22,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
         items: [
           { id: 'res-lighting', label: 'Lighting Automation', href: '/residential/lighting-automation' },
           { id: 'res-shades', label: 'Motorized Shades & Curtain Automation', href: '/residential/curtain-automation' },
-          { id: 'res-complete', label: 'Complete Home Automation Solutions', href: '/residential' },
+          { id: 'res-complete', label: 'Complete Home Automation Solutions', href: '/residential/mdu-automation' },
           { id: 'res-av', label: 'Audio, Video Integration', href: '/residential/audio-video-automation' },
           { id: 'res-security', label: 'Security, Surveillance & Access Control', href: '/residential/security-automation' },
           { id: 'res-wifi', label: 'Wi-Fi, Networking & Smart Control Interfaces', href: '/residential/wifi-networking' },

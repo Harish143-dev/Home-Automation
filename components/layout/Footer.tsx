@@ -10,7 +10,7 @@ const FOOTER_LINKS = {
   residential: [
     { label: 'Lighting Automation', href: '/residential/lighting-automation' },
     { label: 'Motorized Shades & Curtain Automation', href: '/residential/curtain-automation' },
-    { label: 'Complete Home Automation Solutions', href: '/residential' },
+    { label: 'Complete Home Automation Solutions', href: '/residential/mdu-automation' },
     { label: 'Audio, Video Integration', href: '/residential/audio-video-automation' },
     { label: 'Security, Surveillance & Access Control', href: '/residential/security-automation' },
     { label: 'Wi-Fi, Networking & Smart Control Interfaces', href: '/residential/wifi-networking' },
