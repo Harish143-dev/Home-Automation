@@ -105,7 +105,7 @@ export function AirportLoungesHero() {
  </Link>
 
  {/* Secondary CTA */}
- <Link href="#solutions" className="w-full sm:w-auto">
+ <Link href="/contact" className="w-full sm:w-auto">
  <Button variant="shiny" size="lg" className="w-full sm:w-auto">
  Explore Our Solutions
  </Button>

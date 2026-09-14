@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { ArrowRight, ClipboardList } from 'lucide-react';
 import { Button } from '../../ui/button';
 import { gsap, ScrollTrigger, useGSAP, SplitText } from '../../../lib/gsapSetup';
@@ -102,25 +103,29 @@ export function CommercialCTA() {
         {/* Standard Project Buttons */}
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <Button
-            variant="interactive"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
-            Calculate System ROI
-          </Button>
+          <Link href="#roi-calculator">
+            <Button
+              variant="interactive"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Calculate System ROI
+            </Button>
+          </Link>
 
           {/* Secondary CTA */}
-          <Button
-            variant="glass"
-            size="lg"
-            className="group w-full sm:w-auto border-border text-foreground hover:bg-surface-darker rounded-full"
-          >
-            <ClipboardList className="w-5 h-5 mr-2 text-muted group-hover:text-foreground transition-colors duration-300" />
-            <span className="text-base sm:text-lg font-medium tracking-wide">
-              Request an Engineering Feasibility Study
-            </span>
-          </Button>
+          <Link href="/contact">
+            <Button
+              variant="glass"
+              size="lg"
+              className="group w-full sm:w-auto border-border text-foreground hover:bg-surface-darker rounded-full"
+            >
+              <ClipboardList className="w-5 h-5 mr-2 text-muted group-hover:text-foreground transition-colors duration-300" />
+              <span className="text-base sm:text-lg font-medium tracking-wide">
+                Request an Engineering Feasibility Study
+              </span>
+            </Button>
+          </Link>
         </div>
 
       </div>

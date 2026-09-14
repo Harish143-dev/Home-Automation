@@ -9,19 +9,16 @@ const TESTIMONIAL_DATA = [
   {
     id: 1,
     name: "Vikram S.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
     description: "The Delhi Experience Centre completely changed my perspective on home automation. Feeling the ambiance shift with a single touch was incredible."
   },
   {
     id: 2,
     name: "Priya M.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
     description: "As an architect, seeing the seamless integration of AV and lighting at the Mumbai showroom gave me the exact confidence I needed for my next luxury project."
   },
   {
     id: 3,
     name: "Rajesh K.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
     description: "Experiencing the automated shades and intelligent climate control in person made the decision to upgrade our entire Bangalore property effortless."
   }
 ];

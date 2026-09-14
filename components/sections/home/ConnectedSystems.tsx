@@ -1,6 +1,7 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import React, { useRef } from "react";
 import { gsap, useGSAP } from "../../../lib/gsapSetup";
 import {
@@ -232,14 +233,16 @@ function ServicePanelCard({
           </p>
 
           <div className="cs-stagger-el">
-            <Button
-              variant="interactive"
-              size="lg"
-              aria-label={`Explore ${service.title} solution`}
-              className="w-full sm:w-auto mt-4"
-            >
-              Talk to an Expert
-            </Button>
+            <Link href="/contact">
+              <Button
+                variant="interactive"
+                size="lg"
+                aria-label={`Explore ${service.title} solution`}
+                className="w-full sm:w-auto mt-4"
+              >
+                Talk to an Expert
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

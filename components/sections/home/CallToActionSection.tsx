@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { ArrowRight, Phone } from 'lucide-react';
 import { Button } from '../../ui/button';
 import { gsap, ScrollTrigger, useGSAP, SplitText } from '../../../lib/gsapSetup';
@@ -95,18 +96,23 @@ export function CallToActionSection() {
         {/* Standard Project Buttons */}
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <Button
-            variant="interactive"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
-            Book Consultation
-          </Button>
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              variant="interactive"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Book Consultation
+            </Button>
+          </Link>
 
           {/* Secondary CTA */}
-          <Button variant="outline" size="lg" className="w-full sm:w-auto">
-            Call Now
-          </Button>
+          <a href="tel:+911145643992" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2">
+              <Phone className="w-4 h-4" />
+              Call Now
+            </Button>
+          </a>
         </div>
 
       </div>

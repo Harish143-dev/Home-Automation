@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
 import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 
-export function ExhibitionsHero() {
+export default function AMCHero() {
  const sectionRef = useRef<HTMLElement>(null);
  const textRef = useRef<HTMLHeadingElement>(null);
  const prefersReducedMotion = useReducedMotion();
@@ -62,15 +62,15 @@ export function ExhibitionsHero() {
  return (
  <section
  ref={sectionRef}
- className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-start overflow-hidden bg-black"
+ className="relative w-full h-[100svh] min-h-[600px] flex overflow-hidden bg-black flex-col justify-end"
  >
  {/* Background Container */}
  <div className="absolute inset-0 w-full h-full overflow-hidden">
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2000&auto=format&fit=crop"
- alt="Immersive Exhibition Technology"
+ src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=2070&auto=format&fit=crop"
+ alt="Annual Maintenance & Support"
  fill
  priority
  className="object-cover opacity-60"
@@ -80,34 +80,39 @@ export function ExhibitionsHero() {
  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
  </div>
 
- <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start text-left mt-12 md:mt-20">
+ {/* Content Container (Left Aligned) */}
+ <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
 
- {/* H1 Heading sizing strictly matching DESIGN_SYSTEM.md */}
+ <h5 className="hero-element text-white/80 mb-4 md:mb-6">
+ AMC & Support
+ </h5>
+ 
+ {/* Refined editorial headline */}
  <h1
  ref={textRef}
- className="hero-element text-white text-balance mb-6 max-w-5xl"
+ className="hero-element text-white text-balance mb-6 max-w-4xl"
  >
- Immersive Technology Solutions for Exhibitions & Brand Experiences
+ Annual Maintenance & Support for Intelligent Automation Systems
  </h1>
 
  {/* Subheading */}
- <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-3xl mb-6 text-balance">
- Create engaging exhibition spaces with integrated lighting, immersive LED displays, audio, networking, and interactive technology designed to capture attention and deliver memorable brand experiences.
+ <p className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-6 text-balance">
+ Keep your automation, audio-video, lighting, networking, security, HVAC and smart technology systems performing at their best with reliable annual maintenance and expert technical support from Anusha Technovision.
  </p>
 
  {/* CTA Container */}
- <div className="hero-element flex flex-col pointer-events-auto sm:flex-row gap-5">
+ <div className="pointer-events-auto hero-element flex flex-col sm:flex-row gap-5">
  {/* Primary CTA */}
  <Link href="/contact" className="w-full sm:w-auto">
  <Button variant="interactive" size="lg" className="w-full sm:w-auto">
- Discuss Your Exhibition
+ Request AMC Support
  </Button>
  </Link>
 
  {/* Secondary CTA */}
  <Link href="/contact" className="w-full sm:w-auto">
  <Button variant="shiny" size="lg" className="w-full sm:w-auto">
- Explore Our Solutions
+ Talk to Our Support Team
  </Button>
  </Link>
  </div>

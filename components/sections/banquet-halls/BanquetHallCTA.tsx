@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { Button } from '../../ui/button';
 import { gsap, ScrollTrigger, useGSAP, SplitText } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
@@ -95,23 +96,27 @@ export function BanquetHallCTA() {
         {/* Standard Project Buttons */}
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <Button
-            variant="interactive"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
-            Schedule a Hospitality Consultation
-          </Button>
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              variant="interactive"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Schedule a Hospitality Consultation
+            </Button>
+          </Link>
 
           {/* Secondary CTA */}
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full sm:w-auto gap-2"
-          >
-            <MessageSquare className="w-4 h-4" />
-            Talk to an Automation Expert
-          </Button>
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto gap-2"
+            >
+              <MessageSquare className="w-4 h-4" />
+              Talk to an Automation Expert
+            </Button>
+          </Link>
         </div>
 
       </div>

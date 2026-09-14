@@ -6,7 +6,7 @@ import NextImage from "next/image";
 export default function AboutTheCompany() {
   return (
     <section
-      className="py-12 md:py-16 relative px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background border-t border-black/5"
+      className="py-12 md:py-16 relative px-5 sm:px-8 md:px-16 lg:px-24 overflow-hidden bg-background -mt-[1px] z-10"
     >
       {/* Noise Texture */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.015] pointer-events-none" aria-hidden="true">

@@ -104,7 +104,7 @@ export default function AboutCTA() {
             </Button>
           </Link>
 
-          <Link href="/contact" className="w-full sm:w-auto cta-button">
+          <Link href="/careers" className="w-full sm:w-auto cta-button">
             <Button variant="outline" size="lg" className="w-full text-black">
               <Briefcase className="w-4 h-4 mr-2" />
               Work With Us

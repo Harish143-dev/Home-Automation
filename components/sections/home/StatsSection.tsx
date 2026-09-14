@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useRef } from 'react';
-import Link from 'next/link';
-import { Button } from '../../ui/button';
 import { DURATION, EASE } from '../../../lib/animation.config';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
@@ -74,18 +72,7 @@ export function StatsSection() {
           <p className="text-muted text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-lg mb-8 sm:mb-10">
             We integrate advanced lighting, climate, and media systems into India’s finest private residences, hotels and offices, preserving architectural integrity while perfecting daily living. In the last 25 years, we have helped 700 architects, 200 hoteliers and 100 MEPs, across 23 cities PAN India. We’ve completed over 1,023 projects worth 7,217cr. We’ve saved over 15.5 million kWh of energy. We distribute products from over 30 global manufacturers.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/ecosystem">
-              <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-                Explore Our Ecosystem
-              </Button>
-            </Link>
-            <Link href="/projects">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                View Projects
-              </Button>
-            </Link>
-          </div>
+
         </div>
 
         {/* Right Stats Vertical Stack (Native Scrolling) */}

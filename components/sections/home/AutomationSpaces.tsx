@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '../../ui/button';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
@@ -198,6 +199,16 @@ export function AutomationSpaces() {
                       {panel.btn}
                       <ArrowRight className="w-4 h-4" />
                     </Link>
+                  ) : panel.title === 'Commercial' ? (
+                    <Link href="/commercial" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 tracking-wider hover:opacity-70 transition-opacity w-fit">
+                      {panel.btn}
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  ) : panel.title === 'Hospitality' ? (
+                    <Link href="/hospitality" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 tracking-wider hover:opacity-70 transition-opacity w-fit">
+                      {panel.btn}
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   ) : (
                     <button className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 tracking-wider hover:opacity-70 transition-opacity w-fit">
                       {panel.btn}
@@ -212,13 +223,11 @@ export function AutomationSpaces() {
 
         {/* Global Section CTA - Mobile */}
         <div className="w-full flex items-center justify-center pb-24 pt-8">
-          <button
-            type="button"
-            className="group flex h-14 items-center gap-3 rounded-full bg-accent px-8 font-medium text-white text-base transition-all duration-300 hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95"
-          >
-            <span className="tracking-wide">Explore All Solutions</span>
-            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
+          <Link href="/contact">
+            <Button variant="interactive" size="lg">
+              Explore All Solutions
+            </Button>
+          </Link>
         </div>
       </div>
     );
@@ -278,6 +287,16 @@ export function AutomationSpaces() {
                   {panel.btn}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
+              ) : panel.title === 'Commercial' ? (
+                <Link href="/commercial" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity tracking-wider">
+                  {panel.btn}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              ) : panel.title === 'Hospitality' ? (
+                <Link href="/hospitality" className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity tracking-wider">
+                  {panel.btn}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               ) : (
                 <button className="flex items-center gap-2 text-sm md:text-base font-medium border-b-2 border-accent text-accent pb-1 hover:opacity-60 transition-opacity tracking-wider">
                   {panel.btn}
@@ -291,13 +310,11 @@ export function AutomationSpaces() {
 
       {/* Global Section CTA - scrolls naturally after pin */}
       <div className="relative w-full flex items-center justify-center pb-16 pt-12 bg-background">
-        <button
-          type="button"
-          className="group flex h-14 md:h-16 items-center gap-3 rounded-full bg-accent px-8 md:px-10 font-medium text-white text-base md:text-lg transition-all duration-300 hover:scale-105 hover:bg-accent-soft shadow-sm active:scale-95"
-        >
-          <span className="tracking-wide">Get a Quote</span>
-          <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-        </button>
+        <Link href="/contact">
+          <Button variant="interactive" size="lg">
+            Get a Quote
+          </Button>
+        </Link>
       </div>
     </div>
   );

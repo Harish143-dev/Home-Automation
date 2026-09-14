@@ -49,9 +49,9 @@ export function ContactExperience() {
         {/* Left: Contact Philosophy */}
         <div className="flex-1 flex flex-col gap-8 lg:max-w-xl">
           <div className="stagger-reveal flex items-center gap-4">
-            <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
+            <h5 className="text-accent !mb-0">
               Direct Access
-            </span>
+            </h5>
           </div>
 
           <h2 className=" stagger-reveal text-foreground">

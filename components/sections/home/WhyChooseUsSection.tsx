@@ -12,7 +12,7 @@ import {
   Star,
   Layers
 } from 'lucide-react';
-import { Button } from '../../ui/button';
+
 
 const usps = [
   {
@@ -21,6 +21,7 @@ const usps = [
     shortTitle: 'Experience',
     description: "Over 24 years of industry leadership in Lighting Controls, Automation, Audio-Video, Security, and Wi-Fi Systems.",
     icon: Briefcase,
+    href: '/about'
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ const usps = [
     shortTitle: 'Portfolio',
     description: "Over 650 homes, over 250 hotels and over 100 offices completed",
     icon: Layers,
+    href: '/projects'
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const usps = [
     shortTitle: 'Reach',
     description: "Expertise across Residential, Commercial, Institutional, and Hospitality sectors with global reach.",
     icon: Globe,
+    href: '/projects'
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const usps = [
     shortTitle: 'Services',
     description: "In-house commissioning & installation for full quality control, Post-warranty AMC services & Full project lifecycle support from consultation to execution.",
     icon: Settings,
+    href: '/about'
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ const usps = [
     shortTitle: 'Centres',
     description: "State-of-the-Art Experience centres in Delhi (opened in December 2015) & Mumbai (2023) & Bangalore (2025).",
     icon: MapPin,
+    href: '/experience-center'
   },
   {
     id: 6,
@@ -56,6 +61,7 @@ const usps = [
     shortTitle: 'Recognition',
     description: "Largest Residential and Hospitality Lutron Partner in India, Authorized Shade fabricator for Lutron in India & Award-winning partner at Lutron yearly awards for 10 consecutive years.",
     icon: Award,
+    href: '/about'
   },
   {
     id: 7,
@@ -63,6 +69,7 @@ const usps = [
     shortTitle: 'Top Brands',
     description: "Represent Industry Leaders in Lighting Controls, BoardRoom Solutions, Security Systems and A/V Options. Long Associations give end users better support.",
     icon: Star,
+    href: '/about'
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ const usps = [
     shortTitle: 'Support',
     description: "24/7 on call service, 4 hour on site service, In-house team of 60+ engineers. Long-term experience & quality service. Pan India Presence.",
     icon: Headphones,
+    href: '/about'
   }
 ];
 
@@ -119,9 +127,6 @@ export function WhyChooseUsSection() {
                   </p>
 
                   <div className="mt-auto">
-                    <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-                      Learn More
-                    </Button>
                   </div>
                 </div>
               </div>
@@ -129,13 +134,6 @@ export function WhyChooseUsSection() {
           })}
         </div>
 
-        {/* View All Button */}
-        <div className="mt-12 flex justify-center relative z-20">
-          <button className="flex items-center justify-center px-8 py-4 gap-3 text-[15px] font-medium text-foreground bg-surface-darker hover:bg-panel border border-border rounded-full transition-all group">
-            View All Capabilities
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-accent" />
-          </button>
-        </div>
       </div>
     </section>
   );

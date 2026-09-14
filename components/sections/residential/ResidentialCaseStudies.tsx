@@ -19,7 +19,7 @@ const PROJECTS_DATA = [
       "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
       "/assets/residential/project/delhi-residence/delhi-residence-4.jpg"
     ],
-    link: "/case-studies/dixit-nene"
+    link: "/projects/dixit-nene"
   },
   {
     id: "rajan-mittal",
@@ -33,7 +33,7 @@ const PROJECTS_DATA = [
       "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
       "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-4.jpg"
     ],
-    link: "/case-studies/rajan-mittal"
+    link: "/projects/rajan-mittal"
   },
   {
     id: "bkt-farms",
@@ -47,7 +47,7 @@ const PROJECTS_DATA = [
       "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg",
       "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-4.jpg"
     ],
-    link: "/case-studies/bkt-farms"
+    link: "/projects/bkt-farms"
   }
 ];
 

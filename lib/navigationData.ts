@@ -81,12 +81,8 @@ export const MAIN_NAVIGATION: NavLink[] = [
   },
   {
     id: 'experience',
-    label: 'Experience',
-    items: [
-      { id: 'exp-delhi', label: 'Delhi', href: '#exp-delhi' },
-      { id: 'exp-mumbai', label: 'Mumbai', href: '#exp-mumbai' },
-      { id: 'exp-bangalore', label: 'Bangalore', href: '#exp-bangalore' },
-    ]
+    label: 'Experience Centres',
+    href: '/experience-center',
   },
   {
     id: 'energy-saving',

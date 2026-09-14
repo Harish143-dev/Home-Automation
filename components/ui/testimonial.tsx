@@ -6,7 +6,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface Testimonial {
   id: number | string;
   name: string;
-  avatar: string;
   description: string;
 }
 
@@ -202,12 +201,7 @@ const TestimonialCarousel = React.forwardRef<
               )}
 
               <div className="p-8 flex flex-col items-center gap-6 text-center h-full pt-12">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-20 h-20 rounded-full object-cover shadow-lg border border-border pointer-events-none select-none"
-                  draggable={false}
-                />
+
                 <p className="text-sm md:text-base text-muted-foreground font-medium italic leading-relaxed pointer-events-none select-none">
                   "{testimonial.description}"
                 </p>

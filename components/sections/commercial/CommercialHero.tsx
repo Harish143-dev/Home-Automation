@@ -133,7 +133,7 @@ export function CommercialHero() {
  ref={ctaRef}
  className="pointer-events-auto flex flex-col sm:flex-row gap-4"
  >
- <Link href="#consultation">
+ <Link href="/contact">
  <Button variant="interactive" size="lg" className="w-full sm:w-auto"
  >
  Schedule an Institutional Consultation

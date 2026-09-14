@@ -14,15 +14,14 @@ export default function BrochureDownloadPage() {
     name: '',
     phone: '',
     email: '',
-    city: '',
-    newsletter: true
+    city: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: value
     }));
   };
 
@@ -140,19 +139,7 @@ export default function BrochureDownloadPage() {
               />
             </div>
 
-            <div className="flex items-center gap-3 mt-2">
-              <input
-                type="checkbox"
-                id="newsletter"
-                name="newsletter"
-                checked={formData.newsletter}
-                onChange={handleChange}
-                className="w-5 h-5 accent-accent cursor-pointer"
-              />
-              <label htmlFor="newsletter" className="text-sm text-muted cursor-pointer select-none">
-                Yes, I would like to receive updates and news.
-              </label>
-            </div>
+
 
             <Button
               type="submit"

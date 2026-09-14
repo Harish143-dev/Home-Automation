@@ -335,6 +335,7 @@ h6 {
 
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
 }
 

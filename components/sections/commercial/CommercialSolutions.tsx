@@ -35,8 +35,7 @@ const SYSTEMS_DATA = [
       "Optimized Occupant Comfort & Agency",
       "Unified Smart Building Ecosystem Integration",
       "Low-Maintenance Operational Stability"
-    ],
-    ctaText: "Explore Vive Solutions"
+    ]
   },
   {
     topHeading: "Lutron Athena",
@@ -63,8 +62,7 @@ const SYSTEMS_DATA = [
       "Simplified Institutional Facilities Governance: Centralizes sprawled, multi-system properties under a singular, intelligent command framework, minimizing labor dependencies and operational friction.",
       "Maximization of Asset Spatial Utilization: Evaluates real-time sensor metrics and occupancy habits, yielding actionable intelligence that allows enterprises to adapt their physical real estate agility.",
       "Enterprise Scale Across Infinite Blueprints: Expands effortlessly from a single high-profile presidential suite or executive boardroom into a unified network governing multiple buildings across a national real estate portfolio."
-    ],
-    ctaText: "Explore Athena Systems"
+    ]
   }
 ];
 
@@ -249,11 +247,7 @@ export function CommercialSolutions() {
                     </AccordionItem>
                   </div>
 
-                  {/* CTA Button */}
-                  <button className="mt-12 px-8 py-4 border border-border rounded-full w-fit hover:border-accent hover:text-accent transition-all duration-300 flex items-center gap-3 group">
-                    <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base">{system.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+
                 </div>
 
                 {/* Imagery */}

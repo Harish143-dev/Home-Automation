@@ -144,8 +144,8 @@ export function CommercialProjects() {
           </p>
         </div>
 
-        {/* Carousel Controls */}
-        <div className="flex gap-4">
+        {/* Carousel Controls - Desktop */}
+        <div className="hidden md:flex gap-4">
           <button
             onClick={() => scroll("left")}
             className="w-14 h-14 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
@@ -172,10 +172,10 @@ export function CommercialProjects() {
         {CASE_STUDIES.map((study) => (
           <div
             key={study.id}
-            className="case-card flex-shrink-0 w-full md:w-[85vw] lg:w-[900px] snap-center bg-white rounded-[24px] overflow-hidden border border-border flex flex-col lg:flex-row shadow-xl"
+            className="case-card flex-shrink-0 w-[85vw] sm:w-[75vw] lg:w-[900px] snap-center bg-white rounded-[24px] overflow-hidden border border-border flex flex-col lg:flex-row shadow-xl"
           >
             {/* Image Side */}
-            <div className="w-full lg:w-[40%] h-[250px] lg:h-auto relative">
+            <div className="w-full lg:w-[40%] h-[200px] sm:h-[250px] lg:h-auto relative">
               <NextImage
                 src={study.image}
                 alt={study.title}
@@ -186,7 +186,7 @@ export function CommercialProjects() {
             </div>
 
             {/* Data Side */}
-            <div className="w-full lg:w-[60%] p-6 lg:p-8 flex flex-col justify-center">
+            <div className="w-full lg:w-[60%] p-5 sm:p-6 lg:p-8 flex flex-col justify-center">
               <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-2">
                 {study.asset}
               </span>
@@ -233,6 +233,24 @@ export function CommercialProjects() {
 
           </div>
         ))}
+      </div>
+
+      {/* Carousel Controls - Mobile */}
+      <div className="flex md:hidden justify-center gap-6 px-6 mt-2 pb-6">
+        <button
+          onClick={() => scroll("left")}
+          className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
+          aria-label="Previous project"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        </button>
+        <button
+          onClick={() => scroll("right")}
+          className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
+          aria-label="Next project"
+        >
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </button>
       </div>
 
       <style dangerouslySetInnerHTML={{

@@ -66,7 +66,7 @@ export default function ArticleGrid() {
 
         {/* Load More Cinematic CTA */}
         <div className="mt-24 md:mt-32 flex justify-center">
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => window.alert('More articles coming soon!')}>
             Load More Insights
           </Button>
         </div>

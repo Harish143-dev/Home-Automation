@@ -130,14 +130,14 @@ export function ExperienceHero() {
  ref={ctaRef}
  className="pointer-events-auto flex flex-col sm:flex-row gap-4"
  >
- <Link href="#schedule">
+ <Link href="/contact">
  <Button variant="interactive" size="lg" className="w-full sm:w-auto"
  >
  Schedule a Visit
  </Button>
  </Link>
 
- <Link href="#demo">
+ <Link href="/contact">
  <Button variant="shiny" size="lg" className="w-full sm:w-auto"
  >
  Book a Virtual Demo

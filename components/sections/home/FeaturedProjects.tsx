@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import React, { useRef } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '../../ui/button';
@@ -196,9 +197,9 @@ export function FeaturedProjects() {
                     ))}
                   </ul>
                   <p className="text-xs sm:text-sm text-muted mb-4 sm:mb-6">{proj.description}</p>
-                  <button type="button" aria-label={`Explore ${proj.name}`} className="flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-70 transition-colors">
+                  <Link href="/projects" aria-label={`Explore ${proj.name}`} className="flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-70 transition-colors">
                     Explore Project <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </article>
             ))}
@@ -281,9 +282,11 @@ export function FeaturedProjects() {
                         ))}
                       </ul>
                       <div className="fp-stagger mt-auto">
-                        <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-                          View Project
-                        </Button>
+                        <Link href="/projects">
+                          <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                            View Project
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </div>

@@ -19,8 +19,8 @@ const EXPERIENCE_CENTRES = [
       "Centralized automation systems"
     ],
     ctas: [
-      { label: "Book Delhi Visit", action: "#book-delhi", variant: "accent" },
-      { label: "Get Directions", action: "#directions-delhi", variant: "outline" }
+      { label: "Book Delhi Visit", action: "/contact", variant: "accent" },
+      { label: "Get Directions", action: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRiPAtIBCDcyNzFqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KU_nozEp4ww5MbDKaEKKBAAd&daddr=Lower+Ground+Floor,+D20,+Block+D,+Jangpura,+New+Delhi,+Delhi+110014", variant: "outline" }
     ],
     image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg"
   },
@@ -36,8 +36,8 @@ const EXPERIENCE_CENTRES = [
       "Security & surveillance integration"
     ],
     ctas: [
-      { label: "Schedule Mumbai Tour", action: "#book-mumbai", variant: "accent" },
-      { label: "View Location", action: "#directions-mumbai", variant: "outline" }
+      { label: "Schedule Mumbai Tour", action: "/contact", variant: "accent" },
+      { label: "View Location", action: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQIRgKGKABMgkIAhAhGAoYoAEyCQgDECEYChigAdIBCDc2MjhqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kd3I1msJyec7MawqPHig3y7m&daddr=10/76,+Apte+properties,+Ground+floor+Parijat+house,+LR+Papan+Marg,+off+Doctor+Elijah+Moses+Road,+Worli,+Mumbai,+Maharashtra+400018", variant: "outline" }
     ],
     image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg"
   },
@@ -52,8 +52,8 @@ const EXPERIENCE_CENTRES = [
       "Commercial automation demos"
     ],
     ctas: [
-      { label: "Schedule Bangalore Visit", action: "#book-bangalore", variant: "accent" },
-      { label: "Get Directions", action: "#directions-bangalore", variant: "outline" }
+      { label: "Schedule Bangalore Visit", action: "/contact", variant: "accent" },
+      { label: "Get Directions", action: "https://www.google.com/maps/place/12%C2%B055'43.2%22N+77%C2%B032'41.9%22E/@12.928667,77.5424001,17z/data=!3m1!4b1!4m4!3m3!8m2!3d12.928667!4d77.544975?coh=277535&entry=tts&g_ep=EgoyMDI1MTExNy4wIMuAESoASAFQAw%3D%3D&skid=35e24f7f-6c25-4e11-acde-9f3b7bd811ba", variant: "outline" }
     ],
     image: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg"
   }
@@ -153,7 +153,7 @@ export function ExperienceCentersList() {
                         {center.ctas[0].label}
                       </Button>
                     </Link>
-                    <Link href={center.ctas[1].action}>
+                    <Link href={center.ctas[1].action} target="_blank" rel="noopener noreferrer">
                       <Button variant="outline" size="lg" className="w-full sm:w-auto">
                         {center.ctas[1].label}
                       </Button>

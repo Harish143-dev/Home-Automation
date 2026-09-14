@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 import { Button } from "../../ui/button";
+import Link from "next/link";
 
 const PROCESS_STEPS = [
   {
@@ -113,9 +114,11 @@ export function ResidentialProcess() {
             </p>
           </div>
           <div className="pointer-events-auto shrink-0 md:pb-1">
-            <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-              Book a Consultation
-            </Button>
+            <Link href="/contact">
+              <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+                Book a Consultation
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -205,9 +208,12 @@ export function ResidentialProcess() {
           <p className="text-white/70 font-light text-sm leading-relaxed mb-8">
             An automated environment requires disciplined sequencing. Our structured deployment methodology integrates directly with your project’s construction timeline, managing technical risk from initial architectural alignment to multi-system commissioning.
           </p>
-          <Button variant="interactive" size="lg" className="w-full sm:w-auto">
-            Book a Consultation
-          </Button>
+          <Link href="/contact">
+            <Button variant="interactive" size="lg" className="w-full sm:w-auto">
+              Book a Consultation
+            </Button>
+          </Link>
+
         </div>
 
         <div className="flex flex-col gap-10 relative z-10">

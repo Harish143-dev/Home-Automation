@@ -53,7 +53,7 @@ export function ContactHero() {
  return (
  <section
  ref={sectionRef}
- className="relative h-[85vh] min-h-[600px] w-full overflow-hidden flex justify-end flex-col justify-end"
+ className="relative h-[50vh] min-h-[400px] w-full overflow-hidden flex justify-end flex-col"
  >
  {/* Background Image */}
  <div ref={bgRef} className="absolute inset-0 z-0 will-change-transform">
@@ -75,23 +75,17 @@ export function ContactHero() {
  <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
  <div className="mb-2 flex items-center justify-end gap-4 overflow-hidden">
  <div className="h-[1px] w-8 bg-accent" />
- <span className="hero-element block text-[10px] sm:text-xs tracking-[0.3em] text-accent mb-4">
+ <h5 className="hero-element text-accent !mb-0">
  Get in touch
- </span>
+ </h5>
  <div className="h-[1px] w-8 bg-accent" />
  </div>
 
  <div ref={textRef} className="flex flex-col">
- <div className="hero-line">
- <h1 className="hero-element text-white text-balance mb-6 max-w-4xl">
- Let's Design Your
+ <h1 className="hero-element text-white text-balance max-w-4xl">
+ <span className="hero-line block overflow-hidden pb-2">Let's Design Your</span>
+ <span className="hero-line block overflow-hidden">Intelligent Space</span>
  </h1>
- </div>
- <div className="overflow-hidden">
- <h1 className="hero-element text-white mb-6 max-w-4xl">
- Intelligent Space
- </h1>
- </div>
  </div>
  </div>
  </section>

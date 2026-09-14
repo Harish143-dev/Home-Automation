@@ -44,7 +44,7 @@ const STATS = [
 export default function CompanyAtAGlance() {
   return (
     <section
-      className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24 border-t border-black/5"
+      className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24"
     >
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-12 sm:gap-16 md:gap-20 lg:gap-32 items-start">
 

@@ -169,9 +169,11 @@ export default function CareersOpenings() {
               </div>
 
               <div className="pt-6 border-t border-border mt-6">
-                <Button variant="interactive" size="lg" className="w-full">
-                  Apply Now
-                </Button>
+                <Link href="#application-form" className="w-full">
+                  <Button variant="interactive" size="lg" className="w-full">
+                    Apply Now
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}

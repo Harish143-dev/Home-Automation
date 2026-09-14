@@ -16,21 +16,24 @@ const CENTERS_DATA = [
     city: "Delhi",
     title: "Delhi Experience Centre",
     address: "Lower Ground Floor, D20, Block D, Jangpura, New Delhi, Delhi 110014\n91-11-24324113\n91-11-45643992\n91-11-24324115",
-    imageSrc: delhiImg.src
+    imageSrc: delhiImg.src,
+    mapLink: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRiPAtIBCDcyNzFqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KU_nozEp4ww5MbDKaEKKBAAd&daddr=Lower+Ground+Floor,+D20,+Block+D,+Jangpura,+New+Delhi,+Delhi+110014"
   },
   {
     id: "mumbai",
     city: "Mumbai",
     title: "Mumbai Experience Centre",
     address: "10/76, Apte Properties, Ground Floor Parijat House, LR Papan Marg, off Doctor Elijah Moses Road, Worli, Mumbai, Maharashtra 400018\n+91-22 4967 5653\n+91 82912 39139",
-    imageSrc: hyderabadImg.src // Using Hyderabad image as a placeholder for Mumbai until a Mumbai asset is added
+    imageSrc: hyderabadImg.src, // Using Hyderabad image as a placeholder for Mumbai until a Mumbai asset is added
+    mapLink: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQIRgKGKABMgkIAhAhGAoYoAEyCQgDECEYChigAdIBCDc2MjhqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kd3I1msJyec7MawqPHig3y7m&daddr=10/76,+Apte+properties,+Ground+floor+Parijat+house,+LR+Papan+Marg,+off+Doctor+Elijah+Moses+Road,+Worli,+Mumbai,+Maharashtra+400018"
   },
   {
     id: "bangalore",
     city: "Bangalore",
     title: "Bangalore Experience Centre",
     address: "13, 100 Feet Ring Road, Anjaneya Nagar, Bangalore South Banashankari 3 Rd Stage, Bangalore 560085, Karnataka\n+91-80-4113 0438\n+91-80-25270460",
-    imageSrc: bangaloreImg.src
+    imageSrc: bangaloreImg.src,
+    mapLink: "https://www.google.com/maps/place/12%C2%B055'43.2%22N+77%C2%B032'41.9%22E/@12.928667,77.5424001,17z/data=!3m1!4b1!4m4!3m3!8m2!3d12.928667!4d77.544975?coh=277535&entry=tts&g_ep=EgoyMDI1MTExNy4wIMuAESoASAFQAw%3D%3D&skid=35e24f7f-6c25-4e11-acde-9f3b7bd811ba"
   }
 ];
 
@@ -161,12 +164,17 @@ export function ResidentialExperienceCenters() {
                           {center.address}
                         </p>
 
-                        <button className="mt-3 text-xs tracking-widest text-foreground hover:text-muted transition-colors duration-300 flex items-center gap-2">
+                        <a 
+                          href={center.mapLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 text-xs tracking-widest text-foreground hover:text-muted transition-colors duration-300 w-fit flex items-center gap-2"
+                        >
                           Get Directions
                           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>

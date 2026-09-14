@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { Button } from '../../ui/button';
 import { gsap, ScrollTrigger, useGSAP, SplitText } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
@@ -95,25 +96,29 @@ export function BoardroomCTA() {
         {/* Standard Project Buttons */}
         <div className="cta-btn-group flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <Button
-            variant="interactive"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
-            Schedule a Consultation
-          </Button>
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              variant="interactive"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Schedule a Consultation
+            </Button>
+          </Link>
 
           {/* Secondary CTA */}
-          <Button
-            variant="outline"
-            size="lg"
-            className="group w-full sm:w-auto"
-          >
-            <MessageSquare className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
-            <span className="text-base sm:text-lg font-light tracking-wide">
-              Talk to a Commercial Automation Expert
-            </span>
-          </Button>
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              variant="outline"
+              size="lg"
+              className="group w-full sm:w-auto"
+            >
+              <MessageSquare className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
+              <span className="text-base sm:text-lg font-light tracking-wide">
+                Talk to a Commercial Automation Expert
+              </span>
+            </Button>
+          </Link>
         </div>
 
       </div>

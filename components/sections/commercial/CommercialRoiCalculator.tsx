@@ -98,6 +98,7 @@ export function CommercialRoiCalculator() {
   return (
     <section
       ref={containerRef}
+      id="roi-calculator"
       className="py-12 md:py-16 relative w-full bg-background text-foreground flex justify-center"
     >
       <div className="max-w-4xl w-full mx-6 px-6 sm:px-12 py-12 bg-white rounded-[32px] border border-border shadow-xl">

@@ -134,6 +134,7 @@ export default function AboutHero() {
  </Link>
  </div>
  </div>
+
  {/* Red curved wave bottom */}
  <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none" aria-hidden="true">
  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16 md:h-20">

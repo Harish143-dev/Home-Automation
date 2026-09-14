@@ -72,9 +72,9 @@ export function ExperienceCentersMap() {
         {/* Header */}
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-4">
-            <span className="text-[10px] sm:text-xs tracking-[0.3em] text-accent">
+            <h5 className="text-accent !mb-0">
               Locations
-            </span>
+            </h5>
             <div className="h-[1px] w-12 bg-border" />
           </div>
           <h2 className=" text-foreground">
@@ -101,13 +101,13 @@ export function ExperienceCentersMap() {
 
                 <div className="relative z-10 flex flex-col lg:flex-row justify-between lg:items-center gap-6 lg:gap-12 px-4 md:px-8">
                   {/* City Name */}
-                  <h3 className={`text-4xl md:text-5xl lg:text-7xl font-light tracking-wide transition-all duration-500 ${isActive ? 'text-accent translate-x-4' : 'text-muted-foreground'}`}>
+                  <h3 className={`transition-all duration-500 ${isActive ? 'text-accent translate-x-4' : 'text-muted-foreground'}`}>
                     {loc.city}
                   </h3>
 
                   {/* Location Details */}
                   <div className={`flex flex-col lg:items-end gap-2 transition-all duration-700 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-40 lg:opacity-0 lg:translate-y-4'}`}>
-                    <p className="text-xl sm:text-2xl lg:text-3xl tracking-[0.3em] text-muted-foreground">
+                    <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] text-muted-foreground">
                       {loc.title}
                     </p>
                     <p className="text-base md:text-lg font-light text-foreground max-w-sm lg:text-right">

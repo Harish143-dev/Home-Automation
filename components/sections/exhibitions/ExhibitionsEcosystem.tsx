@@ -37,12 +37,7 @@ export function ExhibitionsEcosystem() {
   return (
     <section ref={sectionRef} className="py-20 md:py-32 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-panel text-foreground overflow-hidden border-t border-black/5">
       
-      {/* Background visual flair */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
-        <Network className="w-[120%] h-[120%] text-foreground rotate-12" />
-      </div>
-
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-[1440px] mx-auto flex flex-col items-center text-center">
         <h5 className="eco-content text-accent mb-6 block font-medium">
           Format Flexibility
         </h5>
@@ -56,7 +51,7 @@ export function ExhibitionsEcosystem() {
         </p>
 
         {/* Icons Grid to visually represent the ecosystem */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+        <div className="flex flex-nowrap overflow-x-auto justify-start lg:justify-center gap-6 md:gap-8 lg:gap-12 w-full px-4 sm:px-8 lg:px-0 pb-8 snap-x [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {[
             { Icon: Building, label: "Brand Exhibitions" },
             { Icon: Rocket, label: "Product Launches" },
@@ -65,7 +60,7 @@ export function ExhibitionsEcosystem() {
             { Icon: Sparkles, label: "Experience Centers" },
             { Icon: Landmark, label: "Museums & Institutional Exhibitions" },
           ].map((item, idx) => (
-            <div key={idx} className="eco-icon flex flex-col items-center gap-4 w-32 md:w-40">
+            <div key={idx} className="eco-icon flex-shrink-0 snap-center flex flex-col items-center gap-4 w-32 md:w-36 lg:w-40">
               <div className="w-16 h-16 rounded-2xl bg-white border border-black/5 shadow-sm flex items-center justify-center">
                 <item.Icon className="w-7 h-7 text-accent" strokeWidth={1.5} />
               </div>

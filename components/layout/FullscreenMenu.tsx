@@ -152,7 +152,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                     onClick={(e) => handleLinkClick(e, item.href)}
                     className="group inline-flex items-center"
                   >
-                    <span className={`text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light leading-snug tracking-wide transition-colors ${pathname === item.href ? 'text-accent' : 'text-black hover:text-accent'}`}>
+                    <span className={`text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-light leading-snug tracking-wide transition-colors ${pathname === item.href ? 'text-accent' : 'text-black hover:text-accent'}`}>
                       {item.label}
                     </span>
                   </Link>
@@ -161,7 +161,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
                     onClick={() => item.items && setActiveCategoryId(item.id)}
                     className="group inline-flex items-center text-left focus:outline-none"
                   >
-                    <span className={`text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light leading-snug tracking-wide transition-colors ${activeCategoryId === item.id ? 'text-accent' : 'text-black hover:text-accent'}`}>
+                    <span className={`text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-light leading-snug tracking-wide transition-colors ${activeCategoryId === item.id ? 'text-accent' : 'text-black hover:text-accent'}`}>
                       {item.label}
                     </span>
                   </button>

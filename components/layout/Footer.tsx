@@ -36,6 +36,7 @@ const FOOTER_LINKS = {
     { label: 'Case Studies', href: '#case-studies' },
     { label: 'Blogs', href: '/blog' },
     { label: 'Energy Saving guide', href: '#energy-saving' },
+    { label: 'AMC & Support', href: '/disciplines/amc' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
