@@ -63,8 +63,8 @@ export function PublicAreasClients() {
     const track = trackRef.current;
 
     const getScrollAmount = () => {
-      let trackWidth = track.scrollWidth;
-      let viewportWidth = track.parentElement?.clientWidth || window.innerWidth;
+      const trackWidth = track.scrollWidth;
+      const viewportWidth = track.parentElement?.clientWidth || window.innerWidth;
       return Math.max(0, trackWidth - viewportWidth);
     };
 

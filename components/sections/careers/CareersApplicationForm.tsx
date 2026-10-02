@@ -9,6 +9,7 @@ import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { EASE, DURATION, STAGGER } from "@/lib/animation.config";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, UploadCloud, CheckCircle2 } from "lucide-react";
+import { getApiBaseUrl } from "@/lib/api";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +19,7 @@ export default function CareersApplicationForm() {
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const prefersReducedMotion = useReducedMotion();
   const { isReady } = useBreakpoint();
@@ -27,11 +29,36 @@ export default function CareersApplicationForm() {
     // to reduce motion fatigue on this page.
   }, { scope: sectionRef, dependencies: [isReady, prefersReducedMotion] });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate form submission
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      experience: formData.get('experience') as string,
+      position: formData.get('position') as string,
+      message: formData.get('message') as string,
+    };
+    
+    try {
+      const res = await fetch(`${getApiBaseUrl()}/career-applications`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        setIsSubmitted(true);
+        e.currentTarget.reset();
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,7 +67,7 @@ export default function CareersApplicationForm() {
       className="py-16 md:py-24 relative w-full px-6 sm:px-8 md:px-16 lg:px-24 bg-background overflow-hidden"
     >
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
-        <h5 className="ca-el text-accent !mb-6">
+        <h5 className="ca-el text-accent mb-6!">
           Apply Now
         </h5>
         <h2 className=" ca-el text-foreground mb-6">
@@ -61,6 +88,7 @@ export default function CareersApplicationForm() {
               <input
                 type="text"
                 id="name"
+                name="name"
                 required
                 className="w-full bg-transparent border-b border-border py-3 px-1 text-foreground focus:outline-none focus:border-accent transition-colors font-light placeholder:text-muted/50"
                 placeholder="John Doe"
@@ -71,6 +99,7 @@ export default function CareersApplicationForm() {
               <input
                 type="email"
                 id="email"
+                name="email"
                 required
                 className="w-full bg-transparent border-b border-border py-3 px-1 text-foreground focus:outline-none focus:border-accent transition-colors font-light placeholder:text-muted/50"
                 placeholder="john@example.com"
@@ -84,6 +113,7 @@ export default function CareersApplicationForm() {
               <input
                 type="tel"
                 id="phone"
+                name="phone"
                 className="w-full bg-transparent border-b border-border py-3 px-1 text-foreground focus:outline-none focus:border-accent transition-colors font-light placeholder:text-muted/50"
                 placeholder="+91 98765 43210"
               />
@@ -92,6 +122,7 @@ export default function CareersApplicationForm() {
               <label htmlFor="experience" className="text-sm font-medium tracking-wide text-foreground/80">Experience *</label>
               <select
                 id="experience"
+                name="experience"
                 required
                 defaultValue=""
                 className="w-full bg-transparent border-b border-border py-3 px-1 text-foreground focus:outline-none focus:border-accent transition-colors font-light appearance-none"
@@ -110,6 +141,7 @@ export default function CareersApplicationForm() {
             <input
               type="text"
               id="position"
+              name="position"
               required
               className="w-full bg-transparent border-b border-border py-3 px-1 text-foreground focus:outline-none focus:border-accent transition-colors font-light placeholder:text-muted/50"
               placeholder="e.g. Automation Engineer, UI Designer"
@@ -120,6 +152,7 @@ export default function CareersApplicationForm() {
             <label htmlFor="message" className="text-sm font-medium tracking-wide text-foreground/80">Message / Cover Letter</label>
             <textarea
               id="message"
+              name="message"
               rows={4}
               className="w-full bg-transparent border-b border-border py-3 px-1 text-foreground focus:outline-none focus:border-accent transition-colors font-light placeholder:text-muted/50 resize-none"
               placeholder="Tell us a bit about yourself and why you'd like to join Anusha..."
@@ -141,10 +174,12 @@ export default function CareersApplicationForm() {
               type="submit"
               variant="interactive"
               size="xl"
-              disabled={isSubmitted}
-              className="w-full md:w-auto"
+              disabled={isSubmitting || isSubmitted}
+              className="w-full md:w-auto disabled:opacity-70"
             >
-              {isSubmitted ? (
+              {isSubmitting ? (
+                <span>Submitting...</span>
+              ) : isSubmitted ? (
                 <>
                   <span>Application Sent</span>
                   <CheckCircle2 className="ml-2 w-5 h-5" />

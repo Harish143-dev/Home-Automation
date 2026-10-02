@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NextImage from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, CalendarDays, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BLOG_POSTS, FEATURED_POST } from "@/lib/blogData";
+import { getApiBaseUrl } from "@/lib/api";
 
 const CATEGORIES = ["All Categories", "Smart Living", "Hospitality", "Home Automation", "Lighting Design"];
 
@@ -17,6 +18,46 @@ const ALL_POSTS = [FEATURED_POST, ...BLOG_POSTS].map((post, i) => ({
 
 export default function BlogGrid() {
   const [activeCategory, setActiveCategory] = useState("All Categories");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [articles, setArticles] = useState(ALL_POSTS);
+
+  useEffect(() => {
+    fetch(`${getApiBaseUrl()}/blogs`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          const liveBlogs = data.data.map((b: any) => {
+            const slug = b.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `post-${b.id}`;
+            const plain = b.content.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ').trim();
+            return {
+              id: `db-blog-${b.id}`,
+              slug: slug,
+              category: "Smart Living",
+              date: new Date(b.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+              title: b.title,
+              excerpt: plain.slice(0, 140) + '...',
+              image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
+              readTime: `${Math.max(2, Math.ceil(plain.split(/\s+/).length / 200))} Min Read`,
+              content: b.content,
+              author: b.author || "ATPL Team"
+            };
+          });
+          setArticles(liveBlogs);
+        }
+      })
+      .catch(err => {
+        console.error("Failed to load live blogs, using fallback", err);
+      });
+  }, []);
+
+  const filteredArticles = articles.filter(article => {
+    const matchesCategory = activeCategory === "All Categories" || article.category.toLowerCase() === activeCategory.toLowerCase();
+    const matchesSearch = !searchQuery || 
+      article.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (article.author && article.author.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="lg:col-span-9 flex flex-col gap-10">
@@ -45,10 +86,12 @@ export default function BlogGrid() {
         </div>
 
         {/* Search Widget */}
-        <div className="relative group w-full xl:w-auto xl:min-w-[280px] flex-shrink-0">
+        <div className="relative group w-full xl:w-auto xl:min-w-70 shrink-0">
           <input
             type="text"
             placeholder="Search keywords..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-transparent border border-border/80 rounded-full pl-4 pr-10 py-2.5 text-sm font-light text-foreground focus:outline-none focus:border-accent transition-colors"
           />
           <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-accent transition-colors" />
@@ -58,14 +101,14 @@ export default function BlogGrid() {
 
       {/* Grid of Articles */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-        {ALL_POSTS.slice(0, 9).map((article) => (
+        {filteredArticles.map((article) => (
           <Link
             href={`/blog/${article.slug}`}
             key={article.id}
             className="group flex flex-col bg-background border border-border/50 rounded-xl overflow-hidden hover:border-border transition-colors duration-300"
           >
             {/* Image Container */}
-            <div className="relative w-full aspect-[4/3] overflow-hidden bg-muted">
+            <div className="relative w-full aspect-4/3 overflow-hidden bg-muted">
               <NextImage
                 src={article.image}
                 alt={article.title}
@@ -73,19 +116,19 @@ export default function BlogGrid() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute top-3 left-3 bg-background/80 backdrop-blur-md px-2 py-0.5 rounded-full border border-black/10">
-                <span className="!mb-0 !text-[8px] text-foreground">
+                <span className="mb-0! text-[8px]! text-foreground">
                   {article.category}
                 </span>
               </div>
             </div>
 
             {/* Content Container */}
-            <div className="p-5 flex flex-col flex-grow">
+            <div className="p-5 flex flex-col grow">
               <h4 className=" text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300">
                 {article.title}
               </h4>
 
-              <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6 line-clamp-3 flex-grow">
+              <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6 line-clamp-3 grow">
                 {article.excerpt}
               </p>
 

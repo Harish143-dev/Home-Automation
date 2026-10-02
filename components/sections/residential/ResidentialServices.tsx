@@ -93,7 +93,7 @@ export function ResidentialServices() {
   useGSAP(() => {
     if (!triggerRef.current || !containerRef.current || prefersReducedMotion) return;
 
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     mm.add("(min-width: 768px)", () => {
       ScrollTrigger.create({

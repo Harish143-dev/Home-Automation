@@ -118,5 +118,24 @@ export const BLOG_POSTS: BlogPost[] = [
       <br/>
       <p>But you can put in the work long before it arrives so that when it does, you're ready."</p>
     `
+  },
+  {
+    id: "4",
+    slug: "the-invisible-interface",
+    category: "Architectural Technology",
+    date: "May 28, 2026",
+    title: "The Invisible Interface: Designing Automation That Disappears",
+    excerpt: "Explore how modern architectural integration is shifting away from visible wall-acne and complex panels, moving towards ambient, predictive systems that seamlessly blend into luxury interiors.",
+    image: "/assets/projects/SawaiManMahal.jpg",
+    readTime: "6 Min Read",
+    content: `
+      <p>In luxury architectural spaces, technology should be experienced through its absence, not its presence.</p>
+      <br/>
+      <p>For decades, smart homes were defined by banks of switches, glowing touchscreens mounted on every partition, and complicated button pads. But true luxury does not demand cognitive effort from the resident. It anticipates needs silently.</p>
+      <br/>
+      <p>Today, the focus is on the invisible interface: flush-mounted sensors, concealed keypads matching Venetian plaster, automated circadian scenes tailored to the time of day, and motorized elements that glide into architectural pockets with zero motor hum.</p>
+      <br/>
+      <p>When design and engineering collaborate from the conceptual phase, technology ceases to be an add-on and becomes part of the architecture itself.</p>
+    `
   }
 ];

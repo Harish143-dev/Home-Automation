@@ -5,10 +5,44 @@ import { gsap, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 import { ArrowRight } from "lucide-react";
 
+import { getApiBaseUrl } from "@/lib/api";
+
 export function InquiryForm() {
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      inquiryType: (formData.get('project') as string) || 'Contact Form',
+      message: formData.get('message') as string,
+    };
+    
+    try {
+      const res = await fetch(`${getApiBaseUrl()}/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        setIsSuccess(true);
+        e.currentTarget.reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useGSAP(
     () => {
@@ -46,10 +80,10 @@ export function InquiryForm() {
         {/* Header */}
         <div className="flex flex-col gap-6 form-stagger">
           <div className="flex items-center gap-4">
-            <h5 className="text-accent !mb-0">
+            <h5 className="text-accent mb-0!">
               Inquiry
             </h5>
-            <div className="h-[1px] w-12 bg-border" />
+            <div className="h-px w-12 bg-border" />
           </div>
           <h2 className=" text-foreground">
             Send us a message
@@ -63,7 +97,7 @@ export function InquiryForm() {
         <form
           ref={formRef}
           className="flex flex-col gap-12"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <FloatingInput id="name" label="Full Name" type="text" />
@@ -81,11 +115,12 @@ export function InquiryForm() {
             <MagneticButton>
               <button
                 type="submit"
-                className="group relative inline-flex items-center justify-center gap-4 px-8 py-5 bg-accent text-white overflow-hidden rounded-full font-medium tracking-wide transition-transform hover:scale-105"
+                disabled={isSubmitting}
+                className="group relative inline-flex items-center justify-center gap-4 px-8 py-5 bg-accent text-white overflow-hidden rounded-full font-medium tracking-wide transition-transform hover:scale-105 disabled:opacity-70"
               >
-                <span className="relative z-10">Submit Inquiry</span>
-                <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                <div className="absolute inset-0 bg-accent-soft translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                <span className="relative z-10">{isSubmitting ? 'Sending...' : isSuccess ? 'Sent!' : 'Submit Inquiry'}</span>
+                {!isSubmitting && !isSuccess && <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1" />}
+                <div className="absolute inset-0 bg-accent-soft translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
               </button>
             </MagneticButton>
           </div>
@@ -113,7 +148,7 @@ function FloatingInput({ id, label, type }: { id: string; label: string; type: s
           setHasValue(e.target.value.length > 0);
         }}
         onChange={(e) => setHasValue(e.target.value.length > 0)}
-        className="block w-full bg-transparent border-b border-border py-4 px-0 text-foreground text-lg font-light focus:outline-none focus-visible:outline-none focus:border-accent transition-colors duration-500 peer !outline-none !ring-0"
+        className="block w-full bg-transparent border-b border-border py-4 px-0 text-foreground text-lg font-light focus:outline-none focus-visible:outline-none focus:border-accent transition-colors duration-500 peer outline-none! ring-0!"
         style={{ outline: "none", boxShadow: "none" }}
         required
       />
@@ -127,7 +162,7 @@ function FloatingInput({ id, label, type }: { id: string; label: string; type: s
 
       {/* Animated underline */}
       <div
-        className={`absolute bottom-0 left-0 h-[1px] bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`}
+        className={`absolute bottom-0 left-0 h-px bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`}
       />
     </div>
   );
@@ -149,7 +184,7 @@ function FloatingTextarea({ id, label }: { id: string; label: string }) {
           setHasValue(e.target.value.length > 0);
         }}
         onChange={(e) => setHasValue(e.target.value.length > 0)}
-        className="block w-full bg-transparent border-b border-border py-4 px-0 text-foreground text-lg font-light focus:outline-none focus-visible:outline-none focus:border-accent transition-colors duration-500 resize-none peer !outline-none !ring-0"
+        className="block w-full bg-transparent border-b border-border py-4 px-0 text-foreground text-lg font-light focus:outline-none focus-visible:outline-none focus:border-accent transition-colors duration-500 resize-none peer outline-none! ring-0!"
         style={{ outline: "none", boxShadow: "none" }}
         required
       />
@@ -163,7 +198,7 @@ function FloatingTextarea({ id, label }: { id: string; label: string }) {
 
       {/* Animated underline */}
       <div
-        className={`absolute bottom-[3px] left-0 h-[1px] bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`}
+        className={`absolute bottom-0.75 left-0 h-px bg-accent transition-all duration-500 ease-out ${isFocused ? 'w-full' : 'w-0'}`}
       />
     </div>
   );

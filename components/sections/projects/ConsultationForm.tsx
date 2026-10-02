@@ -2,19 +2,45 @@
 
 import { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { getApiBaseUrl } from "@/lib/api";
 
 export function ConsultationForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    // In a real app, you'd handle form submission here
+    setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    
+    const data = {
+      name: `${formData.get('firstName')} ${formData.get('lastName')}`,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      inquiryType: 'Consultation',
+      message: formData.get('message') as string,
+    };
+    
+    try {
+      const res = await fetch(`${getApiBaseUrl()}/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        setIsSubmitted(true);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section className="py-12 md:py-16 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
         {/* Text Content */}
         <div className="flex flex-col">
@@ -22,7 +48,7 @@ export function ConsultationForm() {
             <span className="text-[10px] sm:text-xs tracking-[0.3em] text-muted-foreground">
               Expert Guidance
             </span>
-            <div className="h-[1px] w-12 bg-border" />
+            <div className="h-px w-12 bg-border" />
           </div>
 
           <h2 className=" text-foreground mb-6 text-balance">
@@ -57,6 +83,7 @@ export function ConsultationForm() {
                   <input
                     type="text"
                     id="firstName"
+                    name="firstName"
                     required
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -68,6 +95,7 @@ export function ConsultationForm() {
                   <input
                     type="text"
                     id="lastName"
+                    name="lastName"
                     required
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -82,6 +110,7 @@ export function ConsultationForm() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -93,6 +122,7 @@ export function ConsultationForm() {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 shadow-none"
                     style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
                     placeholder="+91 98765 43210"
@@ -104,6 +134,7 @@ export function ConsultationForm() {
                 <label htmlFor="message" className="text-[11px] tracking-widest text-muted-foreground">Project Details</label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   className="w-full bg-transparent border-b border-border py-3 text-foreground font-light focus:outline-none focus:ring-0 focus:border-accent transition-colors placeholder:text-muted-foreground/30 resize-none shadow-none"
                   style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none', boxShadow: 'none' }}
@@ -113,10 +144,11 @@ export function ConsultationForm() {
 
               <button
                 type="submit"
-                className="mt-6 group flex items-center justify-center gap-3 bg-foreground text-background py-4 px-8 rounded-full font-medium tracking-wide hover:bg-accent hover:text-white transition-all duration-300 w-full md:w-max"
+                disabled={isSubmitting}
+                className="mt-6 group flex items-center justify-center gap-3 bg-foreground text-background py-4 px-8 rounded-full font-medium tracking-wide hover:bg-accent hover:text-white transition-all duration-300 w-full md:w-max disabled:opacity-70"
               >
-                Request Consultation
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                {isSubmitting ? 'Sending...' : 'Request Consultation'}
+                {!isSubmitting && <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />}
               </button>
             </form>
           ) : (

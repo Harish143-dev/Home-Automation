@@ -58,7 +58,7 @@ export function ExperienceGallery() {
       // Calculate how far the track needs to scroll left
       // Scroll amount = total width of track - width of viewport
       const getScrollAmount = () => {
-        let trackWidth = track.scrollWidth;
+        const trackWidth = track.scrollWidth;
         return -(trackWidth - window.innerWidth);
       };
 

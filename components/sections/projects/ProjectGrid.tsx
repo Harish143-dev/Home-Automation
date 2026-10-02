@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, CalendarDays, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getApiBaseUrl } from "@/lib/api";
 
 const CATEGORIES = ["All Projects", "Residential", "Commercial", "Hospitality", "Automotive", "Marine"];
 
@@ -41,6 +42,40 @@ const DUMMY_PROJECTS = Array.from({ length: 9 }).map((_, i) => ({
 
 export function ProjectGrid() {
   const [activeCategory, setActiveCategory] = useState("All Projects");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [allProjects, setAllProjects] = useState(DUMMY_PROJECTS);
+
+  useEffect(() => {
+    fetch(`${getApiBaseUrl()}/projects`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          const liveProjects = data.data.map((p: any) => ({
+            id: `db-project-${p.id}`,
+            title: p.title,
+            category: "Residential",
+            image: p.imageUrl || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+            description: p.description,
+            date: new Date(p.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+            readTime: "3 min read",
+            href: "/residential"
+          }));
+          // Prepend live database projects to the catalogue
+          setAllProjects([...liveProjects, ...DUMMY_PROJECTS]);
+        }
+      })
+      .catch(err => {
+        console.error("Failed to fetch live projects, using fallback", err);
+      });
+  }, []);
+
+  const filteredProjects = allProjects.filter(project => {
+    const matchesCategory = activeCategory === "All Projects" || project.category.toLowerCase() === activeCategory.toLowerCase();
+    const matchesSearch = !searchQuery || 
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      project.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="lg:col-span-9 flex flex-col gap-10">
@@ -69,10 +104,12 @@ export function ProjectGrid() {
         </div>
 
         {/* Search Widget */}
-        <div className="relative group w-full lg:w-auto lg:min-w-[260px] flex-shrink-0">
+        <div className="relative group w-full lg:w-auto lg:min-w-65 shrink-0">
           <input
             type="text"
-            placeholder="Search keywords..."
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-background border border-border rounded-full pl-4 pr-10 py-2.5 text-sm font-light text-foreground focus:outline-none focus:border-accent/50 transition-colors shadow-sm"
           />
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-accent transition-colors" />
@@ -82,14 +119,14 @@ export function ProjectGrid() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-        {DUMMY_PROJECTS.map((project) => (
+        {filteredProjects.map((project) => (
           <Link
             href={project.href}
             key={project.id}
             className="group flex flex-col bg-background border border-border/50 rounded-xl overflow-hidden hover:border-border transition-colors duration-300"
           >
             {/* Image Container */}
-            <div className="relative w-full aspect-[4/3] overflow-hidden bg-muted">
+            <div className="relative w-full aspect-4/3 overflow-hidden bg-muted">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -97,19 +134,19 @@ export function ProjectGrid() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                <span className="tracking-[0.1em] text-xs text-foreground">
+                <span className="tracking-widest text-xs text-foreground">
                   {project.category}
                 </span>
               </div>
             </div>
 
             {/* Content Container */}
-            <div className="p-5 flex flex-col flex-grow">
+            <div className="p-5 flex flex-col grow">
               <h4 className=" text-foreground mb-3 line-clamp-2">
                 {project.title}
               </h4>
 
-              <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6 line-clamp-3 flex-grow">
+              <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6 line-clamp-3 grow">
                 {project.description}
               </p>
 

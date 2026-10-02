@@ -88,7 +88,7 @@ export function CommercialHero() {
  <section
  ref={containerRef}
  id="commercial-hero"
- className={`relative h-[100svh] w-full bg-black overflow-hidden flex flex-col justify-end transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
+ className={`relative h-svh w-full bg-black overflow-hidden flex flex-col justify-end transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
  >
  {/* 🎬 Static Background */}
  <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
@@ -102,14 +102,14 @@ export function CommercialHero() {
  />
 
  {/* Clean, simple dark gradient overlay for text readability */}
- <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-[2]" />
+ <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent z-2" />
  </div>
 
  {/* 🌌 Premium Typography & CTA Content Overlay */}
  {/* Upper spacing for fixed NavBar alignment */}
  <div className="h-28 sm:h-32 md:h-36 z-10 pointer-events-none" />
 
- <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end flex-grow pb-16 md:pb-24 pointer-events-none select-none">
+ <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 flex flex-col items-start justify-end grow pb-16 md:pb-24 pointer-events-none select-none">
  <div className="max-w-3xl flex flex-col items-start text-left ">
 
  {/* Refined editorial headline */}
@@ -140,7 +140,7 @@ export function CommercialHero() {
  </Button>
  </Link>
 
- <Link href="/projects/commercial">
+ <Link href="/projects">
  <Button variant="shiny" size="lg" className="w-full sm:w-auto"
  >
  Explore Commercial Portfolios

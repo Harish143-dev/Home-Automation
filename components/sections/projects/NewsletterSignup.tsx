@@ -2,15 +2,30 @@
 
 import { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { getApiBaseUrl } from "@/lib/api";
 
 export function NewsletterSignup() {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
       setIsSubscribed(true);
+      try {
+        await fetch(`${getApiBaseUrl()}/leads`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: 'Newsletter Subscriber',
+            email,
+            inquiryType: 'Newsletter',
+            message: 'Subscribed to newsletter updates from website'
+          })
+        });
+      } catch (err) {
+        console.error("Newsletter submission failed", err);
+      }
       setEmail("");
     }
   };
@@ -20,11 +35,11 @@ export function NewsletterSignup() {
       <div className="max-w-2xl mx-auto flex flex-col items-center">
 
         <div className="flex items-center gap-4 overflow-hidden mb-6">
-          <div className="h-[1px] w-8 sm:w-12 bg-border" />
+          <div className="h-px w-8 sm:w-12 bg-border" />
           <span className="text-[10px] sm:text-xs tracking-[0.3em] text-muted-foreground">
             Newsletter
           </span>
-          <div className="h-[1px] w-8 sm:w-12 bg-border" />
+          <div className="h-px w-8 sm:w-12 bg-border" />
         </div>
 
         <h2 className=" text-foreground mb-4">

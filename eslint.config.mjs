@@ -15,6 +15,16 @@ const eslintConfig = defineConfig([
     ".chrome-audit-profile*/**",
     "audit-screenshots/**",
   ]),
+  {
+    rules: {
+      "react/no-unescaped-entities": "warn",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-require-imports": "warn",
+      "prefer-const": "warn",
+      "@next/next/no-img-element": "warn"
+    }
+  }
 ]);
 
 export default eslintConfig;

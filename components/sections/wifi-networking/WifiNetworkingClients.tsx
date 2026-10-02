@@ -88,9 +88,9 @@ export function WifiNetworkingClients() {
     const track = trackRef.current;
 
     const getScrollAmount = () => {
-      let trackWidth = track.scrollWidth;
+      const trackWidth = track.scrollWidth;
       // Get the width of the container that masks the overflow
-      let viewportWidth = track.parentElement?.clientWidth || window.innerWidth;
+      const viewportWidth = track.parentElement?.clientWidth || window.innerWidth;
       return Math.max(0, trackWidth - viewportWidth);
     };
 

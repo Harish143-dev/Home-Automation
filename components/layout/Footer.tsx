@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { gsap, useGSAP } from '../../lib/gsapSetup';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { MapPin } from 'lucide-react';
@@ -53,6 +54,7 @@ export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!footerRef.current) return;
@@ -89,12 +91,16 @@ export function Footer() {
 
   }, { scope: footerRef, dependencies: [prefersReducedMotion] });
 
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <footer
       ref={footerRef}
       className="w-full bg-[#fcfcfc] text-[#2d2a26] border-t border-black/10 py-16 lg:py-24"
     >
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-400 mx-auto px-6 md:px-12 lg:px-16">
 
         {/* 6-Column Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1.5fr] gap-10 lg:gap-8">
@@ -245,7 +251,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="w-full h-[1px] bg-black/10 mt-16 mb-8" />
+        <div className="w-full h-px bg-black/10 mt-16 mb-8" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-black/50">
           <p>© {new Date().getFullYear()} AT Smart Living. All rights reserved.</p>
           <p>Designed for the future of connected spaces.</p>
@@ -258,7 +264,7 @@ export function Footer() {
         href="https://wa.me/18005550199"
         target="_blank"
         rel="noopener noreferrer"
-        className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] bg-[#25D366] text-white p-3.5 md:p-4 rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.3)] hover:scale-110 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center justify-center ${isFooterVisible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-12 pointer-events-none'
+        className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-9999 bg-[#25D366] text-white p-3.5 md:p-4 rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.3)] hover:scale-110 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center justify-center ${isFooterVisible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-12 pointer-events-none'
           }`}
         aria-label="Chat on WhatsApp"
       >
