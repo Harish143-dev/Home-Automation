@@ -33,8 +33,8 @@ export default function MissionVision() {
             <div className="w-full lg:w-1/2">
               <div className="relative w-full aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden">
                 <NextImage
-                  src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1200"
-                  alt="Intelligent living space"
+                  src="/images/about/mission.jpg"
+                  alt="Intelligent luxury living space"
                   fill
                   className="object-cover"
                   unoptimized
@@ -53,8 +53,8 @@ export default function MissionVision() {
             <div className="w-full lg:w-1/2">
               <div className="relative w-full aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden">
                 <NextImage
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
-                  alt="Modern architectural building"
+                  src="/images/about/vision.jpg"
+                  alt="Modern futuristic intelligent building atrium"
                   fill
                   className="object-cover"
                   unoptimized

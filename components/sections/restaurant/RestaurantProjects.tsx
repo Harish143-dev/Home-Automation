@@ -8,27 +8,27 @@ const PROJECTS = [
   {
     title: "Nox",
     asset: "Mumbai",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/nox-mumbai/1.jpg",
   },
   {
     title: "Thai Naam",
     asset: "Premium Dining",
-    image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
   },
   {
     title: "Unico",
     asset: "Gurgaon",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/unico/1.jpg",
   },
   {
     title: "Qube",
     asset: "Restaurant Automation",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/oko/1.jpg",
   },
   {
     title: "Ziya, The Oberoi",
     asset: "Gurgaon",
-    image: "https://images.unsplash.com/photo-1566838332152-d17e76cb8bf3?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/akina-mumbai/1.jpg",
   }
 ];
 

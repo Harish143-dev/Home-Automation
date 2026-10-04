@@ -11,37 +11,37 @@ const SOLUTIONS = [
     id: "entrance",
     title: "Entrance & Lobby",
     description: "Create a strong first impression with dynamic lighting, digital displays, audio, and integrated control that enhance the arrival experience.",
-    image: "https://images.unsplash.com/photo-1542484439-d3db09ec3551?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "auditoriums",
     title: "Cinema Auditoriums",
     description: "Support immersive cinema environments with integrated AV, audio, lighting, and control systems designed for a consistent and engaging experience.",
-    image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "corridors",
     title: "Corridors & Common Areas",
     description: "Create a seamless environment across circulation areas with intelligent lighting, distributed audio, security, and integrated control solutions.",
-    image: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     id: "concession",
     title: "Concession & Dining Areas",
     description: "Create comfortable and engaging customer environments through integrated lighting and audio solutions tailored to high-traffic spaces.",
-    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "lounges",
     title: "VIP & Premium Lounges",
     description: "Deliver elevated experiences with premium AV, sophisticated lighting, motorized shading, and intuitive automation.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "back-of-house",
     title: "Back-of-House",
     description: "Support operational efficiency with reliable networking, security, access control, and technology infrastructure designed for commercial environments.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   }
 ];
 

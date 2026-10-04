@@ -14,10 +14,10 @@ const PROJECTS_DATA = [
     title: "The Dixit-Nene Residence, Mumbai (2024)",
     description: "A complete integration of synchronized motorized shades, backlit custom-engraved keypads, zone climate logic, and full audio-video app orchestration.",
     images: [
-      "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
-      "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
-      "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
-      "/assets/residential/project/delhi-residence/delhi-residence-4.jpg"
+      "/images/projects/residential/vishal-udani/1.jpg",
+      "/images/projects/residential/vishal-udani/2.jpg",
+      "/images/projects/residential/sanjeet-bhasin/1.jpg",
+      "/images/projects/residential/sanjeet-bhasin/2.jpg"
     ],
     link: "/projects/dixit-nene"
   },
@@ -28,10 +28,10 @@ const PROJECTS_DATA = [
     title: "The Rajan Mittal Villa, New Delhi",
     description: "A four-storey architectural masterwork in Shanti Niketan designed by Morphogenesis, powered by an enterprise-grade automation backbone.",
     images: [
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-4.jpg"
+      "/images/projects/residential/bhartiya-residence/1.jpg",
+      "/images/projects/residential/bhartiya-residence/2.jpg",
+      "/images/projects/residential/anubhav-jain-farmhouse/1.jpg",
+      "/images/projects/residential/anubhav-jain-farmhouse/2.jpg"
     ],
     link: "/projects/rajan-mittal"
   },
@@ -42,10 +42,10 @@ const PROJECTS_DATA = [
     title: "BKT Farms, New Delhi (2024)",
     description: "Advanced architectural lighting controls, chiller-based HVAC integration, and secure electronic access control systems.",
     images: [
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-4.jpg"
+      "/images/projects/residential/aranyak-farmhouse/1.jpg",
+      "/images/projects/residential/aranyak-farmhouse/2.jpg",
+      "/images/projects/residential/sournika-villa/1.jpg",
+      "/images/projects/residential/sournika-villa/2.jpg"
     ],
     link: "/projects/bkt-farms"
   }

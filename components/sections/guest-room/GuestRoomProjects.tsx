@@ -6,41 +6,27 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { scheduleScrollRefresh } from '@/lib/scrollRefresh';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-const rawProjects = [
-  { title: "Four Seasons", asset: "Mumbai" },
-  { title: "Leela Palace", asset: "Udaipur" },
-  { title: "Marriott", asset: "Madurai" },
-  { title: "Taj Paro Resort & Spa", asset: "Bhutan" },
-  { title: "Astor", asset: "Goa" },
-  { title: "Hilton Bani Square", asset: "Gurgaon" },
-  { title: "ITC Grand Central", asset: "Mumbai" },
-  { title: "Hilton", asset: "Jaipur" },
-  { title: "Oberoi Rajvillas", asset: "Jaipur" },
-  { title: "Hyatt Centric Soalteemode", asset: "Kathmandu" },
-  { title: "Oberoi", asset: "Delhi" },
-  { title: "Taj", asset: "Bhogampura" },
-  { title: "St. Regis", asset: "Delhi" },
-  { title: "Fairmont", asset: "Agra" },
-  { title: "The Oberoi Sukhvilas", asset: "Chandigarh" },
-  { title: "The Oberoi", asset: "Mumbai" },
-  { title: "Sawai Man Mahal", asset: "Jaipur" },
-  { title: "Six Senses", asset: "Barwara" },
-  { title: "The Oberoi Rajgarh Palace", asset: "Khajuraho" },
+const PROJECTS = [
+  { title: "Four Seasons", asset: "Mumbai", image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg" },
+  { title: "Leela Palace", asset: "Udaipur", image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg" },
+  { title: "Marriott", asset: "Madurai", image: "/images/projects/hospitality/courtyard-marriott-shillong/1.jpg" },
+  { title: "Taj Paro Resort & Spa", asset: "Bhutan", image: "/images/projects/hospitality/taj-puri/1.jpg" },
+  { title: "Astor", asset: "Goa", image: "/images/projects/hospitality/double-tree-hilton-goa/1.jpg" },
+  { title: "Hilton Bani Square", asset: "Gurgaon", image: "/images/projects/hospitality/double-tree-hilton-goa/2.jpg" },
+  { title: "ITC Grand Central", asset: "Mumbai", image: "/images/projects/hospitality/itc-grand-chola/1.jpg" },
+  { title: "Hilton", asset: "Jaipur", image: "/images/projects/hospitality/hyatt-regency-jaipur/1.jpg" },
+  { title: "Oberoi Rajvillas", asset: "Jaipur", image: "/images/projects/hospitality/oberoi-rajvillas/1.jpg" },
+  { title: "Hyatt Centric Soalteemode", asset: "Kathmandu", image: "/images/projects/hospitality/soaltee-nepal/1.jpg" },
+  { title: "Oberoi", asset: "Delhi", image: "/images/projects/hospitality/oberoi-mumbai/1.jpg" },
+  { title: "Taj", asset: "Bhogampura", image: "/images/projects/hospitality/taj-lakefront-bhopal/2.jpg" },
+  { title: "St. Regis", asset: "Delhi", image: "/images/projects/hospitality/the-grand/1.jpg" },
+  { title: "Fairmont", asset: "Agra", image: "/images/projects/hospitality/le-meridien/1.jpg" },
+  { title: "The Oberoi Sukhvilas", asset: "Chandigarh", image: "/images/projects/hospitality/oberoi-amarvillas/2.jpg" },
+  { title: "The Oberoi", asset: "Mumbai", image: "/images/projects/hospitality/oberoi-mumbai/2.jpg" },
+  { title: "Sawai Man Mahal", asset: "Jaipur", image: "/images/projects/hospitality/sawai-man-mahal/1.jpg" },
+  { title: "Six Senses", asset: "Barwara", image: "/images/projects/hospitality/six-senses-barwara/1.jpg" },
+  { title: "The Oberoi Rajgarh Palace", asset: "Khajuraho", image: "/images/projects/hospitality/oberoi-rajgarh-palace/1.jpg" },
 ];
-
-const images = [
-  "https://images.unsplash.com/photo-1590490359683-658d3d23f972?q=80&w=2000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?q=80&w=2000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1542314831-c6a4d14d23cb?q=80&w=2000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1590449911925-502a35368a8a?q=80&w=2000&auto=format&fit=crop"
-];
-
-const PROJECTS = rawProjects.map((p, i) => ({
-  ...p,
-  image: images[i % images.length]
-}));
 
 export function GuestRoomProjects() {
   const sectionRef = useRef<HTMLElement>(null);

@@ -11,22 +11,22 @@ const SPACES = [
   {
     title: "Control Daylight",
     description: "Modern living room with large floor-to-ceiling windows and motorized shades positioned to control incoming sunlight.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+    image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
   },
   {
     title: "Enhance Privacy",
     description: "Elegant bedroom/living room with automated shades partially or fully closed, showing privacy from outside.",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop"
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg"
   },
   {
     title: "Improve Comfort",
     description: "Bright contemporary room where motorized shades reduce harsh sunlight/glare while keeping the space naturally lit.",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2070&auto=format&fit=crop"
+    image: "/images/projects/residential/bhartiya-residence/1.jpg"
   },
   {
     title: "Save Energy",
     description: "Modern energy-efficient home with automated shades responding to strong sunlight, subtly communicating reduced heat gain and cooling use.",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09be1587?q=80&w=2070&auto=format&fit=crop"
+    image: "/images/projects/commercial/yashraj-studio/1.jpg"
   }
 ];
 

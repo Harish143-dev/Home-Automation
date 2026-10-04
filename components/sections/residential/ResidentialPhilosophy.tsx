@@ -10,31 +10,31 @@ const PHILOSOPHY_DATA = [
     id: "luxury-living",
     title: "Luxury Living",
     description: "Emotionally intelligent spaces, built around human experience rather than hardware, transform how you inhabit every room, and how every room makes you feel. A truly intelligent home responds to you. Light shifts with the time of day, sound adjusts to the mood of the room, temperature follows the rhythm of rest, focus and gathering. These conditions make a home feel alive.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/residential/bhartiya-residence/1.jpg"
   },
   {
     id: "future-ready",
     title: "Future-Ready Homes",
     description: "Built for multigenerational living, a smart home grows with the family inside it, adapting to diverse needs and remaining relevant long after the first installation. The homes being built today will be lived in across generations, by people with different physical, cognitive and sensory needs. Intelligent systems designed with this in mind, evolve. Scalable architecture supports new devices, new routines and new residents without rewiring or replacing.",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   },
   {
     id: "security",
     title: "Security You Control",
     description: "Real security places human agency at its centre. Transparent controls, explainable systems and clear boundaries around data and access ensure that the people who live in a home remain in full command of it. Integrated sensors, cameras and alerts respond to what matters, when it matters. Monitored remotely and controlled intuitively, your home protects what is most important while preserving the trust of everyone inside it.",
-    image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg"
   },
   {
     id: "convenience",
     title: "Convenience",
     description: "Buildings that respond to human rhythms remove the need for constant decision-making. Lighting adjusts to the time of day, climate responds to occupancy, entertainment follows the room you are in. The best automation is invisible, it simply ensures that every space is ready for how you intend to use it, without requiring you to think about it. Life at home becomes less managed and more lived.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg"
   },
   {
     id: "energy",
     title: "Automatic Energy Savings",
     description: "As energy instability reshapes the demands placed on buildings worldwide, the homes that are designed to respond intelligently will be the ones that endure. Automated climate systems, motorised shading and occupancy-led lighting work together to reduce consumption without reducing comfort. This is efficiency as a design principle, embedded into how the home operates from the moment it is switched on.",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   }
 ];
 

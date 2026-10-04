@@ -69,7 +69,7 @@ export default function LightingHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/residential/aranyak-farmhouse/1.jpg"
  alt="Luxury Smart Lighting Automation"
  fill
  priority

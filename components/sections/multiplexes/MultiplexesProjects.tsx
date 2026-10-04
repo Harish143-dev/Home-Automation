@@ -8,7 +8,7 @@ import { MapPin } from 'lucide-react';
 const PROJECT = {
   title: "Wave Cinemas",
   asset: "Gurgaon",
-  image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2000&auto=format&fit=crop",
+  image: "/images/projects/commercial/wave-cinema/1.jpg",
 };
 
 export function MultiplexesProjects() {

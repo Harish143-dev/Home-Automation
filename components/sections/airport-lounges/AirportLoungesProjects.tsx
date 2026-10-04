@@ -8,7 +8,7 @@ import { MapPin } from 'lucide-react';
 const PROJECT = {
   title: "T3 VIP Lounge",
   asset: "Delhi",
-  image: "https://images.unsplash.com/photo-1540810237731-50e5040ffc9e?q=80&w=2000&auto=format&fit=crop",
+  image: "/images/projects/restaurant/golden-dragon/1.jpg",
 };
 
 export function AirportLoungesProjects() {

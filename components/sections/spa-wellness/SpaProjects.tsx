@@ -8,27 +8,27 @@ const PROJECTS = [
   {
     title: "Taj Fateh Prakash Palace",
     asset: "Udaipur",
-    image: "https://images.unsplash.com/photo-1590449911925-502a35368a8a?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
   },
   {
     title: "Taj Lakefront",
     asset: "Bhopal",
-    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/2.jpg",
   },
   {
     title: "Amankora Paro",
     asset: "Bhutan",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/hospitality/six-senses-barwara/1.jpg",
   },
   {
     title: "Taj Puri Resort & Spa",
     asset: "Odisha",
-    image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/hospitality/taj-puri/1.jpg",
   },
   {
     title: "Four Seasons",
     asset: "Mumbai",
-    image: "https://images.unsplash.com/photo-1542314831-c6a4d14d23cb?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
   }
 ];
 

@@ -65,7 +65,7 @@ export default function CareersHero() {
  {/* Background Image */}
  <div className="absolute inset-0 w-full h-full overflow-hidden">
  <NextImage
- src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/restaurant/unico/1.jpg"
  alt="Careers at Anusha Technovision"
  fill
  priority

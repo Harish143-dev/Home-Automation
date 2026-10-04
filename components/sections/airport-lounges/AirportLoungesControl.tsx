@@ -136,7 +136,7 @@ export function AirportLoungesControl() {
         {/* Right Side: Image */}
         <div ref={imageRef} className="w-full lg:w-1/2 relative h-[600px] lg:h-[800px] rounded-[2rem] overflow-hidden opacity-0 shadow-xl shadow-black/5">
           <NextImage
-            src="https://images.unsplash.com/photo-1576089172869-4f5f6f315620?q=80&w=2000&auto=format&fit=crop"
+            src="/images/projects/commercial/nvidia/1.jpg"
             alt="Centralized Control Interface"
             fill
             className="object-cover transition-transform duration-[2s] hover:scale-105"

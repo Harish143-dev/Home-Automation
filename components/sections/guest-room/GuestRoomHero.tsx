@@ -69,7 +69,7 @@ export function GuestRoomHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/hospitality/le-meridien/1.jpg"
  alt="Smart Guest Room Automation"
  fill
  priority

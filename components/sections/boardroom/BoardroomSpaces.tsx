@@ -11,25 +11,25 @@ const SPACES = [
     id: "executive",
     title: "Executive Board Meetings",
     description: "One-touch room control, secure video conferencing, and professional presentations for leadership discussions.",
-    image: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "client",
     title: "Client Presentations",
     description: "Deliver impactful presentations with high-resolution displays and premium audio.",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/hospitality/six-senses-barwara/1.jpg",
   },
   {
     id: "hybrid",
     title: "Hybrid Collaboration",
     description: "Connect in-room and remote participants with reliable video conferencing and wireless content sharing.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/akina-mumbai/1.jpg",
   },
   {
     id: "training",
     title: "Training & Workshops",
     description: "Engage teams with interactive displays, wireless presentations, and session recording capabilities.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/residential/vishal-udani/1.jpg",
   }
 ];
 

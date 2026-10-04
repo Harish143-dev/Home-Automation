@@ -9,25 +9,25 @@ const INTEGRATIONS = [
     id: "light-control",
     title: "Light Control",
     description: "Create the perfect atmosphere in every room with intelligent lighting scenes, precision dimming, automated schedules, occupancy sensing, and effortless one-touch control that complements the way you live.",
-    image: "https://images.unsplash.com/photo-1565538810844-1e1194826c91?q=80&w=800&auto=format&fit=crop"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   },
   {
     id: "blind-control",
     title: "Blind Control",
     description: "Motorized blinds and curtains adjust automatically throughout the day to maximize natural light, minimize glare, enhance privacy, and maintain a comfortable indoor environment.",
-    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "temperature-control",
     title: "Temperature Control",
     description: "Integrate climate control with lighting and occupancy settings to maintain consistent indoor comfort while improving overall system efficiency.",
-    image: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?q=80&w=800&auto=format&fit=crop"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "energy-control",
     title: "Energy Control",
     description: "Optimize energy performance through intelligent scheduling, occupancy sensing, daylight-responsive automation, and customized scene control helping reduce energy use while maintaining exceptional comfort.",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop"
+    image: "/images/projects/residential/bhartiya-residence/1.jpg"
   }
 ];
 

@@ -1,10 +1,19 @@
 import { Request, Response, NextFunction } from 'express';
 import prisma from '../config/prisma';
 import { sendCareerEmail } from '../services/emailService';
+import { careerApplicationSchema } from '../schemas';
 
 export const createCareerApplication = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { name, email, phone, experience, position, message, resumeUrl } = req.body;
+    const parsed = careerApplicationSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return res.status(400).json({ success: false, errors: parsed.error.format() });
+    }
+
+    const { name, email, phone, experience, position, message } = parsed.data;
+    
+    // If a file was uploaded via multer, use its path. Otherwise fallback to the body's resumeUrl
+    const resumeUrl = req.file ? `/uploads/${req.file.filename}` : parsed.data.resumeUrl || null;
 
     const application = await prisma.careerApplication.create({
       data: {
@@ -14,7 +23,7 @@ export const createCareerApplication = async (req: Request, res: Response, next:
         experience,
         position,
         message: message || null,
-        resumeUrl: resumeUrl || null,
+        resumeUrl,
       },
     });
 

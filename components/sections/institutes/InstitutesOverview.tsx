@@ -83,7 +83,7 @@ export function InstitutesOverview() {
         {/* Right Image */}
         <div ref={imageRef} className="w-full lg:w-1/2 h-[500px] lg:h-[700px] relative rounded-[2rem] overflow-hidden shadow-2xl shadow-black/10">
           <NextImage
-            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop"
+            src="/images/projects/commercial/meta-office-gurgaon/1.jpg"
             alt="Modern educational campus"
             fill
             className="object-cover"

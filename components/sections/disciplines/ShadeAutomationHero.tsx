@@ -67,7 +67,7 @@ export default function ShadeAutomationHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+ src="/images/projects/commercial/meta-office-gurgaon/1.jpg"
  alt="Smart Shades Automation"
  fill
  priority

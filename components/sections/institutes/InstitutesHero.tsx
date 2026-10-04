@@ -69,7 +69,7 @@ export function InstitutesHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/commercial/wave-cinema/1.jpg"
  alt="Smart Automation Solutions for Educational Institutes"
  fill
  priority

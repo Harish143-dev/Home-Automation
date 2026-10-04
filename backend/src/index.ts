@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import morgan from 'morgan';
+import bcrypt from 'bcryptjs';
 import { env } from './config/env';
 import prisma from './config/prisma';
 import projectRoutes from './routes/projectRoutes';
@@ -51,6 +52,10 @@ app.use(
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Static file serving for uploads
+import path from 'path';
+app.use('/uploads', express.static(path.join(__dirname, '../../uploads')));
+
 // Health check with database connectivity probe
 app.get('/api/health', async (_req, res) => {
   try {
@@ -91,8 +96,23 @@ app.use((req, res) => {
 // Centralized error handler
 app.use(errorHandler);
 
-const server = app.listen(env.PORT, () => {
+const server = app.listen(env.PORT, async () => {
   console.log(`🚀 Production-ready API server running on port ${env.PORT} [${env.NODE_ENV}]`);
+
+  if (env.ADMIN_EMAIL && env.ADMIN_PASSWORD) {
+    try {
+      const existingAdmin = await prisma.admin.findUnique({ where: { email: env.ADMIN_EMAIL } });
+      if (!existingAdmin) {
+        const hashedPassword = await bcrypt.hash(env.ADMIN_PASSWORD, 10);
+        await prisma.admin.create({
+          data: { email: env.ADMIN_EMAIL, password: hashedPassword },
+        });
+        console.log(`✅ Default admin account created for ${env.ADMIN_EMAIL}`);
+      }
+    } catch (err) {
+      console.error('Failed to seed admin account:', err);
+    }
+  }
 });
 
 // Graceful shutdown

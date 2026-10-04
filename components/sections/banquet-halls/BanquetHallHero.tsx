@@ -69,7 +69,7 @@ export function BanquetHallHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/hospitality/le-meridien/1.jpg"
  alt="Banquet Hall Automation"
  fill
  priority

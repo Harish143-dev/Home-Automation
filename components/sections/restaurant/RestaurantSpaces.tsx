@@ -11,37 +11,37 @@ const SPACES = [
     id: "dining",
     title: "Dining Area",
     description: "Scene-based lighting, background music, climate control, and automated shades for the perfect dining ambience.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/akina-mumbai/1.jpg",
   },
   {
     id: "private",
     title: "Private Dining Rooms",
     description: "Personalized lighting, music, and temperature settings for exclusive and intimate dining experiences.",
-    image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
   },
   {
     id: "bar",
     title: "Bar & Lounge",
     description: "Dynamic lighting, music integration, and entertainment control to create the ideal atmosphere throughout the day.",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/nox-mumbai/1.jpg",
   },
   {
     id: "outdoor",
     title: "Outdoor Seating",
     description: "Automated shades, weather-responsive lighting, and audio control for comfortable open-air dining.",
-    image: "https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/nox-mumbai/1.jpg",
   },
   {
     id: "reception",
     title: "Reception & Waiting Area",
     description: "Warm, welcoming lighting and background music to create a great first impression for every guest.",
-    image: "https://images.unsplash.com/photo-1566838332152-d17e76cb8bf3?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/golden-dragon/1.jpg",
   },
   {
     id: "vip",
     title: "VIP Spaces",
     description: "Customized automation for lighting, music, climate, and privacy, designed for premium guest experiences.",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/restaurant/oko/1.jpg",
   }
 ];
 

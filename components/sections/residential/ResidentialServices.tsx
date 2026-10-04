@@ -18,7 +18,7 @@ const SERVICES_DATA = [
       "Scene-based keypad control",
       "Audio video control"
     ],
-    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/projects/residential/bhartiya-residence/1.jpg"
   },
   {
     id: "audio-video",
@@ -33,7 +33,7 @@ const SERVICES_DATA = [
       "Landscape outdoor areas",
       "Home theatre"
     ],
-    image: "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   },
   {
     id: "security",
@@ -47,7 +47,7 @@ const SERVICES_DATA = [
       "Alarm intrusion detection",
       "Glass break detection sensors"
     ],
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "shades",
@@ -57,7 +57,7 @@ const SERVICES_DATA = [
       "Light control based on time & sunlight",
       "Privacy control with one-touch or scene-based operation"
     ],
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "hvac",
@@ -67,7 +67,7 @@ const SERVICES_DATA = [
       "Automated climate adjustment based on occupancy",
       "Energy-optimized operation for reduced consumption"
     ],
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/projects/residential/sournika-villa/1.jpg"
   },
   {
     id: "amc",
@@ -76,7 +76,7 @@ const SERVICES_DATA = [
       "Smart temperature control",
       "24x7 assistance"
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   }
 ];
 

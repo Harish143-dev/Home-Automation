@@ -11,37 +11,37 @@ const SPACES = [
     id: "classrooms",
     title: "Classrooms",
     description: "Intelligent lighting, occupancy sensing, AV, displays, HVAC and room controls for focused, comfortable and connected learning spaces.",
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   },
   {
     id: "lecture-halls",
     title: "Lecture Halls",
     description: "Integrated lighting, AV, presentation systems, video conferencing and automated controls for effective teaching and large-group sessions.",
-    image: "https://images.unsplash.com/photo-1544531585-9847b68c8c86?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "auditoriums",
     title: "Auditoriums",
     description: "Centralised control of lighting, AV, displays, audio, shades and presentation systems for events, performances and institutional programmes.",
-    image: "https://images.unsplash.com/photo-1507676184212-d0c30a51fb9b?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     id: "libraries",
     title: "Libraries",
     description: "Automated lighting, occupancy sensing, HVAC and networking solutions that support quiet, comfortable and energy-efficient study environments.",
-    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   },
   {
     id: "administrative",
     title: "Administrative Offices",
     description: "Smart lighting, shades, AV, video conferencing, access control and workspace automation for efficient day-to-day campus operations.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "common-areas",
     title: "Campus Common Areas",
     description: "Connected lighting, security, networking, audio and occupancy-based controls for safer, efficient and well-managed shared spaces.",
-    image: "https://images.unsplash.com/photo-1525926477800-7a3afafebdd4?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   }
 ];
 

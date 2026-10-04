@@ -8,22 +8,22 @@ const PROJECTS = [
   {
     title: "Dior",
     asset: "Mumbai",
-    image: "https://images.unsplash.com/photo-1542484439-d3db09ec3551?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     title: "BMW Showroom",
     asset: "Delhi",
-    image: "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     title: "Tiffany & Co.",
     asset: "Jio World Plaza, Mumbai",
-    image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     title: "Louis Vuitton",
     asset: "Mumbai",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   }
 ];
 

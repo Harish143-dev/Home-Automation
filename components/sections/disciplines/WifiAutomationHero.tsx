@@ -67,7 +67,7 @@ export default function WifiAutomationHero() {
  <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
  <div className="wifi-hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage 
- src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/restaurant/nox-mumbai/1.jpg"
  alt="Intelligent Wi-Fi and Networking Solutions"
  fill
  priority

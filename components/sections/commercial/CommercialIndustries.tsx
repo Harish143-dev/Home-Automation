@@ -10,43 +10,43 @@ const INDUSTRIES = [
   {
     id: "corporate",
     title: "Corporate Offices & Workspaces",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
     useCase: "Optimizing hybrid environments for a multigenerational workforce. Systems dynamically adjust to layout changes, supporting collaborative connection and individual focus."
   },
   {
     id: "hospitality",
     title: "Restaurants and Hospitality",
-    image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
     useCase: "Cultivating atmosphere through time locked lighting scenes and acoustic zones that guide occupant transit, dwell times, and visual comfort."
   },
   {
     id: "retail",
     title: "Retail Environments",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
     useCase: "Accentuating spatial branding, architecture, and inventory texturing through highly calibrated lighting scenes that influence consumer engagement."
   },
   {
     id: "education",
     title: "Educational Institutions & Auditoriums",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
     useCase: "Enhancing cognitive stamina, auditory absorption, and sensory clarity through distraction-free acoustics and automated daylight harvesting"
   },
   {
     id: "transit",
     title: "Airport Lounges & Transit Hubs",
-    image: "https://images.unsplash.com/photo-1544015759-2475e6d8713a?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projects/commercial/wave-cinema/1.jpg",
     useCase: "Mitigating traveler fatigue on a continuous 24-hour operational cycle through adaptive lighting paths and zoned environmental controls that support rest, focus, and transition."
   },
   {
     id: "entertainment",
     title: "Multiplexes & Entertainment Centers",
-    image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projects/commercial/wave-cinema/1.jpg",
     useCase: "Executing high stakes automated theater transitions. Centralized lighting scene changes link directly to show scheduling protocols, maximizing cinematic impact while protecting lamp and system lifecycle."
   },
   {
     id: "healthcare",
     title: "Healthcare & Wellness Facilities",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projects/commercial/wave-cinema/1.jpg",
     useCase: "Deploying adaptive lighting and precise climate zoning to stabilize circadian rhythms, actively reducing patient stress and supporting clinical performance."
   }
 ];

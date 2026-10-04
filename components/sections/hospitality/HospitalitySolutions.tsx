@@ -25,7 +25,7 @@ const SOLUTIONS: SolutionData[] = [
       { title: "Automated Energy Saving", description: "The moment the room is verified as unoccupied, the system automatically triggers standby logic—dimming active illumination layers and adjusting climate controls to eliminate utility waste." },
       { title: "Hardware Standards", description: "Ultra-precise occupancy sensors, high-availability switching modules, and phase-cut dimming modules engineered for load management." }
     ],
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/hospitality/itc-grand-chola/1.jpg"
   },
   {
     title: "System 02: Lutron MyRoom Prime",
@@ -40,7 +40,7 @@ const SOLUTIONS: SolutionData[] = [
       { title: "Shades Control", description: "Offers built-in integration to smoothly open or close motorized window drapes and blinds." },
       { title: "HVAC Control", description: "Gives guests standalone control over room temperature and fan speeds for localized comfort." }
     ],
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/hospitality/le-meridien/1.jpg"
   },
   {
     title: "System 03: Lutron MyRoom XC",
@@ -53,7 +53,7 @@ const SOLUTIONS: SolutionData[] = [
       { title: "Centralized Property Monitoring", description: "Allows hotel operations to view real-time occupancy, thermal status, \"Do Not Disturb\" (DND), and \"Make Up Room\" (MUR) logs from a centralized command center." },
       { title: "Advanced PMS/BMS Automation Workflows", description: "Deep native integration with Property Management Systems (PMS) and Building Management Systems (BMS) to trigger automated arrival scenes and predictive equipment maintenance alerts." }
     ],
-    image: "https://images.unsplash.com/photo-1551882547-ff40c0d129df?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/hospitality/le-meridien/1.jpg"
   }
 ];
 

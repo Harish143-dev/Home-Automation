@@ -14,27 +14,27 @@ const ENVIRONMENTS: EnvironmentCard[] = [
   {
     title: "Resorts",
     description: "Unifying sprawling multi-acre property footprints under a cohesive backbone that balances hyper-personalized guest comfort with automated micro-climate and thermal asset preservation.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg"
   },
   {
     title: "Business Hotels",
     description: "Deploying zero-latency environmental and connectivity networks that eliminate technical friction, maximize executive traveler productivity, and execute predictive energy conservation.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/projects/hospitality/itc-grand-chola/1.jpg"
   },
   {
     title: "Restaurants & Lounges",
     description: "Orchestrating emotionally intelligent, time-locked lighting scenes and acoustic zoning to instinctively guide guest transit, extend dwell times, and elevate brand intimacy.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg"
   },
   {
     title: "Banquet Spaces",
     description: "Synthesizing high-availability architectural lighting presets, heavy AV matrices, and high-occupancy environmental climate moderation for flawless, high-velocity event execution.",
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/hospitality/le-meridien/1.jpg"
   },
   {
     title: "Wellness & Spa Spaces",
     description: "Engineering deeply restorative, biophilic sanctuaries that modulate lighting spectra, precise temperatures, and sensory parameters to actively stabilize mood and promote recovery.",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg"
   }
 ];
 

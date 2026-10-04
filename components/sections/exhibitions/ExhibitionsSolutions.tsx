@@ -17,7 +17,7 @@ const SOLUTIONS = [
       "Large-format presentations",
       "Visual storytelling"
     ],
-    image: "https://images.unsplash.com/photo-1542484439-d3db09ec3551?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "lighting",
@@ -30,7 +30,7 @@ const SOLUTIONS = [
       "Ambient lighting",
       "Dimming control"
     ],
-    image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     id: "audio",
@@ -43,7 +43,7 @@ const SOLUTIONS = [
       "Product demonstrations",
       "Multi-zone audio"
     ],
-    image: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   },
   {
     id: "interactive-av",
@@ -56,7 +56,7 @@ const SOLUTIONS = [
       "Visitor engagement",
       "Content presentation"
     ],
-    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "network",
@@ -69,7 +69,7 @@ const SOLUTIONS = [
       "Content distribution",
       "Device connectivity"
     ],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   },
   {
     id: "control",
@@ -82,7 +82,7 @@ const SOLUTIONS = [
       "Integrated system operation",
       "Simplified user control"
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   }
 ];
 

@@ -73,7 +73,7 @@ export function GuestRoomIntro() {
           <div ref={imageRef} className="w-full md:w-1/2">
             <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-black/5 border border-black/5 shadow-lg">
               <NextImage
-                src="https://images.unsplash.com/photo-1590490359683-658d3d23f972?q=80&w=2000&auto=format&fit=crop"
+                src="/images/projects/hospitality/crown-plaza-gurgaon/1.jpg"
                 alt="Intelligent Guest Room Experience"
                 fill
                 className="object-cover"

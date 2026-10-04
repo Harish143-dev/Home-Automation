@@ -67,7 +67,7 @@ export function BoardroomHero() {
  {/* Background Image - Modern Corporate Boardroom */}
  <div className="absolute inset-0 w-full h-full overflow-hidden">
  <NextImage
- src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/restaurant/golden-dragon/1.jpg"
  alt="Smart Boardroom Automation"
  fill
  priority

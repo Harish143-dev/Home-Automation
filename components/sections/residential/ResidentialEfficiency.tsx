@@ -94,7 +94,7 @@ const CATEGORIES = [
   {
     id: "safety-security",
     title: "Safety & Security",
-    image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/projects/residential/sournika-villa/1.jpg",
     services: [
       {
         id: "integrated-security",

@@ -9,37 +9,37 @@ const MEDIA_ITEMS = [
   {
     id: "lighting",
     title: "Smart Lighting",
-    src: "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/projects/restaurant/oko/1.jpg",
     className: "col-span-2 row-span-2"
   },
   {
     id: "av",
     title: "AV Systems",
-    src: "https://images.unsplash.com/photo-1549213816-6c8e78553da5?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
     className: "col-span-2 row-span-1"
   },
   {
     id: "shades",
     title: "Motorized Shades",
-    src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
     className: "col-span-1 row-span-1"
   },
   {
     id: "theatre",
     title: "Home Theatre",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/projects/commercial/tiffany-mumbai/1.jpg",
     className: "col-span-1 row-span-1"
   },
   {
     id: "hospitality",
     title: "Hospitality Automation",
-    src: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/projects/commercial/wave-cinema/1.jpg",
     className: "col-span-1 md:col-span-2 row-span-1"
   },
   {
     id: "touch",
     title: "Touch Controls",
-    src: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
     className: "col-span-1 md:col-span-2 row-span-1"
   }
 ];

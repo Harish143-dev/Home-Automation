@@ -69,7 +69,7 @@ export function SpaHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/hospitality/le-meridien/1.jpg"
  alt="Intelligent Spa & Wellness Automation"
  fill
  priority

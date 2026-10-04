@@ -16,27 +16,27 @@ if (typeof window !== "undefined") {
 
 const GALLERY_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop",
+    src: "/images/projects/residential/bhartiya-residence/1.jpg",
     alt: "Team meetings and collaborative planning",
     className: "col-span-1 md:col-span-2 row-span-2 aspect-[4/3] md:aspect-auto",
   },
   {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+    src: "/images/projects/residential/aranyak-farmhouse/1.jpg",
     alt: "Project execution and engineering",
     className: "col-span-1 aspect-square",
   },
   {
-    src: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop",
+    src: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
     alt: "Training sessions and skill development",
     className: "col-span-1 aspect-square",
   },
   {
-    src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&auto=format&fit=crop",
+    src: "/images/projects/commercial/wave-cinema/1.jpg",
     alt: "Employee celebrations and team bonding",
     className: "col-span-1 md:col-span-2 aspect-[2/1]",
   },
   {
-    src: "https://images.unsplash.com/photo-1541888086225-b65fb8eb556b?q=80&w=800&auto=format&fit=crop",
+    src: "/images/projects/residential/aranyak-farmhouse/1.jpg",
     alt: "Site installations and field work",
     className: "col-span-1 md:col-span-2 aspect-[2/1]",
   },

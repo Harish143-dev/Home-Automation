@@ -11,37 +11,37 @@ const SPACES = [
     id: "reception",
     title: "Reception & Lobby",
     description: "Lighting control, motorized shades, digital displays, and background audio.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "meeting",
     title: "Meeting & Conference Rooms",
     description: "Video conferencing, presentation systems, lighting control, shades, and touchscreen control.",
-    image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "executive",
     title: "Executive Cabins",
     description: "Personal lighting control, motorized shades, AV integration, and room control.",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   },
   {
     id: "open",
     title: "Open Workspaces",
     description: "Occupancy-based lighting, daylight harvesting, shades, and distributed audio.",
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     id: "training",
     title: "Training Rooms",
     description: "Interactive displays, video conferencing, presentation systems, microphones, and room control.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/wave-cinema/1.jpg",
   },
   {
     id: "breakout",
     title: "Breakout & Collaboration Zones",
     description: "Flexible lighting, audio, displays, and integrated controls.",
-    image: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   }
 ];
 

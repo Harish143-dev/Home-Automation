@@ -9,21 +9,21 @@ const FEATURED_PROJECTS = [
     id: "feat-1",
     title: "The Horizon Estate",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=400",
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg",
     href: "/projects/horizon-estate"
   },
   {
     id: "feat-2",
     title: "Lumina Corporate HQ",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=400",
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
     href: "/projects/lumina-hq"
   },
   {
     id: "feat-3",
     title: "Azure Resort & Spa",
     category: "Hospitality",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=400",
+    image: "/images/projects/residential/bhartiya-residence/1.jpg",
     href: "/projects/azure-resort"
   }
 ];
@@ -33,21 +33,21 @@ const RECENT_PROJECTS = [
     id: "rec-1",
     title: "Penthouse 42",
     date: "Oct 12, 2023",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=200",
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
     href: "/projects/penthouse-42"
   },
   {
     id: "rec-2",
     title: "Silicon Valley Campus",
     date: "Sep 28, 2023",
-    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=200",
+    image: "/images/projects/residential/sanjeet-bhasin/1.jpg",
     href: "/projects/silicon-valley"
   },
   {
     id: "rec-3",
     title: "The Glass House",
     date: "Sep 15, 2023",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=200",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
     href: "/projects/glass-house"
   }
 ];

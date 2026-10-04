@@ -69,7 +69,7 @@ export default function AMCHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/commercial/wave-cinema/1.jpg"
  alt="Annual Maintenance & Support"
  fill
  priority

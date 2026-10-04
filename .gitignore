@@ -44,3 +44,6 @@ Thumbs.db
 *.pem
 .vscode/
 .idea/
+
+# Temp
+scratch/

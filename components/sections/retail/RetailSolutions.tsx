@@ -19,7 +19,7 @@ const SOLUTIONS = [
       "Checkout & customer areas",
       "Store opening/closing schedules"
     ],
-    image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   },
   {
     id: "audio",
@@ -33,7 +33,7 @@ const SOLUTIONS = [
       "Customer waiting areas",
       "Multiple audio zones"
     ],
-    image: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "displays",
@@ -47,7 +47,7 @@ const SOLUTIONS = [
       "Brand storytelling",
       "Campaign & digital signage"
     ],
-    image: "https://images.unsplash.com/photo-1542484439-d3db09ec3551?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "hvac",
@@ -61,7 +61,7 @@ const SOLUTIONS = [
       "Operating-hour schedules",
       "Occupancy-based control"
     ],
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   },
   {
     id: "security",
@@ -75,7 +75,7 @@ const SOLUTIONS = [
       "Back-of-house areas",
       "CCTV monitoring"
     ],
-    image: "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   },
   {
     id: "network",
@@ -89,7 +89,7 @@ const SOLUTIONS = [
       "AV systems",
       "Automation devices"
     ],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   },
   {
     id: "control",
@@ -103,7 +103,7 @@ const SOLUTIONS = [
       "Store-wide system monitoring",
       "Scheduled automation"
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   }
 ];
 

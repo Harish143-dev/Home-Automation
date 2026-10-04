@@ -4,6 +4,7 @@ import { authenticateAdmin } from '../middleware/auth';
 import { validateBody, validateIdParam } from '../middleware/validate';
 import { careerApplicationSchema } from '../schemas';
 import rateLimit from 'express-rate-limit';
+import { upload } from '../middleware/upload';
 
 const careerLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -15,7 +16,7 @@ const careerLimiter = rateLimit({
 
 const router = Router();
 
-router.post('/', careerLimiter, validateBody(careerApplicationSchema), createCareerApplication);
+router.post('/', careerLimiter, upload.single('resume'), createCareerApplication);
 router.get('/', authenticateAdmin, getCareerApplications);
 router.delete('/:id', authenticateAdmin, validateIdParam, deleteCareerApplication);
 

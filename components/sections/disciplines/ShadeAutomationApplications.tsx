@@ -11,17 +11,17 @@ const ENVIRONMENTS = [
   {
     title: "Residential Shades Automation",
     description: "Living Rooms & Bedrooms – Automated curtains and shades for privacy, daylight control, glare reduction, and comfort.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg"
   },
   {
     title: "Hospitality Shades Automation",
     description: "Hotels, Resorts & Restaurants – Automated window treatments for guest comfort, ambience, privacy, and energy management.",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1974&auto=format&fit=crop"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   },
   {
     title: "Commercial Shades Automation",
     description: "Offices, Boardrooms & Corporate Spaces – Manage daylight, glare, privacy, and indoor comfort across workspaces.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+    image: "/images/projects/commercial/nvidia/1.jpg"
   }
 ];
 

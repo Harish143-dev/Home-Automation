@@ -69,7 +69,7 @@ export function RetailHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/commercial/meta-office-gurgaon/1.jpg"
  alt="Retail Store Automation"
  fill
  priority

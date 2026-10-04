@@ -24,8 +24,8 @@ export default function AboutPage() {
       <CompanyAtAGlance />
       <MissionVision />
       <OurJourney />
-      <MeetOurFounders />
-      <OurTeam />
+      {/* <MeetOurFounders /> */}
+      {/* <OurTeam /> */}
       <Awards />
       <OurLocations />
       <AboutCTA />

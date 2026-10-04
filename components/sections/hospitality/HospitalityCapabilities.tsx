@@ -27,7 +27,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "common",
     name: "Common Spaces & Public Areas",
     subheading: "Design public volumes that actively reduce stress and support recovery through automated transitions of lighting, acoustics, and environmental parameters.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/projects/hospitality/itc-grand-chola/1.jpg",
     capabilities: [
       { title: "Lighting Management Frameworks", description: "Creating everyday health infrastructure through light: Deploys dynamic, time-locked lighting scenes across expansive lobbies and receptions that match natural circadian human rhythms, reducing guest travel strain while optimizing energy conservation." },
       { title: "Centralized Acoustic Distribution Networks", description: "Spatial acoustic balance and sensory comfort. Distributes clear, balanced background music across public lounges to craft a soothing, welcoming atmosphere that complements the property's brand identity." },
@@ -39,7 +39,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "boardrooms",
     name: "Boardrooms & Meeting Rooms",
     subheading: "Empower corporate groups with zero-friction collaboration hubs managed through intuitive control systems.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
     capabilities: [
       { title: "Integrated Video Conferencing Systems", description: "Facilitates global connection using high-definition tracking cameras, beamforming audio, and single-touch room launch scripts." },
       { title: "High-Resolution LED Presentation Displays", description: "Sharp visual data rendering via ultra-low pixel pitch display walls designed for critical executive evaluation." },
@@ -52,7 +52,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "banquet",
     name: "Banquet Halls & Event Spaces",
     subheading: "Execute complex, high-velocity event timelines through unified venue controls built for rapid layout adaptation.",
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
     capabilities: [
       { title: "High-Density Networking Foundations", description: "Guarantees dedicated, high-bandwidth connectivity for massive concurrent device loads, live streaming demands, and event production networks." },
       { title: "Enterprise Access & Surveillance Security", description: "Protects high-profile VIP events through centralized credentialing, smart surveillance, and role-based perimeter management." },
@@ -66,7 +66,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "dining",
     name: "Restaurants & Dining Spaces",
     subheading: "Shape memorable culinary atmospheres where light, acoustics, and micro-climates adapt seamlessly to the style and time of day.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/projects/hospitality/six-senses-barwara/1.jpg",
     capabilities: [
       { title: "Architectural Lighting Orchestration", description: "Transitions ambiance through scene-based lighting presets engineered specifically for breakfast, lunch, dinner, and late-night configurations." },
       { title: "Curated Soundscape Distribution", description: "Delivers high-fidelity background music and sound-masking layers that mask acoustic clutter and reinforce brand intimacy." },
@@ -79,7 +79,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "spa",
     name: "Spa & Wellness Areas",
     subheading: "Build restorative sanctuaries that enhance relaxation by giving guests and therapists total control over their sensory environment.",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
     capabilities: [
       { title: "Circadian Lighting Management", description: "Soft, customizable lighting scenes and tunable white curves designed to lower stress levels and support therapeutic recovery." },
       { title: "Immersive Soundscape Systems", description: "Delivers clear audio and calming acoustic soundscapes across treatment rooms and relaxation lounges to promote mental recovery." },
@@ -90,7 +90,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "boh",
     name: "Back of House (BOH)",
     subheading: "Support uninterrupted property operations with centralized system dashboards built for low-maintenance reliability.",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
     capabilities: [
       { title: "Scalable Networking Infrastructure", description: "The Specifics: The mission-critical network backbone driving property-wide data management, property management software syncing, and operational apps." },
       { title: "AI-Powered Surveillance & Operational Security", description: "The Specifics: Optimizes loss prevention and safety tracking via intelligent video analytics, access logs, and real-time incident alerting." },

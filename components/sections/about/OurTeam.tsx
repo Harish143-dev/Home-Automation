@@ -7,32 +7,32 @@ const TEAM = [
   {
     name: "Michael Chen",
     role: "Head of Engineering",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600"
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
   },
   {
     name: "Sarah Jenkins",
     role: "Lead Lighting Designer",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600"
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
   },
   {
     name: "David Alaba",
     role: "Project Management Lead",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
+    image: "/images/projects/commercial/wave-cinema/1.jpg"
   },
   {
     name: "Emily Watson",
     role: "Client Experience Director",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600"
+    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg"
   },
   {
     name: "Arjun Patel",
     role: "Systems Integration Lead",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600"
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg"
   },
   {
     name: "Priya Sharma",
     role: "Support Operations",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
+    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg"
   }
 ];
 

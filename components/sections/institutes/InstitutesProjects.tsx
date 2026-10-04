@@ -12,19 +12,19 @@ const PROJECTS = [
     id: 1,
     title: "IIM Ranchi",
     asset: "Ranchi, Jharkhand",
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: 2,
     title: "IIT Kanpur & IIT Roorkee",
     asset: "Kanpur & Roorkee",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: 3,
     title: "Graphic Era University",
     asset: "Dehradun, Uttarakhand",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000&auto=format&fit=crop",
+    image: "/images/projects/commercial/wave-cinema/1.jpg",
   }
 ];
 

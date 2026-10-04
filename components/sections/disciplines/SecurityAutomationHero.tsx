@@ -67,7 +67,7 @@ export default function SecurityAutomationHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop"
+ src="/images/projects/hospitality/oberoi-amarvillas/1.jpg"
  alt="Intelligent Security Automation"
  fill
  priority

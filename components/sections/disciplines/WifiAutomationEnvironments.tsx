@@ -21,7 +21,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Residential Solutions",
     href: "/residential",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop"
+    image: "/images/projects/restaurant/akina-mumbai/1.jpg"
   },
   {
     title: "Hospitality Wi-Fi Automation",
@@ -34,7 +34,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Hospitality Solutions",
     href: "/hospitality",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1974&auto=format&fit=crop"
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
   },
   {
     title: "Commercial Wi-Fi Automation",
@@ -47,7 +47,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Commercial Solutions",
     href: "/commercial",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg"
   }
 ];
 
