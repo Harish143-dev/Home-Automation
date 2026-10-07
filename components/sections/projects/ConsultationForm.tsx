@@ -8,18 +8,24 @@ export function ConsultationForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
     const formData = new FormData(e.currentTarget);
+    const firstName = ((formData.get('firstName') as string) || '').trim();
+    const lastName = ((formData.get('lastName') as string) || '').trim();
+    const fullName = `${firstName} ${lastName}`.trim() || 'Prospective Client';
+    const message = ((formData.get('message') as string) || '').trim();
     
     const data = {
-      name: `${formData.get('firstName')} ${formData.get('lastName')}`,
+      name: fullName,
       email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
+      phone: (formData.get('phone') as string) || null,
       inquiryType: 'Consultation',
-      message: formData.get('message') as string,
+      message: message || 'Free Consultation requested for space.',
     };
     
     try {
@@ -28,18 +34,23 @@ export function ConsultationForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
+      const result = await res.json().catch(() => null);
+
       if (res.ok) {
         setIsSubmitted(true);
+      } else {
+        setErrorMessage(result?.error || 'Failed to submit consultation request. Please check your details.');
       }
     } catch (err) {
       console.error(err);
+      setErrorMessage('Network error connecting to the server. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="py-12 md:py-16 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border">
+    <section id="consultation" className="py-12 md:py-16 relative w-full px-6 sm:px-10 lg:px-20 bg-background border-t border-border scroll-mt-24">
       <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
         {/* Text Content */}
@@ -77,6 +88,11 @@ export function ConsultationForm() {
         <div className="bg-transparent border border-border/60 rounded-2xl p-8 md:p-12 shadow-sm">
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              {errorMessage && (
+                <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm font-medium">
+                  {errorMessage}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="firstName" className="text-[11px] tracking-widest text-muted-foreground">First Name</label>

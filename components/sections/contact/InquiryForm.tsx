@@ -13,15 +13,17 @@ export function InquiryForm() {
   const prefersReducedMotion = useReducedMotion();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
     const formData = new FormData(e.currentTarget);
     const data = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
+      phone: (formData.get('phone') as string) || null,
       inquiryType: (formData.get('project') as string) || 'Contact Form',
       message: formData.get('message') as string,
     };
@@ -32,13 +34,19 @@ export function InquiryForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
+      const result = await res.json().catch(() => null);
+
       if (res.ok) {
         setIsSuccess(true);
+        setErrorMessage(null);
         e.currentTarget.reset();
         setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        setErrorMessage(result?.error || 'Unable to submit your inquiry. Please verify the information and try again.');
       }
     } catch (err) {
       console.error(err);
+      setErrorMessage('Network connection error. Please try again or reach out to us at contact@atsmartliving.com');
     } finally {
       setIsSubmitting(false);
     }
@@ -99,6 +107,17 @@ export function InquiryForm() {
           className="flex flex-col gap-12"
           onSubmit={handleSubmit}
         >
+          {errorMessage && (
+            <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm font-medium">
+              {errorMessage}
+            </div>
+          )}
+          {isSuccess && (
+            <div className="p-4 rounded-xl bg-accent/10 border border-accent/20 text-accent text-sm font-medium">
+              Thank you! Your inquiry has been received. Our team will contact you shortly.
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <FloatingInput id="name" label="Full Name" type="text" />
             <FloatingInput id="email" label="Email Address" type="email" />

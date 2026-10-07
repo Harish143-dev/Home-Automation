@@ -10,9 +10,9 @@ export async function POST(request: Request) {
     const backendData = {
       name,
       email,
-      phone,
+      phone: phone || null,
       inquiryType: 'Brochure Download',
-      message: `City: ${city}\nNewsletter Opt-In: ${newsletter}`,
+      message: `City: ${city || 'Not specified'}\nNewsletter Opt-In: ${newsletter || 'No'}`,
     };
 
     const backendResponse = await fetch(`${getApiBaseUrl()}/leads`, {

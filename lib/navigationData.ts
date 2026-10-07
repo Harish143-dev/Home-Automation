@@ -73,10 +73,11 @@ export const MAIN_NAVIGATION: NavLink[] = [
   {
     id: 'work',
     label: 'Work',
+    href: '/projects',
     items: [
-      { id: 'work-residential', label: 'Residential Projects', href: '#work-residential' },
-      { id: 'work-hospitality', label: 'Hospitality Projects', href: '#work-hospitality' },
-      { id: 'work-commercial', label: 'Commercial Projects', href: '#work-commercial' },
+      { id: 'work-residential', label: 'Residential Projects', href: '/projects' },
+      { id: 'work-hospitality', label: 'Hospitality Projects', href: '/hospitality' },
+      { id: 'work-commercial', label: 'Commercial Projects', href: '/commercial' },
     ]
   },
   {
@@ -87,15 +88,15 @@ export const MAIN_NAVIGATION: NavLink[] = [
   {
     id: 'energy-saving',
     label: 'Energy Saving',
-    href: '#energy-saving',
+    href: '/commercial#roi-calculator',
   },
   {
     id: 'resources',
     label: 'Resources',
     items: [
-      { id: 'res-blogs', label: 'Blogs', href: '/blog' },
-      { id: 'res-case', label: 'Case Studies', href: '#case-studies' },
-      { id: 'res-pub', label: 'Publications', href: '#publications' },
+      { id: 'res-blogs', label: 'Blogs & Articles', href: '/blog' },
+      { id: 'res-case', label: 'Case Studies', href: '/projects' },
+      { id: 'res-amc', label: 'AMC & Care', href: '/disciplines/amc' },
     ]
   },
   {

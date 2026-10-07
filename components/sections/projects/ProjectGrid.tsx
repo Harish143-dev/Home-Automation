@@ -9,8 +9,21 @@ import { getApiBaseUrl } from "@/lib/api";
 
 const CATEGORIES = ["All Projects", "Residential", "Commercial", "Hospitality", "Automotive", "Marine"];
 
+const SLUGS = [
+  "horizon-estate",
+  "lumina-hq",
+  "azure-resort",
+  "penthouse-42",
+  "silicon-valley",
+  "glass-house",
+  "dixit-nene",
+  "rajan-mittal",
+  "bkt-farms"
+];
+
 const DUMMY_PROJECTS = Array.from({ length: 9 }).map((_, i) => ({
   id: `project-${i + 1}`,
+  slug: SLUGS[i],
   title: [
     "The Horizon Estate",
     "Lumina Corporate HQ",
@@ -18,9 +31,9 @@ const DUMMY_PROJECTS = Array.from({ length: 9 }).map((_, i) => ({
     "Penthouse 42",
     "Silicon Valley Campus",
     "The Glass House",
-    "Metro Tower Residences",
-    "Alpine Retreat",
-    "Coastal Villa Automation"
+    "The Dixit-Nene Residence",
+    "The Rajan Mittal Villa",
+    "BKT Farms"
   ][i],
   category: ["Residential", "Commercial", "Hospitality"][i % 3],
   image: [
@@ -30,14 +43,14 @@ const DUMMY_PROJECTS = Array.from({ length: 9 }).map((_, i) => ({
     "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800"
+    "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
+    "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
+    "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg"
   ][i],
   description: "A comprehensive smart automation ecosystem integrating advanced lighting, climate control, and predictive security.",
   date: "Oct 12, 2023",
   readTime: "4 min read",
-  href: "/projects/details"
+  href: `/projects/${SLUGS[i]}`
 }));
 
 export function ProjectGrid() {
@@ -50,16 +63,19 @@ export function ProjectGrid() {
       .then(res => res.json())
       .then(data => {
         if (data.success && Array.isArray(data.data) && data.data.length > 0) {
-          const liveProjects = data.data.map((p: any) => ({
-            id: `db-project-${p.id}`,
-            title: p.title,
-            category: "Residential",
-            image: p.imageUrl || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
-            description: p.description,
-            date: new Date(p.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-            readTime: "3 min read",
-            href: "/residential"
-          }));
+          const liveProjects = data.data.map((p: any) => {
+            const projectSlug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `project-${p.id}`;
+            return {
+              id: `db-project-${p.id}`,
+              title: p.title,
+              category: "Residential",
+              image: p.imageUrl || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+              description: p.description,
+              date: new Date(p.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+              readTime: "3 min read",
+              href: `/projects/${projectSlug}`
+            };
+          });
           // Prepend live database projects to the catalogue
           setAllProjects([...liveProjects, ...DUMMY_PROJECTS]);
         }
