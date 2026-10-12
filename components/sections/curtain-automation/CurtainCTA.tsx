@@ -92,7 +92,7 @@ export function CurtainCTA() {
           ref={btnGroupRef}
           className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto"
         >
-          <Link href="#consultation" className="w-full sm:w-auto">
+          <Link href="/contact" className="w-full sm:w-auto">
             <Button
               variant="interactive"
               size="lg"
@@ -101,7 +101,7 @@ export function CurtainCTA() {
               Schedule a Free Consultation
             </Button>
           </Link>
-          <Link href="#contact" className="w-full sm:w-auto">
+          <Link href="/contact" className="w-full sm:w-auto">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               Talk to a Smart Home Expert
             </Button>

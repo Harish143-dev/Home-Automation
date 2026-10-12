@@ -34,9 +34,9 @@ const FOOTER_LINKS = {
     { label: 'Airport Lounges', href: '/commercial/airport-lounges' },
   ],
   resources: [
-    { label: 'Case Studies', href: '#case-studies' },
-    { label: 'Blogs', href: '/blog' },
-    { label: 'Energy Saving guide', href: '#energy-saving' },
+    { label: 'Case Studies', href: '/projects' },
+    { label: 'Blogs & Insights', href: '/blog' },
+    { label: 'Energy Saving Guide', href: '/commercial#roi-calculator' },
     { label: 'AMC & Support', href: '/disciplines/amc' },
   ],
   company: [

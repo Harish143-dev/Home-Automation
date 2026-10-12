@@ -44,7 +44,8 @@ export default function ProcessPhilosophy() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24"
+      id="process"
+      className="py-12 md:py-16 relative w-full bg-background text-foreground px-6 sm:px-12 md:px-24 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 

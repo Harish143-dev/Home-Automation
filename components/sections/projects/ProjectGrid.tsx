@@ -9,8 +9,21 @@ import { getApiBaseUrl } from "@/lib/api";
 
 const CATEGORIES = ["All Projects", "Residential", "Commercial", "Hospitality", "Automotive", "Marine"];
 
+const SLUGS = [
+  "horizon-estate",
+  "lumina-hq",
+  "azure-resort",
+  "penthouse-42",
+  "silicon-valley",
+  "glass-house",
+  "dixit-nene",
+  "rajan-mittal",
+  "bkt-farms"
+];
+
 const DUMMY_PROJECTS = Array.from({ length: 9 }).map((_, i) => ({
   id: `project-${i + 1}`,
+  slug: SLUGS[i],
   title: [
     "The Horizon Estate",
     "Lumina Corporate HQ",
@@ -18,9 +31,9 @@ const DUMMY_PROJECTS = Array.from({ length: 9 }).map((_, i) => ({
     "Penthouse 42",
     "Silicon Valley Campus",
     "The Glass House",
-    "Metro Tower Residences",
-    "Alpine Retreat",
-    "Coastal Villa Automation"
+    "The Dixit-Nene Residence",
+    "The Rajan Mittal Villa",
+    "BKT Farms"
   ][i],
   category: ["Residential", "Commercial", "Hospitality"][i % 3],
   image: [
@@ -37,7 +50,7 @@ const DUMMY_PROJECTS = Array.from({ length: 9 }).map((_, i) => ({
   description: "A comprehensive smart automation ecosystem integrating advanced lighting, climate control, and predictive security.",
   date: "Oct 12, 2023",
   readTime: "4 min read",
-  href: "/projects/details"
+  href: `/projects/${SLUGS[i]}`
 }));
 
 export function ProjectGrid() {
@@ -71,8 +84,8 @@ export function ProjectGrid() {
 
   const filteredProjects = allProjects.filter(project => {
     const matchesCategory = activeCategory === "All Projects" || project.category.toLowerCase() === activeCategory.toLowerCase();
-    const matchesSearch = !searchQuery || 
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    const matchesSearch = !searchQuery ||
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });

@@ -130,7 +130,7 @@ export function CurtainHero() {
  ref={ctaRef}
  className="pointer-events-auto flex flex-col sm:flex-row gap-5"
  >
- <Link href="#consultation" className="w-full sm:w-auto">
+ <Link href="/contact" className="w-full sm:w-auto">
  <Button variant="interactive" size="lg" className="w-full sm:w-auto">
  Book a Free Consultation
  </Button>

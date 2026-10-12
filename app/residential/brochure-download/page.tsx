@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
+import { getApiBaseUrl } from '@/lib/api';
 
 export default function BrochureDownloadPage() {
   const router = useRouter();
@@ -31,15 +32,21 @@ export default function BrochureDownloadPage() {
     setError(null);
 
     try {
-      // 1. Submit data to the API route
-      const response = await fetch('/api/brochure', {
+      // 1. Submit lead data to the unified backend API
+      const response = await fetch(`${getApiBaseUrl()}/leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          inquiryType: 'Brochure Download',
+          message: `Brochure download requested for city: ${formData.city || 'Not specified'}`,
+        }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit form');
+        throw new Error('Failed to record brochure request');
       }
 
       // 2. Trigger the automatic download of the PDF
