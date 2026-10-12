@@ -7,7 +7,7 @@ const FOUNDERS = [
   {
     name: "John Doe",
     role: "Managing Director / Founder",
-    image: "/images/projects/restaurant/nox-mumbai/1.jpg",
+    image: "/images/projects/restaurant/nox-mumbai/1.webp",
     message: [
       "For over two decades, our vision has been driven by a singular goal: to seamlessly integrate technology into the fabric of daily life without compromising architectural integrity.",
       "We believe that true luxury lies in simplicity. The best automation systems are those that fade into the background, allowing you to focus on what truly matters while your environment anticipates your needs.",
@@ -17,7 +17,7 @@ const FOUNDERS = [
   {
     name: "Jane Smith",
     role: "CEO / Co-founder",
-    image: "/images/projects/commercial/wave-cinema/1.jpg",
+    image: "/images/projects/commercial/wave-cinema/1.webp",
     message: [
       "Building a company that transforms how people interact with their spaces requires more than just technological expertise; it demands a deep understanding of human behavior and design.",
       "Our approach is centered on the customer. We spend countless hours understanding the nuances of how people live and work, ensuring that our solutions are intuitive, reliable, and fundamentally enhance their quality of life.",

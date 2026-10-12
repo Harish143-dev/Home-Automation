@@ -9,37 +9,37 @@ const GALLERY_MEDIA = [
   {
     id: "g1",
     type: "landscape",
-    src: "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
+    src: "/assets/residential/project/delhi-residence/delhi-residence-2.webp",
     alt: "Luxury living room automation"
   },
   {
     id: "g2",
     type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
+    src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.webp",
     alt: "Smart climate control panel"
   },
   {
     id: "g3",
     type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
+    src: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.webp",
     alt: "Automated shades in bedroom"
   },
   {
     id: "g4",
     type: "landscape",
-    src: "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
+    src: "/assets/residential/project/delhi-residence/delhi-residence-3.webp",
     alt: "Home theatre experience"
   },
   {
     id: "g5",
     type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
+    src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.webp",
     alt: "Integrated lighting systems"
   },
   {
     id: "g6",
     type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg",
+    src: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.webp",
     alt: "Modern architectural lighting"
   }
 ];

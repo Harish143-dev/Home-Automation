@@ -67,7 +67,7 @@ export default function AudioVideoHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="/images/projects/hospitality/le-meridien/1.jpg"
+ src="/images/projects/hospitality/le-meridien/1.webp"
  alt="Intelligent Audio Video Automation"
  fill
  priority

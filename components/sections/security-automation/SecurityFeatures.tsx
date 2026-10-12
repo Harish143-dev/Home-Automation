@@ -11,7 +11,7 @@ import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 import { Check } from "lucide-react";
 
 // Placeholder image (Swap these out with real assets later)
-import imgPlaceholder from "@/assets/residential/hero.jpg";
+import imgPlaceholder from "@/assets/residential/hero.webp";
 
 // Ensure GSAP plugins are registered
 if (typeof window !== "undefined") {

@@ -12,49 +12,49 @@ const PROJECTS = [
     id: 1,
     title: "ITC Hotels",
     asset: "Luxury Hospitality Automation",
-    image: "/images/projects/hospitality/itc-grand-chola/1.jpg",
+    image: "/images/projects/hospitality/itc-grand-chola/1.webp",
   },
   {
     id: 2,
     title: "Taj Hotels",
     asset: "Premium Guest Experience",
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp",
   },
   {
     id: 3,
     title: "Marriott",
     asset: "Integrated Public Area Control",
-    image: "/images/projects/hospitality/courtyard-marriott-shillong/1.jpg",
+    image: "/images/projects/hospitality/courtyard-marriott-shillong/1.webp",
   },
   {
     id: 4,
     title: "Hilton",
     asset: "Intelligent Lighting & AV",
-    image: "/images/projects/hospitality/double-tree-hilton-goa/1.jpg",
+    image: "/images/projects/hospitality/double-tree-hilton-goa/1.webp",
   },
   {
     id: 5,
     title: "Hyatt",
     asset: "Seamless Automation Solutions",
-    image: "/images/projects/hospitality/hyatt-regency-jaipur/1.jpg",
+    image: "/images/projects/hospitality/hyatt-regency-jaipur/1.webp",
   },
   {
     id: 6,
     title: "Four Seasons",
     asset: "Elite Environmental Management",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.webp",
   },
   {
     id: 7,
     title: "The Oberoi",
     asset: "Bespoke Automation Architecture",
-    image: "/images/projects/hospitality/oberoi-mumbai/1.jpg",
+    image: "/images/projects/hospitality/oberoi-mumbai/1.webp",
   },
   {
     id: 8,
     title: "IHG Hotels & Resorts",
     asset: "Scalable Hospitality Framework",
-    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
+    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.webp",
   }
 ];
 

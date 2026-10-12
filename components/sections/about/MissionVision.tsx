@@ -33,7 +33,7 @@ export default function MissionVision() {
             <div className="w-full lg:w-1/2">
               <div className="relative w-full aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden">
                 <NextImage
-                  src="/images/about/mission.jpg"
+                  src="/images/about/mission.webp"
                   alt="Intelligent luxury living space"
                   fill
                   className="object-cover"
@@ -53,7 +53,7 @@ export default function MissionVision() {
             <div className="w-full lg:w-1/2">
               <div className="relative w-full aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden">
                 <NextImage
-                  src="/images/about/vision.jpg"
+                  src="/images/about/vision.webp"
                   alt="Modern futuristic intelligent building atrium"
                   fill
                   className="object-cover"

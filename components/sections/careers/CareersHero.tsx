@@ -65,7 +65,7 @@ export default function CareersHero() {
  {/* Background Image */}
  <div className="absolute inset-0 w-full h-full overflow-hidden">
  <NextImage
- src="/images/projects/restaurant/unico/1.jpg"
+ src="/images/projects/restaurant/unico/1.webp"
  alt="Careers at Anusha Technovision"
  fill
  priority

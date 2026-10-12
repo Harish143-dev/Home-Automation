@@ -9,37 +9,37 @@ const MEDIA_ITEMS = [
   {
     id: "lighting",
     title: "Smart Lighting",
-    src: "/images/projects/restaurant/oko/1.jpg",
+    src: "/images/projects/restaurant/oko/1.webp",
     className: "col-span-2 row-span-2"
   },
   {
     id: "av",
     title: "AV Systems",
-    src: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    src: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp",
     className: "col-span-2 row-span-1"
   },
   {
     id: "shades",
     title: "Motorized Shades",
-    src: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
+    src: "/images/projects/restaurant/thai-naam-mumbai/1.webp",
     className: "col-span-1 row-span-1"
   },
   {
     id: "theatre",
     title: "Home Theatre",
-    src: "/images/projects/commercial/tiffany-mumbai/1.jpg",
+    src: "/images/projects/commercial/tiffany-mumbai/1.webp",
     className: "col-span-1 row-span-1"
   },
   {
     id: "hospitality",
     title: "Hospitality Automation",
-    src: "/images/projects/commercial/wave-cinema/1.jpg",
+    src: "/images/projects/commercial/wave-cinema/1.webp",
     className: "col-span-1 md:col-span-2 row-span-1"
   },
   {
     id: "touch",
     title: "Touch Controls",
-    src: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    src: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp",
     className: "col-span-1 md:col-span-2 row-span-1"
   }
 ];

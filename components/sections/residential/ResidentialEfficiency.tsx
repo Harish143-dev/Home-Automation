@@ -4,9 +4,9 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { cn } from "../../../lib/utils";
 
-import comfort from '@/assets/residential/efficiency/Comfort & Ambience.jpg';
-import control from '@/assets/residential/efficiency/Effortless Control.jpg';
-import entertainment from '@/assets/residential/efficiency/entertainment.jpg';
+import comfort from '@/assets/residential/efficiency/Comfort & Ambience.webp';
+import control from '@/assets/residential/efficiency/Effortless Control.webp';
+import entertainment from '@/assets/residential/efficiency/entertainment.webp';
 
 
 const CATEGORIES = [
@@ -94,7 +94,7 @@ const CATEGORIES = [
   {
     id: "safety-security",
     title: "Safety & Security",
-    image: "/images/projects/residential/sournika-villa/1.jpg",
+    image: "/images/projects/residential/sournika-villa/1.webp",
     services: [
       {
         id: "integrated-security",

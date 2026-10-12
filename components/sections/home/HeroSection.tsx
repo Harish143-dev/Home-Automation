@@ -22,7 +22,7 @@ const START_FRAME = 1;
 const END_FRAME = 180;
 const FRAME_COUNT = END_FRAME - START_FRAME + 1;
 const FRAME_PATHS = Array.from({ length: FRAME_COUNT }, (_, index) => {
-  return `/heroFrames/${String(index + START_FRAME).padStart(4, "0")}.jpg`;
+  return `/heroFrames/${String(index + START_FRAME).padStart(4, "0")}.webp`;
 });
 
 /** Interval for Phase 2 prioritized keyframe loading */
@@ -564,7 +564,7 @@ export function HeroSection() {
         className="py-12 md:py-16 relative flex h-[100lvh] min-h-[100lvh] w-full flex-col items-center justify-end overflow-hidden bg-background px-4 sm:px-5 md:items-start md:px-16 lg:px-24"
       >
         <NextImage
-          src="/heroFrames/0001.jpg"
+          src="/heroFrames/0001.webp"
           alt=""
           fill
           priority
@@ -620,7 +620,7 @@ export function HeroSection() {
       >
         {/* Static first frame — visible while canvas loads, fades out once canvas is ready */}
         <NextImage
-          src="/heroFrames/0001.jpg"
+          src="/heroFrames/0001.webp"
           alt=""
           fill
           priority

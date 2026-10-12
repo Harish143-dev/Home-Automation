@@ -94,7 +94,7 @@ export default function LightingIntro() {
           className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/5 border border-border group"
         >
           <NextImage
-            src="/images/projects/residential/aranyak-farmhouse/1.jpg"
+            src="/images/projects/residential/aranyak-farmhouse/1.webp"
             alt="Family enjoying a beautifully illuminated living space"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

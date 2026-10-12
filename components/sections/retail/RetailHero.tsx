@@ -69,7 +69,7 @@ export function RetailHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="/images/projects/commercial/meta-office-gurgaon/1.jpg"
+ src="/images/projects/commercial/meta-office-gurgaon/1.webp"
  alt="Retail Store Automation"
  fill
  priority

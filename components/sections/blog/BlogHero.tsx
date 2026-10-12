@@ -5,7 +5,7 @@ import NextImage from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
-import heroImage from "@/assets/projects/private-residence.jpg";
+import heroImage from "@/assets/projects/private-residence.webp";
 
 export default function BlogHero() {
  const sectionRef = useRef<HTMLElement>(null);

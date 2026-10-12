@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
-import heroImage from "@/assets/projects/private-residence.jpg";
+import heroImage from "@/assets/projects/private-residence.webp";
 import { Button } from "@/components/ui/button";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";

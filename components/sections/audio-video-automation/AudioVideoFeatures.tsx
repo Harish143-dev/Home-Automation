@@ -9,22 +9,22 @@ const FEATURES = [
   {
     id: 0,
     text: "One-touch control for music, TV, and home theatre",
-    image: "/images/av_home_theatre.png",
+    image: "/images/av_home_theatre.webp",
   },
   {
     id: 1,
     text: "Equipment neatly concealed for a clean appearance",
-    image: "/images/av_clean_appearance.png",
+    image: "/images/av_clean_appearance.webp",
   },
   {
     id: 2,
     text: "Designed to complement your home interiors",
-    image: "/images/av_interior_design.png",
+    image: "/images/av_interior_design.webp",
   },
   {
     id: 3,
     text: "Easy-to-use controls for every member of the family",
-    image: "/images/av_smart_control.png",
+    image: "/images/av_smart_control.webp",
   }
 ];
 

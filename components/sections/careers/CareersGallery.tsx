@@ -16,27 +16,27 @@ if (typeof window !== "undefined") {
 
 const GALLERY_IMAGES = [
   {
-    src: "/images/projects/residential/bhartiya-residence/1.jpg",
+    src: "/images/projects/residential/bhartiya-residence/1.webp",
     alt: "Team meetings and collaborative planning",
     className: "col-span-1 md:col-span-2 row-span-2 aspect-[4/3] md:aspect-auto",
   },
   {
-    src: "/images/projects/residential/aranyak-farmhouse/1.jpg",
+    src: "/images/projects/residential/aranyak-farmhouse/1.webp",
     alt: "Project execution and engineering",
     className: "col-span-1 aspect-square",
   },
   {
-    src: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
+    src: "/images/projects/hospitality/crown-plaza-gurgaon/1.webp",
     alt: "Training sessions and skill development",
     className: "col-span-1 aspect-square",
   },
   {
-    src: "/images/projects/commercial/wave-cinema/1.jpg",
+    src: "/images/projects/commercial/wave-cinema/1.webp",
     alt: "Employee celebrations and team bonding",
     className: "col-span-1 md:col-span-2 aspect-[2/1]",
   },
   {
-    src: "/images/projects/residential/aranyak-farmhouse/1.jpg",
+    src: "/images/projects/residential/aranyak-farmhouse/1.webp",
     alt: "Site installations and field work",
     className: "col-span-1 md:col-span-2 aspect-[2/1]",
   },

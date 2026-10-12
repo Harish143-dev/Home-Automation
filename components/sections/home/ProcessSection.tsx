@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { gsap, ScrollTrigger, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
-import bg from "@/assets/home/processBg.jpg"
+import bg from "@/assets/home/processBg.webp"
 
 const PROCESS_STEPS = [
   {

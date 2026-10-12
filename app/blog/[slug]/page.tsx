@@ -40,7 +40,7 @@ async function getPost(slug: string): Promise<BlogPost | null> {
           date: new Date(dbMatch.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
           title: dbMatch.title,
           excerpt: plain.slice(0, 140) + '...',
-          image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
+          image: "/assets/residential/project/delhi-residence/delhi-residence-1.webp",
           readTime: `${Math.max(2, Math.ceil(plain.split(/\s+/).length / 200))} Min Read`,
           content: dbMatch.content,
         };

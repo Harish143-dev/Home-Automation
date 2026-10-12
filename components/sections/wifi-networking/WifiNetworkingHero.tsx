@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "../../ui/button";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { gsap, SplitText, useGSAP } from "../../../lib/gsapSetup";
-import hero from "@/assets/residential/hero.jpg"; // Reusing placeholder for now
+import hero from "@/assets/residential/hero.webp"; // Reusing placeholder for now
 
 export function WifiNetworkingHero() {
     const containerRef = useRef<HTMLElement>(null);

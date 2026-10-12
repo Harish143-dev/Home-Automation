@@ -12,7 +12,7 @@ const CASE_STUDIES = [
     strain: "Managing volatile utility footprints and varied crowd loads across distinct luxury zones, from exposed rooftop lounges to high-privacy member clubs, while resolving inefficient legacy BMS coordination.",
     yield: "Deployed a property-wide integrated network architecture unifying guest rooms and signature public venues under a singular command backbone. The network synchronizes dynamic lighting paths, solar shading, and occupancy-based environmental setbacks to deliver a frictionless hospitality experience.",
     roi: "Achieved complete PMS/BMS integration, eliminating manual operational lag while locking in a consistent luxury environment that naturally maximizes guest dwell times across all touchpoints.",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg"
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.webp"
   },
   {
     id: "cs-2",
@@ -21,7 +21,7 @@ const CASE_STUDIES = [
     strain: "Overcoming the operational friction of manual environmental setups across high-occupancy culinary spaces, public galleries, and guest suites that previously ran independent of central hotel operations.",
     yield: "Engineered a property-wide automation infrastructure linking guest rooms, destination restaurants, and public volumes into a unified hotel system layer. The network utilizes invisible presence telemetry to scale HVAC tracking and ambient light curves based on real-time room occupancy.",
     roi: "Erased system fragmentation through flawless BMS/PMS cross-talk, driving massive, measurable reductions in baseline energy waste while preserving uncompromised indoor climate comfort.",
-    image: "/images/projects/hospitality/oberoi-mumbai/1.jpg"
+    image: "/images/projects/hospitality/oberoi-mumbai/1.webp"
   },
   {
     id: "cs-3",
@@ -30,7 +30,7 @@ const CASE_STUDIES = [
     strain: "Delivering modern guest technology and responsive energy conservation within a sensitive 14th-century heritage citadel without compromising or disrupting the historic architectural fabric.",
     yield: "Deployed a specialized guestroom management system (GRMS) featuring low-impact guest presence detection matrices and bespoke, custom-engraved backlit architectural keypads. The system naturally controls lighting curves, climate parameters, and window treatments based on real-time occupancy.",
     roi: "Preserved the design integrity and historic character of the asset while executing aggressive, automated utility conservation that perfectly aligns with Six Senses' global wellness and sustainability standards.",
-    image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
+    image: "/images/projects/hospitality/six-senses-barwara/1.webp"
   }
 ];
 

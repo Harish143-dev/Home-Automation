@@ -290,7 +290,7 @@ export default function ProjectsPage() {
                   type="text" 
                   value={formData.imageUrl}
                   onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                  placeholder="e.g. /assets/residential/project/delhi-residence/delhi-residence-1.jpg"
+                  placeholder="e.g. /assets/residential/project/delhi-residence/delhi-residence-1.webp"
                   className="w-full px-4 py-2.5 bg-background border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all"
                 />
               </div>

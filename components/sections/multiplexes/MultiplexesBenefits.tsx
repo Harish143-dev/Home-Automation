@@ -136,7 +136,7 @@ export function MultiplexesBenefits() {
         {/* Right Side: Image */}
         <div ref={imageRef} className="w-full lg:w-1/2 relative h-[600px] lg:h-[800px] rounded-[2rem] overflow-hidden opacity-0">
           <NextImage
-            src="/images/projects/commercial/ey-gurgaon/1.jpg"
+            src="/images/projects/commercial/ey-gurgaon/1.webp"
             alt="Immersive Multiplex Experience"
             fill
             className="object-cover transition-transform duration-[2s] hover:scale-105"

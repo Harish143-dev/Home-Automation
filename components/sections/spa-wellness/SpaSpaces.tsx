@@ -15,7 +15,7 @@ const SPACES = [
       "Background music integration",
       "Automated shade control"
     ],
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp",
   },
   {
     id: "treatment",
@@ -25,7 +25,7 @@ const SPACES = [
       "Automated HVAC control",
       "One-touch control via iPad or touchscreen"
     ],
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp",
   },
   {
     id: "massage",
@@ -35,7 +35,7 @@ const SPACES = [
       "Privacy through automated shades",
       "Integrated soothing audio"
     ],
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.webp",
   },
   {
     id: "yoga",
@@ -45,7 +45,7 @@ const SPACES = [
       "Multi-zone background audio",
       "Comfortable climate control"
     ],
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp",
   },
   {
     id: "steam",
@@ -55,7 +55,7 @@ const SPACES = [
       "Ambient lighting",
       "Centralized HVAC management"
     ],
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp",
   },
   {
     id: "relaxation",
@@ -65,7 +65,7 @@ const SPACES = [
       "Continuous background music",
       "Automated shades for daylight management"
     ],
-    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
+    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.webp",
   }
 ];
 

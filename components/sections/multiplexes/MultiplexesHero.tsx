@@ -69,7 +69,7 @@ export function MultiplexesHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="/images/projects/commercial/tiffany-mumbai/1.jpg"
+ src="/images/projects/commercial/tiffany-mumbai/1.webp"
  alt="Immersive Multiplex Technology"
  fill
  priority

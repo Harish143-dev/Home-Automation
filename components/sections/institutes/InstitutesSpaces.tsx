@@ -11,37 +11,37 @@ const SPACES = [
     id: "classrooms",
     title: "Classrooms",
     description: "Intelligent lighting, occupancy sensing, AV, displays, HVAC and room controls for focused, comfortable and connected learning spaces.",
-    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
+    image: "/images/projects/commercial/tiffany-mumbai/1.webp",
   },
   {
     id: "lecture-halls",
     title: "Lecture Halls",
     description: "Integrated lighting, AV, presentation systems, video conferencing and automated controls for effective teaching and large-group sessions.",
-    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
+    image: "/images/projects/commercial/ey-gurgaon/1.webp",
   },
   {
     id: "auditoriums",
     title: "Auditoriums",
     description: "Centralised control of lighting, AV, displays, audio, shades and presentation systems for events, performances and institutional programmes.",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.webp",
   },
   {
     id: "libraries",
     title: "Libraries",
     description: "Automated lighting, occupancy sensing, HVAC and networking solutions that support quiet, comfortable and energy-efficient study environments.",
-    image: "/images/projects/commercial/nvidia/1.jpg",
+    image: "/images/projects/commercial/nvidia/1.webp",
   },
   {
     id: "administrative",
     title: "Administrative Offices",
     description: "Smart lighting, shades, AV, video conferencing, access control and workspace automation for efficient day-to-day campus operations.",
-    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
+    image: "/images/projects/commercial/ey-gurgaon/1.webp",
   },
   {
     id: "common-areas",
     title: "Campus Common Areas",
     description: "Connected lighting, security, networking, audio and occupancy-based controls for safer, efficient and well-managed shared spaces.",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.webp",
   }
 ];
 

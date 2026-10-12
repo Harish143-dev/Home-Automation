@@ -6,9 +6,9 @@ import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 
-import imgLifestyle from '@/assets/curtain-automation/features/lifestyle.png';
-import imgBedroom from '@/assets/curtain-automation/features/bedroom.png';
-import imgOpen from '@/assets/curtain-automation/features/open.png';
+import imgLifestyle from '@/assets/curtain-automation/features/lifestyle.webp';
+import imgBedroom from '@/assets/curtain-automation/features/bedroom.webp';
+import imgOpen from '@/assets/curtain-automation/features/open.webp';
 
 export function CurtainFeatures() {
   const sectionRef = useRef<HTMLElement>(null);

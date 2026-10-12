@@ -6,12 +6,12 @@ import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 // Reusing standard client images
-import imgMadhuri from '@/assets/curtain-automation/clients/madhuri.png';
-import imgMittal from '@/assets/curtain-automation/clients/mittal.png';
-import imgBkt from '@/assets/curtain-automation/clients/bkt.png';
-import imgRaheja from '@/assets/curtain-automation/clients/raheja.png';
-import imgKhazana from '@/assets/curtain-automation/clients/khazana.png';
-import imgUjjawal from '@/assets/curtain-automation/clients/bkt.png';
+import imgMadhuri from '@/assets/curtain-automation/clients/madhuri.webp';
+import imgMittal from '@/assets/curtain-automation/clients/mittal.webp';
+import imgBkt from '@/assets/curtain-automation/clients/bkt.webp';
+import imgRaheja from '@/assets/curtain-automation/clients/raheja.webp';
+import imgKhazana from '@/assets/curtain-automation/clients/khazana.webp';
+import imgUjjawal from '@/assets/curtain-automation/clients/bkt.webp';
 
 const CLIENTS = [
   { name: 'Madhuri Dixit', type: 'Celebrity Residence', location: 'Mumbai', image: imgMadhuri },

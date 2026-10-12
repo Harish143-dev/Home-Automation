@@ -92,7 +92,7 @@ export function ResidentialProcess() {
         {/* Fullscreen Background Images */}
         <div className="absolute inset-0 w-full h-full">
           <img
-            src="/images/projects/residential/vishal-udani/1.jpg"
+            src="/images/projects/residential/vishal-udani/1.webp"
             alt="Smart Home Process"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
           />
@@ -191,7 +191,7 @@ export function ResidentialProcess() {
         {/* Background Image for mobile process section */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <img
-            src="/images/projects/residential/sournika-villa/1.jpg"
+            src="/images/projects/residential/sournika-villa/1.webp"
             alt="Smart Home Process"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.15]"
           />

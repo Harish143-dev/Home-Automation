@@ -6,13 +6,13 @@ import Link from 'next/link';
 import React, { useRef } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '../../ui/button';
-import privateResidenceImage from '../../../assets/projects/private-residence.jpg';
+import privateResidenceImage from '../../../assets/projects/private-residence.webp';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { DURATION, EASE, SCROLL, STAGGER } from '../../../lib/animation.config';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
-import SawaiManMahalImage from '../../../assets/projects/SawaiManMahal.jpg';
+import SawaiManMahalImage from '../../../assets/projects/SawaiManMahal.webp';
 
 interface Project {
   id: string;

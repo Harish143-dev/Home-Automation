@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "../../ui/button";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { gsap, SplitText, useGSAP } from "../../../lib/gsapSetup";
-import hero from "@/assets/curtain-automation/hero.png"
+import hero from "@/assets/curtain-automation/hero.webp"
 
 export function CurtainHero() {
  const containerRef = useRef<HTMLElement>(null);

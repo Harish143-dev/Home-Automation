@@ -9,7 +9,7 @@ import { Check } from 'lucide-react';
 const SCENARIOS = [
   {
     title: 'Morning',
-    image: '/images/scenario_morning.png',
+    image: '/images/scenario_morning.webp',
     items: [
       'Shades open automatically',
       'Natural daylight enters the room',
@@ -18,7 +18,7 @@ const SCENARIOS = [
   },
   {
     title: 'Dinner',
-    image: '/images/scenario_dinner.png',
+    image: '/images/scenario_dinner.webp',
     items: [
       'Shades adjust for added privacy',
       'Lighting changes to dining levels'
@@ -26,7 +26,7 @@ const SCENARIOS = [
   },
   {
     title: 'TV Mode',
-    image: '/images/scenario_tv.png',
+    image: '/images/scenario_tv.webp',
     items: [
       'Shades close',
       'Lights dim',
@@ -35,7 +35,7 @@ const SCENARIOS = [
   },
   {
     title: 'Goodbye',
-    image: '/images/scenario_goodbye.png',
+    image: '/images/scenario_goodbye.webp',
     items: [
       'Shades close',
       'Lights turn off',

@@ -11,37 +11,37 @@ const SOLUTIONS = [
     id: "entrance",
     title: "Entrance & Lobby",
     description: "Create a strong first impression with dynamic lighting, digital displays, audio, and integrated control that enhance the arrival experience.",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    image: "/images/projects/commercial/yashraj-studio/1.webp",
   },
   {
     id: "auditoriums",
     title: "Cinema Auditoriums",
     description: "Support immersive cinema environments with integrated AV, audio, lighting, and control systems designed for a consistent and engaging experience.",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    image: "/images/projects/commercial/yashraj-studio/1.webp",
   },
   {
     id: "corridors",
     title: "Corridors & Common Areas",
     description: "Create a seamless environment across circulation areas with intelligent lighting, distributed audio, security, and integrated control solutions.",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.webp",
   },
   {
     id: "concession",
     title: "Concession & Dining Areas",
     description: "Create comfortable and engaging customer environments through integrated lighting and audio solutions tailored to high-traffic spaces.",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    image: "/images/projects/commercial/yashraj-studio/1.webp",
   },
   {
     id: "lounges",
     title: "VIP & Premium Lounges",
     description: "Deliver elevated experiences with premium AV, sophisticated lighting, motorized shading, and intuitive automation.",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    image: "/images/projects/commercial/yashraj-studio/1.webp",
   },
   {
     id: "back-of-house",
     title: "Back-of-House",
     description: "Support operational efficiency with reliable networking, security, access control, and technology infrastructure designed for commercial environments.",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    image: "/images/projects/commercial/yashraj-studio/1.webp",
   }
 ];
 

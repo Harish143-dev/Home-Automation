@@ -19,7 +19,7 @@ const SOLUTIONS = [
       "Checkout & customer areas",
       "Store opening/closing schedules"
     ],
-    image: "/images/projects/commercial/nvidia/1.jpg",
+    image: "/images/projects/commercial/nvidia/1.webp",
   },
   {
     id: "audio",
@@ -33,7 +33,7 @@ const SOLUTIONS = [
       "Customer waiting areas",
       "Multiple audio zones"
     ],
-    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
+    image: "/images/projects/commercial/ey-gurgaon/1.webp",
   },
   {
     id: "displays",
@@ -47,7 +47,7 @@ const SOLUTIONS = [
       "Brand storytelling",
       "Campaign & digital signage"
     ],
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    image: "/images/projects/commercial/yashraj-studio/1.webp",
   },
   {
     id: "hvac",
@@ -61,7 +61,7 @@ const SOLUTIONS = [
       "Operating-hour schedules",
       "Occupancy-based control"
     ],
-    image: "/images/projects/commercial/nvidia/1.jpg",
+    image: "/images/projects/commercial/nvidia/1.webp",
   },
   {
     id: "security",
@@ -75,7 +75,7 @@ const SOLUTIONS = [
       "Back-of-house areas",
       "CCTV monitoring"
     ],
-    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
+    image: "/images/projects/commercial/tiffany-mumbai/1.webp",
   },
   {
     id: "network",
@@ -89,7 +89,7 @@ const SOLUTIONS = [
       "AV systems",
       "Automation devices"
     ],
-    image: "/images/projects/commercial/nvidia/1.jpg",
+    image: "/images/projects/commercial/nvidia/1.webp",
   },
   {
     id: "control",
@@ -103,7 +103,7 @@ const SOLUTIONS = [
       "Store-wide system monitoring",
       "Scheduled automation"
     ],
-    image: "/images/projects/commercial/nvidia/1.jpg",
+    image: "/images/projects/commercial/nvidia/1.webp",
   }
 ];
 

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import NextImage from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import processImage from "@/assets/projects/SawaiManMahal.jpg";
+import processImage from "@/assets/projects/SawaiManMahal.webp";
 
 export default function ProcessPhilosophy() {
   const sectionRef = useRef<HTMLElement>(null);

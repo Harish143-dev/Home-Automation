@@ -19,37 +19,37 @@ const PROJECTS: Project[] = [
     id: "p1",
     name: "Common Spaces & Public Areas",
     description: "Managing expansive architectural volumes through automated daylight harvesting and astrological scheduling. Public areas smoothly adjust light levels and acoustic layers in response to shifting solar tracks and foot-traffic density, minimizing operational strain while ensuring an uncompromised sensory welcoming sequence.",
-    image: "/images/projects/hospitality/le-meridien/1.jpg"
+    image: "/images/projects/hospitality/le-meridien/1.webp"
   },
   {
     id: "p2",
     name: "Boardrooms & Meeting Rooms",
     description: "Eliminating administrative setup delays with integrated, unified control backbones. One-touch command matrices instantly lower presentation shading, configure sound-masking profiles, and launch zero-latency wireless collaboration layers, protecting corporate guest productivity and corporate event revenue streams.",
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp"
   },
   {
     id: "p3",
     name: "Banquet Halls & Event Spaces",
     description: "Engineered to transition effortlessly from high-brightness corporate keynotes to dramatic, low-light evening gala events. High-power zoning interfaces manage intricate lighting networks, motorized partition-tracking logic, and heavy climate loads proactively as occupancy density shifts in real-time.",
-    image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
+    image: "/images/projects/hospitality/six-senses-barwara/1.webp"
   },
   {
     id: "p4",
     name: "Restaurants & Dining Spaces",
     description: "Elevating the hospitality experience by manipulating spatial perception. Lighting and audio elements adapt to the mood, time of day, and specific service windows through smooth, imperceptible transitions, sculpting culinary atmospheres that naturally maximize table turn rates and guest spend.",
-    image: "/images/projects/hospitality/itc-grand-chola/1.jpg"
+    image: "/images/projects/hospitality/itc-grand-chola/1.webp"
   },
   {
     id: "p5",
     name: "Spa & Wellness Areas",
     description: "Designing environments that actively reduce physical stress and complement restorative treatments. By locking tunable white lighting profiles to organic circadian patterns, purifying micro-climates, and isolating acoustics, these spaces deliver unparalleled sensory choice and cognitive comfort.",
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp"
   },
   {
     id: "p6",
     name: "Guest Rooms",
     description: "Evolving the stay experience through intelligent sleep science. Non-intrusive sensor matrices and magnetic contact points execute silent, invisible climate and shading setups that align with the guest's circadian rhythms, guaranteeing unparalleled sleep consistency while capturing 5% to 15% energy reductions.",
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp"
   }
 ];
 

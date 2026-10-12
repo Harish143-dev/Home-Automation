@@ -7,7 +7,7 @@ import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 // Placeholder images for the features - the user can replace these later
-import imgPlaceholder1 from '@/assets/residential/hero.jpg';
+import imgPlaceholder1 from '@/assets/residential/hero.webp';
 
 const FEATURES = [
   {

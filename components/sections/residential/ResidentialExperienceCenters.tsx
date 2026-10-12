@@ -6,9 +6,9 @@ import { gsap, ScrollTrigger, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
 // Import the specific assets the user provided
-import bangaloreImg from "../../../assets/residential/banglore.png";
-import delhiImg from "../../../assets/residential/delhi.png";
-import hyderabadImg from "../../../assets/residential/hydrabhad.png";
+import bangaloreImg from "../../../assets/residential/banglore.webp";
+import delhiImg from "../../../assets/residential/delhi.webp";
+import hyderabadImg from "../../../assets/residential/hydrabhad.webp";
 
 const CENTERS_DATA = [
   {

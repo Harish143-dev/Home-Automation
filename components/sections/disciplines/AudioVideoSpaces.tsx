@@ -11,32 +11,32 @@ const SPACES = [
   {
     title: "Home Theatre & Media Rooms",
     description: "Create immersive entertainment experiences with synchronized audio, video, lighting, and intuitive control.",
-    image: "/images/av_home_theatre.png"
+    image: "/images/av_home_theatre.webp"
   },
   {
     title: "Boardrooms & Meeting Rooms",
     description: "Enable seamless meetings and presentations with integrated conferencing, display, audio, and control systems.",
-    image: "/images/office-overview.png"
+    image: "/images/office-overview.webp"
   },
   {
     title: "Lobby & Common Areas",
     description: "Enhance shared spaces with background audio, digital displays, and engaging visual experiences.",
-    image: "/images/commercial_hero_bg.png"
+    image: "/images/commercial_hero_bg.webp"
   },
   {
     title: "Restaurants & Dining Spaces",
     description: "Set the right atmosphere with distributed audio and visual systems tailored to ambience and guest experience.",
-    image: "/images/residential_hero_bg.png"
+    image: "/images/residential_hero_bg.webp"
   },
   {
     title: "Banquet & Event Spaces",
     description: "Deliver flexible event experiences with scalable audio, video, projection, and display solutions.",
-    image: "/images/av_interior_design.png"
+    image: "/images/av_interior_design.webp"
   },
   {
     title: "Guest Rooms",
     description: "Offer effortless entertainment with simple, intuitive AV controls designed for comfort and convenience.",
-    image: "/images/scenario_tv.png"
+    image: "/images/scenario_tv.webp"
   }
 ];
 

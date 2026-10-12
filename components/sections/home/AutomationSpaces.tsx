@@ -9,9 +9,9 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 import { ArrowRight } from 'lucide-react';
-import residentialImage from "@/assets/home/services/Residence.jpg"
-import hospitalityImage from "@/assets/home/services/Oberoi Rajvilas.jpg"
-import commercialImage from "@/assets/home/services/EY Gurgaon.jpg"
+import residentialImage from "@/assets/home/services/Residence.webp"
+import hospitalityImage from "@/assets/home/services/Oberoi Rajvilas.webp"
+import commercialImage from "@/assets/home/services/EY Gurgaon.webp"
 
 const PANELS = [
   {

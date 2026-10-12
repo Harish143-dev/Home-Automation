@@ -4,7 +4,7 @@ import { useRef } from "react";
 import NextImage from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import featuredImage from "@/assets/projects/SawaiManMahal.jpg";
+import featuredImage from "@/assets/projects/SawaiManMahal.webp";
 
 export default function FeaturedArticle() {
   return (

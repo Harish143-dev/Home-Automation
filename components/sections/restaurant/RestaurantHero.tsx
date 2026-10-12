@@ -69,7 +69,7 @@ export function RestaurantHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="/images/projects/restaurant/golden-dragon/1.jpg"
+ src="/images/projects/restaurant/golden-dragon/1.webp"
  alt="Luxury Restaurant Automation"
  fill
  priority

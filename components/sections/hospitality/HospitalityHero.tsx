@@ -88,7 +88,7 @@ export function HospitalityHero() {
  {/* 🎬 Static Background */}
  <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
  <img
- src="/images/projects/hospitality/oberoi-amarvillas/1.jpg"
+ src="/images/projects/hospitality/oberoi-amarvillas/1.webp"
  alt="Luxury Hospitality Automation Interior"
  className="w-full h-full object-cover opacity-80"
  />

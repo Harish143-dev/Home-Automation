@@ -67,7 +67,7 @@ export function OfficeHero() {
  {/* Background Image - Modern Smart Office */}
  <div className="absolute inset-0 w-full h-full overflow-hidden">
  <NextImage
- src="/images/office-hero.png"
+ src="/images/office-hero.webp"
  alt="Smart Office Automation Solutions"
  fill
  priority

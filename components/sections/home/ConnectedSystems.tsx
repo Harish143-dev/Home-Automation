@@ -22,12 +22,12 @@ import { EASE } from "../../../lib/animation.config";
 
 //images 
 
-import LightingAutomationImage from "@/assets/home/descipline/lighting-automation.jpg"
-import AudioVideoAutomationImage from "@/assets/home/descipline/av-automation.jpg"
-import ShadesAutomationImage from "@/assets/home/descipline/shades-automation.jpg"
-import TemperatureAutomationImage from "@/assets/home/descipline/hvac-automation.jpg"
-import SecurityAutomationImage from "@/assets/home/descipline/security-automation.jpg"
-import MaintenanceAutomationImage from "@/assets/home/descipline/amc-automation.jpg"
+import LightingAutomationImage from "@/assets/home/descipline/lighting-automation.webp"
+import AudioVideoAutomationImage from "@/assets/home/descipline/av-automation.webp"
+import ShadesAutomationImage from "@/assets/home/descipline/shades-automation.webp"
+import TemperatureAutomationImage from "@/assets/home/descipline/hvac-automation.webp"
+import SecurityAutomationImage from "@/assets/home/descipline/security-automation.webp"
+import MaintenanceAutomationImage from "@/assets/home/descipline/amc-automation.webp"
 
 type ServicePanel = {
   id: string;

@@ -100,7 +100,7 @@ export function OfficeOverview() {
         {/* Right Image */}
         <div ref={imageRef} className="w-full lg:w-1/2 h-[500px] lg:h-[700px] relative rounded-[2rem] overflow-hidden shadow-2xl shadow-black/10">
           <NextImage
-            src="/images/office-overview.png"
+            src="/images/office-overview.webp"
             alt="Modern automated office space"
             fill
             className="object-cover"
