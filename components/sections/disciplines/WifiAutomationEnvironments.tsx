@@ -21,7 +21,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Residential Solutions",
     href: "/residential",
-    image: "/images/projects/restaurant/akina-mumbai/1.webp"
+    image: "/images/projects/restaurant/akina-mumbai/1.jpg"
   },
   {
     title: "Hospitality Wi-Fi Automation",
@@ -34,7 +34,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Hospitality Solutions",
     href: "/hospitality",
-    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.webp"
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
   },
   {
     title: "Commercial Wi-Fi Automation",
@@ -47,7 +47,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Commercial Solutions",
     href: "/commercial",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.webp"
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg"
   }
 ];
 

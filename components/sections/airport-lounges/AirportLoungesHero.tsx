@@ -69,7 +69,7 @@ export function AirportLoungesHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="/images/projects/commercial/ey-gurgaon/1.webp"
+ src="/images/projects/commercial/ey-gurgaon/1.jpg"
  alt="Premium Airport Lounge Automation"
  fill
  priority

@@ -89,7 +89,7 @@ export function ExperienceHero() {
  {/* 🎬 Static Background */}
  <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
  <NextImage
- src="/images/residential_hero_bg.webp"
+ src="/images/residential_hero_bg.png"
  alt="Immersive Smart Home Automation Experience"
  fill
  priority

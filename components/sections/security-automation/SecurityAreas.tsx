@@ -7,7 +7,7 @@ import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 // Placeholder images for the areas - the user can replace these later
-import imgPlaceholder1 from '../../../public/images/residential_hero_bg.webp';
+import imgPlaceholder1 from '../../../public/images/residential_hero_bg.jpg';
 
 const AREAS = [
   {

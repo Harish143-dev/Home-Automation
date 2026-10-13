@@ -18,7 +18,7 @@ const SERVICES_DATA = [
       "Scene-based keypad control",
       "Audio video control"
     ],
-    image: "/images/projects/residential/bhartiya-residence/1.webp"
+    image: "/images/projects/residential/bhartiya-residence/1.jpg"
   },
   {
     id: "audio-video",
@@ -33,7 +33,7 @@ const SERVICES_DATA = [
       "Landscape outdoor areas",
       "Home theatre"
     ],
-    image: "/images/projects/residential/aranyak-farmhouse/1.webp"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   },
   {
     id: "security",
@@ -47,7 +47,7 @@ const SERVICES_DATA = [
       "Alarm intrusion detection",
       "Glass break detection sensors"
     ],
-    image: "/images/projects/residential/vishal-udani/1.webp"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "shades",
@@ -57,7 +57,7 @@ const SERVICES_DATA = [
       "Light control based on time & sunlight",
       "Privacy control with one-touch or scene-based operation"
     ],
-    image: "/images/projects/residential/vishal-udani/1.webp"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "hvac",
@@ -67,7 +67,7 @@ const SERVICES_DATA = [
       "Automated climate adjustment based on occupancy",
       "Energy-optimized operation for reduced consumption"
     ],
-    image: "/images/projects/residential/sournika-villa/1.webp"
+    image: "/images/projects/residential/sournika-villa/1.jpg"
   },
   {
     id: "amc",
@@ -76,7 +76,7 @@ const SERVICES_DATA = [
       "Smart temperature control",
       "24x7 assistance"
     ],
-    image: "/images/projects/residential/aranyak-farmhouse/1.webp"
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
   }
 ];
 

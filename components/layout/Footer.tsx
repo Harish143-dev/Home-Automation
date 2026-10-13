@@ -36,7 +36,7 @@ const FOOTER_LINKS = {
   resources: [
     { label: 'Case Studies', href: '/projects' },
     { label: 'Blogs & Insights', href: '/blog' },
-    { label: 'Energy Saving Guide', href: '/commercial#roi-calculator' },
+    { label: 'Energy Calculators', href: '/calculator' },
     { label: 'AMC & Support', href: '/disciplines/amc' },
   ],
   company: [

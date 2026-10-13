@@ -36,7 +36,7 @@ export default function BlogGrid() {
               date: new Date(b.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
               title: b.title,
               excerpt: plain.slice(0, 140) + '...',
-              image: "/assets/residential/project/delhi-residence/delhi-residence-1.webp",
+              image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
               readTime: `${Math.max(2, Math.ceil(plain.split(/\s+/).length / 200))} Min Read`,
               content: b.content,
               author: b.author || "ATPL Team"

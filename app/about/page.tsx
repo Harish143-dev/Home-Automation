@@ -24,6 +24,7 @@ export default function AboutPage() {
       <CompanyAtAGlance />
       <MissionVision />
       <OurJourney />
+      {/* do not remove the component, this may be needed in future */}
       {/* <MeetOurFounders /> */}
       {/* <OurTeam /> */}
       <Awards />

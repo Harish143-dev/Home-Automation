@@ -11,7 +11,7 @@ const SYSTEMS_DATA = [
   {
     topHeading: "Lutron Vive",
     title: "Wireless Infrastructure Framework",
-    image: "/images/commercial_solution_standalone.webp",
+    image: "/images/commercial_solution_standalone.png",
     idealFor: [
       "Modern corporate offices executing fast-paced asset transitions",
       "High-density educational complexes",
@@ -40,7 +40,7 @@ const SYSTEMS_DATA = [
   {
     topHeading: "Lutron Athena",
     title: "Total Control Platform",
-    image: "/images/commercial_solution_centralised.webp",
+    image: "/images/commercial_solution_centralised.png",
     idealFor: [
       "Flagship 5-star luxury business hotels",
       "Expansive corporate headquarters",

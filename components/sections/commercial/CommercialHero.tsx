@@ -93,7 +93,7 @@ export function CommercialHero() {
  {/* 🎬 Static Background */}
  <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
  <NextImage
- src="/images/commercial_hero_bg.webp"
+ src="/images/commercial_hero_bg.png"
  alt="Modern Intelligent Commercial Space"
  fill
  priority

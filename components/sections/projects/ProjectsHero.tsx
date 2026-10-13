@@ -63,7 +63,7 @@ export function ProjectsHero() {
  {/* Background Image */}
  <div className="absolute inset-0 z-0 projects-hero-bg will-change-transform">
  <NextImage
- src="/images/projects/restaurant/oko/1.webp"
+ src="/images/projects/restaurant/oko/1.jpg"
  alt="Proud Projects"
  fill
  priority

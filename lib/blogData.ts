@@ -17,7 +17,7 @@ export const FEATURED_POST: BlogPost = {
   date: "September 10, 2026",
   title: "Building a Market Before the Market Existed",
   excerpt: "The foundation you lay when nobody is watching is exactly what becomes impossible to replicate when everyone starts paying attention.",
-  image: "/assets/residential/project/delhi-residence/delhi-residence-1.webp", 
+  image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg", 
   readTime: "3 Min Read",
   content: `
     <p>"I asked Lutron to send me to India. They said yes, with some reservations.</p>
@@ -48,7 +48,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "September 11, 2026",
     title: "Starting Anusha Technovision: Building From a Foundation of Trust",
     excerpt: "Everything we built came from a foundation that was already in place before the company even existed.",
-    image: "/assets/residential/project/delhi-residence/delhi-residence-2.webp", 
+    image: "/assets/residential/project/delhi-residence/delhi-residence-2.jpg", 
     readTime: "4 Min Read",
     content: `
       <p>In October 2002, I started Anusha Technovision. I had spent two years building people into distributors across India, who were now my competition.</p>
@@ -73,7 +73,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "September 12, 2026",
     title: "Preparation Meets Opportunity",
     excerpt: "When someone asks me what the difference is between a company that makes it and one that does not, I always come back to the same thing.",
-    image: "/assets/residential/project/delhi-residence/delhi-residence-3.webp", 
+    image: "/assets/residential/project/delhi-residence/delhi-residence-3.jpg", 
     readTime: "5 Min Read",
     content: `
       <p>"For over a year, I kept visiting an architect in Bombay who had no project to give me.</p>
@@ -126,7 +126,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "May 28, 2026",
     title: "The Invisible Interface: Designing Automation That Disappears",
     excerpt: "Explore how modern architectural integration is shifting away from visible wall-acne and complex panels, moving towards ambient, predictive systems that seamlessly blend into luxury interiors.",
-    image: "/assets/projects/SawaiManMahal.webp",
+    image: "/assets/projects/SawaiManMahal.jpg",
     readTime: "6 Min Read",
     content: `
       <p>In luxury architectural spaces, technology should be experienced through its absence, not its presence.</p>

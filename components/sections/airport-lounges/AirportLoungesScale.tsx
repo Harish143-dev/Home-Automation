@@ -11,17 +11,17 @@ const LOUNGE_TYPES = [
   {
     title: "Premium Lounge",
     description: "Compact, high-touch spaces where refined lighting scenes and quiet, personalized ambience matter most.",
-    image: "/images/projects/restaurant/unico/1.webp"
+    image: "/images/projects/restaurant/unico/1.jpg"
   },
   {
     title: "Business Lounge",
     description: "Mid-size spaces balancing comfort with throughput — flexible zones for work, dining, and rest areas.",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.webp"
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg"
   },
   {
     title: "Large Multi-Zone Lounge",
     description: "Multi-zone airport facilities needing centralized control across dozens of areas, high passenger turnover, and 24/7 reliability.",
-    image: "/images/projects/restaurant/oko/1.webp"
+    image: "/images/projects/restaurant/oko/1.jpg"
   }
 ];
 

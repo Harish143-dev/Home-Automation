@@ -67,7 +67,7 @@ export default function HVACAutomationHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="/images/projects/hospitality/itc-grand-chola/1.webp"
+ src="/images/projects/hospitality/itc-grand-chola/1.jpg"
  alt="Smart HVAC Automation"
  fill
  priority

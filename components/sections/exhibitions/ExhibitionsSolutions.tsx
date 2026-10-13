@@ -17,7 +17,7 @@ const SOLUTIONS = [
       "Large-format presentations",
       "Visual storytelling"
     ],
-    image: "/images/projects/commercial/ey-gurgaon/1.webp",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "lighting",
@@ -30,7 +30,7 @@ const SOLUTIONS = [
       "Ambient lighting",
       "Dimming control"
     ],
-    image: "/images/projects/commercial/meta-office-gurgaon/1.webp",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     id: "audio",
@@ -43,7 +43,7 @@ const SOLUTIONS = [
       "Product demonstrations",
       "Multi-zone audio"
     ],
-    image: "/images/projects/commercial/nvidia/1.webp",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   },
   {
     id: "interactive-av",
@@ -56,7 +56,7 @@ const SOLUTIONS = [
       "Visitor engagement",
       "Content presentation"
     ],
-    image: "/images/projects/commercial/yashraj-studio/1.webp",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "network",
@@ -69,7 +69,7 @@ const SOLUTIONS = [
       "Content distribution",
       "Device connectivity"
     ],
-    image: "/images/projects/commercial/tiffany-mumbai/1.webp",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   },
   {
     id: "control",
@@ -82,7 +82,7 @@ const SOLUTIONS = [
       "Integrated system operation",
       "Simplified user control"
     ],
-    image: "/images/projects/commercial/yashraj-studio/1.webp",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   }
 ];
 

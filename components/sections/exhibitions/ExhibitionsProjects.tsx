@@ -8,22 +8,22 @@ const PROJECTS = [
   {
     title: "Global Tech Expo",
     asset: "Pragati Maidan, Delhi",
-    image: "/images/projects/commercial/ey-gurgaon/1.webp",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     title: "Luxury Auto Showcase",
     asset: "Jio World Convention Centre, Mumbai",
-    image: "/images/projects/commercial/nvidia/1.webp",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   },
   {
     title: "International Design Week",
     asset: "BIEC, Bangalore",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.webp",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     title: "National Heritage Exhibition",
     asset: "National Museum, New Delhi",
-    image: "/images/projects/commercial/tiffany-mumbai/1.webp",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   }
 ];
 

@@ -23,10 +23,10 @@ const STATIC_PROJECTS: ProjectItem[] = [
     year: "2024",
     description: "A complete integration of synchronized motorized shades, backlit custom-engraved keypads, zone climate logic, and full audio-video app orchestration.",
     images: [
-      "/assets/residential/project/delhi-residence/delhi-residence-1.webp",
-      "/assets/residential/project/delhi-residence/delhi-residence-2.webp",
-      "/assets/residential/project/delhi-residence/delhi-residence-3.webp",
-      "/assets/residential/project/delhi-residence/delhi-residence-4.webp"
+      "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
+      "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
+      "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
+      "/assets/residential/project/delhi-residence/delhi-residence-4.jpg"
     ]
   },
   {
@@ -36,10 +36,10 @@ const STATIC_PROJECTS: ProjectItem[] = [
     year: "2023",
     description: "A four-storey architectural masterwork in Shanti Niketan designed by Morphogenesis, powered by an enterprise-grade automation backbone.",
     images: [
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.webp",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.webp",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.webp",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-4.webp"
+      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
+      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
+      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
+      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-4.jpg"
     ]
   },
   {
@@ -49,10 +49,10 @@ const STATIC_PROJECTS: ProjectItem[] = [
     year: "2024",
     description: "Advanced architectural lighting controls, chiller-based HVAC integration, and secure electronic access control systems.",
     images: [
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.webp",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.webp",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.webp",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-4.webp"
+      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg",
+      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
+      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg",
+      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-4.jpg"
     ]
   },
   {
@@ -63,8 +63,8 @@ const STATIC_PROJECTS: ProjectItem[] = [
     description: "Complete private residence lighting scenes, circadian rhythm alignment, and silent motorized drapery systems overlooking tranquil landscaped gardens.",
     images: [
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200",
-      "/assets/residential/project/delhi-residence/delhi-residence-2.webp",
-      "/assets/residential/project/delhi-residence/delhi-residence-3.webp"
+      "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
+      "/assets/residential/project/delhi-residence/delhi-residence-3.jpg"
     ]
   },
   {
@@ -75,8 +75,8 @@ const STATIC_PROJECTS: ProjectItem[] = [
     description: "Precision conference room automation, occupancy-based thermal conservation, and high-efficiency DALI-2 architectural lighting grid.",
     images: [
       "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.webp",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.webp"
+      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
+      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg"
     ]
   },
   {
@@ -87,8 +87,8 @@ const STATIC_PROJECTS: ProjectItem[] = [
     description: "Immersive guest room environmental controls, acoustic multi-zone background sound, and architectural facade illumination.",
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.webp",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.webp"
+      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
+      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg"
     ]
   },
   {
@@ -99,8 +99,8 @@ const STATIC_PROJECTS: ProjectItem[] = [
     description: "Panoramic oceanfront automation with motorized sheer screens, biometric elevator foyer access, and reference-grade Bowers & Wilkins audio.",
     images: [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200",
-      "/assets/residential/project/delhi-residence/delhi-residence-1.webp",
-      "/assets/residential/project/delhi-residence/delhi-residence-4.webp"
+      "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
+      "/assets/residential/project/delhi-residence/delhi-residence-4.jpg"
     ]
   },
   {
@@ -111,7 +111,7 @@ const STATIC_PROJECTS: ProjectItem[] = [
     description: "Multi-tenant environmental monitoring, centralized energy metering, and motorized louver facade sun tracking.",
     images: [
       "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.webp"
+      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg"
     ]
   },
   {
@@ -122,7 +122,7 @@ const STATIC_PROJECTS: ProjectItem[] = [
     description: "Minimalist floor-to-ceiling glass automation, automated skylights, integrated pool terrace audio, and invisible wall controls.",
     images: [
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.webp"
+      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg"
     ]
   }
 ];
@@ -156,9 +156,9 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
           year: new Date(dbMatch.createdAt).getFullYear().toString(),
           description: dbMatch.description,
           images: [
-            dbMatch.imageUrl || "/assets/residential/project/delhi-residence/delhi-residence-1.webp",
-            "/assets/residential/project/delhi-residence/delhi-residence-2.webp",
-            "/assets/residential/project/delhi-residence/delhi-residence-3.webp"
+            dbMatch.imageUrl || "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
+            "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
+            "/assets/residential/project/delhi-residence/delhi-residence-3.jpg"
           ]
         };
       }

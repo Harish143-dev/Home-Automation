@@ -9,21 +9,21 @@ const FEATURED_PROJECTS = [
     id: "feat-1",
     title: "The Horizon Estate",
     category: "Residential",
-    image: "/images/projects/residential/aranyak-farmhouse/1.webp",
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg",
     href: "/projects/horizon-estate"
   },
   {
     id: "feat-2",
     title: "Lumina Corporate HQ",
     category: "Commercial",
-    image: "/images/projects/restaurant/thai-naam-mumbai/1.webp",
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
     href: "/projects/lumina-hq"
   },
   {
     id: "feat-3",
     title: "Azure Resort & Spa",
     category: "Hospitality",
-    image: "/images/projects/residential/bhartiya-residence/1.webp",
+    image: "/images/projects/residential/bhartiya-residence/1.jpg",
     href: "/projects/azure-resort"
   }
 ];
@@ -33,21 +33,21 @@ const RECENT_PROJECTS = [
     id: "rec-1",
     title: "Penthouse 42",
     date: "Oct 12, 2023",
-    image: "/images/projects/restaurant/thai-naam-mumbai/1.webp",
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
     href: "/projects/penthouse-42"
   },
   {
     id: "rec-2",
     title: "Silicon Valley Campus",
     date: "Sep 28, 2023",
-    image: "/images/projects/residential/sanjeet-bhasin/1.webp",
+    image: "/images/projects/residential/sanjeet-bhasin/1.jpg",
     href: "/projects/silicon-valley"
   },
   {
     id: "rec-3",
     title: "The Glass House",
     date: "Sep 15, 2023",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.webp",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
     href: "/projects/glass-house"
   }
 ];

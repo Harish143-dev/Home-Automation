@@ -22,7 +22,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Residential Solutions",
     href: "/residential",
-    image: "/images/projects/hospitality/six-senses-barwara/1.webp"
+    image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
   },
   {
     title: "Hospitality Security Automation",
@@ -36,7 +36,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Hospitality Solutions",
     href: "/hospitality",
-    image: "/images/projects/hospitality/le-meridien/1.webp"
+    image: "/images/projects/hospitality/le-meridien/1.jpg"
   },
   {
     title: "Commercial Security Automation",
@@ -50,7 +50,7 @@ const ENVIRONMENTS = [
     ],
     cta: "Explore Commercial Solutions",
     href: "/commercial",
-    image: "/images/projects/residential/vishal-udani/1.webp"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   }
 ];
 

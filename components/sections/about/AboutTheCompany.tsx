@@ -38,7 +38,7 @@ export default function AboutTheCompany() {
         <div className="relative w-full aspect-[4/5] lg:aspect-[4/4] overflow-hidden">
           <div className="absolute inset-0 bg-black/5 z-10" />
           <NextImage
-            src="/images/projects/restaurant/nox-mumbai/1.webp"
+            src="/images/projects/restaurant/nox-mumbai/1.jpg"
             alt="Modern automated office space"
             fill
             className="object-cover"

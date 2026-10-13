@@ -58,7 +58,7 @@ export function ContactHero() {
  {/* Background Image */}
  <div ref={bgRef} className="absolute inset-0 z-0 will-change-transform">
  <NextImage
- src="/assets/residential/project/delhi-residence/delhi-residence-2.webp"
+ src="/assets/residential/project/delhi-residence/delhi-residence-2.jpg"
  alt="Luxury architectural interior"
  fill
  priority

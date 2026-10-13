@@ -12,7 +12,7 @@ const ERAS = [
   {
     years: "2002–2005",
     title: "The Foundation",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.webp",
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
     imageAlt: "Early smart home automation setup",
     milestones: [
       "ATPL started — Delhi office began operations",
@@ -24,7 +24,7 @@ const ERAS = [
   {
     years: "2006–2012",
     title: "Expansion & Scale",
-    image: "/images/projects/residential/vishal-udani/1.webp",
+    image: "/images/projects/residential/vishal-udani/1.jpg",
     imageAlt: "Modern infrastructure and metro systems",
     milestones: [
       "Expanded operations to Bangalore",
@@ -35,7 +35,7 @@ const ERAS = [
   {
     years: "2013–2018",
     title: "National Recognition",
-    image: "/images/projects/commercial/nvidia/1.webp",
+    image: "/images/projects/commercial/nvidia/1.jpg",
     imageAlt: "Luxury hotel with intelligent automation",
     milestones: [
       "Executed the largest Lutron public area dimming installation in India at ITC Grand Chola, Chennai",
@@ -49,7 +49,7 @@ const ERAS = [
   {
     years: "2019–Present",
     title: "Industry Leadership",
-    image: "/images/projects/residential/vishal-udani/1.webp",
+    image: "/images/projects/residential/vishal-udani/1.jpg",
     imageAlt: "Premium smart living space",
     milestones: [
       "Automated Google India's office in Gurgaon",

@@ -28,7 +28,7 @@ export default function ThankYouPage() {
       <div className="absolute top-8 left-8 sm:top-12 sm:left-12">
         <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
           <NextImage
-            src="/images/logo.svg"
+            src="/logo.svg"
             alt="AT Smart Living Logo"
             width={180}
             height={60}

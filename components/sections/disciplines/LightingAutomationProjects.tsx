@@ -16,7 +16,7 @@ const PROJECTS = [
     scope: "Comprehensive Lighting Automation",
     solutions: "Landscape Lighting, Zoned Lighting Control, Smart Keypads, Integration",
     outcome: "A sprawling luxury estate featuring seamless lighting control across expansive indoor and outdoor spaces, creating the perfect ambience at all times.",
-    image: "/images/projects/residential/sanjeet-bhasin/1.webp"
+    image: "/images/projects/residential/sanjeet-bhasin/1.jpg"
   },
   {
     id: "madhuri-dixit",
@@ -25,7 +25,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Lighting Control, Motorized Shades, HVAC Control",
     outcome: "A thoughtfully curated living environment with effortless scene control, enhanced comfort, and intuitive automation.",
-    image: "/images/projects/residential/vishal-udani/1.webp"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "atul-raheja",
@@ -34,7 +34,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Smart Lighting Control, Smart Keypads",
     outcome: "Personalized lighting scenes with intuitive one-touch control throughout the residence.",
-    image: "/images/projects/residential/sanjeet-bhasin/1.webp"
+    image: "/images/projects/residential/sanjeet-bhasin/1.jpg"
   }
 ];
 

@@ -11,37 +11,37 @@ const SPACES = [
     id: "dining",
     title: "Dining Area",
     description: "Scene-based lighting, background music, climate control, and automated shades for the perfect dining ambience.",
-    image: "/images/projects/restaurant/akina-mumbai/1.webp",
+    image: "/images/projects/restaurant/akina-mumbai/1.jpg",
   },
   {
     id: "private",
     title: "Private Dining Rooms",
     description: "Personalized lighting, music, and temperature settings for exclusive and intimate dining experiences.",
-    image: "/images/projects/restaurant/thai-naam-mumbai/1.webp",
+    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
   },
   {
     id: "bar",
     title: "Bar & Lounge",
     description: "Dynamic lighting, music integration, and entertainment control to create the ideal atmosphere throughout the day.",
-    image: "/images/projects/restaurant/nox-mumbai/1.webp",
+    image: "/images/projects/restaurant/nox-mumbai/1.jpg",
   },
   {
     id: "outdoor",
     title: "Outdoor Seating",
     description: "Automated shades, weather-responsive lighting, and audio control for comfortable open-air dining.",
-    image: "/images/projects/restaurant/nox-mumbai/1.webp",
+    image: "/images/projects/restaurant/nox-mumbai/1.jpg",
   },
   {
     id: "reception",
     title: "Reception & Waiting Area",
     description: "Warm, welcoming lighting and background music to create a great first impression for every guest.",
-    image: "/images/projects/restaurant/golden-dragon/1.webp",
+    image: "/images/projects/restaurant/golden-dragon/1.jpg",
   },
   {
     id: "vip",
     title: "VIP Spaces",
     description: "Customized automation for lighting, music, climate, and privacy, designed for premium guest experiences.",
-    image: "/images/projects/restaurant/oko/1.webp",
+    image: "/images/projects/restaurant/oko/1.jpg",
   }
 ];
 

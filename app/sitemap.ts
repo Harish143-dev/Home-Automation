@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/experience-center',
     '/careers',
+    '/calculator',
     '/terms',
     '/privacy',
   ];

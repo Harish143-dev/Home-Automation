@@ -69,7 +69,7 @@ export function ExhibitionsHero() {
  {/* Animated Image Wrapper */}
  <div className="hero-bg absolute inset-0 w-full h-full scale-110">
  <NextImage
- src="/images/projects/commercial/nvidia/1.webp"
+ src="/images/projects/commercial/nvidia/1.jpg"
  alt="Immersive Exhibition Technology"
  fill
  priority

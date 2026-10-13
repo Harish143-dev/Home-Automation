@@ -17,7 +17,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Lighting Control, Motorized Shades, HVAC Control",
     outcome: "A thoughtfully curated living environment with effortless scene control, enhanced comfort, and intuitive automation.",
-    image: "/images/projects/residential/sanjeet-bhasin/1.webp"
+    image: "/images/projects/residential/sanjeet-bhasin/1.jpg"
   },
   {
     id: "atul-raheja",
@@ -26,7 +26,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Smart Lighting Control, Smart Keypads",
     outcome: "Personalized lighting scenes with intuitive one-touch control throughout the residence.",
-    image: "/images/projects/residential/anubhav-jain-farmhouse/1.webp"
+    image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg"
   },
   {
     id: "nakul-bhatia",
@@ -35,7 +35,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Lighting Control, Smart Keypads",
     outcome: "Intelligent lighting designed to enhance ambience, everyday convenience, and energy efficiency.",
-    image: "/images/projects/residential/nakul-bhatia/1.webp"
+    image: "/images/projects/residential/nakul-bhatia/1.jpg"
   },
   {
     id: "devyani-villa",
@@ -44,7 +44,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Lighting Control, Motorized Shades, Smart Home Integration",
     outcome: "A seamlessly connected home delivering greater comfort, refined aesthetics, and effortless day-to-day living.",
-    image: "/images/projects/residential/vishal-udani/1.webp"
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "sournika-villa",
@@ -53,7 +53,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Lighting Control, Climate Integration, Smart Controls",
     outcome: "A connected home with personalized lighting experiences, enhanced comfort, and improved energy performance.",
-    image: "/images/projects/residential/sournika-villa/1.webp"
+    image: "/images/projects/residential/sournika-villa/1.jpg"
   },
   {
     id: "rajan-mittal",
@@ -62,7 +62,7 @@ const PROJECTS = [
     scope: "Intelligent Lighting Automation",
     solutions: "Lighting Control, Custom GUI, Audio-Video, Motorized Shades, Security Integration",
     outcome: "A fully integrated home with centralized control, intuitive operation, and a seamless connected living experience.",
-    image: "/images/projects/residential/bhartiya-residence/1.webp"
+    image: "/images/projects/residential/bhartiya-residence/1.jpg"
   }
 ];
 

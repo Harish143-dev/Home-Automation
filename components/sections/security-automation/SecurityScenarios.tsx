@@ -7,11 +7,11 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 
 // Placeholder images for scenarios
-import imgScenario1 from '../../../public/images/scenario_goodbye.webp';
-import imgScenario2 from '../../../public/images/scenario_dinner.webp';
-import imgScenario3 from '../../../public/images/scenario_morning.webp';
-import imgScenario4 from '../../../public/images/scenario_tv.webp';
-import imgScenario5 from '../../../public/images/residential_hero_bg.webp'; // Reusing for placeholder
+import imgScenario1 from '../../../public/images/scenario_goodbye.jpg';
+import imgScenario2 from '../../../public/images/scenario_dinner.jpg';
+import imgScenario3 from '../../../public/images/scenario_morning.jpg';
+import imgScenario4 from '../../../public/images/scenario_tv.jpg';
+import imgScenario5 from '../../../public/images/residential_hero_bg.jpg'; // Reusing for placeholder
 
 const SCENARIOS = [
   {

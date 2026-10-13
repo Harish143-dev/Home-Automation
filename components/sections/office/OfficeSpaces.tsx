@@ -11,37 +11,37 @@ const SPACES = [
     id: "reception",
     title: "Reception & Lobby",
     description: "Lighting control, motorized shades, digital displays, and background audio.",
-    image: "/images/projects/commercial/yashraj-studio/1.webp",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
   },
   {
     id: "meeting",
     title: "Meeting & Conference Rooms",
     description: "Video conferencing, presentation systems, lighting control, shades, and touchscreen control.",
-    image: "/images/projects/commercial/ey-gurgaon/1.webp",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "executive",
     title: "Executive Cabins",
     description: "Personal lighting control, motorized shades, AV integration, and room control.",
-    image: "/images/projects/commercial/tiffany-mumbai/1.webp",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   },
   {
     id: "open",
     title: "Open Workspaces",
     description: "Occupancy-based lighting, daylight harvesting, shades, and distributed audio.",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.webp",
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
   },
   {
     id: "training",
     title: "Training Rooms",
     description: "Interactive displays, video conferencing, presentation systems, microphones, and room control.",
-    image: "/images/projects/commercial/wave-cinema/1.webp",
+    image: "/images/projects/commercial/wave-cinema/1.jpg",
   },
   {
     id: "breakout",
     title: "Breakout & Collaboration Zones",
     description: "Flexible lighting, audio, displays, and integrated controls.",
-    image: "/images/projects/commercial/nvidia/1.webp",
+    image: "/images/projects/commercial/nvidia/1.jpg",
   }
 ];
 
