@@ -36,7 +36,7 @@ const GALLERY_IMAGES = [
     className: "col-span-1 md:col-span-2 aspect-[2/1]",
   },
   {
-    src: "/images/projects/residential/aranyak-farmhouse/1.jpg",
+    src: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
     alt: "Site installations and field work",
     className: "col-span-1 md:col-span-2 aspect-[2/1]",
   },

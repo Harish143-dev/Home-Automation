@@ -6,45 +6,42 @@ import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
-// Placeholder images for the areas - the user can replace these later
-import imgPlaceholder1 from '../../../public/images/residential_hero_bg.jpg';
-
 const AREAS = [
   {
     id: "entrance",
     title: "Entrance",
     description: "Secure your main entry with smart door locks, video door phones, facial recognition, and visitor verification for controlled access.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
   },
   {
     id: "living-room",
     title: "Living Room",
     description: "Monitor shared spaces with indoor CCTV cameras, motion detection, and instant alerts while maintaining complete visibility through the mobile app.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg",
   },
   {
     id: "bedrooms",
     title: "Bedrooms",
     description: "Enhance privacy with personalized access, emergency panic buttons, and smart security controls for added peace of mind.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
   },
   {
     id: "garage",
     title: "Garage",
     description: "Control garage access remotely, monitor vehicle movement, and receive notifications whenever the garage door is opened or left unattended.",
-    image: imgPlaceholder1,
+    image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg",
   },
   {
     id: "balcony",
     title: "Balcony",
     description: "Protect vulnerable entry points using door/window sensors and motion detection to instantly detect unauthorized access.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
   },
   {
     id: "garden",
     title: "Garden",
     description: "Secure outdoor spaces with weather-resistant CCTV cameras, perimeter motion sensors, and smart lighting that activates automatically when movement is detected.",
-    image: imgPlaceholder1,
+    image: "/images/projects/residential/aranyak-farmhouse/1.jpg",
   }
 ];
 

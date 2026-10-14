@@ -10,61 +10,53 @@ import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { scheduleScrollRefresh } from "../../../lib/scrollRefresh";
 import { Check } from "lucide-react";
 
-// Placeholder image (Swap these out with real assets later)
-import imgPlaceholder from "@/assets/residential/hero.webp";
-
-// Ensure GSAP plugins are registered
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 const FEATURES = [
   {
     id: "cctv-surveillance",
     title: "Smart CCTV Surveillance",
-    image: imgPlaceholder,
+    image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
     description: "Monitor your home with high-definition cameras, live remote viewing, video recording, and intelligent motion alerts for complete peace of mind.",
     highlights: ["Live View", "Recording", "Night Vision", "Motion Detection"]
   },
   {
     id: "video-door-phone",
     title: "Video Door Phone Systems",
-    image: imgPlaceholder,
+    image: "/images/projects/residential/vishal-udani/1.jpg",
     description: "See, speak to, and verify visitors from anywhere before granting access through your smartphone or indoor monitor.",
     highlights: ["Two-way communication", "HD video", "Mobile access", "Visitor snapshots"]
   },
   {
     id: "smart-door-locks",
     title: "Smart Door Locks",
-    image: imgPlaceholder,
+    image: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg",
     description: "Unlock your home using fingerprint, PIN, smartphone, RFID card, or temporary digital access for guests and household staff.",
     highlights: ["Fingerprint", "PIN Code", "Mobile App", "Temporary Access", "Auto Lock"]
   },
   {
     id: "access-control",
     title: "Access Control Systems",
-    image: imgPlaceholder,
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
     description: "Assign personalized access permissions for family members, guests, and service staff while maintaining a complete access history.",
     highlights: ["User-specific permissions", "Scheduled access", "Activity logs", "Multiple authentication methods"]
   },
   {
     id: "motion-intrusion",
     title: "Motion & Intrusion Detection",
-    image: imgPlaceholder,
+    image: "/images/projects/residential/sournika-villa/2.jpg",
     description: "Receive instant notifications whenever unexpected movement, forced entry, or unauthorized access is detected.",
     highlights: ["Motion Sensors", "Door & Window Sensors", "Glass Break Detection", "Intrusion Alerts"]
   },
   {
     id: "emergency-alerts",
     title: "Emergency Alert Integration",
-    image: imgPlaceholder,
+    image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
     description: "Stay informed with instant notifications for smoke, gas leaks, panic button activation, water leakage, or other emergency events.",
     highlights: ["Fire Alarm", "Smoke Detection", "Gas Leak", "Water Leak", "Panic Button"]
   },
   {
     id: "remote-monitoring",
     title: "Remote Mobile Monitoring",
-    image: imgPlaceholder,
+    image: "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
     description: "Control your home's security from anywhere with a single app to monitor cameras, lock doors, manage users, and receive real-time alerts.",
     highlights: ["Live CCTV", "Lock/Unlock Doors", "View Activity Logs", "Instant Notifications", "User Management"]
   }

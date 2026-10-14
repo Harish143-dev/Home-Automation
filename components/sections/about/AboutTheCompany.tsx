@@ -38,8 +38,8 @@ export default function AboutTheCompany() {
         <div className="relative w-full aspect-[4/5] lg:aspect-[4/4] overflow-hidden">
           <div className="absolute inset-0 bg-black/5 z-10" />
           <NextImage
-            src="/images/projects/restaurant/nox-mumbai/1.jpg"
-            alt="Modern automated office space"
+            src="/assets/residential/project/delhi-residence/delhi-residence-1.jpg"
+            alt="Architectural smart living space by ATPL"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"

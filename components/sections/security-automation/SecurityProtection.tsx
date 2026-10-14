@@ -5,7 +5,7 @@ import NextImage from 'next/image';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
-import imgSecurityProtection from '@/assets/residential/hero.webp'; // Placeholder image
+const imgSecurityProtection = '/assets/projects/private-residence.jpg';
 
 export function SecurityProtection() {
   const sectionRef = useRef<HTMLElement>(null);

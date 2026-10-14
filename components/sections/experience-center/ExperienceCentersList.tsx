@@ -55,7 +55,7 @@ const EXPERIENCE_CENTRES = [
       { label: "Schedule Bangalore Visit", action: "/contact", variant: "accent" },
       { label: "Get Directions", action: "https://www.google.com/maps/place/12%C2%B055'43.2%22N+77%C2%B032'41.9%22E/@12.928667,77.5424001,17z/data=!3m1!4b1!4m4!3m3!8m2!3d12.928667!4d77.544975?coh=277535&entry=tts&g_ep=EgoyMDI1MTExNy4wIMuAESoASAFQAw%3D%3D&skid=35e24f7f-6c25-4e11-acde-9f3b7bd811ba", variant: "outline" }
     ],
-    image: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg"
+    image: "/assets/residential/banglore.webp"
   }
 ];
 

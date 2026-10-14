@@ -6,43 +6,36 @@ import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 
-// Placeholder images for scenarios
-import imgScenario1 from '../../../public/images/scenario_goodbye.jpg';
-import imgScenario2 from '../../../public/images/scenario_dinner.jpg';
-import imgScenario3 from '../../../public/images/scenario_morning.jpg';
-import imgScenario4 from '../../../public/images/scenario_tv.jpg';
-import imgScenario5 from '../../../public/images/residential_hero_bg.jpg'; // Reusing for placeholder
-
 const SCENARIOS = [
   {
     id: "leaving-home",
     title: "Leaving Home",
     description: "With a single tap, lock all doors, arm the security system, switch off selected lights, and activate surveillance cameras before you leave.",
-    image: imgScenario1
+    image: "/assets/residential/project/delhi-residence/delhi-residence-4.jpg"
   },
   {
     id: "visitor-arrival",
     title: "Visitor Arrival",
     description: "Receive a live video call on your smartphone, speak with visitors, verify their identity, and grant access remotely from anywhere.",
-    image: imgScenario2
+    image: "/images/projects/residential/vishal-udani/1.jpg"
   },
   {
     id: "vacation-mode",
     title: "Vacation Mode",
     description: "Keep an eye on your home with live camera access while scheduled lighting and automated routines create the appearance that someone is home.",
-    image: imgScenario3
+    image: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg"
   },
   {
     id: "late-night",
     title: "Late-Night Security",
     description: "Motion detected outdoors automatically turns on pathway and perimeter lights while sending an instant alert to your smartphone.",
-    image: imgScenario4
+    image: "/images/projects/residential/sournika-villa/2.jpg"
   },
   {
     id: "emergency-alerts",
     title: "Emergency Alerts",
     description: "Receive immediate notifications with live camera snapshots when motion, intrusion, smoke, gas leaks, or other unusual activity is detected.",
-    image: imgScenario5
+    image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg"
   }
 ];
 

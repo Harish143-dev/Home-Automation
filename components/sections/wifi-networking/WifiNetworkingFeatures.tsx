@@ -7,38 +7,36 @@ import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 // Placeholder images for the features - the user can replace these later
-import imgPlaceholder1 from '@/assets/residential/hero.webp';
-
 const FEATURES = [
   {
     id: "coverage",
     title: "Whole-Home Wi-Fi Coverage",
     description: "Enjoy fast, reliable connectivity throughout your home with professionally designed Wi-Fi that eliminates dead zones. Using heat mapping and strategically placed access points, we ensure consistent performance for every connected device.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
   },
   {
     id: "roaming",
     title: "Intelligent Roaming",
     description: "Stay connected as you move from room to room. Your devices automatically switch to the strongest access point, ensuring uninterrupted video calls, streaming, gaming, and smart home control.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg",
   },
   {
     id: "unified",
     title: "Unified Smart Home Control",
     description: "Manage lighting, climate, security, audio, video, motorized shades, and other connected devices through a single app, touchscreen, or custom interface designed around your lifestyle.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
   },
   {
     id: "secure",
     title: "Secure Network",
     description: "A professionally configured network protects your connected devices while ensuring fast, reliable communication between every automation system in your home.",
-    image: imgPlaceholder1,
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   },
   {
     id: "remote",
     title: "Remote Access from Anywhere",
     description: "Monitor your home, activate lighting scenes, adjust the temperature, check security cameras, or control entertainment systems securely from anywhere using your smartphone or tablet.",
-    image: imgPlaceholder1,
+    image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
   }
 ];
 

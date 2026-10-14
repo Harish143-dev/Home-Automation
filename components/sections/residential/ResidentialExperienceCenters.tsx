@@ -24,7 +24,7 @@ const CENTERS_DATA = [
     city: "Mumbai",
     title: "Mumbai Experience Centre",
     address: "10/76, Apte Properties, Ground Floor Parijat House, LR Papan Marg, off Doctor Elijah Moses Road, Worli, Mumbai, Maharashtra 400018\n+91-22 4967 5653\n+91 82912 39139",
-    imageSrc: hyderabadImg.src, // Using Hyderabad image as a placeholder for Mumbai until a Mumbai asset is added
+    imageSrc: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
     mapLink: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQIRgKGKABMgkIAhAhGAoYoAEyCQgDECEYChigAdIBCDc2MjhqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kd3I1msJyec7MawqPHig3y7m&daddr=10/76,+Apte+properties,+Ground+floor+Parijat+house,+LR+Papan+Marg,+off+Doctor+Elijah+Moses+Road,+Worli,+Mumbai,+Maharashtra+400018"
   },
   {

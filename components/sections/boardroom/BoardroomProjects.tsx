@@ -10,13 +10,13 @@ const PROJECTS = [
     id: 1,
     title: "The Westin",
     asset: "Premium Boardroom Automation",
-    image: "https://picsum.photos/seed/boardroom1/1200/800",
+    image: "/images/projects/hospitality/westin-himalayas/1.jpg",
   },
   {
     id: 2,
-    title: "The Leela",
+    title: "EY Executive Boardroom",
     asset: "Executive Meeting Spaces",
-    image: "https://picsum.photos/seed/boardroom2/1200/800",
+    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
   }
 ];
 
