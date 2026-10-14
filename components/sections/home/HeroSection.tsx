@@ -266,21 +266,8 @@ export function HeroSection() {
           }, 0.5);
         };
 
-        // Listen for intro curtain completion event
-        onIntroComplete = () => runEntrance();
-
-        if (sessionStorage.getItem('brandIntroPlayed')) {
-          runEntrance();
-        } else {
-          window.addEventListener('introComplete', onIntroComplete, { once: true });
-        }
-
-        // Safety fallback — runs entrance if introComplete event never fires.
-        // 7s exceeds BrandIntro's ~4.6s total animation plus potential network delays.
-        entranceFallback = setTimeout(() => {
-          if (onIntroComplete) window.removeEventListener('introComplete', onIntroComplete);
-          runEntrance();
-        }, 7000);
+        // Run entrance typography animation immediately on mount
+        runEntrance();
 
         // Scroll distance +=1500% (15x viewport height) for a cinematic, slow-paced scrub
         mainTl = gsap.timeline({

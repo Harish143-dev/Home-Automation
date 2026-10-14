@@ -194,7 +194,7 @@ smarthome-os/
 
 | Token | Value | Usage |
 |---|---|---|
-| `--color-background` | `#F7F7F5` | Light warm off-white page background |
+| `--color-background` | `#F1EBD9` | Organic Editorial warm beige page background |
 | `--color-foreground` | `#111111` | Primary text color (near-black) |
 | `--color-panel` | `#FFFFFF` | Card/panel surfaces |
 | `--color-muted` | `#555555` | Secondary/body text |

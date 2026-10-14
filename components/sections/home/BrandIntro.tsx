@@ -232,10 +232,11 @@ export function BrandIntro() {
         className="intro-curtain absolute inset-0 z-[1]"
         style={{
           height: '100%',
-          background: '#faf9f7',
+          backgroundColor: '#F1EBD9',
           borderBottomLeftRadius: '0px',
           borderBottomRightRadius: '0px',
           transformOrigin: 'top center',
+          boxShadow: '0 20px 40px rgba(59, 68, 52, 0.08)',
         }}
       />
 

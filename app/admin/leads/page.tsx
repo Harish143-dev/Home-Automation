@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchWithAuth } from '../api';
 import { Loader2, Mail, Trash2, Search, Eye, X, Phone, Calendar, Tag } from 'lucide-react';
+import { AdminTableSkeleton } from '@/components/ui/skeleton';
 
 interface Lead {
   id: string;
@@ -68,8 +69,16 @@ export default function LeadsPage() {
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-accent" />
+      <div className="space-y-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent font-medium">Inquiries</span>
+            <h1 className="text-3xl font-light text-foreground mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+              Consultation Leads
+            </h1>
+          </div>
+        </div>
+        <AdminTableSkeleton rows={5} cols={5} />
       </div>
     );
   }

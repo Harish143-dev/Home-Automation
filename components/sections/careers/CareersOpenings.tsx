@@ -36,11 +36,14 @@ const STATIC_OPENINGS = [
   }
 ];
 
+import { CareerOpeningSkeleton } from "@/components/ui/skeleton";
+
 export default function CareersOpenings() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const [openings, setOpenings] = useState(STATIC_OPENINGS);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${getApiBaseUrl()}/careers`)
@@ -53,8 +56,9 @@ export default function CareersOpenings() {
               id: String(c.id),
               title: c.title,
               location: c.location || "New Delhi, India",
-              experience: "Open Opportunity",
+              experience: c.experience || "Open Opportunity",
               type: c.type || "Full Time",
+              department: c.department || "Engineering & Operations",
               description: c.description
             })));
           }
@@ -62,6 +66,9 @@ export default function CareersOpenings() {
       })
       .catch(err => {
         console.error("Failed to load live careers, using fallback", err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -163,45 +170,51 @@ export default function CareersOpenings() {
           ref={listRef}
           className="flex gap-6 md:gap-8 w-full overflow-x-auto snap-x snap-mandatory pb-8 pr-5 sm:pr-8 md:pr-16 lg:pr-24 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          {openings.map((job) => (
-            <div
-              key={job.id}
-              className="co-card snap-start group relative bg-white rounded-2xl p-8 border border-border shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col w-[85vw] sm:w-[320px] md:w-95 shrink-0 min-h-100"
-            >
-              <div className="flex-1">
-                <h3 className=" text-foreground mb-6">
-                  {job.title}
-                </h3>
+          {isLoading ? (
+            Array.from({ length: 3 }).map((_, i) => (
+              <CareerOpeningSkeleton key={i} />
+            ))
+          ) : (
+            openings.map((job) => (
+              <div
+                key={job.id}
+                className="co-card snap-start group relative bg-white rounded-2xl p-8 border border-border shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col w-[85vw] sm:w-[320px] md:w-95 shrink-0 min-h-100"
+              >
+                <div className="flex-1">
+                  <h3 className=" text-foreground mb-6">
+                    {job.title}
+                  </h3>
 
-                <div className="flex flex-col gap-3 mb-6">
-                  <div className="flex items-center gap-3 text-sm text-muted">
-                    <MapPin className="w-4 h-4 text-accent/70 shrink-0" />
-                    <span className="font-light">{job.location}</span>
+                  <div className="flex flex-col gap-3 mb-6">
+                    <div className="flex items-center gap-3 text-sm text-muted">
+                      <MapPin className="w-4 h-4 text-accent/70 shrink-0" />
+                      <span className="font-light">{job.location}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted">
+                      <Briefcase className="w-4 h-4 text-accent/70 shrink-0" />
+                      <span className="font-light">{job.experience}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted">
+                      <Clock className="w-4 h-4 text-accent/70 shrink-0" />
+                      <span className="font-light">{job.type}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-muted">
-                    <Briefcase className="w-4 h-4 text-accent/70 shrink-0" />
-                    <span className="font-light">{job.experience}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-muted">
-                    <Clock className="w-4 h-4 text-accent/70 shrink-0" />
-                    <span className="font-light">{job.type}</span>
-                  </div>
+
+                  <p className="text-sm text-muted font-light leading-relaxed line-clamp-3">
+                    {job.description}
+                  </p>
                 </div>
 
-                <p className="text-sm text-muted font-light leading-relaxed line-clamp-3">
-                  {job.description}
-                </p>
+                <div className="pt-6 border-t border-border mt-6">
+                  <Link href="#application-form" className="w-full">
+                    <Button variant="interactive" size="lg" className="w-full">
+                      Apply Now
+                    </Button>
+                  </Link>
+                </div>
               </div>
-
-              <div className="pt-6 border-t border-border mt-6">
-                <Link href="#application-form" className="w-full">
-                  <Button variant="interactive" size="lg" className="w-full">
-                    Apply Now
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
 

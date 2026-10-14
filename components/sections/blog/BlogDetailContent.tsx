@@ -44,14 +44,30 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
         <div className="lg:col-span-9 flex flex-col gap-10 min-w-0">
 
           {/* Key Takeaways */}
-          <div className="bg-transparent border border-border rounded-2xl p-8">
-            <h4 className=" text-foreground mb-4">Key Takeaways</h4>
-            <ul className="flex flex-col gap-3 text-muted-foreground font-light text-sm md:text-base leading-relaxed list-disc list-inside">
-              <li>Lighting is a fundamental architectural element, not just functional.</li>
-              <li>Human-centric lighting aligns indoor environments with circadian rhythms.</li>
-              <li>True luxury is invisible integration, hiding the source and emphasizing the effect.</li>
-            </ul>
-          </div>
+          {(() => {
+            const takeawaysList = (() => {
+              if (!post.keyTakeaways) {
+                return [
+                  "Lighting is a fundamental architectural element, not just functional.",
+                  "Human-centric lighting aligns indoor environments with circadian rhythms.",
+                  "True luxury is invisible integration, hiding the source and emphasizing the effect."
+                ];
+              }
+              if (Array.isArray(post.keyTakeaways)) return post.keyTakeaways;
+              return post.keyTakeaways.split('\n').map((s: string) => s.replace(/^[-*•\d.]\s*/, '').trim()).filter(Boolean);
+            })();
+
+            return (
+              <div className="bg-transparent border border-border rounded-2xl p-8">
+                <h4 className="text-foreground mb-4 font-normal text-lg">Key Takeaways</h4>
+                <ul className="flex flex-col gap-3 text-muted-foreground font-light text-sm md:text-base leading-relaxed list-disc list-inside">
+                  {takeawaysList.map((item: string, idx: number) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })()}
 
           {/* Contextual Section (Blog Body) */}
           <article

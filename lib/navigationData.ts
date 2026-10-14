@@ -96,7 +96,6 @@ export const MAIN_NAVIGATION: NavLink[] = [
     items: [
       { id: 'res-calc', label: 'Energy Calculators', href: '/calculator' },
       { id: 'res-blogs', label: 'Blogs & Articles', href: '/blog' },
-      { id: 'res-case', label: 'Case Studies', href: '/projects' },
       { id: 'res-amc', label: 'AMC & Care', href: '/disciplines/amc' },
     ]
   },

@@ -8,23 +8,9 @@ import FullscreenMenu from './FullscreenMenu';
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [isIntroRunning, setIsIntroRunning] = useState(true);
+  const [isIntroRunning, setIsIntroRunning] = useState(false);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleIntroComplete = () => {
-      setIsIntroRunning(false);
-      sessionStorage.setItem('brandIntroFinished', 'true');
-    };
-
-    if (sessionStorage.getItem('brandIntroFinished') === 'true') {
-      setIsIntroRunning(false);
-    }
-
-    window.addEventListener('introComplete', handleIntroComplete);
-    return () => window.removeEventListener('introComplete', handleIntroComplete);
-  }, []);
 
   // Lock body scroll when menu is open
   useEffect(() => {

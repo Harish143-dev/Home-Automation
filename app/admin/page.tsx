@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { fetchWithAuth } from './api';
 import { Loader2, Mail, UserCheck, FolderKanban, PenTool, Briefcase, ArrowUpRight, Plus, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import { AdminStatsSkeleton, AdminTableSkeleton } from '@/components/ui/skeleton';
 
 interface RecentLead {
   id: string;
@@ -77,8 +78,15 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-accent" />
+      <div className="space-y-12">
+        <div>
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent font-medium">Administration</span>
+          <h1 className="text-3xl sm:text-4xl font-light text-foreground mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+            System Overview
+          </h1>
+        </div>
+        <AdminStatsSkeleton />
+        <AdminTableSkeleton rows={4} cols={4} />
       </div>
     );
   }

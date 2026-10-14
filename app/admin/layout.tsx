@@ -39,8 +39,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-accent" />
+      <div className="min-h-screen bg-background flex flex-col p-8 space-y-6">
+        <div className="h-8 w-48 rounded bg-foreground/15 animate-pulse" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 animate-pulse">
+          <div className="h-28 rounded-2xl bg-foreground/10" />
+          <div className="h-28 rounded-2xl bg-foreground/10" />
+          <div className="h-28 rounded-2xl bg-foreground/10" />
+          <div className="h-28 rounded-2xl bg-foreground/10" />
+        </div>
+        <div className="h-80 rounded-2xl bg-foreground/10 animate-pulse" />
       </div>
     );
   }

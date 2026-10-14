@@ -151,17 +151,23 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
           slugify(p.title) === normalizedSlug
       );
       if (dbMatch) {
+        const baseImg = dbMatch.imageUrl || "/images/projects/residential/anubhav-jain-farmhouse/1.jpg";
+        const img2 = baseImg.includes('/1.jpg') ? baseImg.replace('/1.jpg', '/2.jpg') : baseImg;
+        const img3 = baseImg.includes('/1.jpg') ? baseImg.replace('/1.jpg', '/3.jpg') : baseImg;
+
+        let detectedCat = "Residential Automation";
+        const lower = `${baseImg} ${dbMatch.title}`.toLowerCase();
+        if (lower.includes('hospitality')) detectedCat = "Hospitality Architecture";
+        else if (lower.includes('commercial')) detectedCat = "Commercial Space";
+        else if (lower.includes('restaurant')) detectedCat = "Dining & Hospitality";
+
         return {
           id: String(dbMatch.id),
           title: dbMatch.title,
-          category: "Featured Project",
+          category: detectedCat,
           year: new Date(dbMatch.createdAt).getFullYear().toString(),
           description: dbMatch.description,
-          images: [
-            dbMatch.imageUrl || "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
-            "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
-            "/assets/residential/project/delhi-residence/delhi-residence-3.jpg"
-          ]
+          images: [baseImg, img2, img3]
         };
       }
     }

@@ -34,7 +34,7 @@ const FOOTER_LINKS = {
     { label: 'Airport Lounges', href: '/commercial/airport-lounges' },
   ],
   resources: [
-    { label: 'Case Studies', href: '/projects' },
+    { label: 'Work', href: '/projects' },
     { label: 'Blogs & Insights', href: '/blog' },
     { label: 'Energy Calculators', href: '/calculator' },
     { label: 'AMC & Support', href: '/disciplines/amc' },
@@ -201,18 +201,19 @@ export function Footer() {
 
           {/* Col 6: Map & Exp Centers */}
           <div className="footer-col flex flex-col">
-            <h4 className="text-sm font-semibold text-black mb-6">Headquarters & Experience Centers</h4>
+            <h4 className="text-sm font-semibold text-black mb-6">Experience Centers</h4>
             
             {/* Map Embed */}
             <div className="w-full h-32 bg-black/5 rounded-lg overflow-hidden mb-6 border border-black/10">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.6859546115984!2d77.2727146150807!3d28.54916298245053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3e26bc2299d%3A0xc48c1e28cf6741b6!2sOkhla%20Industrial%20Area%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                src="https://maps.google.com/maps?q=D20,+Block+D,+Jangpura,+New+Delhi,+Delhi+110014&t=&z=14&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen={false} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
+                title="Experience Center Location"
               />
             </div>
 
@@ -221,9 +222,16 @@ export function Footer() {
               <div className="flex gap-3">
                 <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
                 <div className="flex flex-col text-[13px] text-black/70 leading-snug">
-                  <span className="font-semibold text-black">Delhi (HQ)</span>
-                  <span>Okhla Industrial Area, Phase 2</span>
-                  <span>New Delhi, DL 110020</span>
+                  <span className="font-semibold text-black">Delhi</span>
+                  <span>Lower Ground Floor, D20, Block D, Jangpura</span>
+                  <span>New Delhi, Delhi 110014</span>
+                  <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-1 text-[12px] text-black/60">
+                    <a href="tel:+911124324113" className="hover:text-accent transition-colors">+91-11-24324113</a>
+                    <span>•</span>
+                    <a href="tel:+911145643992" className="hover:text-accent transition-colors">45643992</a>
+                    <span>•</span>
+                    <a href="tel:+911124324115" className="hover:text-accent transition-colors">24324115</a>
+                  </div>
                 </div>
               </div>
               
@@ -231,17 +239,27 @@ export function Footer() {
                 <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
                 <div className="flex flex-col text-[13px] text-black/70 leading-snug">
                   <span className="font-semibold text-black">Mumbai</span>
-                  <span>Lower Parel, Suite 204</span>
-                  <span>Mumbai, MH 400013</span>
+                  <span>10/76, Apte Properties, Ground Floor Parijat House, LR Papan Marg, off Dr. Elijah Moses Road, Worli</span>
+                  <span>Mumbai, Maharashtra 400018</span>
+                  <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-1 text-[12px] text-black/60">
+                    <a href="tel:+912249675653" className="hover:text-accent transition-colors">+91-22-49675653</a>
+                    <span>•</span>
+                    <a href="tel:+918291239139" className="hover:text-accent transition-colors">+91-82912-39139</a>
+                  </div>
                 </div>
               </div>
 
               <div className="flex gap-3">
                 <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
                 <div className="flex flex-col text-[13px] text-black/70 leading-snug">
-                  <span className="font-semibold text-black">Bangalore</span>
-                  <span>Indiranagar, 100 Feet Road</span>
-                  <span>Bangalore, KA 560038</span>
+                  <span className="font-semibold text-black">Bengaluru</span>
+                  <span>13, 100 Feet Ring Road, Anjaneya Nagar, Bangalore South Banashankari 3rd Stage</span>
+                  <span>Bangalore 560085, Karnataka</span>
+                  <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-1 text-[12px] text-black/60">
+                    <a href="tel:+918041130438" className="hover:text-accent transition-colors">+91-80-4113-0438</a>
+                    <span>•</span>
+                    <a href="tel:+918025270460" className="hover:text-accent transition-colors">25270460</a>
+                  </div>
                 </div>
               </div>
             </div>

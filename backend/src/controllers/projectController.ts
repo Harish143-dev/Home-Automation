@@ -7,11 +7,16 @@ export const createProject = async (req: Request, res: Response, next: NextFunct
     const parsed = projectSchema.safeParse(req.body);
     if (!parsed.success) return res.status(400).json({ success: false, errors: parsed.error.format() });
     
-    const { title, description } = parsed.data;
+    const { title, description, type } = parsed.data;
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : parsed.data.imageUrl || null;
     
     const project = await prisma.project.create({
-      data: { title, description, imageUrl },
+      data: { 
+        title, 
+        description, 
+        imageUrl, 
+        type: type || 'Residential' 
+      } as any,
     });
     res.status(201).json({ success: true, data: project });
   } catch (error) {
@@ -45,8 +50,9 @@ export const updateProject = async (req: Request, res: Response, next: NextFunct
     const parsed = projectSchema.safeParse(req.body);
     if (!parsed.success) return res.status(400).json({ success: false, errors: parsed.error.format() });
     
-    const { title, description } = parsed.data;
+    const { title, description, type } = parsed.data;
     const dataToUpdate: any = { title, description };
+    if (type !== undefined) dataToUpdate.type = type;
     
     if (req.file) {
       dataToUpdate.imageUrl = `/uploads/${req.file.filename}`;

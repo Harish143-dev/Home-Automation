@@ -6,9 +6,9 @@ import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
 
 const LOCATIONS = [
-  { id: "delhi", city: "New Delhi", title: "Corporate HQ & Experience Centre", address: "D-89, Okhla Phase 1, New Delhi - 110020" },
-  { id: "mumbai", city: "Mumbai", title: "Experience Centre", address: "Worli, Mumbai" },
-  { id: "bangalore", city: "Bengaluru", title: "Experience Centre", address: "Indiranagar, Bengaluru" },
+  { id: "delhi", city: "New Delhi", title: "Experience Centre", address: "D20, Block D, Jangpura, New Delhi - 110014" },
+  { id: "mumbai", city: "Mumbai", title: "Experience Centre", address: "Parijat House, Apte Properties, Worli, Mumbai - 400018" },
+  { id: "bangalore", city: "Bengaluru", title: "Experience Centre", address: "100 Feet Ring Road, Banashankari 3rd Stage, Bangalore - 560085" },
 ];
 
 export default function ExperienceEcosystem() {

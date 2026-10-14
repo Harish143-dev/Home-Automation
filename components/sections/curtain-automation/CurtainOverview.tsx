@@ -68,7 +68,7 @@ export function CurtainOverview() {
           {/* Image Side */}
           <div className="overview-content relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
             <NextImage
-              src="/images/curtain_overview.png"
+              src="/assets/residential/project/delhi-residence/delhi-residence-1.jpg"
               alt="Motorized shades overview"
               fill
               className="object-cover"

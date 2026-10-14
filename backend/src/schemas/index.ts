@@ -27,18 +27,26 @@ export const projectSchema = z.object({
   title: z.string().min(2, 'Project title must be at least 2 characters'),
   description: z.string().min(5, 'Description must be at least 5 characters'),
   imageUrl: z.string().optional().nullable(),
+  type: z.string().optional().nullable().default('Residential'),
 });
 
 export const blogSchema = z.object({
   title: z.string().min(2, 'Blog title must be at least 2 characters'),
+  description: z.string().optional().nullable(),
   content: z.string().min(10, 'Blog content must be at least 10 characters'),
-  author: z.string().optional().nullable(),
+  imageUrl: z.string().optional().nullable(),
+  category: z.string().optional().nullable().default('Smart Living'),
+  author: z.string().optional().nullable().default('ATPL Team'),
+  publishedAt: z.string().optional().nullable(),
+  keyTakeaways: z.string().optional().nullable(),
 });
 
 export const careerSchema = z.object({
   title: z.string().min(2, 'Career title must be at least 2 characters'),
   description: z.string().min(5, 'Description must be at least 5 characters'),
-  location: z.string().optional().nullable(),
-  type: z.string().optional().nullable(),
+  location: z.string().optional().nullable().default('New Delhi, India'),
+  type: z.string().optional().nullable().default('Full Time'),
+  experience: z.string().optional().nullable().default('Open Opportunity'),
+  department: z.string().optional().nullable().default('Engineering & Operations'),
   isActive: z.boolean().optional().default(true),
 });

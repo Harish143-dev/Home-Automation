@@ -20,25 +20,33 @@ model Project {
   title       String
   description String
   imageUrl    String?
+  type        String?  @default("Residential") // Residential, Hospitality, Commercial, Restaurant
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
 
 model Blog {
-  id          Int      @id @default(autoincrement())
-  title       String
-  content     String
-  author      String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String?   // Short summary / excerpt
+  content       String    // Full editorial content
+  imageUrl      String?   // Featured image
+  category      String?   @default("Smart Living")
+  author        String?   @default("ATPL Team")
+  publishedAt   DateTime? @default(now())
+  keyTakeaways  String?   // Bullet points / highlights summary
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
 model Career {
   id          Int      @id @default(autoincrement())
   title       String
   description String
-  location    String?
-  type        String?  // e.g., Full-time, Part-time
+  location    String?  @default("New Delhi, India")
+  type        String?  @default("Full Time")  // Full Time, Part Time, Contract
+  experience  String?  @default("Open Opportunity")
+  department  String?  @default("Engineering & Operations")
   isActive    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

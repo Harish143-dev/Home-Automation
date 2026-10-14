@@ -1,21 +1,45 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { fetchWithAuth } from '../api';
-import { Loader2, FolderKanban, Plus, Edit2, Trash2, X, Image as ImageIcon, Search } from 'lucide-react';
+import {
+  FolderKanban,
+  Plus,
+  Edit2,
+  Trash2,
+  X,
+  Image as ImageIcon,
+  Search,
+  Upload,
+  Check,
+  Building,
+  Home,
+  Hotel,
+  UtensilsCrossed
+} from 'lucide-react';
+import { AdminTableSkeleton } from '@/components/ui/skeleton';
 
 interface Project {
   id: number;
   title: string;
   description: string;
   imageUrl?: string | null;
+  type?: string | null;
   createdAt: string;
 }
+
+const PROJECT_TYPES = [
+  { label: 'Residential', value: 'Residential', icon: Home, color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+  { label: 'Hospitality', value: 'Hospitality', icon: Hotel, color: 'bg-amber-50 text-amber-800 border-amber-200' },
+  { label: 'Commercial', value: 'Commercial', icon: Building, color: 'bg-sky-50 text-sky-800 border-sky-200' },
+  { label: 'Restaurant', value: 'Restaurant', icon: UtensilsCrossed, color: 'bg-rose-50 text-rose-800 border-rose-200' },
+];
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTypeFilter, setSelectedTypeFilter] = useState('All');
 
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,9 +48,13 @@ export default function ProjectsPage() {
     title: '',
     description: '',
     imageUrl: '',
+    type: 'Residential',
   });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string>('');
   const [isSaving, setIsSaving] = useState(false);
   const [modalError, setModalError] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetchProjects();
@@ -48,7 +76,14 @@ export default function ProjectsPage() {
 
   const openCreateModal = () => {
     setEditingProject(null);
-    setFormData({ title: '', description: '', imageUrl: '' });
+    setFormData({
+      title: '',
+      description: '',
+      imageUrl: '',
+      type: 'Residential',
+    });
+    setSelectedFile(null);
+    setImagePreview('');
     setModalError('');
     setIsModalOpen(true);
   };
@@ -59,15 +94,37 @@ export default function ProjectsPage() {
       title: project.title,
       description: project.description,
       imageUrl: project.imageUrl || '',
+      type: project.type || 'Residential',
     });
+    setSelectedFile(null);
+    setImagePreview(project.imageUrl || '');
     setModalError('');
     setIsModalOpen(true);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      const previewUrl = URL.createObjectURL(file);
+      setImagePreview(previewUrl);
+    }
+  };
+
+  const handleImageUrlChange = (url: string) => {
+    setFormData(prev => ({ ...prev, imageUrl: url }));
+    setSelectedFile(null);
+    setImagePreview(url);
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.title.trim()) {
-      setModalError('Project title is required');
+      setModalError('Project Name is mandatory.');
+      return;
+    }
+    if (!formData.description.trim()) {
+      setModalError('Project Description is mandatory.');
       return;
     }
 
@@ -75,11 +132,28 @@ export default function ProjectsPage() {
     setModalError('');
 
     try {
+      let body: any;
+      if (selectedFile) {
+        const data = new FormData();
+        data.append('title', formData.title.trim());
+        data.append('description', formData.description.trim());
+        data.append('type', formData.type);
+        data.append('image', selectedFile);
+        body = data;
+      } else {
+        body = JSON.stringify({
+          title: formData.title.trim(),
+          description: formData.description.trim(),
+          type: formData.type,
+          imageUrl: formData.imageUrl.trim() || null,
+        });
+      }
+
       if (editingProject) {
         // Update
         const response = await fetchWithAuth(`/projects/${editingProject.id}`, {
           method: 'PUT',
-          body: JSON.stringify(formData),
+          body,
         });
         const data = await response.json();
         if (data.success) {
@@ -92,7 +166,7 @@ export default function ProjectsPage() {
         // Create
         const response = await fetchWithAuth('/projects', {
           method: 'POST',
-          body: JSON.stringify(formData),
+          body,
         });
         const data = await response.json();
         if (data.success) {
@@ -102,15 +176,15 @@ export default function ProjectsPage() {
           setModalError(data.error || 'Failed to create project');
         }
       }
-    } catch (err) {
-      setModalError('Server communication error. Please try again.');
+    } catch (error: any) {
+      setModalError(error.message || 'Error occurred while saving project');
     } finally {
       setIsSaving(false);
     }
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this project?')) return;
+    if (!confirm('Are you sure you want to permanently delete this project?')) return;
     try {
       const response = await fetchWithAuth(`/projects/${id}`, { method: 'DELETE' });
       if (response.ok) {
@@ -121,15 +195,39 @@ export default function ProjectsPage() {
     }
   };
 
-  const filteredProjects = projects.filter(p => 
-    p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter projects by type & search
+  const filteredProjects = projects.filter(p => {
+    const matchesType = selectedTypeFilter === 'All' || (p.type || 'Residential').toLowerCase() === selectedTypeFilter.toLowerCase();
+    const matchesSearch =
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (p.type && p.type.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesType && matchesSearch;
+  });
+
+  const getTypeBadge = (type?: string | null) => {
+    const item = PROJECT_TYPES.find(t => t.value.toLowerCase() === (type || 'residential').toLowerCase()) || PROJECT_TYPES[0];
+    const Icon = item.icon;
+    return (
+      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${item.color}`}>
+        <Icon size={12} />
+        {item.label}
+      </span>
+    );
+  };
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-accent" />
+      <div className="space-y-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent font-medium">Portfolio Showcase</span>
+            <h1 className="text-3xl font-light text-foreground mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+              Works Portfolio
+            </h1>
+          </div>
+        </div>
+        <AdminTableSkeleton rows={5} cols={5} />
       </div>
     );
   }
@@ -137,35 +235,63 @@ export default function ProjectsPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-border pb-6">
         <div>
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent font-medium">Showcase</span>
-          <h1 className="text-3xl font-light text-foreground mt-1" style={{ fontFamily: 'var(--font-display)' }}>
-            Projects Portfolio
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent font-medium">Portfolio Showcase</span>
+          <h1 className="text-3xl sm:text-4xl font-light text-foreground mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+            Works & Projects
           </h1>
-          <p className="text-muted mt-1.5 text-sm tracking-wide font-light">
-            Manage your smart automation case studies and showcased installations.
+          <p className="text-muted text-sm font-light mt-1">
+            Manage your verified smart home, hospitality, commercial, and restaurant installations.
           </p>
         </div>
+
         <button 
           onClick={openCreateModal}
-          className="flex items-center gap-2 bg-accent hover:bg-accent-soft text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-all shadow-sm"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white rounded-xl text-xs uppercase tracking-[0.15em] font-medium shadow-sm hover:bg-accent/90 transition-all duration-200"
         >
           <Plus size={16} />
           <span>New Project</span>
         </button>
       </div>
 
-      {/* Search Bar */}
-      <div className="relative max-w-md">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
-        <input 
-          type="text" 
-          placeholder="Search projects by title or description..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-10 pr-4 py-2.5 bg-panel border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all"
-        />
+      {/* Filter Tabs & Search Row */}
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        {/* Type Filter Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+          {['All', 'Residential', 'Hospitality', 'Commercial', 'Restaurant'].map((type) => {
+            const count = type === 'All' 
+              ? projects.length 
+              : projects.filter(p => (p.type || 'Residential').toLowerCase() === type.toLowerCase()).length;
+            const isSelected = selectedTypeFilter === type;
+
+            return (
+              <button
+                key={type}
+                onClick={() => setSelectedTypeFilter(type)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 whitespace-nowrap border ${
+                  isSelected
+                    ? 'bg-secondary text-[#F1EBD9] border-secondary shadow-sm'
+                    : 'bg-panel text-muted hover:text-foreground border-border hover:border-border/80'
+                }`}
+              >
+                {type} <span className="opacity-60 ml-1 text-[11px]">({count})</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Search Input */}
+        <div className="relative min-w-[260px]">
+          <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
+          <input 
+            type="text" 
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-9 pr-4 py-2 bg-panel border border-border rounded-xl text-xs sm:text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all placeholder:text-muted/60"
+          />
+        </div>
       </div>
 
       {/* Projects Table */}
@@ -175,13 +301,13 @@ export default function ProjectsPage() {
             <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mb-4 border border-border">
               <FolderKanban className="w-8 h-8 text-muted" />
             </div>
-            <h3 className="text-lg font-light text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
-              {projects.length === 0 ? 'No projects yet' : 'No matching projects found'}
+            <h3 className="text-xl font-light text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              {projects.length === 0 ? 'No projects in database' : 'No matching projects found'}
             </h3>
-            <p className="text-muted mt-1.5 text-sm font-light">
+            <p className="text-muted mt-1.5 text-sm font-light max-w-sm">
               {projects.length === 0 
-                ? 'Click "New Project" to add your first case study.' 
-                : 'Try adjusting your search query.'}
+                ? 'Click "New Project" to add your first luxury automation showcase.' 
+                : 'Try adjusting your search query or selecting a different category pill.'}
             </p>
           </div>
         ) : (
@@ -189,61 +315,68 @@ export default function ProjectsPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-border bg-background/50">
-                  <th className="py-4 px-6 text-[11px] font-semibold text-muted uppercase tracking-wider">Preview</th>
-                  <th className="py-4 px-6 text-[11px] font-semibold text-muted uppercase tracking-wider">Project Title</th>
-                  <th className="py-4 px-6 text-[11px] font-semibold text-muted uppercase tracking-wider">Description</th>
-                  <th className="py-4 px-6 text-[11px] font-semibold text-muted uppercase tracking-wider">Added Date</th>
-                  <th className="py-4 px-6 text-[11px] font-semibold text-muted uppercase tracking-wider text-right">Actions</th>
+                  <th className="py-4 px-6 text-[10px] font-semibold text-muted uppercase tracking-wider">Preview</th>
+                  <th className="py-4 px-6 text-[10px] font-semibold text-muted uppercase tracking-wider">Project Name</th>
+                  <th className="py-4 px-6 text-[10px] font-semibold text-muted uppercase tracking-wider">Type</th>
+                  <th className="py-4 px-6 text-[10px] font-semibold text-muted uppercase tracking-wider">Description</th>
+                  <th className="py-4 px-6 text-[10px] font-semibold text-muted uppercase tracking-wider">Added Date</th>
+                  <th className="py-4 px-6 text-[10px] font-semibold text-muted uppercase tracking-wider text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {filteredProjects.map((project) => (
                   <tr key={project.id} className="hover:bg-background/40 transition-colors">
                     <td className="py-4 px-6">
-                      <div className="w-14 h-10 rounded-lg overflow-hidden bg-background border border-border flex items-center justify-center shrink-0">
+                      <div className="w-14 h-11 rounded-lg overflow-hidden bg-background border border-border flex items-center justify-center shrink-0 shadow-xs">
                         {project.imageUrl ? (
                           <img 
                             src={project.imageUrl} 
                             alt={project.title} 
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              // Fallback on broken image
                               (e.target as HTMLElement).style.display = 'none';
                             }}
                           />
                         ) : (
-                          <ImageIcon size={18} className="text-muted" />
+                          <ImageIcon size={18} className="text-muted/60" />
                         )}
                       </div>
                     </td>
                     <td className="py-4 px-6">
                       <p className="text-sm font-medium text-foreground">{project.title}</p>
                     </td>
-                    <td className="py-4 px-6 text-sm text-muted max-w-sm truncate" title={project.description}>
-                      {project.description}
+                    <td className="py-4 px-6 whitespace-nowrap">
+                      {getTypeBadge(project.type)}
                     </td>
-                    <td className="py-4 px-6 text-xs text-muted whitespace-nowrap">
-                      {new Date(project.createdAt).toLocaleDateString(undefined, {
+                    <td className="py-4 px-6 max-w-md">
+                      <p className="text-xs text-muted font-light line-clamp-2 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </td>
+                    <td className="py-4 px-6 whitespace-nowrap text-xs text-muted font-mono">
+                      {new Date(project.createdAt).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
                         year: 'numeric'
                       })}
                     </td>
-                    <td className="py-4 px-6 text-right space-x-1 whitespace-nowrap">
-                      <button 
-                        onClick={() => openEditModal(project)}
-                        className="p-2 text-muted hover:text-foreground hover:bg-background rounded-lg transition-colors"
-                        title="Edit Project"
-                      >
-                        <Edit2 size={16} />
-                      </button>
-                      <button 
-                        onClick={() => handleDelete(project.id)}
-                        className="p-2 text-muted hover:text-red-600 hover:bg-red-500/10 rounded-lg transition-colors"
-                        title="Delete Project"
-                      >
-                        <Trash2 size={16} />
-                      </button>
+                    <td className="py-4 px-6 text-right whitespace-nowrap">
+                      <div className="flex items-center justify-end gap-1.5">
+                        <button 
+                          onClick={() => openEditModal(project)}
+                          className="p-1.5 text-muted hover:text-foreground hover:bg-background rounded-lg transition-colors"
+                          title="Edit Project"
+                        >
+                          <Edit2 size={15} />
+                        </button>
+                        <button 
+                          onClick={() => handleDelete(project.id)}
+                          className="p-1.5 text-muted hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                          title="Delete Project"
+                        >
+                          <Trash2 size={15} />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -253,10 +386,10 @@ export default function ProjectsPage() {
         )}
       </div>
 
-      {/* Create / Edit Project Modal */}
+      {/* Modal Form Dialog */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-panel border border-border rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-xl relative animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-panel border border-border w-full max-w-xl rounded-2xl shadow-2xl p-6 sm:p-8 relative my-8 animate-in fade-in zoom-in-95 duration-200">
             <button 
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 text-muted hover:text-foreground p-1 rounded-lg"
@@ -271,62 +404,140 @@ export default function ProjectsPage() {
               {editingProject ? 'Edit Project' : 'Add New Project'}
             </h2>
 
-            <form onSubmit={handleSave} className="space-y-4">
+            <form onSubmit={handleSave} className="space-y-5">
+              {/* Project Name (Mandatory) */}
               <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-muted uppercase tracking-wider">Project Title *</label>
+                <label className="text-[11px] font-semibold text-muted uppercase tracking-wider flex items-center gap-1">
+                  Project Name <span className="text-accent">*</span>
+                </label>
                 <input 
                   type="text" 
                   required
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="e.g. Modern Villa Gurgaon"
+                  placeholder="e.g. Modern Villa, South Delhi"
                   className="w-full px-4 py-2.5 bg-background border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all"
                 />
               </div>
 
+              {/* Project Type (Mandatory) */}
               <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-muted uppercase tracking-wider">Image Path / URL</label>
-                <input 
-                  type="text" 
-                  value={formData.imageUrl}
-                  onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                  placeholder="e.g. /assets/residential/project/delhi-residence/delhi-residence-1.webp"
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all"
-                />
+                <label className="text-[11px] font-semibold text-muted uppercase tracking-wider flex items-center gap-1">
+                  Project Type <span className="text-accent">*</span>
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {PROJECT_TYPES.map((typeOption) => {
+                    const isSelected = formData.type === typeOption.value;
+                    const Icon = typeOption.icon;
+                    return (
+                      <button
+                        type="button"
+                        key={typeOption.value}
+                        onClick={() => setFormData({ ...formData, type: typeOption.value })}
+                        className={`flex items-center justify-center gap-2 py-2 px-3 rounded-xl border text-xs font-medium transition-all ${
+                          isSelected
+                            ? 'bg-secondary text-[#F1EBD9] border-secondary shadow-xs font-semibold'
+                            : 'bg-background border-border text-muted hover:text-foreground hover:border-black/20'
+                        }`}
+                      >
+                        <Icon size={14} />
+                        {typeOption.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
+              {/* Image Input & Upload */}
+              <div className="space-y-2">
+                <label className="text-[11px] font-semibold text-muted uppercase tracking-wider">
+                  Project Image
+                </label>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input 
+                    type="text" 
+                    value={formData.imageUrl}
+                    onChange={(e) => handleImageUrlChange(e.target.value)}
+                    placeholder="Enter image URL or path (/images/projects/...)"
+                    className="flex-1 px-4 py-2 bg-background border border-border rounded-xl text-xs sm:text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all"
+                  />
+                  <input 
+                    type="file" 
+                    ref={fileInputRef} 
+                    onChange={handleFileChange} 
+                    accept="image/*" 
+                    className="hidden" 
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-background border border-border rounded-xl text-xs font-medium text-foreground hover:bg-black/5 transition-colors shrink-0"
+                  >
+                    <Upload size={14} />
+                    <span>Upload Image</span>
+                  </button>
+                </div>
+
+                {/* Live Image Preview */}
+                {imagePreview && (
+                  <div className="mt-2 relative w-full h-36 rounded-xl overflow-hidden border border-border bg-background">
+                    <img 
+                      src={imagePreview} 
+                      alt="Preview" 
+                      className="w-full h-full object-cover" 
+                      onError={() => setImagePreview('')}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setImagePreview('');
+                        setSelectedFile(null);
+                        setFormData(prev => ({ ...prev, imageUrl: '' }));
+                      }}
+                      className="absolute top-2 right-2 p-1 bg-black/60 text-white rounded-md hover:bg-black"
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Description (Mandatory) */}
               <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-muted uppercase tracking-wider">Description *</label>
+                <label className="text-[11px] font-semibold text-muted uppercase tracking-wider flex items-center gap-1">
+                  Description <span className="text-accent">*</span>
+                </label>
                 <textarea 
                   required
                   rows={4}
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="Describe the automation setup, lighting, audio systems, and client requirements..."
+                  placeholder="Detail the scope of automation, lighting scenes, audio-video integration, and security..."
                   className="w-full px-4 py-2.5 bg-background border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all leading-relaxed"
                 />
               </div>
 
               {modalError && (
-                <div className="p-3 bg-red-50/50 border border-red-100 rounded-lg text-red-600 text-xs font-medium">
+                <div className="p-3 bg-red-50/70 border border-red-200 rounded-xl text-red-600 text-xs font-medium">
                   {modalError}
                 </div>
               )}
 
-              <div className="flex gap-3 pt-3">
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-border">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 py-2.5 border border-border hover:bg-background text-foreground rounded-xl text-sm font-medium transition-colors"
+                  className="px-4 py-2.5 text-xs uppercase tracking-wider text-muted hover:text-foreground transition-colors font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="flex-1 py-2.5 bg-accent hover:bg-accent-soft text-white rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-accent text-white rounded-xl text-xs uppercase tracking-wider font-semibold shadow-sm hover:bg-accent/90 disabled:opacity-50 transition-all"
                 >
-                  {isSaving ? <Loader2 size={16} className="animate-spin" /> : <span>{editingProject ? 'Save Changes' : 'Create Project'}</span>}
+                  {isSaving ? 'Saving...' : editingProject ? 'Update Project' : 'Create Project'}
                 </button>
               </div>
             </form>

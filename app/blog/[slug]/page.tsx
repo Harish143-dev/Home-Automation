@@ -33,16 +33,19 @@ async function getPost(slug: string): Promise<BlogPost | null> {
 
       if (dbMatch) {
         const plain = stripHtml(dbMatch.content);
+        const dateStr = dbMatch.publishedAt || dbMatch.createdAt;
         return {
           id: String(dbMatch.id),
           slug: slug,
-          category: "Smart Living",
-          date: new Date(dbMatch.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+          category: dbMatch.category || "Smart Living",
+          date: new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
           title: dbMatch.title,
-          excerpt: plain.slice(0, 140) + '...',
-          image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
+          excerpt: dbMatch.description || (plain.slice(0, 140) + '...'),
+          image: dbMatch.imageUrl || "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
           readTime: `${Math.max(2, Math.ceil(plain.split(/\s+/).length / 200))} Min Read`,
           content: dbMatch.content,
+          author: dbMatch.author || "ATPL Team",
+          keyTakeaways: dbMatch.keyTakeaways,
         };
       }
     }

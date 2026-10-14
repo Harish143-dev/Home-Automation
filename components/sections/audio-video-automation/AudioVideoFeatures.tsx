@@ -9,22 +9,22 @@ const FEATURES = [
   {
     id: 0,
     text: "One-touch control for music, TV, and home theatre",
-    image: "/images/av_home_theatre.png",
+    image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg",
   },
   {
     id: 1,
     text: "Equipment neatly concealed for a clean appearance",
-    image: "/images/av_clean_appearance.png",
+    image: "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
   },
   {
     id: 2,
     text: "Designed to complement your home interiors",
-    image: "/images/av_interior_design.png",
+    image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
   },
   {
     id: 3,
     text: "Easy-to-use controls for every member of the family",
-    image: "/images/av_smart_control.png",
+    image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
   }
 ];
 

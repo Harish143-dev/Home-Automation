@@ -8,6 +8,8 @@ export interface BlogPost {
   image: string; // use static image import path if possible, or public string
   readTime: string;
   content: string; // Markdown or simple HTML for the article body
+  keyTakeaways?: string[] | string;
+  author?: string;
 }
 
 export const FEATURED_POST: BlogPost = {

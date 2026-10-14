@@ -1,7 +1,6 @@
 'use client';
 
 import { HeroSection } from '../components/sections/home/HeroSection';
-import { BrandIntro } from '../components/sections/home/BrandIntro';
 
 import { AutomationSpaces } from '../components/sections/home/AutomationSpaces';
 import { StatsSection } from '../components/sections/home/StatsSection';
@@ -17,8 +16,6 @@ import { CallToActionSection } from '../components/sections/home/CallToActionSec
 export default function Home() {
   return (
     <main className="relative bg-background">
-      <BrandIntro />
-
       <HeroSection />
       <StatsSection />
       <BrandTicker />
