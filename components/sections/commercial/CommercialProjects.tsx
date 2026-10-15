@@ -9,83 +9,103 @@ import { useReducedMotion } from "../../../hooks/useReducedMotion";
 const CASE_STUDIES = [
   {
     id: 1,
-    title: "Enterprise Headquarters Deployment",
+    title: "Ernst & Young (EY) Corporate Campus",
     asset: "Fortune 500 Corporate Campus, Gurugram",
     image: "/images/projects/commercial/ey-gurgaon/1.jpg",
     strain: "Managing a highly volatile, hybrid workforce floorplate across 150,000 sq. ft. while facing extreme localized heatwaves and rising energy costs.",
     yield: "Integrated a centralized Lutron Athena backbone that synthesizes automated daylight harvesting with dynamic HVAC micro-climate tracking.",
     roi: "Reduced peak-load utility overheads by 22% within the first two quarters while stabilizing employee cognitive focus.",
-    similar: []
+    similar: ["KPMG", "PwC", "Deloitte", "McKinsey"]
   },
   {
     id: 2,
-    title: "Meta",
-    asset: "Meta's Corporate Office",
+    title: "Meta Corporate Office",
+    asset: "Meta Regional Headquarters, Gurugram",
     image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
-    strain: "xx [CLIENT PLACEHOLDER]",
-    yield: "Smart lighting, AV, conferencing, and workspace automation across reception areas, workstations, and meeting rooms, featuring occupancy sensing, daylight harvesting, dimming control, motorized shades, access control, background music, and video wall integration.",
-    roi: "Extended primary lamp and hardware life cycles by 35% while lowering tenant stress markers across high-density passenger zones. [CLIENT PLACEHOLDER]",
-    similar: ["Microsoft", "Meta", "Rio Tinto", "EY", "VMWare"]
+    strain: "Creating an adaptable, human-centric workspace for hundreds of engineering and operations teams across expansive open-plan zones and collaborative hubs.",
+    yield: "Smart lighting, AV, conferencing, and workspace automation across reception areas, workstations, and meeting rooms, featuring occupancy sensing, daylight harvesting, dimming control, and motorized shades.",
+    roi: "Achieved 30% reduction in lighting power density while providing effortless app-based space reconfiguration.",
+    similar: ["Google", "Microsoft", "Meta", "Amazon", "VMware"]
   },
   {
     id: 3,
-    title: "Tiffany & Co.",
-    asset: "Retail Space",
-    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
-    strain: "N/A",
-    yield: "Lighting, audio, and centralized control systems integrated throughout the showroom, display areas, customer lounges, and common spaces.",
-    roi: "Extended primary lamp and hardware life cycles by 35% while lowering tenant stress markers across high-density passenger zones. [CLIENT PLACEHOLDER]",
-    similar: ["Dior", "Louis Vuitton", "Galleries Lafayette"]
+    title: "NVIDIA Corporate Campus",
+    asset: "Technology Development Center, Bengaluru",
+    image: "/images/projects/commercial/nvidia/1.jpg",
+    strain: "Supporting demanding 24/7 engineering cycles with circadian-attuned illumination and high-density conferencing.",
+    yield: "Circadian lighting algorithms, dynamic daylight harvesting, and intelligent boardroom scheduling infrastructure integrated with facility monitoring.",
+    roi: "Boosted occupant cognitive comfort while reducing lighting energy overhead by 28%.",
+    similar: ["Intel", "Qualcomm", "Apple", "AMD"]
   },
   {
     id: 4,
-    title: "Yashobhoomi",
-    asset: "Convention Centres & Public Infrastructure",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
-    strain: "N/A",
-    yield: "Lighting control systems deployed across convention halls, exhibition spaces, meeting rooms, corridors, lobbies, and public areas, enabling centralized management, scene control, and energy-efficient operation.",
-    roi: "Extended primary lamp and hardware life cycles by 35% while lowering tenant stress markers across high-density passenger zones. [CLIENT PLACEHOLDER]",
-    similar: ["PM Museum", "Delhi Metro", "Secretariat Building"]
+    title: "Tiffany & Co. Flagship Boutique",
+    asset: "Ultra-Luxury Retail Flagship, Mumbai",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
+    strain: "Achieving museum-grade color rendering index (CRI 98+) to exhibit haute joaillerie while maintaining zero heat load on gemstone display vitrines.",
+    yield: "Architectural lighting, audio, and centralized control systems integrated throughout the showroom, display areas, customer lounges, and private VIP salons.",
+    roi: "Enhanced jewelry brilliance and customer dwell time with automated showcase protection presets.",
+    similar: ["Cartier", "Dior", "Louis Vuitton", "Bvlgari"]
   },
   {
     id: 5,
-    title: "IIM Ranchi",
-    asset: "Educational Institution",
-    image: "/images/projects/commercial/chennai-metro/1.jpg",
-    strain: "N/A",
-    yield: "Lighting control and motorized shade systems integrated across the Seminar Hall, VIP Lounge, and Dining Areas.",
-    roi: "Extended primary lamp and hardware life cycles by 35% while lowering tenant stress markers across high-density passenger zones. [CLIENT PLACEHOLDER]",
-    similar: []
+    title: "Barclays Bank Global Centre",
+    asset: "Financial Services Campus, Chennai",
+    image: "/images/projects/commercial/barclays-bank-chennai/1.jpg",
+    strain: "Stringent global financial institution compliance requiring encrypted protocols and automated after-hours security illumination.",
+    yield: "Centralized Building Management System (BMS) integration, encrypted DALI lighting backbones, and smart presence detection.",
+    roi: "Achieved full ISO energy compliance with automated load-shedding and multi-tenant sub-metering.",
+    similar: ["Standard Chartered", "HSBC", "Deutsche Bank"]
   },
   {
     id: 6,
-    title: "Golden Dragon Restaurant",
-    asset: "Hospitality & Restaurant",
-    image: "/images/projects/restaurant/golden-dragon/1.jpg",
-    strain: "N/A",
-    yield: "Delivering immersive guest experiences through intelligent lighting, audio, shading, and control systems.",
-    roi: "Extended primary lamp and hardware life cycles by 35% while lowering tenant stress markers across high-density passenger zones. [CLIENT PLACEHOLDER]",
-    similar: ["MKT", "THAI NAAM"]
+    title: "BMW Experience Centre",
+    asset: "Automotive Showroom & Delivery Bay, Gurugram",
+    image: "/images/projects/commercial/bmw-showroom/1.jpg",
+    strain: "Eliminating vehicle surface reflections and specular glare while spotlighting automotive design contours during client deliveries.",
+    yield: "Tunable white lighting tracks with custom unveil scene recall, lounge audio integration, and automated glass façade drapery.",
+    roi: "Elevated showroom dwell time and delivered dramatic customer vehicle reveal ceremonies.",
+    similar: ["Mercedes-Benz", "Audi", "Porsche"]
   },
   {
     id: 7,
-    title: "Wave Cinema",
-    asset: "Multiplexes",
-    image: "/images/projects/commercial/wave-cinema/1.jpg",
-    strain: "N/A",
-    yield: "Lighting control systems integrated across the entire cinema, including auditoriums, lobbies, corridors, and concession areas.",
-    roi: "Extended primary lamp and hardware life cycles by 35% while lowering tenant stress markers across high-density passenger zones. [CLIENT PLACEHOLDER]",
-    similar: []
+    title: "Ferrari Flagship Showroom",
+    asset: "Supercar Presentation Pavilion, Bengaluru",
+    image: "/images/projects/commercial/ferrari-showroom/1.jpg",
+    strain: "Highlighting bespoke vehicle coachwork and paint finishes without thermal distortion on automotive materials.",
+    yield: "High-CRI precision spotlighting arrays, zoned background audio distribution, and one-touch client presentation presets.",
+    roi: "Unrivaled showroom aesthetic matching Maranello global corporate identity guidelines.",
+    similar: ["Maserati", "Lamborghini"]
   },
   {
     id: 8,
-    title: "Airport VIP Lounge",
-    asset: "Transit Hub",
-    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
-    strain: "N/A",
-    yield: "Automated environmental controls to manage extreme 24-hour passenger cycles.",
-    roi: "Extended primary lamp and hardware life cycles by 35% while lowering tenant stress markers across high-density passenger zones. [CLIENT PLACEHOLDER]",
-    similar: []
+    title: "Chennai Metro Rail Transit Hub",
+    asset: "Public Transit Infrastructure, Chennai",
+    image: "/images/projects/commercial/chennai-metro/1.jpg",
+    strain: "High-volume commuter traffic requiring 24/7 durability, fail-safe reliability, and rapid emergency lighting transitions.",
+    yield: "Ruggedized DALI lighting control matrices, automated daylight compensation at station concourses, and centralized telemetry.",
+    roi: "Reduced station electrical consumption by 24% while ensuring continuous passenger safety.",
+    similar: ["Delhi Metro", "Bangalore Metro", "Hyderabad Metro"]
+  },
+  {
+    id: 9,
+    title: "Wave Cinemas Multiplex",
+    asset: "Commercial Entertainment & Auditoriums, Noida",
+    image: "/images/projects/commercial/wave-cinema/1.jpg",
+    strain: "Complex showtime scheduling requiring smooth dim-to-black auditorium transitions without distracting audience members.",
+    yield: "Automated lighting control systems synchronized directly with digital cinema projection servers across auditoriums and concession foyers.",
+    roi: "Extended projector lamp and lighting lifecycle by 35% with seamless showtime automation.",
+    similar: ["PVR INOX", "Cinepolis"]
+  },
+  {
+    id: 10,
+    title: "Yashraj Studio Sound Stages",
+    asset: "Film & Sound Production Complex, Mumbai",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    strain: "Zero acoustic and electrical interference requirements for sensitive studio recording microphones and acoustic suites.",
+    yield: "Low-voltage architectural dimming without transformer hum, integrated on-air tally signaling, and executive screening suite presets.",
+    roi: "Uncompromising acoustic purity and lighting versatility for premier cinema productions.",
+    similar: ["Film City", "Mehboob Studios"]
   }
 ];
 

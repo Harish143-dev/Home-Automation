@@ -7,48 +7,55 @@ import Link from "next/link";
 const FEATURED_PROJECTS = [
   {
     id: "feat-1",
-    title: "The Horizon Estate",
+    title: "Anubhav Jain Farmhouse",
     category: "Residential",
-    image: "/images/projects/residential/aranyak-farmhouse/1.jpg",
-    href: "/projects/horizon-estate"
+    image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg",
+    href: "/projects/anubhav-jain-farmhouse"
   },
   {
     id: "feat-2",
-    title: "Lumina Corporate HQ",
+    title: "Meta Corporate Office",
     category: "Commercial",
-    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
-    href: "/projects/lumina-hq"
+    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
+    href: "/projects/meta-office-gurgaon"
   },
   {
     id: "feat-3",
-    title: "Azure Resort & Spa",
+    title: "Six Senses Fort Barwara",
     category: "Hospitality",
-    image: "/images/projects/residential/bhartiya-residence/1.jpg",
-    href: "/projects/azure-resort"
+    image: "/images/projects/hospitality/six-senses-barwara/1.jpg",
+    href: "/projects/six-senses-fort-barwara"
+  },
+  {
+    id: "feat-4",
+    title: "NOX Lounge & Dining",
+    category: "Restaurant",
+    image: "/images/projects/restaurant/nox-mumbai/1.jpg",
+    href: "/projects/nox-lounge-mumbai"
   }
 ];
 
 const RECENT_PROJECTS = [
   {
     id: "rec-1",
-    title: "Penthouse 42",
-    date: "Oct 12, 2023",
-    image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
-    href: "/projects/penthouse-42"
+    title: "Tiffany & Co. Flagship",
+    date: "Apr 2024",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
+    href: "/projects/tiffany-mumbai"
   },
   {
     id: "rec-2",
-    title: "Silicon Valley Campus",
-    date: "Sep 28, 2023",
-    image: "/images/projects/residential/sanjeet-bhasin/1.jpg",
-    href: "/projects/silicon-valley"
+    title: "Vishal Udani Residence",
+    date: "Feb 2024",
+    image: "/images/projects/residential/vishal-udani/1.jpg",
+    href: "/projects/vishal-udani-residence"
   },
   {
     id: "rec-3",
-    title: "The Glass House",
-    date: "Sep 15, 2023",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
-    href: "/projects/glass-house"
+    title: "Oberoi Amarvilas",
+    date: "Jan 2024",
+    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
+    href: "/projects/oberoi-amarvillas-agra"
   }
 ];
 

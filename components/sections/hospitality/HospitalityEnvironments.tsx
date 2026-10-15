@@ -12,9 +12,9 @@ interface EnvironmentCard {
 
 const ENVIRONMENTS: EnvironmentCard[] = [
   {
-    title: "Resorts",
+    title: "Luxury Resorts",
     description: "Unifying sprawling multi-acre property footprints under a cohesive backbone that balances hyper-personalized guest comfort with automated micro-climate and thermal asset preservation.",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg"
+    image: "/images/projects/hospitality/oberoi-rajvillas/1.jpg"
   },
   {
     title: "Business Hotels",
@@ -24,17 +24,22 @@ const ENVIRONMENTS: EnvironmentCard[] = [
   {
     title: "Restaurants & Lounges",
     description: "Orchestrating emotionally intelligent, time-locked lighting scenes and acoustic zoning to instinctively guide guest transit, extend dwell times, and elevate brand intimacy.",
-    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg"
+    image: "/images/projects/restaurant/nox-mumbai/1.jpg"
   },
   {
-    title: "Banquet Spaces",
+    title: "Banquet Spaces & Ballrooms",
     description: "Synthesizing high-availability architectural lighting presets, heavy AV matrices, and high-occupancy environmental climate moderation for flawless, high-velocity event execution.",
     image: "/images/projects/hospitality/le-meridien/1.jpg"
   },
   {
-    title: "Wellness & Spa Spaces",
+    title: "Wellness & Spa Sanctuaries",
     description: "Engineering deeply restorative, biophilic sanctuaries that modulate lighting spectra, precise temperatures, and sensory parameters to actively stabilize mood and promote recovery.",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg"
+    image: "/images/projects/hospitality/westin-himalayas/1.jpg"
+  },
+  {
+    title: "Heritage Forts & Palaces",
+    description: "Integrating non-invasive, low-impact automation hardware that honors centuries of architectural history while providing modern 5-star climate and scene recall.",
+    image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
   }
 ];
 

@@ -14,40 +14,46 @@ const INDUSTRIES = [
     useCase: "Optimizing hybrid environments for a multigenerational workforce. Systems dynamically adjust to layout changes, supporting collaborative connection and individual focus."
   },
   {
-    id: "hospitality",
-    title: "Restaurants and Hospitality",
-    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
-    useCase: "Cultivating atmosphere through time locked lighting scenes and acoustic zones that guide occupant transit, dwell times, and visual comfort."
+    id: "financial",
+    title: "Financial Institutions & Banking",
+    image: "/images/projects/commercial/barclays-bank-chennai/1.jpg",
+    useCase: "Delivering encrypted, high-availability lighting infrastructure with automated after-hours security illumination and strict ISO energy compliance."
   },
   {
     id: "retail",
-    title: "Retail Environments",
-    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
-    useCase: "Accentuating spatial branding, architecture, and inventory texturing through highly calibrated lighting scenes that influence consumer engagement."
+    title: "Luxury Retail & Showrooms",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
+    useCase: "Accentuating spatial branding, architecture, and inventory texturing through highly calibrated CRI 98+ lighting scenes that elevate consumer dwell time."
   },
   {
-    id: "education",
-    title: "Educational Institutions & Auditoriums",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
-    useCase: "Enhancing cognitive stamina, auditory absorption, and sensory clarity through distraction-free acoustics and automated daylight harvesting"
+    id: "tech-campus",
+    title: "Technology Campuses & R&D",
+    image: "/images/projects/commercial/nvidia/1.jpg",
+    useCase: "Enhancing cognitive stamina, auditory absorption, and sensory clarity through circadian-attuned illumination and automated daylight harvesting."
+  },
+  {
+    id: "automotive",
+    title: "Automotive Experience Centres",
+    image: "/images/projects/commercial/bmw-showroom/1.jpg",
+    useCase: "Executing glare-free vehicle unveil spotlighting scenes, client consultation lounge automation, and customer delivery ceremonies."
   },
   {
     id: "transit",
-    title: "Airport Lounges & Transit Hubs",
-    image: "/images/projects/commercial/wave-cinema/1.jpg",
-    useCase: "Mitigating traveler fatigue on a continuous 24-hour operational cycle through adaptive lighting paths and zoned environmental controls that support rest, focus, and transition."
+    title: "Transit Hubs & Public Infrastructure",
+    image: "/images/projects/commercial/chennai-metro/1.jpg",
+    useCase: "Mitigating commuter fatigue on a continuous 24-hour operational cycle through adaptive lighting paths and ruggedized environmental controls."
   },
   {
     id: "entertainment",
-    title: "Multiplexes & Entertainment Centers",
+    title: "Multiplexes & Auditoriums",
     image: "/images/projects/commercial/wave-cinema/1.jpg",
-    useCase: "Executing high stakes automated theater transitions. Centralized lighting scene changes link directly to show scheduling protocols, maximizing cinematic impact while protecting lamp and system lifecycle."
+    useCase: "Executing high-stakes automated theater transitions. Centralized lighting scene changes link directly to show scheduling protocols, maximizing cinematic impact."
   },
   {
-    id: "healthcare",
-    title: "Healthcare & Wellness Facilities",
-    image: "/images/projects/commercial/wave-cinema/1.jpg",
-    useCase: "Deploying adaptive lighting and precise climate zoning to stabilize circadian rhythms, actively reducing patient stress and supporting clinical performance."
+    id: "studios",
+    title: "Film Studios & Sound Stages",
+    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    useCase: "Deploying silent low-voltage architectural dimming without electromagnetic interference, supporting high-fidelity studio recording and screening."
   }
 ];
 

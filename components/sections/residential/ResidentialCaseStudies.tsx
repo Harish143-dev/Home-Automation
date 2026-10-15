@@ -8,46 +8,52 @@ import { Button } from "../../ui/button";
 
 const PROJECTS_DATA = [
   {
-    id: "dixit-nene",
+    id: "anubhav-jain",
     number: "01",
-    navTitle: "The Dixit-Nene Residence",
-    title: "The Dixit-Nene Residence, Mumbai (2024)",
-    description: "A complete integration of synchronized motorized shades, backlit custom-engraved keypads, zone climate logic, and full audio-video app orchestration.",
+    navTitle: "Anubhav Jain Farmhouse",
+    title: "Anubhav Jain Farmhouse, New Delhi",
+    description: "A complete architectural lighting control, automated climate regulation, and comprehensive security integration across a 15,000 sq.ft. private luxury estate.",
     images: [
-      "/images/projects/residential/vishal-udani/1.jpg",
-      "/images/projects/residential/vishal-udani/2.jpg",
-      "/images/projects/residential/sanjeet-bhasin/1.jpg",
-      "/images/projects/residential/sanjeet-bhasin/2.jpg"
-    ],
-    link: "/projects/dixit-nene"
-  },
-  {
-    id: "rajan-mittal",
-    number: "02",
-    navTitle: "The Rajan Mittal Villa",
-    title: "The Rajan Mittal Villa, New Delhi",
-    description: "A four-storey architectural masterwork in Shanti Niketan designed by Morphogenesis, powered by an enterprise-grade automation backbone.",
-    images: [
-      "/images/projects/residential/bhartiya-residence/1.jpg",
-      "/images/projects/residential/bhartiya-residence/2.jpg",
       "/images/projects/residential/anubhav-jain-farmhouse/1.jpg",
       "/images/projects/residential/anubhav-jain-farmhouse/2.jpg"
     ],
-    link: "/projects/rajan-mittal"
+    link: "/projects/anubhav-jain-farmhouse"
   },
   {
-    id: "bkt-farms",
-    number: "03",
-    navTitle: "BKT Farms",
-    title: "BKT Farms, New Delhi (2024)",
-    description: "Advanced architectural lighting controls, chiller-based HVAC integration, and secure electronic access control systems.",
+    id: "vishal-udani",
+    number: "02",
+    navTitle: "Vishal Udani Residence",
+    title: "Vishal Udani Residence, Mumbai",
+    description: "Seamless multi-room high-resolution audio distribution, customized tactile keypad interfaces, and intelligent climate automation with acoustic isolation.",
     images: [
-      "/images/projects/residential/aranyak-farmhouse/1.jpg",
-      "/images/projects/residential/aranyak-farmhouse/2.jpg",
+      "/images/projects/residential/vishal-udani/1.jpg",
+      "/images/projects/residential/vishal-udani/2.jpg"
+    ],
+    link: "/projects/vishal-udani-residence"
+  },
+  {
+    id: "sournika-villa",
+    number: "03",
+    navTitle: "Sournika Villa",
+    title: "Sournika Villa, Goa",
+    description: "Luxury coastal estate automation featuring integrated exterior landscaping lights, pool controls, and bespoke bedside master scene keypads.",
+    images: [
       "/images/projects/residential/sournika-villa/1.jpg",
       "/images/projects/residential/sournika-villa/2.jpg"
     ],
-    link: "/projects/bkt-farms"
+    link: "/projects/sournika-villa"
+  },
+  {
+    id: "bhartiya-residence",
+    number: "04",
+    navTitle: "Bhartiya Residence",
+    title: "Bhartiya Residence, Bengaluru",
+    description: "Integrated whole-home automation featuring Lutron motorized drapery, architectural scene recall, and multi-zone entertainment systems.",
+    images: [
+      "/images/projects/residential/bhartiya-residence/1.jpg",
+      "/images/projects/residential/bhartiya-residence/2.jpg"
+    ],
+    link: "/projects/bhartiya-residence"
   }
 ];
 

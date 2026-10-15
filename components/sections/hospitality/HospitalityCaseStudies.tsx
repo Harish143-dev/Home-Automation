@@ -7,18 +7,18 @@ import { EASE, DURATION } from "../../../lib/animation.config";
 const CASE_STUDIES = [
   {
     id: "cs-1",
-    title: "Four Seasons, Mumbai",
-    asset: "Four Seasons Hotel, Mumbai (Including AER Lounge, Modernist Members Club, and Opus)",
-    strain: "Managing volatile utility footprints and varied crowd loads across distinct luxury zones, from exposed rooftop lounges to high-privacy member clubs, while resolving inefficient legacy BMS coordination.",
-    yield: "Deployed a property-wide integrated network architecture unifying guest rooms and signature public venues under a singular command backbone. The network synchronizes dynamic lighting paths, solar shading, and occupancy-based environmental setbacks to deliver a frictionless hospitality experience.",
+    title: "Oberoi Amarvilas, Agra",
+    asset: "Luxury Heritage Resort overlooking Taj Mahal, Agra",
+    strain: "Preserving unobstructed nocturnal panoramas of the Taj Mahal while ensuring effortless, world-class guest room and private terrace lighting controls.",
+    yield: "Integrated bespoke presidential suite controls, illuminated exterior fountain scenes, and warm architectural dimming that seamlessly harmonizes with evening monument viewings.",
     roi: "Achieved complete PMS/BMS integration, eliminating manual operational lag while locking in a consistent luxury environment that naturally maximizes guest dwell times across all touchpoints.",
     image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg"
   },
   {
     id: "cs-2",
-    title: "The Oberoi, New Delhi",
-    asset: "The Oberoi, New Delhi",
-    strain: "Overcoming the operational friction of manual environmental setups across high-occupancy culinary spaces, public galleries, and guest suites that previously ran independent of central hotel operations.",
+    title: "The Oberoi, Mumbai",
+    asset: "The Oberoi, Nariman Point, Mumbai",
+    strain: "Overcoming the operational friction of manual environmental setups across high-occupancy culinary spaces, public galleries, and oceanfront executive guest suites.",
     yield: "Engineered a property-wide automation infrastructure linking guest rooms, destination restaurants, and public volumes into a unified hotel system layer. The network utilizes invisible presence telemetry to scale HVAC tracking and ambient light curves based on real-time room occupancy.",
     roi: "Erased system fragmentation through flawless BMS/PMS cross-talk, driving massive, measurable reductions in baseline energy waste while preserving uncompromised indoor climate comfort.",
     image: "/images/projects/hospitality/oberoi-mumbai/1.jpg"
@@ -31,6 +31,15 @@ const CASE_STUDIES = [
     yield: "Deployed a specialized guestroom management system (GRMS) featuring low-impact guest presence detection matrices and bespoke, custom-engraved backlit architectural keypads. The system naturally controls lighting curves, climate parameters, and window treatments based on real-time occupancy.",
     roi: "Preserved the design integrity and historic character of the asset while executing aggressive, automated utility conservation that perfectly aligns with Six Senses' global wellness and sustainability standards.",
     image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
+  },
+  {
+    id: "cs-4",
+    title: "Taj Lakefront, Bhopal",
+    asset: "Taj Lakefront, Bhopal",
+    strain: "Managing extensive convention volumes, multiple signature dining outlets, and 152 luxury guest rooms facing demanding seasonal weather shifts.",
+    yield: "Deployed a comprehensive Guest Room Management System (GRMS) with door threshold sensors, grand ballroom multi-scene lighting control, and centralized hotel public space automation.",
+    roi: "Delivered 20% annual electrical utility savings through automated occupancy setbacks while maintaining effortless luxury guest comfort across all suites.",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg"
   }
 ];
 

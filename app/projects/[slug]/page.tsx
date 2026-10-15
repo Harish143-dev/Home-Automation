@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getApiBaseUrl } from "@/lib/api";
+import { ALL_PROJECTS } from "@/lib/projectsData";
 
 export const dynamicParams = true;
 
@@ -135,11 +136,35 @@ function slugify(text: string) {
 
 async function getProject(slug: string): Promise<ProjectItem | null> {
   const normalizedSlug = slug.toLowerCase();
+
+  // 1. Check authoritative catalog first
+  const catalogMatch = ALL_PROJECTS.find(
+    (p) =>
+      p.slug.toLowerCase() === normalizedSlug ||
+      p.id.toLowerCase() === normalizedSlug ||
+      slugify(p.title) === normalizedSlug
+  );
+  if (catalogMatch) {
+    return {
+      id: catalogMatch.slug,
+      title: catalogMatch.title,
+      category: `${catalogMatch.category} Automation`,
+      year: "2024",
+      description: catalogMatch.description,
+      images:
+        catalogMatch.gallery && catalogMatch.gallery.length > 0
+          ? catalogMatch.gallery
+          : [catalogMatch.image],
+    };
+  }
+
+  // 2. Check legacy static projects
   const staticMatch = STATIC_PROJECTS.find(
     (p) => p.id.toLowerCase() === normalizedSlug || slugify(p.title) === normalizedSlug
   );
   if (staticMatch) return staticMatch;
 
+  // 3. Fallback to backend database if running
   try {
     const res = await fetch(`${getApiBaseUrl()}/projects`, { cache: 'no-store' });
     const data = await res.json();
@@ -172,15 +197,18 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
       }
     }
   } catch (err) {
-    console.error("Failed to query backend projects:", err);
+    // API offline or static build
   }
 
   return null;
 }
 
 export async function generateStaticParams() {
-  return STATIC_PROJECTS.map((project) => ({
-    slug: project.id,
+  const allSlugs = new Set<string>();
+  ALL_PROJECTS.forEach((p) => allSlugs.add(p.slug));
+  STATIC_PROJECTS.forEach((p) => allSlugs.add(p.id));
+  return Array.from(allSlugs).map((slug) => ({
+    slug,
   }));
 }
 

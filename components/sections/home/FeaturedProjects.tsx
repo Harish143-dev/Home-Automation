@@ -6,18 +6,16 @@ import Link from 'next/link';
 import React, { useRef } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '../../ui/button';
-import privateResidenceImage from '../../../assets/projects/private-residence.webp';
 import { useBreakpoint } from '../../../hooks/useBreakpoint';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { DURATION, EASE, SCROLL, STAGGER } from '../../../lib/animation.config';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
-import SawaiManMahalImage from '../../../assets/projects/SawaiManMahal.webp';
 
 interface Project {
   id: string;
   name: string;
-  category: 'Residential' | 'Hospitality' | 'Commercial';
+  category: 'Residential' | 'Hospitality' | 'Commercial' | 'Restaurant';
   usps: string[];
   description: string;
   image: string | StaticImageData;
@@ -26,21 +24,36 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 'p1',
-    name: 'Private Residence',
+    name: 'Anubhav Jain Farmhouse',
     category: 'Residential',
-    usps: ['Lighting Automation', 'AV Integration'],
-    description: 'Delivered a fully integrated automation system for 5,000 sq. ft. in South Delhi.',
-    image: privateResidenceImage
+    usps: ['Lutron HomeWorks QSX', 'Circadian Lighting', 'Biometric Security'],
+    description: 'Curated architectural lighting controls, automated climate regulation, and comprehensive security across a 15,000 sq.ft. estate in New Delhi.',
+    image: '/images/projects/residential/anubhav-jain-farmhouse/1.jpg'
   },
   {
     id: 'p2',
-    name: 'Sawai Man Mahal',
+    name: 'Six Senses Fort Barwara',
     category: 'Hospitality',
-    usps: ['Guest Room Automation Systems'],
-    description: 'Integrated guest room systems and public areas.',
-    image: SawaiManMahalImage
+    usps: ['Heritage GRMS Automation', 'Wellness Suite Climate', 'Courtyard Presets'],
+    description: 'Restoration of a 14th-century royal fortress into a 5-star sanctuary resort featuring non-invasive guestroom management and holistic spa lighting.',
+    image: '/images/projects/hospitality/six-senses-barwara/1.jpg'
   },
-
+  {
+    id: 'p3',
+    name: 'Meta Corporate Office',
+    category: 'Commercial',
+    usps: ['Lutron Athena Backbone', 'Daylight Harvesting', 'Boardroom AV Sync'],
+    description: 'High-performance collaborative enterprise headquarters with dynamic daylight harvesting, intelligent occupancy sensing, and motorized shading.',
+    image: '/images/projects/commercial/meta-office-gurgaon/1.jpg'
+  },
+  {
+    id: 'p4',
+    name: 'NOX Lounge & Dining',
+    category: 'Restaurant',
+    usps: ['Multi-Zone Acoustic Routing', 'Time-Locked Lighting', 'Bass Acoustics'],
+    description: 'High-energy dining and luxury lounge venue with programmable ambient lighting scenes, acoustic isolation, and multi-zone sound distribution.',
+    image: '/images/projects/restaurant/nox-mumbai/1.jpg'
+  }
 ];
 
 export function FeaturedProjects() {

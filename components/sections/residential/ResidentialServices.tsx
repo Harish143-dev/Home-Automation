@@ -47,7 +47,7 @@ const SERVICES_DATA = [
       "Alarm intrusion detection",
       "Glass break detection sensors"
     ],
-    image: "/images/projects/residential/vishal-udani/1.jpg"
+    image: "/images/projects/residential/sanjeet-bhasin/1.jpg"
   },
   {
     id: "shades",
@@ -57,7 +57,7 @@ const SERVICES_DATA = [
       "Light control based on time & sunlight",
       "Privacy control with one-touch or scene-based operation"
     ],
-    image: "/images/projects/residential/vishal-udani/1.jpg"
+    image: "/images/projects/residential/nakul-bhatia/1.jpg"
   },
   {
     id: "hvac",
@@ -73,10 +73,11 @@ const SERVICES_DATA = [
     id: "amc",
     title: "AMC",
     features: [
-      "Smart temperature control",
-      "24x7 assistance"
+      "Preventive maintenance schedules",
+      "Annual system health audits",
+      "24x7 priority technical assistance"
     ],
-    image: "/images/projects/residential/aranyak-farmhouse/1.jpg"
+    image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg"
   }
 ];
 

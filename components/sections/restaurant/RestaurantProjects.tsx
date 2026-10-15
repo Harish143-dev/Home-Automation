@@ -6,29 +6,44 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const PROJECTS = [
   {
-    title: "Nox",
-    asset: "Mumbai",
+    title: "NOX Lounge & Dining",
+    asset: "Lounge & Multi-Zone Dining, Mumbai",
     image: "/images/projects/restaurant/nox-mumbai/1.jpg",
   },
   {
+    title: "Akina Contemporary Japanese",
+    asset: "Fine Dining & Bar, Mumbai",
+    image: "/images/projects/restaurant/akina-mumbai/1.jpg",
+  },
+  {
     title: "Thai Naam",
-    asset: "Premium Dining",
+    asset: "Premium Atmospheric Dining, Mumbai",
     image: "/images/projects/restaurant/thai-naam-mumbai/1.jpg",
   },
   {
-    title: "Unico",
-    asset: "Gurgaon",
+    title: "Rue Du Liban",
+    asset: "Boutique Levantine Dining, Mumbai",
+    image: "/images/projects/restaurant/rue-du-liban/1.jpg",
+  },
+  {
+    title: "UNICO Experiential Dining",
+    asset: "Immersive Culinary Venue, Gurugram",
     image: "/images/projects/restaurant/unico/1.jpg",
   },
   {
-    title: "Qube",
-    asset: "Restaurant Automation",
+    title: "Golden Dragon Restaurant",
+    asset: "Legacy Fine Dining, New Delhi",
+    image: "/images/projects/restaurant/golden-dragon/1.jpg",
+  },
+  {
+    title: "OKO Pan Asian",
+    asset: "Skyline Dining & Glare Control, Bengaluru",
     image: "/images/projects/restaurant/oko/1.jpg",
   },
   {
-    title: "Ziya, The Oberoi",
-    asset: "Gurgaon",
-    image: "/images/projects/restaurant/akina-mumbai/1.jpg",
+    title: "Madam Chow",
+    asset: "Contemporary Asian Lounge, Mumbai",
+    image: "/images/projects/restaurant/asian-restaurant-madam-chow/1.jpg",
   }
 ];
 
