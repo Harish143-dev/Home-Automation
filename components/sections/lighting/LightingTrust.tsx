@@ -149,7 +149,7 @@ export default function LightingTrust() {
               Trusted by the Best
             </h3>
             <p className="text-muted font-light text-base md:text-lg leading-relaxed">
-              ATPL is trusted by India's leading homeowners, business leaders, celebrities, and prestigious residences. Its portfolio includes distinguished clients such as Madhuri Dixit, Rajan Mittal (Airtel), BKT Farms, Atul Raheja, Khazana Jewellery (Chennai), along with hundreds of premium homes across the country.
+              ATPL is trusted by India&apos;s leading homeowners, business leaders, celebrities, and prestigious residences. Its portfolio includes distinguished clients such as Madhuri Dixit, Rajan Mittal (Airtel), BKT Farms, Atul Raheja, Khazana Jewellery (Chennai), along with hundreds of premium homes across the country.
             </p>
           </div>
 

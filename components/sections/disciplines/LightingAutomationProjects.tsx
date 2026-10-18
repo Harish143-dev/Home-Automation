@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 const PROJECTS = [
   {
     id: "bkt-farm",
-    client: "BKT Farms",
+    client: "Farmhouse, Mumbai",
     location: "Mumbai",
     scope: "Comprehensive Lighting Automation",
     solutions: "Landscape Lighting, Zoned Lighting Control, Smart Keypads, Integration",
@@ -19,17 +19,17 @@ const PROJECTS = [
     image: "/images/projects/residential/sanjeet-bhasin/1.jpg"
   },
   {
-    id: "madhuri-dixit",
-    client: "Madhuri Dixit's Residence",
+    id: "apartment-mumbai",
+    client: "Apartment, Mumbai",
     location: "Mumbai",
     scope: "Intelligent Lighting Automation",
     solutions: "Lighting Control, Motorized Shades, HVAC Control",
     outcome: "A thoughtfully curated living environment with effortless scene control, enhanced comfort, and intuitive automation.",
-    image: "/images/projects/residential/vishal-udani/1.jpg"
+    image: "/images/projects/residential/dixit-nene/1.jpg"
   },
   {
-    id: "atul-raheja",
-    client: "Atul Raheja Residence",
+    id: "private-residence-delhi",
+    client: "Private Residence, Delhi",
     location: "Delhi",
     scope: "Intelligent Lighting Automation",
     solutions: "Smart Lighting Control, Smart Keypads",
@@ -88,10 +88,12 @@ export function LightingAutomationProjects() {
                     <h3 className={`transition-colors ${isOpen ? 'text-accent' : 'text-foreground group-hover:text-accent'}`}>
                       {project.client}
                     </h3>
-                    <div className={`flex items-center gap-1.5 transition-colors ${isOpen ? 'text-accent/70' : 'text-muted-foreground'}`}>
-                      <MapPin className="text-xl sm:text-2xl lg:text-3xl w-4 h-4" />
-                      <span className="text-sm md:text-base tracking-wider">{project.location}</span>
-                    </div>
+                    {project.location && !project.client.toLowerCase().includes(project.location.toLowerCase()) && (
+                      <div className={`flex items-center gap-1.5 transition-colors ${isOpen ? 'text-accent/70' : 'text-muted-foreground'}`}>
+                        <MapPin className="text-xl sm:text-2xl lg:text-3xl w-4 h-4" />
+                        <span className="text-sm md:text-base tracking-wider">{project.location}</span>
+                      </div>
+                    )}
                   </div>
 
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ml-4 ${isOpen ? 'border-accent bg-accent text-white rotate-180 scale-110' : 'border-black/10 bg-panel text-foreground group-hover:border-accent group-hover:text-accent'}`}>

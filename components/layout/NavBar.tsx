@@ -12,6 +12,12 @@ export function NavBar() {
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
+  // Reset visibility and close menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setIsVisible(true);
+  }, [pathname]);
+
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {

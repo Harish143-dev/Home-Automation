@@ -15,7 +15,7 @@ import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 interface Project {
   id: string;
   name: string;
-  category: 'Residential' | 'Hospitality' | 'Commercial' | 'Restaurant';
+  category: 'Residential' | 'Hospitality' | 'Commercial' | 'Restaurant' | string;
   usps: string[];
   description: string;
   image: string | StaticImageData;
@@ -24,35 +24,19 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 'p1',
-    name: 'Anubhav Jain Farmhouse',
-    category: 'Residential',
-    usps: ['Lutron HomeWorks QSX', 'Circadian Lighting', 'Biometric Security'],
-    description: 'Curated architectural lighting controls, automated climate regulation, and comprehensive security across a 15,000 sq.ft. estate in New Delhi.',
-    image: '/images/projects/residential/anubhav-jain-farmhouse/1.jpg'
+    name: 'Anuj Garg Residence',
+    category: 'Private Residence',
+    usps: ['Lighting Automation', 'AV Integration'],
+    description: 'Delivered a fully integrated automation system for 5,000 sq. ft. in South Delhi.',
+    image: '/images/projects/residential/anuj-garg-residence/1.webp'
   },
   {
     id: 'p2',
-    name: 'Six Senses Fort Barwara',
+    name: 'Sawai Man Mahal',
     category: 'Hospitality',
-    usps: ['Heritage GRMS Automation', 'Wellness Suite Climate', 'Courtyard Presets'],
-    description: 'Restoration of a 14th-century royal fortress into a 5-star sanctuary resort featuring non-invasive guestroom management and holistic spa lighting.',
-    image: '/images/projects/hospitality/six-senses-barwara/1.jpg'
-  },
-  {
-    id: 'p3',
-    name: 'Meta Corporate Office',
-    category: 'Commercial',
-    usps: ['Lutron Athena Backbone', 'Daylight Harvesting', 'Boardroom AV Sync'],
-    description: 'High-performance collaborative enterprise headquarters with dynamic daylight harvesting, intelligent occupancy sensing, and motorized shading.',
-    image: '/images/projects/commercial/meta-office-gurgaon/1.jpg'
-  },
-  {
-    id: 'p4',
-    name: 'NOX Lounge & Dining',
-    category: 'Restaurant',
-    usps: ['Multi-Zone Acoustic Routing', 'Time-Locked Lighting', 'Bass Acoustics'],
-    description: 'High-energy dining and luxury lounge venue with programmable ambient lighting scenes, acoustic isolation, and multi-zone sound distribution.',
-    image: '/images/projects/restaurant/nox-mumbai/1.jpg'
+    usps: ['Guest Room Automation Systems', 'Integrated Public Areas'],
+    description: 'Integrated Guest Room Systems and Public Areas across Sawai Man Mahal, Rajasthan.',
+    image: '/images/projects/hospitality/sawai-man-mahal/1.jpg'
   }
 ];
 

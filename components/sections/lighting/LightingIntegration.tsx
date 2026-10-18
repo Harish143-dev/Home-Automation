@@ -54,14 +54,14 @@ export default function LightingIntegration() {
         <rect width="100%" height="100%" filter="url(#noise-integration-redesign)" />
       </svg>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16 relative z-10">
-        <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light ">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16 relative z-10 flex flex-col items-center text-center">
+        <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
           Integration
         </span>
-        <h2 className=" text-foreground mb-4 max-w-3xl">
+        <h2 className="text-foreground mb-4 max-w-3xl text-balance">
           One Intelligent System. Complete Home Control.
         </h2>
-        <p className="text-base md:text-lg text-muted max-w-2xl font-sans leading-relaxed">
+        <p className="text-base md:text-lg text-muted max-w-2xl font-sans leading-relaxed text-balance">
           Bring every smart home function together on a single platform. Control lighting, motorized shades, climate, and energy management through elegant keypads, mobile apps, voice commands, or personalized automation scenes.
         </p>
       </div>

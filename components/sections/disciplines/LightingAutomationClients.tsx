@@ -5,44 +5,43 @@ import NextImage from 'next/image';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
-import imgMadhuri from '@/assets/curtain-automation/clients/madhuri.webp';
-import imgMittal from '@/assets/curtain-automation/clients/mittal.webp';
-import imgBkt from '@/assets/curtain-automation/clients/bkt.webp';
-import imgRaheja from '@/assets/curtain-automation/clients/raheja.webp';
-import imgKhazana from '@/assets/curtain-automation/clients/khazana.webp';
-import imgUjjawal from '@/assets/curtain-automation/clients/bkt.webp'; // Placeholder image
-
 const CLIENTS = [
   {
     name: 'Madhuri Dixit',
     type: 'Celebrity Residence',
     location: 'Mumbai',
-    image: imgMadhuri,
+    image: '/images/projects/residential/dixit-nene/1.jpg',
   },
   {
     name: 'Rajan Mittal',
     type: 'Airtel, Private Estate',
     location: 'Delhi',
-    image: imgMittal,
+    image: '/images/projects/residential/bhartiya-residence/1.jpg',
   },
   {
     name: 'BKT Farms',
     type: 'Expansive Farmhouse',
     location: 'Outskirts',
-    image: imgBkt,
+    image: '/images/projects/residential/bkt-farms/1.jpg',
   },
   {
     name: 'Atul Raheja',
     type: 'Premium Residence',
     location: 'Mumbai',
-    image: imgRaheja,
+    image: '/images/projects/residential/anubhav-jain-farmhouse/1.jpg',
   },
   {
     name: 'Khazana Jewellery',
     type: 'Commercial Retail',
     location: 'Chennai',
-    image: imgKhazana,
-  }
+    image: '/images/projects/residential/indiabulls-mumbai-residence/1.webp',
+  },
+  {
+    name: 'Ujjawal Munjal',
+    type: 'Luxury Residence',
+    location: 'Delhi',
+    image: '/images/projects/residential/villa-delhi/1.jpg',
+  },
 ];
 
 export function LightingAutomationClients() {
@@ -121,7 +120,7 @@ export function LightingAutomationClients() {
             Trusted by India's Leading Homeowners & Visionaries
           </h2>
           <p className="client-header-text text-sm md:text-base font-light tracking-wide text-foreground/70 leading-relaxed text-balance">
-            ATPL is trusted by India's leading homeowners, business leaders, celebrities, and prestigious residences. Its portfolio includes distinguished clients such as Madhuri Dixit, Rajan Mittal (Airtel), BKT Farms, Atul Raheja, Khazana Jewellery (Chennai), along with hundreds of premium homes across the country.
+            ATPL is trusted by India&apos;s leading homeowners, business leaders, celebrities, and prestigious residences. Its portfolio includes distinguished clients such as Madhuri Dixit, Rajan Mittal (Airtel), BKT Farms, Atul Raheja, Khazana Jewellery (Chennai), along with hundreds of premium homes across the country.
           </p>
         </div>
       </div>

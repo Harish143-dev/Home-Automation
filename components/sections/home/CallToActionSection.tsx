@@ -15,24 +15,34 @@ export function CallToActionSection() {
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current || !headlineRef.current) return;
 
-    // High-end typographic reveal
-    const split = new SplitText(headlineRef.current, {
-      type: 'lines,words',
-      linesClass: 'overflow-hidden'
-    });
+    let split: SplitText | null = null;
 
-    gsap.from(split.words, {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 75%',
-      },
-      yPercent: 120,
-      rotationZ: 2,
-      opacity: 0,
-      duration: 1.2,
-      stagger: 0.05,
-      ease: 'power4.out',
-    });
+    const initSplit = () => {
+      if (!headlineRef.current || !sectionRef.current) return;
+      split = new SplitText(headlineRef.current, {
+        type: 'lines,words',
+        linesClass: 'overflow-hidden'
+      });
+
+      gsap.from(split.words, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+        },
+        yPercent: 120,
+        rotationZ: 2,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.05,
+        ease: 'power4.out',
+      });
+    };
+
+    if (typeof document !== 'undefined' && document.fonts && document.fonts.status !== 'loaded') {
+      document.fonts.ready.then(initSplit);
+    } else {
+      initSplit();
+    }
 
     gsap.from('.cta-subhead', {
       scrollTrigger: {
@@ -58,7 +68,9 @@ export function CallToActionSection() {
       delay: 0.4
     });
 
-    return () => split.revert();
+    return () => {
+      split?.revert();
+    };
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
   return (

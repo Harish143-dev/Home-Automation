@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useRef, useState, ReactNode } from 'react';
+import React, { useRef, useState, useEffect, ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsapSetup';
@@ -22,6 +23,35 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
   const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
   const prefersReducedMotion = useReducedMotion();
+  const pathname = usePathname();
+
+  // Reset scroll to top (first position) on page navigation
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    if (window.location.hash) {
+      const targetEl = document.querySelector(window.location.hash);
+      if (targetEl) {
+        if (lenisRef.current) {
+          lenisRef.current.scrollTo(targetEl as HTMLElement, { immediate: true });
+        } else {
+          targetEl.scrollIntoView();
+        }
+        return;
+      }
+    }
+
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo(0, 0);
+
+    refreshAfterLayoutSettles();
+  }, [pathname]);
 
   useGSAP(() => {
     if (prefersReducedMotion) {

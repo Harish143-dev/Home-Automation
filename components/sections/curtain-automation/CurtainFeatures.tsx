@@ -6,9 +6,6 @@ import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { scheduleScrollRefresh } from '../../../lib/scrollRefresh';
 
-import imgLifestyle from '@/assets/curtain-automation/features/lifestyle.webp';
-import imgBedroom from '@/assets/curtain-automation/features/bedroom.webp';
-import imgOpen from '@/assets/curtain-automation/features/open.webp';
 
 export function CurtainFeatures() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -43,8 +40,8 @@ export function CurtainFeatures() {
 
           <div className="feature-img-container relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
             <NextImage
-              src={imgLifestyle}
-              alt="Luxury lifestyle with smart curtains"
+              src="/images/projects/residential/mumbai-private-residence/1.webp"
+              alt="Luxury living space with automated sheer curtains"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-[2s] hover:scale-105"
@@ -53,8 +50,8 @@ export function CurtainFeatures() {
 
           <div className="feature-img-container relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
             <NextImage
-              src={imgBedroom}
-              alt="Luxury bedroom with motorized blackout curtains"
+              src="/images/projects/residential/indiabulls-mumbai-residence/2.webp"
+              alt="Luxury master bedroom with motorized blackout curtains"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-[2s] hover:scale-105"
@@ -63,8 +60,8 @@ export function CurtainFeatures() {
 
           <div className="feature-img-container relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-sm border border-black/5 bg-black/5">
             <NextImage
-              src={imgOpen}
-              alt="Curtains opening automatically to scenic view"
+              src="/images/projects/residential/anuj-garg-residence/2.webp"
+              alt="Architectural residence with automated drapery framing panoramic windows"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-[2s] hover:scale-105"

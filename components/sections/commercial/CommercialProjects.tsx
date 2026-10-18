@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import NextImage from "next/image";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { gsap, useGSAP } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
+import { cn } from "@/lib/utils";
 
 const CASE_STUDIES = [
   {
@@ -111,16 +112,18 @@ const CASE_STUDIES = [
 
 export function CommercialProjects() {
   const containerRef = useRef<HTMLElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
+
+  const activeProject = CASE_STUDIES[activeIndex];
 
   useGSAP(() => {
     if (prefersReducedMotion || !containerRef.current) return;
 
     gsap.fromTo(".case-header",
-      { y: 40, opacity: 0 },
+      { y: 30, opacity: 0 },
       {
-        y: 0, opacity: 1, duration: 1.2, ease: "power3.out",
+        y: 0, opacity: 1, duration: 1, ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
@@ -128,149 +131,207 @@ export function CommercialProjects() {
       }
     );
 
-    gsap.fromTo(".case-card",
-      { x: 100, opacity: 0 },
+    gsap.fromTo(".showcase-card",
+      { y: 40, opacity: 0 },
       {
-        x: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out",
+        y: 0, opacity: 1, duration: 1, ease: "power3.out",
         scrollTrigger: {
-          trigger: carouselRef.current,
-          start: "top 85%",
+          trigger: containerRef.current,
+          start: "top 75%",
         }
       }
     );
-
   }, { scope: containerRef, dependencies: [prefersReducedMotion] });
 
-  const scroll = (direction: "left" | "right") => {
-    if (carouselRef.current) {
-      const scrollAmount = direction === "left" ? -800 : 800;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? CASE_STUDIES.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === CASE_STUDIES.length - 1 ? 0 : prev + 1));
   };
 
   return (
-    <section ref={containerRef} className="py-12 md:py-16 bg-background text-foreground w-full overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24 mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 case-header">
+    <section ref={containerRef} className="py-12 md:py-20 bg-background text-foreground w-full overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-20 lg:px-24">
 
-        <div className="max-w-2xl">
-          <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-4 block">
-            The Proof Matrix
-          </span>
-          <h2 className="text-foreground">
-            Infrastructure in Action: Case Studies
-          </h2>
-          <p className="mt-6 text-foreground/70 text-lg font-light leading-relaxed">
-            We prove our methodology through high availability deployments across India's most demanding corporate, transit, and entertainment infrastructures, transforming complex spatial friction into predictable asset performance.
-          </p>
-        </div>
+        {/* Section Header */}
+        <div className="mb-10 sm:mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 case-header">
+          <div className="max-w-2xl">
+            <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-3 block">
+              The Proof Matrix
+            </span>
+            <h2 className="text-foreground">
+              Infrastructure in Action: Case Studies
+            </h2>
+            <p className="mt-4 text-foreground/70 text-base md:text-lg font-light leading-relaxed">
+              High-availability automation deployments across corporate campuses, luxury retail flagships, transit hubs, and production studios.
+            </p>
+          </div>
 
-        {/* Carousel Controls - Desktop */}
-        <div className="hidden md:flex gap-4">
-          <button
-            onClick={() => scroll("left")}
-            className="w-14 h-14 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
-            aria-label="Previous project"
-          >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="w-14 h-14 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
-            aria-label="Next project"
-          >
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-        </div>
-
-      </div>
-
-      {/* Horizontal Scrolling Deck */}
-      <div
-        ref={carouselRef}
-        className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-12 pt-4 px-6 sm:px-12 md:px-20 lg:px-24 hide-scrollbar"
-      >
-        {CASE_STUDIES.map((study) => (
-          <div
-            key={study.id}
-            className="case-card flex-shrink-0 w-[85vw] sm:w-[75vw] lg:w-[900px] snap-center bg-white rounded-[24px] overflow-hidden border border-border flex flex-col lg:flex-row shadow-xl"
-          >
-            {/* Image Side */}
-            <div className="w-full lg:w-[40%] h-[200px] sm:h-[250px] lg:h-auto relative">
-              <NextImage
-                src={study.image}
-                alt={study.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 to-transparent" />
-            </div>
-
-            {/* Data Side */}
-            <div className="w-full lg:w-[60%] p-5 sm:p-6 lg:p-8 flex flex-col justify-center">
-              <span className="tracking-[0.3em] text-xs sm:text-sm md:text-base text-accent mb-2">
-                {study.asset}
+          {/* Navigation Controls & Counter */}
+          <div className="flex items-center gap-4 shrink-0">
+            <span className="text-xs tracking-widest text-muted font-mono mr-2">
+              <span className="text-foreground font-semibold text-sm">
+                {String(activeIndex + 1).padStart(2, '0')}
               </span>
-              <h3 className="text-foreground mb-6 text-balance">
-                {study.title}
-              </h3>
+              {" / "}
+              {String(CASE_STUDIES.length).padStart(2, '0')}
+            </span>
 
-              <div className="space-y-5">
-                {study.strain !== "N/A" && (
-                  <div>
-                    <h4 className="text-foreground/50 mb-1">The Structural Strain</h4>
-                    <p className="text-foreground/80 font-light text-sm leading-relaxed">{study.strain}</p>
-                  </div>
-                )}
+            <div className="flex gap-2">
+              <button
+                onClick={handlePrev}
+                className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:bg-surface-darker hover:border-accent text-foreground transition-all duration-300"
+                aria-label="Previous project"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:bg-surface-darker hover:border-accent text-foreground transition-all duration-300"
+                aria-label="Next project"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
 
-                {study.yield !== "N/A" && (
-                  <div>
-                    <h4 className="text-foreground/50 mb-1">The Strategic Yield</h4>
-                    <p className="text-foreground/80 font-light text-sm leading-relaxed">{study.yield}</p>
-                  </div>
-                )}
+        {/* Interactive Split Showcase */}
+        <div className="showcase-card bg-panel border border-border rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
 
-                {study.roi !== "N/A" && (
-                  <div>
-                    <h4 className="text-accent mb-1">The ROI Signal</h4>
-                    <p className="text-foreground/90 font-light text-sm leading-relaxed border-l-2 border-accent pl-3">{study.roi}</p>
-                  </div>
-                )}
+            {/* Left: 16:9 Landscape Viewer & Thumbnail Strip */}
+            <div className="lg:col-span-7 flex flex-col justify-between gap-4">
+              {/* Landscape Image Container */}
+              <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-black/5 shadow-inner">
+                <NextImage
+                  key={activeProject.id}
+                  src={activeProject.image}
+                  alt={activeProject.title}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover transition-all duration-700 ease-out"
+                />
 
-                {study.similar.length > 0 && (
-                  <div className="pt-6 border-t border-border">
-                    <h4 className="text-foreground/40 mb-3">Similar Deployments</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {study.similar.map((sim, idx) => (
-                        <span key={idx} className="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs text-foreground/70">
-                          {sim}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Subtle vignette gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/25 pointer-events-none" />
+
+                {/* Floating Asset Pill */}
+                <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
+                  <span className="tracking-widest text-[11px] sm:text-xs text-white/95 font-medium">
+                    {activeProject.asset}
+                  </span>
+                </div>
+
+                {/* Bottom Title on Image */}
+                <div className="absolute bottom-4 left-4 right-4 z-10 flex justify-between items-end">
+                  <span className="text-white text-sm sm:text-base font-light tracking-wide drop-shadow-md">
+                    {activeProject.title}
+                  </span>
+                </div>
+              </div>
+
+              {/* Landscape Thumbnails Selector Strip */}
+              <div className="flex items-center gap-2.5 overflow-x-auto pb-1 pt-1 hide-scrollbar">
+                {CASE_STUDIES.map((study, idx) => (
+                  <button
+                    key={study.id}
+                    onClick={() => setActiveIndex(idx)}
+                    className={cn(
+                      "relative shrink-0 w-20 sm:w-24 aspect-[16/9] rounded-lg overflow-hidden border-2 transition-all duration-300",
+                      activeIndex === idx
+                        ? "border-accent ring-2 ring-accent/30 scale-105"
+                        : "border-border/60 opacity-60 hover:opacity-100 hover:border-foreground/40"
+                    )}
+                    aria-label={`Select ${study.title}`}
+                  >
+                    <NextImage
+                      src={study.image}
+                      alt={study.title}
+                      fill
+                      sizes="96px"
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
               </div>
             </div>
 
-          </div>
-        ))}
-      </div>
+            {/* Right: Structured Case Study Details */}
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                {/* Eyebrow & Title */}
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-accent text-xs font-mono tracking-widest">
+                    Case Study #{String(activeProject.id).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-light text-foreground mb-6 leading-tight">
+                  {activeProject.title}
+                </h3>
 
-      {/* Carousel Controls - Mobile */}
-      <div className="flex md:hidden justify-center gap-6 px-6 mt-2 pb-6">
-        <button
-          onClick={() => scroll("left")}
-          className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
-          aria-label="Previous project"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300 group"
-          aria-label="Next project"
-        >
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </button>
+                {/* Challenge & Solution Grid */}
+                <div className="space-y-4 mb-6">
+                  {activeProject.strain !== "N/A" && (
+                    <div>
+                      <h4 className="text-xs tracking-wider text-muted font-semibold mb-1 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent/70 shrink-0" />
+                        The Structural Strain
+                      </h4>
+                      <p className="text-foreground/80 font-light text-xs sm:text-sm leading-relaxed">
+                        {activeProject.strain}
+                      </p>
+                    </div>
+                  )}
+
+                  {activeProject.yield !== "N/A" && (
+                    <div>
+                      <h4 className="text-xs tracking-wider text-muted font-semibold mb-1 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600/80 shrink-0" />
+                        The Strategic Yield
+                      </h4>
+                      <p className="text-foreground/80 font-light text-xs sm:text-sm leading-relaxed">
+                        {activeProject.yield}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* ROI Signal Highlight Box */}
+                {activeProject.roi !== "N/A" && (
+                  <div className="bg-accent/[0.05] border border-accent/25 rounded-xl p-4 mb-6">
+                    <h4 className="text-xs tracking-wider text-accent font-semibold mb-1">
+                      The ROI Signal
+                    </h4>
+                    <p className="text-foreground/95 font-light text-xs sm:text-sm leading-relaxed">
+                      {activeProject.roi}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Similar Deployments at Bottom */}
+              {activeProject.similar.length > 0 && (
+                <div className="pt-4 border-t border-border flex flex-wrap items-center gap-1.5 mt-auto">
+                  <span className="text-xs text-muted/70 font-light mr-1">Similar:</span>
+                  {activeProject.similar.map((sim, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 rounded-full bg-black/[0.04] border border-black/8 text-[11px] sm:text-xs text-foreground/75 font-light"
+                    >
+                      {sim}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       <style dangerouslySetInnerHTML={{

@@ -74,11 +74,6 @@ export const MAIN_NAVIGATION: NavLink[] = [
     id: 'work',
     label: 'Work',
     href: '/projects',
-    items: [
-      { id: 'work-residential', label: 'Residential Projects', href: '/projects' },
-      { id: 'work-hospitality', label: 'Hospitality Projects', href: '/hospitality' },
-      { id: 'work-commercial', label: 'Commercial Projects', href: '/commercial' },
-    ]
   },
   {
     id: 'experience',

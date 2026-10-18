@@ -183,18 +183,27 @@ export function HeroSection() {
 
       // ── SplitText setup ──
       // 1. Force h1 invisible (CSS already has opacity-0, but ensure GSAP agrees)
-      // 2. Split text into words
-      // 3. Hide each word individually
-      // 4. Restore h1 opacity — words are hidden so no flash occurs
+      // 2. Wait for document.fonts.ready if needed, then split text into words
+      // 3. Hide each word individually and restore h1 opacity
       let split: SplitText | null = null;
-      if (h1Ref.current) {
-        gsap.set(h1Ref.current, { opacity: 0 });
+      const setupSplit = () => {
+        if (!h1Ref.current) return;
         split = new SplitText(h1Ref.current, { type: "words" });
         if (split?.words) {
           gsap.set(split.words, { y: 70, opacity: 0 });
         }
-        // Safe to show h1 now — its individual words are invisible
         gsap.set(h1Ref.current, { opacity: 1 });
+      };
+
+      if (h1Ref.current) {
+        gsap.set(h1Ref.current, { opacity: 0 });
+        if (typeof document !== 'undefined' && document.fonts && document.fonts.status !== 'loaded') {
+          document.fonts.ready.then(() => {
+            if (active) setupSplit();
+          });
+        } else {
+          setupSplit();
+        }
       }
 
       const initAnimations = () => {
@@ -247,14 +256,32 @@ export function HeroSection() {
           }, 0);
 
           // Heading words cascade in with staggered reveal
+          const animateWords = () => {
+            if (!active) return;
+            if (split?.words) {
+              entranceTl.to(split.words, {
+                y: 0,
+                opacity: 1,
+                stagger: 0.04,
+                duration: 1.1,
+                ease: "power3.out",
+              }, 0.2);
+            } else if (h1Ref.current) {
+              entranceTl.to(h1Ref.current, {
+                opacity: 1,
+                y: 0,
+                duration: 1.1,
+                ease: "power3.out",
+              }, 0.2);
+            }
+          };
+
           if (split?.words) {
-            entranceTl.to(split.words, {
-              y: 0,
-              opacity: 1,
-              stagger: 0.04,
-              duration: 1.1,
-              ease: "power3.out",
-            }, 0.2);
+            animateWords();
+          } else if (typeof document !== 'undefined' && document.fonts && document.fonts.status !== 'loaded') {
+            document.fonts.ready.then(animateWords);
+          } else {
+            animateWords();
           }
 
           // CTA buttons slide up

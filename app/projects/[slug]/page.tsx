@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getApiBaseUrl } from "@/lib/api";
-import { ALL_PROJECTS } from "@/lib/projectsData";
+
 
 export const dynamicParams = true;
 
@@ -18,42 +18,33 @@ interface ProjectItem {
 
 const STATIC_PROJECTS: ProjectItem[] = [
   {
-    id: "dixit-nene",
-    title: "The Dixit-Nene Residence, Mumbai",
+    id: "apartment-mumbai",
+    title: "Apartment, Mumbai",
     category: "Residential Architecture",
     year: "2024",
     description: "A complete integration of synchronized motorized shades, backlit custom-engraved keypads, zone climate logic, and full audio-video app orchestration.",
     images: [
-      "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
-      "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
-      "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
-      "/assets/residential/project/delhi-residence/delhi-residence-4.jpg"
+      "/images/projects/residential/dixit-nene/1.jpg"
     ]
   },
   {
-    id: "rajan-mittal",
-    title: "The Rajan Mittal Villa, New Delhi",
+    id: "villa-delhi",
+    title: "Villa, Delhi",
     category: "Luxury Estate",
     year: "2023",
     description: "A four-storey architectural masterwork in Shanti Niketan designed by Morphogenesis, powered by an enterprise-grade automation backbone.",
     images: [
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
-      "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-4.jpg"
+      "/images/projects/residential/villa-delhi/1.jpg"
     ]
   },
   {
-    id: "bkt-farms",
-    title: "BKT Farms, New Delhi",
+    id: "farmhouse-delhi",
+    title: "Farmhouse, Delhi",
     category: "Architectural Farmhouse",
     year: "2024",
     description: "Advanced architectural lighting controls, chiller-based HVAC integration, and secure electronic access control systems.",
     images: [
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-1.jpg",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg",
-      "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-4.jpg"
+      "/images/projects/residential/bkt-farms/1.jpg"
     ]
   },
   {
@@ -137,34 +128,7 @@ function slugify(text: string) {
 async function getProject(slug: string): Promise<ProjectItem | null> {
   const normalizedSlug = slug.toLowerCase();
 
-  // 1. Check authoritative catalog first
-  const catalogMatch = ALL_PROJECTS.find(
-    (p) =>
-      p.slug.toLowerCase() === normalizedSlug ||
-      p.id.toLowerCase() === normalizedSlug ||
-      slugify(p.title) === normalizedSlug
-  );
-  if (catalogMatch) {
-    return {
-      id: catalogMatch.slug,
-      title: catalogMatch.title,
-      category: `${catalogMatch.category} Automation`,
-      year: "2024",
-      description: catalogMatch.description,
-      images:
-        catalogMatch.gallery && catalogMatch.gallery.length > 0
-          ? catalogMatch.gallery
-          : [catalogMatch.image],
-    };
-  }
-
-  // 2. Check legacy static projects
-  const staticMatch = STATIC_PROJECTS.find(
-    (p) => p.id.toLowerCase() === normalizedSlug || slugify(p.title) === normalizedSlug
-  );
-  if (staticMatch) return staticMatch;
-
-  // 3. Fallback to backend database if running
+  // 1. Fetch from backend database
   try {
     const res = await fetch(`${getApiBaseUrl()}/projects`, { cache: 'no-store' });
     const data = await res.json();
@@ -173,6 +137,7 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
         (p: any) =>
           String(p.id) === normalizedSlug ||
           `db-project-${p.id}` === normalizedSlug ||
+          `project-${p.id}` === normalizedSlug ||
           slugify(p.title) === normalizedSlug
       );
       if (dbMatch) {
@@ -180,7 +145,7 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
         const img2 = baseImg.includes('/1.jpg') ? baseImg.replace('/1.jpg', '/2.jpg') : baseImg;
         const img3 = baseImg.includes('/1.jpg') ? baseImg.replace('/1.jpg', '/3.jpg') : baseImg;
 
-        let detectedCat = "Residential Automation";
+        let detectedCat = dbMatch.type ? `${dbMatch.type} Automation` : "Residential Automation";
         const lower = `${baseImg} ${dbMatch.title}`.toLowerCase();
         if (lower.includes('hospitality')) detectedCat = "Hospitality Architecture";
         else if (lower.includes('commercial')) detectedCat = "Commercial Space";
@@ -200,12 +165,17 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
     // API offline or static build
   }
 
+  // 2. Check static projects fallback
+  const staticMatch = STATIC_PROJECTS.find(
+    (p) => p.id.toLowerCase() === normalizedSlug || slugify(p.title) === normalizedSlug
+  );
+  if (staticMatch) return staticMatch;
+
   return null;
 }
 
 export async function generateStaticParams() {
   const allSlugs = new Set<string>();
-  ALL_PROJECTS.forEach((p) => allSlugs.add(p.slug));
   STATIC_PROJECTS.forEach((p) => allSlugs.add(p.id));
   return Array.from(allSlugs).map((slug) => ({
     slug,

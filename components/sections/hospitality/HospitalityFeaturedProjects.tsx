@@ -19,7 +19,7 @@ const PROJECTS: Project[] = [
     id: "p1",
     name: "Common Spaces & Public Areas",
     description: "Managing expansive architectural volumes through automated daylight harvesting and astrological scheduling. Public areas smoothly adjust light levels and acoustic layers in response to shifting solar tracks and foot-traffic density, minimizing operational strain while ensuring an uncompromised sensory welcoming sequence.",
-    image: "/images/projects/hospitality/le-meridien/1.jpg"
+    image: "/images/projects/hospitality/ritz-carlton-bangalore/1.jpg"
   },
   {
     id: "p2",
@@ -31,7 +31,7 @@ const PROJECTS: Project[] = [
     id: "p3",
     name: "Banquet Halls & Event Spaces",
     description: "Engineered to transition effortlessly from high-brightness corporate keynotes to dramatic, low-light evening gala events. High-power zoning interfaces manage intricate lighting networks, motorized partition-tracking logic, and heavy climate loads proactively as occupancy density shifts in real-time.",
-    image: "/images/projects/hospitality/itc-grand-chola/1.jpg"
+    image: "/images/projects/hospitality/welcomhotel-bhubaneswar/1.jpg"
   },
   {
     id: "p4",
@@ -43,13 +43,13 @@ const PROJECTS: Project[] = [
     id: "p5",
     name: "Spa & Wellness Areas",
     description: "Designing environments that actively reduce physical stress and complement restorative treatments. By locking tunable white lighting profiles to organic circadian patterns, purifying micro-climates, and isolating acoustics, these spaces deliver unparalleled sensory choice and cognitive comfort.",
-    image: "/images/projects/hospitality/westin-himalayas/1.jpg"
+    image: "/images/projects/hospitality/taj-puri/1.jpg"
   },
   {
     id: "p6",
     name: "Guest Rooms & Luxury Suites",
     description: "Evolving the stay experience through intelligent sleep science. Non-intrusive sensor matrices and magnetic contact points execute silent, invisible climate and shading setups that align with the guest's circadian rhythms, guaranteeing unparalleled sleep consistency while capturing 5% to 15% energy reductions.",
-    image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
+    image: "/images/projects/hospitality/andaz-delhi/1.jpg"
   }
 ];
 

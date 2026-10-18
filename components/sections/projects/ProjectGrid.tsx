@@ -7,8 +7,6 @@ import { ArrowRight, Clock, CalendarDays, Search, FolderKanban } from "lucide-re
 import { cn } from "@/lib/utils";
 import { getApiBaseUrl } from "@/lib/api";
 import { ProjectCardSkeleton } from "@/components/ui/skeleton";
-import { ALL_PROJECTS } from "@/lib/projectsData";
-
 const CATEGORIES = ["All Projects", "Residential", "Hospitality", "Commercial", "Restaurant"];
 
 interface ProjectItem {
@@ -77,23 +75,11 @@ function slugify(text: string) {
     .replace(/(^-|-$)+/g, "");
 }
 
-const STATIC_PROJECTS: ProjectItem[] = ALL_PROJECTS.map((p) => ({
-  id: p.id,
-  slug: p.slug,
-  title: p.title,
-  category: p.category,
-  image: p.image,
-  description: p.description,
-  date: p.date,
-  readTime: p.readTime,
-  href: p.href,
-}));
-
 export function ProjectGrid() {
   const [activeCategory, setActiveCategory] = useState("All Projects");
   const [searchQuery, setSearchQuery] = useState("");
-  const [allProjects, setAllProjects] = useState<ProjectItem[]>(STATIC_PROJECTS);
-  const [isLoading, setIsLoading] = useState(false);
+  const [allProjects, setAllProjects] = useState<ProjectItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 9;
 
@@ -125,7 +111,10 @@ export function ProjectGrid() {
         }
       })
       .catch((err) => {
-        console.warn("Using offline catalog for projects (API offline or static export)");
+        console.warn("Unable to fetch projects from backend:", err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 

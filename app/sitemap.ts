@@ -66,9 +66,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'penthouse-42',
     'silicon-valley',
     'glass-house',
-    'dixit-nene',
-    'rajan-mittal',
-    'bkt-farms',
+    'apartment-mumbai',
+    'villa-delhi',
+    'farmhouse-delhi',
   ];
 
   const blogSlugs = [

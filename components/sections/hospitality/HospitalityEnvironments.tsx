@@ -39,7 +39,7 @@ const ENVIRONMENTS: EnvironmentCard[] = [
   {
     title: "Heritage Forts & Palaces",
     description: "Integrating non-invasive, low-impact automation hardware that honors centuries of architectural history while providing modern 5-star climate and scene recall.",
-    image: "/images/projects/hospitality/six-senses-barwara/1.jpg"
+    image: "/images/projects/hospitality/gorbandh-palace-jaisalmer/1.jpg"
   }
 ];
 
