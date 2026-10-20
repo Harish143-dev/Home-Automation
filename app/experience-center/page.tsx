@@ -8,7 +8,7 @@ import { ExperienceTestimonials } from "../../components/sections/experience-cen
 import { ExperienceCentersList } from "../../components/sections/experience-center/ExperienceCentersList";
 import { ExperienceAudience } from "../../components/sections/experience-center/ExperienceAudience";
 import { ExperienceGallery } from "../../components/sections/experience-center/ExperienceGallery";
-import { ResidentialCTA } from "../../components/sections/residential/ResidentialCTA";
+import { ExperienceCTA } from "../../components/sections/experience-center/ExperienceCTA";
 import { AwardsSection } from "../../components/sections/home/AwardsSection";
 
 export default function ExperienceCenterPage() {
@@ -41,7 +41,7 @@ export default function ExperienceCenterPage() {
       <ExperienceTestimonials />
 
       {/* Final Call to Action */}
-      <ResidentialCTA />
+      <ExperienceCTA />
     </main>
   );
 }

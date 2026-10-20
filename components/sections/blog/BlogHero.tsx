@@ -87,12 +87,11 @@ export default function BlogHero() {
  </div>
 
  <div ref={textRef} className="flex flex-col gap-2 md:gap-4">
- <h1
- ref={textRef}
- className="hero-element text-white text-balance mb-6 max-w-4xl"
- >
- Title Sample
+ <div className="hero-line">
+ <h1 className="hero-element text-white text-balance max-w-4xl">
+ Blog
  </h1>
+ </div>
  <div className="hero-line mt-2">
  <h5 className="text-white/80 !mb-0">
  (Blogs by ATPL)

@@ -21,7 +21,7 @@ export const MAIN_NAVIGATION: NavLink[] = [
         href: '/residential',
         items: [
           { id: 'res-lighting', label: 'Lighting Automation', href: '/residential/lighting-automation' },
-          { id: 'res-shades', label: 'Motorized Shades & Curtain Automation', href: '/residential/curtain-automation' },
+          { id: 'res-shades', label: 'Motorized Shades & Curtain Automation(MDU)', href: '/residential/curtain-automation' },
           { id: 'res-complete', label: 'Complete Home Automation Solutions', href: '/residential/mdu-automation' },
           { id: 'res-av', label: 'Audio, Video Integration', href: '/residential/audio-video-automation' },
           { id: 'res-security', label: 'Security, Surveillance & Access Control', href: '/residential/security-automation' },
@@ -92,7 +92,13 @@ export const MAIN_NAVIGATION: NavLink[] = [
       { id: 'res-calc', label: 'Energy Calculators', href: '/calculator' },
       { id: 'res-blogs', label: 'Blogs & Articles', href: '/blog' },
       { id: 'res-amc', label: 'AMC & Care', href: '/disciplines/amc' },
+      { id: 'res-careers', label: 'Careers', href: '/careers' },
     ]
+  },
+  {
+    id: 'careers',
+    label: 'Careers',
+    href: '/careers',
   },
   {
     id: 'contact',

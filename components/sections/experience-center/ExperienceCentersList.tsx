@@ -20,9 +20,9 @@ const EXPERIENCE_CENTRES = [
     ],
     ctas: [
       { label: "Book Delhi Visit", action: "/contact", variant: "accent" },
-      { label: "Get Directions", action: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRiPAtIBCDcyNzFqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KU_nozEp4ww5MbDKaEKKBAAd&daddr=Lower+Ground+Floor,+D20,+Block+D,+Jangpura,+New+Delhi,+Delhi+110014", variant: "outline" }
+      { label: "Get Directions", action: "https://maps.google.com/maps?q=D20,+Block+D,+Jangpura,+New+Delhi,+Delhi+110014", variant: "outline" }
     ],
-    image: "/assets/residential/project/delhi-residence/delhi-residence-1.jpg"
+    image: "/assets/residential/delhi.webp"
   },
   {
     id: "mumbai",
@@ -39,7 +39,7 @@ const EXPERIENCE_CENTRES = [
       { label: "Schedule Mumbai Tour", action: "/contact", variant: "accent" },
       { label: "View Location", action: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQIRgKGKABMgkIAhAhGAoYoAEyCQgDECEYChigAdIBCDc2MjhqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kd3I1msJyec7MawqPHig3y7m&daddr=10/76,+Apte+properties,+Ground+floor+Parijat+house,+LR+Papan+Marg,+off+Doctor+Elijah+Moses+Road,+Worli,+Mumbai,+Maharashtra+400018", variant: "outline" }
     ],
-    image: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-1.jpg"
+    image: "/assets/residential/hydrabhad.webp"
   },
   {
     id: "bangalore",
@@ -98,7 +98,7 @@ export function ExperienceCentersList() {
   return (
     <section
       ref={containerRef}
-      className="py-12 md:py-16 relative w-full bg-background"
+      className="relative w-full bg-background"
       style={{ height: prefersReducedMotion ? 'auto' : '300vh' }}
     >
       <div
@@ -154,7 +154,7 @@ export function ExperienceCentersList() {
                       </Button>
                     </Link>
                     <Link href={center.ctas[1].action} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                      <Button variant="outline" size="lg" className="w-full sm:w-auto text-white border-white/30 hover:bg-white/10 hover:text-white">
                         {center.ctas[1].label}
                       </Button>
                     </Link>

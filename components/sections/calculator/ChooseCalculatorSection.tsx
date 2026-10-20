@@ -2,7 +2,8 @@
 
 import React, { useRef } from 'react';
 import Image, { StaticImageData } from 'next/image';
-import { CheckCircle2, Home, Building2, Hotel, ArrowRight, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { CheckCircle2, Home, Building2, Hotel } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { gsap, useGSAP } from '@/lib/gsapSetup';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -24,7 +25,7 @@ interface CalculatorCardData {
   description: string;
   pointers: string[];
   ctaText: string;
-  tag: string;
+  href: string;
 }
 
 const CALCULATOR_CARDS: CalculatorCardData[] = [
@@ -43,7 +44,7 @@ const CALCULATOR_CARDS: CalculatorCardData[] = [
       'Potential savings by automation system',
     ],
     ctaText: 'Calculate My Home Savings',
-    tag: 'Private Estates & Luxury Residences',
+    href: '/contact?type=home',
   },
   {
     id: 'office',
@@ -60,7 +61,7 @@ const CALCULATOR_CARDS: CalculatorCardData[] = [
       'Potential automation payback',
     ],
     ctaText: 'Calculate Office Savings',
-    tag: 'Workspaces & Enterprise Real Estate',
+    href: '/contact?type=office',
   },
   {
     id: 'hotel',
@@ -77,19 +78,11 @@ const CALCULATOR_CARDS: CalculatorCardData[] = [
       'Potential automation payback',
     ],
     ctaText: 'Calculate Hotel Savings',
-    tag: 'Hotels, Resorts & Guest Properties',
+    href: '/contact?type=hotel',
   },
 ];
 
-interface ChooseCalculatorSectionProps {
-  activeCalculator: CalculatorType;
-  onSelectCalculator: (type: CalculatorType) => void;
-}
-
-export function ChooseCalculatorSection({
-  activeCalculator,
-  onSelectCalculator,
-}: ChooseCalculatorSectionProps) {
+export function ChooseCalculatorSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -97,7 +90,14 @@ export function ChooseCalculatorSection({
   useGSAP(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
 
-    gsap.fromTo(
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 85%',
+      },
+    });
+
+    tl.fromTo(
       '.calc-header-item',
       { y: 30, opacity: 0 },
       {
@@ -106,59 +106,33 @@ export function ChooseCalculatorSection({
         duration: DURATION.normal,
         stagger: STAGGER.normal,
         ease: EASE.reveal,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        },
       }
-    );
-
-    gsap.fromTo(
+    ).fromTo(
       '.calc-card-item',
-      { y: 40, opacity: 0 },
+      { y: 35, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: DURATION.slow,
-        stagger: STAGGER.wide,
+        duration: DURATION.normal,
+        stagger: STAGGER.tight,
         ease: EASE.reveal,
-        scrollTrigger: {
-          trigger: cardsRef.current,
-          start: 'top 85%',
-        },
-      }
+      },
+      '-=0.3'
     );
 
     scheduleScrollRefresh();
   }, { scope: sectionRef, dependencies: [prefersReducedMotion] });
 
-  const handleCardClick = (id: CalculatorType) => {
-    onSelectCalculator(id);
-    const target = document.getElementById('calculator-tool');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section
       ref={sectionRef}
       id="choose-calculator"
-      className="py-16 md:py-24 relative w-full bg-background text-foreground"
+      className="py-16 md:py-24 relative w-full bg-background text-foreground border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24">
-        
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="calc-header-item flex items-center justify-center gap-3 mb-4">
-            <div className="h-[1px] w-8 bg-black/20" />
-            <span className="tracking-[0.3em] text-xs sm:text-sm uppercase text-accent font-light">
-              Tailored Models
-            </span>
-            <div className="h-[1px] w-8 bg-black/20" />
-          </div>
-
-          <h2 className="calc-header-item text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.2] tracking-wide text-foreground mb-4">
+          <h2 className="calc-header-item text-foreground mb-4">
             Choose Your Calculator
           </h2>
 
@@ -174,18 +148,13 @@ export function ChooseCalculatorSection({
         >
           {CALCULATOR_CARDS.map((card) => {
             const Icon = card.icon;
-            const isSelected = activeCalculator === card.id;
 
             return (
               <div
                 key={card.id}
-                className={`calc-card-item group relative flex flex-col justify-between bg-white rounded-2xl border transition-all duration-300 shadow-lg shadow-black/5 overflow-hidden ${
-                  isSelected
-                    ? 'border-accent ring-2 ring-accent/20'
-                    : 'border-border hover:border-black/20 hover:shadow-xl'
-                }`}
+                className="calc-card-item group relative flex flex-col justify-between bg-white rounded-2xl border border-border hover:border-black/20 hover:shadow-xl transition-all duration-300 shadow-lg shadow-black/5 overflow-hidden"
               >
-                {/* Image Header with Badge */}
+                {/* Image Header with Category Badge */}
                 <div className="relative w-full h-56 overflow-hidden">
                   <Image
                     src={card.image}
@@ -204,30 +173,13 @@ export function ChooseCalculatorSection({
                       {card.category}
                     </span>
                   </div>
-
-                  {/* Active Selection Badge */}
-                  {isSelected && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-white bg-accent shadow-sm">
-                        <Sparkles className="w-3 h-3" />
-                        Selected
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Tag on bottom of image */}
-                  <div className="absolute bottom-4 left-4 right-4 z-10">
-                    <span className="text-white/80 text-xs tracking-wider uppercase font-light">
-                      {card.tag}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Card Content */}
                 <div className="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                   <div>
                     {/* H3 Heading */}
-                    <h3 className="font-light leading-[1.25] tracking-wide text-xl sm:text-2xl text-foreground mb-3">
+                    <h3 className="text-foreground mb-3">
                       {card.title}
                     </h3>
 
@@ -260,25 +212,21 @@ export function ChooseCalculatorSection({
 
                   {/* CTA Button */}
                   <div className="pt-2">
-                    <button
-                      onClick={() => handleCardClick(card.id)}
-                      className="w-full"
-                    >
+                    <Link href={card.href} className="w-full block">
                       <Button
-                        variant={isSelected ? 'interactive' : 'outline'}
+                        variant="interactive"
                         size="lg"
-                        className="w-full justify-between"
+                        className="w-full"
                       >
-                        <span>{card.ctaText}</span>
+                        {card.ctaText}
                       </Button>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

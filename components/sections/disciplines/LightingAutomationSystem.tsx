@@ -40,11 +40,11 @@ export function LightingAutomationSystem() {
     <section
       className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-panel text-foreground overflow-hidden border-t border-black/5"
     >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-24">
         
-        {/* Left: Sticky Header */}
-        <div className="w-full lg:w-5/12 flex flex-col">
-          <div className="lg:sticky lg:top-32">
+        {/* Left: Vertically Centered Header */}
+        <div className="w-full lg:w-5/12 flex flex-col justify-center">
+          <div>
              <h2 className="text-foreground text-balance">
                What Is Lighting Automation?
              </h2>
@@ -55,7 +55,7 @@ export function LightingAutomationSystem() {
         </div>
 
         {/* Right: Scrollable List */}
-        <div className="w-full lg:w-7/12 flex flex-col gap-12 md:gap-16 pt-4">
+        <div className="w-full lg:w-7/12 flex flex-col gap-12 md:gap-16">
            {SYSTEM_ITEMS.map((item, idx) => (
              <div key={idx} className="flex flex-col md:flex-row gap-6 md:gap-8 group">
                 <div className="shrink-0">

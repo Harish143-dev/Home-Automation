@@ -2,21 +2,18 @@
 
 import NextImage from "next/image";
 import { CalendarDays, Clock, Share2, Mail, Link as LinkIcon } from "lucide-react";
-import { BlogPost } from "@/lib/blogData";
+import { BlogItem } from "@/lib/blogUtils";
 
 interface BlogDetailHeaderProps {
-  post: BlogPost;
+  post: BlogItem;
 }
 
 export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
   return (
     <div className="w-full flex flex-col gap-6 lg:gap-8 mb-12">
-
       {/* Blog Title Section */}
       <div className="flex flex-col gap-4">
-        <h1 className=" text-foreground">
-          {post.title}
-        </h1>
+        <h1 className="text-foreground">{post.title}</h1>
       </div>
 
       {/* Metadata Bar */}
@@ -31,11 +28,7 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
             Published: {post.date}
           </span>
           <span className="hidden sm:inline text-border">•</span>
-          <span className="flex items-center gap-1.5">
-            Updated: {post.date}
-          </span>
-          <span className="hidden sm:inline text-border">•</span>
-          <span>By ATPL Team</span>
+          <span>By {post.author || "ATPL Team"}</span>
           <span className="hidden sm:inline text-border">•</span>
           <span className="flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5" />
@@ -47,7 +40,10 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
         <div className="flex items-center gap-2">
           <h5 className="text-muted-foreground mr-2 !mb-0">Share</h5>
           {[LinkIcon, Mail, Share2].map((Icon, idx) => (
-            <button key={idx} className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent hover:bg-accent/5 transition-colors">
+            <button
+              key={idx}
+              className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent hover:bg-accent/5 transition-colors"
+            >
               <Icon className="w-3.5 h-3.5" />
             </button>
           ))}
@@ -55,7 +51,7 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
       </div>
 
       {/* Blog Banner Section */}
-      <div className="relative w-full aspect-[16/9] md:aspect-[2/1] lg:aspect-[21/9] rounded-2xl overflow-hidden bg-muted">
+      <div className="relative w-full aspect-16/9 md:aspect-2/1 lg:aspect-21/9 rounded-2xl overflow-hidden bg-muted">
         <NextImage
           src={post.image}
           alt={post.title}
@@ -65,7 +61,6 @@ export default function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           className="object-cover"
         />
       </div>
-
     </div>
   );
 }

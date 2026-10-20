@@ -1,52 +1,27 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { BLOG_POSTS, FEATURED_POST, BlogPost } from "@/lib/blogData";
 import { getApiBaseUrl } from "@/lib/api";
+import { BlogItem, transformBackendBlog, slugify } from "@/lib/blogUtils";
 import BlogDetailHeader from "@/components/sections/blog/BlogDetailHeader";
 import BlogDetailContent from "@/components/sections/blog/BlogDetailContent";
 import BlogDetailSidebar from "@/components/sections/blog/BlogDetailSidebar";
 
 export const dynamicParams = true;
 
-function slugify(text: string) {
-  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-}
-
-function stripHtml(html: string) {
-  return html.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ').trim();
-}
-
-async function getPost(slug: string): Promise<BlogPost | null> {
-  const staticPosts = [...BLOG_POSTS, FEATURED_POST];
-  const staticMatch = staticPosts.find((p) => p.slug === slug || slugify(p.title) === slug);
-  if (staticMatch) return staticMatch;
-
+async function getPost(slug: string): Promise<BlogItem | null> {
   try {
-    const res = await fetch(`${getApiBaseUrl()}/blogs`, { cache: 'no-store' });
+    const res = await fetch(`${getApiBaseUrl()}/blogs`, { cache: "no-store" });
     const data = await res.json();
     if (data.success && Array.isArray(data.data)) {
-      const dbMatch = data.data.find((b: any) => 
-        String(b.id) === slug || 
-        slugify(b.title) === slug ||
-        b.title.toLowerCase() === decodeURIComponent(slug).toLowerCase()
+      const dbMatch = data.data.find(
+        (b: any) =>
+          String(b.id) === slug ||
+          slugify(b.title) === slug ||
+          b.title.toLowerCase() === decodeURIComponent(slug).toLowerCase()
       );
 
       if (dbMatch) {
-        const plain = stripHtml(dbMatch.content);
-        const dateStr = dbMatch.publishedAt || dbMatch.createdAt;
-        return {
-          id: String(dbMatch.id),
-          slug: slug,
-          category: dbMatch.category || "Smart Living",
-          date: new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-          title: dbMatch.title,
-          excerpt: dbMatch.description || (plain.slice(0, 140) + '...'),
-          image: dbMatch.imageUrl || "/assets/residential/project/delhi-residence/delhi-residence-1.jpg",
-          readTime: `${Math.max(2, Math.ceil(plain.split(/\s+/).length / 200))} Min Read`,
-          content: dbMatch.content,
-          author: dbMatch.author || "ATPL Team",
-          keyTakeaways: dbMatch.keyTakeaways,
-        };
+        return transformBackendBlog(dbMatch);
       }
     }
   } catch (err) {
@@ -57,10 +32,18 @@ async function getPost(slug: string): Promise<BlogPost | null> {
 }
 
 export async function generateStaticParams() {
-  const posts = [...BLOG_POSTS, FEATURED_POST];
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  try {
+    const res = await fetch(`${getApiBaseUrl()}/blogs`, { cache: "no-store" });
+    const data = await res.json();
+    if (data.success && Array.isArray(data.data)) {
+      return data.data.map((b: any) => ({
+        slug: slugify(b.title) || String(b.id),
+      }));
+    }
+  } catch (err) {
+    console.error("Failed to generate static params for blogs", err);
+  }
+  return [];
 }
 
 export async function generateMetadata(
@@ -76,7 +59,7 @@ export async function generateMetadata(
   }
 
   return {
-    title: `${post.title} | The Journal | AT Smart Living`,
+    title: `${post.title} | Blog | AT Smart Living`,
     description: post.excerpt,
   };
 }
@@ -92,9 +75,8 @@ export default async function BlogPostPage(
   }
 
   return (
-    <main className="relative bg-background text-foreground min-h-screen pt-32 pb-24 md:pt-40 md:pb-32 px-6 sm:px-10 lg:px-20 max-w-400 mx-auto">
+    <main className="relative bg-background text-foreground min-h-screen pt-32 pb-24 md:pt-40 md:pb-32 px-6 sm:px-10 lg:px-20 max-w-[1600px] mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        
         {/* Main Content Column (Left) */}
         <div className="lg:col-span-9 flex flex-col">
           <BlogDetailHeader post={post} />
@@ -102,8 +84,7 @@ export default async function BlogPostPage(
         </div>
 
         {/* Sidebar Column (Right) */}
-        <BlogDetailSidebar />
-        
+        <BlogDetailSidebar currentPostId={post.id} />
       </div>
     </main>
   );
