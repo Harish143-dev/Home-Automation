@@ -46,30 +46,50 @@ export default function CareersOpenings() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${getApiBaseUrl()}/careers`)
-      .then(res => res.json())
-      .then(data => {
+    let isMounted = true;
+    const controller = new AbortController();
+
+    fetch(`${getApiBaseUrl()}/careers`, { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`API responded with status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (!isMounted) return;
         if (data.success && Array.isArray(data.data) && data.data.length > 0) {
           const active = data.data.filter((c: any) => c.isActive !== false);
           if (active.length > 0) {
-            setOpenings(active.map((c: any) => ({
-              id: String(c.id),
-              title: c.title,
-              location: c.location || "New Delhi, India",
-              experience: c.experience || "Open Opportunity",
-              type: c.type || "Full Time",
-              department: c.department || "Engineering & Operations",
-              description: c.description
-            })));
+            setOpenings(
+              active.map((c: any) => ({
+                id: String(c.id),
+                title: c.title,
+                location: c.location || "New Delhi, India",
+                experience: c.experience || "Open Opportunity",
+                type: c.type || "Full Time",
+                department: c.department || "Engineering & Operations",
+                description: c.description,
+              }))
+            );
           }
         }
       })
-      .catch(err => {
-        console.error("Failed to load live careers, using fallback", err);
+      .catch((err) => {
+        if (err.name === "AbortError") return;
+        // Backend service is optional or offline in local dev; smoothly fall back to default openings
+        console.warn("Live careers API unreachable, utilizing static fallback positions:", err?.message || err);
       })
       .finally(() => {
-        setIsLoading(false);
+        if (isMounted) {
+          setIsLoading(false);
+        }
       });
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
   }, []);
 
   const prefersReducedMotion = useReducedMotion();

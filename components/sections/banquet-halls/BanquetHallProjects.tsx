@@ -5,22 +5,18 @@ import NextImage from 'next/image';
 import { gsap, useGSAP } from '../../../lib/gsapSetup';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
-import imgMadhuri from '@/assets/curtain-automation/clients/madhuri.webp';
 import imgMittal from '@/assets/curtain-automation/clients/mittal.webp';
-import imgBkt from '@/assets/curtain-automation/clients/bkt.webp';
 import imgRaheja from '@/assets/curtain-automation/clients/raheja.webp';
-import imgKhazana from '@/assets/curtain-automation/clients/khazana.webp';
-import imgUjjawal from '@/assets/curtain-automation/clients/bkt.webp';
 
 const PROJECTS = [
-  { name: "Welcomhotel By ITC Hotels", type: "Hospitality", location: "Bhubaneswar", image: imgMadhuri },
+  { name: "Welcomhotel By ITC Hotels", type: "Hospitality", location: "Bhubaneswar", image: "/images/projects/hospitality/welcomhotel-bhubaneswar/1.jpg" },
   { name: "Vista Restaurant, Taj Surajkund", type: "Restaurant", location: "Delhi NCR", image: imgMittal },
-  { name: "Golden Dragon, Taj Surajkund", type: "Restaurant", location: "Delhi NCR", image: imgBkt },
+  { name: "Golden Dragon, Taj Surajkund", type: "Restaurant", location: "Delhi NCR", image: "/images/projects/restaurant/golden-dragon/1.jpg" },
   { name: "ITC Rajputana", type: "Hospitality", location: "Jaipur", image: imgRaheja },
-  { name: "DoubleTree by Hilton", type: "Hospitality", location: "Goa Panaji", image: imgKhazana },
-  { name: "Trident", type: "Hospitality", location: "Hyderabad", image: imgUjjawal },
-  { name: "The Astor", type: "Hospitality", location: "Goa", image: imgMadhuri },
-  { name: "Courtyard by Marriott", type: "Hospitality", location: "Madurai", image: imgMittal }
+  { name: "DoubleTree by Hilton", type: "Hospitality", location: "Goa Panaji", image: "/images/projects/hospitality/double-tree-hilton-goa/1.jpg" },
+  { name: "Trident", type: "Hospitality", location: "Hyderabad", image: "/images/projects/hospitality/trident-hyderabad/3.jpg" },
+  { name: "The Astor", type: "Hospitality", location: "Goa", image: "/images/projects/hospitality/astor-goa/1.jpg" },
+  { name: "Courtyard by Marriott", type: "Hospitality", location: "Madurai", image: "/images/projects/hospitality/courtyard-marriott-madurai/1.jpg" }
 ];
 
 export function BanquetHallProjects() {

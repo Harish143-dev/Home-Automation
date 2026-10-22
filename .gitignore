@@ -38,12 +38,15 @@ postgres_data/
 certbot/conf/
 certbot/www/
 
-# OS / Editor files
+# OS / Editor / Raw Camera dumps
 .DS_Store
 Thumbs.db
 *.pem
 .vscode/
 .idea/
+*.dng
+*.heic
+*.raw
 
 # Temp
 scratch/

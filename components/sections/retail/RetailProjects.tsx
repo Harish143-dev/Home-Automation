@@ -13,12 +13,12 @@ const PROJECTS = [
   {
     title: "BMW Showroom",
     asset: "Delhi",
-    image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
+    image: "/images/projects/commercial/bmw-showroom/1.jpg",
   },
   {
     title: "Tiffany & Co.",
     asset: "Jio World Plaza, Mumbai",
-    image: "/images/projects/commercial/yashraj-studio/1.jpg",
+    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
   },
   {
     title: "Louis Vuitton",

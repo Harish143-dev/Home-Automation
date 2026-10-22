@@ -163,8 +163,8 @@ This document provides a comprehensive mapping of every page in the website that
 | Brand / Project | Location | Image Path |
 |---|---|---|
 | **Dior** | Mumbai | `/images/projects/commercial/ey-gurgaon/1.jpg` |
-| **BMW Showroom** | Delhi | `/images/projects/commercial/meta-office-gurgaon/1.jpg` |
-| **Tiffany & Co.** | Jio World Plaza, Mumbai | `/images/projects/commercial/yashraj-studio/1.jpg` |
+| **BMW Showroom** | Delhi | `/images/projects/commercial/bmw-showroom/1.jpg` |
+| **Tiffany & Co.** | Jio World Plaza, Mumbai | `/images/projects/commercial/tiffany-mumbai/1.jpg` |
 | **Louis Vuitton** | Mumbai | `/images/projects/commercial/ey-gurgaon/1.jpg` |
 
 ---
@@ -218,16 +218,16 @@ This document provides a comprehensive mapping of every page in the website that
 * **Component**: [`BanquetHallProjects.tsx`](file:///d:/Harish/New%20folder%20(2)/Home-Automation/components/sections/banquet-halls/BanquetHallProjects.tsx)
 * **Page**: `/hospitality/banquet-hall-automation`
 
-| Venue | Type | Location |
-|---|---|---|
-| **Welcomhotel By ITC Hotels** | Hospitality | Bhubaneswar |
-| **Vista Restaurant, Taj Surajkund** | Restaurant | Delhi NCR |
-| **Golden Dragon, Taj Surajkund** | Restaurant | Delhi NCR |
-| **ITC Rajputana** | Hospitality | Jaipur |
-| **DoubleTree by Hilton** | Hospitality | Goa Panaji |
-| **Trident** | Hospitality | Hyderabad |
-| **The Astor** | Hospitality | Goa |
-| **Courtyard by Marriott** | Hospitality | Madurai |
+| Venue | Type | Location | Image Path |
+|---|---|---|---|
+| **Welcomhotel By ITC Hotels** | Hospitality | Bhubaneswar | `/images/projects/hospitality/welcomhotel-bhubaneswar/1.jpg` |
+| **Vista Restaurant, Taj Surajkund** | Restaurant | Delhi NCR | `@/assets/curtain-automation/clients/mittal.webp` (Placeholder) |
+| **Golden Dragon, Taj Surajkund** | Restaurant | Delhi NCR | `/images/projects/restaurant/golden-dragon/1.jpg` |
+| **ITC Rajputana** | Hospitality | Jaipur | `@/assets/curtain-automation/clients/raheja.webp` (Placeholder) |
+| **DoubleTree by Hilton** | Hospitality | Goa Panaji | `/images/projects/hospitality/double-tree-hilton-goa/1.jpg` |
+| **Trident** | Hospitality | Hyderabad | `/images/projects/hospitality/trident-hyderabad/3.jpg` |
+| **The Astor** | Hospitality | Goa | `/images/projects/hospitality/astor-goa/1.jpg` |
+| **Courtyard by Marriott** | Hospitality | Madurai | `/images/projects/hospitality/courtyard-marriott-madurai/1.jpg` |
 
 ---
 
@@ -249,20 +249,20 @@ This document provides a comprehensive mapping of every page in the website that
 | Brand / Property | Location | Image Path |
 |---|---|---|
 | **Four Seasons** | Mumbai | `/images/projects/hospitality/oberoi-amarvillas/1.jpg` |
-| **Leela Palace** | Udaipur | `/images/projects/hospitality/taj-lakefront-bhopal/1.jpg` |
-| **Marriott** | Madurai | `/images/projects/hospitality/courtyard-marriott-shillong/1.jpg` |
-| **Taj Paro Resort & Spa** | Bhutan | `/images/projects/hospitality/taj-puri/1.jpg` |
-| **Astor** | Goa | `/images/projects/hospitality/double-tree-hilton-goa/1.jpg` |
-| **Hilton Bani Square** | Gurgaon | `/images/projects/hospitality/double-tree-hilton-goa/2.jpg` |
-| **ITC Grand Central** | Mumbai | `/images/projects/hospitality/itc-grand-chola/1.jpg` |
+| **The Leela Palace** | Udaipur | `/images/projects/hospitality/the-leela-udaipur/Leela Udaipur by ATPL.jpg` |
+| **Marriott** | Madurai | `/images/projects/hospitality/courtyard-marriott-madurai/1.jpg` |
+| **Taj Paro Resort & Spa** | Bhutan | `/images/projects/hospitality/taj-paro-bhutan/1.jpg` |
+| **Astor** | Goa | `/images/projects/hospitality/astor-goa/1.jpg` |
+| **Hilton Bani Square** | Gurgaon | `/images/projects/hospitality/hilton-baani-square-gurgaon/6.jpg` |
+| **ITC Grand Central** | Mumbai | `/images/projects/hospitality/itc-grand-central-mumbai/1739600-bomrl-lobby.webp` |
 | **Hilton** | Jaipur | `/images/projects/hospitality/hyatt-regency-jaipur/1.jpg` |
 | **Oberoi Rajvilas** | Jaipur | `/images/projects/hospitality/oberoi-rajvillas/1.jpg` |
-| **Hyatt Centric Soalteemode** | Kathmandu | `/images/projects/hospitality/soaltee-nepal/1.jpg` |
+| **Hyatt Centric Soalteemode** | Kathmandu | `/images/projects/hospitality/hyatt-centric-kathmandu/535074295.jpg` |
 | **Oberoi** | Delhi | `/images/projects/hospitality/oberoi-mumbai/1.jpg` |
 | **Taj** | Bhogampura | `/images/projects/hospitality/taj-lakefront-bhopal/2.jpg` |
 | **St. Regis** | Delhi | `/images/projects/hospitality/the-grand/1.jpg` |
 | **Fairmont** | Agra | `/images/projects/hospitality/le-meridien/1.jpg` |
-| **The Oberoi Sukhvilas** | Chandigarh | `/images/projects/hospitality/oberoi-amarvillas/2.jpg` |
+| **The Oberoi Sukhvilas** | Chandigarh | `/images/projects/hospitality/oberoi-sukhvilas-chandigarh/1.webp` |
 | **The Oberoi** | Mumbai | `/images/projects/hospitality/oberoi-mumbai/2.jpg` |
 | **Sawai Man Mahal** | Jaipur | `/images/projects/hospitality/sawai-man-mahal/1.jpg` |
 | **Six Senses** | Barwara | `/images/projects/hospitality/six-senses-barwara/1.jpg` |

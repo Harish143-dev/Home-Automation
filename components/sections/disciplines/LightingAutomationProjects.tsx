@@ -16,7 +16,7 @@ const PROJECTS = [
     scope: "Comprehensive Lighting Automation",
     solutions: "Landscape Lighting, Zoned Lighting Control, Smart Keypads, Integration",
     outcome: "A sprawling luxury estate featuring seamless lighting control across expansive indoor and outdoor spaces, creating the perfect ambience at all times.",
-    image: "/images/projects/residential/sanjeet-bhasin/1.jpg"
+    image: "/images/projects/residential/bkt-farms/1.jpg"
   },
   {
     id: "apartment-mumbai",
@@ -54,7 +54,7 @@ export function LightingAutomationProjects() {
       className="py-16 md:py-24 relative w-full px-5 sm:px-8 md:px-16 lg:px-24 bg-background text-foreground overflow-hidden"
     >
       <div className="max-w-6xl mx-auto flex flex-col">
-        
+
         {/* Header */}
         <div className="text-center mb-16 md:mb-24 flex flex-col items-center">
           <span className="inline-block text-sm md:text-base tracking-[0.3em] text-accent mb-4 font-light">
