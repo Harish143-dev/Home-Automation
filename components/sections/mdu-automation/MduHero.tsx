@@ -123,11 +123,11 @@ export default function MduHero() {
  Schedule a Consultation
  </Button>
  </Link>
- <a href="/api/brochure" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+ <Link href="/residential/brochure-download" className="w-full sm:w-auto">
  <Button variant="shiny" size="lg" className="w-full sm:w-auto">
  Download Brochure
  </Button>
- </a>
+ </Link>
  </div>
  </div>
  </section>

@@ -27,6 +27,7 @@ import {
   Power
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getApiBaseUrl } from '@/lib/api';
 import { CalculatorType } from './ChooseCalculatorSection';
 import { gsap, useGSAP } from '@/lib/gsapSetup';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -150,8 +151,11 @@ export function InteractiveCalculatorEngine({
   // Lead Modal / Report Download state
   const [showReportModal, setShowReportModal] = useState<boolean>(false);
   const [leadFormSubmitted, setLeadFormSubmitted] = useState<boolean>(false);
+  const [isSubmittingLead, setIsSubmittingLead] = useState<boolean>(false);
+  const [leadSubmitError, setLeadSubmitError] = useState<string | null>(null);
   const [leadName, setLeadName] = useState('');
-  const [leadContact, setLeadContact] = useState('');
+  const [leadEmail, setLeadEmail] = useState('');
+  const [leadPhone, setLeadPhone] = useState('');
   const [leadCity, setLeadCity] = useState('');
 
   // Toggle system selection
@@ -237,19 +241,82 @@ export function InteractiveCalculatorEngine({
     return acc + (s ? s.contributionPercent : 0.25);
   }, 0);
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLeadFormSubmitted(true);
-    setTimeout(() => {
-      // Keep state open with thank-you note
-    }, 400);
+    if (!leadEmail.trim()) {
+      setLeadSubmitError('Please enter a valid email address.');
+      return;
+    }
+
+    setIsSubmittingLead(true);
+    setLeadSubmitError(null);
+
+    const selectedSystemNames = selectedSystems
+      .map((id) => SYSTEMS.find((s) => s.id === id)?.name || id)
+      .join(', ');
+
+    const propertyDetails =
+      activeCalculator === 'home'
+        ? `Property Size: ${homeSize.toUpperCase()}, Monthly Spend: ${currencyConf.format(activeMonthlySpend)}`
+        : activeCalculator === 'office'
+        ? `Office Area: ${officeArea.toLocaleString()} sq ft, Hours: ${officeHours}, Monthly Spend: ${currencyConf.format(activeMonthlySpend)}`
+        : `Hotel Rooms: ${hotelRooms}, Tier: ${hotelTier}, Monthly Spend: ${currencyConf.format(activeMonthlySpend)}`;
+
+    const details = [
+      `--- CALCULATOR CONFIGURATION ---`,
+      `Facility Type: ${activeCalculator.toUpperCase()} Automation`,
+      `Location / City: ${leadCity.trim() || 'Not specified'}`,
+      propertyDetails,
+      `Subsystems Included: ${selectedSystemNames}`,
+      ``,
+      `--- PROJECTED FEASIBILITY METRICS ---`,
+      `Est. Energy & Cost Savings: ${effectiveSavingsPercentage}% (~${currencyConf.format(annualCostSavings)}/year)`,
+      `Monthly Operational Savings: ~${currencyConf.format(monthlyCostSavings)}/month`,
+      `Est. Implementation Investment: ~${currencyConf.format(estimatedInvestment)}`,
+      `Projected Payback Horizon: ${paybackYears.toFixed(1)} years`,
+      `5-Year Projected ROI: ${Math.round(fiveYearNetRoi)}%`,
+    ].join('\n');
+
+    const message = `Automated Energy Feasibility Report Request from ${leadName.trim() || 'Prospect'}:\n\n${details}`;
+
+    try {
+      const res = await fetch(`${getApiBaseUrl()}/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: leadName.trim() || 'Calculator Prospect',
+          email: leadEmail.trim(),
+          phone: leadPhone.trim() || null,
+          inquiryType: 'Energy Calculator Report',
+          message,
+        }),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (res.ok) {
+        setLeadFormSubmitted(true);
+      } else {
+        setLeadSubmitError(
+          data?.error || data?.message || 'Failed to submit report request. Please verify your details.'
+        );
+      }
+    } catch (err) {
+      console.error('[Calculator Lead Submit Error]', err);
+      setLeadSubmitError('Network error connecting to the server. Please try again.');
+    } finally {
+      setIsSubmittingLead(false);
+    }
   };
 
   const resetLeadForm = () => {
     setLeadFormSubmitted(false);
     setShowReportModal(false);
+    setIsSubmittingLead(false);
+    setLeadSubmitError(null);
     setLeadName('');
-    setLeadContact('');
+    setLeadEmail('');
+    setLeadPhone('');
     setLeadCity('');
   };
 
@@ -856,15 +923,14 @@ export function InteractiveCalculatorEngine({
 
               {/* Call to Actions */}
               <div className="flex flex-col gap-3 pt-2">
-                <button
+                <Button
                   onClick={() => setShowReportModal(true)}
-                  className="w-full"
+                  variant="interactive"
+                  size="lg"
+                  className="w-full justify-center"
                 >
-                  <Button variant="interactive" size="lg" className="w-full justify-center">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Indicative Summary
-                  </Button>
-                </button>
+                  Download Indicative Summary
+                </Button>
 
                 <Link href="/contact" className="w-full">
                   <Button variant="outline" size="lg" className="w-full justify-center">
@@ -900,17 +966,17 @@ export function InteractiveCalculatorEngine({
 
             {!leadFormSubmitted ? (
               <div>
-                <div className="flex items-center gap-2 mb-2 text-accent text-xs uppercase tracking-[0.2em] font-light">
+                <h5 className="flex items-center gap-2 mb-2 text-accent">
                   <Sparkles className="w-4 h-4" />
                   Engineering Report
-                </div>
+                </h5>
 
-                <h3 className="font-light text-2xl text-foreground mb-3">
+                <h3 className="text-foreground mb-3">
                   Receive Your Full Savings Breakdown
                 </h3>
 
                 <p className="font-light text-sm text-muted mb-6">
-                  We'll prepare a structured project breakdown with subsystem specs, payback roadmap, and verified equipment lists for your property.
+                  We will prepare a structured project breakdown with subsystem specifications, payback roadmap, and verified equipment lists for your property.
                 </p>
 
                 <div className="p-3 rounded-xl bg-background border border-border/80 mb-6 text-xs text-foreground flex justify-between">
@@ -918,10 +984,16 @@ export function InteractiveCalculatorEngine({
                   <strong className="capitalize">{activeCalculator} Automation</strong>
                 </div>
 
+                {leadSubmitError && (
+                  <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-600 mb-4">
+                    {leadSubmitError}
+                  </div>
+                )}
+
                 <form onSubmit={handleLeadSubmit} className="space-y-4">
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-muted mb-1.5">
-                      Your Full Name
+                      Your Full Name *
                     </label>
                     <input
                       type="text"
@@ -935,34 +1007,55 @@ export function InteractiveCalculatorEngine({
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-muted mb-1.5">
-                      Phone Number or Email
+                      Email Address *
                     </label>
                     <input
-                      type="text"
+                      type="email"
                       required
-                      value={leadContact}
-                      onChange={(e) => setLeadContact(e.target.value)}
-                      placeholder="+91 98765 43210 / vikram@example.com"
+                      value={leadEmail}
+                      onChange={(e) => setLeadEmail(e.target.value)}
+                      placeholder="vikram@example.com"
                       className="w-full px-4 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-accent"
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-xs uppercase tracking-wider text-muted mb-1.5">
-                      City / Location
-                    </label>
-                    <input
-                      type="text"
-                      value={leadCity}
-                      onChange={(e) => setLeadCity(e.target.value)}
-                      placeholder="e.g. New Delhi, Mumbai, Bengaluru"
-                      className="w-full px-4 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-accent"
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider text-muted mb-1.5">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        value={leadPhone}
+                        onChange={(e) => setLeadPhone(e.target.value)}
+                        placeholder="+91 98765 43210"
+                        className="w-full px-4 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-accent"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider text-muted mb-1.5">
+                        City / Location
+                      </label>
+                      <input
+                        type="text"
+                        value={leadCity}
+                        onChange={(e) => setLeadCity(e.target.value)}
+                        placeholder="e.g. New Delhi"
+                        className="w-full px-4 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-accent"
+                      />
+                    </div>
                   </div>
 
                   <div className="pt-2">
-                    <Button type="submit" variant="interactive" size="lg" className="w-full justify-center">
-                      Generate & Email My Report
+                    <Button
+                      type="submit"
+                      variant="interactive"
+                      size="lg"
+                      disabled={isSubmittingLead}
+                      className="w-full justify-center"
+                    >
+                      {isSubmittingLead ? 'Generating & Sending...' : 'Generate & Email My Report'}
                     </Button>
                   </div>
                 </form>
@@ -972,17 +1065,15 @@ export function InteractiveCalculatorEngine({
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
                   <Check className="w-8 h-8 stroke-[2.5]" />
                 </div>
-                <h3 className="font-light text-2xl text-foreground mb-2">
+                <h3 className="text-foreground mb-2">
                   Report Request Confirmed
                 </h3>
                 <p className="font-light text-sm text-muted mb-6 max-w-sm mx-auto">
-                  Thank you, {leadName || 'Sir/Madam'}. Our systems engineering team has logged your {activeCalculator} parameters and will send the detailed indicative audit to {leadContact}.
+                  Thank you, {leadName || 'Client'}. Our systems engineering team has logged your {activeCalculator} parameters and will send the detailed indicative audit to {leadEmail}.
                 </p>
-                <button onClick={resetLeadForm}>
-                  <Button variant="outline" size="sm">
-                    Close Window
-                  </Button>
-                </button>
+                <Button onClick={resetLeadForm} variant="outline" size="sm">
+                  Close Window
+                </Button>
               </div>
             )}
 

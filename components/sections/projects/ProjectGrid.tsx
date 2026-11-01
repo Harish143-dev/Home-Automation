@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, CalendarDays, Search, FolderKanban } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, stripHtml } from "@/lib/utils";
 import { getApiBaseUrl } from "@/lib/api";
 import { ProjectCardSkeleton } from "@/components/ui/skeleton";
 const CATEGORIES = ["All Projects", "Residential", "Hospitality", "Commercial", "Restaurant"];
@@ -229,7 +229,7 @@ export function ProjectGrid() {
                 </h4>
 
                 <p className="text-sm text-muted font-light leading-relaxed mb-6 line-clamp-3 grow">
-                  {project.description}
+                  {stripHtml(project.description)}
                 </p>
 
                 {/* Meta & CTA */}

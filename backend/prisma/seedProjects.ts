@@ -6,13 +6,13 @@ const REAL_PROJECTS = [
   // Residential
   {
     title: 'Anubhav Jain Farmhouse, New Delhi',
-    description: 'Curated architectural lighting controls, automated climate regulation, and comprehensive security integration across a 15,000 sq.ft. private luxury estate.',
+    description: '<p>Curated architectural lighting controls, automated climate regulation, and comprehensive security integration across a 15,000 sq.ft. private luxury estate.</p><h3>Scope of Automation</h3><ul><li><strong>Lutron HomeWorks QSX:</strong> Whole-estate architectural dimming and circadian scene programming across 48 discrete zones.</li><li><strong>Intelligent Shading:</strong> Precision motorized blackout and sheer draperies synchronized with daylight sensors.</li><li><strong>Multi-Room AV:</strong> High-resolution audio distribution integrated into landscape pavilions and formal lounges.</li><li><strong>Centralized Security:</strong> Biometric access management and automated perimeter surveillance.</li></ul>',
     imageUrl: '/images/projects/residential/anubhav-jain-farmhouse/1.jpg',
     type: 'Residential',
   },
   {
     title: 'Bhartiya Residence',
-    description: 'Integrated whole-home automation featuring Lutron motorized drapery, architectural scene recall, and multi-zone entertainment systems.',
+    description: '<p>Integrated whole-home automation featuring Lutron motorized drapery, architectural scene recall, and multi-zone entertainment systems.</p><ul><li>Bespoke engraved architectural keypads with tactile feedback.</li><li>Automated circadian lighting scenes aligned with solar elevation.</li><li>HVAC integration for silent zone temperature balancing.</li></ul>',
     imageUrl: '/images/projects/residential/bhartiya-residence/1.jpg',
     type: 'Residential',
   },

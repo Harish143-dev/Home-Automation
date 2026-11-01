@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getApiBaseUrl } from "@/lib/api";
+import { stripHtml } from "@/lib/utils";
 
 
 export const dynamicParams = true;
@@ -191,7 +192,7 @@ export async function generateMetadata(
 
   return {
     title: `${project.title} | AT Smart Living Projects`,
-    description: project.description,
+    description: stripHtml(project.description).slice(0, 160),
   };
 }
 
@@ -205,6 +206,9 @@ export default async function ProjectDetailsPage(
     notFound();
   }
 
+  const cleanExcerpt = stripHtml(project.description);
+  const isRichHtml = project.description.includes("<");
+
   return (
     <main className="relative min-h-screen bg-background text-foreground">
       {/* Hero Section */}
@@ -216,12 +220,12 @@ export default async function ProjectDetailsPage(
           {project.title}
         </h1>
         <p className="text-muted text-lg md:text-xl font-light leading-relaxed max-w-3xl">
-          {project.description}
+          {cleanExcerpt}
         </p>
       </section>
 
       {/* Image Gallery */}
-      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 pb-24 md:pb-32">
+      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 pb-20 md:pb-24">
         <div className="flex flex-col gap-8 md:gap-12 max-w-7xl mx-auto">
           {/* Main Feature Image */}
           {project.images[0] && (
@@ -248,6 +252,28 @@ export default async function ProjectDetailsPage(
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Architectural Scope & Rich Content Section */}
+      <section className="w-full px-6 sm:px-12 lg:px-24 pb-24 md:pb-32">
+        <div className="max-w-4xl mx-auto bg-panel border border-border/80 rounded-3xl p-8 sm:p-12 md:p-16 shadow-xs">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-accent" />
+            <h5 className="text-accent uppercase tracking-widest text-xs font-semibold !mb-0">
+              Architectural Scope & Automation Highlights
+            </h5>
+          </div>
+          <h2 className="text-foreground text-2xl sm:text-3xl font-light mb-8">
+            Engineering & Design Specification
+          </h2>
+
+          <article
+            className="prose max-w-none text-muted font-light leading-relaxed text-base sm:text-lg prose-headings:font-light prose-h2:text-2xl prose-h3:text-xl prose-p:mb-5 prose-p:leading-relaxed prose-ul:list-disc prose-ul:pl-6 prose-ul:my-5 prose-li:my-1.5 prose-strong:text-foreground prose-strong:font-medium prose-a:text-accent hover:prose-a:underline"
+            dangerouslySetInnerHTML={{
+              __html: isRichHtml ? project.description : `<p>${project.description}</p>`,
+            }}
+          />
         </div>
       </section>
       

@@ -122,7 +122,7 @@ export function PublicAreasHero() {
                                 Schedule a Consultation
                             </Button>
                         </Link>
-                        <Link href="/api/brochure">
+                        <Link href="/residential/brochure-download">
                             <Button variant="shiny" size="lg" className="w-full sm:w-auto"
                             >
                                 Download Company Portfolio

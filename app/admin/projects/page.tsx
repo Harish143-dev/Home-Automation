@@ -18,6 +18,8 @@ import {
   UtensilsCrossed
 } from 'lucide-react';
 import { AdminTableSkeleton } from '@/components/ui/skeleton';
+import { RichTextEditor } from '@/components/ui/rich-text-editor';
+import { stripHtml } from '@/lib/utils';
 
 interface Project {
   id: number;
@@ -350,7 +352,7 @@ export default function ProjectsPage() {
                     </td>
                     <td className="py-4 px-6 max-w-md">
                       <p className="text-xs text-muted font-light line-clamp-2 leading-relaxed">
-                        {project.description}
+                        {stripHtml(project.description)}
                       </p>
                     </td>
                     <td className="py-4 px-6 whitespace-nowrap text-xs text-muted font-mono">
@@ -506,15 +508,13 @@ export default function ProjectsPage() {
               {/* Description (Mandatory) */}
               <div className="space-y-1.5">
                 <label className="text-[11px] font-semibold text-muted uppercase tracking-wider flex items-center gap-1">
-                  Description <span className="text-accent">*</span>
+                  Description & Scope <span className="text-accent">*</span>
                 </label>
-                <textarea 
-                  required
-                  rows={4}
+                <RichTextEditor
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  onChange={(html) => setFormData(prev => ({ ...prev, description: html }))}
                   placeholder="Detail the scope of automation, lighting scenes, audio-video integration, and security..."
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all leading-relaxed"
+                  minHeight="180px"
                 />
               </div>
 

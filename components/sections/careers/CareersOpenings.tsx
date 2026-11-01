@@ -12,6 +12,7 @@ import { scheduleScrollRefresh } from "@/lib/scrollRefresh";
 import { Button } from "@/components/ui/button";
 import { MapPin, Briefcase, Clock, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { getApiBaseUrl } from "@/lib/api";
+import { stripHtml } from "@/lib/utils";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -221,7 +222,7 @@ export default function CareersOpenings() {
                   </div>
 
                   <p className="text-sm text-muted font-light leading-relaxed line-clamp-3">
-                    {job.description}
+                    {stripHtml(job.description)}
                   </p>
                 </div>
 

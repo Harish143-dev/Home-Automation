@@ -57,7 +57,7 @@ export function transformBackendBlog(b: any): BlogItem {
         })
       : "Recent",
     title: b.title,
-    excerpt: b.description || (plain ? `${plain.slice(0, 140)}...` : ""),
+    excerpt: stripHtml(b.description) || (plain ? `${plain.slice(0, 140)}...` : ""),
     image: resolveBlogImageUrl(b.imageUrl),
     readTime: `${readMinutes} Min Read`,
     content: b.content || "",

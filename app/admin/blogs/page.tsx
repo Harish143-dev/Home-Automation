@@ -17,6 +17,7 @@ import {
   Image as ImageIcon 
 } from 'lucide-react';
 import { AdminTableSkeleton } from '@/components/ui/skeleton';
+import { RichTextEditor } from '@/components/ui/rich-text-editor';
 
 interface Blog {
   id: number;
@@ -582,13 +583,11 @@ export default function BlogsPage() {
                 <label className="text-[11px] font-semibold text-muted uppercase tracking-wider flex items-center gap-1">
                   Article Content <span className="text-accent">*</span>
                 </label>
-                <textarea 
-                  required
-                  rows={7}
+                <RichTextEditor
                   value={formData.content}
-                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                  placeholder="Write the complete article content here (HTML paragraphs <p>...</p> or plain text are supported)..."
-                  className="w-full px-4 py-3 bg-background border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all leading-relaxed font-mono"
+                  onChange={(html) => setFormData(prev => ({ ...prev, content: html }))}
+                  placeholder="Compose your article with headings, quotes, bullet lists, and links..."
+                  minHeight="240px"
                 />
               </div>
 

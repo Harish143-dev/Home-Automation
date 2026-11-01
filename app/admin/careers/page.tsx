@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { AdminTableSkeleton } from '@/components/ui/skeleton';
+import { RichTextEditor } from '@/components/ui/rich-text-editor';
+import { stripHtml } from '@/lib/utils';
 
 interface Career {
   id: number;
@@ -386,7 +388,7 @@ export default function CareersPage() {
 
                     <td className="py-4 px-6 max-w-xs">
                       <p className="text-xs text-muted font-light line-clamp-2 leading-relaxed">
-                        {career.description}
+                        {stripHtml(career.description)}
                       </p>
                     </td>
 
@@ -529,13 +531,11 @@ export default function CareersPage() {
                 <label className="text-[11px] font-semibold text-muted uppercase tracking-wider flex items-center gap-1">
                   Job Description & Requirements <span className="text-accent">*</span>
                 </label>
-                <textarea 
-                  required
-                  rows={5}
+                <RichTextEditor
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="Outline key responsibilities, automation platforms used (Lutron, Crestron, Savant, KNX), and preferred candidate skills..."
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all leading-relaxed"
+                  onChange={(html) => setFormData(prev => ({ ...prev, description: html }))}
+                  placeholder="Outline key responsibilities, preferred candidate skills, and automation platforms (Lutron, Crestron, KNX)..."
+                  minHeight="180px"
                 />
               </div>
 
