@@ -57,15 +57,19 @@ export function GuestRoomIntro() {
         <div className="w-full flex flex-col md:flex-row gap-12 lg:gap-20 items-center">
 
           {/* Left Column: Copy */}
-          <div ref={splitRef} className="w-full md:w-1/2 flex flex-col gap-6">
+          <div ref={splitRef} className="w-full md:w-1/2 flex flex-col gap-2">
             <h2 className="text-foreground text-balance">
               Every Stay Begins with an Exceptional Guest Room Experience
             </h2>
             <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
-              Today's guests expect comfort, convenience, and personalized control. Intelligent guest room automation enables effortless management of lighting, temperature, shades, and room settings while improving operational efficiency and reducing energy consumption.
+              Guest room automation provides convenient control of lighting, temperature, and motorized shades.
             </p>
             <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
-              Guest room automation allows guests to create the right ambience with a single touch. Lighting scenes can be adjusted for reading, relaxing, or sleeping, while motorized shades provide convenient daylight and privacy control. Integrated temperature control maintains a comfortable environment throughout the stay, and intuitive engraved keypads make room controls simple and easy to use. The system enhances guest comfort while helping hotels optimize energy usage and streamline room operations.
+              Guests can create personalised settings for reading, relaxing, or sleeping with a single touch.
+              Intuitive keypads make room controls simple and easy to use.
+            </p>
+            <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed text-balance">
+              Integrated automation improves guest comfort, reduces energy consumption, and streamlines hotel operations.
             </p>
           </div>
 

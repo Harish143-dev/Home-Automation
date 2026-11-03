@@ -102,7 +102,7 @@ export function HospitalityCTA() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Book Property Consultation
+              Schedule a consultatio
             </Button>
           </Link>
 

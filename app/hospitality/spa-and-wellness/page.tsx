@@ -1,6 +1,5 @@
 import { SpaHero } from "@/components/sections/spa-wellness/SpaHero";
 import { SpaTrust } from "@/components/sections/spa-wellness/SpaTrust";
-import { SpaClients } from "@/components/sections/spa-wellness/SpaClients";
 import { SpaCredentials } from "@/components/sections/spa-wellness/SpaCredentials";
 import { SpaIntro } from "@/components/sections/spa-wellness/SpaIntro";
 import { SpaPlatform } from "@/components/sections/spa-wellness/SpaPlatform";
@@ -24,7 +23,6 @@ export default function SpaAndWellnessPage() {
     <main className="flex min-h-screen flex-col items-center bg-background">
       <SpaHero />
       <SpaTrust />
-      <SpaClients />
       <SpaCredentials />
       <SpaIntro />
       <SpaPlatform />

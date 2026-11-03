@@ -29,12 +29,12 @@ const ENVIRONMENTS: EnvironmentCard[] = [
   {
     title: "Banquet Spaces & Ballrooms",
     description: "Synthesizing high-availability architectural lighting presets, heavy AV matrices, and high-occupancy environmental climate moderation for flawless, high-velocity event execution.",
-    image: "/images/projects/hospitality/le-meridien/1.jpg"
+    image: "/images/projects/hospitality/banquet-spaces.jpg"
   },
   {
     title: "Wellness & Spa Sanctuaries",
     description: "Engineering deeply restorative, biophilic sanctuaries that modulate lighting spectra, precise temperatures, and sensory parameters to actively stabilize mood and promote recovery.",
-    image: "/images/projects/hospitality/westin-himalayas/1.jpg"
+    image: "/images/projects/hospitality/wellness-spa.jpg"
   },
   {
     title: "Heritage Forts & Palaces",

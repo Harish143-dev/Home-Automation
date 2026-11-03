@@ -21,11 +21,12 @@ export const MAIN_NAVIGATION: NavLink[] = [
         href: '/residential',
         items: [
           { id: 'res-lighting', label: 'Lighting Automation', href: '/residential/lighting-automation' },
-          { id: 'res-shades', label: 'Motorized Shades & Curtain Automation(MDU)', href: '/residential/curtain-automation' },
+          { id: 'res-shades', label: 'Motorized Shades & Curtain Automation', href: '/residential/curtain-automation' },
           { id: 'res-complete', label: 'Complete Home Automation Solutions', href: '/residential/mdu-automation' },
           { id: 'res-av', label: 'Audio, Video Integration', href: '/residential/audio-video-automation' },
           { id: 'res-security', label: 'Security, Surveillance & Access Control', href: '/residential/security-automation' },
           { id: 'res-wifi', label: 'Wi-Fi, Networking & Smart Control Interfaces', href: '/residential/wifi-networking' },
+          { id: 'res-mdu', label: 'MDU', href: '/residential/mdu-automation' },
         ]
       },
       {
@@ -33,12 +34,12 @@ export const MAIN_NAVIGATION: NavLink[] = [
         label: 'Hospitality',
         href: '/hospitality',
         items: [
-          { id: 'hosp-public', label: 'Public areas', href: '/hospitality/public-area-automation' },
+          { id: 'hosp-guest', label: 'Guest Rooms', href: '/hospitality/guest-room-automation' },
           { id: 'hosp-boardroom', label: 'Boardroom and Meeting Room', href: '/hospitality/boardroom-automation' },
-          { id: 'hosp-banquet', label: 'Banquet Halls & Event Spaces', href: '/hospitality/banquet-hall-automation' },
+          { id: 'hosp-public', label: 'Public areas', href: '/hospitality/public-area-automation' },
           { id: 'hosp-restaurants', label: 'Restaurants', href: '/hospitality/restaurant-automation' },
           { id: 'hosp-spa', label: 'Spa and Wellness', href: '/hospitality/spa-and-wellness' },
-          { id: 'hosp-guest', label: 'Guest Rooms', href: '/hospitality/guest-room-automation' },
+          { id: 'hosp-banquet', label: 'Banquet Halls & Event Spaces', href: '/hospitality/banquet-hall-automation' },
         ]
       },
       {

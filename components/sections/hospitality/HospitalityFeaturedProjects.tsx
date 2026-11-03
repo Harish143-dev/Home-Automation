@@ -19,13 +19,13 @@ const PROJECTS: Project[] = [
     id: "p1",
     name: "Common Spaces & Public Areas",
     description: "Managing expansive architectural volumes through automated daylight harvesting and astrological scheduling. Public areas smoothly adjust light levels and acoustic layers in response to shifting solar tracks and foot-traffic density, minimizing operational strain while ensuring an uncompromised sensory welcoming sequence.",
-    image: "/images/projects/hospitality/ritz-carlton-bangalore/1.jpg"
+    image: "/images/projects/hospitality/common-spaces.jpg"
   },
   {
     id: "p2",
     name: "Boardrooms & Meeting Rooms",
     description: "Eliminating administrative setup delays with integrated, unified control backbones. One-touch command matrices instantly lower presentation shading, configure sound-masking profiles, and launch zero-latency wireless collaboration layers, protecting corporate guest productivity and corporate event revenue streams.",
-    image: "/images/projects/hospitality/the-den-bangalore/1.jpg"
+    image: "/images/projects/hospitality/boardroom.jpg"
   },
   {
     id: "p3",
@@ -43,7 +43,7 @@ const PROJECTS: Project[] = [
     id: "p5",
     name: "Spa & Wellness Areas",
     description: "Designing environments that actively reduce physical stress and complement restorative treatments. By locking tunable white lighting profiles to organic circadian patterns, purifying micro-climates, and isolating acoustics, these spaces deliver unparalleled sensory choice and cognitive comfort.",
-    image: "/images/projects/hospitality/taj-puri/1.jpg"
+    image: "/images/projects/hospitality/spa-wellness.jpg"
   },
   {
     id: "p6",

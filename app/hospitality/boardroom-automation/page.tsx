@@ -1,8 +1,4 @@
 import { BoardroomHero } from "@/components/sections/boardroom/BoardroomHero";
-import { BoardroomTrust } from "@/components/sections/boardroom/BoardroomTrust";
-import { BoardroomClients } from "@/components/sections/boardroom/BoardroomClients";
-import { BoardroomCredentials } from "@/components/sections/boardroom/BoardroomCredentials";
-import { BoardroomComparison } from "@/components/sections/boardroom/BoardroomComparison";
 import { BoardroomSolutions } from "@/components/sections/boardroom/BoardroomSolutions";
 import { BoardroomBenefits } from "@/components/sections/boardroom/BoardroomBenefits";
 import { BoardroomSpaces } from "@/components/sections/boardroom/BoardroomSpaces";
@@ -21,10 +17,6 @@ export default function BoardroomAutomationPage() {
   return (
     <main className="w-full relative min-h-screen">
       <BoardroomHero />
-      <BoardroomTrust />
-      <BoardroomClients />
-      <BoardroomCredentials />
-      <BoardroomComparison />
       <BoardroomSolutions />
       <BoardroomBenefits />
       <BoardroomSpaces />

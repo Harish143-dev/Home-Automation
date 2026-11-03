@@ -4,9 +4,6 @@ import { PublicAreasSpaces } from "@/components/sections/public-areas/PublicArea
 import { PublicAreasSolutions } from "@/components/sections/public-areas/PublicAreasSolutions";
 import { PublicAreasProcess } from "@/components/sections/public-areas/PublicAreasProcess";
 import { PublicAreasBenefits } from "@/components/sections/public-areas/PublicAreasBenefits";
-import { PublicAreasTrust } from "@/components/sections/public-areas/PublicAreasTrust";
-import { PublicAreasClients } from "@/components/sections/public-areas/PublicAreasClients";
-import { PublicAreasCredentials } from "@/components/sections/public-areas/PublicAreasCredentials";
 import { PublicAreasProjects } from "@/components/sections/public-areas/PublicAreasProjects";
 import { PublicAreasWhyChooseUs } from "@/components/sections/public-areas/PublicAreasWhyChooseUs";
 import { PublicAreasPartner } from "@/components/sections/public-areas/PublicAreasPartner";
@@ -22,9 +19,6 @@ export default function PublicAreasPage() {
   return (
     <main className="w-full relative min-h-screen">
       <PublicAreasHero />
-      <PublicAreasTrust />
-      <PublicAreasClients />
-      <PublicAreasCredentials />
       <PublicAreasIntro />
       <PublicAreasSpaces />
       <PublicAreasSolutions />

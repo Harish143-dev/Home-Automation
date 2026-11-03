@@ -27,7 +27,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "common",
     name: "Common Spaces & Public Areas",
     subheading: "Design public volumes that actively reduce stress and support recovery through automated transitions of lighting, acoustics, and environmental parameters.",
-    image: "/images/projects/hospitality/the-park-hyderabad/1.jpg",
+    image: "/images/projects/hospitality/common-spaces.jpg",
     capabilities: [
       { title: "Lighting Management Frameworks", description: "Creating everyday health infrastructure through light: Deploys dynamic, time-locked lighting scenes across expansive lobbies and receptions that match natural circadian human rhythms, reducing guest travel strain while optimizing energy conservation." },
       { title: "Centralized Acoustic Distribution Networks", description: "Spatial acoustic balance and sensory comfort. Distributes clear, balanced background music across public lounges to craft a soothing, welcoming atmosphere that complements the property's brand identity." },
@@ -39,7 +39,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "boardrooms",
     name: "Boardrooms & Meeting Rooms",
     subheading: "Empower corporate groups with zero-friction collaboration hubs managed through intuitive control systems.",
-    image: "/images/projects/hospitality/crown-plaza-gurgaon/1.jpg",
+    image: "/images/projects/hospitality/boardroom.jpg",
     capabilities: [
       { title: "Integrated Video Conferencing Systems", description: "Facilitates global connection using high-definition tracking cameras, beamforming audio, and single-touch room launch scripts." },
       { title: "High-Resolution LED Presentation Displays", description: "Sharp visual data rendering via ultra-low pixel pitch display walls designed for critical executive evaluation." },
@@ -79,7 +79,7 @@ const CAPABILITIES_DATA: CapabilitySection[] = [
     id: "spa",
     name: "Spa & Wellness Areas",
     subheading: "Build restorative sanctuaries that enhance relaxation by giving guests and therapists total control over their sensory environment.",
-    image: "/images/projects/hospitality/soaltee-nepal/1.jpg",
+    image: "/images/projects/hospitality/spa-wellness.jpg",
     capabilities: [
       { title: "Circadian Lighting Management", description: "Soft, customizable lighting scenes and tunable white curves designed to lower stress levels and support therapeutic recovery." },
       { title: "Immersive Soundscape Systems", description: "Delivers clear audio and calming acoustic soundscapes across treatment rooms and relaxation lounges to promote mental recovery." },

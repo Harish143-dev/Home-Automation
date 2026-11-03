@@ -11,13 +11,13 @@ const SPACES = [
     id: "reception",
     title: "Reception & Lobby",
     description: "Create a welcoming first impression with intelligent lighting, motorized shades, background music, digital displays, networking, and security integration.",
-    image: "/images/projects/hospitality/itc-grand-chola/1.jpg",
+    image: "/images/projects/hospitality/reception-lobby.jpg",
   },
   {
     id: "corridors",
     title: "Corridors & Common Areas",
     description: "Enhance safety, comfort, and energy efficiency with automated lighting and centralized control.",
-    image: "/images/projects/hospitality/pm-museum-delhi/1.jpg",
+    image: "/images/projects/hospitality/corridors-common-areas.jpg",
   },
   {
     id: "lounges",
@@ -29,7 +29,7 @@ const SPACES = [
     id: "public",
     title: "Hotel Public Areas",
     description: "Manage lighting, audio, displays, HVAC, networking, and security across all shared spaces from a single platform.",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
+    image: "/images/projects/hospitality/hotel-public-areas.jpg",
   }
 ];
 

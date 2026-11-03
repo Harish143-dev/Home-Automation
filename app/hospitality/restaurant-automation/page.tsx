@@ -5,7 +5,6 @@ import { RestaurantPlatform } from "@/components/sections/restaurant/RestaurantP
 import { RestaurantBenefits } from "@/components/sections/restaurant/RestaurantBenefits";
 import { RestaurantCredentials } from "@/components/sections/restaurant/RestaurantCredentials";
 import { RestaurantTrust } from "@/components/sections/restaurant/RestaurantTrust";
-import { RestaurantClients } from "@/components/sections/restaurant/RestaurantClients";
 import { RestaurantProcess } from "@/components/sections/restaurant/RestaurantProcess";
 import { RestaurantProjects } from "@/components/sections/restaurant/RestaurantProjects";
 import { RestaurantPartners } from "@/components/sections/restaurant/RestaurantPartners";

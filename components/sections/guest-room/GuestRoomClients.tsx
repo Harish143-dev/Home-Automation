@@ -9,9 +9,9 @@ export function GuestRoomClients() {
     <section className="py-12 md:py-16 relative w-full bg-background px-5 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl w-full mx-auto">
         <div className="w-full bg-accent/[0.03] border border-accent/10 rounded-[2rem] py-12 md:py-16 overflow-hidden flex flex-col items-center">
-          <span className="tracking-[0.2em] text-accent mb-8 md:mb-12 text-sm font-medium">
+          <h5 className="text-accent mb-8 md:mb-12">
             Trusted Hospitality Brands
-          </span>
+          </h5>
           <div className="w-[150%] md:w-[120%] flex overflow-hidden opacity-80 group">
             <div className="flex gap-16 md:gap-24 items-center whitespace-nowrap animate-marquee-left">
               {[...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS, ...HOSPITALITY_BRANDS].map((brand, i) => (
@@ -23,6 +23,7 @@ export function GuestRoomClients() {
           </div>
         </div>
       </div>
+
       <style dangerouslySetInnerHTML={{
         __html: `
         @keyframes marquee-left {

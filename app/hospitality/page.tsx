@@ -1,6 +1,5 @@
 "use client";
 
-
 import { HospitalityHero } from "@/components/sections/hospitality/HospitalityHero";
 import { HospitalityStats } from "@/components/sections/hospitality/HospitalityStats";
 import { HospitalityFeaturedProjects } from "@/components/sections/hospitality/HospitalityFeaturedProjects";
@@ -10,9 +9,7 @@ import { HospitalityCapabilities } from "@/components/sections/hospitality/Hospi
 import { HospitalityBenefits } from "@/components/sections/hospitality/HospitalityBenefits";
 import { HospitalityCaseStudies } from "@/components/sections/hospitality/HospitalityCaseStudies";
 import { HospitalityRoiCalculator } from "@/components/sections/hospitality/HospitalityRoiCalculator";
-import { HospitalityEcosystem } from "@/components/sections/hospitality/HospitalityEcosystem";
-import { HospitalityTestimonials } from "@/components/sections/hospitality/HospitalityTestimonials";
-import { AwardsSection } from "@/components/sections/home/AwardsSection";
+import { HospitalityTrustedBrands } from "@/components/sections/hospitality/HospitalityTrustedBrands";
 import { HospitalityCTA } from "@/components/sections/hospitality/HospitalityCTA";
 import { BrandTicker } from "@/components/sections/home/BrandTicker";
 
@@ -22,6 +19,7 @@ export default function HospitalityPage() {
       <HospitalityHero />
       <HospitalityStats />
       <BrandTicker />
+      <HospitalityTrustedBrands />
       <HospitalityEnvironments />
       <HospitalityFeaturedProjects />
       <HospitalitySolutions />
@@ -29,9 +27,7 @@ export default function HospitalityPage() {
       <HospitalityBenefits />
       <HospitalityCaseStudies />
       <HospitalityRoiCalculator />
-      {/* <HospitalityEcosystem /> */}
-      {/* <AwardsSection className="!pt-8 md:!pt-12" /> */}
-      <HospitalityTestimonials />
+
       <HospitalityCTA />
     </main>
   );

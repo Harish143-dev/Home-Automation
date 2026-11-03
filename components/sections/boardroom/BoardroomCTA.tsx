@@ -113,9 +113,9 @@ export function BoardroomCTA() {
               size="lg"
               className="group w-full sm:w-auto"
             >
-              <MessageSquare className="w-5 h-5 mr-2 text-black/50 group-hover:text-black transition-colors duration-300" />
+
               <span className="text-base sm:text-lg font-light tracking-wide">
-                Talk to a Commercial Automation Expert
+                Request a hospitality proposal
               </span>
             </Button>
           </Link>

@@ -11,19 +11,19 @@ const SPACES = [
     id: "executive",
     title: "Executive Board Meetings",
     description: "One-touch room control, secure video conferencing, and professional presentations for leadership discussions.",
-    image: "/images/projects/commercial/ey-gurgaon/1.jpg",
+    image: "/images/projects/hospitality/executive-board-meetings.jpg",
   },
   {
     id: "client",
     title: "Client Presentations",
     description: "Deliver impactful presentations with high-resolution displays and premium audio.",
-    image: "/images/projects/hospitality/six-senses-barwara/1.jpg",
+    image: "/images/projects/hospitality/client-presentations.jpg",
   },
   {
     id: "hybrid",
     title: "Hybrid Collaboration",
     description: "Connect in-room and remote participants with reliable video conferencing and wireless content sharing.",
-    image: "/images/projects/restaurant/akina-mumbai/1.jpg",
+    image: "/images/projects/hospitality/hybrid-collaboration.jpg",
   },
   {
     id: "training",
