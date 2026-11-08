@@ -3,7 +3,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getApiBaseUrl } from "@/lib/api";
-import { stripHtml } from "@/lib/utils";
+import { cn, stripHtml } from "@/lib/utils";
+import { PROJECTS_DATA } from "@/lib/projectsData";
 
 
 export const dynamicParams = true;
@@ -166,7 +167,25 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
     // API offline or static build
   }
 
-  // 2. Check static projects fallback
+  // 2. Check master projects catalog (142 verified projects)
+  const masterMatch = PROJECTS_DATA.find(
+    (p) =>
+      p.slug.toLowerCase() === normalizedSlug ||
+      p.id.toLowerCase() === normalizedSlug ||
+      slugify(p.title) === normalizedSlug
+  );
+  if (masterMatch) {
+    return {
+      id: masterMatch.slug,
+      title: masterMatch.title,
+      category: `${masterMatch.category} Automation`,
+      year: "2024",
+      description: masterMatch.description,
+      images: masterMatch.images && masterMatch.images.length > 0 ? masterMatch.images : [masterMatch.image]
+    };
+  }
+
+  // 3. Check legacy static projects fallback
   const staticMatch = STATIC_PROJECTS.find(
     (p) => p.id.toLowerCase() === normalizedSlug || slugify(p.title) === normalizedSlug
   );
@@ -177,6 +196,7 @@ async function getProject(slug: string): Promise<ProjectItem | null> {
 
 export async function generateStaticParams() {
   const allSlugs = new Set<string>();
+  PROJECTS_DATA.forEach((p) => allSlugs.add(p.slug));
   STATIC_PROJECTS.forEach((p) => allSlugs.add(p.id));
   return Array.from(allSlugs).map((slug) => ({
     slug,
@@ -213,8 +233,8 @@ export default async function ProjectDetailsPage(
     <main className="relative min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative w-full pt-32 md:pt-40 pb-16 md:pb-24 px-6 sm:px-12 lg:px-24 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 text-muted-foreground text-xs font-mono uppercase tracking-widest mb-6">
-          {project.category || "PROJECT GALLERY"} {project.year && `• ${project.year}`}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-white text-xs font-mono tracking-wider mb-6">
+          {project.category || "Project Gallery"} {project.year && `• ${project.year}`}
         </div>
         <h1 className="max-w-5xl text-foreground text-3xl sm:text-5xl md:text-6xl font-light tracking-tight mb-8">
           {project.title}
@@ -241,15 +261,25 @@ export default async function ProjectDetailsPage(
           {/* Secondary Grid */}
           {project.images.length > 1 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              {project.images.slice(1).map((img, idx) => (
-                <div key={idx} className="w-full aspect-4/3 relative rounded-xl overflow-hidden bg-secondary group shadow-sm hover:shadow-md transition-shadow">
-                  <img 
-                    src={img} 
-                    alt={`${project.title} Detail ${idx + 1}`} 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  />
-                </div>
-              ))}
+              {project.images.slice(1).map((img, idx) => {
+                const totalSecondary = project.images.length - 1;
+                const isOddLast = totalSecondary % 2 === 1 && idx === totalSecondary - 1;
+                return (
+                  <div
+                    key={idx}
+                    className={cn(
+                      "w-full relative rounded-xl overflow-hidden bg-secondary group shadow-sm hover:shadow-md transition-shadow",
+                      isOddLast ? "md:col-span-2 aspect-video sm:aspect-21/9" : "aspect-4/3"
+                    )}
+                  >
+                    <img
+                      src={img}
+                      alt={`${project.title} Detail ${idx + 1}`}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    />
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -260,7 +290,7 @@ export default async function ProjectDetailsPage(
         <div className="max-w-4xl mx-auto bg-panel border border-border/80 rounded-3xl p-8 sm:p-12 md:p-16 shadow-xs">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <h5 className="text-accent uppercase tracking-widest text-xs font-semibold !mb-0">
+            <h5 className="text-accent tracking-wider text-xs font-semibold !mb-0">
               Architectural Scope & Automation Highlights
             </h5>
           </div>

@@ -7,6 +7,8 @@ import { ArrowRight, Clock, CalendarDays, Search, FolderKanban } from "lucide-re
 import { cn, stripHtml } from "@/lib/utils";
 import { getApiBaseUrl } from "@/lib/api";
 import { ProjectCardSkeleton } from "@/components/ui/skeleton";
+import { PROJECTS_DATA } from "@/lib/projectsData";
+
 const CATEGORIES = ["All Projects", "Residential", "Hospitality", "Commercial", "Restaurant"];
 
 interface ProjectItem {
@@ -20,6 +22,18 @@ interface ProjectItem {
   readTime: string;
   href: string;
 }
+
+const DEFAULT_PROJECTS: ProjectItem[] = PROJECTS_DATA.map((p) => ({
+  id: p.id,
+  slug: p.slug,
+  title: p.title,
+  category: p.category,
+  image: p.image,
+  description: p.description,
+  date: "2024",
+  readTime: "4 min read",
+  href: `/projects/${p.slug}`,
+}));
 
 function detectCategory(imageUrl?: string | null, title?: string): string {
   const text = `${imageUrl || ""} ${title || ""}`.toLowerCase();
@@ -78,10 +92,10 @@ function slugify(text: string) {
 export function ProjectGrid() {
   const [activeCategory, setActiveCategory] = useState("All Projects");
   const [searchQuery, setSearchQuery] = useState("");
-  const [allProjects, setAllProjects] = useState<ProjectItem[]>([]);
+  const [allProjects, setAllProjects] = useState<ProjectItem[]>(DEFAULT_PROJECTS);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 9;
+  const ITEMS_PER_PAGE = 12;
 
   useEffect(() => {
     fetch(`${getApiBaseUrl()}/projects`)
@@ -109,9 +123,13 @@ export function ProjectGrid() {
           });
           setAllProjects(liveProjects);
         }
+        else {
+          setAllProjects(DEFAULT_PROJECTS);
+        }
       })
       .catch((err) => {
-        console.warn("Unable to fetch projects from backend:", err);
+        console.info("Backend API unreachable, serving ATPL master projects catalog:", err?.message || err);
+        setAllProjects(DEFAULT_PROJECTS);
       })
       .finally(() => {
         setIsLoading(false);
