@@ -430,7 +430,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     "id": "fortune-resort-by-itc-puri",
     "slug": "fortune-resort-by-itc-puri",
-    "title": "Fortune Resort by Itc, Puri",
+    "title": "Fortune Resort by ITC, Puri",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-fortune-puri/1.jpg",
     "images": [
@@ -448,7 +448,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-fortune-puri/over-view-desktop.jpeg",
       "/images/projects/hospitality/itc-fortune-puri/sxdcfvgbhn.jpg"
     ],
-    "description": "Fortune Beachfront, Puri, launched in 2024 by Itc’s Fortune Hotels. The hotel offers 63 rooms and suites with modern amenities and interiors.Atpl integrated lighting automation such as Qsx Processor, Din Rail Phase Adaptive Modules, 0–10V Dimming, Switching Modules, and 8-Button International SeeTouch Keypads."
+    "description": "Fortune Beachfront, Puri, launched in 2024 by ITC’s Fortune Hotels. The hotel offers 63 rooms and suites with modern amenities and interiors.Atpl integrated lighting automation such as Qsx Processor, Din Rail Phase Adaptive Modules, 0–10V Dimming, Switching Modules, and 8-Button International SeeTouch Keypads."
   },
   {
     "id": "gorbandh-palace-jaisalmer",
@@ -671,19 +671,19 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     "id": "itc-gardenia-bengaluru",
     "slug": "itc-gardenia-bengaluru",
-    "title": "Itc Gardenia, Bengaluru",
+    "title": "ITC Gardenia, Bengaluru",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-gardenia-bangalore/1.jpg",
     "images": [
       "/images/projects/hospitality/itc-gardenia-bangalore/1.jpg",
       "/images/projects/hospitality/itc-gardenia-bangalore/2.jpg"
     ],
-    "description": "Itc Gardenia, opened in 2009 in Bengaluru, is a Luxury Collection hotel that pioneered eco-friendly hospitality as Asia’s first Leed Platinum–certified hotel Atpl has integrated lighting control solutions, HomeWorks systems, and international seeTouch keypads across key public areas, including the lobby, reception, and restaurants"
+    "description": "ITC Gardenia, opened in 2009 in Bengaluru, is a Luxury Collection hotel that pioneered eco-friendly hospitality as Asia’s first Leed Platinum–certified hotel Atpl has integrated lighting control solutions, HomeWorks systems, and international seeTouch keypads across key public areas, including the lobby, reception, and restaurants"
   },
   {
     "id": "itc-grand-bharat-luxury-retreat-gurugram",
     "slug": "itc-grand-bharat-luxury-retreat-gurugram",
-    "title": "Itc Grand Bharat Luxury Retreat, Gurugram",
+    "title": "ITC Grand Bharat Luxury Retreat, Gurugram",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-grand-bharat/1.jpg",
     "images": [
@@ -696,12 +696,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-grand-bharat/itc-grand-bharat-a-luxury-collection-retreat-gurgaon-new-delhi-capital-region-gurgaon-pic-55.jfif",
       "/images/projects/hospitality/itc-grand-bharat/zvbnjkl.jpg"
     ],
-    "description": "Itc Grand Bharat was established by Itc Hotels as a luxury retreat inspired by India’s royal palaces and heritage. Atpl has integrated advanced lighting control solutions, HomeWorks systems, and international seeTouch keypads across the lobby, reception, and restaurant, enhancing ambience and guest experience."
+    "description": "ITC Grand Bharat was established by ITC Hotels as a luxury retreat inspired by India’s royal palaces and heritage. Atpl has integrated advanced lighting control solutions, HomeWorks systems, and international seeTouch keypads across the lobby, reception, and restaurant, enhancing ambience and guest experience."
   },
   {
     "id": "itc-grand-central-mumbai",
     "slug": "itc-grand-central-mumbai",
-    "title": "Itc Grand Central, Mumbai",
+    "title": "ITC Grand Central, Mumbai",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-grand-central-mumbai/1.jpg",
     "images": [
@@ -728,19 +728,19 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     "id": "itc-grand-chola-chennai",
     "slug": "itc-grand-chola-chennai",
-    "title": "Itc Grand Chola, Chennai",
+    "title": "ITC Grand Chola, Chennai",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-grand-chola/1.jpg",
     "images": [
       "/images/projects/hospitality/itc-grand-chola/1.jpg",
       "/images/projects/hospitality/itc-grand-chola/2.jpg"
     ],
-    "description": "The Itc Grand Chola Chennai, is spread across eight acres in Guindy. Inspired by the grandeur of the Chola dynasty, it blends majestic architecture with cutting-edge tech like iPad-enabled room controls. With the 26,450 sq ft Rajendra Hall and signature dining at Ottimo and Peshawari, it sets new benchmarks in Chennai hospitality. Atpl integrated Howeworks systems, lighting control, and international SeeTouch keypad covers across the public areas, lobby, restaurants, and banquets to enhance the hotel’s guest experience."
+    "description": "The ITC Grand Chola Chennai, is spread across eight acres in Guindy. Inspired by the grandeur of the Chola dynasty, it blends majestic architecture with cutting-edge tech like iPad-enabled room controls. With the 26,450 sq ft Rajendra Hall and signature dining at Ottimo and Peshawari, it sets new benchmarks in Chennai hospitality. Atpl integrated Howeworks systems, lighting control, and international SeeTouch keypad covers across the public areas, lobby, restaurants, and banquets to enhance the hotel’s guest experience."
   },
   {
     "id": "itc-grand-goa-resort-spa",
     "slug": "itc-grand-goa-resort-spa",
-    "title": "Itc Grand Goa Resort & Spa",
+    "title": "ITC Grand Goa Resort & Spa",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-grand-goa/1.avif",
     "images": [
@@ -752,12 +752,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-grand-goa/0226q12000a6gmtyj0F1A.jpg",
       "/images/projects/hospitality/itc-grand-goa/leonardo-4576223-172092241-450925.jpg"
     ],
-    "description": "Itc Grand Goa was established in 2018, when Itc Hotels acquired the former Park Hyatt Goa Resort & Spa at Arossim Beach and relaunched it under The Luxury Collection, blending Goan Indo-Portuguese heritage with refined luxury. Atpl has integrated advanced lighting control solutions, HomeWorks systems, and international seeTouch keypads across the lobby, reception, and restaurant, enhancing ambience and guest experience."
+    "description": "ITC Grand Goa was established in 2018, when ITC Hotels acquired the former Park Hyatt Goa Resort & Spa at Arossim Beach and relaunched it under The Luxury Collection, blending Goan Indo-Portuguese heritage with refined luxury. Atpl has integrated advanced lighting control solutions, HomeWorks systems, and international seeTouch keypads across the lobby, reception, and restaurant, enhancing ambience and guest experience."
   },
   {
     "id": "itc-kakatiya-hyderabad",
     "slug": "itc-kakatiya-hyderabad",
-    "title": "Itc Kakatiya, Hyderabad",
+    "title": "ITC Kakatiya, Hyderabad",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-kakatiya-hyderabad/1.jpg",
     "images": [
@@ -772,12 +772,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-kakatiya-hyderabad/wedding.png",
       "/images/projects/hospitality/itc-kakatiya-hyderabad/xcfvgbh.avif"
     ],
-    "description": "Itc Kakatiya, Hyderabad is a 5-star luxury hotel established in 1999, inspired by the Kakatiya dynasty with royal Deccan architecture. Atpl has implemented advanced lighting control using HomeWorks systems and international seeTouch keypads to enhance ambience and guest experience across key areas"
+    "description": "ITC Kakatiya, Hyderabad is a 5-star luxury hotel established in 1999, inspired by the Kakatiya dynasty with royal Deccan architecture. Atpl has implemented advanced lighting control using HomeWorks systems and international seeTouch keypads to enhance ambience and guest experience across key areas"
   },
   {
     "id": "itc-kohenur-hitec-city-hyderabad",
     "slug": "itc-kohenur-hitec-city-hyderabad",
-    "title": "Itc Kohenur, Hitec City, Hyderabad",
+    "title": "ITC Kohenur, Hitec City, Hyderabad",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-kohenur-hyderabad/1.jpg",
     "images": [
@@ -790,12 +790,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-kohenur-hyderabad/leonardo-3852076-758092-736168.jpg",
       "/images/projects/hospitality/itc-kohenur-hyderabad/201804031804379537-e73d18c2365311e886290224510f5e5b.avif"
     ],
-    "description": "Itc Kohenur is a luxury hotel in Hyderabad’s Hitec City, opened in 2017, offering premium stays, fine dining, and world-class banqueting"
+    "description": "ITC Kohenur is a luxury hotel in Hyderabad’s Hitec City, opened in 2017, offering premium stays, fine dining, and world-class banqueting"
   },
   {
     "id": "itc-maratha-mumbai",
     "slug": "itc-maratha-mumbai",
-    "title": "Itc Maratha, Mumbai",
+    "title": "ITC Maratha, Mumbai",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-maratha-mumbai/1.jpeg",
     "images": [
@@ -803,12 +803,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-maratha-mumbai/2.avif",
       "/images/projects/hospitality/itc-maratha-mumbai/3.jpg"
     ],
-    "description": "Itc Maratha, a Luxury Collection Hotel, Mumbai was established in 2010, inspired by the architectural heritage of the Maratha dynasty. Atpl has integrated lighting control solutions, HomeWorks systems, and international seeTouch keypads across key public areas, including the lobby, reception, and restaurants"
+    "description": "ITC Maratha, a Luxury Collection Hotel, Mumbai was established in 2010, inspired by the architectural heritage of the Maratha dynasty. Atpl has integrated lighting control solutions, HomeWorks systems, and international seeTouch keypads across key public areas, including the lobby, reception, and restaurants"
   },
   {
     "id": "itc-maurya-diplomatic-enclave-new-delhi",
     "slug": "itc-maurya-diplomatic-enclave-new-delhi",
-    "title": "Itc Maurya, Diplomatic Enclave, New Delhi",
+    "title": "ITC Maurya, Diplomatic Enclave, New Delhi",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-maurya-delhi/1.jpg",
     "images": [
@@ -822,12 +822,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-maurya-delhi/ottimo-at-west-view-itc-maurya-hotel-diplomatic-enclave-chanakya-puri-delhi-european-restaurants-zspdmv7ljz.avif",
       "/images/projects/hospitality/itc-maurya-delhi/new-delhi-itc-maurya-a-luxury-collection-hotel-new-delhi-photo-61.jfif"
     ],
-    "description": "Itc Maurya, Delhi features 440 rooms spread across 5.5 acres. The hotel also offers 25 suites with personalised butler service, conference room facilities, and airport lounge access. Atpl has integrated lighting control solutions, HomeWorks systems, and international seeTouch keypads across key public areas, including the lobby, reception, and restaurants."
+    "description": "ITC Maurya, Delhi features 440 rooms spread across 5.5 acres. The hotel also offers 25 suites with personalised butler service, conference room facilities, and airport lounge access. Atpl has integrated lighting control solutions, HomeWorks systems, and international seeTouch keypads across key public areas, including the lobby, reception, and restaurants."
   },
   {
     "id": "itc-narmada-ahmedabad",
     "slug": "itc-narmada-ahmedabad",
-    "title": "Itc Narmada, Ahmedabad",
+    "title": "ITC Narmada, Ahmedabad",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/itc-narmada-ahmedabad/1.jpg",
     "images": [
@@ -848,12 +848,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/itc-narmada-ahmedabad/ITC Narmada.webp",
       "/images/projects/hospitality/itc-narmada-ahmedabad/ITC-NARMADA-AHMEDABAD.jpg"
     ],
-    "description": "Itc Narmada, Ahmedabad Itc Narmada is a luxury five-star hotel that opened in August 2022, becoming the 12th Itc Hotels property in Gujarat. Rising 19 floors high with 291 rooms, the hotel embodies a grand architectural presence complemented by signature restaurants, a world-class spa, and expansive banquet facilities. Atpl integrated Lutron HomeWorks, advanced lighting control, and international SeeTouch keypads across resturants, Banquet Areas and public areas"
+    "description": "ITC Narmada, Ahmedabad ITC Narmada is a luxury five-star hotel that opened in August 2022, becoming the 12th ITC Hotels property in Gujarat. Rising 19 floors high with 291 rooms, the hotel embodies a grand architectural presence complemented by signature restaurants, a world-class spa, and expansive banquet facilities. Atpl integrated Lutron HomeWorks, advanced lighting control, and international SeeTouch keypads across resturants, Banquet Areas and public areas"
   },
   {
     "id": "jc-courtyard-by-marriott",
     "slug": "jc-courtyard-by-marriott",
-    "title": "Jc Courtyard by Marriott",
+    "title": "JC Courtyard by Marriott",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/jc-courtyard-marriott/1.avif",
     "images": [
@@ -863,7 +863,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "/images/projects/hospitality/jc-courtyard-marriott/671249482.jpg",
       "/images/projects/hospitality/jc-courtyard-marriott/202411261142155369-cbc1ff04-411b-4612-b63e-2309030eacaf.avif"
     ],
-    "description": "Jc Courtyard Marriott, Ramnagar Situated at the gateway to Jim Corbett National Park, Courtyard by Marriott Ramnagar captures the spirit of the wild.Atpl integrated Lighting Processors, Wall-Mounted Dali Dimmer Modules, Pico Wireless Keypads, and Qsm Antennas for sensors."
+    "description": "JC Courtyard Marriott, Ramnagar Situated at the gateway to Jim Corbett National Park, Courtyard by Marriott Ramnagar captures the spirit of the wild.Atpl integrated Lighting Processors, Wall-Mounted Dali Dimmer Modules, Pico Wireless Keypads, and Qsm Antennas for sensors."
   },
   {
     "id": "kochi-marriott-hotel-kerala",
@@ -998,7 +998,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     "id": "pradhanmantri-sangrahalaya-pm-museum-new-delhi",
     "slug": "pradhanmantri-sangrahalaya-pm-museum-new-delhi",
-    "title": "Pradhanmantri Sangrahalaya (Pm Museum), New Delhi",
+    "title": "Pradhanmantri Sangrahalaya (PM Museum), New Delhi",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/pm-museum-delhi/1.jpg",
     "images": [
@@ -1593,7 +1593,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     "id": "welcomhotel-by-itc-hotels",
     "slug": "welcomhotel-by-itc-hotels",
-    "title": "Welcomhotel by Itc Hotels",
+    "title": "Welcomhotel by ITC Hotels",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/welcomhotel-itc/1.jpg",
     "images": [
@@ -1605,7 +1605,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     "id": "welcomhotel-by-itc-hotels-bhubaneswar",
     "slug": "welcomhotel-by-itc-hotels-bhubaneswar",
-    "title": "Welcomhotel by Itc Hotels, Bhubaneswar",
+    "title": "Welcomhotel by ITC Hotels, Bhubaneswar",
     "category": "Hospitality",
     "image": "/images/projects/hospitality/welcomhotel-bhubaneswar/1.jpg",
     "images": [

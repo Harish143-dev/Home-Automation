@@ -8,53 +8,58 @@ const lines = md.split('\n');
 function cleanText(text) {
   if (!text) return '';
   let cleaned = text.replace(/\p{Extended_Pictographic}/gu, '');
-  
+
+  // 1. Convert any all-caps words of 2+ letters to Title Case first
+  cleaned = cleaned.replace(/\b[A-Z]{2,}\b/g, (match) => {
+    return match.charAt(0).toUpperCase() + match.slice(1).toLowerCase();
+  });
+
+  // 2. Specific replacements & preservation rules
   const replacements = [
-    [/\bATPL\b/g, 'Atpl'],
-    [/\bDALI\b/g, 'Dali'],
-    [/\bHVAC\b/g, 'Hvac'],
-    [/\bITC\b/g, 'Itc'],
-    [/\bHITEC\b/g, 'Hitec'],
-    [/\bQSX\b/g, 'Qsx'],
-    [/\bQSM\b/g, 'Qsm'],
-    [/\bQS\b/g, 'Qs'],
-    [/\bAV\b/g, 'audio-video'],
-    [/\bIOCL\b/g, 'Iocl'],
-    [/\bBKT\b/g, 'Bkt'],
-    [/\bTCS\b/g, 'Tcs'],
-    [/\bMICE\b/g, 'corporate events'],
-    [/\bIHG\b/g, 'Ihg'],
-    [/\bDIN\b/g, 'Din'],
-    [/\bIHCL\b/g, 'Ihcl'],
-    [/\bLEED\b/g, 'Leed'],
-    [/\bJC\b/g, 'Jc'],
-    [/\bGRMS\b/g, 'Grms'],
-    [/\bBMS\b/g, 'Bms'],
-    [/\bELAN\b/g, 'Elan'],
-    [/\bPSU\b/g, 'Psu'],
-    [/\bMKT\b/g, 'Mkt'],
-    [/\bUNICO\b/g, 'Unico'],
-    [/\bNOX\b/g, 'Nox'],
-    [/\bOKO\b/g, 'Oko'],
-    [/\bBMW\b/g, 'Bmw'],
-    [/\bANZ\b/g, 'Anz'],
-    [/\bHSBC\b/g, 'Hsbc'],
-    [/\bIIM\b/g, 'Iim'],
-    [/\bIIT\b/g, 'Iit'],
-    [/\bBIEC\b/g, 'Biec'],
-    [/\bVIP\b/g, 'Vip'],
-    [/\bNCR\b/g, 'Ncr'],
-    [/\bAD100\b/g, 'Ad100']
+    [/\bATPL\b/gi, 'Atpl'],
+    [/\bDALI\b/gi, 'Dali'],
+    [/\bHVAC\b/gi, 'Hvac'],
+    [/\bITC\b/gi, 'ITC'],       // Must be all caps
+    [/\bItc\b/g, 'ITC'],        // Must be all caps
+    [/\bJC\b/gi, 'JC'],         // Must be all caps
+    [/\bJc\b/g, 'JC'],          // Must be all caps
+    [/\bHITEC\b/gi, 'Hitec'],
+    [/\bQSX\b/gi, 'Qsx'],
+    [/\bQSM\b/gi, 'Qsm'],
+    [/\bQS\b/gi, 'Qs'],
+    [/\bAV\b/gi, 'audio-video'],
+    [/\bIOCL\b/gi, 'Iocl'],
+    [/\bBKT\b/gi, 'Bkt'],
+    [/\bTCS\b/gi, 'Tcs'],
+    [/\bMICE\b/gi, 'corporate events'],
+    [/\bIHG\b/gi, 'Ihg'],
+    [/\bDIN\b/gi, 'Din'],
+    [/\bIHCL\b/gi, 'Ihcl'],
+    [/\bLEED\b/gi, 'Leed'],
+    [/\bGRMS\b/gi, 'Grms'],
+    [/\bBMS\b/gi, 'Bms'],
+    [/\bELAN\b/gi, 'Elan'],
+    [/\bPSU\b/gi, 'Psu'],
+    [/\bMKT\b/gi, 'Mkt'],
+    [/\bUNICO\b/gi, 'Unico'],
+    [/\bNOX\b/gi, 'Nox'],
+    [/\bOKO\b/gi, 'Oko'],
+    [/\bBMW\b/gi, 'Bmw'],
+    [/\bANZ\b/gi, 'Anz'],
+    [/\bHSBC\b/gi, 'Hsbc'],
+    [/\bIIM\b/gi, 'Iim'],
+    [/\bIIT\b/gi, 'Iit'],
+    [/\bBIEC\b/gi, 'Biec'],
+    [/\bVIP\b/gi, 'Vip'],
+    [/\bNCR\b/gi, 'Ncr'],
+    [/\bAD100\b/gi, 'Ad100'],
+    [/\bPm Museum\b/gi, 'PM Museum'],
+    [/\bPM museum\b/gi, 'PM Museum']
   ];
 
   for (const [regex, rep] of replacements) {
     cleaned = cleaned.replace(regex, rep);
   }
-
-  // Any remaining word of 2+ all-caps letters
-  cleaned = cleaned.replace(/\b[A-Z]{2,}\b/g, (match) => {
-    return match.charAt(0).toUpperCase() + match.slice(1).toLowerCase();
-  });
 
   cleaned = cleaned.replace(/\s{2,}/g, ' ').trim();
   cleaned = cleaned.replace(/\s+([.,;:])/g, '$1');
@@ -104,14 +109,14 @@ const strictProjects = projects.map(p => {
     const isDifferentProject = 
       (p.title.includes('Dior') && dirBasename === 'ey-gurgaon') ||
       (p.title.includes('Louis Vuitton') && dirBasename === 'ey-gurgaon') ||
-      (p.title.includes('Hsbc') && dirBasename === 'nvidia') ||
+      (p.title.toLowerCase().includes('hsbc') && dirBasename === 'nvidia') ||
       (p.title.includes('J. M. Baxi') && dirBasename === 'iocl') ||
-      (p.title.includes('Anz Operations') && dirBasename === 'barclays-bank-chennai') ||
+      (p.title.toLowerCase().includes('anz operations') && dirBasename === 'barclays-bank-chennai') ||
       (p.title.includes('Serum Institute') && dirBasename === 'meta-office-gurgaon') ||
-      (p.title.includes('Iim Ranchi') && dirBasename === 'ey-gurgaon') ||
-      (p.title.includes('Iit Kanpur') && dirBasename === 'ey-gurgaon') ||
+      (p.title.toLowerCase().includes('iim ranchi') && dirBasename === 'ey-gurgaon') ||
+      (p.title.toLowerCase().includes('iit kanpur') && dirBasename === 'ey-gurgaon') ||
       (p.title.includes('Graphic Era') && dirBasename === 'wave-cinema') ||
-      (p.title.includes('T3 Vip Lounge') && (dirBasename === 'goldendragon' || dirBasename === 'golden-dragon')) ||
+      (p.title.toLowerCase().includes('vip lounge') && (dirBasename === 'goldendragon' || dirBasename === 'golden-dragon')) ||
       (p.title.includes('Global Tech Expo') && dirBasename === 'ey-gurgaon') ||
       (p.title.includes('Luxury Auto Showcase') && dirBasename === 'nvidia') ||
       (p.title.includes('International Design Week') && dirBasename === 'meta-office-gurgaon') ||
@@ -181,4 +186,4 @@ export function getAllProjectSlugs(): string[] {
 `;
 
 fs.writeFileSync('lib/projectsData.ts', tsContent, 'utf8');
-console.log('Successfully wrote clean, emoji-free, normal-cased lib/projectsData.ts');
+console.log('Successfully generated lib/projectsData.ts with ITC, JC, PM Museum caps.');

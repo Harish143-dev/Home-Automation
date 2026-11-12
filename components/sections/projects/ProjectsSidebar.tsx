@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Share2, Link as LinkIcon, Mail, ArrowRight } from "lucide-react";
+import { Share2, Link as LinkIcon, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,52 +10,67 @@ const FEATURED_PROJECTS = [
     title: "Anubhav Jain Farmhouse",
     category: "Residential",
     image: "/images/projects/residential/anubhav-jain-farmhouse/1.jpg",
-    href: "/projects/anubhav-jain-farmhouse"
+    href: "/projects/anubhav-jain-farmhouse-new-delhi"
   },
   {
     id: "feat-2",
     title: "Meta Corporate Office",
     category: "Commercial",
     image: "/images/projects/commercial/meta-office-gurgaon/1.jpg",
-    href: "/projects/meta-office-gurgaon"
+    href: "/projects/meta-corporate-office-gurgaon"
   },
   {
     id: "feat-3",
     title: "Six Senses Fort Barwara",
     category: "Hospitality",
     image: "/images/projects/hospitality/six-senses-barwara/1.jpg",
-    href: "/projects/six-senses-fort-barwara"
+    href: "/projects/six-senses-fort-barwara-rajasthan"
   },
   {
     id: "feat-4",
-    title: "NOX Lounge & Dining",
+    title: "Nox Lounge & Dining",
     category: "Restaurant",
     image: "/images/projects/restaurant/nox-mumbai/1.jpg",
-    href: "/projects/nox-lounge-mumbai"
+    href: "/projects/nox-lounge-dining-mumbai"
   }
 ];
 
-const RECENT_PROJECTS = [
+const ONGOING_HOSPITALITY_PROJECTS = [
   {
-    id: "rec-1",
-    title: "Tiffany & Co. Flagship",
-    date: "Apr 2024",
-    image: "/images/projects/commercial/tiffany-mumbai/1.jpg",
-    href: "/projects/tiffany-mumbai"
+    id: "ong-1",
+    title: "The Oberoi Sukhvilas Spa Resort",
+    location: "New Chandigarh",
+    category: "Hospitality",
+    status: "Ongoing",
+    image: "/images/projects/hospitality/oberoi-sukhvilas-chandigarh/1.webp",
+    href: "/projects/the-oberoi-sukhvilas-spa-resort-new-chandigarh"
   },
   {
-    id: "rec-2",
-    title: "Vishal Udani Residence",
-    date: "Feb 2024",
-    image: "/images/projects/residential/vishal-udani/1.jpg",
-    href: "/projects/vishal-udani-residence"
+    id: "ong-2",
+    title: "The Leela Palace",
+    location: "Udaipur",
+    category: "Hospitality",
+    status: "Ongoing",
+    image: "/images/projects/hospitality/The Leela Udaipur/1.jpg",
+    href: "/projects/the-leela-palace-udaipur"
   },
   {
-    id: "rec-3",
-    title: "Oberoi Amarvilas",
-    date: "Jan 2024",
-    image: "/images/projects/hospitality/oberoi-amarvillas/1.jpg",
-    href: "/projects/oberoi-amarvillas-agra"
+    id: "ong-3",
+    title: "ITC Grand Bharat Luxury Retreat",
+    location: "Gurugram",
+    category: "Hospitality",
+    status: "Ongoing",
+    image: "/images/projects/hospitality/itc-grand-bharat/1.jpg",
+    href: "/projects/itc-grand-bharat-luxury-retreat-gurugram"
+  },
+  {
+    id: "ong-4",
+    title: "Taj Lakefront",
+    location: "Bhopal",
+    category: "Hospitality",
+    status: "Ongoing",
+    image: "/images/projects/hospitality/taj-lakefront-bhopal/1.jpg",
+    href: "/projects/taj-lakefront-bhopal"
   }
 ];
 
@@ -118,20 +133,20 @@ export function ProjectsSidebar() {
         </div>
       </div>
 
-      {/* Recent Projects */}
+      {/* Ongoing Projects in Hospitality */}
       <div>
         <div className="flex items-center gap-4 mb-6">
-          <h3 className=" text-foreground">Recent Projects</h3>
+          <h3 className=" text-foreground">Ongoing Projects</h3>
           <div className="h-[1px] flex-grow bg-border" />
         </div>
         <div className="flex flex-col gap-5">
-          {RECENT_PROJECTS.map((project) => (
+          {ONGOING_HOSPITALITY_PROJECTS.map((project) => (
             <Link
               href={project.href}
               key={project.id}
               className="group flex items-center gap-4 hover:bg-muted/30 p-2 -ml-2 rounded-lg transition-colors"
             >
-              <div className="relative w-20 h-20 rounded-md overflow-hidden flex-shrink-0">
+              <div className="relative w-20 h-20 rounded-md overflow-hidden flex-shrink-0 bg-secondary">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -140,11 +155,14 @@ export function ProjectsSidebar() {
                 />
               </div>
               <div className="flex flex-col">
+                <span className="text-[11px] font-medium text-accent tracking-wider block mb-0.5">
+                  {project.category} • {project.location}
+                </span>
                 <h4 className=" text-foreground line-clamp-2 group-hover:text-accent transition-colors">
                   {project.title}
                 </h4>
                 <span className="text-xs text-muted-foreground font-light mt-1">
-                  {project.date}
+                  {project.status}
                 </span>
               </div>
             </Link>
