@@ -1,8 +1,7 @@
 "use client";
 
 import { ExperienceHero } from "../../components/sections/experience-center/ExperienceHero";
-import { ResidentialTrust } from "../../components/sections/residential/ResidentialTrust";
-import { ExperienceShowroom } from "../../components/sections/experience-center/ExperienceShowroom";
+import { ExperienceTrust } from "../../components/sections/experience-center/ExperienceTrust";
 import { ExperienceUSP } from "../../components/sections/experience-center/ExperienceUSP";
 import { ExperienceTestimonials } from "../../components/sections/experience-center/ExperienceTestimonials";
 import { ExperienceCentersList } from "../../components/sections/experience-center/ExperienceCentersList";
@@ -18,10 +17,7 @@ export default function ExperienceCenterPage() {
       <ExperienceHero />
 
       {/* Trust Signals Section */}
-      <ResidentialTrust />
-
-      {/* Showroom Media Section */}
-      <ExperienceShowroom />
+      <ExperienceTrust />
 
       {/* Fullscreen GSAP Animated Centers List */}
       <ExperienceCentersList />
@@ -37,11 +33,11 @@ export default function ExperienceCenterPage() {
 
       <AwardsSection />
 
+      {/* Call to Action */}
+      <ExperienceCTA />
+
       {/* Client Testimonials */}
       <ExperienceTestimonials />
-
-      {/* Final Call to Action */}
-      <ExperienceCTA />
     </main>
   );
 }

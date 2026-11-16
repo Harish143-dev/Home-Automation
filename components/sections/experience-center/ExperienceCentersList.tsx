@@ -7,53 +7,57 @@ import { Button } from "../../ui/button";
 import { gsap, useGSAP, ScrollTrigger } from "../../../lib/gsapSetup";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
+const SCHEDULE_FORM_URL = "https://script.google.com/a/macros/anushagroup.com/s/AKfycbxva-0PxHEmyVBik8AIc7MN4Hoi6khCnWxYv6ZjJ-r1e6d1pknOy8gCgbcIs-vmtkkw/exec";
+
 const EXPERIENCE_CENTRES = [
   {
     id: "delhi",
+    eyebrow: "Visit Our Experience Centre",
     city: "Delhi Experience Centre",
-    description: "Explore integrated automation solutions crafted for luxury residences, hospitality spaces, and commercial environments.",
+    description: "A home in New Delhi, laid out to be lived in. Walk from the living room and bar to the dining table and bedroom, and watch light, climate, curtains and sound respond to each part of the day.",
     features: [
-      "Live automation demos",
-      "Lighting control scenes",
-      "Home theatre experience",
-      "Centralized automation systems"
+      "Lounge",
+      "Living & Bar",
+      "Dining",
+      "Bedroom"
     ],
     ctas: [
-      { label: "Book Delhi Visit", action: "/contact", variant: "accent" },
-      { label: "Get Directions", action: "https://maps.google.com/maps?q=D20,+Block+D,+Jangpura,+New+Delhi,+Delhi+110014", variant: "outline" }
+      { label: "Schedule a Visit", action: SCHEDULE_FORM_URL, external: true, variant: "interactive" },
+      { label: "Get Directions", action: "https://maps.google.com/maps?q=D20,+Block+D,+Jangpura,+New+Delhi,+Delhi+110014", external: true, variant: "outline" }
     ],
     image: "/assets/residential/delhi.webp"
   },
   {
     id: "mumbai",
+    eyebrow: "Visit Our Experience Centre",
     city: "Mumbai Experience Centre",
-    description: "A luxury automation environment showcasing intelligent living through immersive lighting, AV, security, and comfort experiences.",
+    description: "A two-storey home in Worli, set up for entertaining. Walk through the living and dining areas to the home theatre and bedroom, and see light, climate, curtains and sound work together.",
     features: [
-      "Residential automation experience",
-      "Conference room setups",
-      "Smart theatre systems",
-      "Advanced AV demonstrations",
-      "Security & surveillance integration"
+      "Lounge",
+      "Living & Dining",
+      "Home Theatre",
+      "Bedroom"
     ],
     ctas: [
-      { label: "Schedule Mumbai Tour", action: "/contact", variant: "accent" },
-      { label: "View Location", action: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQIRgKGKABMgkIAhAhGAoYoAEyCQgDECEYChigAdIBCDc2MjhqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kd3I1msJyec7MawqPHig3y7m&daddr=10/76,+Apte+properties,+Ground+floor+Parijat+house,+LR+Papan+Marg,+off+Doctor+Elijah+Moses+Road,+Worli,+Mumbai,+Maharashtra+400018", variant: "outline" }
+      { label: "Schedule a Visit", action: SCHEDULE_FORM_URL, external: true, variant: "interactive" },
+      { label: "View Location", action: "https://www.google.com/maps?rlz=1C5CHFA_enIN1106IN1107&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQIRgKGKABMgkIAhAhGAoYoAEyCQgDECEYChigAdIBCDc2MjhqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kd3I1msJyec7MawqPHig3y7m&daddr=10/76,+Apte+properties,+Ground+floor+Parijat+house,+LR+Papan+Marg,+off+Doctor+Elijah+Moses+Road,+Worli,+Mumbai,+Maharashtra+400018", external: true, variant: "outline" }
     ],
     image: "/assets/residential/hydrabhad.webp"
   },
   {
     id: "bangalore",
+    eyebrow: "Visit Our Experience Centre",
     city: "Bangalore Experience Centre",
-    description: "Experience enterprise-grade automation solutions designed for modern homes, hospitality, and smart commercial environments.",
+    description: "A home in Bangalore that opens onto a patio. Walk from the lounge and living room to the dining table and out to the patio, then hear the difference in the sound room.",
     features: [
-      "Smart controls",
-      "Integrated systems",
-      "Hospitality automation",
-      "Commercial automation demos"
+      "Lounge & Living",
+      "Dining",
+      "Patio",
+      "Sound Room"
     ],
     ctas: [
-      { label: "Schedule Bangalore Visit", action: "/contact", variant: "accent" },
-      { label: "Get Directions", action: "https://www.google.com/maps/place/12%C2%B055'43.2%22N+77%C2%B032'41.9%22E/@12.928667,77.5424001,17z/data=!3m1!4b1!4m4!3m3!8m2!3d12.928667!4d77.544975?coh=277535&entry=tts&g_ep=EgoyMDI1MTExNy4wIMuAESoASAFQAw%3D%3D&skid=35e24f7f-6c25-4e11-acde-9f3b7bd811ba", variant: "outline" }
+      { label: "Schedule a Visit", action: SCHEDULE_FORM_URL, external: true, variant: "interactive" },
+      { label: "Get Directions", action: "https://www.google.com/maps/place/12%C2%B055'43.2%22N+77%C2%B032'41.9%22E/@12.928667,77.5424001,17z/data=!3m1!4b1!4m4!3m3!8m2!3d12.928667!4d77.544975?coh=277535&entry=tts&g_ep=EgoyMDI1MTExNy4wIMuAESoASAFQAw%3D%3D&skid=35e24f7f-6c25-4e11-acde-9f3b7bd811ba", external: true, variant: "outline" }
     ],
     image: "/assets/residential/banglore.webp"
   }
@@ -84,7 +88,7 @@ export function ExperienceCentersList() {
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top top",
-        end: "+=200%", // 2 additional panels = 200% scroll distance
+        end: "+=200%",
         pin: pinRef.current,
         animation: tl,
         scrub: true,
@@ -119,7 +123,7 @@ export function ExperienceCentersList() {
                 fill
                 sizes="100vw"
                 className="object-cover"
-                priority={index === 0} // Only prioritize the first image
+                priority={index === 0}
               />
               {/* Gradient Overlay for Text Readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
@@ -128,10 +132,10 @@ export function ExperienceCentersList() {
             {/* Content Container */}
             <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-32 pb-24 md:pb-32 pt-32 flex flex-col justify-end h-full">
 
-              <div className="flex items-center gap-4 mb-6 md:mb-8">
-                <div className="h-[1px] w-8 bg-white/30" />
-                <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/60">
-                  Visit Our Experience Centres
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
+                <span className="w-2 h-2 rounded-full bg-accent" />
+                <span className="text-xs sm:text-sm tracking-wider text-white/80 font-medium">
+                  {center.eyebrow}
                 </span>
               </div>
 
@@ -139,7 +143,7 @@ export function ExperienceCentersList() {
 
                 {/* Left: Titles & CTAs */}
                 <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
-                  <h2 className=" text-white">
+                  <h2 className="text-white text-balance">
                     {center.city}
                   </h2>
 
@@ -148,12 +152,20 @@ export function ExperienceCentersList() {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                    <Link href={center.ctas[0].action}>
+                    <Link
+                      href={center.ctas[0].action}
+                      target={center.ctas[0].external ? "_blank" : undefined}
+                      rel={center.ctas[0].external ? "noopener noreferrer" : undefined}
+                    >
                       <Button variant="interactive" size="lg" className="w-full sm:w-auto">
                         {center.ctas[0].label}
                       </Button>
                     </Link>
-                    <Link href={center.ctas[1].action} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={center.ctas[1].action}
+                      target={center.ctas[1].external ? "_blank" : undefined}
+                      rel={center.ctas[1].external ? "noopener noreferrer" : undefined}
+                    >
                       <Button variant="outline" size="lg" className="w-full sm:w-auto text-white border-white/30 hover:bg-white/10 hover:text-white">
                         {center.ctas[1].label}
                       </Button>
@@ -161,12 +173,12 @@ export function ExperienceCentersList() {
                   </div>
                 </div>
 
-                {/* Right: Feature Pills */}
-                <div className="lg:col-span-5 flex flex-wrap gap-3 items-end lg:justify-end">
+                {/* Right: Room Feature Pills */}
+                <div className="lg:col-span-5 flex flex-wrap gap-2.5 sm:gap-3 items-end lg:justify-end">
                   {center.features.map((feature, fIndex) => (
                     <div
                       key={fIndex}
-                      className="px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs md:text-sm text-white font-medium tracking-wide"
+                      className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm text-white font-medium tracking-wide shadow-sm"
                     >
                       {feature}
                     </div>

@@ -7,40 +7,70 @@ import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
 const GALLERY_MEDIA = [
   {
-    id: "g1",
+    id: "ec-mumbai-lounge-skyline",
     type: "landscape",
-    src: "/assets/residential/project/delhi-residence/delhi-residence-2.jpg",
-    alt: "Luxury living room automation"
+    src: "/images/experience-center/gallery/mumbai-lounge-skyline.webp",
+    alt: "Mumbai Experience Centre - Sea-Facing Living Lounge"
   },
   {
-    id: "g2",
-    type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-2.jpg",
-    alt: "Smart climate control panel"
+    id: "ec-delhi-bedroom-suite",
+    type: "portrait",
+    src: "/images/experience-center/gallery/delhi-bedroom-suite.webp",
+    alt: "Delhi Experience Centre - Automated Bedroom Suite"
   },
   {
-    id: "g3",
+    id: "ec-delhi-living-room",
     type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-2.jpg",
-    alt: "Automated shades in bedroom"
+    src: "/images/experience-center/gallery/delhi-living-room.webp",
+    alt: "Delhi Experience Centre - Living Room & Automation"
   },
   {
-    id: "g4",
-    type: "landscape",
-    src: "/assets/residential/project/delhi-residence/delhi-residence-3.jpg",
-    alt: "Home theatre experience"
+    id: "ec-delhi-dining-bar",
+    type: "square",
+    src: "/images/experience-center/gallery/delhi-dining-bar.webp",
+    alt: "Delhi Experience Centre - Dining & Bar Controls"
   },
   {
-    id: "g5",
-    type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-1/mumbai-residence-1-3.jpg",
-    alt: "Integrated lighting systems"
+    id: "ec-mumbai-suite-interior",
+    type: "portrait",
+    src: "/images/experience-center/gallery/mumbai-suite-interior.webp",
+    alt: "Mumbai Experience Centre - Master Suite Controls"
   },
   {
-    id: "g6",
+    id: "ec-bengaluru-patio-lounge",
     type: "landscape",
-    src: "/assets/residential/project/mumbai-residence-2/mumbai-residence-2-3.jpg",
-    alt: "Modern architectural lighting"
+    src: "/images/experience-center/gallery/bengaluru-patio-lounge.webp",
+    alt: "Bangalore Experience Centre - Patio & Living Space"
+  },
+  {
+    id: "ec-mumbai-theatre-lighting",
+    type: "landscape",
+    src: "/images/experience-center/gallery/mumbai-theatre-lighting.webp",
+    alt: "Mumbai Experience Centre - Home Theatre & Audio"
+  },
+  {
+    id: "ec-bengaluru-sound-room",
+    type: "landscape",
+    src: "/images/experience-center/gallery/bengaluru-sound-room.webp",
+    alt: "Bangalore Experience Centre - High-Fidelity Sound Room"
+  },
+  {
+    id: "ec-mumbai-entertainment-zone",
+    type: "landscape",
+    src: "/images/experience-center/gallery/mumbai-entertainment-zone.webp",
+    alt: "Mumbai Experience Centre - Entertainment & Lighting"
+  },
+  {
+    id: "ec-bengaluru-dining-living",
+    type: "landscape",
+    src: "/images/experience-center/gallery/bengaluru-dining-living.webp",
+    alt: "Bangalore Experience Centre - Dining & Ambient Lighting"
+  },
+  {
+    id: "ec-mumbai-architectural-detail",
+    type: "landscape",
+    src: "/images/experience-center/gallery/mumbai-architectural-detail.webp",
+    alt: "Mumbai Experience Centre - Architectural Lighting"
   }
 ];
 

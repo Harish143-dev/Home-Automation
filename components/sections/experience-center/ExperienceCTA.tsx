@@ -72,7 +72,12 @@ export function ExperienceCTA() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto relative z-10">
-          <Link href="/contact" className="exp-cta-btn w-full sm:w-auto">
+          <Link
+            href="https://script.google.com/a/macros/anushagroup.com/s/AKfycbxva-0PxHEmyVBik8AIc7MN4Hoi6khCnWxYv6ZjJ-r1e6d1pknOy8gCgbcIs-vmtkkw/exec"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="exp-cta-btn w-full sm:w-auto"
+          >
             <Button variant="interactive" size="lg" className="w-full sm:w-auto">
               Book a Visit
             </Button>

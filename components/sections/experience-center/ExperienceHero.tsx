@@ -113,7 +113,7 @@ export function ExperienceHero() {
                         ref={h1Ref}
                         className="hero-element text-white text-balance mb-6 max-w-4xl"
                     >
-                        Experience Intelligent Automation in Real Life
+                        See Home Automation come alive
                     </h1>
 
                     {/* Understated luxury supporting text */}
@@ -121,7 +121,7 @@ export function ExperienceHero() {
                         ref={subRef}
                         className="hero-element font-light text-white/80 text-lg md:text-xl max-w-2xl mb-6 text-balance"
                     >
-                        Visit our experience centres in Delhi, Mumbai, and Bangalore to explore immersive smart automation solutions across residential, hospitality, and commercial environments.
+                        Your home may be capable of more than you think. Walk through rooms where light, climate, music and security respond to the hour, then sit with our team to plan what yours could do
                     </p>
 
                     {/* CTA Buttons */}
@@ -129,7 +129,11 @@ export function ExperienceHero() {
                         ref={ctaRef}
                         className="pointer-events-auto flex flex-col sm:flex-row gap-4"
                     >
-                        <Link href="/contact">
+                        <Link 
+                            href="https://script.google.com/a/macros/anushagroup.com/s/AKfycbxva-0PxHEmyVBik8AIc7MN4Hoi6khCnWxYv6ZjJ-r1e6d1pknOy8gCgbcIs-vmtkkw/exec"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <Button variant="interactive" size="lg" className="w-full sm:w-auto"
                             >
                                 Schedule a Visit
@@ -139,7 +143,7 @@ export function ExperienceHero() {
                         <Link href="/contact">
                             <Button variant="shiny" size="lg" className="w-full sm:w-auto"
                             >
-                                Book a Virtual Demo
+                                Book a Consultation
                             </Button>
                         </Link>
                     </div>

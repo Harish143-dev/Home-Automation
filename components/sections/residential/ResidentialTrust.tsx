@@ -11,8 +11,8 @@ interface MetricItem {
 }
 
 const METRICS: MetricItem[] = [
-  { target: 24, prefix: "Over", label: "Years" },
-  { target: 650, prefix: "Over", label: "Residences Completed" },
+  { target: 25, prefix: "Over", label: "Years" },
+  { target: 2000, prefix: "Over", label: "Residences Completed" },
   { target: 23, prefix: "Across", label: "Cities in India" },
   { target: 3, label: "Experience Centres" }
 ];
