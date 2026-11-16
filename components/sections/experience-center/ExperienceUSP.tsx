@@ -66,7 +66,12 @@ export function ExperienceUSP() {
   );
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-16 w-full bg-secondary text-white relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="experience-usp"
+      data-navbar-theme="dark"
+      className="py-12 md:py-16 w-full bg-secondary text-white relative overflow-hidden"
+    >
 
       {/* Subtle Background Glow */}
       {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent/10 blur-[120px] rounded-full pointer-events-none opacity-50" /> */}

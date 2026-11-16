@@ -85,6 +85,7 @@ export function ResidentialHero() {
         <section
             ref={containerRef}
             id="residential-hero"
+            data-navbar-theme="dark"
             className={`relative h-[100svh] w-full bg-black overflow-hidden flex flex-col justify-end transition-opacity duration-700 ${!isReady ? "opacity-0" : "opacity-100"}`}
         >
             {/* 🎬 Static Background */}

@@ -58,6 +58,7 @@ export function ProjectsHero() {
  return (
  <section
  ref={sectionRef}
+ data-navbar-theme="dark"
  className="relative w-full h-[60vh] min-h-[400px] flex overflow-hidden bg-secondary px-6 sm:px-12 md:px-24 flex-col justify-end"
  >
  {/* Background Image */}

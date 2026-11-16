@@ -115,6 +115,8 @@ export function ExperienceGallery() {
   return (
     <section
       ref={containerRef}
+      id="experience-gallery"
+      data-navbar-theme="dark"
       className="py-12 md:py-16 bg-secondary text-white relative w-full overflow-hidden"
     >
       <div className={`w-full flex flex-col justify-center ${prefersReducedMotion ? 'py-24' : 'h-screen'}`}>
